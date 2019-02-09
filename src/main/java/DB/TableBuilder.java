@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-//Sinlgeton declared in the way Wong wants it declared
+
 public class TableBuilder {
     private static TableBuilder tablebuilder;
     private Connection connection;
@@ -30,7 +30,7 @@ public class TableBuilder {
         private static final TableBuilder tablebuilder = new TableBuilder();
     }
 
-    public static TableBuilder getTablebuilder() {
+    protected static TableBuilder getTablebuilder() {
         return SingletonHelper.tablebuilder;
     }
 
@@ -160,7 +160,8 @@ public class TableBuilder {
                 "Brewers_No VARCHAR(32)," +
                 "TTB_ID BIGINT," +
                 "isPrimary BOOLEAN, " +
-                "Constraint BrewersPermit_PK Primary Key (TTB_ID, Brewers_No), " +
+                "ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
+                "Constraint BrewersPermit_PK Primary Key (ID), " +
                 "Constraint BrewersPermit_FK Foreign Key (TTB_ID) References Form(TTB_ID) On Delete Cascade)";
         sendStatement(buildString);
     }

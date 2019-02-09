@@ -20,6 +20,14 @@ public class Address {
         this.ID = ID;
     }
 
+    public Address(String city, String state, String zip, String street, String name) {
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.street = street;
+        this.name = name;
+    }
+
     public String getCity() {
         return city;
     }
