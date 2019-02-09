@@ -2,35 +2,88 @@ package Entities;
 
 import java.util.ArrayList;
 import java.sql.Date;
+import java.util.List;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "FORM")
 public class Form {
+    @Column(name = "Rep_ID")
     private String repID;
-    private ArrayList<String> brewersPermit;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "TTB_ID", nullable = false)
+    private List<BrewersPermit> brewersPermit;
+
+    @Column(name = "Source")
     private boolean source;  //false for domestic, true for imported
+
+    @Column(name = "Serial_Number")
     private String serialNumber;
+
+    @Enumerated
+    @Column(name = "Alcohol_Type", columnDefinition = "smallint")
     private AlcoholType alcoholType;
-    public String brandName;
+
+    @Column(name = "Brand_Name")
+    private String brandName;
+
+    @Column(name = "Fanciful_Name")
     private String fancifulName;
-    private ArrayList<Address> address;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "TTB_ID", nullable = false)
+    private List<Address> address;
+
+    @Transient
     private Address mailingAddress;
+
+    @Column(name = "Applicant_Name")
     private String applicantName;
+
+    @Column(name = "Formula")
     private String formula;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private WineFormItems wineFormItems;
+
+    @Column(name = "Phone")
     private String phoneNumber;
+
+    @Column(name = "Email")
     private String email;
+
     //typeOfApplication
+
+    @Column(name = "Other_Info")
     private String otherInfo;
+
+    @Column(name = "Date_Submitted", columnDefinition = "DATE")
     private Date dateSubmitted;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "TTB_ID")
     private int ttbID;
+
+    @Column(name = "Company_ID")
     private int companyID;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "TTB_ID")
     private Approval approval;
+
+    @Column(name = "APV")
     private float alcoholContent;
+
+    @Enumerated
+    @Column(name = "Approve", columnDefinition = "smallint")
     private ApprovalStatus approvalStatus;
 
     public Form() {
     }
 
-    public Form(String repID, ArrayList<String> brewersPermit, boolean source, String serialNumber, AlcoholType alcoholType, String brandName, String fancifulName, ArrayList<Address> address, Address mailingAddress, String applicantName, String formula, WineFormItems wineFormItems, String phoneNumber, String email, String otherInfo, Date dateSubmitted, int ttbID, int companyID, Approval approval, float alcoholContent, ApprovalStatus approvalStatus) {
+    public Form(String repID, ArrayList<BrewersPermit> brewersPermit, boolean source, String serialNumber, AlcoholType alcoholType, String brandName, String fancifulName, ArrayList<Address> address, Address mailingAddress, String applicantName, String formula, WineFormItems wineFormItems, String phoneNumber, String email, String otherInfo, Date dateSubmitted, int ttbID, int companyID, Approval approval, float alcoholContent, ApprovalStatus approvalStatus) {
         this.repID = repID;
         this.brewersPermit = brewersPermit;
         this.source = source;
@@ -62,11 +115,11 @@ public class Form {
         this.repID = repID;
     }
 
-    public ArrayList<String> getBrewersPermit() {
+    public List<BrewersPermit> getBrewersPermit() {
         return brewersPermit;
     }
 
-    public void setBrewersPermit(ArrayList<String> brewersPermit) {
+    public void setBrewersPermit(ArrayList<BrewersPermit> brewersPermit) {
         this.brewersPermit = brewersPermit;
     }
 
@@ -110,7 +163,7 @@ public class Form {
         this.fancifulName = fancifulName;
     }
 
-    public ArrayList<Address> getAddress() {
+    public List<Address> getAddress() {
         return address;
     }
 

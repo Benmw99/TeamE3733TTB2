@@ -1,32 +1,56 @@
 package Entities;
 
+import javax.persistence.*;
 import java.sql.Date;
 
+@Entity
+@Table(name = "APPROVAL")
 public class Approval {
+    @Enumerated
+    @Column(name = "Page_1", columnDefinition = "smallint")
     private ApprovalStatus page1;
+
+    @Enumerated
+    @Column(name = "Page_2", columnDefinition = "smallint")
     private ApprovalStatus page2;
+
+    @Enumerated
+    @Column(name = "Page_3", columnDefinition = "smallint")
     private ApprovalStatus page3;
+
+    @Enumerated
+    @Column(name = "Page_4", columnDefinition = "smallint")
     private ApprovalStatus page4;
 
-    private boolean approved;
+    @Column(name = "Date_Approved", columnDefinition = "DATE")
     private Date dateApproved;
+
+    @Column(name = "Approving_Agent")
     private String agentApprovalName;
+
+    @Column(name = "Expiration", columnDefinition = "DATE")
     private Date expDate;
+
+    @Column(name = "Qualification")
     private String qualifications;
+
+    @Id
+    @Column(name = "TTB_ID")
+    private int TTBID;
 
     public Approval() {
     }
 
-    public Approval(ApprovalStatus page1, ApprovalStatus page2, ApprovalStatus page3, ApprovalStatus page4, boolean approved, Date dateApproved, String agentApprovalName, Date expDate, String qualifications) {
+    public Approval(ApprovalStatus page1, ApprovalStatus page2, ApprovalStatus page3, ApprovalStatus page4, Date dateApproved, String agentApprovalName, Date expDate, String qualifications, int TTBID) {
         this.page1 = page1;
         this.page2 = page2;
         this.page3 = page3;
         this.page4 = page4;
-        this.approved = approved;
         this.dateApproved = dateApproved;
         this.agentApprovalName = agentApprovalName;
         this.expDate = expDate;
         this.qualifications = qualifications;
+        this.TTBID = TTBID;
     }
 
     public ApprovalStatus getPage1() {
@@ -61,14 +85,6 @@ public class Approval {
         this.page4 = page4;
     }
 
-    public boolean isApproved() {
-        return approved;
-    }
-
-    public void setApproved(boolean approved) {
-        this.approved = approved;
-    }
-
     public Date getDateApproved() {
         return dateApproved;
     }
@@ -99,5 +115,13 @@ public class Approval {
 
     public void setQualifications(String qualifications) {
         this.qualifications = qualifications;
+    }
+
+    public int getTTBID() {
+        return TTBID;
+    }
+
+    public void setTTBID(int TTBID) {
+        this.TTBID = TTBID;
     }
 }

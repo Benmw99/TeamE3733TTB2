@@ -3,8 +3,8 @@ package DB;
 import Entities.Address;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class DBInsert {
@@ -13,7 +13,8 @@ public class DBInsert {
 
     private DBInsert() {
         try {
-            factory = new Configuration().configure().buildSessionFactory();
+            //factory = new Configuration().configure().buildSessionFactory();
+            factory = new Configuration().configure().addAnnotatedClass(Address.class).buildSessionFactory();
         } catch (Throwable ex) {
             System.err.println("Failed to create sessionFactory object." + ex);
             throw new ExceptionInInitializerError(ex);
@@ -56,6 +57,10 @@ public class DBInsert {
             session.close();
         }
         return addressID;
+
+    }
+
+    public void insertApproval() {
 
     }
 }

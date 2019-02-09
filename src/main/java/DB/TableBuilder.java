@@ -109,6 +109,9 @@ public class TableBuilder {
         buildAddress();
         buildWine();
         buildLabel();
+        try { //CLOSING CONNECTION BECAUSE YOU SHOULD ONLY NEED TO RESET ONCE
+            connection.close();
+        } catch (SQLException ignored) {}
     }
 
     /**
@@ -202,7 +205,7 @@ public class TableBuilder {
                 "Fanciful_Name VARCHAR(256)," +
                 "Brand_Name VARCHAR(256)," +
                 "Source BOOLEAN," +
-                "APPROVE SMALLINT," +
+                "Approve SMALLINT," +
                 "Email VARCHAR(256)," +
                 "Date_Submitted DATE," +
                 "Applicant_Name VARCHAR(32)," +
@@ -212,6 +215,7 @@ public class TableBuilder {
                 "APV REAL, " +
                 "Formula VARCHAR(16) DEFAULT NULL," +
                 "Rep_ID VARCHAR(16) DEFAULT NULL," +
+                "Other_Info VARCHAR(256), " +
                 "Company_ID BIGINT," +
                 "Constraint Form_PK Primary Key (TTB_ID), " +
                 //TODO IMPLEMENT REPS            "Constraint Form_FK_Rep Foreign Key (Rep_ID) References Reps(Rep_ID), " +

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration
         PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
     <session-factory>
         <!-- database connection settings -->
-        <property name="hibernate.dialect"> org.hibernate.dialect.DerbyDialect </property>
+        <property name="hibernate.dialect"> org.hibernate.dialect.DerbyTenSevenDialect </property>
         <property name="hibernate.connection.driver_class"> org.apache.derby.jdbc.EmbeddedDriver </property>
         <property name="hibernate.connection.url"> jdbc:derby:./ttb.db;create=true </property>
         <property name="hibernate.connection.username"></property>
@@ -14,8 +14,10 @@
 
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>
+
         <!-- JDBC connection pool (use the built-in) -->
         <property name="connection.pool_size">5</property>
+
         <!-- Drop and re-create the database schema on startup -->
         <!-- property name="hbm2ddl.auto">update</property -->
 
@@ -23,6 +25,11 @@
         <!-- property name="hibernate.show_sql">true</property -->
         <!-- property name="hibernate.format_sql">false</property -->
 
-        <mapping resource="Address.hbm.xml"/>
+        <!-- mapping resource="Address.hbm.xml"/ -->
+        <mapping class="Entities.Form" />
+        <mapping class="Entities.WineFormItems" />
+        <mapping class="Entities.Approval" />
+        <mapping class="Entities.Address" />
+        <mapping class="Entities.BrewersPermit" />
     </session-factory>
 </hibernate-configuration>
