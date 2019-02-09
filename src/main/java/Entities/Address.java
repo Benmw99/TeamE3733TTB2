@@ -46,12 +46,13 @@ public class Address {
         this.form = form;
     }
 
-    public Address(String city, String state, String zip, String street, String name) {
+    public Address(String city, String state, String zip, String street, String name, boolean isMailing) {
         this.city = city;
         this.state = state;
         this.zip = zip;
         this.street = street;
         this.name = name;
+        this.isMailing = isMailing;
     }
 
     public String getCity() {

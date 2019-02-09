@@ -134,13 +134,13 @@ public class TableBuilder {
                 "Zip_Code VARCHAR(8), " +
                 "isMailing BOOLEAN, " +
                 "City VARCHAR(32), " +
-                "TTB_ID BIGINT, " +
                 "State VARCHAR(2), " +
                 "Street VARCHAR(32), " +
                 "Name VARCHAR(32), " +
+                "TTB_ID BIGINT, " +
                 "ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
-                "Constraint Address_PK Primary Key (ID))";
-                //TODO PUT THIS BACK IN   "Constraint Address_FK Foreign Key (TTB_ID) References Form(TTB_ID) On Delete Cascade)";
+                "Constraint Address_PK Primary Key (ID), " +
+                "Constraint Address_FK Foreign Key (TTB_ID) References Form(TTB_ID) On Delete Cascade)";
         sendStatement(buildString);
         //String createSeq = "create sequence Address_ID as BIGINT start with 1";
         //sendStatement(createSeq);
@@ -148,13 +148,14 @@ public class TableBuilder {
 
     private void buildWine(){
         String buildString = "CREATE TABLE WINE (" +
-                "TTB_ID BIGINT," +
+                "ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
                 "Grape_Varietals VARCHAR(256)," +
                 "Wine_Appellation VARCHAR(32), " +
                 "PH REAL, " +
                 "Vintage INT, " +
-                "Constraint Wine_PK Primary Key (TTB_ID), " +
-                "Constraint Wine_FK Foreign Key (TTB_ID) References Form(TTB_ID) On Delete Cascade)";
+                "form_TTB_ID BIGINT, " +
+                "Constraint Wine_PK Primary Key (ID), " +
+                "Constraint Wine_FK Foreign Key (form_TTB_ID) References Form(TTB_ID) On Delete Cascade)";
         sendStatement(buildString);
     }
 
@@ -172,7 +173,8 @@ public class TableBuilder {
     private void buildApproval(){
         String buildString = "CREATE TABLE APPROVAL (" +
                 "Approving_Agent VARCHAR(32)," +
-                "TTB_ID BIGINT," +
+                "form_TTB_ID BIGINT, " +
+                "ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
                 "Date_Approved DATE," +
                 "Expiration DATE," +
                 "Page_1 Int," +
@@ -180,8 +182,8 @@ public class TableBuilder {
                 "Page_3 Int, " +
                 "Page_4 Int, " +
                 "Qualification VARCHAR(256) DEFAULT NULL, " +
-                "Constraint Approval_PK Primary Key (TTB_ID), " +
-                "Constraint Approval_FK Foreign Key (TTB_ID) References Form(TTB_ID) On Delete Cascade)";
+                "Constraint Approval_PK Primary Key (ID), " +
+                "Constraint Approval_FK Foreign Key (form_TTB_ID) References Form(TTB_ID) On Delete Cascade)";
         sendStatement(buildString);
     }
 
@@ -217,9 +219,9 @@ public class TableBuilder {
                 "Rep_ID VARCHAR(16) DEFAULT NULL," +
                 "Other_Info VARCHAR(256), " +
                 "Company_ID BIGINT," +
-                "Constraint Form_PK Primary Key (TTB_ID), " +
+                "Constraint Form_PK Primary Key (TTB_ID)) ";
                 //TODO IMPLEMENT REPS            "Constraint Form_FK_Rep Foreign Key (Rep_ID) References Reps(Rep_ID), " +
-                "Constraint Form_FK_Company Foreign Key (Company_ID) References Company(Company_ID))";
+                //TODO IMPLEMENT COMPANY"Constraint Form_FK_Company Foreign Key (Company_ID) References Company(Company_ID))";
         sendStatement(buildString);
         //String createSeq = "create sequence Form_ID as BIGINT start with 1";
         //sendStatement(createSeq);

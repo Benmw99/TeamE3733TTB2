@@ -11,9 +11,9 @@ public class Form {
     @Column(name = "Rep_ID")
     private String repID;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "TTB_ID", nullable = false)
-    private List<BrewersPermit> brewersPermit;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "TTB_ID")
+    public List<BrewersPermit> brewersPermit;
 
     @Column(name = "Source")
     private boolean source;  //false for domestic, true for imported
@@ -31,9 +31,9 @@ public class Form {
     @Column(name = "Fanciful_Name")
     private String fancifulName;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "TTB_ID", nullable = false)
-    private List<Address> address;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "TTB_ID")
+    public List<Address> address;
 
     @Transient
     private Address mailingAddress;
@@ -44,7 +44,7 @@ public class Form {
     @Column(name = "Formula")
     private String formula;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "form", fetch = FetchType.EAGER)
     private WineFormItems wineFormItems;
 
     @Column(name = "Phone")
@@ -69,8 +69,7 @@ public class Form {
     @Column(name = "Company_ID")
     private int companyID;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "TTB_ID")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "form", fetch = FetchType.EAGER)
     private Approval approval;
 
     @Column(name = "APV")
@@ -83,7 +82,7 @@ public class Form {
     public Form() {
     }
 
-    public Form(String repID, ArrayList<BrewersPermit> brewersPermit, boolean source, String serialNumber, AlcoholType alcoholType, String brandName, String fancifulName, ArrayList<Address> address, Address mailingAddress, String applicantName, String formula, WineFormItems wineFormItems, String phoneNumber, String email, String otherInfo, Date dateSubmitted, int ttbID, int companyID, Approval approval, float alcoholContent, ApprovalStatus approvalStatus) {
+    public Form(String repID, List<BrewersPermit> brewersPermit, boolean source, String serialNumber, AlcoholType alcoholType, String brandName, String fancifulName, ArrayList<Address> address, Address mailingAddress, String applicantName, String formula, WineFormItems wineFormItems, String phoneNumber, String email, String otherInfo, Date dateSubmitted, int ttbID, int companyID, Approval approval, float alcoholContent, ApprovalStatus approvalStatus) {
         this.repID = repID;
         this.brewersPermit = brewersPermit;
         this.source = source;
@@ -101,6 +100,28 @@ public class Form {
         this.otherInfo = otherInfo;
         this.dateSubmitted = dateSubmitted;
         this.ttbID = ttbID;
+        this.companyID = companyID;
+        this.approval = approval;
+        this.alcoholContent = alcoholContent;
+        this.approvalStatus = approvalStatus;
+    }
+
+    public Form(String repID, List<BrewersPermit> brewersPermit, boolean source, String serialNumber, AlcoholType alcoholType, String brandName, String fancifulName, List<Address> address, String applicantName, String formula, WineFormItems wineFormItems, String phoneNumber, String email, String otherInfo, Date dateSubmitted, int companyID, Approval approval, float alcoholContent, ApprovalStatus approvalStatus) {
+        this.repID = repID;
+        this.brewersPermit = brewersPermit;
+        this.source = source;
+        this.serialNumber = serialNumber;
+        this.alcoholType = alcoholType;
+        this.brandName = brandName;
+        this.fancifulName = fancifulName;
+        this.address = address;
+        this.applicantName = applicantName;
+        this.formula = formula;
+        this.wineFormItems = wineFormItems;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.otherInfo = otherInfo;
+        this.dateSubmitted = dateSubmitted;
         this.companyID = companyID;
         this.approval = approval;
         this.alcoholContent = alcoholContent;

@@ -34,14 +34,26 @@ public class Approval {
     @Column(name = "Qualification")
     private String qualifications;
 
+    @OneToOne()
+    private Form form;
+
     @Id
-    @Column(name = "TTB_ID")
-    private int TTBID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private int ID;
 
     public Approval() {
+        this.page1 = ApprovalStatus.Incomplete;
+        this.page2 = ApprovalStatus.Incomplete;
+        this.page3 = ApprovalStatus.Incomplete;
+        this.page4 = ApprovalStatus.Incomplete;
+        this.dateApproved = null;
+        this.agentApprovalName = null;
+        this.expDate = null;
+        this.qualifications = null;
     }
 
-    public Approval(ApprovalStatus page1, ApprovalStatus page2, ApprovalStatus page3, ApprovalStatus page4, Date dateApproved, String agentApprovalName, Date expDate, String qualifications, int TTBID) {
+    public Approval(ApprovalStatus page1, ApprovalStatus page2, ApprovalStatus page3, ApprovalStatus page4, Date dateApproved, String agentApprovalName, Date expDate, String qualifications, Form form) {
         this.page1 = page1;
         this.page2 = page2;
         this.page3 = page3;
@@ -50,7 +62,7 @@ public class Approval {
         this.agentApprovalName = agentApprovalName;
         this.expDate = expDate;
         this.qualifications = qualifications;
-        this.TTBID = TTBID;
+        this.form = form;
     }
 
     public ApprovalStatus getPage1() {
@@ -117,11 +129,19 @@ public class Approval {
         this.qualifications = qualifications;
     }
 
-    public int getTTBID() {
-        return TTBID;
+    public Form getForm() {
+        return form;
     }
 
-    public void setTTBID(int TTBID) {
-        this.TTBID = TTBID;
+    public void setForm(Form form) {
+        this.form = form;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 }

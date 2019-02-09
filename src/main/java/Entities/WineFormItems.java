@@ -17,19 +17,23 @@ public class WineFormItems {
     @Column(name = "Wine_Appellation")
     private String appellation;
 
+    @OneToOne()
+    private Form form;
+
     @Id
-    @Column(name = "TTB_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private int id;
 
     public WineFormItems() {
     }
 
-    public WineFormItems(int vintageYear, float pH, String grapeVarietal, String appellation, int id) {
+    public WineFormItems(int vintageYear, float pH, String grapeVarietal, String appellation, Form form) {
         this.vintageYear = vintageYear;
         this.pH = pH;
         this.grapeVarietal = grapeVarietal;
         this.appellation = appellation;
-        this.id = id;
+        this.form = form;
     }
 
     public WineFormItems getWineFormItems() {
@@ -74,5 +78,13 @@ public class WineFormItems {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Form getForm() {
+        return form;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
     }
 }

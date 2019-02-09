@@ -1,10 +1,8 @@
 package DB;
 
 import Entities.Address;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import Entities.Form;
+import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 
 import java.util.Iterator;
@@ -12,7 +10,7 @@ import java.util.List;
 
 public class DBSelect {
     private static DBSelect dbselect;
-    private static SessionFactory factory;
+    private static SessionFactory factory; //TODO ONE SESSIONFACTORY, INTERFACE THAT INCLUDES CLOSING METHOD
 
     private DBSelect() {
         try {
@@ -47,6 +45,39 @@ public class DBSelect {
             for (Iterator iterator = addresses.iterator(); iterator.hasNext();){
                 Address employee = (Address) iterator.next();
                 System.out.println(employee.getName() + "\n" + employee.getStreet() + " " + employee.getCity() + " " + employee.getState() + " " + employee.getZip());
+            }
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    public void selectAllForm() { //TODO ADD MORE TO TEST THAT THIS WORKS
+        Session session = factory.openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+            List forms = session.createQuery("FROM Form").list();
+            for (Iterator iterator = forms.iterator(); iterator.hasNext();){
+                Form form = (Form) iterator.next();
+
+                form.getBrewersPermit().size();
+                form.getAddress().size();
+
+                System.out.println(form.getBrewersPermit().size());
+                System.out.println(form.getAddress().size());
+
+                System.out.println(form.getTtbID());
+                //System.out.println(form.getApproval().getPage1().toInt());
+                //System.out.println(form.getWineFormItems().getId());
+                System.out.println(form.getBrewersPermit().get(0).getBrewersNo());
+                System.out.println(form.getBrewersPermit().get(1).getBrewersNo());
+                System.out.println(form.getAddress().get(0).getStreet());
+                System.out.println(form.getAddress().get(1).getStreet());
             }
             tx.commit();
         } catch (HibernateException e) {

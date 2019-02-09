@@ -18,6 +18,7 @@ public class main {
         db.tableBuilder.resetDB();
         System.out.println("Finished!");
 
+
         /*try {
             factory = new Configuration().configure().buildSessionFactory();
         } catch (Throwable ex) {

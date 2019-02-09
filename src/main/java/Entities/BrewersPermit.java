@@ -20,13 +20,18 @@ public class BrewersPermit {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "TTB_ID", insertable = false, updatable = false, nullable = false)
+    @JoinColumn(name = "TTB_ID", nullable=false, insertable =  false, updatable = false)
     private Form form;
 
     public BrewersPermit() {
     }
 
-    public BrewersPermit(String brewersNo, boolean isPrimary, int ttbid, Form form) {
+    public BrewersPermit(String brewersNo, boolean isPrimary) {
+        this.brewersNo = brewersNo;
+        this.isPrimary = isPrimary;
+    }
+
+    public BrewersPermit(String brewersNo, boolean isPrimary, Form form) {
         this.brewersNo = brewersNo;
         this.isPrimary = isPrimary;
         //this.ttbid = ttbid;
