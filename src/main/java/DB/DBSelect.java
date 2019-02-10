@@ -266,6 +266,46 @@ public class DBSelect {
         return result;
     }
 
+    /** //TODO FINISH THIS
+     * A wildcard sql search of the database for brand name and fanciful name
+     * @author Jordan
+     * @param as An advanced search that has all the fields that want to be searched for set
+     * @return A list of forms of everything that matched that wildcard search
+     */
+    public List<Form> searchByWild(AdvancedSearch as) {
+
+    }
+
+    /** //TODO FINISH THIS
+     * Gets a list of all potential brand names for the LD search that match the first criteria
+     * @author Jordan
+     * @param as An AdvancedSearch that contains all the search criteria except for anything that will be searched for using LD
+     * @return A list of strings of brand names that match those first basic search criteria
+     */
+    public List<String> searchByLD(AdvancedSearch as) {
+
+    }
+
+    /**
+     * Part of the LD search. Finds anything matching the trimmed list of LD brand name strings
+     * @author Jordan
+     * @param as The advanced search that contains the search criteria for everything else
+     * @param brands A list of all the brand names that should be searched for
+     * @return A list of all forms that matched any of those brand names in addition to the other results
+     */
+    public List<Form> searchByLDBrand(AdvancedSearch as, List<String> brands) {
+        List<Form> results = new ArrayList<>();
+        for (int i = 0; i < brands.size(); i++) {
+            as.setBrandName(brands.get(i));
+            List<Form> tempResult = new ArrayList<>();
+            tempResult = searchBy(as).getResults();
+            for (int j = 0; j < tempResult.size(); j++) {
+                results.add(tempResult.get(j));
+            }
+        }
+        return results;
+    }
+
     //TODO FINISH THIS
     public Form getNextUnapproved() {
         Session session = factory.openSession();
