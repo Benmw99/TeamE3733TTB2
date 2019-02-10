@@ -130,6 +130,30 @@ public class Form {
         this.approvalStatus = approvalStatus;
     }
 
+    //Constructor for initial form submission that isn't approved.
+    public Form(String repID, List<BrewersPermit> brewersPermit, boolean source, String serialNumber, AlcoholType alcoholType, String brandName, String fancifulName, List<Address> address, Address mailingAddress, String applicantName, String formula, WineFormItems wineFormItems, String phoneNumber, String email, String otherInfo, Date dateSubmitted, int companyID, float alcoholContent) {
+        this.repID = repID;
+        this.brewersPermit = brewersPermit;
+        this.source = source;
+        this.serialNumber = serialNumber;
+        this.alcoholType = alcoholType;
+        this.brandName = brandName;
+        this.fancifulName = fancifulName;
+        this.address = address;
+        this.mailingAddress = mailingAddress;
+        this.applicantName = applicantName;
+        this.formula = formula;
+        this.wineFormItems = wineFormItems;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.otherInfo = otherInfo;
+        this.dateSubmitted = dateSubmitted;
+        this.companyID = companyID;
+        this.alcoholContent = alcoholContent;
+        this.approvalStatus = ApprovalStatus.Incomplete;
+        this.approval = new Approval();
+    }
+
     public String getRepID() {
         return repID;
     }

@@ -136,4 +136,25 @@ public class DBInsert {
             session.close();
         }
     }
+
+
+    /**
+     * Inserts a labelImage into the database
+     * @author Jordan
+     * @param li The labelimage that you want to insert with everything except the id filled out
+     */
+    public void insertLabelImage(LabelImage li) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.save(li);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
 }
