@@ -35,6 +35,7 @@ public class Approval {
     private String qualifications;
 
     @OneToOne()
+    @JoinColumn(name = "TTB_ID")
     private Form form;
 
     @Id

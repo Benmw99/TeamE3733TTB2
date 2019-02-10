@@ -25,7 +25,6 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">false</property>
 
-        <!-- mapping resource="Address.hbm.xml"/ -->
         <mapping class="Entities.Form" />
         <mapping class="Entities.WineFormItems" />
         <mapping class="Entities.Approval" />

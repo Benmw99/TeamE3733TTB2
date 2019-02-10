@@ -153,9 +153,9 @@ public class TableBuilder {
                 "Wine_Appellation VARCHAR(32), " +
                 "PH REAL, " +
                 "Vintage INT, " +
-                "form_TTB_ID BIGINT, " +
+                "TTB_ID BIGINT, " +
                 "Constraint Wine_PK Primary Key (ID), " +
-                "Constraint Wine_FK Foreign Key (form_TTB_ID) References Form(TTB_ID) On Delete Cascade)";
+                "Constraint Wine_FK Foreign Key (TTB_ID) References Form(TTB_ID) On Delete Cascade)";
         sendStatement(buildString);
     }
 
@@ -173,7 +173,7 @@ public class TableBuilder {
     private void buildApproval(){
         String buildString = "CREATE TABLE APPROVAL (" +
                 "Approving_Agent VARCHAR(32)," +
-                "form_TTB_ID BIGINT, " +
+                "TTB_ID BIGINT, " +
                 "ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
                 "Date_Approved DATE," +
                 "Expiration DATE," +
@@ -183,7 +183,7 @@ public class TableBuilder {
                 "Page_4 Int, " +
                 "Qualification VARCHAR(256) DEFAULT NULL, " +
                 "Constraint Approval_PK Primary Key (ID), " +
-                "Constraint Approval_FK Foreign Key (form_TTB_ID) References Form(TTB_ID) On Delete Cascade)";
+                "Constraint Approval_FK Foreign Key (TTB_ID) References Form(TTB_ID) On Delete Cascade)";
         sendStatement(buildString);
     }
 

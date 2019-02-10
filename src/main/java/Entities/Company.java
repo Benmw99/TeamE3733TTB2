@@ -19,7 +19,7 @@ public class Company {
     @Column(name = "Password")
     private String password;
 
-    private List<Form> forms; //TODO PROPERLY IMPLEMENT THIS, OR NOT? I DON'T KNOW IF I NEED THIS
+    //private List<Form> forms; //TODO PROPERLY IMPLEMENT THIS, OR NOT? I DON'T KNOW IF I NEED THIS
 
     public Company() {
     }

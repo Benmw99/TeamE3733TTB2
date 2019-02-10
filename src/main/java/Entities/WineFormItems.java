@@ -18,6 +18,7 @@ public class WineFormItems {
     private String appellation;
 
     @OneToOne()
+    @JoinColumn(name = "TTB_ID")
     private Form form;
 
     @Id

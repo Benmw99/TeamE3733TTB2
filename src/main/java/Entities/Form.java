@@ -11,7 +11,7 @@ public class Form {
     @Column(name = "Rep_ID")
     private String repID;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "TTB_ID")
     public List<BrewersPermit> brewersPermit;
 
@@ -44,7 +44,8 @@ public class Form {
     @Column(name = "Formula")
     private String formula;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "form", fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "TTB_ID")
     private WineFormItems wineFormItems;
 
     @Column(name = "Phone")
@@ -69,7 +70,8 @@ public class Form {
     @Column(name = "Company_ID")
     private int companyID;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "form", fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "TTB_ID")
     private Approval approval;
 
     @Column(name = "APV")
