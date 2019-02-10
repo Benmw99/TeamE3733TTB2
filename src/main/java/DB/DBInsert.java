@@ -1,15 +1,15 @@
 package DB;
 
 import Entities.*;
-import Entities.Form;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+//Class controlling inserting and updating in DB. Singleton class
 public class DBInsert {
-    private static DBInsert dbinsert;
+    private static DBInsert dbinsert; //TODO GET RID OF REPEATED CODE
     private static SessionFactory factory; //TODO ONE SESSIONFACTORY, INTERFACE THAT INCLUDES CLOSING METHOD
 
     private DBInsert() {
@@ -30,41 +30,12 @@ public class DBInsert {
         return SingletonHelper.dbinsert;
     }
 
-
     /**
-     * OUTDATED AND DOESN'T FULLY WORK
-     * Inserts an Address into the DB
+     * Inserts a full form into the database. All relations must be set in the form
      * @author Jordan
-     //* @param city
-     //* @param state
-     //* @param zip
-     //* @param street
-     //* @param name
-     * @return The id of that address
+     * @param form The fully completed form to be submitted. Approval should be set as a default incomplete.
+     * @return The TTB ID of the form that was just inserted
      */
-    /*
-    public Integer insertAddress(String city, String state, String zip, String street, String name, boolean isPrimary) {
-        Session session = factory.openSession();
-        Transaction tx = null;
-        Integer addressID = null;
-
-        try {
-            tx = session.beginTransaction();
-            Address address = new Address(city, state, zip, street, name, isPrimary);
-            addressID = (Integer) session.save(address);
-            tx.commit();
-        } catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
-        }
-        return addressID;
-
-    }*/
-
-    //TODO GET RID OF REPEATED CODE
-
     public int insertForm(Form form) {
         Session session = factory.openSession();
         Transaction tx = null;
@@ -83,6 +54,11 @@ public class DBInsert {
         return formID;
     }
 
+    /**
+     * Inserts a company into the database.
+     * @author Jordan
+     * @param company A fully filled out company
+     */
     public void insertCompany(Company company) {
         Session session = factory.openSession();
         Transaction tx = null;
@@ -98,6 +74,11 @@ public class DBInsert {
         }
     }
 
+    /**
+     * Inserts a rep into the database
+     * @author Jordan
+     * @param rep A fully filled out rep to be inserted
+     */
     public void insertRep(Rep rep) {
         Session session = factory.openSession();
         Transaction tx = null;
@@ -113,6 +94,12 @@ public class DBInsert {
         }
     }
 
+    /**
+     * Inserts an agent into the database
+     * @author Jordan
+     * @param agent The agent created and filled out with all info except id
+     * @return The agent id of the newly inserted agent
+     */
     public int insertAgent(Agent agent) {
         Session session = factory.openSession();
         Transaction tx = null;
@@ -132,6 +119,7 @@ public class DBInsert {
 
     /**
      * Takes the form with a changed approval. This change of approval must be done by entities
+     * @author Jordan
      * @param form The form that was updated
      */
     public void updateApproval(Form form) {
@@ -139,7 +127,7 @@ public class DBInsert {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.update(form);
+            session.merge(form);
             tx.commit();
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();

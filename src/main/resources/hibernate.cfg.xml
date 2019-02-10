@@ -22,8 +22,8 @@
         <!-- property name="hbm2ddl.auto">update</property -->
 
         <!-- helper debug settings -->
-        <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">false</property>
+        <!-- property name="hibernate.show_sql">true</ -->
+        <!-- property name="hibernate.format_sql">false</property -->
 
         <mapping class="Entities.Form" />
         <mapping class="Entities.WineFormItems" />

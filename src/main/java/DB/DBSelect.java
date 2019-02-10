@@ -5,7 +5,6 @@ import org.hibernate.*;
 import org.hibernate.query.Query;
 import org.hibernate.cfg.Configuration;
 
-import javax.persistence.SequenceGenerator;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -14,8 +13,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+//Class for handling all the selection operations of the database. Class is a singleton
 public class DBSelect {
-    private static DBSelect dbselect;
+    private static DBSelect dbselect; //TODO GET RID OF REPEATED CODE
     private static SessionFactory factory; //TODO ONE SESSIONFACTORY, INTERFACE THAT INCLUDES CLOSING METHOD
 
     private DBSelect() {
@@ -38,7 +38,7 @@ public class DBSelect {
 
 
     /**
-     * Gets all the addresses in the DB, CURRENTLY ONLY PRINTS THEM
+     * Gets all the addresses in the DB. CURRENTLY ONLY PRINTS THEM
      * @author Jordan
      */
     public void selectAllAddress() {
@@ -61,6 +61,11 @@ public class DBSelect {
         }
     }
 
+    /**
+     * Gets all the forms in the database.
+     * @author Jordan
+     * @return A list of all the forms in the database
+     */
     public List<Form> selectAllForm() {
         Session session = factory.openSession();
         Transaction tx = null;
@@ -98,6 +103,12 @@ public class DBSelect {
         return results;
     }
 
+    /**
+     * Gets a form from the database
+     * @author Jordan
+     * @param TTBID The ttb id of the form you want to retrieve
+     * @return The selected form
+     */
     public Form getFormByTTB_ID(int TTBID) {
         Session session = factory.openSession();
         String q = "FROM Form F WHERE F.ttbID = :id";
@@ -106,21 +117,50 @@ public class DBSelect {
         return (Form)query.getSingleResult();
     }
 
+    /**
+     * Authenticates a company login
+     * @author Jordan
+     * @param login String of the entered login
+     * @param pass String of the entered password
+     * @return True for successful login, false for failure
+     */
     public boolean AuthenticateCompany(String login, String pass) {
         String q = "SELECT count(*) FROM Company C WHERE C.login = :login AND C.password = :pass";
         return Authenticate(q, login, pass);
     }
 
+    /**
+     * Authenticates an agent login
+     * @author Jordan
+     * @param login String of the entered login
+     * @param pass String of the entered password
+     * @return True for successful login, false for failure
+     */
     public boolean AuthenticateAgent(String login, String pass) {
         String q = "SELECT count(*) FROM Agent C WHERE C.login = :login AND C.password = :pass";
         return Authenticate(q, login, pass);
     }
 
+    /**
+     * Authenticates a rep login
+     * @author Jordan
+     * @param login String of the entered login
+     * @param pass String of the entered password
+     * @return True for successful login, false for failure
+     */
     public boolean AuthenticateRep(String login, String pass) {
         String q = "SELECT count(*) FROM Rep C WHERE C.login = :login AND C.password = :pass";
         return Authenticate(q, login, pass);
     }
 
+    /**
+     * Authenticates a passed query, checking that there is 1 result in the database
+     * @author Jordan
+     * @param q String of the query to be used
+     * @param login String of the entered login
+     * @param pass String of the entered password
+     * @return True for successful login, false for failure
+     */
     protected boolean Authenticate(String q, String login, String pass) {
         Session session = factory.openSession();
         Query query = session.createQuery(q);
@@ -140,6 +180,13 @@ public class DBSelect {
         }
     }
 
+    /**
+     * Searches by a set of info and returns any forms that match those
+     * CURRENTLY WINE SEARCHING FOR TYPES DON'T WORK
+     * @author Jordan
+     * @param as Advanced search with the things that want to be search for set
+     * @return A SearchResult with all the forms that came from the query
+     */
     public SearchResult searchBy(AdvancedSearch as) {
         Session session = factory.openSession();
         Transaction tx = null;
@@ -214,4 +261,6 @@ public class DBSelect {
         result.setResults(forms);
         return result;
     }
+
+    //TODO IMPLEMENT public boolean downloadResults
 }

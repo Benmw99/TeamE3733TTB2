@@ -17,6 +17,8 @@ public class DBInsertTest {
     public static void setup() {
         DB.Database db = DB.Database.getDatabase();
         db.tableBuilder.resetDB();
+
+        db.dbInsert.insertCompany(new Company(123, "Brewers Inc.", "TestCompany", "1234"));
     }
 
     @Test
@@ -75,6 +77,8 @@ public class DBInsertTest {
         app.setPage3(ApprovalStatus.Complete);
         app.setPage4(ApprovalStatus.Complete);
         pulled.setApprovalStatus(ApprovalStatus.Complete);
+
+        pulled.setApproval(app);
 
         db.dbInsert.updateApproval(pulled);
 

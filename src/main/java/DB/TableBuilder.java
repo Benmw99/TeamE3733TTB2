@@ -5,10 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
+//Class for constructing the database. Class is a singleton
+//NOTE RIGHT NOW CAN ONLY RESET THE DB ONCE AS IT CLOSES AFTER THAT
 public class TableBuilder {
     private static TableBuilder tablebuilder;
     private Connection connection;
+    //Constant for the imagesize in the database
     private static final String IMAGESIZE = "1M";
 
     private TableBuilder() {
