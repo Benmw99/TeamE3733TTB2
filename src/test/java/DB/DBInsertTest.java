@@ -21,14 +21,6 @@ public class DBInsertTest {
 
     @Test
     public void insertForm() {
-        //FUCKING CIRCULAR DEPENDENCIES. FIX THIS SHIT WITH THE FORM RELATIONS
-        //and fix the form approval relationship
-        //and fix all this broken shit
-        //and maybe scrap this refactor
-        //fuck me
-        //and wineFormitems
-
-
         DB.Database db = DB.Database.getDatabase();
         //Oh boy lets make a complete form
         List<BrewersPermit> Brews = new ArrayList<>();
@@ -45,7 +37,49 @@ public class DBInsertTest {
         Form form = new Form(null, Brews, true, "00123SE", AlcoholType.MaltBeverage, "Bubbly", "BU", Adds, "John Smith", null, null, "1112223333", "john@johnmail.com", "No other info", d, 123, new Approval(), (float)12.3, ApprovalStatus.Incomplete);
 
         db.dbInsert.insertForm(form);
-        db.dbSelect.selectAllForm();
         assertTrue(true);
+    }
+
+    @Test
+    public void testUpdateApproval() {
+        DB.Database db = DB.Database.getDatabase();
+
+        //Inserts a form into the Db
+        List<BrewersPermit> Brews = new ArrayList<>();
+        Brews.add(new BrewersPermit("123ABC", true));
+        Brews.add(new BrewersPermit("456DEF", false));
+
+        List<Address> Adds = new ArrayList<>();
+        Adds.add(new Address("Worcester", "MA", "01609", "100 Institue Road", "John Smith", true));
+        Adds.add(new Address("Acton", "MA", "123456", "2 Street Ave", "Bob Dijon", false));
+
+        long milli = System.currentTimeMillis();
+        Date d = new Date(milli);
+
+        Form form = new Form(null, Brews, true, "00123SE", AlcoholType.MaltBeverage, "Bubbly", "BU", Adds, "John Smith", null, null, "1112223333", "john@johnmail.com", "No other info", d, 123, new Approval(), (float)12.3, ApprovalStatus.Incomplete);
+
+        db.dbInsert.insertForm(form);
+
+        Form pulled = db.dbSelect.getFormByTTB_ID(1);
+        Approval app = pulled.getApproval();
+        app.setAgentApprovalName("Tom");
+
+        long millis = System.currentTimeMillis();
+        Date d1 = new Date(millis);
+        app.setDateApproved(d1);
+        app.setExpDate(d1);
+
+        app.setQualifications("Can't be used because this program isn't real");
+        app.setPage1(ApprovalStatus.Complete);
+        app.setPage2(ApprovalStatus.Complete);
+        app.setPage3(ApprovalStatus.Complete);
+        app.setPage4(ApprovalStatus.Complete);
+        pulled.setApprovalStatus(ApprovalStatus.Complete);
+
+        db.dbInsert.updateApproval(pulled);
+
+        Form pulledUpdate = db.dbSelect.getFormByTTB_ID(1);
+        System.out.println(pulledUpdate.getApprovalStatus());
+        System.out.println(pulledUpdate.getApproval().getQualifications());
     }
 }

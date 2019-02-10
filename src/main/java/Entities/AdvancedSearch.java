@@ -18,6 +18,8 @@ public class AdvancedSearch {
     public String grapeVarietal;
     public String appellation;
 
+    public ApprovalStatus approvalStatus;
+
     public AdvancedSearch() {
         this.source = null;
         this.serialNumber = null;
@@ -26,6 +28,7 @@ public class AdvancedSearch {
         this.fancifulName = null;
         this.ttbID = 0;
         this.numResults = 0;
+        this.approvalStatus = ApprovalStatus.Complete;
     }
 
     public Boolean getSource() {
@@ -82,5 +85,13 @@ public class AdvancedSearch {
 
     public void setNumResults(int numResults) {
         this.numResults = numResults;
+    }
+
+    public ApprovalStatus getApprovalStatus() {
+        return approvalStatus;
+    }
+
+    public void setApprovalStatus(ApprovalStatus approvalStatus) {
+        this.approvalStatus = approvalStatus;
     }
 }

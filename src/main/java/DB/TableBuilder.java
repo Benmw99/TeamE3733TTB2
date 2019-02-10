@@ -219,9 +219,9 @@ public class TableBuilder {
                 "Rep_ID VARCHAR(16) DEFAULT NULL," +
                 "Other_Info VARCHAR(256), " +
                 "Company_ID BIGINT," +
-                "Constraint Form_PK Primary Key (TTB_ID)) ";
+                "Constraint Form_PK Primary Key (TTB_ID), " +
                 //TODO IMPLEMENT REPS            "Constraint Form_FK_Rep Foreign Key (Rep_ID) References Reps(Rep_ID), " +
-                //TODO IMPLEMENT COMPANY"Constraint Form_FK_Company Foreign Key (Company_ID) References Company(Company_ID))";
+                "Constraint Form_FK_Company Foreign Key (Company_ID) References Company(Company_ID))";
         sendStatement(buildString);
         //String createSeq = "create sequence Form_ID as BIGINT start with 1";
         //sendStatement(createSeq);

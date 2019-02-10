@@ -2,6 +2,8 @@ package Entities;
 
 import javax.persistence.*;
 
+@Entity
+@Table(name = "REPS")
 public class Rep {
     @Id
     @Column(name = "Rep_ID")

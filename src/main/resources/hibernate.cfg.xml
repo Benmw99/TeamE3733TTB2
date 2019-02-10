@@ -30,5 +30,8 @@
         <mapping class="Entities.Approval" />
         <mapping class="Entities.Address" />
         <mapping class="Entities.BrewersPermit" />
+        <mapping class="Entities.Company" />
+        <mapping class="Entities.Agent" />
+        <mapping class="Entities.Rep" />
     </session-factory>
 </hibernate-configuration>

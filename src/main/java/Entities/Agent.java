@@ -2,6 +2,8 @@ package Entities;
 
 import javax.persistence.*;
 
+@Entity
+@Table(name = "AGENTS")
 public class Agent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +24,12 @@ public class Agent {
 
     public Agent(int agentID, String login, String password, String name) {
         this.agentID = agentID;
+        this.login = login;
+        this.password = password;
+        this.name = name;
+    }
+
+    public Agent(String login, String password, String name) {
         this.login = login;
         this.password = password;
         this.name = name;
