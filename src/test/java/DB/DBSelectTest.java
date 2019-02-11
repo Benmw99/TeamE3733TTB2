@@ -148,4 +148,16 @@ public class DBSelectTest {
             System.out.println(sr3.getResults().get(i).getBrandName());
         }
     }
+
+    @Test
+    public void testDownload() {
+        DB.Database db = DB.Database.getDatabase();
+
+        AdvancedSearch as = new AdvancedSearch();
+
+        SearchResult sr = db.dbSelect.searchBy(as);
+
+        db.dbSelect.downloadQuery(sr, true);
+        db.dbSelect.downloadQuery(sr, false);
+    }
 }

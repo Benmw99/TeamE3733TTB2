@@ -26,7 +26,7 @@ public class DBInsert {
         private static final DBInsert dbinsert = new DBInsert();
     }
 
-    protected static DBInsert getDbinsert() {
+    static DBInsert getDbinsert() {
         return SingletonHelper.dbinsert;
     }
 
@@ -127,6 +127,7 @@ public class DBInsert {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
+            //Merge is used as an update pretty much
             session.merge(form);
             tx.commit();
         } catch (HibernateException e) {
