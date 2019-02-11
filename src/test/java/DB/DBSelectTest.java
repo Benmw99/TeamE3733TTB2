@@ -115,4 +115,49 @@ public class DBSelectTest {
             System.out.println(sr3.getResults().get(i).getBrandName());
         }
     }
+
+    @Test
+    public void searchByWild() {
+        DB.Database db = DB.Database.getDatabase();
+
+        AdvancedSearch as1 = new AdvancedSearch();
+        as1.setBrandName("Vod");
+
+        AdvancedSearch as2 = new AdvancedSearch();
+        as2.setBrandName("wine");
+
+        AdvancedSearch as3 = new AdvancedSearch();
+        as3.setBrandName("in");
+
+        SearchResult sr1 = db.dbSelect.searchByWild(as1);
+        SearchResult sr2 = db.dbSelect.searchByWild(as2);
+        SearchResult sr3 = db.dbSelect.searchByWild(as3);
+
+        System.out.println("as1 Wild");
+        for (int i = 0; i < sr1.getResults().size(); i++) {
+            System.out.println(sr1.getResults().get(i).getBrandName());
+        }
+
+        System.out.println("as2 Wild");
+        for (int i = 0; i < sr2.getResults().size(); i++) {
+            System.out.println(sr2.getResults().get(i).getBrandName());
+        }
+
+        System.out.println("as3 Wild");
+        for (int i = 0; i < sr3.getResults().size(); i++) {
+            System.out.println(sr3.getResults().get(i).getBrandName());
+        }
+    }
+
+    @Test
+    public void testDownload() {
+        DB.Database db = DB.Database.getDatabase();
+
+        AdvancedSearch as = new AdvancedSearch();
+
+        SearchResult sr = db.dbSelect.searchBy(as);
+
+        db.dbSelect.downloadQuery(sr, true);
+        db.dbSelect.downloadQuery(sr, false);
+    }
 }

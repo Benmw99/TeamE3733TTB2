@@ -154,6 +154,10 @@ public class Form {
         this.approval = new Approval();
     }
 
+    public Form(String brandName) {
+        this.brandName = brandName;
+    }
+
     public String getRepID() {
         return repID;
     }

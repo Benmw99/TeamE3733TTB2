@@ -33,5 +33,6 @@
         <mapping class="Entities.Company" />
         <mapping class="Entities.Agent" />
         <mapping class="Entities.Rep" />
+        <mapping class="Entities.LabelImage" />
     </session-factory>
 </hibernate-configuration>
