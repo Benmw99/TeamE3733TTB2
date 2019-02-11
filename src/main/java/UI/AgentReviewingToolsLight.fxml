@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: #ffffff;" stylesheets="@TabPane.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AgentViewFormController">
+   <children>
+      <Rectangle fill="#9ea7aa" height="141.0" layoutX="-2.0" layoutY="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1376.0" />
+      <Rectangle fill="#cfd8dc" height="62.0" layoutX="-2.0" layoutY="75.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1376.0" />
+      <Text layoutX="58.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mark Section as:" wrappingWidth="124.02001190185547">
+         <font>
+            <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+         </font>
+      </Text>
+      <JFXComboBox fx:id="sectionMarkComboBox" layoutX="203.0" layoutY="86.0" prefHeight="39.0" prefWidth="253.0" style="-jfx-focus-color: WHITE;" />
+      <JFXButton fx:id="approveAVFButton" buttonType="RAISED" layoutX="517.0" layoutY="82.0" onAction="#approveForm" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #26c6da#26c6da;" text="Approve Form">
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+         <font>
+            <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="rejectAVFButton" buttonType="RAISED" layoutX="694.0" layoutY="81.0" onAction="#rejectForm" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #26c6da#26c6da;" text="Reject Form">
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+         <font>
+            <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="printAVFButton" buttonType="RAISED" layoutX="1278.0" layoutY="81.0" prefHeight="50.0" prefWidth="85.0" style="-fx-background-color: #26c6da#26c6da;" text="Print">
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+         <font>
+            <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="517.0" layoutY="11.0" text="Form Reviewing Tools" textFill="WHITE">
+         <font>
+            <Font name="Apple SD Gothic Neo Regular" size="38.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="688.0" layoutY="142.0" prefHeight="618.0" prefWidth="684.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Regulations" />
+          <Tab text="Comments" />
+            <Tab text="Send to an Agent" />
+        </tabs>
+      </TabPane>
+      <Line endX="-100.00006103515625" endY="595.7626342773438" layoutX="783.0" layoutY="153.0" startX="-100.0" stroke="#b1bdc3" />
+      <TabPane layoutY="142.0" prefHeight="622.0" prefWidth="679.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Section 1" />
+          <Tab text="Section 2" />
+            <Tab text="Section 3" />
+            <Tab text="Section 4" />
+        </tabs>
+      </TabPane>
+      <JFXHamburger layoutX="52.0" layoutY="30.0" styleClass="hamburger" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AgentViewLabelController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Rectangle fill="#007bb0" height="100.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1360.0" />
+            <Rectangle fill="#c4c4c4" height="75.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1360.0" />
+            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Rectangle fill="#1f2020" height="585.0" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Rectangle>
+                  <Rectangle fill="#e7e7e7" height="585.0" stroke="TRANSPARENT" strokeType="INSIDE" width="700.0">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Rectangle>
+                  <Rectangle fill="#e7e7e7" height="585.0" stroke="TRANSPARENT" strokeType="INSIDE" width="588.0" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="700.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="175.0">
+         <children>
+            <Label text="Submitted Label">
+               <font>
+                  <Font name="Apple SD Gothic Neo Bold" size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="700.0" AnchorPane.leftAnchor="770.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="175.0">
+         <children>
+            <Label text="Rules &amp; Regulations">
+               <font>
+                  <Font name="Apple SD Gothic Neo Bold" size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" prefHeight="100.0" style="-fx-background-color: #9ea7aa;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="View Label" textFill="WHITE">
+               <font>
+                  <Font name="Apple SD Gothic Neo Regular" size="38.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="75.0" style="-fx-background-color: #cfd8dc;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <JFXButton fx:id="approveAVLButton" buttonType="RAISED" style="-fx-background-color: #26c6da;" text="Approve">
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="rejectAVLButton" buttonType="RAISED" style="-fx-background-color: #26c6da;" text="Reject">
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="sendToAgentAVLButton" buttonType="RAISED" style="-fx-background-color: #26c6da;" text="Send To Agent">
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="feedbackAVLButton" buttonType="RAISED" style="-fx-background-color: #26c6da;" text="Send Feedback">
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+      </HBox>
+      <JFXHamburger fx:id="menuAVLMenuButton" layoutX="65.0" layoutY="40.0" />
+      <JFXCheckBox layoutX="39.0" layoutY="110.0" text="Make Comments" />
+      <JFXButton fx:id="printAVLButton" buttonType="RAISED" layoutX="1213.0" layoutY="122.0" style="-fx-background-color: #26c6da;" text="Print">
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+         <font>
+            <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
