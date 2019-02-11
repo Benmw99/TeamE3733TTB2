@@ -160,4 +160,18 @@ public class DBSelectTest {
         db.dbSelect.downloadQuery(sr, true);
         db.dbSelect.downloadQuery(sr, false);
     }
+
+    @Test
+    public void searchByLd() {
+        DB.Database db = DB.Database.getDatabase();
+
+        AdvancedSearch as = new AdvancedSearch();
+        as.setAlcoholType(AlcoholType.MaltBeverage);
+        as.setBrandName("Bubbly");
+        List<String> temp = db.dbSelect.searchByLD(as);
+
+        for (int i = 0; i < temp.size(); i++) {
+            System.out.println(temp.get(i));
+        }
+    }
 }

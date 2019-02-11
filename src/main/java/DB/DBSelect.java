@@ -359,12 +359,6 @@ public class DBSelect {
         if (as.alcoholType != null) {
             predicates.add(cb.equal(root.get("alcoholType"), as.alcoholType));
         }
-        if (as.brandName != null) {
-            predicates.add(cb.equal(root.get("brandName"), as.brandName));
-        }
-        if (as.fancifulName != null) {
-            predicates.add(cb.equal(root.get("fancifulName"), as.fancifulName));
-        }
         if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
             //predicates.add(cb.equal(root.get("wineFormItems.vintageYear"), as.vintageYear));
         }
