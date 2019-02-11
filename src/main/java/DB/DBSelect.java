@@ -6,6 +6,7 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.query.Query;
 import org.hibernate.cfg.Configuration;
 
+import javax.persistence.Transient;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -358,13 +359,7 @@ public class DBSelect {
         }
         if (as.alcoholType != null) {
             predicates.add(cb.equal(root.get("alcoholType"), as.alcoholType));
-        }
-        if (as.brandName != null) {
-            predicates.add(cb.equal(root.get("brandName"), as.brandName));
-        }
-        if (as.fancifulName != null) {
-            predicates.add(cb.equal(root.get("fancifulName"), as.fancifulName));
-        }
+        }//No brand name or fanciful name
         if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
             //predicates.add(cb.equal(root.get("wineFormItems.vintageYear"), as.vintageYear));
         }
@@ -416,13 +411,90 @@ public class DBSelect {
         return results;
     }
 
-    //TODO FINISH THIS
+    /**
+     * Gets the next unapproved form that no agent is currently working on.
+     * @author Jordan
+     * @return A Form that does not have anyone currently working on it and is not approved
+     */
     public Form getNextUnapproved() {
         Session session = factory.openSession();
-        String q = "FROM Form F WHERE F.approvalStatus = :approval";
+        String q = "FROM Form F WHERE F.approvalStatus = :approval AND F.workingOn = 0";
         Query query = session.createQuery(q);
         query.setParameter("approval", ApprovalStatus.Incomplete);
         return (Form)query.getSingleResult();
+    }
+
+    /**
+     * Retrieves an agents current queue that they are working on
+     * @author Jordan
+     * @param agentID The agent id that you want to get all the forms in their queue for
+     * @return A list of all the current forms assigned to that agent
+     */
+    public List<Form> getCurrentApprovalQueue(int agentID) {
+        List<Form> results = new ArrayList<>();
+        Session session = factory.openSession();
+        Transaction tx = null;
+        String q = "FROM Form F WHERE F.approvalStatus = :approval AND F.workingOn = :agent";
+        Query query = session.createQuery(q);
+        query.setParameter("approval", ApprovalStatus.Incomplete);
+        query.setParameter("agent", agentID);
+        try {
+            //Starts the transaction
+            tx = session.beginTransaction();
+            //Sends the query off and gets the results as a list
+            List forms = query.list();
+            //Iterates through that list initiazing and setting stuff
+            for (Iterator iterator = forms.iterator(); iterator.hasNext();){
+                Form form = (Form) iterator.next();
+
+                //Initializes the brewersPermit and the address
+                Hibernate.initialize(form.brewersPermit);
+                Hibernate.initialize(form.address);
+
+                //Previous way of initiliazation
+                //form.getBrewersPermit().size();
+                //form.getAddress().size();
+
+                //Set that primary address
+                for (int i = 0; i < form.getAddress().size(); i++) {
+                    if (form.getAddress().get(i).isMailing()) {
+                        form.setMailingAddress(form.getAddress().get(i));
+                    }
+                }
+
+                results.add(form);
+            }
+            //Commit the transaction
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            //Close the session
+            session.close();
+        }
+        return results;
+    }
+
+    /**
+     * Once a form has been assigned to an agent we need to update that form in the db so it isn't reclaimed
+     * @author Jordan
+     * @param form Form with workingOn set to the agent id of the agent that claimed it
+     */
+    public void updateWorkingOn(Form form) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            //Merge is used as an update pretty much
+            session.merge(form);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
     }
 
 

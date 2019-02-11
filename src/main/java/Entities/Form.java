@@ -81,6 +81,9 @@ public class Form {
     @Column(name = "Approve", columnDefinition = "smallint")
     private ApprovalStatus approvalStatus;
 
+    @Column(name = "WorkingOn")
+    private int workingOn;
+
     public Form() {
     }
 
@@ -152,6 +155,7 @@ public class Form {
         this.alcoholContent = alcoholContent;
         this.approvalStatus = ApprovalStatus.Incomplete;
         this.approval = new Approval();
+        this.workingOn = 0;
     }
 
     public Form(String brandName) {
@@ -324,5 +328,21 @@ public class Form {
 
     public void setApprovalStatus(ApprovalStatus approvalStatus) {
         this.approvalStatus = approvalStatus;
+    }
+
+    public void setBrewersPermit(List<BrewersPermit> brewersPermit) {
+        this.brewersPermit = brewersPermit;
+    }
+
+    public void setAddress(List<Address> address) {
+        this.address = address;
+    }
+
+    public int getWorkingOn() {
+        return workingOn;
+    }
+
+    public void setWorkingOn(int workingOn) {
+        this.workingOn = workingOn;
     }
 }
