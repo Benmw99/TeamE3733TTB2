@@ -2,6 +2,7 @@ package DB;
 
 import Entities.*;
 import org.hibernate.*;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.query.Query;
 import org.hibernate.cfg.Configuration;
 
@@ -231,7 +232,89 @@ public class DBSelect {
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
         }
-        cr.select(root).where(predicates.toArray(new Predicate[]{}));
+        cr.where(predicates.toArray(new Predicate[]{}));
+
+        try {
+            tx = session.beginTransaction();
+            List<Form> results = session.createQuery(cr).list();
+            for (Iterator iterator = results.iterator(); iterator.hasNext();){
+                Form form = (Form) iterator.next();
+
+
+                Hibernate.initialize(form.brewersPermit);
+                Hibernate.initialize(form.address);
+
+                //form.getBrewersPermit().size();
+                //form.getAddress().size();
+
+                //Set that primary address
+                for (int i = 0; i < form.getAddress().size(); i++) {
+                    if (form.getAddress().get(i).isMailing()) {
+                        form.setMailingAddress(form.getAddress().get(i));
+                    }
+                }
+                forms.add(form);
+            }
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        result.setResults(forms);
+        result.setQuery(null);
+        return result;
+    }
+
+    /**
+     * A wildcard sql search of the database for brand name and fanciful name
+     * @author Jordan
+     * @param as An advanced search that has all the fields that want to be searched for set
+     * @return A list of forms of everything that matched that wildcard search
+     */
+    public SearchResult searchByWild(AdvancedSearch as) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+        SearchResult result = new SearchResult();
+        result.setSearch(as);
+        List<Form> forms = new ArrayList<>();
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Form> cr = cb.createQuery(Form.class);
+        Root<Form> root = cr.from(Form.class);
+        List<Predicate> predicates = new ArrayList<>();
+        predicates.add(cb.equal(root.get("approvalStatus"), as.approvalStatus));
+        if (as.source != null) {
+            predicates.add(cb.equal(root.get("source"), as.source));
+        }
+        if (as.serialNumber != null) {
+            predicates.add(cb.equal(root.get("serialNumber"), as.serialNumber));
+        }
+        if (as.alcoholType != null) {
+            predicates.add(cb.equal(root.get("alcoholType"), as.alcoholType));
+        }
+        if (as.brandName != null) {
+            predicates.add(cb.like(cb.lower(root.get("brandName")), "%" + as.brandName.toLowerCase() + "%"));
+        }
+        if (as.fancifulName != null) {
+            predicates.add(cb.like(cb.lower(root.get("fancifulName")), "%" + as.fancifulName.toLowerCase() + "%"));
+        }
+        if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
+            //predicates.add(cb.equal(root.get("wineFormItems.vintageYear"), as.vintageYear));
+        }
+        if (as.getAlcoholType() == AlcoholType.Wine && as.pH > 0) {
+            //
+        }
+        if (as.getAlcoholType() == AlcoholType.Wine && as.grapeVarietal != null) {
+            //
+        }
+        if (as.getAlcoholType() == AlcoholType.Wine && as.appellation != null) {
+            //
+        }
+        if (as.ttbID > 0) {
+            predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
+        }
+        cr.where(predicates.toArray(new Predicate[]{}));
 
         try {
             tx = session.beginTransaction();
@@ -267,23 +350,62 @@ public class DBSelect {
     }
 
     /** //TODO FINISH THIS
-     * A wildcard sql search of the database for brand name and fanciful name
-     * @author Jordan
-     * @param as An advanced search that has all the fields that want to be searched for set
-     * @return A list of forms of everything that matched that wildcard search
-     */
-    public List<Form> searchByWild(AdvancedSearch as) {
-
-    }
-
-    /** //TODO FINISH THIS
      * Gets a list of all potential brand names for the LD search that match the first criteria
      * @author Jordan
      * @param as An AdvancedSearch that contains all the search criteria except for anything that will be searched for using LD
      * @return A list of strings of brand names that match those first basic search criteria
      */
     public List<String> searchByLD(AdvancedSearch as) {
-
+        Session session = factory.openSession();
+        Transaction tx = null;
+        List<String> result = new ArrayList<>();
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<String> cr = cb.createQuery(String.class);
+        Root<Form> root = cr.from(Form.class);
+        List<Predicate> predicates = new ArrayList<>();
+        predicates.add(cb.equal(root.get("approvalStatus"), as.approvalStatus));
+        if (as.source != null) {
+            predicates.add(cb.equal(root.get("source"), as.source));
+        }
+        if (as.serialNumber != null) {
+            predicates.add(cb.equal(root.get("serialNumber"), as.serialNumber));
+        }
+        if (as.alcoholType != null) {
+            predicates.add(cb.equal(root.get("alcoholType"), as.alcoholType));
+        }
+        if (as.brandName != null) {
+            predicates.add(cb.equal(root.get("brandName"), as.brandName));
+        }
+        if (as.fancifulName != null) {
+            predicates.add(cb.equal(root.get("fancifulName"), as.fancifulName));
+        }
+        if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
+            //predicates.add(cb.equal(root.get("wineFormItems.vintageYear"), as.vintageYear));
+        }
+        if (as.getAlcoholType() == AlcoholType.Wine && as.pH > 0) {
+            //
+        }
+        if (as.getAlcoholType() == AlcoholType.Wine && as.grapeVarietal != null) {
+            //
+        }
+        if (as.getAlcoholType() == AlcoholType.Wine && as.appellation != null) {
+            //
+        }
+        if (as.ttbID > 0) {
+            predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
+        }
+        cr.where(predicates.toArray(new Predicate[]{}));
+        cr.select(root.get("brandName").as(String.class));
+        try {
+            tx = session.beginTransaction();
+            result = session.createQuery(cr).list();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return result;
     }
 
     /**
@@ -466,7 +588,7 @@ public class DBSelect {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String q = "FROM LabelImage L WHERE L.ttbID = :id";
+            String q = "FROM LabelImage L WHERE L.TTBID = :id";
             Query query = session.createQuery(q);
             query.setParameter("id", ttbID);
             List images = query.list();
