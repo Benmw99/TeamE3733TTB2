@@ -103,14 +103,6 @@ public class AdvancedSearch {
         this.appellation = appellation;
     }
 
-    public Timestamp getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Timestamp timestamp) {
-        this.timestamp = timestamp;
-    }
-
     public int getTtbID() {
         return ttbID;
     }
@@ -137,7 +129,6 @@ public class AdvancedSearch {
             this.pH == aSearch.pH &&
             this.grapeVarietal.equals(aSearch.grapeVarietal) &&
             this.appellation.equals(aSearch.appellation)&&
-            this.timestamp.equals(aSearch.timestamp) &&
             this.ttbID == aSearch.ttbID &&
             this.numResults == aSearch.numResults);
     }

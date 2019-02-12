@@ -67,13 +67,13 @@ public class Agent {
         this.name = name;
     }
 
-    public List<Form> getThreeForms() {
-        DB.Database db = DB.Database.getInstance();
-        return db.dbSelect.getThreeForms();
+    public Form getNextUnapproved() {
+        DB.Database db = DB.Database.getDatabase();
+        return db.dbSelect.getNextUnapproved();
     }
 
     public boolean authenticate(){
-        DB.Database db = DB.Database.getInstance();
+        DB.Database db = DB.Database.getDatabase();
         return db.dbSelect.AuthenticateAgent(login,password);
     }
 
@@ -82,7 +82,7 @@ public class Agent {
     }
 
     public SearchResult search(AdvancedSearch advancedSearch) {
-        DB.Database db = DB.Database.getInstance();
+        DB.Database db = DB.Database.getDatabase();
         return db.dbSelect.searchBy(advancedSearch);
     }
 
