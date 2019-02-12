@@ -112,6 +112,7 @@ public class AgentHomeController extends PageControllerUI  {
     Button AsciiDelimitedFileButton;
 
     //From ITableView
+    /*
     @FXML
     JFXTreeTableView<Form> FormTable;
 
@@ -132,6 +133,8 @@ public class AgentHomeController extends PageControllerUI  {
 
     @FXML
     JFXTreeTableColumn<Form, String> SerialColumn;
+    */
+    // TODO add the nested tableview fxml for this page
 
     //From ILogOut
     @FXML
@@ -228,9 +231,10 @@ public class AgentHomeController extends PageControllerUI  {
     //////////     Move to Interfaces     ////////////          //TODO:...
     //////////////////////////////////////////////////
 
-    public void getNewQueue() throws IOException{
+    public void getNewQueue() throws IOException{}
+        // TODO fix this so that it can be used with the nested table
 //        attributeContainer.formQueue = ((Agent)attributeContainer.currentUser).getThreeForms();
-        this.TTBIDColumn.setCellValueFactory(new PropertyValueFactory<>("ttbID"));
+       /* this.TTBIDColumn.setCellValueFactory(new PropertyValueFactory<>("ttbID"));
         this.DateSubmittedColumn.setCellValueFactory(new PropertyValueFactory<>("dateSubmitted"));
         this.BrandColumn.setCellValueFactory(new PropertyValueFactory<>("brandName"));
 
@@ -244,7 +248,7 @@ public class AgentHomeController extends PageControllerUI  {
         // TODO need to figure out how to do the following
         // this.PrintButton.setEnabled(true);//setDisable(false);
     }
-
+*/
 
 // TODO Implement the TableViewController to take care of this for us.
 //    public void tableView()  {
