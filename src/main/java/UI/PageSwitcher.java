@@ -26,7 +26,7 @@ public class PageSwitcher {
     public void pageSwitch(ActionEvent event, String filename, Stage stage) throws IOException {
 
         //////////////////////////////////////////////////////
-        //  PAGE SWITCHING
+        ////                PAGE SWITCHING                ////
         //////////////////////////////////////////////////////
         Parent root;
 //        Stage stage;
@@ -42,7 +42,7 @@ public class PageSwitcher {
         stage.setScene(scene);
         stage.show();
         //////////////////////////////////////////////////////
-        //  DATA SHARING & CONTROLLER INITIALIZATION
+        ////  DATA SHARING & CONTROLLER INITIALIZATION    ////
         //////////////////////////////////////////////////////
         PageControllerUI controller = loader.getController();
 //        controller.setStage_DontTouch(stage);

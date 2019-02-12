@@ -4,6 +4,7 @@ import Entities.AdvancedSearch;
 import Entities.AlcoholType;
 import Entities.Form;
 import Entities.SearchResult;
+import com.sun.xml.internal.ws.addressing.model.ActionNotSupportedException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,7 +22,7 @@ import java.io.IOException;
 
 import static Entities.AlcoholType.*;
 
-public class CivilController {
+public class CivilController extends PageControllerUI {
     private Entities.SearchResult results;
     static private Entities.Form selectedForm;
     static private int initStuff = 0;
@@ -283,7 +284,7 @@ public class CivilController {
             Parent root;
             Stage stage;
             stage=(Stage) resultTable.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("CivilSearchForm.fxml"));
+            root = FXMLLoader.load(getClass().getResource("ViewSelectedForm.fxml"));
             Scene scene = new Scene(root, 1360, 820);
             stage.setScene(scene);
             stage.show();
@@ -297,26 +298,19 @@ public class CivilController {
         printSearchResultsCSV.setText("Printed");
     }
 
-    public void goBackToSearch(ActionEvent event) throws IOException {
-        initStuff = 0;
-        pageSwitch(event,"CivilAdvSearch.fxml", backToAdvSearch);
-    }
-
     @FXML
-    public void goBackToWelcome(ActionEvent event) throws IOException {
-        pageSwitch(event,"WelcomePage.fxml", menuASButton);
+    public void loginPage(){
+        goToPage("Login.fxml");
     }
 
 
+    @Override
+    protected void onLeave() {
 
-    private void pageSwitch(ActionEvent event, String filename, Button b) throws IOException{
-        Parent root;
-        Stage stage;
-        stage=(Stage) b.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource(filename));
-        Scene scene = new Scene(root, 1360, 760);
-        stage.setScene(scene);
-        stage.show();
     }
 
+    @Override
+    void onLoad() {
+
+    }
 }
