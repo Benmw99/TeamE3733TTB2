@@ -122,6 +122,7 @@ public class Manufacturer implements IUser {
         return db.dbSelect.searchBy(advancedSearch);
     }
 
+    //FORM MUST BE FULLY SET INCLUDING AN EMPTY APPROVAL THAT IS INCOMPLETE, AND APPROVALSTATUS MUST BE INCOMPLETE
     public void submitForm(Form form) {
         try {
             DB.Database db = DB.Database.getDatabase();

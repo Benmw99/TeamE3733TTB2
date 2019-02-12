@@ -1,6 +1,11 @@
 package Entities;
 
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
 import javax.persistence.*;
+import java.security.SecureRandom;
+import java.sql.SQLException;
 
 import static Entities.ApprovalStatus.Complete;
 import static Entities.ApprovalStatus.Incorrect;
@@ -72,8 +77,31 @@ public class Agent {
 
     public Form getNextUnapproved() {
         DB.Database db = DB.Database.getDatabase();
-        return db.dbSelect.getNextUnapproved();
+        Form temp = db.dbSelect.getNextUnapproved();
+        temp.setWorkingOn(this.agentID);
+        db.dbSelect.updateWorkingOn(temp);
+        return temp;
+
     }
+
+    String encryptPassword(){
+        try {
+            KeyGenerator generator = new KeyGenerator("AES");
+            generator.init(128);
+            SecureRandom secRand = new SecureRandom();
+            secRand.setSeed(123);
+            generator.init(secRand);
+            SecretKey secKey = generator.generateKey();
+            Cipher aesCipher = Cipher.getInstance("AES");
+            aesCipher.init(Cipher.ENCRYPT_MODE, secKey);
+            byte[] byteCipherText = aesCipher.doFinal(this.password.getBytes());
+            return byteCipherText.toString();
+        } catch (Exception e){
+
+        }
+        return "We should never get here";
+    }
+
 
     public boolean authenticate(){
         DB.Database db = DB.Database.getDatabase();
@@ -91,28 +119,28 @@ public class Agent {
 
     //TODO FIX THIS BY JUST SETTING THE FORM'S CURRENT APPROVAL AND UPDATING
     public void approveForm(Form form, String qualifications) {
-        Approval app = new Approval();
-        form.setApproval(app);
+        Approval app = form.getApproval();
         form.getApproval().approve(name, qualifications);
-        form.setApprovalStatus(Complete);
+        form.setApprovalStatus(ApprovalStatus.Complete);
         DB.Database db = DB.Database.getDatabase();
-        db.dbSelect.approveForm(form,form.getApproval());
+
+        db.dbInsert.updateApproval(form);
 
     }
 
     //TODO FIX THIS BY JUST SETTING THE FORM'S CURRENT APPROVAL AND UPDATING
     public void rejectForm(Form form) {
-        form.setApprovalStatus(Incorrect);
+        form.setApprovalStatus(ApprovalStatus.Incomplete);
         DB.Database db = DB.Database.getDatabase();
         Approval app = new Approval();
-        app.setPage1(Incorrect);
-        app.setPage2(Incorrect);
-        app.setPage3(Incorrect);
-        app.setPage4(Incorrect);
+        app.setPage1(ApprovalStatus.Incorrect);
+        app.setPage2(ApprovalStatus.Incorrect);
+        app.setPage3(ApprovalStatus.Incorrect);
+        app.setPage4(ApprovalStatus.Incorrect);
         app.setAgentApprovalName(this.getName());
         form.setApproval(app);
-        db.dbSelect.approveForm(form, form.getApproval());
 
+        db.dbInsert.updateApproval(form);
     }
 
     void fillQueue() {
