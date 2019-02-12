@@ -1,7 +1,6 @@
 package UI;
 
-import Entities.DisplayForm;
-import Entities.Form;
+import Entities.*;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.JFXTreeView;
@@ -12,9 +11,14 @@ import javafx.fxml.Initializable;
 
 import java.net.URL;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
-public class TableViewController implements Initializable {
+public class TableViewController extends PageControllerUI implements Initializable  {
 
 
     @FXML
@@ -28,7 +32,6 @@ public class TableViewController implements Initializable {
 
     @FXML
     TableColumn<DisplayForm, String> colsub = new TableColumn<DisplayForm, String>("Date_Submitted");
-
 
     @FXML
     TableColumn<DisplayForm, String>  colbrand = new TableColumn<DisplayForm, String>("Brand");
@@ -45,10 +48,30 @@ public class TableViewController implements Initializable {
      */
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<DisplayForm> formlist = FXCollections.observableArrayList();
-        for(Form f : AttributeContainer.getInstance().formQueue){
-            formlist.add(new DisplayForm(f));
-        }
-        table.getColumns().addAll(colttb, coltype, colsub, coltype, colbrand, colstatus, colserial);
+        colttb.setCellValueFactory(new PropertyValueFactory("TTB_ID"));
+        colbrand.setCellValueFactory(new PropertyValueFactory("Brand"));
+        colserial.setCellValueFactory(new PropertyValueFactory("Serial"));
+        colstatus.setCellValueFactory(new PropertyValueFactory("Status"));
+        colsub.setCellValueFactory(new PropertyValueFactory("Submitted"));
+        coltype.setCellValueFactory(new PropertyValueFactory("Type"));
         table.setItems(formlist);
+        for(Form f : AttributeContainer.getInstance().formQueue){
+                formlist.add(new DisplayForm(f));
+
+        }
+//        table.getColumns().addAll(colttb, colsub, coltype, colbrand, colstatus, colserial);
+
+
+
+    }
+
+    @Override
+    protected void onLeave() {
+
+    }
+
+    @Override
+    void onLoad() {
+
     }
 }

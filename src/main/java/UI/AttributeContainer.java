@@ -27,7 +27,7 @@ public class AttributeContainer {
     PageControllerUI current_page;
 
     private AttributeContainer() {
-        formQueue = null;
+        formQueue = new ArrayList<Form>();
         currentForm = null;
         currentUser = null;
         currentResults = null;
