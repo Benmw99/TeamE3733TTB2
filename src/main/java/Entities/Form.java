@@ -377,9 +377,9 @@ public class Form {
     }
 
     boolean brewListEquals(List<BrewersPermit> aList) {
-        List<String> resultList = new ArrayList<String>();
-        for (String s: aList) {
-            for (String t: this.brewersPermit) {
+        List<BrewersPermit> resultList = new ArrayList<BrewersPermit>();
+        for (BrewersPermit s: aList) {
+            for (BrewersPermit t: this.brewersPermit) {
                 if (s.equals(t)) {
                     resultList.add(s);
                 }

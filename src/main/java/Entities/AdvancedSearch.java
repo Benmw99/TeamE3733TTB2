@@ -28,6 +28,10 @@ public class AdvancedSearch {
         this.fancifulName = null;
         this.ttbID = 0;
         this.numResults = 0;
+        this.vintageYear = 0;
+        this.pH = (float)0;
+        this.grapeVarietal = null;
+        this.appellation = null;
         this.approvalStatus = ApprovalStatus.Complete;
     }
 
