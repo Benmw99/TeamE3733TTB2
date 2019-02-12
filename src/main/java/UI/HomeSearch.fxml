@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.CivilController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.CivilController">
 <children>
     <Rectangle fill="#9ea7aa" height="136.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
     <Text fill="WHITE" layoutX="473.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Advanced Search" wrappingWidth="429.9218606590072">
@@ -21,7 +21,7 @@
         </font></Text>
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3c3b3b" height="560.0" layoutX="1.0" layoutY="136.0" stroke="TRANSPARENT" strokeType="INSIDE" width="332.0" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="1.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="62.0" layoutX="72.0" layoutY="141.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="136.0" />
-      <JFXButton fx:id="advSearchButton" buttonType="RAISED" layoutX="1167.0" layoutY="54.0" onAction="#loginPage" style="-fx-background-color: WHITE;" text="Mondays amirite">
+      <JFXButton fx:id="SearchLoginButton" buttonType="RAISED" layoutX="1167.0" layoutY="54.0" onAction="#loginPage" style="-fx-background-color: WHITE;" text="Login">
          <font>
             <Font name="Apple SD Gothic Neo Regular" size="18.0" />
          </font>
@@ -38,11 +38,11 @@
             </TableView>
          </children>
       </Pane>
-      <JFXButton fx:id="menuASButton" buttonType="RAISED" layoutX="50.0" layoutY="52.0" ripplerFill="#f5f5f5" style="-fx-background-color: WHITE;" text="Return to Menu" AnchorPane.leftAnchor="50.0">
+      <JFXButton fx:id="SearchMenuButton" buttonType="RAISED" layoutX="50.0" layoutY="52.0" ripplerFill="#f5f5f5" style="-fx-background-color: WHITE;" text="Return to Menu" AnchorPane.leftAnchor="50.0">
          <font>
             <Font name="Apple SD Gothic Neo Regular" size="18.0" />
          </font></JFXButton>
-    <JFXTextField fx:id="searchASField" alignment="CENTER" disable="true" layoutX="349.0" layoutY="151.0" prefHeight="26.0" prefWidth="708.0" style="-fx-background-color: WHITE;" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="316.0" />
+    <JFXTextField fx:id="SearchField" alignment="CENTER" disable="true" layoutX="349.0" layoutY="151.0" prefHeight="26.0" prefWidth="708.0" style="-fx-background-color: WHITE;" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="316.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="8.0" layoutY="506.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="506.0" />
     <Text layoutX="22.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
         <font>
@@ -54,21 +54,21 @@
             <Font name="Apple SD Gothic Neo Regular" size="36.0" />
         </font>
     </Text>
-      <JFXButton buttonType="RAISED" layoutX="1167.0" layoutY="147.0" style="-fx-background-color: WHITE;" text="Print Results">
+      <JFXButton fx:id="SearchPrintButton" buttonType="RAISED" layoutX="1167.0" layoutY="147.0" style="-fx-background-color: WHITE;" text="Print Results">
          <font>
             <Font name="Apple SD Gothic Neo Regular" size="18.0" />
          </font></JFXButton>
-      <JFXDatePicker fx:id="manufactureDate" layoutX="153.0" layoutY="514.0" prefHeight="25.0" prefWidth="149.0" promptText="date" />
+      <JFXDatePicker fx:id="SearchDate" layoutX="153.0" layoutY="514.0" prefHeight="25.0" prefWidth="149.0" promptText="date" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="7.0" layoutY="208.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="8.0" layoutY="356.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="8.0" layoutY="406.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="8.0" layoutY="456.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="8.0" layoutY="556.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
-      <JFXComboBox layoutX="153.0" layoutY="216.0" prefWidth="150.0" />
-      <JFXTextField fx:id="manField" layoutX="153.0" layoutY="363.0" promptText="name" />
-      <JFXTextField fx:id="stateField" layoutX="153.0" layoutY="413.0" promptText="state" />
-      <JFXTextField fx:id="cityField" layoutX="153.0" layoutY="463.0" promptText="city" />
-      <JFXTextField fx:id="idField" layoutX="153.0" layoutY="563.0" promptText="number" />
+      <JFXComboBox fx:id="SearchAlcoholType" layoutX="153.0" layoutY="216.0" prefWidth="150.0" />
+      <JFXTextField fx:id="SearchManufacturer" layoutX="153.0" layoutY="363.0" promptText="name" />
+      <JFXTextField fx:id="SearchState" layoutX="153.0" layoutY="413.0" promptText="state" />
+      <JFXTextField fx:id="SearchCity" layoutX="153.0" layoutY="463.0" promptText="city" />
+      <JFXTextField fx:id="SearchIDNum" layoutX="153.0" layoutY="563.0" promptText="number" />
       <Text layoutX="33.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Type">
          <font>
             <Font name="Apple SD Gothic Neo Regular" size="13.0" />
@@ -95,7 +95,7 @@
          </font>
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="7.0" layoutY="258.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
-      <JFXTextField fx:id="alcoholContentTextField" layoutX="153.0" layoutY="265.0" promptText="percentage" />
+      <JFXTextField fx:id="SearchPercentage" layoutX="153.0" layoutY="265.0" promptText="percentage" />
       <Text layoutX="32.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Content">
          <font>
             <Font name="Apple SD Gothic Neo Regular" size="13.0" />
@@ -107,10 +107,10 @@
             <Font name="Apple SD Gothic Neo Regular" size="13.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="brandNameTextField" layoutX="153.0" layoutY="315.0" promptText="name" />
+      <JFXTextField fx:id="SearchBrandName" layoutX="153.0" layoutY="315.0" promptText="name" />
       <Pane layoutX="-1.0" layoutY="702.0" prefHeight="49.0" prefWidth="340.0" style="-fx-background-color: #c4c4c4;">
          <children>
-            <JFXButton layoutX="129.0" layoutY="7.0" prefHeight="39.0" prefWidth="84.0" style="-fx-background-color: WHITE;" text="Search" />
+            <JFXButton fx:id="SearchButton" layoutX="129.0" layoutY="7.0" prefHeight="39.0" prefWidth="84.0" style="-fx-background-color: WHITE;" text="Search" />
          </children>
       </Pane>
 </children>
