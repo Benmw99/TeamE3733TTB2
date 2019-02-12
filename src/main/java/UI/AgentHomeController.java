@@ -15,6 +15,8 @@ import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import com.jfoenix.controls.*;
+
 
 import java.awt.*;
 import java.io.IOException;
@@ -101,7 +103,7 @@ public class AgentHomeController extends PageControllerUI  {
 
     //From IExport
     @FXML
-    Button PrintButton;
+    JFXButton PrintButton;
 
     @FXML
     Button SaveToCSVButton;
@@ -111,44 +113,44 @@ public class AgentHomeController extends PageControllerUI  {
 
     //From ITableView
     @FXML
-    TableView<Form> FormTable;
+    JFXTreeTableView<Form> FormTable;
 
     @FXML
-    TableColumn<Form, Integer> TTBIDColumn;
+    JFXTreeTableColumn<Form, Integer> TTBIDColumn;
 
     @FXML
-    TableColumn<Form, Timestamp> DateSubmittedColumn;
+    JFXTreeTableColumn<Form, Timestamp> DateSubmittedColumn;
 
     @FXML
-    TableColumn<Form, String> BrandNameColumn;
+    JFXTreeTableColumn<Form, String> BrandNameColumn;
 
     @FXML
-    TableColumn<Form, AlcoholType> TypeColumn;
+    JFXTreeTableColumn<Form, AlcoholType> TypeColumn;
 
     @FXML
-    TableColumn<Form, String> BrandColumn;
+    JFXTreeTableColumn<Form, String> BrandColumn;
 
     @FXML
-    TableColumn<Form, String> SerialColumn;
+    JFXTreeTableColumn<Form, String> SerialColumn;
 
     //From ILogOut
     @FXML
     Button LogOutButton;
 
     @FXML
-    Button UseReviewingToolsButton;
+    JFXButton reviewToolButton;
 
     @FXML
-    Button RejectFormButton;
+    JFXButton RejectFormButton;
 
     @FXML
-    Button ApproveFormButton;
+    JFXButton ApproveFormButton;
 
     @FXML
-    TextField SearchField;
+    JFXTextField SearchField;
 
     @FXML
-    Button GetNewQueueButton;
+    JFXButton GetNewQueueButton;
 
 
 
@@ -239,7 +241,8 @@ public class AgentHomeController extends PageControllerUI  {
             tableValues.add(attributeContainer.formQueue.get(i));
         }
         this.FormTable.setItems(tableValues);
-        this.PrintButton.setEnabled(true);//setDisable(false);
+        // TODO need to figure out how to do the following
+        // this.PrintButton.setEnabled(true);//setDisable(false);
     }
 
 
