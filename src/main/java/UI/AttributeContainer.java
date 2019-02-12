@@ -16,13 +16,15 @@ public class AttributeContainer {
         return ourInstance;
     }
 
-    List<Form> formQueue;
-    Form currentForm;
-    IUser currentUser;
-    SearchResult currentResults;
-    List<AudioClip> sounds;
-    int searchPage;
-    Stack<String> backlog;
+    public List<Form> formQueue;
+    public Form currentForm;
+    public IUser currentUser;
+    public SearchResult currentResults;
+    public List<AudioClip> sounds;
+    public int searchPage;
+    public Stack<String> backlog;
+    public int numForQueue = 5;
+    PageControllerUI current_page;
 
     private AttributeContainer() {
         formQueue = null;

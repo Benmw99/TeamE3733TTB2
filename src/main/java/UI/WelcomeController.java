@@ -62,8 +62,8 @@ public class WelcomeController extends PageControllerUI{
 
     @FXML
     public void civilSearch(ActionEvent event) throws IOException{
-//        pageSwitch(event, "CivilAdvSearch.fxml", civilButton);
-        pageSwitcher.pageSwitch("CivilAdvSearch.fxml");
+//        pageSwitch(event, "HomeSearch.fxml", civilButton);
+        pageSwitcher.pageSwitch("HomeSearch.fxml");
     }
 
     @FXML

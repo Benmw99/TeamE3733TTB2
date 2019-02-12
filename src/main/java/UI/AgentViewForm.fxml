@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
 <AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AgentViewFormController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Rectangle fill="#9ea7aa" height="100.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1360.0" />
-            <Rectangle fill="#cfd8dc" height="75.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1360.0" />
+            <Rectangle fill="#9ea7aa" height="89.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1360.0" />
+            <Rectangle fill="#cfd8dc" height="62.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1360.0" />
             <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
                   <TabPane prefHeight="585.0" prefWidth="605.0" tabClosingPolicy="UNAVAILABLE">
@@ -41,9 +54,6 @@
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets left="25.0" />
-                                                   </HBox.margin>
                                                 </Label>
                                              </children>
                                           </HBox>
@@ -69,9 +79,6 @@
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets left="25.0" />
-                                                   </HBox.margin>
                                                 </Label>
                                              </children>
                                           </HBox>
@@ -97,9 +104,6 @@
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets left="25.0" />
-                                                   </HBox.margin>
                                                 </Label>
                                              </children>
                                           </HBox>
@@ -125,18 +129,12 @@
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets left="25.0" right="15.0" />
-                                                   </HBox.margin>
                                                 </Label>
                                                 <Separator orientation="VERTICAL" style="-fx-background-color: black;" />
                                                 <Label fx:id="Agent4Label2" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets left="15.0" />
-                                                   </HBox.margin>
                                                 </Label>
                                              </children>
                                           </HBox>
@@ -162,14 +160,8 @@
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets left="25.0" />
-                                                   </HBox.margin>
                                                 </Label>
                                                 <Separator orientation="VERTICAL" style="-fx-background-color: black;">
-                                                   <HBox.margin>
-                                                      <Insets left="15.0" right="15.0" />
-                                                   </HBox.margin>
                                                 </Separator>
                                                 <Label fx:id="Agent5Label2" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
@@ -177,17 +169,11 @@
                                                    </font>
                                                 </Label>
                                                 <Separator orientation="VERTICAL" style="-fx-background-color: black;">
-                                                   <HBox.margin>
-                                                      <Insets left="15.0" right="15.0" />
-                                                   </HBox.margin>
                                                 </Separator>
                                                 <Label fx:id="Agent5Label3" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets />
-                                                   </HBox.margin>
                                                 </Label>
                                              </children>
                                           </HBox>
@@ -213,9 +199,6 @@
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets left="25.0" />
-                                                   </HBox.margin>
                                                 </Label>
                                              </children>
                                           </HBox>
@@ -251,9 +234,6 @@
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets left="15.0" />
-                                                   </HBox.margin>
                                                 </Label>
                                              </children>
                                           </HBox>
@@ -279,9 +259,6 @@
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets left="15.0" />
-                                                   </HBox.margin>
                                                 </Label>
                                              </children>
                                           </HBox>
@@ -307,9 +284,6 @@
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets left="15.0" />
-                                                   </HBox.margin>
                                                 </Label>
                                              </children>
                                           </HBox>
@@ -335,9 +309,6 @@
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets left="15.0" />
-                                                   </HBox.margin>
                                                 </Label>
                                              </children>
                                           </HBox>
@@ -363,9 +334,6 @@
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets left="15.0" />
-                                                   </HBox.margin>
                                                 </Label>
                                              </children>
                                           </HBox>
@@ -391,9 +359,6 @@
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets left="15.0" />
-                                                   </HBox.margin>
                                                 </Label>
                                              </children>
                                           </HBox>
@@ -429,9 +394,6 @@
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets left="25.0" />
-                                                   </HBox.margin>
                                                 </Label>
                                              </children>
                                           </HBox>
@@ -457,9 +419,6 @@
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
-                                                   <HBox.margin>
-                                                      <Insets left="25.0" />
-                                                   </HBox.margin>
                                                 </Label>
                                              </children>
                                           </HBox>
@@ -1260,20 +1219,20 @@
             </HBox>
          </children>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" prefHeight="89.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label text="Form Reviewing Tools" textFill="WHITE">
                <font>
-                  <Font name="Georgia" size="38.0" />
+                  <Font name="Apple SD Gothic Neo Thin" size="38.0" />
                </font>
             </Label>
          </children>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="75.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <HBox alignment="CENTER" prefHeight="62.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="89.0">
          <children>
             <JFXButton fx:id="approveButton" buttonType="RAISED" style="-fx-background-color: #26c6da;" text="Approve Form">
                <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                </font>
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
@@ -1289,7 +1248,7 @@
             </JFXButton>
             <JFXButton buttonType="RAISED" style="-fx-background-color: #26c6da;" text="Reject Form">
                <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                </font>
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
@@ -1305,16 +1264,12 @@
             </JFXButton>
          </children>
       </HBox>
-      <JFXButton fx:id="printButton" layoutX="1213.0" layoutY="122.0" mnemonicParsing="false" onAction="#print" style="-fx-background-color: #1F2020;" text="Print" textFill="WHITE">
+      <Text layoutX="70.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mark Section as:">
          <font>
-            <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+            <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
-      </JFXButton>
-      <Text layoutX="70.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mark Section as:">
-         <font>
-            <Font name="Apple SD Gothic Neo Regular" size="18.0" />
-         </font></Text>
-      <JFXButton fx:id="homeButton" buttonType="RAISED" layoutX="61.0" layoutY="34.0" onAction="#print" style="-fx-background-color: #26c6da;" text="Back to Home">
+      </Text>
+      <JFXButton fx:id="homeButton" buttonType="RAISED" layoutX="61.0" layoutY="28.0" onAction="#print" style="-fx-background-color: #26c6da;" text="Back to Home">
          <ripplerFill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -1324,11 +1279,10 @@
             </RadialGradient>
          </ripplerFill>
          <font>
-            <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+            <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </JFXButton>
-      <JFXComboBox fx:id="sectionMarkComboBox" layoutX="213.0" layoutY="124.0" prefHeight="27.0" prefWidth="177.0" />
-      <JFXButton fx:id="printAVFButton" buttonType="RAISED" layoutX="1213.0" layoutY="122.0" onAction="#approveForm" style="-fx-background-color: #26c6da;" text="Print">
+      <JFXButton fx:id="printAVFButton" buttonType="RAISED" layoutX="1200.0" layoutY="105.0" onAction="#approveForm" style="-fx-background-color: #26c6da;" text="Print">
          <ripplerFill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -1338,8 +1292,9 @@
             </RadialGradient>
          </ripplerFill>
          <font>
-            <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+            <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </JFXButton>
+      <JFXComboBox fx:id="sectionMarkComboBox" layoutX="213.0" layoutY="107.0" prefHeight="27.0" prefWidth="177.0" />
    </children>
 </AnchorPane>
