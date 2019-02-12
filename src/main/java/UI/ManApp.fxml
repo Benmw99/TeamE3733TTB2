@@ -682,72 +682,43 @@
       </Pane>
       <Pane fx:id="pane3" prefHeight="660.0" prefWidth="1300.0" style="-fx-background-color: #cfd8dc;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="660.0" prefWidth="200.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1744" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0">
-                     <VBox.margin>
-                        <Insets bottom="15.0" left="30.0" top="15.0" />
-                     </VBox.margin>
-                  </Rectangle>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1744" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0">
-                     <VBox.margin>
-                        <Insets bottom="15.0" left="30.0" top="15.0" />
-                     </VBox.margin>
-                  </Rectangle>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1744" height="160.0" stroke="BLACK" strokeType="INSIDE" width="100.0">
-                     <VBox.margin>
-                        <Insets bottom="30.0" left="30.0" top="30.0" />
-                     </VBox.margin>
-                  </Rectangle>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1744" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0">
-                     <VBox.margin>
-                        <Insets bottom="15.0" left="30.0" top="15.0" />
-                     </VBox.margin>
-                  </Rectangle>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1744" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0">
-                     <VBox.margin>
-                        <Insets bottom="15.0" left="30.0" top="15.0" />
-                     </VBox.margin>
-                  </Rectangle>
-               </children>
-            </VBox>
             <VBox alignment="CENTER_LEFT" prefHeight="660.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="13*" textFill="WHITE" VBox.vgrow="ALWAYS">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="13*" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font size="28.0" />
+                        <Font name="Apple SD Gothic Neo Regular" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="14*" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="14*">
                      <font>
-                        <Font size="28.0" />
+                        <Font name="Apple SD Gothic Neo Regular" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="160.0" prefWidth="100.0" text="15*" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="160.0" prefWidth="100.0" text="15*">
                      <font>
-                        <Font size="28.0" />
+                        <Font name="Apple SD Gothic Neo Regular" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="30.0" top="30.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="16" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="16">
                      <font>
-                        <Font size="28.0" />
+                        <Font name="Apple SD Gothic Neo Regular" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="17*" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="17*">
                      <font>
-                        <Font size="28.0" />
+                        <Font name="Apple SD Gothic Neo Regular" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -762,9 +733,9 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Phone Number" textFill="#f8b195">
+                        <Label prefHeight="80.0" text="Phone Number">
                            <font>
-                              <Font size="32.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="32.0" />
                            </font>
                         </Label>
                         <JFXTextField fx:id="PhoneNumField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Enter a phone number" unFocusColor="WHITE">
@@ -790,9 +761,9 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Email Address" textFill="#f8b195">
+                        <Label prefHeight="80.0" text="Email Address">
                            <font>
-                              <Font size="32.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="32.0" />
                            </font>
                         </Label>
                         <JFXTextField fx:id="EmailField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Enter a valid email address" unFocusColor="WHITE">
@@ -820,19 +791,19 @@
                      <children>
                         <VBox>
                            <children>
-                              <Label prefHeight="80.0" text="Type of Application" textFill="#f8b195">
+                              <Label prefHeight="80.0" text="Type of Application">
                                  <font>
-                                    <Font size="32.0" />
+                                    <Font name="Apple SD Gothic Neo Thin" size="32.0" />
                                  </font>
                               </Label>
-                              <JFXRadioButton fx:id="LiquorRadioButton" onAction="#typeCheck" style="-jfx-unselected-color: #f8b195;" text="Distinctive Liquor Bottle Approval" textFill="#f8b195">
+                              <JFXRadioButton fx:id="LiquorRadioButton" onAction="#typeCheck" style="-jfx-unselected-color: black;" text="Distinctive Liquor Bottle Approval">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font name="Apple SD Gothic Neo Thin" size="16.0" />
                                  </font>
                               </JFXRadioButton>
-                              <JFXRadioButton fx:id="CertRadioButton" alignment="BOTTOM_CENTER" style="-jfx-unselected-color: #f8b195;" text="Certificate of Label Approval" textFill="#f8b195">
+                              <JFXRadioButton fx:id="CertRadioButton" alignment="BOTTOM_CENTER" style="-jfx-unselected-color: black;" text="Certificate of Label Approval">
                                  <font>
-                                    <Font size="16.0" />
+                                    <Font name="Apple SD Gothic Neo Thin" size="16.0" />
                                  </font>
                                  <VBox.margin>
                                     <Insets top="30.0" />
@@ -855,9 +826,9 @@
                            <children>
                               <HBox alignment="CENTER_LEFT">
                                  <children>
-                                    <JFXRadioButton fx:id="ExemptionRadioButton" alignment="BOTTOM_CENTER" onAction="#typeCheck" style="-jfx-unselected-color: #f8b195;" text="Certificate of Exemption" textFill="#f8b195" HBox.hgrow="ALWAYS">
+                                    <JFXRadioButton fx:id="ExemptionRadioButton" alignment="BOTTOM_CENTER" onAction="#typeCheck" style="-jfx-unselected-color: black;" text="Certificate of Exemption" HBox.hgrow="ALWAYS">
                                        <font>
-                                          <Font size="16.0" />
+                                          <Font name="Apple SD Gothic Neo Thin" size="16.0" />
                                        </font>
                                        <HBox.margin>
                                           <Insets right="20.0" top="80.0" />
@@ -872,9 +843,9 @@
                               </HBox>
                               <HBox alignment="CENTER_LEFT">
                                  <children>
-                                    <JFXRadioButton fx:id="ResubmitRadioButton" alignment="BOTTOM_CENTER" onAction="#typeCheck" style="-jfx-unselected-color: #f8b195;" text="Resubmition After Rejection" textFill="#f8b195" HBox.hgrow="ALWAYS">
+                                    <JFXRadioButton fx:id="ResubmitRadioButton" alignment="BOTTOM_CENTER" onAction="#typeCheck" style="-jfx-unselected-color: black;" text="Resubmition After Rejection" HBox.hgrow="ALWAYS">
                                        <font>
-                                          <Font size="16.0" />
+                                          <Font name="Apple SD Gothic Neo Thin" size="16.0" />
                                        </font>
                                        <HBox.margin>
                                           <Insets top="20.0" />
@@ -907,9 +878,9 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Additional Information" textFill="#f8b195">
+                        <Label prefHeight="80.0" text="Additional Information">
                            <font>
-                              <Font size="32.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="32.0" />
                            </font>
                         </Label>
                         <JFXTextField fx:id="AdditionalInfoField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Branded/Embossed" unFocusColor="WHITE">
@@ -943,9 +914,9 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Date of Application" textFill="#f8b195">
+                        <Label prefHeight="80.0" text="Date of Application">
                            <font>
-                              <Font size="32.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="32.0" />
                            </font>
                         </Label>
                         <JFXDatePicker fx:id="AppDate" defaultColor="#12e8d2" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: white;">
@@ -970,7 +941,7 @@
             </VBox>
          </children>
       </Pane>
-      <Pane fx:id="pane4" prefHeight="660.0" prefWidth="1300.0" style="-fx-background-color: #cfd8dc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <Pane fx:id="pane4" opacity="0.0" prefHeight="660.0" prefWidth="1300.0" style="-fx-background-color: #cfd8dc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="660.0" prefWidth="1300.0">
                <children>
@@ -989,28 +960,9 @@
                   </JFXButton>
                </children>
             </HBox>
-            <VBox prefHeight="660.0" prefWidth="200.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1744" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0">
-                     <VBox.margin>
-                        <Insets bottom="15.0" left="30.0" top="15.0" />
-                     </VBox.margin>
-                  </Rectangle>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1744" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0">
-                     <VBox.margin>
-                        <Insets bottom="15.0" left="30.0" top="15.0" />
-                     </VBox.margin>
-                  </Rectangle>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1744" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0">
-                     <VBox.margin>
-                        <Insets bottom="15.0" left="30.0" top="15.0" />
-                     </VBox.margin>
-                  </Rectangle>
-               </children>
-            </VBox>
             <VBox prefHeight="660.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="18*" textFill="WHITE" VBox.vgrow="ALWAYS">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="18*" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="28.0" />
                      </font>
@@ -1018,7 +970,7 @@
                         <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="19*" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="19*">
                      <font>
                         <Font size="28.0" />
                      </font>
@@ -1026,7 +978,7 @@
                         <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="20*" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="20*">
                      <font>
                         <Font size="28.0" />
                      </font>

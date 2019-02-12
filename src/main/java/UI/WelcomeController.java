@@ -1,10 +1,17 @@
 package UI;
 
+import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 /*
@@ -44,6 +51,11 @@ ManLabelCompare
 
 public class WelcomeController extends PageControllerUI{
 
+    //BackButtonController bb = new BackButtonController();
+
+   // @FXML
+   // JFXHamburger Hamburger;
+
     @FXML
     Button manButton;
 
@@ -52,6 +64,9 @@ public class WelcomeController extends PageControllerUI{
 
     @FXML
     Button agentButton;
+
+    @FXML
+    BackButtonController Hamburger;
 
 
     @FXML
@@ -72,6 +87,7 @@ public class WelcomeController extends PageControllerUI{
         pageSwitcher.pageSwitch("ManLogin.fxml");
     }
 
+
 //    public void pageSwitch(ActionEvent event, String filename, Button b) throws IOException{
 //        Parent root;
 //        Stage stage;
@@ -82,6 +98,7 @@ public class WelcomeController extends PageControllerUI{
 //        stage.show();
 //    }
 
+
     @Override
     protected void onLeave() {
 
@@ -91,6 +108,7 @@ public class WelcomeController extends PageControllerUI{
     void onLoad() {
 
     }
+
 
     /*
     @FXML
