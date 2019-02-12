@@ -91,14 +91,14 @@ public class Agent {
         form.setApproval(app);
         form.getApproval().approve(name, qualifications);
         form.setApprovalStatus(Complete);
-        DB.Database db = DB.Database.getInstance();
+        DB.Database db = DB.Database.getDatabase();
         db.dbSelect.approveForm(form,form.getApproval());
 
     }
 
     public void rejectForm(Form form) {
         form.setApprovalStatus(Incorrect);
-        DB.Database db = DB.Database.getInstance();
+        DB.Database db = DB.Database.getDatabase();
         Approval app = new Approval();
         app.setPage1(Incorrect);
         app.setPage2(Incorrect);
@@ -124,13 +124,13 @@ public class Agent {
     }
 
     public void csvDownload(String query, AdvancedSearch advancedSearch){
-        DB.Database db = DB.Database.getInstance();
+        DB.Database db = DB.Database.getDatabase();
         db.dbSelect.downloadResults(query,advancedSearch);
 
     }
 
     public boolean equals(Agent anAgent){
-        return (this.repID.equals(anAgent.repID)&&
+        return (this.agentID == (anAgent.agentID)&&
         this.login.equals(anAgent.login) &&
         this.password.equals(anAgent.password) &&
         this.name.equals(anAgent.name));

@@ -2,6 +2,7 @@ package Entities;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Calendar;
 
 @Entity
 @Table(name = "APPROVAL")
@@ -136,23 +137,21 @@ public class Approval {
     public void approve(String name, String qualifications){
         agentApprovalName = name;
         this.qualifications = qualifications;
-        this.approved = true;
         Calendar Cal = Calendar.getInstance();
 
         java.util.Date now = Cal.getTime();
-        Timestamp currTime = new Timestamp(now.getTime());
-        this.timestamp = currTime;
+        Date currTime = new Date(now.getTime());
+        this.dateApproved = currTime;
 
         Cal.add(Calendar.YEAR, 2);
         java.util.Date expire = Cal.getTime();
-        Timestamp expirationDate = new Timestamp(expire.getTime());
+        Date expirationDate = new Date(expire.getTime());
         this.expDate = expirationDate;
 
     }
 
     boolean equals(Approval appr){
-        return ((this.approved == appr.approved) &&
-            this.timestamp.equals(appr.timestamp) &&
+        return ( this.dateApproved.equals(appr.dateApproved) &&
             this.agentApprovalName.equals(appr.agentApprovalName) &&
             this.expDate.equals(appr.expDate) &&
             this.qualifications.equals(appr.qualifications) &&

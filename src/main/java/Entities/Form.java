@@ -339,12 +339,6 @@ public class Form {
     }
 
 
-    public void setAlcoholContent(float alcoholContent) { this.alcoholContent = alcoholContent; }
-
-    public void setApprovalStatus(ApprovalStatus approvalStatus){ this.approvalStatus = approvalStatus;}
-
-    public ApprovalStatus getApprovalStatus(){ return this.approvalStatus;}
-
 
 
     boolean equals(Form aform){
