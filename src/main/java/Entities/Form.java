@@ -350,12 +350,6 @@ public class Form {
     }
 
 
-    public void setAlcoholContent(float alcoholContent) { this.alcoholContent = alcoholContent; }
-
-    public void setApprovalStatus(ApprovalStatus approvalStatus){ this.approvalStatus = approvalStatus;}
-
-    public ApprovalStatus getApprovalStatus(){ return this.approvalStatus;}
-
 
 
     boolean equals(Form aform){
@@ -373,7 +367,7 @@ public class Form {
                 this.wineFormItems.equals(aform.wineFormItems) &&
                 this.phoneNumber.equals(aform.phoneNumber) &&
                 this.email.equals(aform.email) &&
-                this.blownBrandedEmbossedInfo.equals(aform.blownBrandedEmbossedInfo) &&
+                this.otherInfo.equals(aform.otherInfo) &&
                 this.dateSubmitted.equals(aform.dateSubmitted) &&
                 this.ttbID == aform.ttbID &&
                 this.companyID == aform.companyID &&
