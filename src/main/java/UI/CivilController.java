@@ -21,7 +21,7 @@ import java.io.IOException;
 
 import static Entities.AlcoholType.*;
 
-public class CivilController {
+public class CivilController extends PageControllerUI {
     private Entities.SearchResult results;
     static private Entities.Form selectedForm;
     static private int initStuff = 0;
@@ -319,4 +319,13 @@ public class CivilController {
         stage.show();
     }
 
+    @Override
+    protected void onLeave() {
+
+    }
+
+    @Override
+    void onLoad() {
+
+    }
 }
