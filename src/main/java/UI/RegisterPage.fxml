@@ -75,12 +75,12 @@
                   <Font name="Apple SD Gothic Neo Thin" size="14.0" />
                </font>
             </JFXPasswordField>
-            <JFXButton fx:id="SubmitRegistrationButton" buttonType="RAISED" prefHeight="27.0" prefWidth="64.0" style="-fx-background-color: #9ea7aa;" text="Register">
+            <JFXButton fx:id="SubmitRegistrationButton" buttonType="RAISED" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: WHITE;" text="register">
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
                <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="13.0" />
+                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                </font>
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">

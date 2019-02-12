@@ -3,6 +3,9 @@ package UI;
 import Entities.AlcoholType;
 import Entities.Form;
 import Entities.Manufacturer;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -14,6 +17,27 @@ import java.io.IOException;
 import java.sql.Timestamp;
 
 public class ManHomeController extends PageControllerUI  {
+
+    @FXML
+    JFXButton printButton;
+
+    @FXML
+    JFXButton downloadButton;
+
+    @FXML
+    JFXButton commentsButton;
+
+    @FXML
+    JFXToggleButton editToggle;
+
+    @FXML
+    JFXButton refreshButton;
+
+    @FXML
+    JFXButton addNewApp;
+
+    @FXML
+    JFXTextField searchAppsTextField;
 
     @Override
     protected void onLeave() {

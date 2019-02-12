@@ -7,21 +7,28 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import com.jfoenix.controls.*;
+
 public class LoginController extends PageControllerUI {
 
 
     @FXML
-    TextField LoginUserUsernameTextField;
+    JFXTextField LoginUserUsernameTextField;
+
     @FXML
-    PasswordField LoginUserPasswordTextField;
+    JFXPasswordField LoginUserPasswordTextField;
+
     @FXML
-    Button LoginUserLoginButton;
+    JFXButton LoginUserLoginButton;
+
     @FXML
-    Button searchbutton;
+    JFXButton searchbutton;
+
     @FXML
-    RadioButton ManRadioButton;
+    JFXRadioButton ManRadioButton;
+
     @FXML
-    RadioButton AgentRadioButton;
+    JFXRadioButton AgentRadioButton;
 
     ToggleGroup userOptions = new ToggleGroup();
 
