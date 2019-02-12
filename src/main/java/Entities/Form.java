@@ -1,88 +1,93 @@
 package Entities;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.sql.Date;
+import java.util.List;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "FORM")
 public class Form {
-
-
-    //#######################################################################################################
-    //                                  Instance Vars
-
+    @Column(name = "Rep_ID")
     private String repID;
-    private ArrayList<String> brewersPermit;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "TTB_ID")
+    public List<BrewersPermit> brewersPermit;
+
+    @Column(name = "Source")
     private boolean source;  //false for domestic, true for imported
+
+    @Column(name = "Serial_Number")
     private String serialNumber;
+
+    @Enumerated
+    @Column(name = "Alcohol_Type", columnDefinition = "smallint")
     private AlcoholType alcoholType;
-    public String brandName;
+
+    @Column(name = "Brand_Name")
+    private String brandName;
+
+    @Column(name = "Fanciful_Name")
     private String fancifulName;
-    private ArrayList<Address> address;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "TTB_ID")
+    public List<Address> address;
+
+    @Transient
     private Address mailingAddress;
+
+    @Column(name = "Applicant_Name")
     private String applicantName;
+
+    @Column(name = "Formula")
     private String formula;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "TTB_ID")
     private WineFormItems wineFormItems;
+
+    @Column(name = "Phone")
     private String phoneNumber;
+
+    @Column(name = "Email")
     private String email;
+
     //typeOfApplication
-    private String blownBrandedEmbossedInfo;
-    private Timestamp dateSubmitted;
+
+    @Column(name = "Other_Info")
+    private String otherInfo;
+
+    @Column(name = "Date_Submitted", columnDefinition = "DATE")
+    private Date dateSubmitted;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "TTB_ID")
     private int ttbID;
+
+    @Column(name = "Company_ID")
     private int companyID;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "TTB_ID")
     private Approval approval;
+
+    @Column(name = "APV")
     private float alcoholContent;
-    private ApprovalStatus approvalStatus = ApprovalStatus.Incomplete; //in percent
 
-    //#######################################################################################################
-    //                                  constructors
+    @Enumerated
+    @Column(name = "Approve", columnDefinition = "smallint")
+    private ApprovalStatus approvalStatus;
 
-    public Form(){
-        this.repID = null;
-        this.brewersPermit = new ArrayList<String>();
-        this.source = true;
-        this.serialNumber = null;
-        this.alcoholType = null;
-        this.brandName = null;
-        this.fancifulName = null;
-        this.address = new ArrayList<Address>();
-        this.mailingAddress = null;
-        this.applicantName = null;
-        this.formula = null;
-        this.wineFormItems = null;
-        this.phoneNumber = null;
-        this.email = null;
-        this.blownBrandedEmbossedInfo = null;
-        this.dateSubmitted = null;
-        this.ttbID = 0;
-        this.companyID = 0;
-        this.approval = null;
-        this.alcoholContent = 0;
+    @Column(name = "WorkingOn")
+    private int workingOn;
+
+    public Form() {
     }
 
-    //minimal application constructor
-    public Form(AlcoholType alcoholType, String brandName, float alcoholContent){
-        this.repID = null;
-        this.brewersPermit = null;
-        this.source = true;
-        this.serialNumber = null;
-        this.alcoholType = alcoholType;
-        this.brandName = brandName;
-        this.fancifulName = null;
-        this.address = null;
-        this.mailingAddress = null;
-        this.applicantName = null;
-        this.formula = null;
-        this.wineFormItems = null;
-        this.phoneNumber = null;
-        this.email = null;
-        this.blownBrandedEmbossedInfo = null;
-        this.dateSubmitted = null;
-        this.ttbID = 0;
-        this.companyID = 0;
-        this.approval = null;
-        this.alcoholContent = alcoholContent;
-    }
-
-    public Form(String repID, ArrayList<String> brewersPermit, boolean source, String serialNumber, AlcoholType alcoholType, String brandName, String fancifulName, ArrayList<Address> address, Address mailingAddress, String applicantName, String formula, WineFormItems wineFormItems, String phoneNumber, String email, String blownBrandedEmbossedInfo, Timestamp dateSubmitted, int ttbID, int companyID, Approval approval, float alcoholContent) {
+    public Form(String repID, List<BrewersPermit> brewersPermit, boolean source, String serialNumber, AlcoholType alcoholType, String brandName, String fancifulName, ArrayList<Address> address, Address mailingAddress, String applicantName, String formula, WineFormItems wineFormItems, String phoneNumber, String email, String otherInfo, Date dateSubmitted, int ttbID, int companyID, Approval approval, float alcoholContent, ApprovalStatus approvalStatus) {
         this.repID = repID;
         this.brewersPermit = brewersPermit;
         this.source = source;
@@ -97,16 +102,65 @@ public class Form {
         this.wineFormItems = wineFormItems;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.blownBrandedEmbossedInfo = blownBrandedEmbossedInfo;
+        this.otherInfo = otherInfo;
         this.dateSubmitted = dateSubmitted;
         this.ttbID = ttbID;
         this.companyID = companyID;
         this.approval = approval;
         this.alcoholContent = alcoholContent;
+        this.approvalStatus = approvalStatus;
     }
 
-    //#######################################################################################################
-    //                                  getters and setters
+    public Form(String repID, List<BrewersPermit> brewersPermit, boolean source, String serialNumber, AlcoholType alcoholType, String brandName, String fancifulName, List<Address> address, String applicantName, String formula, WineFormItems wineFormItems, String phoneNumber, String email, String otherInfo, Date dateSubmitted, int companyID, Approval approval, float alcoholContent, ApprovalStatus approvalStatus) {
+        this.repID = repID;
+        this.brewersPermit = brewersPermit;
+        this.source = source;
+        this.serialNumber = serialNumber;
+        this.alcoholType = alcoholType;
+        this.brandName = brandName;
+        this.fancifulName = fancifulName;
+        this.address = address;
+        this.applicantName = applicantName;
+        this.formula = formula;
+        this.wineFormItems = wineFormItems;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.otherInfo = otherInfo;
+        this.dateSubmitted = dateSubmitted;
+        this.companyID = companyID;
+        this.approval = approval;
+        this.alcoholContent = alcoholContent;
+        this.approvalStatus = approvalStatus;
+    }
+
+    //Constructor for initial form submission that isn't approved.
+    public Form(String repID, List<BrewersPermit> brewersPermit, boolean source, String serialNumber, AlcoholType alcoholType, String brandName, String fancifulName, List<Address> address, Address mailingAddress, String applicantName, String formula, WineFormItems wineFormItems, String phoneNumber, String email, String otherInfo, Date dateSubmitted, int companyID, float alcoholContent) {
+        this.repID = repID;
+        this.brewersPermit = brewersPermit;
+        this.source = source;
+        this.serialNumber = serialNumber;
+        this.alcoholType = alcoholType;
+        this.brandName = brandName;
+        this.fancifulName = fancifulName;
+        this.address = address;
+        this.mailingAddress = mailingAddress;
+        this.applicantName = applicantName;
+        this.formula = formula;
+        this.wineFormItems = wineFormItems;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.otherInfo = otherInfo;
+        this.dateSubmitted = dateSubmitted;
+        this.companyID = companyID;
+        this.alcoholContent = alcoholContent;
+        this.approvalStatus = ApprovalStatus.Incomplete;
+        this.approval = new Approval();
+        this.workingOn = 0;
+    }
+
+    public Form(String brandName) {
+        this.brandName = brandName;
+    }
 
     public String getRepID() {
         return repID;
@@ -116,11 +170,11 @@ public class Form {
         this.repID = repID;
     }
 
-    public ArrayList<String> getBrewersPermit() {
+    public List<BrewersPermit> getBrewersPermit() {
         return brewersPermit;
     }
 
-    public void setBrewersPermit(ArrayList<String> brewersPermit) {
+    public void setBrewersPermit(ArrayList<BrewersPermit> brewersPermit) {
         this.brewersPermit = brewersPermit;
     }
 
@@ -164,7 +218,7 @@ public class Form {
         this.fancifulName = fancifulName;
     }
 
-    public ArrayList<Address> getAddress() {
+    public List<Address> getAddress() {
         return address;
     }
 
@@ -220,23 +274,19 @@ public class Form {
         this.email = email;
     }
 
-    public String getBlownBrandedEmbossedInfo() {
-        return blownBrandedEmbossedInfo;
+    public String getOtherInfo() {
+        return otherInfo;
     }
 
-    public void setBlownBrandedEmbossedInfo(String blownBrandedEmbossedInfo) {
-        this.blownBrandedEmbossedInfo = blownBrandedEmbossedInfo;
+    public void setOtherInfo(String otherInfo) {
+        this.otherInfo = otherInfo;
     }
 
-    public void setBlown(String blown){
-        this.blownBrandedEmbossedInfo = blown;
-    }
-
-    public Timestamp getDateSubmitted() {
+    public Date getDateSubmitted() {
         return dateSubmitted;
     }
 
-    public void setDateSubmitted(Timestamp dateSubmitted) {
+    public void setDateSubmitted(Date dateSubmitted) {
         this.dateSubmitted = dateSubmitted;
     }
 
@@ -260,8 +310,9 @@ public class Form {
         return approval;
     }
 
-    public void setApproval(Approval approval) { this.approval = approval; }
-
+    public void setApproval(Approval approval) {
+        this.approval = approval;
+    }
     public boolean getSource(){ return this.source;}
 
     public void setSource(Boolean source) { this.source = source;}
@@ -270,19 +321,42 @@ public class Form {
         return alcoholContent;
     }
 
+    public void setAlcoholContent(float alcoholContent) {
+        this.alcoholContent = alcoholContent;
+    }
+
+    public ApprovalStatus getApprovalStatus() {
+        return approvalStatus;
+    }
+
+    public void setApprovalStatus(ApprovalStatus approvalStatus) {
+        this.approvalStatus = approvalStatus;
+    }
+
+    public void setBrewersPermit(List<BrewersPermit> brewersPermit) {
+        this.brewersPermit = brewersPermit;
+    }
+
+    public void setAddress(List<Address> address) {
+        this.address = address;
+    }
+
+    public int getWorkingOn() {
+        return workingOn;
+    }
+
+    public void setWorkingOn(int workingOn) {
+        this.workingOn = workingOn;
+    }
+
+
     public void setAlcoholContent(float alcoholContent) { this.alcoholContent = alcoholContent; }
 
     public void setApprovalStatus(ApprovalStatus approvalStatus){ this.approvalStatus = approvalStatus;}
 
     public ApprovalStatus getApprovalStatus(){ return this.approvalStatus;}
-    //#######################################################################################################
-    //                                  UI API (to be implemented)
-    public void approve(String agentName){//TODO: Implement
-    }
-    public void reject(String agentName){ //TODO: Implement
-    }
-    //#######################################################################################################
-    //                                  Helper Functions
+
+
 
     boolean equals(Form aform){
         return (this.repID.equals(aform.repID) &&

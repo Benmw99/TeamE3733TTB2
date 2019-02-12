@@ -1,7 +1,5 @@
 package Entities;
 
-import java.sql.Timestamp;
-
 public class AdvancedSearch {
     //Gotta be a Boolean so it can be null
     public Boolean source;  //true for domestic, false for imported
@@ -9,18 +7,18 @@ public class AdvancedSearch {
     public AlcoholType alcoholType;
     public String brandName;
     public String fancifulName;
-    //wine only
+    //typeOfApplication
+    public int ttbID;
+    //Number of results to return
+    public int numResults;
+
+    //Wine stuff
     public int vintageYear;
     public float pH;
     public String grapeVarietal;
     public String appellation;
-    //typeOfApplication
-    public Timestamp timestamp;
-    public int ttbID;
-    //Number of results to return
-    public int numResults;
-    //Alcohol type but numeric for the DB
-    public int type;
+
+    public ApprovalStatus approvalStatus;
 
     public AdvancedSearch() {
         this.source = null;
@@ -28,16 +26,12 @@ public class AdvancedSearch {
         this.alcoholType = null;
         this.brandName = null;
         this.fancifulName = null;
-        this.vintageYear = 0;
-        this.pH = 0;
-        this.grapeVarietal = null;
-        this.appellation = null;
-        this.timestamp = null;
         this.ttbID = 0;
         this.numResults = 0;
+        this.approvalStatus = ApprovalStatus.Complete;
     }
 
-    public Boolean isSource() {
+    public Boolean getSource() {
         return source;
     }
 
@@ -59,7 +53,6 @@ public class AdvancedSearch {
 
     public void setAlcoholType(AlcoholType alcoholType) {
         this.alcoholType = alcoholType;
-        this.type = alcoholType.toInt();
     }
 
     public String getBrandName() {
@@ -149,4 +142,11 @@ public class AdvancedSearch {
             this.numResults == aSearch.numResults);
     }
 
+    public ApprovalStatus getApprovalStatus() {
+        return approvalStatus;
+    }
+
+    public void setApprovalStatus(ApprovalStatus approvalStatus) {
+        this.approvalStatus = approvalStatus;
+    }
 }

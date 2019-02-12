@@ -1,14 +1,33 @@
 package Entities;
 
+import javax.persistence.*;
 import java.io.InputStream;
+import java.util.Objects;
 
+@Entity
+@Table(name = "LABEL")
 public class LabelImage {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private int ID;
-    private String imageName;
-    private InputStream image;
 
-    public LabelImage(int ID, String imageName, InputStream image) {
+    @Column(name = "TTB_ID")
+    private int TTBID;
+
+    @Column(name = "ImageName")
+    private String imageName;
+
+    @Lob
+    @Column(name = "Image", columnDefinition = "BLOB")
+    private byte[] image;
+
+    public LabelImage() {
+    }
+
+    public LabelImage(int ID, int TTBID, String imageName, byte[] image) {
         this.ID = ID;
+        this.TTBID = TTBID;
         this.imageName = imageName;
         this.image = image;
     }
@@ -29,14 +48,21 @@ public class LabelImage {
         this.imageName = imageName;
     }
 
-    public InputStream getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(InputStream image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
+    public int getTTBID() {
+        return TTBID;
+    }
+
+    public void setTTBID(int TTBID) {
+        this.TTBID = TTBID;
+    }
 
     public boolean equals(LabelImage aLabel) {
         return (this.ID == aLabel.ID &&

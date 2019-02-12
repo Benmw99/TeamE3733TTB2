@@ -1,53 +1,39 @@
 package Entities;
 
+import java.util.List;
 import Entities.Sorting.BrandNameSort;
 import Entities.Sorting.DateSort;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-
 public class SearchResult {
-    private ArrayList<Form> results;
+    private List<Form> results;
     private String query;
     private AdvancedSearch search;
 
-    /**
-     * blank constructor for searchResult class
-     */
-    public SearchResult(){
-        results = new ArrayList<Form>();
+    public SearchResult() {
     }
 
-    /**
-     * constructor for searchResult class
-     * @param forms takes arraylist for constructor
-     */
-    public SearchResult(ArrayList<Form> forms){
-        this.results = forms;
-    }
-
-    public SearchResult(ArrayList<Form> results, String query) {
+    public SearchResult(List<Form> results, String query, AdvancedSearch search) {
         this.results = results;
         this.query = query;
+        this.search = search;
     }
 
-    public ArrayList<Form> getResults() {
+    public List<Form> getResults() {
         return results;
     }
 
-    /**
-     * used to add a single result to the form
-     * @param form result to be added
-     */
+    public void setResults(List<Form> results) {
+        this.results = results;
+    }
+
     public void addResult(Form form){
         results.add(form);
     }
 
-    /**
-     * Used to add multiple results to the object
-     * @param forms results to be added
-     */
+
     public void addResults(ArrayList<Form> forms){
         results.addAll(forms);
     }

@@ -1,44 +1,46 @@
 package Entities;
 
-import java.util.List;
+import javax.persistence.*;
 
-import static Entities.ApprovalStatus.Complete;
-import static Entities.ApprovalStatus.Incorrect;
+@Entity
+@Table(name = "AGENTS")
+public class Agent {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Agent_ID")
+    private int agentID;
 
-public class Agent implements IUser {
-
-    private String repID;
+    @Column(name = "Login_Name")
     private String login;
+
+    @Column(name = "Password")
     private String password;
+
+    @Column(name = "Agent_Name")
     private String name;
 
-    public Agent(String repID, String login, String password) {
-        this.repID = repID;
+    public Agent() {
+    }
+
+    public Agent(int agentID, String login, String password, String name) {
+        this.agentID = agentID;
         this.login = login;
         this.password = password;
+        this.name = name;
     }
 
-    public Agent( String login, String password) {
-        this.repID = null;
+    public Agent(String login, String password, String name) {
         this.login = login;
         this.password = password;
+        this.name = name;
     }
 
-    public Agent (){
-        this.password = null;
-        this.repID = null;
-        this.login = null;
-    }
-    public String getName() {
-        return name;
+    public int getAgentID() {
+        return agentID;
     }
 
-    public String getRepID() {
-        return repID;
-    }
-
-    public void setRepID(String repID) {
-        this.repID = repID;
+    public void setAgentID(int agentID) {
+        this.agentID = agentID;
     }
 
     public String getLogin() {
@@ -57,6 +59,13 @@ public class Agent implements IUser {
         this.password = password;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public List<Form> getThreeForms() {
         DB.Database db = DB.Database.getInstance();
