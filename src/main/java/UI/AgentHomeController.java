@@ -171,6 +171,12 @@ public class AgentHomeController extends PageControllerUI  {
     }
 
     @FXML
+    void  newApp() {
+        attributeContainer.currentForm = new Form();
+//        goToPage("AgentApp.fxml");//TODO: this is not a page
+    }
+
+    @FXML
     public void logOut(ActionEvent event) throws IOException {
         attributeContainer.currentUser = null;
         goToPage("Login.fxml");
