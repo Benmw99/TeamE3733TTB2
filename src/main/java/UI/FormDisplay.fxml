@@ -212,6 +212,30 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
+                                    <Pane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <HBox prefHeight="80.0" prefWidth="1010.0">
+                                             <children>
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
+                                                   <font>
+                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="40.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Label fx:id="Agent6Label11" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                   <font>
+                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="25.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
                                             </children>
                                             <padding>
                                                 <Insets top="5.0" />
@@ -379,6 +403,30 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
+                                    <Pane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <HBox prefHeight="80.0" prefWidth="1010.0">
+                                             <children>
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
+                                                   <font>
+                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="40.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Label fx:id="Agent6Label111" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                   <font>
+                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="25.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
                                             </children>
                                             <padding>
                                                 <Insets top="5.0" />
@@ -576,6 +624,30 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
+                                    <Pane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <HBox prefHeight="80.0" prefWidth="1010.0">
+                                             <children>
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
+                                                   <font>
+                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="40.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Label fx:id="Agent6Label112" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                   <font>
+                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="25.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
                                             </children>
                                             <padding>
                                                 <Insets top="5.0" />
@@ -632,6 +704,30 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
+                                    <Pane prefHeight="98.0" prefWidth="1011.0">
+                                       <children>
+                                          <HBox prefHeight="80.0" prefWidth="1010.0">
+                                             <children>
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
+                                                   <font>
+                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="40.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Label fx:id="Agent6Label113" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                   <font>
+                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="25.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </Pane>
                                             </children>
                                             <padding>
                                                 <Insets top="5.0" />
@@ -646,4 +742,3 @@
             </children></Pane>
     </children>
 </AnchorPane>
-
