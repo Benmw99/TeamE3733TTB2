@@ -4,7 +4,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.CivilSearchController">
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.CivilController">
 <children>
     <Rectangle fill="#9ea7aa" height="136.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
     <Text fill="WHITE" layoutX="473.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Advanced Search" wrappingWidth="429.9218606590072">
@@ -95,7 +99,7 @@
          </font>
       </Text>
       <JFXTextField fx:id="brandNameTextField" layoutX="153.0" layoutY="315.0" promptText="name" />
-      <Pane layoutX="-1.0" layoutY="702.0" prefHeight="49.0" prefWidth="340.0" style="-fx-background-color: #c4c4c4#c4c4c4;">
+      <Pane layoutX="-1.0" layoutY="702.0" prefHeight="49.0" prefWidth="340.0" style="-fx-background-color: #c4c4c4;">
          <children>
             <JFXButton layoutX="129.0" layoutY="7.0" prefHeight="39.0" prefWidth="84.0" style="-fx-background-color: WHITE;" text="Search" />
          </children>
