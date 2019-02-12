@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
 <AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.CivilSearchController">
     <children>
-        <Rectangle fill="#4ba77a" height="136.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-        <Text fill="WHITE" layoutX="553.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Form" wrappingWidth="237.53324981916347">
+        <Rectangle fill="#9ea7aa" height="89.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <Text fill="WHITE" layoutX="563.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Form" wrappingWidth="237.53324981916347">
             <font>
-                <Font name="Georgia" size="48.0" />
+                <Font name="Apple SD Gothic Neo Thin" size="48.0" />
             </font></Text>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="62.0" layoutX="72.0" layoutY="141.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="136.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="62.0" layoutY="89.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="89.0" />
       <JFXButton fx:id="printSearchResultsCSV" disable="true" layoutX="1039.0" layoutY="154.0" mnemonicParsing="false" opacity="0.0" text="Save Search Results to .CSV" />
-      <JFXButton fx:id="backToAdvSearch" layoutX="88.0" layoutY="154.0" mnemonicParsing="false"  style="-fx-background-color: #174930;" text="Back to Advanced Search" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font></JFXButton>
       <TabPane layoutX="403.0" layoutY="199.0" prefHeight="610.0" prefWidth="582.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab text="Section 1">
@@ -529,5 +535,6 @@
             </Tab>
          </tabs>
       </TabPane>
+      <JFXHamburger layoutX="69.0" layoutY="35.0" />
     </children>
 </AnchorPane>

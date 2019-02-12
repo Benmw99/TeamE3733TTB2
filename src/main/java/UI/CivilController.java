@@ -21,7 +21,7 @@ import java.io.IOException;
 
 import static Entities.AlcoholType.*;
 
-public class CivilController {
+public class CivilController extends PageControllerUI {
     private Entities.SearchResult results;
     static private Entities.Form selectedForm;
     static private int initStuff = 0;
@@ -283,7 +283,7 @@ public class CivilController {
             Parent root;
             Stage stage;
             stage=(Stage) resultTable.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("CivilSearchForm.fxml"));
+            root = FXMLLoader.load(getClass().getResource("ViewSelectedForm.fxml"));
             Scene scene = new Scene(root, 1360, 820);
             stage.setScene(scene);
             stage.show();
@@ -319,4 +319,13 @@ public class CivilController {
         stage.show();
     }
 
+    @Override
+    protected void onLeave() {
+
+    }
+
+    @Override
+    void onLoad() {
+
+    }
 }

@@ -16,7 +16,7 @@ public class MainUI extends Application {
 //        primaryStage.show();
         PageSwitcher.setStage(primaryStage);
         PageSwitcher pageSwitcher = new PageSwitcher();
-        pageSwitcher.pageSwitch("WelcomePage.fxml");
+        pageSwitcher.pageSwitch("HomeSearch.fxml");
     }
 
 
