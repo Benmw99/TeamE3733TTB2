@@ -28,14 +28,7 @@
       </JFXButton>
       <Pane layoutX="338.0" layoutY="201.0" prefHeight="548.0" prefWidth="1024.0">
          <children>
-            <TableView fx:id="resultTable" layoutX="150.0" layoutY="-3.0" prefHeight="550.0" prefWidth="449.0">
-              <columns>
-                <TableColumn fx:id="col1" prefWidth="100.0" text="TTB ID#" />
-                <TableColumn fx:id="col2" prefWidth="100.0" text="Type" />
-                <TableColumn fx:id="col3" prefWidth="100.0" text="Brand Name" />
-                <TableColumn fx:id="col4" prefWidth="100.0" text="Serial Number" />
-              </columns>
-            </TableView>
+            <fx:include source="TableView.fxml"></fx:include>
          </children>
       </Pane>
       <JFXButton fx:id="menuASButton" buttonType="RAISED" layoutX="50.0" layoutY="52.0" ripplerFill="#f5f5f5" style="-fx-background-color: WHITE;" text="Return to Menu" AnchorPane.leftAnchor="50.0">

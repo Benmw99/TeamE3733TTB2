@@ -25,7 +25,7 @@
                         <Insets right="50.0" />
                      </HBox.margin>
                      <image>
-                        <Image url="@../../assets/TTB_logo.png" />
+                        <!--- Image url="@resources/TTB_logo.png" /-->
                      </image>
                   </ImageView>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB">
@@ -72,7 +72,7 @@
                         <Insets left="15.0" right="15.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="agentButton" mnemonicParsing="false" onAction="#agentLogin" style="-fx-background-color: #002F6C#002F6C #002F6C#002F6C;" text="Bureau Agent" textFill="WHITE" underline="true">
+                  <Button fx:id="Button" mnemonicParsing="false" onAction="#agentLogin" style="-fx-background-color: #002F6C#002F6C #002F6C#002F6C;" text="Bureau Agent" textFill="WHITE" underline="true">
                      <font>
                         <Font name="Palatino" size="36.0" />
                      </font>
