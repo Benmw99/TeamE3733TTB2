@@ -25,13 +25,6 @@ public class LoginController extends PageControllerUI {
 
 
 
-    TextField getLoginUserUsernameTextField() {
-        return LoginUserPasswordTextField;
-    }
-
-    TextField getLoginUserPasswordTextField() {
-        return LoginUserPasswordTextField;
-    }
 
     Button getLoginUserLoginButton() {
         return LoginUserLoginButton;
@@ -62,22 +55,25 @@ public class LoginController extends PageControllerUI {
     }
 
     public boolean authenticate(){
-        String user = getLoginUserUsernameTextField().getText();
-        String pass = getLoginUserPasswordTextField().getText();
+        String user = LoginUserUsernameTextField.getText();
+        String pass = LoginUserPasswordTextField.getText();
         AttributeContainer attributeContainer = AttributeContainer.getInstance();
-        if(ManRadioButton.isSelected()){
+        if(ManRadioButton.isSelected() && !AgentRadioButton.isSelected()){
             attributeContainer.currentUser = new Manufacturer();
             attributeContainer.currentUser.setLogin(user);
             attributeContainer.currentUser.setPassword(pass);
+            System.out.println(attributeContainer.currentUser.authenticate());
             return attributeContainer.currentUser.authenticate();
         }
-        if(AgentRadioButton.isSelected()){
+        if(AgentRadioButton.isSelected() && !ManRadioButton.isSelected()){
             attributeContainer.currentUser = new Agent();
             attributeContainer.currentUser.setLogin(user);
             attributeContainer.currentUser.setPassword(pass);
             return attributeContainer.currentUser.authenticate();
         }
-
+        if((!AgentRadioButton.isSelected() && !ManRadioButton.isSelected()) || (AgentRadioButton.isSelected() && ManRadioButton.isSelected())){
+            System.out.println("select only one option");
+        }
         return false;
     }
 
