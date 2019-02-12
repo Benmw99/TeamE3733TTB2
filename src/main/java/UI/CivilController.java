@@ -299,7 +299,7 @@ public class CivilController {
 
     public void goBackToSearch(ActionEvent event) throws IOException {
         initStuff = 0;
-        pageSwitch(event,"CivilAdvSearch.fxml", backToAdvSearch);
+        pageSwitch(event,"HomeSearch.fxml", backToAdvSearch);
     }
 
     @FXML
