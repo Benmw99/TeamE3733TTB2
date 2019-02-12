@@ -10,7 +10,7 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="UI.TableViewController"
             prefHeight="400.0" prefWidth="600.0">
-    <TableView fx:id="table" layoutY="85.0" maxHeight="1.7976931348623157E308" prefHeight="512.0" prefWidth="3563.0">
+    <TableView fx:id="table" layoutY="85.0" maxHeight="1.7976931348623157E308" prefHeight="512.0" prefWidth="3560.0">
         <columns>
             <TableColumn fx:id="colttb" prefWidth="114.59823822975159" text="TTB ID#" />
             <TableColumn fx:id="colsub" prefWidth="128.4017562866211" text="Date Submitted" />
