@@ -5,7 +5,7 @@ import Entities.Form;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class FormViewController {
+public class FormViewController  extends PageControllerUI {
 
             @FXML
             Label Display1Label;
@@ -46,11 +46,16 @@ public class FormViewController {
         @FXML
             Label Display15Label2;
         @FXML
-            Label Display16Label1;
+        Label Display15Label3;
+    @FXML
+
+    Label Display16Label1;
         @FXML
             Label Display16Label2;
         @FXML
             Label Display17Label;
+        @FXML
+            Label Display18Label;
         @FXML
             Label Display20Label;
 
@@ -88,9 +93,11 @@ public class FormViewController {
             this.Display14Label.setText("N/A");
             this.Display15Label1.setText("N/A");
             this.Display15Label2.setText("N/A");
+            this.Display15Label3.setText("N/A");
             this.Display16Label1.setText("N/A");
             this.Display16Label2.setText("N/A");
             this.Display17Label.setText("N/A");
+            this.Display18Label.setText("N/A");
             this.Display20Label.setText("N/A");
         }
         /**
@@ -170,5 +177,16 @@ public class FormViewController {
             this.Display20Label.setText(String.valueOf(form.getAlcoholContent()));
         }
 
+    @Override
+    protected void onLeave() {
+
     }
+
+    @Override
+    void onLoad() {
+        AttributeContainer.getInstance().currentForm = new Form("ABC");
+        wipeForm();
+
+    }
+}
 

@@ -1,17 +1,20 @@
 package UI;
 
+import DB.Database;
 import Entities.*;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.JFXTreeView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -45,6 +48,7 @@ public class TableViewController extends PageControllerUI implements Initializab
     @Override
     /**
      * Displays the List of Forms stored in the Attribute Container Form Queue
+     * Also sets up the table to update a clicked form into Attribute Container CurrentForm
      */
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<DisplayForm> formlist = FXCollections.observableArrayList();
@@ -59,8 +63,21 @@ public class TableViewController extends PageControllerUI implements Initializab
                 formlist.add(new DisplayForm(f));
 
         }
-//        table.getColumns().addAll(colttb, colsub, coltype, colbrand, colstatus, colserial);
-
+        table.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            /**
+             * Makes it so that, if you click on a row of the Table, a form is loaded based on that TTB_ID
+             */
+            public void handle(MouseEvent click) {
+                if (click.getClickCount() == 2) {
+                    @SuppressWarnings("rawtypes")
+                    TablePosition pos = table.getSelectionModel().getSelectedCells().get(0);
+                    int row = pos.getRow();
+                    int ID = Integer.valueOf(colttb.getCellData(row));
+                    AttributeContainer.getInstance().currentForm = Database.getDatabase().dbSelect.getFormByTTB_ID(ID);
+                }
+            }
+        });
 
 
     }
