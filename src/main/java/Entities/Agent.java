@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.security.SecureRandom;
 import java.sql.SQLException;
 
+import static Entities.ApprovalStatus.Complete;
 import static Entities.ApprovalStatus.Incorrect;
 
 @Entity
