@@ -354,11 +354,13 @@ public class AgentHomeController extends PageControllerUI implements IFormDispla
 
     @FXML
     public void refreshQueue(ActionEvent event) throws IOException {
-        attributeContainer.formQueue = ((Agent)attributeContainer.currentUser).getThreeForms();
+        //TODO CHANGE THIS ENTIRELY AS IT SHOULD WORK DIFFERENTLY. IT SHOULD GET A NEW FORM FOR HOWEVER MANY IT IS MISSING COMPARED TO ITS MAX FORMS
+        //attributeContainer.formQueue = ((Agent)attributeContainer.currentUser).getThreeForms();
         getNewQueue();//TODO: replace this with tableViewHelper
 //        tableViewHelper.updateTable(); //TODO: make tableViewHelper
         formDisplayHelper.displayForm(attributeContainer.currentForm);
     }
+
     @FXML
     public void approveForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
@@ -430,7 +432,7 @@ public class AgentHomeController extends PageControllerUI implements IFormDispla
                     int col = pos.getColumn();
                     int ID = temp.getTTBIDColumn().getCellData(row);
                     System.out.println(ID);
-                    attributeContainer.currentForm = Database.getInstance().dbSelect.getFormByTTB_ID(ID);
+                    attributeContainer.currentForm = Database.getDatabase().dbSelect.getFormByTTB_ID(ID);
 //                    ((AgentHomeController) temp).formDisplayHelper.displayForm(attributeContainer.currentForm);
                 }
             }

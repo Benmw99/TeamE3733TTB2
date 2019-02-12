@@ -257,7 +257,7 @@ public class CivilController {
             advancedSearch.setTtbID(Integer.parseInt(idField.getText()));
         }
 
-        DB.Database db = DB.Database.getInstance();
+        DB.Database db = DB.Database.getDatabase();
         results = db.dbSelect.searchBy(advancedSearch);
 
         col1.setCellValueFactory(new PropertyValueFactory<>("ttbID"));
@@ -291,7 +291,8 @@ public class CivilController {
     }
 
     public void printResults(ActionEvent event) throws IOException {
-        results.printResults();
+        //TODO REWRITE THIS PASSING A BOOLEAN FOR WHETHER OR NOT IT IS A CSV OR ASCII
+        //results.printResults();
         printSearchResultsCSV.setDisable(true);
         printSearchResultsCSV.setText("Printed");
     }

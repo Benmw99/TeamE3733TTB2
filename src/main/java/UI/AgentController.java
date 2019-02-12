@@ -726,7 +726,8 @@ public class AgentController extends PageControllerUI implements IFormDisplay {
             currentAgent.loadUser();
             pageSwitch(event, "AgentHome.fxml", loginButton);
 
-            queue = currentAgent.getThreeForms();
+            //TODO WRITE THIS TO USE THE GET QUEUE FOR AGENT FUNCTION IN DB, USING THE AGENT AS AN IN-BETWEEN
+            //queue = currentAgent.getThreeForms();
 
             System.out.println(queue.size());
          //   currentForm = queue.get(0);
@@ -826,7 +827,7 @@ public class AgentController extends PageControllerUI implements IFormDisplay {
                     int col = pos.getColumn();
                     int ID = tTBIDColumn.getCellData(row);
                     System.out.println(ID);
-                    currentForm = Database.getInstance().dbSelect.getFormByTTB_ID(ID);
+                    currentForm = Database.getDatabase().dbSelect.getFormByTTB_ID(ID);
                     FormDisplayHelper.displayForm(currentForm);
                 }
             }
@@ -863,9 +864,9 @@ public class AgentController extends PageControllerUI implements IFormDisplay {
 
     @FXML
     public void getNewQueue(ActionEvent event) throws IOException{
-        DB.Database db = DB.Database.getInstance();
+     //TODO REWRITE THIS USING THE CORRECT QUEUE METHODS
+        //queue = currentAgent.getThreeForms();
 
-        queue = currentAgent.getThreeForms();
         tTBIDColumn.setCellValueFactory(new PropertyValueFactory<>("ttbID"));
         dateSubmittedColumn.setCellValueFactory(new PropertyValueFactory<>("dateSubmitted"));
         brandNameColumn.setCellValueFactory(new PropertyValueFactory<>("brandName"));
