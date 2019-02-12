@@ -72,12 +72,12 @@ public class Manufacturer implements IUser {
 
 
     public boolean authenticate(){
-        DB.Database db = DB.Database.getInstance();
+        DB.Database db = DB.Database.getDatabase();
         return db.dbSelect.AuthenticateCompany(login,password);
     }
 
     public void loadUser(){
-        DB.Database db = DB.Database.getInstance();
+        DB.Database db = DB.Database.getDatabase();
         Manufacturer man = db.dbSelect.getManufacturer(login);
         this.manID = man.getManID();
         this.manName = man.getManName();

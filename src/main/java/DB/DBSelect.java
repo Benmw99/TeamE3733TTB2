@@ -136,7 +136,7 @@ public class DBSelect {
      * @return True for successful login, false for failure
      */
     public boolean AuthenticateRep(String login, String pass) {
-        String q = "SELECT count(*) FROM Rep C WHERE C.login = :login AND C.password = :pass";
+        String q = "SELECT count(*) FROM Representative C WHERE C.login = :login AND C.password = :pass";
         return Authenticate(q, login, pass);
     }
 

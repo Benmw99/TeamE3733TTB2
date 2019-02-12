@@ -1,9 +1,19 @@
 package Entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "REPS")
 public class Representative implements IUser {
 
+    @Id
+    @Column(name = "Rep_ID")
     private String repID;
+
+    @Column(name = "Login_Name")
     private String login;
+
+    @Column(name = "Password")
     private String password;
 
     public Representative(String repID, String login, String password) {
@@ -47,12 +57,13 @@ public class Representative implements IUser {
     }
 
     public boolean authenticate(){
-        DB.Database db = DB.Database.getInstance();
+        DB.Database db = DB.Database.getDatabase();
         return db.dbSelect.AuthenticateRep(login,password);
     }
 
+    //TODO WRITE THIS QUICKLY
     public void loadUser(){
-        DB.Database db = DB.Database.getInstance();
+        DB.Database db = DB.Database.getDatabase();
         Representative rep = db.dbSelect.getRepresentative(login);
         this.repID = rep.getRepID();
 
@@ -60,7 +71,7 @@ public class Representative implements IUser {
 
 
     public SearchResult search(AdvancedSearch advancedSearch) {
-        DB.Database db = DB.Database.getInstance();
+        DB.Database db = DB.Database.getDatabase();
         return db.dbSelect.searchBy(advancedSearch);
     }
 

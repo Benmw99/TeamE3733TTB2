@@ -1,6 +1,7 @@
 package DB;
 
 import Entities.*;
+import org.apache.derby.iapi.store.raw.RePreparable;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -79,7 +80,7 @@ public class DBInsert {
      * @author Jordan
      * @param rep A fully filled out rep to be inserted
      */
-    public void insertRep(Rep rep) {
+    public void insertRep(Representative rep) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {

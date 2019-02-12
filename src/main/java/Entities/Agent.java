@@ -86,6 +86,7 @@ public class Agent {
         return db.dbSelect.searchBy(advancedSearch);
     }
 
+    //TODO FIX THIS BY JUST SETTING THE FORM'S CURRENT APPROVAL AND UPDATING
     public void approveForm(Form form, String qualifications) {
         Approval app = new Approval();
         form.setApproval(app);
@@ -96,6 +97,7 @@ public class Agent {
 
     }
 
+    //TODO FIX THIS BY JUST SETTING THE FORM'S CURRENT APPROVAL AND UPDATING
     public void rejectForm(Form form) {
         form.setApprovalStatus(Incorrect);
         DB.Database db = DB.Database.getDatabase();
@@ -123,9 +125,9 @@ public class Agent {
 
     }
 
-    public void csvDownload(String query, AdvancedSearch advancedSearch){
+    public void csvDownload(SearchResult sr, boolean isCSV){
         DB.Database db = DB.Database.getDatabase();
-        db.dbSelect.downloadResults(query,advancedSearch);
+        db.dbSelect.downloadQuery(sr, isCSV);
 
     }
 

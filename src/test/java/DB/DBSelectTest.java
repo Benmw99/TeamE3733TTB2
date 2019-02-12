@@ -18,7 +18,7 @@ public class DBSelectTest {
 
         db.dbInsert.insertCompany(new Company(123, "Brewers Inc.", "TestCompany", "1234"));
         db.dbInsert.insertAgent(new Agent("TestAgent", "1234", "Sam Adamster"));
-        db.dbInsert.insertRep(new Rep("123abc", "TestRep", "1234"));
+        db.dbInsert.insertRep(new Representative("123abc", "TestRep", "1234"));
 
         //Oh boy lets make a complete form
         List<BrewersPermit> Brews = new ArrayList<>();
