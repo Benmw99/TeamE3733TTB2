@@ -42,6 +42,11 @@ public class Agent implements IUser{
         this.name = name;
     }
 
+    public Agent(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
     public int getAgentID() {
         return agentID;
     }
@@ -116,7 +121,9 @@ public class Agent implements IUser{
         return db.dbSelect.searchBy(advancedSearch);
     }
 
-    public void approveForm(Form form, String qualifications, Date expiration, Date approved) {
+    public void approveForm(Form form, String qualifications, Date expiration) {
+        long milli = System.currentTimeMillis();
+        Date approved = new Date(milli);
         DB.Database db = DB.Database.getDatabase();
         Approval app = form.getApproval();
         app.setAgentApprovalName(this.getName());
@@ -133,6 +140,24 @@ public class Agent implements IUser{
         db.dbInsert.updateApproval(form);
     }
 
+    public void approveForm(Form form, String qualifications) {
+        long milli = System.currentTimeMillis();
+        Date approved = new Date(milli);
+        DB.Database db = DB.Database.getDatabase();
+        Approval app = form.getApproval();
+        app.setAgentApprovalName(this.getName());
+        app.setDateApproved(approved);
+        app.setExpDate(null);
+        app.setQualifications(qualifications);
+        app.setPage1(ApprovalStatus.Complete);
+        app.setPage2(ApprovalStatus.Complete);
+        app.setPage3(ApprovalStatus.Complete);
+        app.setPage4(ApprovalStatus.Complete);
+        form.setApprovalStatus(ApprovalStatus.Complete);
+        form.setApproval(app);
+
+        db.dbInsert.updateApproval(form);
+    }
 
     public void rejectForm(Form form) {
         DB.Database db = DB.Database.getDatabase();
