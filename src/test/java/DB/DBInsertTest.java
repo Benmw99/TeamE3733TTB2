@@ -18,7 +18,7 @@ public class DBInsertTest {
         DB.Database db = DB.Database.getDatabase();
         db.tableBuilder.resetDB();
 
-        db.dbInsert.insertCompany(new Company(123, "Brewers Inc.", "TestCompany", "1234"));
+        db.dbInsert.insertCompany(new Manufacturer(123, "Brewers Inc.", "TestCompany", "1234"));
     }
 
     @Test

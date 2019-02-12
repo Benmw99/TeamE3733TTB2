@@ -302,6 +302,18 @@ public class Form {
         return companyID;
     }
 
+    public void setAlcoholContent(float alcoholContent) {
+        this.alcoholContent = alcoholContent;
+    }
+
+    public ApprovalStatus getApprovalStatus() {
+        return approvalStatus;
+    }
+
+    public void setApprovalStatus(ApprovalStatus approvalStatus) {
+        this.approvalStatus = approvalStatus;
+    }
+
     public void setCompanyID(int companyID) {
         this.companyID = companyID;
     }
@@ -321,17 +333,6 @@ public class Form {
         return alcoholContent;
     }
 
-    public void setAlcoholContent(float alcoholContent) {
-        this.alcoholContent = alcoholContent;
-    }
-
-    public ApprovalStatus getApprovalStatus() {
-        return approvalStatus;
-    }
-
-    public void setApprovalStatus(ApprovalStatus approvalStatus) {
-        this.approvalStatus = approvalStatus;
-    }
 
     public void setBrewersPermit(List<BrewersPermit> brewersPermit) {
         this.brewersPermit = brewersPermit;
@@ -375,8 +376,8 @@ public class Form {
                 this.alcoholContent == aform.alcoholContent);
     }
 
-    boolean brewListEquals(ArrayList<String> aList) {
-        ArrayList<String> resultList = new ArrayList<String>();
+    boolean brewListEquals(List<String> aList) {
+        List<String> resultList = new ArrayList<String>();
         for (String s: aList) {
             for (String t: this.brewersPermit) {
                 if (s.equals(t)) {
@@ -387,8 +388,8 @@ public class Form {
         return(this.brewersPermit.size() == resultList.size());
     }
 
-    boolean addressListEquals(ArrayList<Address> aList) {
-        ArrayList<Address> resultList = new ArrayList<Address>();
+    boolean addressListEquals(List<Address> aList) {
+        List<Address> resultList = new ArrayList<Address>();
         for (Address a: aList) {
             for (Address s: this.address) {
                 if (a.equals(s)) {

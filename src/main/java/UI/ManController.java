@@ -1,5 +1,5 @@
 package UI;
-
+/**
 import DB.Database;
 import Entities.*;
 import javafx.collections.FXCollections;
@@ -306,10 +306,7 @@ public class ManController {
         col5.setCellValueFactory(new PropertyValueFactory<>("approval.expDate"));
         col6.setCellValueFactory(new PropertyValueFactory<>("approval.agentApprovalName"));
         tableViewMan.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            /**
-             * Makes it so that, if you click on a row of the Table, a form is loaded based on that TTB_ID
-             */
+
             public void handle(MouseEvent click) {
                 if (click.getClickCount() == 2) {
                     @SuppressWarnings("rawtypes")
@@ -317,7 +314,7 @@ public class ManController {
                     int row = pos.getRow();
                     int col = pos.getColumn();
                     int ID = col1.getCellData(row);
-                    displayForm(Database.getInstance().dbSelect.getFormByTTB_ID(ID));
+                    displayForm(Database.getDatabase().dbSelect.getFormByTTB_ID(ID));
                 }
             }
         });
@@ -411,8 +408,8 @@ public class ManController {
 //        Man15Label1.setText(); //TODO TYPE OF APPLICATION
 //        Man15Label2.setText();
 //        Man15Label3.setText(); //END TODO
-        if(form.getBlownBrandedEmbossedInfo() != null) {
-            Man16Label1.setText(form.getBlownBrandedEmbossedInfo());
+        if(form.getOtherInfo() != null) {
+            Man16Label1.setText(form.getOtherInfo());
         }
 //        Man16Label2.setText(); //TODO TRANSLATION
         if(form.getDateSubmitted() != null) {
@@ -583,13 +580,7 @@ public class ManController {
         stage.show();
     }
 
-    /**
-     *
-     * @param event still not used
-     * @param filename name of FXML file you wish to load
-     * @param b button
-     * @throws IOException
-     */
+
     public void menuSwitch(ActionEvent event, String filename, MenuButton b) throws IOException{
         Parent root;
         Stage stage;
@@ -616,8 +607,6 @@ public class ManController {
         }
     }
 
-    // Checks through the first page of the full TTB application to see if any of the text fields are blank.
-    // If they are all filled, then the user can move on to the second page
     @FXML
     public void checkBlanksPage1(ActionEvent event) throws IOException{
         if(this.newForm == null) {
@@ -655,8 +644,6 @@ public class ManController {
         }
     }
 
-    // Checks through the second page of the full TTB application to see if any of the text fields are blank.
-    // If they are all filled, then the user can move on to the third page
     @FXML
     public void checkBlanksPage2(ActionEvent event) throws IOException{
 
@@ -694,8 +681,6 @@ public class ManController {
         }
     }
 
-    // Checks through the third page of the full TTB application to see if any of the text fields are blank.
-    // If they are all filled, then the user can move on to the fourth page
     @FXML
     public void checkBlanksPage3(ActionEvent event) throws IOException{
 
@@ -705,7 +690,7 @@ public class ManController {
         //TODO
         // Add types of applications in future iterations
         //
-        this.newForm.setBlownBrandedEmbossedInfo(additionalInfoField.getText());
+        this.newForm.setOtherInfo(additionalInfoField.getText());
         this.newForm.setDateSubmitted(Timestamp.from(Instant.now()));
         if(StringUtils.isBlank(this.newForm.getPhoneNumber()) || StringUtils.isBlank(this.newForm.getEmail())){
             Alert missingTextFieldPage1 = new Alert(Alert.AlertType.WARNING);
@@ -719,11 +704,7 @@ public class ManController {
         }
     }
 
-    /**
-     * Checks if the combobox is on wine and displays the appropriate text fields
-     *
-     * @throws IOException
-     */
+
     @FXML
     public void checkWine() throws IOException{
         if (typeComboBox.getValue().equals("Wine")){
@@ -739,11 +720,7 @@ public class ManController {
         }
     }
 
-    /**
-     * Will disable and reset fields is they select the button "same as question 8"
-     *
-     * @throws IOException someone help me here, it throws errors, but works anyways
-     */
+
     @FXML
     public void checkMail() throws IOException{
         if (sameAddressRadioButton.isSelected()){
@@ -793,12 +770,7 @@ public class ManController {
         }
     }
 
-    /**
-     * Sets the listener for each fx:id. Note, the listener only starts once an action occurs on one of the textfields.
-     * After the initial action, it should begin listening for all buttons
-     *
-     * @throws IOException
-     */
+
     @FXML
     public void limitManFieldsNum1() throws IOException{
         onlyNums(repIDField);
@@ -814,12 +786,7 @@ public class ManController {
         checkZip(zip9Field);
     }
 
-    /**
-     * Begins a listener for a textfield that will make it impossible to enter letters
-     *
-     * @param field this is the fx:id for the textfield that you wish to only accept nums
-     * @throws IOException will throw exception if you try call in a scene that's not loaded
-     */
+
     public void onlyNums(TextField field) throws IOException {
         field.getProperties().put("vkType", "numeric");
         field.setTextFormatter(new TextFormatter<>(c -> {
@@ -838,12 +805,7 @@ public class ManController {
         }));
     }
 
-    /**
-     * Begins a listener for a textfield that will make it impossible to enter letters and numbers more than
-     *
-     * @param field this is the fx:id for the textfield that you wish to only accept nums
-     * @throws IOException someone help me here, it throws errors, but works anyways
-     */
+
     public void checkZip(TextField field) throws IOException {
 
         field.getProperties().put("vkType", "numeric");
@@ -865,3 +827,4 @@ public class ManController {
         }));
     }
 }
+*/
