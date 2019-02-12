@@ -75,7 +75,7 @@ public class SearchResult {
             this.search.equals(aSearchRes.search));
     }
 
-    boolean resultsEquals(ArrayList<Form> aList) {
+    boolean resultsEquals(List<Form> aList) {
         ArrayList<Form> resultList = new ArrayList<Form>();
         for (Form f : aList) {
             for (Form s : this.results) {

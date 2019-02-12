@@ -2,6 +2,8 @@ package Entities;
 
 import javax.persistence.*;
 
+import static Entities.ApprovalStatus.Incorrect;
+
 @Entity
 @Table(name = "AGENTS")
 public class Agent {
