@@ -1,56 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.*?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import com.jfoenix.controls.JFXPasswordField?>
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXCheckBox?>
-<?import com.jfoenix.controls.JFXHamburger?>
-
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.RegisterPageController">
    <children>
-      <Rectangle fill="#9ea7aa" height="85.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="1360.0" />
-      <Rectangle fill="#cfd8dc" height="32.0" layoutY="85.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1360.0" />
-      <Text fill="WHITE" layoutX="589.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
+      <Rectangle fill="#9ea7aa" height="89.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="1376.0" />
+      <Rectangle fill="#cfd8dc" height="62.0" layoutY="89.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1376.0" />
+      <Text fill="WHITE" layoutX="575.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
          <font>
-            <Font name="Apple SD Gothic Neo Regular" size="36.0" />
+            <Font name="Apple SD Gothic Neo Thin" size="48.0" />
          </font>
       </Text>
       <VBox alignment="CENTER" layoutX="578.0" layoutY="220.0" prefHeight="321.0" prefWidth="205.0">
          <children>
-            <JFXTextField fx:id="RegisterUserFirstNameTextField" alignment="CENTER" promptText="First Name">
+            <JFXTextField fx:id="RegisterUserFirstNameTextField" alignment="CENTER" promptText="first name">
                <padding>
                   <Insets bottom="5.0" top="5.0" />
                </padding>
                <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="13.0" />
+                  <Font name="Apple SD Gothic Neo Thin" size="14.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="RegisterUserLastNameTextField" alignment="CENTER" promptText="Last Name">
+            <JFXTextField fx:id="RegisterUserLastNameTextField" alignment="CENTER" promptText="last name">
                <padding>
                   <Insets bottom="5.0" top="20.0" />
                </padding>
                <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="13.0" />
+                  <Font name="Apple SD Gothic Neo Thin" size="14.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="RegisterUserUsernameTextField" alignment="CENTER" promptText="Username">
+            <JFXTextField fx:id="RegisterUserUsernameTextField" alignment="CENTER" promptText="username">
                <padding>
                   <Insets bottom="5.0" top="20.0" />
                </padding>
                <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="13.0" />
+                  <Font name="Apple SD Gothic Neo Thin" size="14.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="RegisterUserEmailTextField" alignment="CENTER" promptText="Email">
+            <JFXTextField fx:id="RegisterUserEmailTextField" alignment="CENTER" promptText="email">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -58,31 +56,31 @@
                   <Insets bottom="5.0" top="20.0" />
                </padding>
                <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="13.0" />
+                  <Font name="Apple SD Gothic Neo Thin" size="14.0" />
                </font>
             </JFXTextField>
-            <JFXPasswordField fx:id="RegisterUserPasswordTextField" alignment="TOP_CENTER" promptText="Password">
+            <JFXPasswordField fx:id="RegisterUserPasswordTextField" alignment="TOP_CENTER" promptText="password">
                <padding>
                   <Insets bottom="5.0" top="20.0" />
                </padding>
                <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="13.0" />
+                  <Font name="Apple SD Gothic Neo Thin" size="14.0" />
                </font>
             </JFXPasswordField>
-            <JFXPasswordField fx:id="RegisterUserPasswordCheckTextField" alignment="CENTER" promptText="Re-enter Password">
+            <JFXPasswordField fx:id="RegisterUserPasswordCheckTextField" alignment="CENTER" promptText="re-enter password">
                <padding>
                   <Insets bottom="5.0" top="20.0" />
                </padding>
                <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="13.0" />
+                  <Font name="Apple SD Gothic Neo Thin" size="14.0" />
                </font>
             </JFXPasswordField>
-            <JFXButton fx:id="SubmitRegistrationButton" buttonType="RAISED" prefHeight="27.0" prefWidth="64.0" style="-fx-background-color: #9ea7aa;" text="Register">
+            <JFXButton fx:id="SubmitRegistrationButton" buttonType="RAISED" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: WHITE;" text="register">
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
                <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="13.0" />
+                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                </font>
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">

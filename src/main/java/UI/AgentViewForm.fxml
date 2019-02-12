@@ -1230,7 +1230,7 @@
       </VBox>
       <HBox alignment="CENTER" prefHeight="62.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="89.0">
          <children>
-            <JFXButton fx:id="approveButton" buttonType="RAISED" style="-fx-background-color: #26c6da;" text="Approve Form">
+            <JFXButton fx:id="approveButton" buttonType="RAISED" onAction="#approveForm" style="-fx-background-color: #26c6da;" text="Approve Form">
                <font>
                   <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                </font>
@@ -1246,7 +1246,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </JFXButton>
-            <JFXButton buttonType="RAISED" style="-fx-background-color: #26c6da;" text="Reject Form">
+            <JFXButton fx:id="rejectButton" buttonType="RAISED" onAction="#rejectForm" style="-fx-background-color: #26c6da;" text="Reject Form">
                <font>
                   <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                </font>
@@ -1269,7 +1269,7 @@
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </Text>
-      <JFXButton fx:id="homeButton" buttonType="RAISED" layoutX="61.0" layoutY="28.0" onAction="#print" style="-fx-background-color: #26c6da;" text="Back to Home">
+      <JFXButton fx:id="homeButton" buttonType="RAISED" layoutX="61.0" layoutY="28.0" onAction="#returnHome" style="-fx-background-color: #26c6da;" text="Back to Home">
          <ripplerFill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -1282,7 +1282,7 @@
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="printAVFButton" buttonType="RAISED" layoutX="1200.0" layoutY="105.0" onAction="#approveForm" style="-fx-background-color: #26c6da;" text="Print">
+      <JFXButton fx:id="printViewFormButton" buttonType="RAISED" layoutX="1200.0" layoutY="105.0" onAction="#print" style="-fx-background-color: #26c6da;" text="Print">
          <ripplerFill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -1295,6 +1295,6 @@
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </JFXButton>
-      <JFXComboBox fx:id="sectionMarkComboBox" layoutX="213.0" layoutY="107.0" prefHeight="27.0" prefWidth="177.0" />
+      <JFXComboBox fx:id="markAsComboBox" layoutX="213.0" layoutY="107.0" prefHeight="27.0" prefWidth="177.0" />
    </children>
 </AnchorPane>

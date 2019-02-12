@@ -2,12 +2,12 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -16,21 +16,9 @@
 
 <AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.LoginController">
    <children>
-      <Rectangle fill="#9ea7aa" height="54.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1360.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Rectangle fill="#cfd8dc" height="34.0" layoutY="54.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="1360.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <JFXHamburger layoutX="25.0" layoutY="17.0" />
-      <HBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="1360.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label text="Login" textFill="WHITE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="24.0" />
-               </font>
-               <HBox.margin>
-                  <Insets top="10.0" />
-               </HBox.margin>
-            </Label>
-         </children>
-      </HBox>
+      <Rectangle fill="#9ea7aa" height="89.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1376.0" AnchorPane.bottomAnchor="671.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Rectangle fill="#cfd8dc" height="62.0" layoutY="54.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="1384.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="89.0" />
+      <JFXHamburger layoutX="51.0" layoutY="40.0" />
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="88.0">
          <children>
             <JFXTextField fx:id="LoginUserUsernameTextField" alignment="CENTER" maxWidth="350.0" prefWidth="350.0" promptText="username">
@@ -41,14 +29,14 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </JFXTextField>
-            <JFXTextField fx:id="LoginUserUsernameTextField1" alignment="CENTER" maxWidth="350.0" prefWidth="350.0" promptText="password">
+            <JFXPasswordField fx:id="LoginUserPasswordTextField" alignment="CENTER" maxWidth="350.0" prefWidth="350.0" promptText="password">
                <font>
                   <Font name="Apple SD Gothic Neo Thin" size="13.0" />
                </font>
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
-            </JFXTextField>
+            </JFXPasswordField>
             <Label text="I'm a: ">
                <font>
                   <Font name="Apple SD Gothic Neo Thin" size="13.0" />
@@ -57,7 +45,7 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </Label>
-            <JFXRadioButton text="manufacturer">
+            <JFXRadioButton fx:id="ManRadioButton" text="manufacturer">
                <font>
                   <Font name="Apple SD Gothic Neo Thin" size="13.0" />
                </font>
@@ -65,7 +53,7 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </JFXRadioButton>
-            <JFXRadioButton text="agent">
+            <JFXRadioButton fx:id="AgentRadioButton" text="agent">
                <font>
                   <Font name="Apple SD Gothic Neo Thin" size="13.0" />
                </font>
@@ -73,7 +61,7 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </JFXRadioButton>
-            <JFXButton fx:id="LoginUserLoginButton" buttonType="RAISED" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: WHITE;" text="log in">
+            <JFXButton fx:id="LoginUserLoginButton" buttonType="RAISED" onAction="#login" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: WHITE;" text="log in">
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>
@@ -83,13 +71,34 @@
                   </RadialGradient>
                </ripplerFill>
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="13.0" />
+                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                </font>
                <VBox.margin>
                   <Insets top="25.0" />
                </VBox.margin>
             </JFXButton>
+            <JFXButton fx:id="searchbutton" buttonType="RAISED" onAction="#search" prefHeight="57.0" prefWidth="198.0" style="-fx-background-color: WHITE;" text="search the database">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="30.0" />
+               </VBox.margin>
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+               </font>
+            </JFXButton>
          </children>
       </VBox>
+      <Label layoutX="643.0" layoutY="18.0" text="Login" textFill="WHITE">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="48.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

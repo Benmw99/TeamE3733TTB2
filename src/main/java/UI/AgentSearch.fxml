@@ -11,14 +11,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AgentSearchController">
+<AnchorPane fx:id="SearchApps" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AgentSearchController">
     <children>
         <Rectangle fill="#9ea7aa" height="89.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1376.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
         <Text fill="WHITE" layoutX="621.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" wrappingWidth="147.62400909650722">
          <font>
             <Font name="Apple SD Gothic Neo Thin" size="48.0" />
          </font></Text>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="62.0" layoutY="89.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1376.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="89.0" />
+        <Rectangle fx:id="PrintSearch" arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="62.0" layoutY="89.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1376.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="89.0" />
       <Text layoutX="97.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories">
          <font>
             <Font name="Apple SD Gothic Neo Thin" size="36.0" />
@@ -82,7 +82,7 @@
          </font></JFXTextField>
       <JFXTextField fx:id="SearchSource" layoutX="172.0" layoutY="221.0" promptText="name" />
       <JFXTextField fx:id="SearchBrandName" layoutX="172.0" layoutY="277.0" promptText="name" />
-      <JFXTextField layoutX="172.0" layoutY="327.0" promptText="name" />
+      <JFXTextField fx:id="SearchFancifulName" layoutX="172.0" layoutY="327.0" promptText="name" />
       <JFXTextField fx:id="SearchSerialNumber" layoutX="172.0" layoutY="378.0" promptText="number" />
       <JFXTextField fx:id="SearchTimestamp" layoutX="172.0" layoutY="432.0" promptText="date" />
       <JFXTextField fx:id="SearchTTBID" layoutX="172.0" layoutY="487.0" promptText="TTB ID" />
