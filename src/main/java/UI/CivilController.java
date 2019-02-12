@@ -257,7 +257,7 @@ public class CivilController {
             advancedSearch.setTtbID(Integer.parseInt(idField.getText()));
         }
 
-        DB.Database db = DB.Database.getInstance();
+        DB.Database db = DB.Database.getDatabase();
         results = db.dbSelect.searchBy(advancedSearch);
 
         col1.setCellValueFactory(new PropertyValueFactory<>("ttbID"));
