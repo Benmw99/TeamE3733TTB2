@@ -24,6 +24,7 @@ public class AttributeContainer {
     public int searchPage;
     public Stack<String> backlog;
     public int numForQueue = 5;
+    PageControllerUI current_page;
 
     private AttributeContainer() {
         formQueue = null;
