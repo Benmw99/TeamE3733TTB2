@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.LoginController">
+   <children>
+      <Rectangle fill="#9ea7aa" height="54.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
+      <Rectangle fill="#cfd8dc" height="34.0" layoutY="54.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
+      <Label layoutX="274.0" layoutY="12.0" text="Login" textFill="WHITE">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+         </font></Label>
+      <JFXTextField fx:id="LoginUserUsernameTextField" alignment="CENTER" layoutX="235.0" layoutY="124.0" promptText="username">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="13.0" />
+         </font></JFXTextField>
+      <JFXRadioButton layoutX="245.0" layoutY="242.0" text="manufacturer">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="13.0" />
+         </font></JFXRadioButton>
+      <JFXRadioButton layoutX="245.0" layoutY="270.0" text="agent">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="13.0" />
+         </font></JFXRadioButton>
+      <JFXButton fx:id="LoginUserLoginButton" buttonType="RAISED" layoutX="271.0" layoutY="301.0" style="-fx-background-color: WHITE;" text="log in">
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="13.0" />
+         </font></JFXButton>
+      <JFXTextField fx:id="LoginUserUsernameTextField1" alignment="CENTER" layoutX="235.0" layoutY="173.0" promptText="password">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="13.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="285.0" layoutY="217.0" text="I'm a: ">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="13.0" />
+         </font>
+      </Label>
+      <JFXHamburger layoutX="25.0" layoutY="17.0" />
+   </children>
+</AnchorPane>
