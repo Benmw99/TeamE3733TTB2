@@ -359,6 +359,7 @@ public class AgentHomeController extends PageControllerUI implements IFormDispla
 //        tableViewHelper.updateTable(); //TODO: make tableViewHelper
         formDisplayHelper.displayForm(attributeContainer.currentForm);
     }
+
     @FXML
     public void approveForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
