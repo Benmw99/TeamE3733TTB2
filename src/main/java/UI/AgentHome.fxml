@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
-<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
 <AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AgentHomeController">
    <children>
       <Pane prefHeight="759.0" prefWidth="1360.0" style="-fx-background-color: WHITE;">
@@ -19,37 +28,41 @@
                <children>
                   <Text fill="WHITE" layoutX="561.0" layoutY="60.0" strokeWidth="0.0" text="My Current Queue">
                      <font>
-                        <Font name="Apple SD Gothic Neo Regular" size="36.0" />
+                        <Font name="Apple SD Gothic Neo Thin" size="36.0" />
                      </font>
                   </Text>
-                  <JFXButton fx:id="backButton" buttonType="RAISED" layoutX="128.0" layoutY="24.0" onAction="#logOut" prefHeight="41.0" prefWidth="111.0" style="-fx-background-color: #26c6da;" text="Log Out">
+                  <JFXButton fx:id="backButton" buttonType="RAISED" layoutX="128.0" layoutY="24.0" onAction="#logOut" prefHeight="41.0" prefWidth="111.0" ripplerFill="#ffffff1a" style="-fx-background-color: #26c6da;" text="Log Out">
                      <font>
-                        <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                      </font>
-                     <ripplerFill>
-                        <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-                           <stops>
-                              <Stop color="BLACK" />
-                              <Stop color="WHITE" offset="1.0" />
-                           </stops>
-                        </RadialGradient>
-                     </ripplerFill>
                   </JFXButton>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <JFXHamburger />
+                     </children>
+                  </HBox>
                </children>
             </Pane>
-            <Pane layoutX="-1.0" layoutY="87.0" prefHeight="676.0" prefWidth="355.0" style="-fx-background-color: #3C3B3B#3C3B3B;">
+            <Pane layoutX="-1.0" layoutY="87.0" prefHeight="676.0" prefWidth="355.0" style="-fx-background-color: #cfd8dc;">
                <children>
-                  <JFXButton fx:id="addAppButton" buttonType="RAISED" layoutX="292.0" layoutY="30.0" onAction="#getNewQueue" ripplerFill="#222121" style="-fx-background-radius: 15; -fx-background-color: #26c6da;" text="+" />
-                  <JFXTextField fx:id="searchAHField" layoutX="44.0" layoutY="27.0" prefHeight="33.0" prefWidth="231.0" promptText="Search Applications" style="-fx-background-color: #aeacac;" unFocusColor="#aeacac" />
+                  <JFXButton fx:id="addAppButton" buttonType="RAISED" layoutX="292.0" layoutY="30.0" onAction="#getNewQueue" ripplerFill="BLACK" style="-fx-background-radius: 15; -fx-background-color: #26c6da;" text="+">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+                     </font></JFXButton>
+                  <JFXTextField fx:id="searchAHField" layoutX="44.0" layoutY="27.0" prefHeight="33.0" prefWidth="231.0" promptText="Search Applications" style="-fx-background-color: #aeacac;" unFocusColor="WHITE">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Thin" size="13.0" />
+                     </font></JFXTextField>
                   <JFXButton fx:id="getnewQueueButton" buttonType="RAISED" layoutX="106.0" layoutY="618.0" onAction="#getNewQueue" style="-fx-background-color: #26c6da;" text="Get New Queue">
                      <font>
-                        <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                      </font>
                      <ripplerFill>
-                        <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                        <RadialGradient centerX="0.5112359550561798" centerY="0.5" radius="0.5">
                            <stops>
                               <Stop color="BLACK" />
-                              <Stop color="WHITE" offset="1.0" />
+                              <Stop color="BLACK" offset="0.007434944237918215" />
+                              <Stop color="#ffffff97" offset="1.0" />
                            </stops>
                         </RadialGradient>
                      </ripplerFill>
@@ -65,55 +78,74 @@
             </Pane>
             <Pane layoutX="355.0" layoutY="88.0" prefHeight="64.0" prefWidth="1006.0" style="-fx-background-color: #cfd8dc;">
                <children>
-                  <JFXButton fx:id="approveAHButton" buttonType="RAISED" layoutX="245.0" layoutY="17.0" onAction="#approveForm" style="-fx-background-color: #26c6da;" text="Approve Form">
-                     <font>
-                        <Font name="Apple SD Gothic Neo Regular" size="18.0" />
-                     </font>
-                     <ripplerFill>
-                        <RadialGradient centerX="0.5056179775280899" centerY="0.5" radius="0.5">
-                           <stops>
-                              <Stop color="BLACK" />
-                              <Stop color="WHITE" offset="1.0" />
-                           </stops>
-                        </RadialGradient>
-                     </ripplerFill>
-                  </JFXButton>
-                  <JFXButton fx:id="printAHButton" buttonType="RAISED" layoutX="885.0" layoutY="19.0" onAction="#print" style="-fx-background-color: #26c6da;" text="Print">
-                     <ripplerFill>
-                        <RadialGradient centerX="0.5056179775280899" centerY="0.5" radius="0.5">
-                           <stops>
-                              <Stop color="BLACK" />
-                              <Stop color="WHITE" offset="1.0" />
-                           </stops>
-                        </RadialGradient>
-                     </ripplerFill>
-                     <font>
-                        <Font name="Apple SD Gothic Neo Regular" size="18.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton fx:id="rejectAHButton" buttonType="RAISED" layoutX="412.0" layoutY="17.0" style="-fx-background-color: #26c6da;" text="Reject Form">
-                     <font>
-                        <Font name="Apple SD Gothic Neo Regular" size="18.0" />
-                     </font>
-                     <ripplerFill>
-                        <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-                           <stops>
-                              <Stop color="BLACK" />
-                              <Stop color="WHITE" offset="1.0" />
-                           </stops>
-                        </RadialGradient>
-                     </ripplerFill>
-                  </JFXButton>
-                  <JFXButton fx:id="reviewToolButton" buttonType="RAISED" layoutX="564.0" layoutY="17.0" onAction="#reviewingTools" style="-fx-background-color: #26c6da;" text="Use Reviewing Tools">
-                     <font>
-                        <Font name="Apple SD Gothic Neo Regular" size="18.0" />
-                     </font>
-                  </JFXButton>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <JFXButton fx:id="approveAHButton" buttonType="RAISED" onAction="#approveForm" style="-fx-background-color: #26c6da;" text="Approve Form">
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                           </font>
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5056179775280899" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                           <HBox.margin>
+                              <Insets left="170.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="rejectAHButton" buttonType="RAISED" style="-fx-background-color: #26c6da;" text="Reject Form">
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                           </font>
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="reviewToolButton" buttonType="RAISED" onAction="#reviewingTools" style="-fx-background-color: #26c6da;" text="Use Reviewing Tools">
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="60.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="printAHButton" buttonType="RAISED" onAction="#print" style="-fx-background-color: #26c6da;" text="Print">
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5056179775280899" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="100.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </HBox>
                </children>
             </Pane>
-            <Pane layoutX="487.0" layoutY="153.0" prefHeight="606.0" prefWidth="576.0" style="-fx-background-color: #E7E7E7#E7E7E7;">
+            <Pane layoutX="487.0" layoutY="153.0" prefWidth="576.0" style="-fx-background-color: white;">
                <children>
-                  <JFXTabPane layoutX="-35.0" prefHeight="605.0" prefWidth="722.0">
+                  <JFXTabPane layoutX="-132.0" prefHeight="605.0" prefWidth="1011.0" stylesheets="@TabPane.css">
                      <tabs>
                         <Tab text="Section 1">
                            <content>
@@ -121,23 +153,21 @@
                                  <children>
                                     <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="720.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                                           <HBox>
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="1" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="1">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Representative ID #" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Representative ID #">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent1Label1" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="25.0" />
@@ -149,23 +179,21 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="722.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
-                                          <HBox>
+                                          <HBox prefHeight="80.0" prefWidth="1004.0">
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="2*" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="2*" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Plant Registry/Basic Permit Brewer's #" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Plant Registry/Basic Permit Brewer's #" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent2Label1" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="25.0" />
@@ -177,23 +205,21 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="720.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
-                                          <HBox>
+                                          <HBox prefHeight="80.0" prefWidth="1002.0">
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="3*" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="3*" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Source of Product" textFill="WHITE" HBox.hgrow="ALWAYS">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Source of Product" textFill="BLACK" HBox.hgrow="ALWAYS">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent3Label1" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="25.0" />
@@ -205,32 +231,30 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="720.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
-                                          <HBox prefHeight="80.0" prefWidth="455.0">
+                                          <HBox prefHeight="80.0" prefWidth="1004.0">
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="4*" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="4*" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Seriel Number" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Seriel Number" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="AgentReview4Label11" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="25.0" right="15.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <Separator orientation="VERTICAL" style="-fx-background-color: black;" />
-                                                <Label fx:id="Agent4Label21" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                <Separator orientation="VERTICAL" style="-fx-background-color: grey;" />
+                                                <Label fx:id="Agent4Label21" contentDisplay="CENTER" prefHeight="80.0" prefWidth="619.0" text="Number">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="15.0" />
@@ -242,46 +266,44 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="720.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
-                                          <HBox>
+                                          <HBox prefHeight="80.0" prefWidth="1007.0">
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="5*" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="5*" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Type of Product" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Type of Product" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent5Label11" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="25.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <Separator orientation="VERTICAL" style="-fx-background-color: black;">
+                                                <Separator orientation="VERTICAL" style="-fx-background-color: grey;">
                                                    <HBox.margin>
                                                       <Insets left="15.0" right="15.0" />
                                                    </HBox.margin>
                                                 </Separator>
                                                 <Label fx:id="Agent5Label21" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Separator orientation="VERTICAL" style="-fx-background-color: black;">
+                                                <Separator orientation="VERTICAL" style="-fx-background-color: grey;">
                                                    <HBox.margin>
                                                       <Insets left="15.0" right="15.0" />
                                                    </HBox.margin>
                                                 </Separator>
-                                                <Label fx:id="Agent5Label31" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                <Label fx:id="Agent5Label31" contentDisplay="CENTER" prefHeight="80.0" prefWidth="486.0" text="Number">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets />
@@ -293,23 +315,21 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="719.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
-                                          <HBox>
+                                          <HBox prefHeight="80.0" prefWidth="1010.0">
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="6*" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="6*" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Brand Name" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Brand Name" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent6Label1" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="25.0" />
@@ -332,23 +352,21 @@
                                  <children>
                                     <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="722.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                                           <HBox>
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="7" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="7" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Fanciful Name" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Fanciful Name" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent7Label1" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="15.0" />
@@ -360,23 +378,21 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="720.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                                           <HBox>
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="8*" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="8*" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Name and Address" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Name and Address" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent8Label1" contentDisplay="CENTER" prefHeight="80.0" text="Address">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="15.0" />
@@ -388,23 +404,21 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="719.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                                           <HBox>
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="9*" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="9*" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Mailing Adress" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Mailing Adress" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent9Label1" contentDisplay="CENTER" prefHeight="80.0" text="Address">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="15.0" />
@@ -416,23 +430,21 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="720.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                                           <HBox>
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="10" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="10" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Formula" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Formula" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent10Label1" contentDisplay="CENTER" prefHeight="80.0" text="Address">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="15.0" />
@@ -444,23 +456,21 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="719.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                                           <HBox>
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="11" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="11" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Grape Varietal(s)" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Grape Varietal(s)" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent11Label1" contentDisplay="CENTER" prefHeight="80.0" text="Address">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="15.0" />
@@ -472,23 +482,21 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="720.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                                           <HBox>
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="12" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="12" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Wine Appellation" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Wine Appellation" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent12Label1" contentDisplay="CENTER" prefHeight="80.0" text="Address">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="15.0" />
@@ -511,23 +519,21 @@
                                  <children>
                                     <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="722.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                                           <HBox>
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="13" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="13" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Phone Number" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Phone Number" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent13Label1" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="25.0" />
@@ -539,23 +545,21 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="720.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                                           <HBox>
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="14" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="14" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Email Address" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Email Address" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent14Label1" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="25.0" />
@@ -567,46 +571,44 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="400.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="722.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                                           <HBox>
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="15" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="15" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Type of Application" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Type of Application" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent15Label11" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="25.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <Separator orientation="VERTICAL" style="-fx-background-color: black;">
+                                                <Separator orientation="VERTICAL" style="-fx-background-color: grey;">
                                                    <HBox.margin>
                                                       <Insets left="15.0" right="15.0" />
                                                    </HBox.margin>
                                                 </Separator>
                                                 <Label fx:id="Agent15Label2" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Separator orientation="VERTICAL" style="-fx-background-color: black;">
+                                                <Separator orientation="VERTICAL" style="-fx-background-color: grey;">
                                                    <HBox.margin>
                                                       <Insets left="15.0" right="15.0" />
                                                    </HBox.margin>
                                                 </Separator>
                                                 <Label fx:id="Agent15Label21" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                              </children>
@@ -615,36 +617,34 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="722.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                                           <HBox>
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="16" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="16" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Additional Information" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Additional Information" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent16Label11" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="25.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <Separator orientation="VERTICAL" style="-fx-background-color: black;">
+                                                <Separator orientation="VERTICAL" style="-fx-background-color: grey;">
                                                    <HBox.margin>
                                                       <Insets left="15.0" right="15.0" />
                                                    </HBox.margin>
                                                 </Separator>
                                                 <Label fx:id="Agent16Label21" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                              </children>
@@ -653,23 +653,21 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="722.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                                           <HBox>
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="17" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="17" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Date of Application" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Date of Application" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent17Label1" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="25.0" />
@@ -681,23 +679,21 @@
                                     </Pane>
                                     <Pane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="720.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                                           <HBox>
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="18" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="18" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Signature of Applicant" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Signature of Applicant" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent18Label1" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="25.0" />
@@ -720,18 +716,16 @@
                                  <children>
                                     <Pane maxHeight="80.0" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="722.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                                           <HBox>
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="19" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="19" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Label Submitted" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Label Submitted" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                              </children>
@@ -741,23 +735,21 @@
                                     <ImageView fx:id="Agent19Image1" fitHeight="350.0" fitWidth="723.0" pickOnBounds="true" preserveRatio="true" />
                                     <Pane>
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="724.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#012b3d" height="80.0" stroke="BLACK" strokeType="INSIDE" width="100.0" />
                                           <HBox>
                                              <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #3C3B3B#3C3B3B;" text="20" textFill="WHITE">
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="20" textFill="BLACK">
                                                    <font>
-                                                      <Font size="28.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Alcohol Content" textFill="WHITE">
+                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Alcohol Content" textFill="BLACK">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="Agent20Label1" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="25.0" />
