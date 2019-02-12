@@ -15,6 +15,8 @@ import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import com.jfoenix.controls.*;
+
 
 import java.awt.*;
 import java.io.IOException;
@@ -101,7 +103,7 @@ public class AgentHomeController extends PageControllerUI  {
 
     //From IExport
     @FXML
-    Button PrintButton;
+    JFXButton PrintButton;
 
     @FXML
     Button SaveToCSVButton;
@@ -110,30 +112,48 @@ public class AgentHomeController extends PageControllerUI  {
     Button AsciiDelimitedFileButton;
 
     //From ITableView
+    /*
     @FXML
-    TableView<Form> FormTable;
+    JFXTreeTableView<Form> FormTable;
 
     @FXML
-    TableColumn<Form, Integer> TTBIDColumn;
+    JFXTreeTableColumn<Form, Integer> TTBIDColumn;
 
     @FXML
-    TableColumn<Form, Timestamp> DateSubmittedColumn;
+    JFXTreeTableColumn<Form, Timestamp> DateSubmittedColumn;
 
     @FXML
-    TableColumn<Form, String> BrandNameColumn;
+    JFXTreeTableColumn<Form, String> BrandNameColumn;
 
     @FXML
-    TableColumn<Form, AlcoholType> TypeColumn;
+    JFXTreeTableColumn<Form, AlcoholType> TypeColumn;
 
     @FXML
-    TableColumn<Form, String> BrandColumn;
+    JFXTreeTableColumn<Form, String> BrandColumn;
 
     @FXML
-    TableColumn<Form, String> SerialColumn;
+    JFXTreeTableColumn<Form, String> SerialColumn;
+    */
+    // TODO add the nested tableview fxml for this page
 
     //From ILogOut
     @FXML
     Button LogOutButton;
+
+    @FXML
+    JFXButton reviewToolButton;
+
+    @FXML
+    JFXButton RejectFormButton;
+
+    @FXML
+    JFXButton ApproveFormButton;
+
+    @FXML
+    JFXTextField SearchField;
+
+    @FXML
+    JFXButton GetNewQueueButton;
 
 
 
@@ -156,9 +176,15 @@ public class AgentHomeController extends PageControllerUI  {
     }
 
     @FXML
+    void  newApp() {
+        attributeContainer.currentForm = new Form();
+//        goToPage("AgentApp.fxml");//TODO: this is not a page
+    }
+
+    @FXML
     public void logOut(ActionEvent event) throws IOException {
         attributeContainer.currentUser = null;
-        goToPage("AgentLogin.fxml");
+        goToPage("Login.fxml");
     }
 
     @FXML
@@ -205,9 +231,10 @@ public class AgentHomeController extends PageControllerUI  {
     //////////     Move to Interfaces     ////////////          //TODO:...
     //////////////////////////////////////////////////
 
-    public void getNewQueue() throws IOException{
+    public void getNewQueue() throws IOException{}
+        // TODO fix this so that it can be used with the nested table
 //        attributeContainer.formQueue = ((Agent)attributeContainer.currentUser).getThreeForms();
-        this.TTBIDColumn.setCellValueFactory(new PropertyValueFactory<>("ttbID"));
+       /* this.TTBIDColumn.setCellValueFactory(new PropertyValueFactory<>("ttbID"));
         this.DateSubmittedColumn.setCellValueFactory(new PropertyValueFactory<>("dateSubmitted"));
         this.BrandColumn.setCellValueFactory(new PropertyValueFactory<>("brandName"));
 
@@ -218,9 +245,10 @@ public class AgentHomeController extends PageControllerUI  {
             tableValues.add(attributeContainer.formQueue.get(i));
         }
         this.FormTable.setItems(tableValues);
-        this.PrintButton.setEnabled(true);//setDisable(false);
+        // TODO need to figure out how to do the following
+        // this.PrintButton.setEnabled(true);//setDisable(false);
     }
-
+*/
 
 // TODO Implement the TableViewController to take care of this for us.
 //    public void tableView()  {

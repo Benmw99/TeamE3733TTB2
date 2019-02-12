@@ -8,24 +8,29 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+import com.jfoenix.controls.*;
+
 import java.sql.Timestamp;
 
 public class AgentSearchController extends PageControllerUI {
 
     @FXML
-    TextField SearchSource;
+    JFXTextField SearchApps;
 
     @FXML
-    TextField SearchSerialNumber;
+    JFXTextField SearchSource;
 
     @FXML
-    TextField SearchAlcoholType;
+    JFXTextField SearchSerialNumber;
 
     @FXML
-    TextField SearchBrandName;
+    JFXTextField SearchAlcoholType;
 
     @FXML
-    TextField SearchFancifulName;
+    JFXTextField SearchBrandName;
+
+    @FXML
+    JFXTextField SearchFancifulName;
 
     @FXML
     TextField SearchWineVintageYear;
@@ -40,17 +45,19 @@ public class AgentSearchController extends PageControllerUI {
     TextField SearchWineAppellation;
 
     @FXML
-    TextField SearchTimestamp;
+    JFXTextField SearchTimestamp;
 
     @FXML
-    TextField SearchTTBID;
+    JFXTextField SearchTTBID;
 
     @FXML
     TextField SearchNumResults;
 
     @FXML
-    Button SearchSubmitSearch;
+    JFXButton SearchSubmitSearch;
 
+    @FXML
+    JFXButton PrintSearch;
 
     @FXML
     TableView<Form> FormTable;

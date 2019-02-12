@@ -3,6 +3,9 @@ package UI;
 import Entities.AlcoholType;
 import Entities.Form;
 import Entities.Manufacturer;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -13,123 +16,28 @@ import java.awt.*;
 import java.io.IOException;
 import java.sql.Timestamp;
 
-public class ManHomeController extends PageControllerUI {
-
-   //From IFormDisplay
-    @FXML
-    Label Display1Label;
+public class ManHomeController extends PageControllerUI  {
 
     @FXML
-    Label Display2Label;
+    JFXButton printButton;
 
     @FXML
-    Label Display3Label;
+    JFXButton downloadButton;
 
     @FXML
-    Label DisplayReview4Label1;
+    JFXButton commentsButton;
 
     @FXML
-    Label Display4Label2;
+    JFXToggleButton editToggle;
 
     @FXML
-    Label Display5Label1;
+    JFXButton refreshButton;
 
     @FXML
-    Label Display5Label2;
+    JFXButton addNewApp;
 
     @FXML
-    Label Display5Label3;
-
-    @FXML
-    Label Display6Label;
-
-    @FXML
-    Label Display7Label;
-
-    @FXML
-    Label Display8Label;
-
-    @FXML
-    Label Display9Label;
-
-    @FXML
-    Label Display10Label;
-
-    @FXML
-    Label Display11Label;
-
-    @FXML
-    Label Display12Label;
-
-    @FXML
-    Label Display13Label;
-
-    @FXML
-    Label Display14Label;
-
-    @FXML
-    Label Display15Label1;
-
-    @FXML
-    Label Display15Label2;
-
-    @FXML
-    Label Display15Label3;
-
-    @FXML
-    Label Display16Label1;
-
-    @FXML
-    Label Display16Label2;
-
-    @FXML
-    Label Display17Label;
-
-    @FXML
-    Label Display18Label;
-
-    @FXML
-    Label Display20Label;
-
-
-    //From IExport
-    @FXML
-    Button PrintButton;
-
-    @FXML
-    Button SaveToCSVButton;
-
-    @FXML
-    Button AsciiDelimitedFileButton;
-
-    //From ITableView
-    @FXML
-    TableView<Form> FormTable;
-
-    @FXML
-    TableColumn<Form, Integer> TTBIDColumn;
-
-    @FXML
-    TableColumn<Form, Timestamp> DateSubmittedColumn;
-
-    @FXML
-    TableColumn<Form, String> BrandNameColumn;
-
-    @FXML
-    TableColumn<Form, AlcoholType> TypeColumn;
-
-    @FXML
-    TableColumn<Form, String> BrandColumn;
-
-    @FXML
-    TableColumn<Form, String> SerialColumn;
-
-    //From ILogOut
-    @FXML
-    Button LogOutButton;
-
-
-
+    JFXTextField searchAppsTextField;
 
     @Override
     protected void onLeave() {
@@ -149,12 +57,13 @@ public class ManHomeController extends PageControllerUI {
     @FXML
     public void logOut(ActionEvent event) throws IOException {
         attributeContainer.currentUser = null;
-        goToPage("ManLogin.fxml");
+        goToPage("Login.fxml");
     }
 
     @FXML
     public void addForm(ActionEvent event) throws IOException {
-        goToPage("ManApp1.fxml");
+        System.out.println("adfasdgSSDV");
+        goToPage("ManApp.fxml");
     }
 
     @FXML

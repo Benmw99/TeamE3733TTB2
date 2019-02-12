@@ -1,6 +1,8 @@
 package UI;
 
 import Entities.Agent;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,6 +12,11 @@ import java.io.IOException;
 
 public class AgentViewFormController extends PageControllerUI {
 
+    @FXML
+    JFXComboBox markAsComboBox;
+
+    @FXML
+    JFXButton printViewFormButton;
 
     @FXML
     Button logoutButton;
@@ -18,13 +25,13 @@ public class AgentViewFormController extends PageControllerUI {
     Button printButton;
 
     @FXML
-    Button approveButton;
+    JFXButton approveButton;
 
     @FXML
-    Button rejectButton;
+    JFXButton rejectButton;
 
     @FXML
-    Button homeButton;
+    JFXButton homeButton;
 
     @FXML
     Label Display1Label;
