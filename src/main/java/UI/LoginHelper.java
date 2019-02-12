@@ -6,9 +6,9 @@ import javafx.event.EventHandler;
 
 public class LoginHelper {
 
-    public ILogin controller;
+    public LoginController controller;
 
-    public LoginHelper(ILogin controller){
+    public LoginHelper(LoginController controller){
         this.controller = controller;
         controller.setLoginHelper(this);
     }
