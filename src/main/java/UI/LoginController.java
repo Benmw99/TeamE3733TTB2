@@ -17,6 +17,8 @@ public class LoginController extends PageControllerUI {
     @FXML
     Button LoginUserLoginButton;
     @FXML
+    Button searchbutton;
+    @FXML
     RadioButton ManRadioButton;
     @FXML
     RadioButton AgentRadioButton;
@@ -50,6 +52,11 @@ public class LoginController extends PageControllerUI {
                 goToPage("AgentHome.fxml");
             }
         }
+    }
+
+    @FXML
+    void search() {
+        goToPage("HomeSearch.fxml");
     }
 
     public boolean authenticate(){

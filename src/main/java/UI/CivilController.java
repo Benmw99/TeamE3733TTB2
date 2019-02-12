@@ -141,6 +141,11 @@ public class CivilController extends PageControllerUI {
     ImageView Agent13Image;
 
     @FXML
+    Button printButt;
+    @FXML
+    Button SearchButt;
+
+    @FXML
     TableView<Form> resultTable;
 
     @FXML
@@ -155,7 +160,8 @@ public class CivilController extends PageControllerUI {
     @FXML
     TableColumn<Form, String> col4;
 
-
+    @FXML
+    ComboBox<String> typeField;
     //CivilSearchForm
     @FXML
     Button backToAdvSearch;
@@ -224,7 +230,7 @@ public class CivilController extends PageControllerUI {
     }
     //#################################################################################################################################
     //                                   advanced search
-
+    @FXML
     public void searchAdvanced(ActionEvent event) throws IOException {
         printSearchResultsCSV.setDisable(false);
         printSearchResultsCSV.setText("Print Results");
@@ -274,10 +280,7 @@ public class CivilController extends PageControllerUI {
         printSearchResultsCSV.setDisable(false);
     }
 
-    @FXML
-    void yeetOnOverToTheLogin(){
-        goToPage("Login.fxml");
-    }
+
 
     @FXML
     public void clickItem(MouseEvent event) throws IOException
@@ -295,7 +298,7 @@ public class CivilController extends PageControllerUI {
             stage.show();
         }
     }
-
+    @FXML
     public void printResults(ActionEvent event) throws IOException {
         //TODO REWRITE THIS PASSING A BOOLEAN FOR WHETHER OR NOT IT IS A CSV OR ASCII
         //results.printResults();
@@ -318,4 +321,6 @@ public class CivilController extends PageControllerUI {
     void onLoad() {
 
     }
+
+
 }

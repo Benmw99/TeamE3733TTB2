@@ -158,7 +158,7 @@ public class AgentHomeController extends PageControllerUI  {
     @FXML
     public void logOut(ActionEvent event) throws IOException {
         attributeContainer.currentUser = null;
-        goToPage("AgentLogin.fxml");
+        goToPage("Login.fxml");
     }
 
     @FXML

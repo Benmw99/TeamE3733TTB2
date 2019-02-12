@@ -20,7 +20,20 @@
       <Rectangle fill="#9ea7aa" height="54.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1360.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Rectangle fill="#cfd8dc" height="34.0" layoutY="54.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="1360.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <JFXHamburger layoutX="25.0" layoutY="17.0" />
-      <HBox alignment="TOP_CENTER" prefHeight="88.0" prefWidth="1360.0" AnchorPane.topAnchor="0.0">
+      <JFXButton fx:id="searchbutton" buttonType="RAISED" onAction="#search" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: WHITE;" text="search" AnchorPane.rightAnchor="0.0">
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="13.0" />
+         </font>
+      </JFXButton>
+      <HBox alignment="TOP_CENTER" layoutX="9.0" prefHeight="88.0" prefWidth="1360.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label text="Login" textFill="WHITE">
                <font>
