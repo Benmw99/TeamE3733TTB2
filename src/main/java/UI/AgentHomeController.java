@@ -430,7 +430,7 @@ public class AgentHomeController extends PageControllerUI implements IFormDispla
                     int col = pos.getColumn();
                     int ID = temp.getTTBIDColumn().getCellData(row);
                     System.out.println(ID);
-                    attributeContainer.currentForm = Database.getInstance().dbSelect.getFormByTTB_ID(ID);
+                    attributeContainer.currentForm = Database.getDatabase().dbSelect.getFormByTTB_ID(ID);
 //                    ((AgentHomeController) temp).formDisplayHelper.displayForm(attributeContainer.currentForm);
                 }
             }

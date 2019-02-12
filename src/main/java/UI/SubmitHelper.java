@@ -24,7 +24,7 @@ public class SubmitHelper {
         working.setSerialNumber(controller.getSerialYearField().getText()
                 + controller.getSerialDigitsField().getText());
         working.setPhoneNumber(controller.getPhoneNumField().getText());
-        working.setBlownBrandedEmbossedInfo(controller.getAdditionalInfoField().getText());
+        working.setOtherInfo(controller.getAdditionalInfoField().getText());
         working.setEmail(controller.getEmailField().getText());
         working.setAlcoholContent(Float.parseFloat(controller.getAlcoholContentTextField().getText()));
         working.setFancifulName(controller.getFancifulField().getText());
