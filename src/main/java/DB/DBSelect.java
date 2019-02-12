@@ -661,21 +661,84 @@ public class DBSelect {
         return results;
     }
 
-    //TODO WRITE THIS
+    /**
+     * Retrieves the manufacturer related to that login name
+     * @author Jordan
+     * @param login Login name for the user
+     * @return A manufacturer that is related to that login
+     */
     public Manufacturer getManufacturer(String login) {
         Session session = factory.openSession();
-        Transaction tx = null;
+        String q = "FROM Manufacturer M WHERE M.login = :log";
+        Query query = session.createQuery(q);
+        query.setParameter("log", login);
+        return (Manufacturer) query.getSingleResult();
     }
 
-    //TODO WRITE THIS
+
+    /**
+     * Gets a list of forms related to a manufacturer id
+     * @author Jordan
+     * @param manID The manufacturer id that you want all the forms for
+     * @return A list of all the forms related to that man id
+     */
     public List<Form> getFormsManu(int manID) {
         Session session = factory.openSession();
         Transaction tx = null;
+        List<Form> results = new ArrayList<>();
+
+        try {
+            //Starts the transaction
+            tx = session.beginTransaction();
+            //Sends the query off and gets the results as a list
+            Query q = session.createQuery("FROM Form F WHERE F.companyID = :compID");
+            q.setParameter("compID", manID);
+            List forms = q.list();
+            //Iterates through that list initiazing and setting stuff
+            for (Iterator iterator = forms.iterator(); iterator.hasNext();){
+                Form form = (Form) iterator.next();
+
+                //Initializes the brewersPermit and the address
+                Hibernate.initialize(form.brewersPermit);
+                Hibernate.initialize(form.address);
+
+                //Previous way of initiliazation
+                //form.getBrewersPermit().size();
+                //form.getAddress().size();
+
+                //Set that primary address
+                for (int i = 0; i < form.getAddress().size(); i++) {
+                    if (form.getAddress().get(i).isMailing()) {
+                        form.setMailingAddress(form.getAddress().get(i));
+                    }
+                }
+
+                results.add(form);
+            }
+            //Commit the transaction
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            //Close the session
+            session.close();
+        }
+        return results;
     }
 
-    //TODO WRITE THIS
+    /**
+     * Retrieves the rep related to that user
+     * @author Jordan
+     * @param login Login name for the user
+     * @return A rep that is related to that login
+     */
     public Representative getRepresentative(String login) {
         Session session = factory.openSession();
         Transaction tx = null;
+        String q = "FROM Representative R WHERE R.login = :log";
+        Query query = session.createQuery(q);
+        query.setParameter("log", login);
+        return (Representative) query.getSingleResult();
     }
 }

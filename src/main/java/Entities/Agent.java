@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 @Entity
 @Table(name = "AGENTS")
-public class Agent {
+public class Agent implements IUser{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Agent_ID")
@@ -85,7 +85,7 @@ public class Agent {
 
     String encryptPassword(){
         try {
-            KeyGenerator generator = new KeyGenerator("AES");
+            KeyGenerator generator = KeyGenerator.getInstance("AES");
             generator.init(128);
             SecureRandom secRand = new SecureRandom();
             secRand.setSeed(123);
