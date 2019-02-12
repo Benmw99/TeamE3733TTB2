@@ -1,25 +1,29 @@
 package UI;
 
 import Entities.Agent;
+import Entities.Manufacturer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
 public class LoginController extends PageControllerUI {
 
-    LoginHelper loginHelper;
+
     @FXML
     TextField LoginUserUsernameTextField;
     @FXML
     TextField LoginUserPasswordTextField;
     @FXML
     Button LoginUserLoginButton;
+    @FXML
+    RadioButton ManRadioButton;
+    @FXML
+    RadioButton AgentRadioButton;
 
-    void setLoginHelper(LoginHelper helper) {
-        this.loginHelper = helper;
-    };
+
 
     TextField getLoginUserUsernameTextField() {
         return LoginUserPasswordTextField;
@@ -33,9 +37,6 @@ public class LoginController extends PageControllerUI {
         return LoginUserLoginButton;
     }
 
-    void login() {
-        loginHelper.authenticate();
-    }
 
     public void enableButton(){
         getLoginUserLoginButton().setOnAction(new EventHandler<ActionEvent>() {
@@ -48,11 +49,36 @@ public class LoginController extends PageControllerUI {
         });
     }
 
+
+    public void login(){
+        if(authenticate()){
+            if(ManRadioButton.isSelected()){
+                goToPage("ManHome.fxml");
+            }
+            if(AgentRadioButton.isSelected()){
+                goToPage("AgentHome.fxml");
+            }
+        }
+    }
+
     public boolean authenticate(){
         String user = getLoginUserUsernameTextField().getText();
+        String pass = getLoginUserPasswordTextField().getText();
         AttributeContainer attributeContainer = AttributeContainer.getInstance();
-        attributeContainer.currentUser = new Agent();
-        return true; //TODO MAKE THIS REAL
+        if(ManRadioButton.isSelected()){
+            attributeContainer.currentUser = new Manufacturer();
+            attributeContainer.currentUser.setLogin(user);
+            attributeContainer.currentUser.setPassword(pass);
+            return attributeContainer.currentUser.authenticate();
+        }
+        if(AgentRadioButton.isSelected()){
+            attributeContainer.currentUser = new Agent();
+            attributeContainer.currentUser.setLogin(user);
+            attributeContainer.currentUser.setPassword(pass);
+            return attributeContainer.currentUser.authenticate();
+        }
+
+        return false;
     }
 
     @Override
