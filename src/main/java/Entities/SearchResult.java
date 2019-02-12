@@ -1,8 +1,6 @@
 package Entities;
 
 import java.util.List;
-import Entities.Sorting.BrandNameSort;
-import Entities.Sorting.DateSort;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -49,15 +47,6 @@ public class SearchResult {
     public void printResults(boolean isCSV){
         DB.Database db = DB.Database.getDatabase();
         db.dbSelect.downloadQuery(this, isCSV);
-    }
-
-
-    public void sortBrandName(){
-        Collections.sort(results, new BrandNameSort());
-    }
-
-    public void sortDate(){
-        Collections.sort(results, new DateSort());
     }
 
 
