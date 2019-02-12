@@ -1,5 +1,7 @@
 package Entities;
 
+import UI.AttributeContainer;
+
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
@@ -7,6 +9,8 @@ import javax.persistence.*;
 import java.security.SecureRandom;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -79,13 +83,42 @@ public class Agent implements IUser{
         this.name = name;
     }
 
+    /**
+     * This may or may not work.
+     * @Author: probably nick.
+     * @return
+     */
     public Form getNextUnapproved() {
         DB.Database db = DB.Database.getDatabase();
         Form temp = db.dbSelect.getNextUnapproved();
         temp.setWorkingOn(this.agentID);
         db.dbSelect.updateWorkingOn(temp);
         return temp;
+    }
 
+    /**
+     * Puts the form queue into the Current Queue in the AC
+     * @author Michael
+     */
+    public void getQueueIntoAC(){
+        AttributeContainer ac =  AttributeContainer.getInstance();
+        ac.formQueue.addAll(this.getQueue());
+    }
+
+    /**
+     * Gets a number of forms based upon the integer set in the Attribute Container...
+     * Should properly set those forms as approved.
+     * @author Michael
+     * @return The List of Forms.
+     */
+    private List<Form> getQueue(){
+        List<Form> lof = new ArrayList<Form>();
+        int end = AttributeContainer.getInstance().numForQueue;
+        int start = AttributeContainer.getInstance().formQueue.size();
+        for(int i = start; i < end; i ++){
+            lof.add(getNextUnapproved());
+        }
+        return lof;
     }
 
     String encryptPassword(){
