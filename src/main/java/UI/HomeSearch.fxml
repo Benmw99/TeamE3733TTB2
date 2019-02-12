@@ -30,8 +30,8 @@
          </children>
       </Pane>
     <JFXTextField fx:id="SearchField" alignment="CENTER" disable="true" layoutX="349.0" layoutY="151.0" prefHeight="26.0" prefWidth="708.0" style="-fx-background-color: WHITE;" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="316.0" />
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="8.0" layoutY="506.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="506.0" />
-    <Text layoutX="22.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="7.0" layoutY="357.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="357.0" />
+    <Text layoutX="32.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
         <font>
             <Font name="Apple SD Gothic Neo Regular" size="13.0" />
         </font>
@@ -45,38 +45,17 @@
          <font>
             <Font name="Apple SD Gothic Neo Regular" size="18.0" />
          </font></JFXButton>
-      <JFXDatePicker fx:id="SearchDate" layoutX="153.0" layoutY="514.0" prefHeight="25.0" prefWidth="149.0" promptText="date" />
+      <JFXDatePicker fx:id="SearchDate" layoutX="154.0" layoutY="363.0" prefHeight="25.0" prefWidth="149.0" promptText="date" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="7.0" layoutY="208.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="8.0" layoutY="356.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="8.0" layoutY="406.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="8.0" layoutY="456.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="8.0" layoutY="556.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="7.0" layoutY="406.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
       <JFXComboBox fx:id="SearchAlcoholType" layoutX="153.0" layoutY="216.0" prefWidth="150.0" />
-      <JFXTextField fx:id="SearchManufacturer" layoutX="153.0" layoutY="363.0" promptText="name" />
-      <JFXTextField fx:id="SearchState" layoutX="153.0" layoutY="413.0" promptText="state" />
-      <JFXTextField fx:id="SearchCity" layoutX="153.0" layoutY="463.0" promptText="city" />
-      <JFXTextField fx:id="SearchID" layoutX="153.0" layoutY="563.0" promptText="number" />
+      <JFXTextField fx:id="SearchID" layoutX="153.0" layoutY="413.0" promptText="number" />
       <Text layoutX="33.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Type">
          <font>
             <Font name="Apple SD Gothic Neo Regular" size="13.0" />
          </font>
       </Text>
-      <Text layoutX="34.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manufacturer">
-         <font>
-            <Font name="Apple SD Gothic Neo Regular" size="13.0" />
-         </font>
-      </Text>
-      <Text layoutX="36.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State of Origin">
-         <font>
-            <Font name="Apple SD Gothic Neo Regular" size="13.0" />
-         </font>
-      </Text>
-      <Text layoutX="34.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City of Origin">
-         <font>
-            <Font name="Apple SD Gothic Neo Regular" size="13.0" />
-         </font>
-      </Text>
-      <Text layoutX="40.0" layoutY="581.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Number">
+      <Text layoutX="32.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Number">
          <font>
             <Font name="Apple SD Gothic Neo Regular" size="13.0" />
          </font>
