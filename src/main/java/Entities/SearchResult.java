@@ -46,9 +46,9 @@ public class SearchResult {
         this.query = query;
     }
 
-    public void printResults(){
-        DB.Database db = DB.Database.getInstance();
-        db.dbSelect.downloadResults(query, search);
+    public void printResults(boolean isCSV){
+        DB.Database db = DB.Database.getDatabase();
+        db.dbSelect.downloadQuery(this, isCSV);
     }
 
 
@@ -85,10 +85,5 @@ public class SearchResult {
             }
         }
         return (this.results.size() == resultList.size());
-    }
-
-    public void getThreeForms(){
-        DB.Database db = DB.Database.getInstance();
-        db.dbSelect.getThreeForms();
     }
 }
