@@ -77,4 +77,16 @@ public class BrewersPermit {
     public void setForm(Form form) {
         this.form = form;
     }
+
+    /**
+     * The equality function for Brewers Permits
+     * @param to_check the one to compare to
+     * @return the obvious, true for equality
+     */
+    boolean equals(BrewersPermit to_check){
+        boolean equality = this.brewersNo.equals(to_check.brewersNo) &&
+                ((this.isPrimary && to_check.isPrimary) || (this.isPrimary && to_check.isPrimary));
+        return equality;
+    }
+
 }

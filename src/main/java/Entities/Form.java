@@ -376,10 +376,10 @@ public class Form {
                 this.alcoholContent == aform.alcoholContent);
     }
 
-    boolean brewListEquals(List<String> aList) {
-        List<String> resultList = new ArrayList<String>();
-        for (String s: aList) {
-            for (String t: this.brewersPermit) {
+    boolean brewListEquals(List<BrewersPermit> aList) {
+        List<BrewersPermit> resultList = new ArrayList<BrewersPermit>();
+        for (BrewersPermit s: aList) {
+            for (BrewersPermit t: this.brewersPermit) {
                 if (s.equals(t)) {
                     resultList.add(s);
                 }
