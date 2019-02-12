@@ -19,11 +19,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManHomeController">
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManHomeController">
    <children>
-      <Pane prefHeight="759.0" prefWidth="1360.0" style="-fx-background-color: WHITE;">
+      <Pane prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: WHITE;">
          <children>
-            <Pane layoutX="-6.0" layoutY="-1.0" prefHeight="89.0" prefWidth="1367.0" style="-fx-background-color: #9ea7aa;">
+            <Pane layoutX="-6.0" layoutY="-1.0" prefHeight="90.0" prefWidth="1367.0" style="-fx-background-color: #9ea7aa;">
                <children>
                   <Text fill="WHITE" layoutX="547.0" layoutY="53.0" strokeWidth="0.0" text="My Applications">
                      <font>
@@ -45,8 +45,13 @@
                   </JFXButton>
                </children>
             </Pane>
-            <Pane layoutX="-1.0" layoutY="87.0" prefHeight="676.0" prefWidth="559.0" style="-fx-background-color: #3C3B3B#3C3B3B;">
+            <Pane layoutY="90.0" prefHeight="676.0" prefWidth="559.0" style="-fx-background-color: #3C3B3B#3C3B3B;">
                <children>
+                  <VBox alignment="BOTTOM_CENTER" maxHeight="670.0" prefHeight="670.0" prefWidth="559.0">
+                     <children>
+                  <fx:include maxWidth="500.0" prefHeight="600.0" prefWidth="450.0" source="TableView.fxml" />
+                     </children>
+                  </VBox>
                   <JFXTextField fx:id="searchMHField" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="377.0" style="-fx-background-color: WHITE;" text="Search Applications">
                      <font>
                         <Font name="Apple SD Gothic Neo Regular" size="18.0" />
@@ -65,7 +70,6 @@
                         <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                      </font>
                   </JFXButton>
-            <fx:include source="TableView.fxml" />
                </children>
                <fx:include source="FormDisplay.fxml" />
             </Pane>

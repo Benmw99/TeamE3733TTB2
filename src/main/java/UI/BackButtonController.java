@@ -25,7 +25,6 @@ public class BackButtonController implements Initializable {
             public void handle(MouseEvent event) {
                 transition.setRate(transition.getRate()*-1);
                 transition.play();
-      //          System.out.println("Got Here!!");
             }
         });
         Hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -34,13 +33,6 @@ public class BackButtonController implements Initializable {
                 AttributeContainer ac = AttributeContainer.getInstance();
                 ac.backlog.pop();
                 ac.current_page.goToPage((ac.backlog.pop()));
-            }
-        });
-        Hamburger.addEventHandler(MouseEvent.MOUSE_EXITED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                transition.setRate(transition.getRate()*-1);
-                transition.play();
             }
         });
     }
