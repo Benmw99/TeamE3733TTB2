@@ -275,6 +275,11 @@ public class CivilController extends PageControllerUI {
     }
 
     @FXML
+    void yeetOnOverToTheLogin(){
+        goToPage("Login.fxml");
+    }
+
+    @FXML
     public void clickItem(MouseEvent event) throws IOException
     {
         if (event.getClickCount() == 2) //Checking double click kinda, just click quick enough

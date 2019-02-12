@@ -341,7 +341,7 @@ public class ManHomeController extends PageControllerUI implements IFormDisplay,
     @FXML
     public void logOut(ActionEvent event) throws IOException {
         attributeContainer.currentUser = null;
-        goToPage("ManLogin.fxml");
+        goToPage("Login.fxml");
     }
 
     @FXML
