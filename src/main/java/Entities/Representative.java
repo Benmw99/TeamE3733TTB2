@@ -61,12 +61,10 @@ public class Representative implements IUser {
         return db.dbSelect.AuthenticateRep(login,password);
     }
 
-    //TODO WRITE THIS QUICKLY
     public void loadUser(){
         DB.Database db = DB.Database.getDatabase();
         Representative rep = db.dbSelect.getRepresentative(login);
         this.repID = rep.getRepID();
-
     }
 
 

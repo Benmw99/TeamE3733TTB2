@@ -69,7 +69,11 @@ public class Agent {
 
     public Form getNextUnapproved() {
         DB.Database db = DB.Database.getDatabase();
-        return db.dbSelect.getNextUnapproved();
+        Form temp = db.dbSelect.getNextUnapproved();
+        temp.setWorkingOn(this.agentID);
+        db.dbSelect.updateWorkingOn(temp);
+        return temp;
+
     }
 
     public boolean authenticate(){
@@ -88,28 +92,28 @@ public class Agent {
 
     //TODO FIX THIS BY JUST SETTING THE FORM'S CURRENT APPROVAL AND UPDATING
     public void approveForm(Form form, String qualifications) {
-        Approval app = new Approval();
-        form.setApproval(app);
+        Approval app = form.getApproval();
         form.getApproval().approve(name, qualifications);
-        form.setApprovalStatus(Complete);
+        form.setApprovalStatus(ApprovalStatus.Complete);
         DB.Database db = DB.Database.getDatabase();
-        db.dbSelect.approveForm(form,form.getApproval());
+
+        db.dbInsert.updateApproval(form);
 
     }
 
     //TODO FIX THIS BY JUST SETTING THE FORM'S CURRENT APPROVAL AND UPDATING
     public void rejectForm(Form form) {
-        form.setApprovalStatus(Incorrect);
+        form.setApprovalStatus(ApprovalStatus.Incomplete);
         DB.Database db = DB.Database.getDatabase();
         Approval app = new Approval();
-        app.setPage1(Incorrect);
-        app.setPage2(Incorrect);
-        app.setPage3(Incorrect);
-        app.setPage4(Incorrect);
+        app.setPage1(ApprovalStatus.Incorrect);
+        app.setPage2(ApprovalStatus.Incorrect);
+        app.setPage3(ApprovalStatus.Incorrect);
+        app.setPage4(ApprovalStatus.Incorrect);
         app.setAgentApprovalName(this.getName());
         form.setApproval(app);
-        db.dbSelect.approveForm(form, form.getApproval());
 
+        db.dbInsert.updateApproval(form);
     }
 
     void fillQueue() {

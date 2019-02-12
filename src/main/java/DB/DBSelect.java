@@ -664,5 +664,19 @@ public class DBSelect {
         return results;
     }
 
+    //TODO WRITE THIS
+    public Manufacturer getManufacturer(String login) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+    }
 
+    //TODO WRITE THIS
+    public List<Form> getFormsManu(int manID) {
+
+    }
+
+    //TODO WRITE THIS
+    public Representative getRepresentative(String login) {
+
+    }
 }
