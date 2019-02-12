@@ -5,10 +5,9 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.persistence.*;
 import java.security.SecureRandom;
+import java.sql.Date;
 import java.sql.SQLException;
 
-import static Entities.ApprovalStatus.Complete;
-import static Entities.ApprovalStatus.Incorrect;
 
 @Entity
 @Table(name = "AGENTS")
@@ -117,27 +116,33 @@ public class Agent {
         return db.dbSelect.searchBy(advancedSearch);
     }
 
-    //TODO FIX THIS BY JUST SETTING THE FORM'S CURRENT APPROVAL AND UPDATING
-    public void approveForm(Form form, String qualifications) {
-        Approval app = form.getApproval();
-        form.getApproval().approve(name, qualifications);
-        form.setApprovalStatus(ApprovalStatus.Complete);
+    public void approveForm(Form form, String qualifications, Date expiration, Date approved) {
         DB.Database db = DB.Database.getDatabase();
+        Approval app = form.getApproval();
+        app.setAgentApprovalName(this.getName());
+        app.setDateApproved(approved);
+        app.setExpDate(expiration);
+        app.setQualifications(qualifications);
+        app.setPage1(ApprovalStatus.Complete);
+        app.setPage2(ApprovalStatus.Complete);
+        app.setPage3(ApprovalStatus.Complete);
+        app.setPage4(ApprovalStatus.Complete);
+        form.setApprovalStatus(ApprovalStatus.Complete);
+        form.setApproval(app);
 
         db.dbInsert.updateApproval(form);
-
     }
 
-    //TODO FIX THIS BY JUST SETTING THE FORM'S CURRENT APPROVAL AND UPDATING
+
     public void rejectForm(Form form) {
-        form.setApprovalStatus(ApprovalStatus.Incomplete);
         DB.Database db = DB.Database.getDatabase();
-        Approval app = new Approval();
+        Approval app = form.getApproval();
+        app.setAgentApprovalName(this.getName());
         app.setPage1(ApprovalStatus.Incorrect);
         app.setPage2(ApprovalStatus.Incorrect);
         app.setPage3(ApprovalStatus.Incorrect);
         app.setPage4(ApprovalStatus.Incorrect);
-        app.setAgentApprovalName(this.getName());
+        form.setApprovalStatus(ApprovalStatus.Incorrect);
         form.setApproval(app);
 
         db.dbInsert.updateApproval(form);

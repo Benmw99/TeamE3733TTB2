@@ -669,11 +669,13 @@ public class DBSelect {
 
     //TODO WRITE THIS
     public List<Form> getFormsManu(int manID) {
-
+        Session session = factory.openSession();
+        Transaction tx = null;
     }
 
     //TODO WRITE THIS
     public Representative getRepresentative(String login) {
-
+        Session session = factory.openSession();
+        Transaction tx = null;
     }
 }
