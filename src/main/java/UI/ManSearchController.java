@@ -2,27 +2,30 @@ package UI;
 
 import Entities.AlcoholType;
 import Entities.Form;
+import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+import com.jfoenix.controls.*;
+
 import java.sql.Timestamp;
 
 public class ManSearchController extends PageControllerUI  {
 
     @FXML
-    TextField SearchSource;
+    JFXTextField SearchSource;
 
     @FXML
-    TextField SearchSerialNumber;
+    JFXTextField SearchSerialNumber;
 
     @FXML
-    TextField SearchAlcoholType;
+    JFXTextField SearchAlcoholType;
 
     @FXML
-    TextField SearchBrandName;
+    JFXTextField SearchBrandName;
 
     @FXML
     TextField SearchFancifulName;
@@ -34,22 +37,37 @@ public class ManSearchController extends PageControllerUI  {
     TextField SearchWinePH;
 
     @FXML
+    JFXTextField SearchAlcoholContent;
+
+    @FXML
+    JFXTextField SearchManufacturerName;
+
+    @FXML
+    JFXTextField SearchOriginState;
+
+    @FXML
+    JFXTextField SearchOriginCity;
+
+    @FXML
     TextField SearchWineGrapeVarietal;
 
     @FXML
     TextField SearchWineAppellation;
 
     @FXML
-    TextField SearchTimestamp;
+    JFXTextField SearchTimestamp;
 
     @FXML
-    TextField SearchTTBID;
+    JFXTextField SearchTTBID;
 
     @FXML
     TextField SearchNumResults;
 
     @FXML
-    Button SearchSubmitSearch;
+    JFXButton SearchSearchLineText;
+
+    @FXML
+    JFXButton SearchSubmitSearch;
 
     @FXML
     TableView<Form> FormTable;
