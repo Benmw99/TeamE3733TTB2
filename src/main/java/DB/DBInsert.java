@@ -13,13 +13,6 @@ public class DBInsert {
     private static SessionFactory factory; //TODO ONE SESSIONFACTORY, INTERFACE THAT INCLUDES CLOSING METHOD
 
     private DBInsert() {
-        try {
-            //factory = new Configuration().configure().buildSessionFactory();
-            factory = new Configuration().configure().addAnnotatedClass(Address.class).buildSessionFactory();
-        } catch (Throwable ex) {
-            System.err.println("Failed to create sessionFactory object." + ex);
-            throw new ExceptionInInitializerError(ex);
-        }
     }
 
     private static class SingletonHelper {
@@ -28,6 +21,10 @@ public class DBInsert {
 
     static DBInsert getDbinsert() {
         return SingletonHelper.dbinsert;
+    }
+
+    public static void setFactory(SessionFactory factory) {
+        DBInsert.factory = factory;
     }
 
     /**

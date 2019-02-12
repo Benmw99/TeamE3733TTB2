@@ -1,6 +1,11 @@
 package Entities;
 
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
 import javax.persistence.*;
+import java.security.SecureRandom;
+import java.sql.SQLException;
 
 @Entity
 @Table(name = "AGENTS")
@@ -71,6 +76,25 @@ public class Agent {
         DB.Database db = DB.Database.getDatabase();
         return db.dbSelect.getThreeForms();
     }
+
+    String encryptPassword(){
+        try {
+            KeyGenerator generator = new KeyGenerator("AES");
+            generator.init(128);
+            SecureRandom secRand = new SecureRandom();
+            secRand.setSeed(123);
+            generator.init(secRand);
+            SecretKey secKey = generator.generateKey();
+            Cipher aesCipher = Cipher.getInstance("AES");
+            aesCipher.init(Cipher.ENCRYPT_MODE, secKey);
+            byte[] byteCipherText = aesCipher.doFinal(this.password.getBytes());
+            return byteCipherText.toString();
+        } catch (Exception e){
+
+        }
+        return "We should never get here";
+    }
+
 
     public boolean authenticate(){
         DB.Database db = DB.Database.getDatabase();

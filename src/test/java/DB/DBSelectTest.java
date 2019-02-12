@@ -149,7 +149,7 @@ public class DBSelectTest {
         }
     }
 
-    @Test
+    /*@Test
     public void testDownload() {
         DB.Database db = DB.Database.getDatabase();
 
@@ -159,7 +159,7 @@ public class DBSelectTest {
 
         db.dbSelect.downloadQuery(sr, true);
         db.dbSelect.downloadQuery(sr, false);
-    }
+    }*/
 
     @Test
     public void searchByLD() {
