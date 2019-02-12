@@ -28,7 +28,7 @@
       </JFXButton>
       <Pane layoutX="338.0" layoutY="201.0" prefHeight="548.0" prefWidth="1024.0">
          <children>
-            <fx:include source="TableView.fxml"></fx:include>
+             <fx:include fx:id="tabledoc" source="TableView.fxml"/>
          </children>
       </Pane>
     <JFXTextField fx:id="searchASField" alignment="CENTER" disable="true" layoutX="349.0" layoutY="151.0" prefHeight="26.0" prefWidth="708.0" style="-fx-background-color: WHITE;" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="316.0" />
