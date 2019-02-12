@@ -4,6 +4,7 @@ import Entities.AdvancedSearch;
 import Entities.AlcoholType;
 import Entities.Form;
 import Entities.SearchResult;
+import com.sun.xml.internal.ws.addressing.model.ActionNotSupportedException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -297,27 +298,11 @@ public class CivilController extends PageControllerUI {
         printSearchResultsCSV.setText("Printed");
     }
 
-    public void goBackToSearch(ActionEvent event) throws IOException {
-        initStuff = 0;
-        pageSwitch(event,"HomeSearch.fxml", backToAdvSearch);
-    }
-
     @FXML
-    public void goBackToWelcome(ActionEvent event) throws IOException {
-        pageSwitch(event,"WelcomePage.fxml", menuASButton);
+    public void loginPage(){
+        goToPage("Login.fxml");
     }
 
-
-
-    private void pageSwitch(ActionEvent event, String filename, Button b) throws IOException{
-        Parent root;
-        Stage stage;
-        stage=(Stage) b.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource(filename));
-        Scene scene = new Scene(root, 1360, 760);
-        stage.setScene(scene);
-        stage.show();
-    }
 
     @Override
     protected void onLeave() {
