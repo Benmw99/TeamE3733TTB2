@@ -16,7 +16,7 @@ public class SearchTest {
         DB.Database db = DB.Database.getDatabase();
         db.tableBuilder.resetDB();
 
-        db.dbInsert.insertCompany(new Company(123, "Brewers Inc.", "TestCompany", "1234"));
+        db.dbInsert.insertCompany(new Manufacturer(123, "Brewers Inc.", "TestCompany", "1234"));
         db.dbInsert.insertAgent(new Agent("TestAgent", "1234", "Sam Adamster"));
         db.dbInsert.insertRep(new Representative("123abc", "TestRep", "1234"));
 

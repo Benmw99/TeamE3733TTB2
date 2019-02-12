@@ -2,13 +2,23 @@ package Entities;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "COMPANY")
 public class Manufacturer implements IUser {
+    @Id
+    @Column(name = "Company_ID")
+    private int manID;
 
-    public int manID;
+    @Column(name = "Company_Name")
     private String manName;
+
+    @Column(name = "Login_Name")
     private String login;
+
+    @Column(name = "Password")
     private String password;
 
 
@@ -76,6 +86,7 @@ public class Manufacturer implements IUser {
         return db.dbSelect.AuthenticateCompany(login,password);
     }
 
+    //TODO WRITE THIS FUNCTION
     public void loadUser(){
         DB.Database db = DB.Database.getDatabase();
         Manufacturer man = db.dbSelect.getManufacturer(login);
@@ -88,12 +99,8 @@ public class Manufacturer implements IUser {
      * @return A List of forms corresponding to this manufacturer.
      */
     public List<Form> loadForms(){
-        DB.Database db = DB.Database.getInstance();
-        List<Form> lof = new ArrayList<Form>();
-        List<Integer> loi = db.dbSelect.getTTB_IDbyManufacturer(this);
-        for(int i : loi){
-            lof.add(db.dbSelect.getFormByTTB_ID(i));
-        }
+        DB.Database db = DB.Database.getDatabase();
+        List<Form> lof = db.dbSelect.getFormsManu(this.getManID());
         return lof;
     }
 
@@ -104,27 +111,21 @@ public class Manufacturer implements IUser {
      *  @return true for a success, false for a failure
      */
     public boolean registerCompany(){
-        DB.Database db = DB.Database.getInstance();
-        try {
-            db.dbInsert.insertCompany(manID, manName, login, password);
-        } catch (SQLException e){
-            e.printStackTrace();
-            System.out.println(e.toString());
-            return false;
-        }
+        DB.Database db = DB.Database.getDatabase();
+        db.dbInsert.insertCompany(this);
         return true;
     }
 
 
     public SearchResult search(AdvancedSearch advancedSearch) {
-        DB.Database db = DB.Database.getInstance();
+        DB.Database db = DB.Database.getDatabase();
         return db.dbSelect.searchBy(advancedSearch);
     }
 
     public void submitForm(Form form) {
         try {
-            DB.Database db = DB.Database.getInstance();
-            form.setTtbID(db.dbInsert.insertForm(form, this));
+            DB.Database db = DB.Database.getDatabase();
+            form.setTtbID(db.dbInsert.insertForm(form));
         }catch (Exception e){
             System.out.println(e.toString());
         }

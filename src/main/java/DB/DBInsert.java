@@ -60,7 +60,7 @@ public class DBInsert {
      * @author Jordan
      * @param company A fully filled out company
      */
-    public void insertCompany(Company company) {
+    public void insertCompany(Manufacturer company) {
         Session session = factory.openSession();
         Transaction tx = null;
         try {

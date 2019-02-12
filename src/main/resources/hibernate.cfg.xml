@@ -30,7 +30,7 @@
         <mapping class="Entities.Approval" />
         <mapping class="Entities.Address" />
         <mapping class="Entities.BrewersPermit" />
-        <mapping class="Entities.Company" />
+        <mapping class="Entities.Manufacturer" />
         <mapping class="Entities.Agent" />
         <mapping class="Entities.Representative" />
         <mapping class="Entities.LabelImage" />
