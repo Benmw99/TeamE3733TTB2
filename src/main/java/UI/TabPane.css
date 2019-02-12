@@ -10,38 +10,12 @@
     -fx-padding: 0 -1 -1 0
 }
 
-/*.tab-pane:left *.tab-header-area
-{
-    -fx-background-insets: 0, 0 0 10;
-    -fx-padding: 0.0em 0.0em 0.0em 0.0em;
-}
 
-#img1{
-
-    -fx-image: url("img001.png");
-}
-
-#img2{
-
-    -fx-image: url("img002.png");
-}
-
-#img3{
-
-    -fx-image: url("img003.png");
-}
-
-#img4{
-
-    -fx-image: url("img004.png");
-}
-
-*/
 
 .tab{
 
     -fx-font: Apple SD Gothic Neo;
-    -fx-font-color: white;
+    -fx-font-color: black;
     -fx-background-color: #cfd8dc;
     -fx-background-insets: 0.0;
     -fx-background-radius: 0.0;
@@ -51,7 +25,7 @@
 .tab:selected
 {
     -fx-font: Apple SD Gothic Neo;
-    -fx-font-color: white;
+    -fx-font-color: black;
     -fx-background-color: #cfd8dc;
     -fx-background-radius: 0;
     -fx-background-insets: 0;
@@ -83,33 +57,7 @@
     -fx-focus-color: transparent;
     -fx-border-color: transparent;
 }
-/*
-#customer:selected * {
 
-    -fx-image: url("img01.png");
-
-}
-
-
-#profile:selected *{
-
-    -fx-image: url("img02.png");
-}
-
-#message:selected *{
-
-    -fx-image: url("img03.png");
-
-}
-
-#feedback:selected  * {
-
-    -fx-image: url("img04.png");
-
-
-}
-
-*/
 
 .hamburger > StackPane {
     -fx-background-color: white;

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import com.jfoenix.controls.JFXHamburger?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.RadialGradient?>
-<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
 <AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AboutPageController">
    <children>
       <Rectangle arcWidth="5.0" fill="#9ea7aa" height="141.0" layoutY="-2.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="0.0" width="1376.0" />
@@ -20,52 +22,52 @@
                      <children>
                         <Label alignment="CENTER" text="Ben Waid - Lead Software Engineer">
                            <font>
-                              <Font name="Apple SD Gothic Neo Regular" size="20.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
                            </font>
                         </Label>
                         <Label alignment="CENTER" text="Nick Eusman - Assistant Lead Software Engineer">
                            <font>
-                              <Font name="Apple SD Gothic Neo Regular" size="20.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
                            </font>
                         </Label>
                         <Label alignment="CENTER" text="Parker Grant - Assistant Software Engineer">
                            <font>
-                              <Font name="Apple SD Gothic Neo Regular" size="20.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
                            </font>
                         </Label>
                         <Label alignment="CENTER" text="Jordan Gold - Test Engineer">
                            <font>
-                              <Font name="Apple SD Gothic Neo Regular" size="20.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
                            </font>
                         </Label>
                         <Label alignment="CENTER" text="Michael Clements - Assistant Documntation Analyst">
                            <font>
-                              <Font name="Apple SD Gothic Neo Regular" size="20.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
                            </font>
                         </Label>
                         <Label alignment="CENTER" text="Gabriella Oviedo - Scrum Master" textAlignment="CENTER">
                            <font>
-                              <Font name="Apple SD Gothic Neo Regular" size="20.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
                            </font>
                         </Label>
                         <Label alignment="CENTER" text="Sierra Palmer - Project Manager">
                            <font>
-                              <Font name="Apple SD Gothic Neo Regular" size="20.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
                            </font>
                         </Label>
                         <Label alignment="CENTER" text="Brandon Navarro - Assistant Documentation Analyst">
                            <font>
-                              <Font name="Apple SD Gothic Neo Regular" size="20.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
                            </font>
                         </Label>
                         <Label alignment="CENTER" text="Hannah Baez - Product Owner">
                            <font>
-                              <Font name="Apple SD Gothic Neo Regular" size="20.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
                            </font>
                         </Label>
                         <Label alignment="CENTER" text="Matt LeMay - Team Coach">
                            <font>
-                              <Font name="Apple SD Gothic Neo Regular" size="20.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
                            </font>
                         </Label>
                      </children>
@@ -74,7 +76,7 @@
                      <children>
                         <Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="We would like to thank the U.S. Treasury Alcohol and Tobacco Tax &amp; Trade Bureau for the opportunity to work on this project, and the insight as to how this system should work." textAlignment="CENTER" wrappingWidth="569.6303596496582">
                            <font>
-                              <Font name="Apple SD Gothic Neo Regular" size="20.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="40.0" />
@@ -88,21 +90,9 @@
       </Pane>
       <Label layoutX="660.0" layoutY="18.0" text="About" textFill="WHITE">
          <font>
-            <Font name="Apple SD Gothic Neo Regular" size="38.0" />
+            <Font name="Apple SD Gothic Neo Thin" size="38.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="33.0" layoutY="89.0" style="-fx-background-color: #ffffff;" text="Back to Home">
-         <ripplerFill>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </ripplerFill>
-         <font>
-            <Font name="Apple SD Gothic Neo Regular" size="20.0" />
-         </font>
-      </JFXButton>
+      <JFXHamburger layoutX="74.0" layoutY="33.0" />
    </children>
 </AnchorPane>
