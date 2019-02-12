@@ -354,7 +354,8 @@ public class AgentHomeController extends PageControllerUI implements IFormDispla
 
     @FXML
     public void refreshQueue(ActionEvent event) throws IOException {
-        attributeContainer.formQueue = ((Agent)attributeContainer.currentUser).getThreeForms();
+        //TODO CHANGE THIS ENTIRELY AS IT SHOULD WORK DIFFERENTLY. IT SHOULD GET A NEW FORM FOR HOWEVER MANY IT IS MISSING COMPARED TO ITS MAX FORMS
+        //attributeContainer.formQueue = ((Agent)attributeContainer.currentUser).getThreeForms();
         getNewQueue();//TODO: replace this with tableViewHelper
 //        tableViewHelper.updateTable(); //TODO: make tableViewHelper
         formDisplayHelper.displayForm(attributeContainer.currentForm);

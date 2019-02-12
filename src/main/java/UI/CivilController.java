@@ -291,7 +291,8 @@ public class CivilController {
     }
 
     public void printResults(ActionEvent event) throws IOException {
-        results.printResults();
+        //TODO REWRITE THIS PASSING A BOOLEAN FOR WHETHER OR NOT IT IS A CSV OR ASCII
+        //results.printResults();
         printSearchResultsCSV.setDisable(true);
         printSearchResultsCSV.setText("Printed");
     }
