@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 
 public class LoginController extends PageControllerUI {
 
-    LoginHelper loginHelper;
     @FXML
     TextField LoginUserUsernameTextField;
     @FXML
@@ -17,9 +16,6 @@ public class LoginController extends PageControllerUI {
     @FXML
     Button LoginUserLoginButton;
 
-    void setLoginHelper(LoginHelper helper) {
-        this.loginHelper = helper;
-    };
 
     TextField getLoginUserUsernameTextField() {
         return LoginUserPasswordTextField;
@@ -33,9 +29,6 @@ public class LoginController extends PageControllerUI {
         return LoginUserLoginButton;
     }
 
-    void login() {
-        loginHelper.authenticate();
-    }
 
     public void enableButton(){
         getLoginUserLoginButton().setOnAction(new EventHandler<ActionEvent>() {
