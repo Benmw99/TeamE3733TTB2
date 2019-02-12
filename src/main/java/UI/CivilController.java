@@ -283,7 +283,7 @@ public class CivilController extends PageControllerUI {
             Parent root;
             Stage stage;
             stage=(Stage) resultTable.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("CivilSearchForm.fxml"));
+            root = FXMLLoader.load(getClass().getResource("ViewSelectedForm.fxml"));
             Scene scene = new Scene(root, 1360, 820);
             stage.setScene(scene);
             stage.show();
