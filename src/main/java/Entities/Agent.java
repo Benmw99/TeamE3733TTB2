@@ -86,7 +86,7 @@ public class Agent {
 
     String encryptPassword(){
         try {
-            KeyGenerator generator = new KeyGenerator("AES");
+            KeyGenerator generator = KeyGenerator.getInstance("AES");
             generator.init(128);
             SecureRandom secRand = new SecureRandom();
             secRand.setSeed(123);
