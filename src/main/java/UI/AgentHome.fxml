@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AgentHomeController">
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AgentHomeController">
    <children>
       <Pane prefHeight="759.0" prefWidth="1360.0" style="-fx-background-color: WHITE;">
          <children>
@@ -34,7 +34,7 @@
             </Pane>
             <Pane layoutX="-1.0" layoutY="88.0" prefHeight="675.0" prefWidth="355.0" style="-fx-background-color: #cfd8dc;">
                <children>
-                  <JFXButton fx:id="addAppButton" buttonType="RAISED" layoutX="292.0" layoutY="30.0" onAction="#getNewQueue" ripplerFill="BLACK" style="-fx-background-radius: 15; -fx-background-color: #26c6da;" text="+">
+                  <JFXButton fx:id="addAppButton" buttonType="RAISED" layoutX="292.0" layoutY="30.0" onAction="#newApp" ripplerFill="BLACK" style="-fx-background-radius: 15; -fx-background-color: #26c6da;" text="+">
                      <font>
                         <Font name="Apple SD Gothic Neo Thin" size="14.0" />
                      </font></JFXButton>
@@ -85,7 +85,7 @@
                               <Insets left="170.0" />
                            </HBox.margin>
                         </JFXButton>
-                        <JFXButton fx:id="rejectAHButton" buttonType="RAISED" style="-fx-background-color: #26c6da;" text="Reject Form">
+                        <JFXButton fx:id="rejectAHButton" buttonType="RAISED" onAction="#rejectForm" style="-fx-background-color: #26c6da;" text="Reject Form">
                            <font>
                               <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                            </font>
