@@ -41,5 +41,6 @@ public class AttributeContainer {
         currentResults = null;
         sounds = null;
         searchPage = 0;
+        backlog.empty();
     }
 }

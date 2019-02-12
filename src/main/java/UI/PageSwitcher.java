@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class PageSwitcher {
@@ -31,7 +32,9 @@ public class PageSwitcher {
 //        Stage stage;
 //        stage=(Stage) b.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(filename));
+   //     System.out.println(new File("src/main/java/UI/WelcomePage.fxml").toURI());
+  //      System.out.println(getClass().getResource("/src/main/java/UI/WelcomePage.fxml"));
+        loader.setLocation(new File("src/main/java/UI/" + filename).toURI().toURL());
         root = loader.load();
         Scene scene = new Scene(root, 1360, 760);
         stage.setScene(scene);
