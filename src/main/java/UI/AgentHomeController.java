@@ -135,6 +135,21 @@ public class AgentHomeController extends PageControllerUI  {
     @FXML
     Button LogOutButton;
 
+    @FXML
+    Button UseReviewingToolsButton;
+
+    @FXML
+    Button RejectFormButton;
+
+    @FXML
+    Button ApproveFormButton;
+
+    @FXML
+    TextField SearchField;
+
+    @FXML
+    Button GetNewQueueButton;
+
 
 
     ///////////////////////////////////////////////////

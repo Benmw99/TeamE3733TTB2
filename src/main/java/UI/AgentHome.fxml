@@ -38,11 +38,11 @@
                      <font>
                         <Font name="Apple SD Gothic Neo Thin" size="14.0" />
                      </font></JFXButton>
-                  <JFXTextField fx:id="searchAHField" layoutX="44.0" layoutY="27.0" prefHeight="33.0" prefWidth="231.0" promptText="Search Applications" style="-fx-background-color: #aeacac;" unFocusColor="WHITE">
+                  <JFXTextField fx:id="SearchField" layoutX="44.0" layoutY="27.0" prefHeight="33.0" prefWidth="231.0" promptText="Search Applications" style="-fx-background-color: #aeacac;" unFocusColor="WHITE">
                      <font>
                         <Font name="Apple SD Gothic Neo Thin" size="13.0" />
                      </font></JFXTextField>
-                  <JFXButton fx:id="getnewQueueButton" buttonType="RAISED" layoutX="84.0" layoutY="613.0" onAction="#getNewQueue" style="-fx-background-color: #26c6da;" text="Get New Queue">
+                  <JFXButton fx:id="GetNewQueueButton" buttonType="RAISED" layoutX="84.0" layoutY="613.0" onAction="#getNewQueue" style="-fx-background-color: #26c6da;" text="Get New Queue">
                      <font>
                         <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                      </font>
@@ -58,9 +58,9 @@
                   </JFXButton>
                   <JFXTreeTableView fx:id="formTable" layoutY="85.0" maxHeight="1.7976931348623157E308" prefHeight="512.0" prefWidth="356.0">
                      <columns>
-                        <TreeTableColumn fx:id="tTBIDColumn" prefWidth="114.59823822975159" text="TTB ID#" />
-                        <TreeTableColumn fx:id="dateSubmittedColumn" prefWidth="128.4017562866211" text="Date Submitted" />
-                        <TreeTableColumn fx:id="brandNameColumn" prefWidth="112.60408020019531" text="Brand Name" />
+                        <TreeTableColumn fx:id="TTBIDColumn" prefWidth="114.59823822975159" text="TTB ID#" />
+                        <TreeTableColumn fx:id="DateSubmittedColumn" prefWidth="128.4017562866211" text="Date Submitted" />
+                        <TreeTableColumn fx:id="BrandNameColumn" prefWidth="112.60408020019531" text="Brand Name" />
                      </columns>
                   </JFXTreeTableView>
                </children>
@@ -69,7 +69,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="85.0" prefWidth="967.0">
                      <children>
-                        <JFXButton fx:id="approveAHButton" buttonType="RAISED" onAction="#approveForm" style="-fx-background-color: #26c6da;" text="Approve Form">
+                        <JFXButton fx:id="ApproveFormButton" buttonType="RAISED" onAction="#approveForm" style="-fx-background-color: #26c6da;" text="Approve Form">
                            <font>
                               <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                            </font>
@@ -85,7 +85,7 @@
                               <Insets left="170.0" />
                            </HBox.margin>
                         </JFXButton>
-                        <JFXButton fx:id="rejectAHButton" buttonType="RAISED" style="-fx-background-color: #26c6da;" text="Reject Form">
+                        <JFXButton fx:id="RejectFormButton" buttonType="RAISED" onAction="#rejectForm" style="-fx-background-color: #26c6da;" text="Reject Form">
                            <font>
                               <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                            </font>
@@ -109,7 +109,7 @@
                               <Insets left="60.0" />
                            </HBox.margin>
                         </JFXButton>
-                        <JFXButton fx:id="printAHButton" buttonType="RAISED" onAction="#print" style="-fx-background-color: #26c6da;" text="Print">
+                        <JFXButton fx:id="PrintButton" buttonType="RAISED" onAction="#print" style="-fx-background-color: #26c6da;" text="Print">
                            <ripplerFill>
                               <RadialGradient centerX="0.5056179775280899" centerY="0.5" radius="0.5">
                                  <stops>
@@ -132,7 +132,7 @@
                   </HBox>
                </children>
             </Pane>
-            <Pane layoutX="357.0" layoutY="173.0" prefHeight="592.0" prefWidth="1005.0" style="-fx-background-color: white;">
+            <Pane fx:id="UseReviewingToolsButton" layoutX="357.0" layoutY="173.0" prefHeight="592.0" prefWidth="1005.0" style="-fx-background-color: white;">
                <children>
                   <fx:include source="FormDisplay.fxml" />
                </children></Pane>
