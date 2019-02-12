@@ -52,7 +52,7 @@ public class FormDisplayHelper {
         System.out.println(form.getBrandName());
         System.out.println(form.getEmail());
         if(!form.getBrewersPermit().isEmpty()){
-            controller.getDisplay2Label().setText(form.getBrewersPermit().get(0));
+            controller.getDisplay2Label().setText(form.getBrewersPermit().get(0).getBrewersNo());
         }
         String dom;
         if(form.getSource()){
@@ -106,8 +106,8 @@ public class FormDisplayHelper {
 //        Man15Label1().setText(); //TODO TYPE OF APPLICATION
 //        Man15Label2().setText();
 //        Man15Label3().setText(); //END TODO
-        if(form.getBlownBrandedEmbossedInfo() != null) {
-            controller.getDisplay16Label1().setText(form.getBlownBrandedEmbossedInfo());
+        if(form.getOtherInfo() != null) {
+            controller.getDisplay16Label1().setText(form.getOtherInfo());
         }
 //        Man16Label2().setText(); //TODO TRANSLATION
         if(form.getDateSubmitted() != null) {
