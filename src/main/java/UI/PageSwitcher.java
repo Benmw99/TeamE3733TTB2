@@ -46,7 +46,6 @@ public class PageSwitcher {
         //////////////////////////////////////////////////////
         PageControllerUI controller = loader.getController();
 //        controller.setStage_DontTouch(stage);
-        AttributeContainer.getInstance().backlog.push("");
         AttributeContainer.getInstance().current_page = controller;
         controller.onLoad();
 
