@@ -20,7 +20,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.sql.Timestamp;
 
-public class AgentHomeController extends PageControllerUI implements IFormDisplay, IExport, ITableView, ILogOut {
+public class AgentHomeController extends PageControllerUI  {
 
    //From IFormDisplay
     @FXML
@@ -136,197 +136,6 @@ public class AgentHomeController extends PageControllerUI implements IFormDispla
     Button LogOutButton;
 
 
-    @Override
-    public Button getPrintButton() {
-        return PrintButton;
-    }
-
-    @Override
-    public Button getSaveToCSVButton() {
-        return SaveToCSVButton;
-    }
-
-    @Override
-    public Button getAsciiDelimitedFileButton() {
-        return AsciiDelimitedFileButton;
-    }
-
-    FormDisplayHelper formDisplayHelper;
-
-     @Override
-     public void setFormDisplayHelper(FormDisplayHelper helper) {
-         formDisplayHelper = helper;
-     }
-
-     @Override
-    public Label getDisplay1Label() {
-        return Display1Label;
-    }
-
-    @Override
-    public Label getDisplay2Label() {
-        return Display2Label;
-    }
-
-    @Override
-    public Label getDisplay3Label() {
-        return Display3Label;
-    }
-
-    @Override
-    public Label getDisplayReview4Label1() {
-        return DisplayReview4Label1;
-    }
-
-    @Override
-    public Label getDisplay4Label2() {
-        return Display4Label2;
-    }
-
-    @Override
-    public Label getDisplay5Label1() {
-        return Display5Label1;
-    }
-
-    @Override
-    public Label getDisplay5Label2() {
-        return Display5Label2;
-    }
-
-    @Override
-    public Label getDisplay5Label3() {
-        return Display5Label3;
-    }
-
-    @Override
-    public Label getDisplay6Label() {
-        return Display6Label;
-    }
-
-    @Override
-    public Label getDisplay7Label() {
-        return Display7Label;
-    }
-
-    @Override
-    public Label getDisplay8Label() {
-        return Display8Label;
-    }
-
-    @Override
-    public Label getDisplay9Label() {
-        return Display9Label;
-    }
-
-    @Override
-    public Label getDisplay10Label() {
-        return Display10Label;
-    }
-
-    @Override
-    public Label getDisplay11Label() {
-        return Display11Label;
-    }
-
-    @Override
-    public Label getDisplay12Label() {
-        return Display12Label;
-    }
-
-    @Override
-    public Label getDisplay13Label() {
-        return Display13Label;
-    }
-
-    @Override
-    public Label getDisplay14Label() {
-        return Display14Label;
-    }
-
-    @Override
-    public Label getDisplay15Label1() {
-        return Display15Label1;
-    }
-
-    @Override
-    public Label getDisplay15Label2() {
-        return Display15Label2;
-    }
-
-    @Override
-    public Label getDisplay15Label3() {
-        return Display15Label3;
-    }
-
-    @Override
-    public Label getDisplay16Label1() {
-        return Display16Label1;
-    }
-
-    @Override
-    public Label getDisplay16Label2() {
-        return Display16Label2;
-    }
-
-    @Override
-    public Label getDisplay17Label() {
-        return Display17Label;
-    }
-
-    @Override
-    public Label getDisplay18Label() {
-        return Display18Label;
-    }
-
-    @Override
-    public Label getDisplay20Label() {
-        return Display20Label;
-    }
-
-    TableViewHelper tableViewHelper;
-    @Override
-    public void setTableViewHelper(TableViewHelper helper) {
-        tableViewHelper = helper;
-    }
-    @Override
-    public Button getLogOutButton() {
-        return LogOutButton;
-    }
-
-    @Override
-    public TableView<Form> getFormTable() {
-        return FormTable;
-    }
-
-    @Override
-    public TableColumn<Form, Integer> getTTBIDColumn() {
-        return TTBIDColumn;
-    }
-
-    @Override
-    public TableColumn<Form, Timestamp> getDateSubmittedColumn() {
-        return DateSubmittedColumn;
-    }
-
-    @Override
-    public TableColumn<Form, String> getBrandNameColumn() {
-        return BrandNameColumn;
-    }
-
-    @Override
-    public TableColumn<Form, AlcoholType> getTypeColumn() {
-        return TypeColumn;
-    }
-
-    @Override
-    public TableColumn<Form, String> getBrandColumn() {
-        return BrandColumn;
-    }
-
-    @Override
-    public TableColumn<Form, String> getSerialColumn() {
-        return SerialColumn;
-    }
 
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
@@ -358,7 +167,6 @@ public class AgentHomeController extends PageControllerUI implements IFormDispla
         //attributeContainer.formQueue = ((Agent)attributeContainer.currentUser).getThreeForms();
         getNewQueue();//TODO: replace this with tableViewHelper
 //        tableViewHelper.updateTable(); //TODO: make tableViewHelper
-        formDisplayHelper.displayForm(attributeContainer.currentForm);
     }
 
     @FXML
@@ -370,7 +178,6 @@ public class AgentHomeController extends PageControllerUI implements IFormDispla
             attributeContainer.currentForm = null;
             getNewQueue();//TODO: replace this with tableViewHelper
 //        tableViewHelper.updateTable(); //TODO: make tableViewHelper
-            formDisplayHelper.displayForm(attributeContainer.currentForm);
         }
     }
     @FXML
@@ -380,7 +187,6 @@ public class AgentHomeController extends PageControllerUI implements IFormDispla
 //            getNewQueue();//TODO: replace this with tableViewHelper
             attributeContainer.currentForm = null;
 //        tableViewHelper.updateTable(); //TODO: make tableViewHelper
-            formDisplayHelper.displayForm(attributeContainer.currentForm);
         }
     }
     @FXML
@@ -401,43 +207,43 @@ public class AgentHomeController extends PageControllerUI implements IFormDispla
 
     public void getNewQueue() throws IOException{
 //        attributeContainer.formQueue = ((Agent)attributeContainer.currentUser).getThreeForms();
-        this.getTTBIDColumn().setCellValueFactory(new PropertyValueFactory<>("ttbID"));
-        this.getDateSubmittedColumn().setCellValueFactory(new PropertyValueFactory<>("dateSubmitted"));
-        this.getBrandColumn().setCellValueFactory(new PropertyValueFactory<>("brandName"));
+        this.TTBIDColumn.setCellValueFactory(new PropertyValueFactory<>("ttbID"));
+        this.DateSubmittedColumn.setCellValueFactory(new PropertyValueFactory<>("dateSubmitted"));
+        this.BrandColumn.setCellValueFactory(new PropertyValueFactory<>("brandName"));
 
-        tableView();
+    //    tableView();
 
         ObservableList<Form> tableValues = FXCollections.observableArrayList();
         for (int i = 0; i < attributeContainer.formQueue.size(); i++) {
             tableValues.add(attributeContainer.formQueue.get(i));
         }
-        this.getFormTable().setItems(tableValues);
-        this.getPrintButton().setEnabled(true);//setDisable(false);
+        this.FormTable.setItems(tableValues);
+        this.PrintButton.setEnabled(true);//setDisable(false);
     }
 
 
-
-    public void tableView()  {
-        ITableView temp = this;
-        this.getFormTable().setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            /**
-             * Makes it so that, if you click on a row of the Table, a form is loaded based on that TTB_ID
-             */
-            public void handle(MouseEvent click) {
-                if (click.getClickCount() == 2) {
-                    @SuppressWarnings("rawtypes")
-                    TablePosition pos = temp.getFormTable().getSelectionModel().getSelectedCells().get(0);
-                    int row = pos.getRow();
-                    int col = pos.getColumn();
-                    int ID = temp.getTTBIDColumn().getCellData(row);
-                    System.out.println(ID);
-                    attributeContainer.currentForm = Database.getDatabase().dbSelect.getFormByTTB_ID(ID);
-//                    ((AgentHomeController) temp).formDisplayHelper.displayForm(attributeContainer.currentForm);
-                }
-            }
-        });
-        //    ObservableList<Form> tableValues = FXCollections.observableArrayList();
-
-    }
+// TODO Implement the TableViewController to take care of this for us.
+//    public void tableView()  {
+//     //   ITableView temp = this;
+//        this.getFormTable().setOnMouseClicked(new EventHandler<MouseEvent>() {
+//            @Override
+//            /**
+//             * Makes it so that, if you click on a row of the Table, a form is loaded based on that TTB_ID
+//             */
+//            public void handle(MouseEvent click) {
+//                if (click.getClickCount() == 2) {
+//                    @SuppressWarnings("rawtypes")
+//                    TablePosition pos = temp.getFormTable().getSelectionModel().getSelectedCells().get(0);
+//                    int row = pos.getRow();
+//                    int col = pos.getColumn();
+//                    int ID = temp.getTTBIDColumn().getCellData(row);
+//                    System.out.println(ID);
+//                    attributeContainer.currentForm = Database.getDatabase().dbSelect.getFormByTTB_ID(ID);
+////                    ((AgentHomeController) temp).formDisplayHelper.displayForm(attributeContainer.currentForm);
+//                }
+//            }
+//        });
+//        //    ObservableList<Form> tableValues = FXCollections.observableArrayList();
+//
+//    }
 }

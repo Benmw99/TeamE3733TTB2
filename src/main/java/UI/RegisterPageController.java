@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class RegisterPageController extends PageControllerUI implements IRegister {
+public class RegisterPageController extends PageControllerUI {
 
     @FXML
     TextField RegisterUserFirstNameTextField;
@@ -27,40 +27,6 @@ public class RegisterPageController extends PageControllerUI implements IRegiste
     @FXML
     Button SubmitRegistrationButton;
 
-    @Override
-    public TextField getRegisterUserFirstNameTextField() {
-        return RegisterUserFirstNameTextField;
-    }
-
-    @Override
-    public TextField getRegisterUserLastNameTextField() {
-        return RegisterUserLastNameTextField;
-    }
-
-    @Override
-    public TextField getRegisterUserUsernameTextField() {
-        return RegisterUserUsernameTextField;
-    }
-
-    @Override
-    public TextField getRegisterUserEmailTextField() {
-        return RegisterUserEmailTextField;
-    }
-
-    @Override
-    public TextField getRegisterUserPasswordTextField() {
-        return RegisterUserPasswordTextField;
-    }
-
-    @Override
-    public TextField getRegisterUserPasswordCheckTextField() {
-        return RegisterUserPasswordCheckTextField;
-    }
-
-    @Override
-    public Button getSubmitRegistrationButton() {
-        return SubmitRegistrationButton;
-    }
 
     protected void onLeave(){}
 
