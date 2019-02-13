@@ -137,8 +137,8 @@ public class TableBuilder {
                 "isMailing BOOLEAN, " +
                 "City VARCHAR(32), " +
                 "State VARCHAR(2), " +
-                "Street VARCHAR(32), " +
-                "Name VARCHAR(32), " +
+                "Street VARCHAR(50), " +
+                "Name VARCHAR(88), " +
                 "TTB_ID BIGINT, " +
                 "ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
                 "Constraint Address_PK Primary Key (ID), " +
@@ -152,7 +152,7 @@ public class TableBuilder {
         String buildString = "CREATE TABLE WINE (" +
                 "ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
                 "Grape_Varietals VARCHAR(256)," +
-                "Wine_Appellation VARCHAR(32), " +
+                "Wine_Appellation VARCHAR(80), " +
                 "PH REAL, " +
                 "Vintage INT, " +
                 "TTB_ID BIGINT, " +
@@ -183,7 +183,7 @@ public class TableBuilder {
                 "Page_2 Int," +
                 "Page_3 Int, " +
                 "Page_4 Int, " +
-                "Qualification VARCHAR(256) DEFAULT NULL, " +
+                "Qualification VARCHAR(600) DEFAULT NULL, " +
                 "Constraint Approval_PK Primary Key (ID), " +
                 "Constraint Approval_FK Foreign Key (TTB_ID) References Form(TTB_ID) On Delete Cascade)";
         sendStatement(buildString);
@@ -205,7 +205,7 @@ public class TableBuilder {
     private void buildForm(){
         String buildString = "CREATE TABLE FORM (" +
                 "TTB_ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
-                "Serial_Number VARCHAR(8)," +
+                "Serial_Number VARCHAR(12)," +
                 "Fanciful_Name VARCHAR(256)," +
                 "Brand_Name VARCHAR(256)," +
                 "Source BOOLEAN," +
@@ -213,7 +213,7 @@ public class TableBuilder {
                 "Email VARCHAR(256)," +
                 "Date_Submitted DATE," +
                 "Applicant_Name VARCHAR(32)," +
-                "Text VARCHAR(256) DEFAULT NULL, " +
+                //"Text VARCHAR(256) DEFAULT NULL, " +
                 "Phone VARCHAR(16)," +
                 "Alcohol_Type SMALLINT," +
                 "APV REAL, " +
@@ -222,9 +222,9 @@ public class TableBuilder {
                 "Rep_ID VARCHAR(16) DEFAULT NULL," +
                 "Other_Info VARCHAR(256), " +
                 "Company_ID BIGINT," +
-                "Constraint Form_PK Primary Key (TTB_ID), " +
+                "Constraint Form_PK Primary Key (TTB_ID))";
                 //TODO IMPLEMENT REPS            "Constraint Form_FK_Rep Foreign Key (Rep_ID) References Reps(Rep_ID), " +
-                "Constraint Form_FK_Company Foreign Key (Company_ID) References Company(Company_ID))";
+                //"Constraint Form_FK_Company Foreign Key (Company_ID) References Company(Company_ID))";
         sendStatement(buildString);
         //String createSeq = "create sequence Form_ID as BIGINT start with 1";
         //sendStatement(createSeq);
@@ -252,7 +252,7 @@ public class TableBuilder {
         sendStatement(buildString);
     }
 
-    private void buildCompany(){
+    private void buildCompany() {
         String buildString = "CREATE TABLE COMPANY (" +
                 "Company_ID BIGINT," +
                 "Company_Name VARCHAR(256), " +
@@ -262,4 +262,5 @@ public class TableBuilder {
                 "Constraint Company_UQ Unique (Company_ID))";
         sendStatement(buildString);
     }
+
 }
