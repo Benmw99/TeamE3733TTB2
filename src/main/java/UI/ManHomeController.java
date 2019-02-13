@@ -49,7 +49,6 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
 
     @Override
     void onLoad() {
-        AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
     }
 
 
@@ -117,6 +116,10 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        AttributeContainer.getInstance().formQueue.addAll(((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms());
+        System.out.println("Bdshjbfkjnl");
+        AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
+        for(Form f : AttributeContainer.getInstance().formQueue){
+            System.out.println("BITCH");
+        }
     }
 }

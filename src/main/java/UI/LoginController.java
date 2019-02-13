@@ -64,10 +64,12 @@ public class LoginController extends PageControllerUI implements Initializable {
     public void login(){
         if(authenticate()){
             if(ManRadioButton.isSelected()){
+                AttributeContainer.getInstance().currentUser.loadUser();
                 goToPage("ManHome.fxml");
             }
             if(AgentRadioButton.isSelected()){
                 goToPage("AgentHome.fxml");
+                AttributeContainer.getInstance().currentUser.loadUser();
             }
         }
     }

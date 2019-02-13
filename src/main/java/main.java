@@ -36,7 +36,7 @@ public class main {
 
         Form form = new Form(null, Brews, true, "00123SE", AlcoholType.MaltBeverage, "Bubbly", "BU", Adds, "John Smith", null, null, "1112223333", "john@johnmail.com", "No other info", d, 123, new Approval(), (float)12.3, ApprovalStatus.Incomplete);
 
-        AttributeContainer.getInstance().formQueue.add(form);
+    //    AttributeContainer.getInstance().formQueue.add(form);
 
         db.dbInsert.insertForm(form);
         UI.MainUI.main( args);

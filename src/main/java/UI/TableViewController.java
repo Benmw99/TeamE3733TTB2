@@ -58,7 +58,6 @@ public class TableViewController extends PageControllerUI implements Initializab
         colstatus.setCellValueFactory(new PropertyValueFactory("Status"));
         colsub.setCellValueFactory(new PropertyValueFactory("Submitted"));
         coltype.setCellValueFactory(new PropertyValueFactory("Type"));
-        table.setItems(formlist);
         if(AttributeContainer.getInstance().backlog.peek().equals("HomeSearch.fxml")){
             enableSearchVersion();
         } else {
@@ -73,6 +72,7 @@ public class TableViewController extends PageControllerUI implements Initializab
                         TablePosition pos = table.getSelectionModel().getSelectedCells().get(0);
                         int row = pos.getRow();
                         int ID = Integer.valueOf(colttb.getCellData(row));
+                        System.out.println(ID);
                         AttributeContainer.getInstance().currentForm = Database.getDatabase().dbSelect.getFormByTTB_ID(ID);
                         goToPage(AttributeContainer.getInstance().backlog.pop());
                     }

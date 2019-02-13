@@ -5,6 +5,7 @@
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -26,11 +27,11 @@
             <Font name="Apple SD Gothic Neo Regular" size="18.0" />
          </font>
       </JFXButton>
-      <Pane layoutX="360.0" layoutY="132.0" prefHeight="617.0" prefWidth="1002.0" style="-fx-background-color: WHITE;">
+      <HBox layoutX="360.0" layoutY="132.0" prefHeight="617.0" prefWidth="1002.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="15.0">
          <children>
-            <fx:include source="TableView.fxml" />
+            <fx:include source="TableView.fxml" HBox.hgrow="ALWAYS" />
          </children>
-      </Pane>
+      </HBox>
     <JFXTextField fx:id="SearchField" alignment="CENTER" disable="true" layoutX="340.0" layoutY="84.0" prefHeight="26.0" prefWidth="708.0" style="-fx-background-color: WHITE;" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="316.0" />
     <Text layoutX="32.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
         <font>

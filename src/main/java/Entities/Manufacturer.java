@@ -134,6 +134,7 @@ public class Manufacturer implements IUser {
     //FORM MUST BE FULLY SET INCLUDING AN EMPTY APPROVAL THAT IS INCOMPLETE, AND APPROVALSTATUS MUST BE INCOMPLETE
     public void submitForm(Form form) {
         try {
+            form.setCompanyID(this.manID);
             DB.Database db = DB.Database.getDatabase();
             form.setTtbID(db.dbInsert.insertForm(form));
         }catch (Exception e){

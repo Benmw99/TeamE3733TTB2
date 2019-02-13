@@ -3,9 +3,8 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXToggleButton?>
-<?import com.jfoenix.controls.JFXTreeTableView?>
-<?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -45,7 +44,6 @@
                         <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                      </font>
                   </JFXButton>
-                  <fx:include source="TableView.fxml"></fx:include>
                </children>
             </Pane>
             <Pane layoutX="558.0" layoutY="88.0" prefHeight="64.0" prefWidth="803.0" style="-fx-background-color: #cfd8dc;">
@@ -97,6 +95,16 @@
                </children>
             </Pane>
          </children></Pane>
-      <fx:include source="MenuDrawer.fxml" />
+      <fx:include source="MenuDrawer.fxml" AnchorPane.leftAnchor="0.0" />
+      <HBox layoutX="15.0" layoutY="200.0" prefHeight="575.0" prefWidth="475.0">
+         <children>
+            <fx:include source="TableView.fxml" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="-150.0" AnchorPane.topAnchor="150.0">
+         <children>
+            <fx:include source="FormDisplay.fxml" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

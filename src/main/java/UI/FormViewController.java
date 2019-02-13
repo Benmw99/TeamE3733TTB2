@@ -196,8 +196,6 @@ public class FormViewController extends PageControllerUI implements Initializabl
      */
     @Override
     void onLoad() {
-        AttributeContainer.getInstance().currentForm = new Form("ABC");
-        wipeForm();
 
     }
 

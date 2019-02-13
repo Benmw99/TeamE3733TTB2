@@ -344,6 +344,7 @@ public class ManAppController extends PageControllerUI implements  Initializable
                 AttributeContainer.getInstance().labelImage.setTTBID(id);
                 AttributeContainer.getInstance().labelImage.insert();
                 if(AttributeContainer.getInstance().backlog.peek().equals("ManApp.fxml")){
+                    AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
                     goToPage("ManHome.fxml");
                 } else if (AttributeContainer.getInstance().backlog.peek().equals("AgentApp.fxml")){
                     goToPage("AgentHome.fxml");
@@ -509,6 +510,7 @@ public class ManAppController extends PageControllerUI implements  Initializable
         los.add(ProducerNumField.getText());
         working.setRepID(RepIDField.getText());
         working.setFormula(FormulaField.getText());
+        working.setApprovalStatus(ApprovalStatus.Incomplete);
         if(SourceComboBox.getValue().equals("Domestic")) {
             working.setSource(false);
         } else {
