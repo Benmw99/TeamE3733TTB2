@@ -1,5 +1,6 @@
 package UI;
 
+import Entities.LabelImage;
 import com.jfoenix.controls.*;
 import com.jfoenix.validation.NumberValidator;
 import com.jfoenix.validation.RegexValidator;
@@ -8,10 +9,20 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
+import org.apache.commons.io.IOUtils;
 
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
@@ -163,10 +174,13 @@ public class ManAppController extends PageControllerUI implements  Initializable
     private JFXTextField SignatureField;
 
     @FXML
-    private JFXButton SubmitButton;
+    private JFXButton UploadButton;
 
     @FXML
     private JFXTextField AlcoholContentTextField;
+
+    @FXML
+    ImageView labelImageDisplay;
 
     @Override
     void onLoad() {
@@ -429,5 +443,32 @@ public class ManAppController extends PageControllerUI implements  Initializable
 
     }
 
+    @FXML
+    void uploadLabelImage(){
+        FileChooser fileChooser = new FileChooser();
+
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("PNG Files", "*.png")
+                ,new FileChooser.ExtensionFilter("JPEG Files", "*.jpg")
+        );
+
+
+        try {
+            fileChooser.setTitle("Select label image");
+            File selectedFile = fileChooser.showOpenDialog(PageSwitcher.stage);
+            LabelImage labelImage = new LabelImage();
+            InputStream is = new FileInputStream(selectedFile);
+            labelImage.setImage(IOUtils.toByteArray(is));
+            labelImage.setImageName(selectedFile.getName());
+            attributeContainer.labelImage = labelImage;
+            attributeContainer.labelImageFile = selectedFile;
+//            BufferedImage img = ImageIO.read(selectedFile);
+            Image img = new Image(selectedFile.toURI().toString());
+            labelImageDisplay.setImage(img);
+        }
+        catch(IOException e) {
+            System.out.println(e);
+        }
+    }
 
 }
