@@ -103,6 +103,9 @@ public class TableViewController extends PageControllerUI implements Initializab
                     int row = pos.getRow();
                     int ID = Integer.valueOf(colttb.getCellData(row));
                     AttributeContainer.getInstance().currentForm = Database.getDatabase().dbSelect.getFormByTTB_ID(ID);
+                    if(AttributeContainer.getInstance().currentUser.isManufacturer()){
+                        AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
+                    }
                     goToPage("ViewSelectedForm.fxml");
                 }
             }
