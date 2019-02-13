@@ -43,7 +43,7 @@ public class DBInsert {
      * @param form The fully completed form to be submitted. Approval should be set as a default incomplete.
      * @return The TTB ID of the form that was just inserted
      */
-    public int insertForm(Form form) throws Exception{
+    public int insertForm(Form form) {
         Session session = factory.openSession();
         Transaction tx = null;
         Integer formID = null;
@@ -55,7 +55,6 @@ public class DBInsert {
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
-            throw new Exception("Failed to insert form");
         } finally {
             session.close();
         }
