@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXDrawer?>
-<?import com.jfoenix.controls.JFXHamburger?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BackButtonController">
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="300.0" style="-fx-background-color: #4e0000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <JFXHamburger fx:id="Hamburger" alignment="CENTER" layoutX="10.0" layoutY="15.0" styleClass="TabPane.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0" />
-      <JFXDrawer fx:id="Drawer" />
+      <JFXButton buttonType="RAISED" prefHeight="75.0" prefWidth="300.0" text="Search" textFill="WHITE">
+         <font>
+            <Font name="Apple SD Gothic Neo Regular" size="36.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" prefHeight="75.0" prefWidth="300.0" text="Go Home" textFill="WHITE">
+         <font>
+            <Font name="Apple SD Gothic Neo Regular" size="36.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" prefHeight="75.0" prefWidth="300.0" text="Log Out" textFill="WHITE">
+         <font>
+            <Font name="Apple SD Gothic Neo Regular" size="36.0" />
+         </font>
+      </JFXButton>
    </children>
-</AnchorPane>
+</VBox>
