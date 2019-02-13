@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "FORM")
-public class Form {
+public class Form{
     @Column(name = "Rep_ID")
     private String repID;
 
@@ -158,11 +158,13 @@ public class Form {
         this.workingOn = 0;
     }
 
-    public Form(int ttbID, String serialNumber, AlcoholType alcoholType, String brandName, Date dateSubmitted, ApprovalStatus approvalStatus) {
+    //Constructor specifically for hibernate to create smaller forms for search results
+    public Form(int ttbID, String serialNumber, AlcoholType alcoholType, String brandName, java.util.Date dateSubmitted, ApprovalStatus approvalStatus) {
         this.serialNumber = serialNumber;
         this.alcoholType = alcoholType;
         this.brandName = brandName;
-        this.dateSubmitted = dateSubmitted;
+
+        this.dateSubmitted = new java.sql.Date(dateSubmitted.getTime());
         this.approvalStatus = approvalStatus;
         this.ttbID = ttbID;
     }

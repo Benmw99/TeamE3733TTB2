@@ -12,6 +12,8 @@
         <property name="hibernate.connection.username"></property>
         <property name="hibernate.connection.password"></property>
         <property name = "hibernate.jdbc.batch_size">20</property>
+        <!-- ENABLE THIS IN THE FINAL JAR AS IT SPEEDS UP CONNECTIONS -->
+        <!-- property name="hibernate.temp.use_jdbc_metadata_defaults">false</property -->
 
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>
