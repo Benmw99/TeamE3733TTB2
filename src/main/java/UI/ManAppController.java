@@ -1,5 +1,6 @@
 package UI;
 
+import Entities.*;
 import Entities.LabelImage;
 import com.jfoenix.controls.*;
 import com.jfoenix.validation.NumberValidator;
@@ -7,8 +8,10 @@ import com.jfoenix.validation.RegexValidator;
 import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -24,12 +27,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class ManAppController extends PageControllerUI implements  Initializable {
-
+    @FXML
+    public JFXButton SendApp;
     @FXML
     private JFXButton page1;
 
@@ -323,6 +328,31 @@ public class ManAppController extends PageControllerUI implements  Initializable
         State15ComboBox.getItems().addAll(states);
         SourceComboBox.getItems().addAll("Domestic", "Imported");
         TypeComboBox.getItems().addAll("Malt Beverage", "Wine", "Distilled Liquor");
+        /* setup submit button */
+        this.SendApp.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                int id;
+                if(AttributeContainer.getInstance().currentUser.isManufacturer()){
+                    id = getForm((Manufacturer)AttributeContainer.getInstance().currentUser);
+                } else {
+                    Manufacturer temp = new Manufacturer();
+                    temp.setManID(0);
+                    id = getForm(temp);
+                }
+                AttributeContainer.getInstance().labelImage.setTTBID(id);
+                AttributeContainer.getInstance().labelImage.insert();
+                if(AttributeContainer.getInstance().backlog.peek().equals("ManApp.fxml")){
+                    goToPage("ManHome.fxml");
+                } else if (AttributeContainer.getInstance().backlog.peek().equals("AgentApp.fxml")){
+                    goToPage("AgentHome.fxml");
+                } else {
+                    AttributeContainer.getInstance().backlog.pop();
+                    goToPage(AttributeContainer.getInstance().backlog.pop());
+            }
+        }
+        });
+
     }
 
     // Always checks if empty
@@ -457,6 +487,66 @@ public class ManAppController extends PageControllerUI implements  Initializable
 
     }
 
+    /**
+     * This is the method which gets a form from the associated controller and persists
+     * it to the database. Pass it the manufacturer who is inserting the form. Later there might
+     * be another option using no Manufacturer at all.
+     * @param man The manufacturer performing the insert... We need to think about this?
+     * @return int the TTBID
+     */
+    int getForm(Manufacturer man){
+        Form working = new Form();
+        working.setBrandName(BrandField.getText());
+        working.setSerialNumber(SerialYearField.getText()
+                + SerialDigitsField.getText());
+        working.setPhoneNumber(PhoneNumField.getText());
+        working.setOtherInfo(AdditionalInfoField.getText());
+        working.setEmail(EmailField.getText());
+        working.setAlcoholContent(Float.parseFloat(AlcoholContentTextField.getText()));
+        working.setFancifulName(FancifulField.getText());
+        ArrayList<String> los = new ArrayList<String>();
+        los.add(ProducerNumField.getText());
+        working.setRepID(RepIDField.getText());
+        working.setFormula(FormulaField.getText());
+        if(SourceComboBox.getValue().equals("Domestic")) {
+            working.setSource(false);
+        } else {
+            working.setSource(true);
+        }
+        if(TypeComboBox.getValue().equals("Malt Beverage")){
+            working.setAlcoholType(AlcoholType.MaltBeverage);
+        } else if(TypeComboBox.getValue().equals("Wine")){
+            working.setAlcoholType(AlcoholType.Wine);
+            /* This part takes care of the Wine */
+            WineFormItems wine = new  WineFormItems();
+            wine.setVintageYear(Integer.valueOf(VintageYearField.getText()));
+            wine.setGrapeVarietal(GrapeVarField.getText());
+            wine.setpH(Float.valueOf(PhField.getText()));
+            wine.setAppellation(WineAppField.getText());
+            working.setWineFormItems(wine);
+        } else {
+            working.setAlcoholType(AlcoholType.DistilledLiquor);
+        }
+        /* Mailing Address */
+        Address addy = new Address();
+        addy.setCity(City8Field.getText());
+        addy.setName(Name8Field.getText());
+        addy.setState(State8ComboBox.getValue());
+        addy.setStreet(Address8Field.getText());
+        addy.setZip(Zip8Field.getText());
+        if(!SameAddressRadioButton.isSelected()){
+            /* Other Address */
+            Address other = new Address();
+            addy.setCity(City9Field.getText());
+            addy.setName(Name9Field.getText());
+            addy.setState(State9ComboBox.getValue());
+            addy.setStreet(Address9Field.getText());
+            addy.setZip(Zip9Field.getText());
+        }
+        man.submitForm(working);
+        return working.getTtbID();
+
+    }
     @FXML
     void uploadLabelImage(){
         FileChooser fileChooser = new FileChooser();
