@@ -35,4 +35,9 @@ public class Database {
     public static Database getDatabase() {
         return SingletonHelper.database;
     }
+
+    //This shuts down hibernate completely
+    public void shutdown() {
+        factory.close();
+    }
 }

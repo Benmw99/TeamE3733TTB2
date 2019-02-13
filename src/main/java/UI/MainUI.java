@@ -24,6 +24,13 @@ public class MainUI extends Application {
         pageSwitcher.pageSwitch("HomeSearch.fxml");
     }
 
+    //Should make it so when the program is shutdown hibernate is shutdown with it
+    @Override
+    public void stop() throws Exception {
+        DB.Database db = DB.Database.getDatabase();
+        db.shutdown();
+    }
+
     /**
      * Launches the program UI
      * @param args
