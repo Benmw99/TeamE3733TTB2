@@ -29,7 +29,6 @@ public class Agent implements IUser{
 
     @Column(name = "Agent_Name")
     private String name;
-
     public Agent() {
     }
 

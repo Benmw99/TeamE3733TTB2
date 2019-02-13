@@ -22,9 +22,9 @@ import java.awt.*;
 import java.io.IOException;
 import java.sql.Timestamp;
 
-public class AgentHomeController extends PageControllerUI  {
+public class AgentHomeController extends PageControllerUI {
 
-   //From IFormDisplay
+    //From IFormDisplay
     @FXML
     Label Display1Label;
 
@@ -156,7 +156,6 @@ public class AgentHomeController extends PageControllerUI  {
     JFXButton GetNewQueueButton;
 
 
-
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
     ///////////////////////////////////////////////////
@@ -176,7 +175,7 @@ public class AgentHomeController extends PageControllerUI  {
     }
 
     @FXML
-    void  newApp() {
+    void newApp() {
         attributeContainer.currentForm = new Form();
 //        goToPage("AgentApp.fxml");//TODO: this is not a page
     }
@@ -206,6 +205,7 @@ public class AgentHomeController extends PageControllerUI  {
 //        tableViewHelper.updateTable(); //TODO: make tableViewHelper
         }
     }
+
     @FXML
     public void rejectForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
@@ -215,10 +215,12 @@ public class AgentHomeController extends PageControllerUI  {
 //        tableViewHelper.updateTable(); //TODO: make tableViewHelper
         }
     }
+
     @FXML
     public void reviewingTools(ActionEvent event) throws IOException {
         goToPage("AgentViewForm.fxml");
     }
+
     @FXML
     public void print(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
@@ -231,8 +233,13 @@ public class AgentHomeController extends PageControllerUI  {
     //////////     Move to Interfaces     ////////////          //TODO:...
     //////////////////////////////////////////////////
 
-    public void getNewQueue() throws IOException{}
-        // TODO fix this so that it can be used with the nested table
+    @FXML
+    public void getNewQueue() throws IOException {
+        AttributeContainer ac =  AttributeContainer.getInstance();
+        ((Agent)ac.currentUser).getQueueIntoAC();
+
+    }
+    // TODO fix this so that it can be used with the nested table
 //        attributeContainer.formQueue = ((Agent)attributeContainer.currentUser).getThreeForms();
        /* this.TTBIDColumn.setCellValueFactory(new PropertyValueFactory<>("ttbID"));
         this.DateSubmittedColumn.setCellValueFactory(new PropertyValueFactory<>("dateSubmitted"));
