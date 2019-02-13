@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import static Entities.AlcoholType.*;
@@ -272,14 +273,9 @@ public class CivilController extends PageControllerUI implements Initializable {
 
 
 
-        results.setResults( Search.SearchDLBrand(advancedSearch, new SearchAlgo.DamerauLevenshtein()));
+        List<Form> forms = Search.SearchDLBrand(advancedSearch, new SearchAlgo.DamerauLevenshtein());
 
-
-        ObservableList<Form> tableValues = FXCollections.observableArrayList();
-        for (int i = 0; i < results.getResults().size(); i++) {
-            tableValues.add(results.getResults().get(i));
-        }
-        AttributeContainer.getInstance().formQueue = tableValues;
+        AttributeContainer.getInstance().formQueue = forms;
         printSearchResultsCSV.setDisable(false);
     }
 
