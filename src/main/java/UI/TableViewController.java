@@ -59,28 +59,54 @@ public class TableViewController extends PageControllerUI implements Initializab
         colsub.setCellValueFactory(new PropertyValueFactory("Submitted"));
         coltype.setCellValueFactory(new PropertyValueFactory("Type"));
         table.setItems(formlist);
+        if(AttributeContainer.getInstance().backlog.peek().equals("HomeSearch.fxml")){
+            enableSearchVersion();
+        } else {
+            table.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                /**
+                 * Makes it so that, if you click on a row of the Table, a form is loaded based on that TTB_ID
+                 */
+                public void handle(MouseEvent click) {
+                    if (click.getClickCount() == 1) {
+                        @SuppressWarnings("rawtypes")
+                        TablePosition pos = table.getSelectionModel().getSelectedCells().get(0);
+                        int row = pos.getRow();
+                        int ID = Integer.valueOf(colttb.getCellData(row));
+                        AttributeContainer.getInstance().currentForm = Database.getDatabase().dbSelect.getFormByTTB_ID(ID);
+                        goToPage(AttributeContainer.getInstance().backlog.pop());
+                    }
+                }
+            });
+        }
         for(Form f : AttributeContainer.getInstance().formQueue){
                 formlist.add(new DisplayForm(f));
 
         }
+
+    }
+
+    /**
+     * This is the function that must be called for this to be the search version of the form. Under these conditions
+     * the form will page switch to the
+     */
+    public void enableSearchVersion(){
         table.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             /**
              * Makes it so that, if you click on a row of the Table, a form is loaded based on that TTB_ID
              */
             public void handle(MouseEvent click) {
-                if (click.getClickCount() == 2) {
+                if (click.getClickCount() == 1) {
                     @SuppressWarnings("rawtypes")
                     TablePosition pos = table.getSelectionModel().getSelectedCells().get(0);
                     int row = pos.getRow();
                     int ID = Integer.valueOf(colttb.getCellData(row));
                     AttributeContainer.getInstance().currentForm = Database.getDatabase().dbSelect.getFormByTTB_ID(ID);
+                    goToPage("ViewSelectedForm.fxml");
                 }
             }
-        });
-
-
-    }
+        });    }
 
     @Override
     protected void onLeave() {

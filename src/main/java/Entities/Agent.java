@@ -169,7 +169,8 @@ public class Agent implements IUser{
         app.setPage4(ApprovalStatus.Complete);
         form.setApprovalStatus(ApprovalStatus.Complete);
         form.setApproval(app);
-
+        Mailer inform = new Mailer();
+        inform.sendMail(form);
         db.dbInsert.updateApproval(form);
     }
 
@@ -188,7 +189,8 @@ public class Agent implements IUser{
         app.setPage4(ApprovalStatus.Complete);
         form.setApprovalStatus(ApprovalStatus.Complete);
         form.setApproval(app);
-
+        Mailer inform = new Mailer();
+        inform.sendMail(form);
         db.dbInsert.updateApproval(form);
     }
 
@@ -202,7 +204,8 @@ public class Agent implements IUser{
         app.setPage4(ApprovalStatus.Incorrect);
         form.setApprovalStatus(ApprovalStatus.Incorrect);
         form.setApproval(app);
-
+        Mailer inform = new Mailer();
+        inform.sendMail(form);
         db.dbInsert.updateApproval(form);
     }
 

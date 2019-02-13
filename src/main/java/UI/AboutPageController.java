@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import java.io.IOException;
 
 public class AboutPageController extends PageControllerUI {
+
+    @FXML
     Button backButton;
 
     @FXML

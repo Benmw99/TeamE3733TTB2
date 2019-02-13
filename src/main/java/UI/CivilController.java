@@ -23,6 +23,9 @@ import java.io.IOException;
 import static Entities.AlcoholType.*;
 
 public class CivilController extends PageControllerUI {
+
+
+
     private Entities.SearchResult results;
     static private Entities.Form selectedForm;
     static private int initStuff = 0;
@@ -179,6 +182,7 @@ public class CivilController extends PageControllerUI {
 
     @FXML
     protected void initialize() {
+
         if (initStuff == 1) {
             Civ1Label.setText(selectedForm.getRepID());
             String fullPermit = "";
@@ -225,6 +229,7 @@ public class CivilController extends PageControllerUI {
             Civ14Label.setText("" + selectedForm.getAlcoholContent());
             Civ15Label.setText(selectedForm.getEmail());
             Civ16Label.setText(selectedForm.getPhoneNumber());
+
 
         }
     }

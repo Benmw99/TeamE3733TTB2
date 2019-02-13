@@ -100,5 +100,6 @@
             <Font name="Apple SD Gothic Neo Regular" size="18.0" />
          </font>
       </JFXButton>
+      <fx:include source="MenuDrawerContent.fxml" />
     </children>
 </AnchorPane>

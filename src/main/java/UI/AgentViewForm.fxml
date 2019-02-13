@@ -50,7 +50,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent1Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="1Label" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -75,7 +75,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent2Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="2Label" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -100,7 +100,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent3Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="3Label" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -125,13 +125,13 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="AgentReview4Label1" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="Review4Label1" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Label>
                                                 <Separator orientation="VERTICAL" style="-fx-background-color: black;" />
-                                                <Label fx:id="Agent4Label2" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="4Label2" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -156,21 +156,21 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent5Label1" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="5Label1" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Label>
                                                 <Separator orientation="VERTICAL" style="-fx-background-color: black;">
                                                 </Separator>
-                                                <Label fx:id="Agent5Label2" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="5Label2" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Label>
                                                 <Separator orientation="VERTICAL" style="-fx-background-color: black;">
                                                 </Separator>
-                                                <Label fx:id="Agent5Label3" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="5Label3" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -195,7 +195,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent6Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="6Label" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -230,7 +230,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent7Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="7Label" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -255,7 +255,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent8Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="8Label" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -280,7 +280,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent9Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="9Label" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -305,7 +305,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent10Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="10Label" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -330,7 +330,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent11Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="11Label" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -355,7 +355,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent12Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="12Label" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -390,7 +390,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent13Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="13Label" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -415,7 +415,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent14Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="14Label" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -440,7 +440,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent15Label1" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="15Label1" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -453,7 +453,7 @@
                                                       <Insets left="15.0" right="15.0" />
                                                    </HBox.margin>
                                                 </Separator>
-                                                <Label fx:id="Agent15Label2" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="15Label2" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -466,7 +466,7 @@
                                                       <Insets left="15.0" right="15.0" />
                                                    </HBox.margin>
                                                 </Separator>
-                                                <Label fx:id="Agent15Label3" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="15Label3" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -491,7 +491,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent16Label1" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="16Label1" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -504,7 +504,7 @@
                                                       <Insets left="15.0" right="15.0" />
                                                    </HBox.margin>
                                                 </Separator>
-                                                <Label fx:id="Agent16Label2" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="16Label2" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -529,7 +529,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent17Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="17Label" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -557,7 +557,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent18Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="18Label" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -599,7 +599,7 @@
                                           </HBox>
                                        </children>
                                     </Pane>
-                                    <ImageView fx:id="AgentReview19Image" fitHeight="350.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="Review19Image" fitHeight="350.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
                                     <Pane>
                                        <children>
                                           <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="80.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
@@ -616,7 +616,7 @@
                                                       <Font name="Apple SD Gothic Neo Regular" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="Agent20Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                <Label fx:id="20Label" contentDisplay="CENTER" prefHeight="80.0">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -1296,5 +1296,6 @@
          </font>
       </JFXButton>
       <JFXComboBox fx:id="markAsComboBox" layoutX="213.0" layoutY="107.0" prefHeight="27.0" prefWidth="177.0" />
+      <fx:include source="MenuDrawer.fxml" />
    </children>
 </AnchorPane>
