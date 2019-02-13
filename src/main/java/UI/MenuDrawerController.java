@@ -66,8 +66,6 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
             public void handle(MouseEvent event) {
                 transition.setRate(transition.getRate()*-1);
                 transition.play();
-                AttributeContainer ac = AttributeContainer.getInstance();
-
                 if(Drawer.isOpened()){
                     Drawer.close();
                 }
@@ -75,16 +73,22 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
                     Drawer.open();
                 }
 
-                //ac.backlog.pop();
-                //ac.current_page.goToPage((ac.backlog.pop()));
             }
         });
     }
 
     @FXML
+    public void goBack(){
+        AttributeContainer ac = AttributeContainer.getInstance();
+        ac.backlog.pop();
+        ac.current_page.goToPage((ac.backlog.pop()));
+    }
+/*
+    @FXML
     public void goToSearch(){
         goToPage("AgentSearch.fxml");
     }
+
 
     @FXML
     public void goToHome(){
@@ -95,5 +99,5 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
     public void goToLogOut(){
         goToPage("HomeSearch.fxml");
     }
-
+*/
 }
