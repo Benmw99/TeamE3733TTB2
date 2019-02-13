@@ -98,6 +98,7 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
 
     @FXML
     public void goToLogOut(){
+        attributeContainer.currentUser = null;
         goToPage("HomeSearch.fxml");
     }
 
