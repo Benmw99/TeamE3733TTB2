@@ -206,7 +206,7 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     public void refreshQueue(ActionEvent event) throws IOException {
         //TODO CHANGE THIS ENTIRELY AS IT SHOULD WORK DIFFERENTLY. IT SHOULD GET A NEW FORM FOR HOWEVER MANY IT IS MISSING COMPARED TO ITS MAX FORMS
         //attributeContainer.formQueue = ((Agent)attributeContainer.currentUser).getThreeForms();
-        getNewQueue();//TODO: replace this with tableViewHelper
+    //    getNewQueue();//TODO: replace this with tableViewHelper
 //        tableViewHelper.updateTable(); //TODO: make tableViewHelper
     }
 
@@ -220,9 +220,14 @@ public class AgentHomeController extends PageControllerUI implements Initializab
         if (!(attributeContainer.currentForm == null)) {
 
             //TODO: get qualifications from text field
-            ((Agent) attributeContainer.currentUser).approveForm(attributeContainer.currentForm, "");
+            Agent age = new Agent();
+            age.setName("BINGO");
+            age.setLogin("BING");
+            age.setAgentID(123);
+            age.approveForm(AttributeContainer.getInstance().currentForm, "");
+       //     ((Agent) attributeContainer.currentUser).approveForm(attributeContainer.currentForm, "");
             attributeContainer.currentForm = null;
-            getNewQueue();//TODO: replace this with tableViewHelper
+    //        getNewQueue();//TODO: replace this with tableViewHelper
 //        tableViewHelper.updateTable(); //TODO: make tableViewHelper
         }
     }
@@ -271,14 +276,14 @@ public class AgentHomeController extends PageControllerUI implements Initializab
 
     @FXML
     public void getNewQueue() throws IOException {
-        AttributeContainer ac =  AttributeContainer.getInstance();
-        ((Agent)ac.currentUser).getQueueIntoAC();
+//        AttributeContainer ac =  AttributeContainer.getInstance();
+//        ((Agent)ac.currentUser).getQueueIntoAC();
 
     }
 
  @Override
  public void initialize(URL location, ResourceBundle resources) {
-
+        AttributeContainer.getInstance().formQueue = Database.getDatabase().dbSelect.getNext(AttributeContainer.getInstance().numForQueue);
  }
  // TODO fix this so that it can be used with the nested table
 //        attributeContainer.formQueue = ((Agent)attributeContainer.currentUser).getThreeForms();
