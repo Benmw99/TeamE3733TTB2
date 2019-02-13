@@ -58,6 +58,11 @@ public class TableViewController extends PageControllerUI implements Initializab
         colstatus.setCellValueFactory(new PropertyValueFactory("Status"));
         colsub.setCellValueFactory(new PropertyValueFactory("Submitted"));
         coltype.setCellValueFactory(new PropertyValueFactory("Type"));
+        if(!AttributeContainer.getInstance().backlog.peek().equals("HomeSearch.fxml")) {
+            colbrand.setMaxWidth(0);
+            colserial.setMaxWidth(0);
+            coltype.setMaxWidth(0);
+        }
         table.setItems(formlist);
         if(AttributeContainer.getInstance().backlog.peek().equals("HomeSearch.fxml")){
             enableSearchVersion();
