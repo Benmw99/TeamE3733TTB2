@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.CivilController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.CivilController">
 <children>
     <Rectangle fill="#9ea7aa" height="77.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
     <Text fill="WHITE" layoutX="507.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Advanced Search" wrappingWidth="429.9218606590072">
@@ -40,7 +40,7 @@
             <Font name="Apple SD Gothic Neo Thin" size="36.0" />
         </font>
     </Text>
-      <JFXButton fx:id="SearchPrintButton" buttonType="RAISED" layoutX="1198.0" layoutY="77.0" onAction="#printResults" style="-fx-background-color: WHITE;" text="Print Results">
+      <JFXButton fx:id="printSearchResultsCSV" buttonType="RAISED" layoutX="1198.0" layoutY="77.0" onAction="#printResults" style="-fx-background-color: WHITE;" text="Print Results">
          <font>
             <Font name="Apple SD Gothic Neo Regular" size="18.0" />
          </font></JFXButton>
@@ -73,7 +73,7 @@
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="SearchBrand" layoutX="196.0" layoutY="250.0" promptText="name" />
+      <JFXTextField fx:id="brandNameTextField" layoutX="196.0" layoutY="250.0" promptText="name" />
       <Pane layoutX="-1.0" layoutY="702.0" prefHeight="49.0" prefWidth="335.0" style="-fx-background-color: #cfd8dc;">
          <children>
             <JFXButton fx:id="SearchButton" layoutX="129.0" layoutY="7.0" onAction="#searchAdvanced" prefHeight="39.0" prefWidth="84.0" style="-fx-background-color: WHITE;" text="Search" />

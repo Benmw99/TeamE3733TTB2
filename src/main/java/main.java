@@ -14,7 +14,6 @@ import java.util.Iterator;
 
 public class main {
     //private static SessionFactory factory;
-
     public static void main(String[] args) {
         DB.Database db = DB.Database.getDatabase();
         db.tableBuilder.resetDB();
