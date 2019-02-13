@@ -33,6 +33,10 @@ public class LoginController extends PageControllerUI {
     ToggleGroup userOptions = new ToggleGroup();
 
 
+    @FXML
+    MenuDrawerController Hamburger;
+
+
 //    Button getLoginUserLoginButton() {
 //        return LoginUserLoginButton;
 //    }

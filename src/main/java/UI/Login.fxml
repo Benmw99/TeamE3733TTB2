@@ -98,6 +98,6 @@
             <Font name="Apple SD Gothic Neo Thin" size="48.0" />
          </font>
       </Label>
-      <fx:include prefHeight="50.0" prefWidth="50.0" source="BackButton.fxml" />
+      <fx:include source="MenuDrawer.fxml" />
    </children>
 </AnchorPane>

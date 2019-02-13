@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -82,6 +81,6 @@
         </tabs>
       </JFXTabPane>
       <Line endX="-100.00006103515625" endY="595.7626342773438" layoutX="783.0" layoutY="153.0" startX="-100.0" stroke="#b1bdc3" />
-      <JFXHamburger layoutX="52.0" layoutY="30.0" styleClass="hamburger" />
+      <fx:include source="MenuDrawer.fxml" />
    </children>
 </AnchorPane>

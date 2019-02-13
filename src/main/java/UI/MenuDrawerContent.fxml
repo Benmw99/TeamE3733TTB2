@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BackButtonController">
+   <children>
+      <JFXHamburger fx:id="Hamburger" alignment="CENTER" layoutX="10.0" layoutY="15.0" styleClass="TabPane.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0" />
+      <JFXDrawer fx:id="Drawer" />
+   </children>
+</AnchorPane>

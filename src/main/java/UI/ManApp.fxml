@@ -1081,5 +1081,6 @@
             </VBox>
          </children>
       </Pane>
+      <fx:include source="MenuDrawer.fxml" />
    </children>
 </AnchorPane>
