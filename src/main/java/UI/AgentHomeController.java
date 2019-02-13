@@ -275,8 +275,6 @@ public class AgentHomeController extends PageControllerUI implements Initializab
         ((Agent)ac.currentUser).getQueueIntoAC();
 
     }
-    // TODO fix this so that it can be used with the nested table
-    public void getNewQueue() throws IOException{}
 
  @Override
  public void initialize(URL location, ResourceBundle resources) {

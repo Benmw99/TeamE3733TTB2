@@ -173,7 +173,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -201,7 +200,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -226,8 +224,6 @@
                         </JFXComboBox>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -262,7 +258,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -303,7 +298,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -331,7 +325,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -456,7 +449,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -513,7 +505,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -579,7 +570,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -607,7 +597,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -635,7 +624,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -663,7 +651,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -746,7 +733,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -774,7 +760,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -863,7 +848,6 @@
                         </VBox>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" top="80.0" />
@@ -899,7 +883,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -924,7 +907,6 @@
                         </JFXDatePicker>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -945,7 +927,15 @@
                <children>
                   <VBox prefHeight="110.0" prefWidth="319.0">
                      <children>
-                        <fx:include layoutY="-100.0" source="SubmitButton.fxml" />
+                        <AnchorPane prefHeight="60.0" prefWidth="280.0" stylesheets="@SubmitButtonColors.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.SubmitController">
+                           <children>
+                              <JFXButton fx:id="SendApp" buttonType="RAISED" layoutX="5.0" layoutY="5.0" prefHeight="50.0" prefWidth="270.0" stylesheets="SubmitButtonColors.css" text="Submit Application">
+                                 <font>
+                                    <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
                      </children>
                      <HBox.margin>
                         <Insets top="550.0" />
@@ -1003,7 +993,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -1031,7 +1020,6 @@
                         </JFXButton>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -1059,7 +1047,6 @@
                         </JFXTextField>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/tool-tip.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="15.0" />

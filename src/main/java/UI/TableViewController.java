@@ -81,8 +81,8 @@ public class TableViewController extends PageControllerUI implements Initializab
         }
         for(Form f : AttributeContainer.getInstance().formQueue){
                 formlist.add(new DisplayForm(f));
-
         }
+        table.setItems(formlist);
 
     }
 
