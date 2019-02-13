@@ -455,7 +455,7 @@
                                              <font>
                                                 <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                                              </font></JFXTextField>
-                                          <Button layoutX="303.0" layoutY="103.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="75.0" style="-fx-background-color: #0095a8;" text="Add" textFill="WHITE">
+                                          <Button fx:id="addMessageButton" layoutX="303.0" layoutY="103.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="75.0" style="-fx-background-color: #0095a8;" text="Add" textFill="WHITE">
                                              <font>
                                                 <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                                              </font></Button>
