@@ -7,10 +7,7 @@ import org.hibernate.query.Query;
 import org.hibernate.cfg.Configuration;
 
 import javax.persistence.Transient;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -174,7 +171,6 @@ public class DBSelect {
 
     /**
      * Searches by a set of info and returns any forms that match those
-     * CURRENTLY WINE SEARCHING FOR TYPES DON'T WORK
      * @author Jordan
      * @param as Advanced search with the things that want to be search for set
      * @return A SearchResult with all the forms that came from the query
@@ -189,6 +185,7 @@ public class DBSelect {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Form> cr = cb.createQuery(Form.class);
         Root<Form> root = cr.from(Form.class);
+        Join<Form, WineFormItems> wines = root.join("wineFormItems");
         //Predicate list which will be added to for every new condition
         List<Predicate> predicates = new ArrayList<>();
         predicates.add(cb.equal(root.get("approvalStatus"), as.approvalStatus));
@@ -209,16 +206,16 @@ public class DBSelect {
             predicates.add(cb.equal(root.get("fancifulName"), as.fancifulName));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
-            //predicates.add(cb.equal(root.get("wineFormItems.vintageYear"), as.vintageYear));
+            predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.pH > 0) {
-            //
+            predicates.add(cb.equal(wines.get("pH"), as.pH));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.grapeVarietal != null) {
-            //
+            predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.appellation != null) {
-            //
+            predicates.add(cb.equal(wines.get("appellation"), as.appellation));
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
@@ -262,6 +259,7 @@ public class DBSelect {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Form> cr = cb.createQuery(Form.class);
         Root<Form> root = cr.from(Form.class);
+        Join<Form, WineFormItems> wines = root.join("wineFormItems");
         List<Predicate> predicates = new ArrayList<>();
         predicates.add(cb.equal(root.get("approvalStatus"), as.approvalStatus));
         if (as.source != null) {
@@ -280,16 +278,16 @@ public class DBSelect {
             predicates.add(cb.like(cb.lower(root.get("fancifulName")), "%" + as.fancifulName.toLowerCase() + "%"));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
-            //predicates.add(cb.equal(root.get("wineFormItems.vintageYear"), as.vintageYear));
+            predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.pH > 0) {
-            //
+            predicates.add(cb.equal(wines.get("pH"), as.pH));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.grapeVarietal != null) {
-            //
+            predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.appellation != null) {
-            //
+            predicates.add(cb.equal(wines.get("appellation"), as.appellation));
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
@@ -330,6 +328,7 @@ public class DBSelect {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<String> cr = cb.createQuery(String.class);
         Root<Form> root = cr.from(Form.class);
+        Join<Form, WineFormItems> wines = root.join("wineFormItems");
         List<Predicate> predicates = new ArrayList<>();
         predicates.add(cb.equal(root.get("approvalStatus"), as.approvalStatus));
         if (as.source != null) {
@@ -342,16 +341,16 @@ public class DBSelect {
             predicates.add(cb.equal(root.get("alcoholType"), as.alcoholType));
         }//No brand name or fanciful name
         if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
-            //predicates.add(cb.equal(root.get("wineFormItems.vintageYear"), as.vintageYear));
+            predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.pH > 0) {
-            //
+            predicates.add(cb.equal(wines.get("pH"), as.pH));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.grapeVarietal != null) {
-            //
+            predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.appellation != null) {
-            //
+            predicates.add(cb.equal(wines.get("appellation"), as.appellation));
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
@@ -738,5 +737,63 @@ public class DBSelect {
         Query query = session.createQuery(q);
         query.setParameter("log", login);
         return (Agent) query.getSingleResult();
+    }
+
+    /**
+     * Checks if a company login is already there
+     * @author Jordan
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    public boolean checkCompanyLogin(String login) {
+        String q = "SELECT count(*) FROM Manufacturer C WHERE C.login = :login";
+        return checkExistent(q, login);
+    }
+
+    /**
+     * Checks if a agent login is already there
+     * @author Jordan
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    public boolean checkAgentLogin(String login) {
+        String q = "SELECT count(*) FROM Agent C WHERE C.login = :login";
+        return checkExistent(q, login);
+    }
+
+    /**
+     * Checks if a rep login is already there
+     * @author Jordan
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    public boolean checkRepLogin(String login) {
+        String q = "SELECT count(*) FROM Representative C WHERE C.login = :login";
+        return checkExistent(q, login);
+    }
+
+    /**
+     * Checks that a user exists for a passed query, checking that there is 1 result in the database
+     * @author Jordan
+     * @param q String of the query to be used
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    private boolean checkExistent(String q, String login) {
+        Session session = factory.openSession();
+        Query query = session.createQuery(q);
+        query.setParameter("login", login);
+        int result = 0;
+        Long temp;
+        final Object obj = query.uniqueResult();
+        if (obj != null) {
+            temp = (Long) obj;
+            result = temp.intValue();
+        }
+        if (result == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

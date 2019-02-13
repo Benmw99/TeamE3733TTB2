@@ -10,6 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+//THESE TESTS ARE VERY SCREWY, I'M SORRY
 public class DBSelectTest {
     @BeforeClass
     public static void setup() {
@@ -184,5 +185,20 @@ public class DBSelectTest {
         AdvancedSearch as = new AdvancedSearch();
         SearchResult temp = db.dbSelect.searchBy(as);
         System.out.println(temp.getResults().size());
+    }
+
+    @Test
+    public void testSearchByWineStuff() {
+        DB.Database db = DB.Database.getDatabase();
+        AdvancedSearch as = new AdvancedSearch();
+        as.setAlcoholType(AlcoholType.Wine);
+        as.setVintageYear(1990);
+        SearchResult temp = db.dbSelect.searchBy(as);
+        System.out.println(temp.getResults().size());
+
+        AdvancedSearch as1 = new AdvancedSearch();
+        as1.setAlcoholType(AlcoholType.Wine);
+        SearchResult temp1 = db.dbSelect.searchBy(as1);
+        System.out.println(temp1.getResults().size());
     }
 }
