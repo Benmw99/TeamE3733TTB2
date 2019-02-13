@@ -273,6 +273,7 @@ public class CivilController extends PageControllerUI implements Initializable {
 
 
         List<Form> forms = Search.SearchDLBrand(advancedSearch, new SearchAlgo.DamerauLevenshtein());
+        AttributeContainer.getInstance().currentResults = new SearchResult();
         AttributeContainer.getInstance().currentResults.setResults(forms);
         AttributeContainer.getInstance().currentResults.setSearch(advancedSearch);
         AttributeContainer.getInstance().currentResults.setQuery(advancedSearch.getBrandName());

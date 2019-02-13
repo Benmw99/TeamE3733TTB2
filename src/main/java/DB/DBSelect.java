@@ -752,13 +752,13 @@ public class DBSelect {
         return agent;
     }
 
-    public List<Form> getNext5() {
+    public List<Form> getNext(int to) {
         Session session = factory.openSession();
         Transaction tx = null;
         String q = "FROM Form F WHERE F.approvalStatus = :approval";
         Query query = session.createQuery(q);
         query.setParameter("approval", ApprovalStatus.Incomplete);
-        query.setMaxResults(5);
+        query.setMaxResults(to);
         List<Form> result = new ArrayList<>();
 
         try {

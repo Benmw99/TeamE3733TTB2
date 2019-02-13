@@ -1,6 +1,7 @@
 package UI;
 
 import Entities.Agent;
+import Entities.IUser;
 import Entities.Manufacturer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -38,6 +39,8 @@ public class LoginController extends PageControllerUI implements Initializable {
 
     MenuDrawerController menu;
 
+    IUser newuser;
+
 
 
 
@@ -64,12 +67,16 @@ public class LoginController extends PageControllerUI implements Initializable {
     public void login(){
         if(authenticate()){
             if(ManRadioButton.isSelected()){
+                AttributeContainer.getInstance().currentUser = newuser;
                 AttributeContainer.getInstance().currentUser.loadUser();
+                AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
+                AttributeContainer.getInstance().currentForm = null;
                 goToPage("ManHome.fxml");
             }
             if(AgentRadioButton.isSelected()){
-                goToPage("AgentHome.fxml");
+                AttributeContainer.getInstance().currentUser = newuser;
                 AttributeContainer.getInstance().currentUser.loadUser();
+                goToPage("AgentHome.fxml");
                System.out.println(((Agent)AttributeContainer.getInstance().currentUser).getAgentID());
             }
         }
@@ -91,18 +98,18 @@ public class LoginController extends PageControllerUI implements Initializable {
     public boolean authenticate(){
         String user = LoginUserUsernameTextField.getText();
         String pass = LoginUserPasswordTextField.getText();
-        AttributeContainer attributeContainer = AttributeContainer.getInstance();
+
         if(ManRadioButton.isSelected()){
-            attributeContainer.currentUser = new Manufacturer();
-            attributeContainer.currentUser.setLogin(user);
-            attributeContainer.currentUser.setPassword(pass);
-            return attributeContainer.currentUser.authenticate();
+            newuser = new Manufacturer();
+            newuser.setLogin(user);
+            newuser.setPassword(pass);
+            return newuser.authenticate();
         }
         if(AgentRadioButton.isSelected()){
-            attributeContainer.currentUser = new Agent();
-            attributeContainer.currentUser.setLogin(user);
-            attributeContainer.currentUser.setPassword(pass);
-            return attributeContainer.currentUser.authenticate();
+            newuser = new Agent();
+            newuser.setLogin(user);
+            newuser.setPassword(pass);
+            return newuser.authenticate();
         }
 //        String user = LoginUserUsernameTextField.getText();
 //        String pass = LoginUserPasswordTextField.getText();
