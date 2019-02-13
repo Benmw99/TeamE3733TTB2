@@ -11,12 +11,21 @@ public class SearchResult {
     private AdvancedSearch search;
 
     public SearchResult() {
+        this.results = null;
+        this.query = null;
+        this.search = null;
     }
 
     public SearchResult(List<Form> results, String query, AdvancedSearch search) {
         this.results = results;
         this.query = query;
         this.search = search;
+    }
+
+    public SearchResult(List<Form> results) {
+        this.results = results;
+        this.query = null;
+        this.search = null;
     }
 
     public List<Form> getResults() {
