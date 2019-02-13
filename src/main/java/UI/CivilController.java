@@ -1,5 +1,6 @@
 package UI;
 
+import DB.Database;
 import Entities.AdvancedSearch;
 import Entities.AlcoholType;
 import Entities.Form;
@@ -273,9 +274,10 @@ public class CivilController extends PageControllerUI implements Initializable {
 
 
         List<Form> forms = Search.SearchDLBrand(advancedSearch, new SearchAlgo.DamerauLevenshtein());
-
+        AttributeContainer.getInstance().currentResults.setResults(forms);
+        AttributeContainer.getInstance().currentResults.setSearch(advancedSearch);
+        AttributeContainer.getInstance().currentResults.setQuery(advancedSearch.getBrandName());
         AttributeContainer.getInstance().formQueue = forms;
-        printSearchResultsCSV.setDisable(false);
         goToPage("HomeSearch.fxml");
         AttributeContainer.getInstance().backlog.pop();
     }
@@ -302,7 +304,8 @@ public class CivilController extends PageControllerUI implements Initializable {
     public void printResults(ActionEvent event) throws IOException {
         //TODO REWRITE THIS PASSING A BOOLEAN FOR WHETHER OR NOT IT IS A CSV OR ASCII
         //results.printResults();
-        printSearchResultsCSV.setDisable(true);
+        Database.getDatabase().dbSelect.downloadQuery(AttributeContainer.getInstance().currentResults, true);
+        //printSearchResultsCSV.setDisable(true);
         printSearchResultsCSV.setText("Printed");
     }
 

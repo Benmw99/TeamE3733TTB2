@@ -39,7 +39,7 @@ public class AttributeContainer {
         formQueue = new ArrayList<Form>();
         currentForm = null;
         currentUser = null;
-        currentResults = null;
+        currentResults = new SearchResult();
         sounds = new ArrayList<AudioClip>();
         searchPage = 0;
         backlog = new Stack<String>();
