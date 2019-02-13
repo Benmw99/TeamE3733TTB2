@@ -98,16 +98,21 @@ public class DBSelect {
         String q = "FROM Form F WHERE F.ttbID = :id";
         Query query = session.createQuery(q);
         query.setParameter("id", TTBID);
-        Form form = (Form)query.getSingleResult();
-        Hibernate.initialize(form.brewersPermit);
-        Hibernate.initialize(form.address);
-        for (int i = 0; i < form.getAddress().size(); i++) {
-            if (form.getAddress().get(i).isMailing()) {
-                form.setMailingAddress(form.getAddress().get(i));
+        List results = query.getResultList();
+        Form foundForm = null;
+        if(!results.isEmpty()){
+            // ignores multiple results
+            foundForm = (Form)results.get(0);
+            Hibernate.initialize(foundForm.brewersPermit);
+            Hibernate.initialize(foundForm.address);
+            for (int i = 0; i < foundForm.getAddress().size(); i++) {
+                if (foundForm.getAddress().get(i).isMailing()) {
+                    foundForm.setMailingAddress(foundForm.getAddress().get(i));
+                }
             }
         }
-        session.close ();
-        return form;
+        session.close();
+        return foundForm;
     }
 
     /**
@@ -406,9 +411,23 @@ public class DBSelect {
         Query query = session.createQuery(q);
         query.setParameter("approval", ApprovalStatus.Incomplete);
         query.setMaxResults(1);
-        Form form = (Form)query.getSingleResult();
+        List results = query.getResultList();
+        Form foundForm = null;
+        if(!results.isEmpty()){
+            // ignores multiple results
+            foundForm = (Form)results.get(0);
+            Hibernate.initialize(foundForm.brewersPermit);
+            Hibernate.initialize(foundForm.address);
+            for (int i = 0; i < foundForm.getAddress().size(); i++) {
+                if (foundForm.getAddress().get(i).isMailing()) {
+                    foundForm.setMailingAddress(foundForm.getAddress().get(i));
+                }
+            }
+        }
+
+
         session.close();
-        return form;
+        return foundForm;
     }
 
     /**
