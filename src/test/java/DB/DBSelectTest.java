@@ -10,6 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+//THESE TESTS ARE VERY SCREWY, I'M SORRY
 public class DBSelectTest {
     @BeforeClass
     public static void setup() {
