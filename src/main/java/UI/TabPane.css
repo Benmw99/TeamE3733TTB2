@@ -62,3 +62,7 @@
 .hamburger > StackPane {
     -fx-background-color: white;
 }
+
+.tab-label {
+    -fx-text-fill: black ;
+}
