@@ -11,6 +11,9 @@ import java.util.ResourceBundle;
 
 public class FormViewController extends PageControllerUI implements Initializable {
 
+    public FormViewController(){
+
+    }
     @FXML
     Label Display1Label;
     @FXML
@@ -197,7 +200,11 @@ public class FormViewController extends PageControllerUI implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        displayCurrentForm();
+        if(AttributeContainer.getInstance().currentForm != null) {
+            displayCurrentForm();
+        } else {
+            wipeForm();
+        }
     }
 }
 
