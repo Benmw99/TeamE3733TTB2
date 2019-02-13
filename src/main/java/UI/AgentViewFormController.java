@@ -119,12 +119,18 @@ public class AgentViewFormController extends PageControllerUI {
     @Override
     protected void onLeave(){}
 
+    //New controller overrides
     @FXML
     public void logOut(ActionEvent event) throws IOException {
         attributeContainer.wipeSession();
         goToPage("AgentLogin.fxml");
     }
 
+    /**
+     * Set approval status of current form to approved
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void approveForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
@@ -135,6 +141,12 @@ public class AgentViewFormController extends PageControllerUI {
             attributeContainer.currentForm = null;
         }
     }
+
+    /**
+     * Set approval status of current form to rejected
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void rejectForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
@@ -144,12 +156,23 @@ public class AgentViewFormController extends PageControllerUI {
         }
     }
 
+    /**
+     * Sends current form to printable format
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void print(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
             System.out.println("lol nah");
         }
     }
+
+    /**
+     * Directs Agent back to home page
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void returnHome(ActionEvent event) throws IOException {
         goToPage("AgentHome.fxml");

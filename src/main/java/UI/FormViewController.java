@@ -191,6 +191,9 @@ public class FormViewController extends PageControllerUI implements Initializabl
 
     }
 
+    /**
+     * Creates new blank form
+     */
     @Override
     void onLoad() {
         AttributeContainer.getInstance().currentForm = new Form("ABC");
@@ -198,6 +201,11 @@ public class FormViewController extends PageControllerUI implements Initializabl
 
     }
 
+    /**
+     * Displays the current form
+     * @param location URL of form
+     * @param resources ResourceBundle
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if(AttributeContainer.getInstance().currentForm != null) {

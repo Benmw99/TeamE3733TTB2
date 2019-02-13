@@ -28,6 +28,16 @@ public class Representative implements IUser {
         this.password = null;
     }
 
+    public boolean isAgent() {
+        return false;
+    }
+    public boolean isManufacturer() {
+        return false;
+    }
+    public boolean isRepresentative() {
+        return true;
+    }
+
     public String getRepID() {
         return repID;
     }

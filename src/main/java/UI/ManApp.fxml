@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManAppController">
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManAppController">
    <children>
       <Pane prefHeight="100.0" prefWidth="1360.0" style="-fx-background-color: white;">
          <children>
@@ -1021,7 +1021,7 @@
                               <Font name="Apple SD Gothic Neo Thin" size="32.0" />
                            </font>
                         </Label>
-                        <JFXButton fx:id="SubmitButton" buttonType="RAISED" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #ff616f;" text="Submit" textFill="WHITE">
+                        <JFXButton fx:id="UploadButton" buttonType="RAISED" onAction="#uploadLabelImage" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #ff616f;" text="Upload" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -1029,7 +1029,7 @@
                               <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                            </font>
                         </JFXButton>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="labelImageDisplay" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../assets/tool-tip.png" />
                            </image>

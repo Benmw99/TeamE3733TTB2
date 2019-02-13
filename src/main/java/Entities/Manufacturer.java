@@ -43,6 +43,16 @@ public class Manufacturer implements IUser {
         this.password = null;
     }
 
+    public boolean isAgent() {
+        return false;
+    }
+    public boolean isManufacturer() {
+        return true;
+    }
+    public boolean isRepresentative() {
+        return false;
+    }
+
     public int getManID() {
         return manID;
     }
