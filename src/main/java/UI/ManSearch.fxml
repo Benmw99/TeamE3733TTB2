@@ -1,101 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManSearchController">
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="SearchSearchLineText" prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManSearchController">
     <children>
-        <Rectangle fill="#bf0a30" height="136.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-        <Text fill="WHITE" layoutX="626.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" wrappingWidth="147.62400909650722">
+        <Rectangle fill="#9ea7aa" height="89.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <Text fill="WHITE" layoutX="625.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" wrappingWidth="147.62400909650722">
          <font>
-            <Font name="Georgia" size="48.0" />
+            <Font name="Apple SD Gothic Neo Thin" size="48.0" />
          </font></Text>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3c3b3b" height="563.0" layoutY="189.0" stroke="TRANSPARENT" strokeType="INSIDE" width="332.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="62.0" layoutX="72.0" layoutY="141.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="136.0" />
-        <Rectangle fill="#e7e7e7" height="544.0" layoutX="358.0" layoutY="212.0" stroke="TRANSPARENT" strokeType="INSIDE" width="718.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="288.0" AnchorPane.topAnchor="205.0" />
-        <Button fx:id="menuMSButton" layoutX="58.0" layoutY="52.0" mnemonicParsing="false" text="Return to Menu" textAlignment="CENTER" AnchorPane.leftAnchor="50.0" />
-        <TextField fx:id="searchMSField" alignment="CENTER" layoutX="349.0" layoutY="151.0" prefHeight="26.0" prefWidth="708.0" promptText="Brand Name/Fanciful Name/TTB ID Number" style="-fx-background-color: WHITE;" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="316.0" />
-      <Text layoutX="512.0" layoutY="459.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search the TTB Database">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="62.0" layoutY="89.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="89.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="6.0" layoutY="165.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="158.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="6.0" layoutY="299.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="299.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="6.0" layoutY="406.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="346.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="6.0" layoutY="456.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="393.0" />
+      <Rectangle fx:id="SearchTTBID" arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="6.0" layoutY="556.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="487.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="6.0" layoutY="506.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="440.0" />
+      <Text layoutX="34.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State of Origin">
          <font>
-            <Font name="Georgia" size="36.0" />
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="41.0" layoutX="6.0" layoutY="205.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="205.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="41.0" layoutX="6.0" layoutY="356.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="356.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="41.0" layoutX="6.0" layoutY="406.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="406.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="41.0" layoutX="6.0" layoutY="456.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="456.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="41.0" layoutX="6.0" layoutY="556.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="556.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="41.0" layoutX="6.0" layoutY="506.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="506.0" />
-      <TextField fx:id="manField" layoutX="151.0" layoutY="363.0" promptText="name" />
-      <TextField fx:id="stateField" layoutX="151.0" layoutY="413.0" promptText="state" />
-      <TextField fx:id="cityField" layoutX="151.0" layoutY="463.0" promptText="city" />
-      <TextField fx:id="dateField" layoutX="151.0" layoutY="513.0" promptText="date" />
-      <TextField fx:id="idField" layoutX="151.0" layoutY="563.0" promptText="number" />
-      <Text layoutX="32.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Type">
+      <Text layoutX="32.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City of Origin">
          <font>
-            <Font name="Georgia" size="13.0" />
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
          </font>
       </Text>
-      <Text layoutX="32.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manufacturer">
+      <Text layoutX="20.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
          <font>
-            <Font name="Georgia" size="13.0" />
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
          </font>
       </Text>
-      <Text layoutX="34.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State of Origin">
+      <Text layoutX="38.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Number">
          <font>
-            <Font name="Georgia" size="13.0" />
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
          </font>
       </Text>
-      <Text layoutX="32.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City of Origin">
+      <Text layoutX="79.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories">
          <font>
-            <Font name="Georgia" size="13.0" />
+            <Font name="Apple SD Gothic Neo Thin" size="36.0" />
          </font>
       </Text>
-      <Text layoutX="20.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
-         <font>
-            <Font name="Georgia" size="13.0" />
-         </font>
-      </Text>
-      <Text layoutX="38.0" layoutY="581.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Number">
-         <font>
-            <Font name="Georgia" size="13.0" />
-         </font>
-      </Text>
-      <Text layoutX="77.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories">
-         <font>
-            <Font name="Georgia" size="36.0" />
-         </font>
-      </Text>
-      <SplitMenuButton fx:id="alcoholTypeSplitMenu" layoutX="149.0" layoutY="212.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="167.0" text="Type">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Beer" />
-          <MenuItem mnemonicParsing="false" text="Wine" />
-          <MenuItem mnemonicParsing="false" text="Spirit" />
-        </items>
-      </SplitMenuButton>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="41.0" layoutX="6.0" layoutY="255.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="6.0" layoutY="205.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
       <TextField fx:id="alcoholContentTextField" layoutX="152.0" layoutY="262.0" promptText="percentage" />
-      <Text layoutX="31.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Content">
+      <Text layoutX="31.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Content">
          <font>
-            <Font name="Georgia" size="13.0" />
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c4c4c4" height="41.0" layoutX="6.0" layoutY="305.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
-      <Text layoutX="32.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand Name">
+      <Text layoutX="32.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand Name">
          <font>
-            <Font name="Georgia" size="13.0" />
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="brandNameTextField" layoutX="152.0" layoutY="312.0" promptText="name" />
-      <Pane layoutX="-7.0" layoutY="720.0" prefHeight="49.0" prefWidth="340.0" style="-fx-background-color: #c4c4c4#c4c4c4;">
-         <children>
-            <Button fx:id="search1Button" layoutX="128.0" layoutY="6.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="86.0" text="Search">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
+      <JFXHamburger layoutX="62.0" layoutY="35.0" />
+      <JFXTextField fx:id="searchMSField" alignment="CENTER" layoutX="340.0" layoutY="108.0" prefHeight="27.0" prefWidth="708.0" promptText="Brand Name/Fanciful Name/TTB ID Number" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="41.0" layoutX="6.0" layoutY="252.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
+      <Text layoutX="35.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Type">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="32.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manufacturer">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="SearchBrandName" alignment="CENTER" layoutX="158.0" layoutY="214.0" promptText="name">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="SearchManufacturerName" alignment="CENTER" layoutX="157.0" layoutY="260.0" promptText="name">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="SearchOriginState" alignment="CENTER" layoutX="158.0" layoutY="306.0" promptText="state">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="SearchOriginCity" alignment="CENTER" layoutX="160.0" layoutY="353.0" promptText="city">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="SearchTimestamp" alignment="CENTER" layoutX="159.0" layoutY="401.0" promptText="date">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="SearchAlcoholContent" alignment="CENTER" layoutX="160.0" layoutY="447.0" promptText="percentage">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField alignment="CENTER" layoutX="162.0" layoutY="493.0" promptText="TTB ID">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="SearchSubmitSearch" buttonType="RAISED" layoutX="124.0" layoutY="547.0" style="-fx-background-color: #c4001d;" text="Search">
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="SearchAlcoholType" alignment="CENTER" layoutX="151.0" layoutY="165.0" text="type">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+         </font>
+      </JFXTextField>
     </children>
 </AnchorPane>

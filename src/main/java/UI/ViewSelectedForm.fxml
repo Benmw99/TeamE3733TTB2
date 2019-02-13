@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.CivilSearchController">
+    <children>
+        <Rectangle fill="#9ea7aa" height="89.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <Text fill="WHITE" layoutX="563.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Form" wrappingWidth="237.53324981916347">
+            <font>
+                <Font name="Apple SD Gothic Neo Thin" size="48.0" />
+            </font></Text>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="62.0" layoutY="89.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="89.0" />
+      <JFXButton fx:id="printSearchResultsCSV" disable="true" layoutX="1039.0" layoutY="154.0" mnemonicParsing="false" opacity="0.0" text="Save Search Results to .CSV" />
+      <JFXHamburger layoutX="69.0" layoutY="35.0" />
+      <Pane layoutX="167.0" layoutY="150.0" prefHeight="613.0" prefWidth="1011.0" AnchorPane.rightAnchor="186.0" AnchorPane.topAnchor="150.0">
+         <children>
+            <fx:include source="FormDisplay.fxml" />
+         </children>
+      </Pane>
+    </children>
+</AnchorPane>

@@ -8,24 +8,29 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+import com.jfoenix.controls.*;
+
 import java.sql.Timestamp;
 
-public class AgentSearchController extends PageControllerUI implements ISearch {
+public class AgentSearchController extends PageControllerUI {
 
     @FXML
-    TextField SearchSource;
+    JFXTextField SearchApps;
 
     @FXML
-    TextField SearchSerialNumber;
+    JFXTextField SearchSource;
 
     @FXML
-    TextField SearchAlcoholType;
+    JFXTextField SearchSerialNumber;
 
     @FXML
-    TextField SearchBrandName;
+    JFXTextField SearchAlcoholType;
 
     @FXML
-    TextField SearchFancifulName;
+    JFXTextField SearchBrandName;
+
+    @FXML
+    JFXTextField SearchFancifulName;
 
     @FXML
     TextField SearchWineVintageYear;
@@ -40,17 +45,19 @@ public class AgentSearchController extends PageControllerUI implements ISearch {
     TextField SearchWineAppellation;
 
     @FXML
-    TextField SearchTimestamp;
+    JFXTextField SearchTimestamp;
 
     @FXML
-    TextField SearchTTBID;
+    JFXTextField SearchTTBID;
 
     @FXML
     TextField SearchNumResults;
 
     @FXML
-    Button SearchSubmitSearch;
+    JFXButton SearchSubmitSearch;
 
+    @FXML
+    JFXButton PrintSearch;
 
     @FXML
     TableView<Form> FormTable;
@@ -73,70 +80,6 @@ public class AgentSearchController extends PageControllerUI implements ISearch {
     @FXML
     TableColumn<Form, String> SerialColumn;
 
-    @Override
-    public TextField getSearchSource() {
-        return SearchSource;
-    }
-
-    @Override
-    public TextField getSearchSerialNumber() {
-        return SearchSerialNumber;
-    }
-
-    @Override
-    public TextField getSearchAlcoholType() {
-        return SearchAlcoholType;
-    }
-
-    @Override
-    public TextField getSearchBrandName() {
-        return SearchBrandName;
-    }
-
-    @Override
-    public TextField getSearchFancifulName() {
-        return SearchFancifulName;
-    }
-
-    @Override
-    public TextField getSearchWineVintageYear() {
-        return SearchWineVintageYear;
-    }
-
-    @Override
-    public TextField getSearchWinePH() {
-        return SearchWinePH;
-    }
-
-    @Override
-    public TextField getSearchWineGrapeVarietal() {
-        return SearchWineGrapeVarietal;
-    }
-
-    @Override
-    public TextField getSearchWineAppellation() {
-        return SearchWineAppellation;
-    }
-
-    @Override
-    public TextField getSearchTimestamp() {
-        return SearchTimestamp;
-    }
-
-    @Override
-    public TextField getSearchTTBID() {
-        return SearchTTBID;
-    }
-
-    @Override
-    public TextField getSearchNumResults() {
-        return SearchNumResults;
-    }
-
-    @Override
-    public Button getSearchSubmitSearch() {
-        return SearchSubmitSearch;
-    }
 
     @Override
     protected void onLeave(){}
@@ -144,41 +87,5 @@ public class AgentSearchController extends PageControllerUI implements ISearch {
     @Override
     protected void onLoad(){}
 
-    @Override
-    public void setTableViewHelper(TableViewHelper helper){}
 
-    @Override
-    public TableView<Form> getFormTable() {
-        return FormTable;
-    }
-
-    @Override
-    public TableColumn<Form, Integer> getTTBIDColumn() {
-        return TTBIDColumn;
-    }
-
-    @Override
-    public TableColumn<Form, Timestamp> getDateSubmittedColumn() {
-        return DateSubmittedColumn;
-    }
-
-    @Override
-    public TableColumn<Form, String> getBrandNameColumn() {
-        return BrandNameColumn;
-    }
-
-    @Override
-    public TableColumn<Form, AlcoholType> getTypeColumn() {
-        return TypeColumn;
-    }
-
-    @Override
-    public TableColumn<Form, String> getBrandColumn() {
-        return BrandColumn;
-    }
-
-    @Override
-    public TableColumn<Form, String> getSerialColumn() {
-        return SerialColumn;
-    }
 }

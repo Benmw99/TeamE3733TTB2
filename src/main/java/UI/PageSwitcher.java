@@ -35,6 +35,8 @@ public class PageSwitcher {
    //     System.out.println(new File("src/main/java/UI/WelcomePage.fxml").toURI());
   //      System.out.println(getClass().getResource("/src/main/java/UI/WelcomePage.fxml"));
         loader.setLocation(new File("src/main/java/UI/" + filename).toURI().toURL());
+        AttributeContainer ac = AttributeContainer.getInstance();
+        ac.backlog.push(filename);
         root = loader.load();
         Scene scene = new Scene(root, 1360, 760);
         stage.setScene(scene);
@@ -44,7 +46,7 @@ public class PageSwitcher {
         //////////////////////////////////////////////////////
         PageControllerUI controller = loader.getController();
 //        controller.setStage_DontTouch(stage);
-        AttributeContainer.getInstance().backlog.push("");
+        AttributeContainer.getInstance().current_page = controller;
         controller.onLoad();
 
 
