@@ -106,6 +106,7 @@ public class DBSelect {
                 form.setMailingAddress(form.getAddress().get(i));
             }
         }
+        session.close();
         return form;
     }
 
@@ -166,8 +167,10 @@ public class DBSelect {
             result = temp.intValue();
         }
         if (result == 1) {
+            session.close();
             return true;
         } else {
+            session.close();
             return false;
         }
     }
@@ -402,7 +405,9 @@ public class DBSelect {
         String q = "FROM Form F WHERE F.approvalStatus = :approval AND F.workingOn = 0";
         Query query = session.createQuery(q);
         query.setParameter("approval", ApprovalStatus.Incomplete);
-        return (Form)query.getSingleResult();
+        Form form = (Form)query.getSingleResult();
+        session.close();
+        return form;
     }
 
     /**
@@ -656,7 +661,9 @@ public class DBSelect {
         String q = "FROM Manufacturer M WHERE M.login = :log";
         Query query = session.createQuery(q);
         query.setParameter("log", login);
-        return (Manufacturer) query.getSingleResult();
+        Manufacturer man = (Manufacturer) query.getSingleResult();
+        session.close();
+        return man;
     }
 
 
@@ -723,7 +730,9 @@ public class DBSelect {
         String q = "FROM Representative R WHERE R.login = :log";
         Query query = session.createQuery(q);
         query.setParameter("log", login);
-        return (Representative) query.getSingleResult();
+        Representative rep = (Representative) query.getSingleResult();
+        session.close();
+        return rep;
     }
 
     /**
@@ -737,6 +746,8 @@ public class DBSelect {
         String q = "FROM Agent A WHERE A.login = :log";
         Query query = session.createQuery(q);
         query.setParameter("log", login);
-        return (Agent) query.getSingleResult();
+        Agent agent = (Agent) query.getSingleResult();
+        session.close();
+        return agent;
     }
 }
