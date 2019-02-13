@@ -80,6 +80,11 @@ public class SearchController {
         return SearchButton;
     }
 
+    /**
+     * Performs search
+     * @param event
+     * @throws IOException
+     */
     public void search(ActionEvent event) throws IOException {
 
         Entities.AdvancedSearch advancedSearch = new AdvancedSearch();

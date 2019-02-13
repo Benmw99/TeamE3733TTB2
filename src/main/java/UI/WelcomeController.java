@@ -68,13 +68,17 @@ public class WelcomeController extends PageControllerUI{
     @FXML
     MenuDrawerController Hamburger;
 
-
     @FXML
     public void agentLogin(ActionEvent event) throws IOException{
 //        pageSwitch(event, "AgentLogin.fxml", agentButton);
         pageSwitcher.pageSwitch("AgentLogin.fxml");
     }
 
+    /**
+     * Directs to HomeSearch
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void civilSearch(ActionEvent event) throws IOException{
 //        pageSwitch(event, "HomeSearch.fxml", civilButton);
