@@ -71,13 +71,16 @@ public class LoginController extends PageControllerUI implements Initializable {
                 AttributeContainer.getInstance().currentUser.loadUser();
                 AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
                 AttributeContainer.getInstance().currentForm = null;
+                AttributeContainer.getInstance().backlog.empty();
                 goToPage("ManHome.fxml");
             }
             if(AgentRadioButton.isSelected()){
                 AttributeContainer.getInstance().currentUser = newuser;
                 AttributeContainer.getInstance().currentUser.loadUser();
+                //AttributeContainer.getInstance().formQueue = ((Agent)AttributeContainer.getInstance().currentUser).;   //get current queue
+                AttributeContainer.getInstance().currentForm = null;
+                AttributeContainer.getInstance().backlog.empty();
                 goToPage("AgentHome.fxml");
-               System.out.println(((Agent)AttributeContainer.getInstance().currentUser).getAgentID());
             }
         }
     }
