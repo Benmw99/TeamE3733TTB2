@@ -41,7 +41,7 @@
                      <font>
                         <Font name="Apple SD Gothic Neo Thin" size="13.0" />
                      </font></JFXTextField>
-                  <JFXButton fx:id="GetNewQueueButton" buttonType="RAISED" layoutX="84.0" layoutY="613.0" onAction="#getNewQueue" style="-fx-background-color: #26c6da;" text="Get New Queue">
+                  <JFXButton fx:id="GetNewQueueButton" buttonType="RAISED" layoutX="146.0" layoutY="613.0" onAction="#getNewQueue" style="-fx-background-color: #26c6da;" text="Get New Queue">
                      <font>
                         <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                      </font>
@@ -55,15 +55,20 @@
                         </RadialGradient>
                      </ripplerFill>
                   </JFXButton>
+                  <JFXTextField fx:id="queueAmountTextField" alignment="CENTER" labelFloat="true" layoutX="13.0" layoutY="619.0" prefHeight="27.0" prefWidth="102.0" text="Amount">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                     </font>
+                  </JFXTextField>
                </children>
             </Pane>
             <Pane layoutX="355.0" layoutY="88.0" prefHeight="86.0" prefWidth="1006.0" style="-fx-background-color: #cfd8dc;">
                <children>
                   <HBox alignment="CENTER" prefHeight="85.0" prefWidth="967.0">
                      <children>
-                        <JFXButton fx:id="ApproveFormButton" buttonType="RAISED" onAction="#approveForm" style="-fx-background-color: #26c6da;" text="Approve Form">
+                        <JFXButton fx:id="ApproveFormButton" buttonType="RAISED" onAction="#approveForm" prefHeight="36.0" prefWidth="164.0" style="-fx-background-color: #26c6da;" text="Approve Form">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                            </font>
                            <ripplerFill>
                               <RadialGradient centerX="0.5056179775280899" centerY="0.5" radius="0.5">
@@ -77,9 +82,9 @@
                               <Insets left="170.0" />
                            </HBox.margin>
                         </JFXButton>
-                        <JFXButton fx:id="RejectFormButton" buttonType="RAISED" onAction="#rejectForm" style="-fx-background-color: #26c6da;" text="Reject Form">
+                        <JFXButton fx:id="RejectFormButton" buttonType="RAISED" onAction="#rejectForm" prefHeight="36.0" prefWidth="132.0" style="-fx-background-color: #26c6da;" text="Reject Form">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                            </font>
                            <ripplerFill>
                               <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
@@ -93,15 +98,15 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </JFXButton>
-                        <JFXButton fx:id="reviewToolButton" buttonType="RAISED" onAction="#reviewingTools" style="-fx-background-color: #26c6da;" text="Use Reviewing Tools">
+                        <JFXButton fx:id="reviewToolButton" buttonType="RAISED" onAction="#reviewingTools" prefHeight="36.0" prefWidth="201.0" style="-fx-background-color: #26c6da;" text="Use Reviewing Tools">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                            </font>
                            <HBox.margin>
                               <Insets left="60.0" />
                            </HBox.margin>
                         </JFXButton>
-                        <JFXButton fx:id="PrintButton" buttonType="RAISED" onAction="#print" prefHeight="46.0" prefWidth="170.0" style="-fx-background-color: #26c6da;" text="Download">
+                        <JFXButton fx:id="PrintButton" buttonType="RAISED" onAction="#print" prefHeight="31.0" prefWidth="108.0" style="-fx-background-color: #26c6da;" text="Download">
                            <ripplerFill>
                               <RadialGradient centerX="0.5056179775280899" centerY="0.5" radius="0.5">
                                  <stops>
@@ -111,7 +116,7 @@
                               </RadialGradient>
                            </ripplerFill>
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                            </font>
                            <HBox.margin>
                               <Insets left="100.0" />
@@ -134,6 +139,5 @@
             <fx:include source="TableView.fxml" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
-      <fx:include source="MenuDrawer.fxml" />
    </children>
 </AnchorPane>
