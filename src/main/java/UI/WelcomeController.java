@@ -66,7 +66,7 @@ public class WelcomeController extends PageControllerUI{
     Button agentButton;
 
     @FXML
-    BackButtonController Hamburger;
+    MenuDrawerController Hamburger;
 
 
     @FXML

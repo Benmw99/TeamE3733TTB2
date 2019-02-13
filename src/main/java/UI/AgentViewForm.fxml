@@ -1296,5 +1296,6 @@
          </font>
       </JFXButton>
       <JFXComboBox fx:id="markAsComboBox" layoutX="213.0" layoutY="107.0" prefHeight="27.0" prefWidth="177.0" />
+      <fx:include source="MenuDrawer.fxml" />
    </children>
 </AnchorPane>
