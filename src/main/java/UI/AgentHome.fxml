@@ -35,7 +35,7 @@
             </Pane>
             <Pane layoutX="-1.0" layoutY="88.0" prefHeight="675.0" prefWidth="355.0" style="-fx-background-color: #cfd8dc;">
                <children>
-                  <JFXButton fx:id="addAppButton" buttonType="RAISED" layoutX="292.0" layoutY="30.0" onAction="#newApp" ripplerFill="BLACK" style="-fx-background-radius: 15; -fx-background-color: #26c6da;" text="+">
+                  <JFXButton fx:id="newFormButton" buttonType="RAISED" layoutX="292.0" layoutY="30.0" onAction="#newApp" ripplerFill="BLACK" style="-fx-background-radius: 15; -fx-background-color: #26c6da;" text="+">
                      <font>
                         <Font name="Apple SD Gothic Neo Thin" size="14.0" />
                      </font></JFXButton>
