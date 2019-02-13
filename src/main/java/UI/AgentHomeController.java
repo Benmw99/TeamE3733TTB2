@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 
 public class AgentHomeController extends PageControllerUI implements Initializable {
 
-   //From IFormDisplay
+    //From IFormDisplay
     @FXML
     Label Display1Label;
 
@@ -169,6 +169,9 @@ public class AgentHomeController extends PageControllerUI implements Initializab
 
     }
 
+    /**
+    * Refreshes Agent queue automatically on load
+    */
     @Override
     void onLoad() {
         try {
@@ -178,18 +181,27 @@ public class AgentHomeController extends PageControllerUI implements Initializab
         }
     }
 
+    /**
+     * Creates new blank form for Agent to fill
+     */
     @FXML
-    void  newApp() {
+    void newApp() {
         attributeContainer.currentForm = new Form();
 //        goToPage("AgentApp.fxml");//TODO: this is not a page
     }
 
+    //New controller overrides
     @FXML
     public void logOut(ActionEvent event) throws IOException {
         attributeContainer.currentUser = null;
         goToPage("Login.fxml");
     }
 
+    /**
+     * Update Agent queue with new forms
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void refreshQueue(ActionEvent event) throws IOException {
         //TODO CHANGE THIS ENTIRELY AS IT SHOULD WORK DIFFERENTLY. IT SHOULD GET A NEW FORM FOR HOWEVER MANY IT IS MISSING COMPARED TO ITS MAX FORMS
@@ -198,6 +210,11 @@ public class AgentHomeController extends PageControllerUI implements Initializab
 //        tableViewHelper.updateTable(); //TODO: make tableViewHelper
     }
 
+    /**
+     * Set approval status of current form to approved
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void approveForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
@@ -209,6 +226,12 @@ public class AgentHomeController extends PageControllerUI implements Initializab
 //        tableViewHelper.updateTable(); //TODO: make tableViewHelper
         }
     }
+
+    /**
+     * Set approval status of current form to rejected
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void rejectForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
@@ -218,10 +241,22 @@ public class AgentHomeController extends PageControllerUI implements Initializab
 //        tableViewHelper.updateTable(); //TODO: make tableViewHelper
         }
     }
+
+    /**
+     * Directs Agent to reviewing tools
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void reviewingTools(ActionEvent event) throws IOException {
         goToPage("AgentViewForm.fxml");
     }
+
+    /**
+     * Sends current form to printable format
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void print(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
@@ -234,6 +269,13 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     //////////     Move to Interfaces     ////////////          //TODO:...
     //////////////////////////////////////////////////
 
+    @FXML
+    public void getNewQueue() throws IOException {
+        AttributeContainer ac =  AttributeContainer.getInstance();
+        ((Agent)ac.currentUser).getQueueIntoAC();
+
+    }
+    // TODO fix this so that it can be used with the nested table
     public void getNewQueue() throws IOException{}
 
  @Override

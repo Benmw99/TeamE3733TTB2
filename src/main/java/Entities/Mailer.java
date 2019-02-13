@@ -39,7 +39,7 @@ public class Mailer {
 
             message.addRecipient(Message.RecipientType.TO, toAddress);
 
-            String body = "Hello " + to_inform.getMailingAddress().getName();
+            String body = "Hello ";
             body += ",\n";
             body += "There are updates on your form! Please use the TTB Application to check your status.\n";
             body += "Your form's current status is " + to_inform.getApprovalStatus().toString();

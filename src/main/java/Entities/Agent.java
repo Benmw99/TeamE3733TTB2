@@ -30,7 +30,6 @@ public class Agent implements IUser{
 
     @Column(name = "Agent_Name")
     private String name;
-
     public Agent() {
     }
 
@@ -50,6 +49,16 @@ public class Agent implements IUser{
     public Agent(String login, String password) {
         this.login = login;
         this.password = password;
+    }
+
+    public boolean isAgent() {
+        return true;
+    }
+    public boolean isManufacturer() {
+        return false;
+    }
+    public boolean isRepresentative() {
+        return false;
     }
 
     public int getAgentID() {
@@ -177,8 +186,8 @@ public class Agent implements IUser{
         app.setPage4(ApprovalStatus.Complete);
         form.setApprovalStatus(ApprovalStatus.Complete);
         form.setApproval(app);
-        Mailer inform = new Mailer();
-        inform.sendMail(form);
+   //     Mailer inform = new Mailer();
+     //   inform.sendMail(form);
         db.dbInsert.updateApproval(form);
     }
 
@@ -197,8 +206,8 @@ public class Agent implements IUser{
         app.setPage4(ApprovalStatus.Complete);
         form.setApprovalStatus(ApprovalStatus.Complete);
         form.setApproval(app);
-        Mailer inform = new Mailer();
-        inform.sendMail(form);
+   //     Mailer inform = new Mailer();
+     //   inform.sendMail(form);
         db.dbInsert.updateApproval(form);
     }
 
@@ -212,8 +221,8 @@ public class Agent implements IUser{
         app.setPage4(ApprovalStatus.Incorrect);
         form.setApprovalStatus(ApprovalStatus.Incorrect);
         form.setApproval(app);
-        Mailer inform = new Mailer();
-        inform.sendMail(form);
+   //     Mailer inform = new Mailer();
+     //   inform.sendMail(form);
         db.dbInsert.updateApproval(form);
     }
 

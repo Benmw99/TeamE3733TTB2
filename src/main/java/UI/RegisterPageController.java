@@ -42,6 +42,11 @@ public class RegisterPageController extends PageControllerUI implements Initiali
 
     void onLoad(){}
 
+    /**
+     * Sets up fields and buttons
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.SubmitRegistrationButton.setOnAction(new EventHandler<ActionEvent>() {

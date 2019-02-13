@@ -2,15 +2,20 @@ package UI;
 
 import Entities.Form;
 import Entities.IUser;
+import Entities.LabelImage;
 import Entities.SearchResult;
 
 import java.applet.AudioClip;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
 public class AttributeContainer {
     private static AttributeContainer ourInstance = new AttributeContainer();
+    public List<BufferedImage> imageList;
+    public File labelImageFile;
 
     public static AttributeContainer getInstance() {
         return ourInstance;
@@ -25,7 +30,11 @@ public class AttributeContainer {
     public Stack<String> backlog;
     public int numForQueue = 5;
     PageControllerUI current_page;
+    LabelImage labelImage;
 
+    /**
+     * Instantiates new empty AttributeContainer
+     */
     private AttributeContainer() {
         formQueue = new ArrayList<Form>();
         currentForm = null;
@@ -36,6 +45,9 @@ public class AttributeContainer {
         backlog = new Stack<String>();
     }
 
+    /**
+     * Clears all stored data from AttributeContainer
+     */
     public void wipeSession() {
         formQueue = null;
         currentForm = null;

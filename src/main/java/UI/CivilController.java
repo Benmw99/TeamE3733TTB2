@@ -4,12 +4,14 @@ import Entities.AdvancedSearch;
 import Entities.AlcoholType;
 import Entities.Form;
 import Entities.SearchResult;
+import SearchAlgo.Search;
 import com.sun.xml.internal.ws.addressing.model.ActionNotSupportedException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -19,10 +21,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import static Entities.AlcoholType.*;
 
-public class CivilController extends PageControllerUI {
+public class CivilController extends PageControllerUI implements Initializable {
 
 
 
@@ -101,7 +105,7 @@ public class CivilController extends PageControllerUI {
     Button backToWelcomeButton;
 
     @FXML
-    ComboBox typeComboBox;
+    ComboBox SearchAlcoholType;
 
     //Form Labels
     @FXML
@@ -179,9 +183,9 @@ public class CivilController extends PageControllerUI {
 
     //Brewers Permit
     //Mailing address
-
-    @FXML
-    protected void initialize() {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        SearchAlcoholType.getItems().addAll("Beers", "Wines", "Distilled Liquor");
 
         if (initStuff == 1) {
             Civ1Label.setText(selectedForm.getRepID());
@@ -242,11 +246,11 @@ public class CivilController extends PageControllerUI {
 
         Entities.AdvancedSearch advancedSearch = new AdvancedSearch();
 
-        if(typeComboBox.getValue() != null && typeComboBox.getValue().equals("Beers")){
+        if(SearchAlcoholType.getValue() != null && SearchAlcoholType.getValue().equals("Beers")){
             advancedSearch.setAlcoholType(MaltBeverage);
-        }else if(typeComboBox.getValue() != null && typeComboBox.getValue().equals("Wines")){
+        }else if(SearchAlcoholType.getValue() != null && SearchAlcoholType.getValue().equals("Wines")){
             advancedSearch.setAlcoholType(Wine);
-        }else if(typeComboBox.getValue() != null && typeComboBox.getValue().equals("Distilled Liquor")){
+        }else if(SearchAlcoholType.getValue() != null && SearchAlcoholType.getValue().equals("Distilled Liquor")){
             advancedSearch.setAlcoholType(DistilledLiquor);
         }
         if (brandNameTextField.getText() != null && !brandNameTextField.getText().trim().equals("")) {
@@ -265,23 +269,17 @@ public class CivilController extends PageControllerUI {
             //city not in search yet
         //}
         //if (manufactureDate.get) DATE NOT IMPLEMENTED YET
-        if (idField.getText() != null && !idField.getText().trim().equals("")) {
-            advancedSearch.setTtbID(Integer.parseInt(idField.getText()));
-        }
 
-        DB.Database db = DB.Database.getDatabase();
-        results = db.dbSelect.searchBy(advancedSearch);
 
-        col1.setCellValueFactory(new PropertyValueFactory<>("ttbID"));
-        col2.setCellValueFactory(new PropertyValueFactory<>("alcoholType"));
-        col3.setCellValueFactory(new PropertyValueFactory<>("brandName"));
-        col4.setCellValueFactory(new PropertyValueFactory<>("serialNumber"));
+
+        results.setResults( Search.SearchDLBrand(advancedSearch, new SearchAlgo.DamerauLevenshtein()));
+
 
         ObservableList<Form> tableValues = FXCollections.observableArrayList();
         for (int i = 0; i < results.getResults().size(); i++) {
             tableValues.add(results.getResults().get(i));
         }
-        resultTable.setItems(tableValues);
+        AttributeContainer.getInstance().formQueue = tableValues;
         printSearchResultsCSV.setDisable(false);
     }
 
@@ -326,6 +324,5 @@ public class CivilController extends PageControllerUI {
     void onLoad() {
 
     }
-
 
 }

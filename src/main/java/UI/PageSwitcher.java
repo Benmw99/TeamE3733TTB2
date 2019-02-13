@@ -12,10 +12,19 @@ import java.io.IOException;
 public class PageSwitcher {
     static Stage stage;
 
+    /**
+     * Sets stage of scene
+     * @param stage desired stage
+     */
     public static void setStage(Stage stage) {
         PageSwitcher.stage = stage;
     }
 
+    /**
+     * Directs to input page
+     * @param filename desired page
+     * @throws IOException
+     */
     public void pageSwitch(String filename) throws IOException {
         pageSwitch(null, filename, stage);
     }
