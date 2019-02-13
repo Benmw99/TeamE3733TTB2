@@ -47,16 +47,7 @@
                         <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXTreeTableView fx:id="tableViewMan" layoutY="62.0" prefHeight="582.0" prefWidth="559.0">
-                     <columns>
-                        <TreeTableColumn fx:id="col1" prefWidth="82.0" text="TTB ID#" />
-                        <TreeTableColumn fx:id="col2" prefWidth="119.0" text="Date Submitted" />
-                        <TreeTableColumn fx:id="col3" prefWidth="73.0" text="Status" />
-                        <TreeTableColumn fx:id="col4" prefWidth="94.0" text="Status Date" />
-                        <TreeTableColumn fx:id="col5" prefWidth="73.0" text="Exp. Date" />
-                        <TreeTableColumn fx:id="col6" prefWidth="119.0" text="Agent Name" />
-                     </columns>
-                  </JFXTreeTableView>
+                  <fx:include source="TableView.fxml"></fx:include>
                </children>
             </Pane>
             <Pane layoutX="558.0" layoutY="88.0" prefHeight="64.0" prefWidth="803.0" style="-fx-background-color: #cfd8dc;">
