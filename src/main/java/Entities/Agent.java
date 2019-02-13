@@ -101,8 +101,13 @@ public class Agent implements IUser{
     public Form getNextUnapproved() {
         DB.Database db = DB.Database.getDatabase();
         Form temp = db.dbSelect.getNextUnapproved();
+        System.out.println(this.agentID);
         temp.setWorkingOn(this.agentID);
         db.dbSelect.updateWorkingOn(temp);
+        System.out.println("GET NEX UN");
+        System.out.println(temp.getWorkingOn());
+        System.out.println(this.getAgentID());
+        System.out.println("END GET NEX");
         return temp;
     }
 
@@ -118,7 +123,7 @@ public class Agent implements IUser{
 
     /**
      * Gets a number of forms based upon the integer set in the Attribute Container...
-     * Should properly set those forms as approved.
+     * Should properly set those forms as working on.
      * @author Michael
      * @return The List of Forms.
      */
@@ -165,6 +170,8 @@ public class Agent implements IUser{
     public void loadUser(){
          Agent temp = Database.getDatabase().dbSelect.getAgent(this.login);
          this.password = temp.getPassword();
+         System.out.print("Login:");
+         System.out.println(temp.getAgentID());
          this.agentID = temp.getAgentID();
          this.name = temp.getName();
 
