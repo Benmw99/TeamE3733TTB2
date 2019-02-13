@@ -5,7 +5,6 @@ import Entities.AlcoholType;
 import Entities.Form;
 import Entities.SearchResult;
 import SearchAlgo.Search;
-import com.sun.xml.internal.ws.addressing.model.ActionNotSupportedException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -54,7 +52,7 @@ public class CivilController extends PageControllerUI implements Initializable {
 
     //CivilAdvSearch
     @FXML
-    Button goButton;
+    Button SearchLoginButton;
 
     @FXML
     Button newThirtyButton;
@@ -186,6 +184,14 @@ public class CivilController extends PageControllerUI implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         SearchAlcoholType.getItems().addAll("Beers", "Wines", "Distilled Liquor");
+
+        if(attributeContainer.currentUser == null) {
+            SearchLoginButton.setDisable(false);
+            SearchLoginButton.setVisible(true);
+        } else {
+            SearchLoginButton.setDisable(true);
+            SearchLoginButton.setVisible(false);
+        }
 
         if (initStuff == 1) {
             Civ1Label.setText(selectedForm.getRepID());
