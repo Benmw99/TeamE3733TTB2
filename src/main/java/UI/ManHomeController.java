@@ -62,6 +62,7 @@ public class ManHomeController extends PageControllerUI  {
 
     @FXML
     public void addForm(ActionEvent event) throws IOException {
+        System.out.println("adfasdgSSDV");
         goToPage("ManApp.fxml");
     }
 

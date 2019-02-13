@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -18,7 +17,6 @@
    <children>
       <Rectangle fill="#9ea7aa" height="89.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1376.0" AnchorPane.bottomAnchor="671.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Rectangle fill="#cfd8dc" height="62.0" layoutY="54.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="1384.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="89.0" />
-      <JFXHamburger layoutX="51.0" layoutY="40.0" />
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="88.0">
          <children>
             <JFXTextField fx:id="LoginUserUsernameTextField" alignment="CENTER" maxWidth="350.0" prefWidth="350.0" promptText="username">
@@ -100,5 +98,6 @@
             <Font name="Apple SD Gothic Neo Thin" size="48.0" />
          </font>
       </Label>
+      <fx:include source="MenuDrawer.fxml" />
    </children>
 </AnchorPane>

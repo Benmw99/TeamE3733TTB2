@@ -33,6 +33,10 @@ public class LoginController extends PageControllerUI {
     ToggleGroup userOptions = new ToggleGroup();
 
 
+    @FXML
+    MenuDrawerController Hamburger;
+
+
 //    Button getLoginUserLoginButton() {
 //        return LoginUserLoginButton;
 //    }
@@ -66,7 +70,9 @@ public class LoginController extends PageControllerUI {
         goToPage("HomeSearch.fxml");
     }
 
+    @FXML
     public boolean authenticate(){
+        System.out.println("TESTESTESTESTES");
         String user = LoginUserUsernameTextField.getText();
         String pass = LoginUserPasswordTextField.getText();
         AttributeContainer attributeContainer = AttributeContainer.getInstance();
