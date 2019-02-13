@@ -6,25 +6,27 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.CivilController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.CivilController">
 <children>
     <Rectangle fill="#9ea7aa" height="77.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-    <Text fill="WHITE" layoutX="507.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Advanced Search" wrappingWidth="429.9218606590072">
+    <Text fill="WHITE" layoutX="566.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COLA Search" wrappingWidth="256.9218606590072">
         <font>
             <Font name="Apple SD Gothic Neo Thin" size="48.0" />
         </font></Text>
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="636.0" layoutX="1.0" layoutY="136.0" stroke="TRANSPARENT" strokeType="INSIDE" width="369.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="1.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="626.0" layoutX="1.0" layoutY="136.0" stroke="TRANSPARENT" strokeType="INSIDE" width="369.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="1.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="62.0" layoutY="66.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0" />
       <JFXButton fx:id="SearchLoginButton" buttonType="RAISED" layoutX="1248.0" layoutY="13.0" onAction="#loginPage" style="-fx-background-color: WHITE;" text="Login">
          <font>
             <Font name="Apple SD Gothic Neo Regular" size="18.0" />
          </font>
       </JFXButton>
-      <Pane layoutX="360.0" layoutY="132.0" prefHeight="617.0" prefWidth="1002.0">
+      <Pane layoutX="360.0" layoutY="132.0" prefHeight="617.0" prefWidth="1002.0" style="-fx-background-color: WHITE;">
          <children>
             <fx:include source="TableView.fxml" />
          </children>
@@ -47,9 +49,9 @@
       <JFXDatePicker fx:id="SearchDate" layoutX="197.0" layoutY="298.0" prefHeight="25.0" prefWidth="149.0" promptText="date" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="7.0" layoutY="208.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
       <JFXComboBox fx:id="SearchAlcoholType" layoutX="196.0" layoutY="151.0" prefWidth="150.0" />
-      <JFXTextField fx:id="SearchID" layoutX="196.0" layoutY="348.0" promptText="number">
+      <JFXTextField fx:id="SearchID" alignment="CENTER" layoutX="196.0" layoutY="348.0" promptText="number">
          <font>
-            <Font name="Apple SD Gothic Neo Bold" size="13.0" />
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
          </font></JFXTextField>
       <Text layoutX="33.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Type">
          <font>
@@ -62,7 +64,10 @@
          </font>
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="7.0" layoutY="196.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
-      <JFXTextField fx:id="SearchPercentage" layoutX="196.0" layoutY="200.0" promptText="percentage" />
+      <JFXTextField fx:id="SearchPercentage" alignment="CENTER" layoutX="196.0" layoutY="200.0" promptText="percentage">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+         </font></JFXTextField>
       <Text layoutX="32.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Content">
          <font>
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
@@ -73,11 +78,23 @@
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="brandNameTextField" layoutX="196.0" layoutY="250.0" promptText="name" />
-      <Pane layoutX="-1.0" layoutY="702.0" prefHeight="49.0" prefWidth="335.0" style="-fx-background-color: #cfd8dc;">
-         <children>
-            <JFXButton fx:id="SearchButton" layoutX="129.0" layoutY="7.0" onAction="#searchAdvanced" prefHeight="39.0" prefWidth="84.0" style="-fx-background-color: WHITE;" text="Search" />
-         </children>
-      </Pane>
+      <JFXTextField fx:id="brandNameTextField" alignment="CENTER" layoutX="196.0" layoutY="250.0" promptText="name">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+         </font></JFXTextField>
+      <Pane layoutX="18.0" layoutY="466.0" prefHeight="49.0" prefWidth="335.0" style="-fx-background-color: WHITE;" />
+      <JFXButton fx:id="SearchButton" buttonType="RAISED" layoutX="129.0" layoutY="402.0" onAction="#searchAdvanced" prefHeight="39.0" prefWidth="84.0" style="-fx-background-color: cfd8dc;" text="Search">
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+         </font>
+      </JFXButton>
 </children>
 </AnchorPane>
