@@ -106,7 +106,7 @@ public class DBSelect {
                 form.setMailingAddress(form.getAddress().get(i));
             }
         }
-        session.close();
+        session.close ();
         return form;
     }
 

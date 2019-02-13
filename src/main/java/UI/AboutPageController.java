@@ -18,7 +18,7 @@ public class AboutPageController extends PageControllerUI {
      */
     @FXML
     public void goBack(ActionEvent event) throws IOException {
-        goToPage("WelcomePage.fxml");
+        goToPage("HomeSearch.fxml");
     }
 
     @Override

@@ -6,7 +6,6 @@ import Entities.AlcoholType;
 import Entities.Form;
 import Entities.SearchResult;
 import SearchAlgo.Search;
-import com.sun.xml.internal.ws.addressing.model.ActionNotSupportedException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

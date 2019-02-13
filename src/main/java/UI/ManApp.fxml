@@ -1040,7 +1040,7 @@
                               <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                            </font>
                         </JFXButton>
-                        <ImageView fx:id="labelImageDisplay" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="labelImageDisplay" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../assets/tool-tip.png" />
                            </image>
