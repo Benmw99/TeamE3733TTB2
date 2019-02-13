@@ -152,7 +152,8 @@ public class FormSubmitController {
                 addy.setZip(this.Zip9Field.getText());
             }
             man.submitForm(working);
-
+            AttributeContainer.getInstance().labelImage.setTTBID(working.getTtbID());
+            AttributeContainer.getInstance().labelImage.insert();
         }
 
 

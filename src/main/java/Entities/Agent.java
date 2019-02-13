@@ -251,6 +251,10 @@ public class Agent implements IUser{
         this.password.equals(anAgent.password) &&
         this.name.equals(anAgent.name));
     }
+    public void register() {
+        DB.Database db = DB.Database.getDatabase();
+        this.agentID = db.dbInsert.insertAgent(this);
+    }
 
 
 }
