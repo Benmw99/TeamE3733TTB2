@@ -32,7 +32,7 @@
       </Pane>
       <VBox prefHeight="660.0" prefWidth="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
-            <JFXButton fx:id="page1" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #800020;" text="1" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton fx:id="page1" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #26c6da;" text="1" textAlignment="JUSTIFY">
                <font>
                   <Font name="Helvetica Neue" size="26.0" />
                </font>
@@ -40,7 +40,7 @@
                   <Insets bottom="1.5" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton fx:id="page2" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #800020;" text="2" textFill="WHITE">
+            <JFXButton fx:id="page2" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #26c6da;" text="2">
                <font>
                   <Font name="Helvetica Neue" size="26.0" />
                </font>
@@ -48,7 +48,7 @@
                   <Insets bottom="1.5" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton fx:id="page3" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #800020;" text="3" textFill="WHITE">
+            <JFXButton fx:id="page3" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #26c6da;" text="3">
                <font>
                   <Font name="Helvetica Neue" size="26.0" />
                </font>
@@ -56,7 +56,7 @@
                   <Insets bottom="1.5" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton fx:id="page4" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #800020;" text="4" textFill="WHITE">
+            <JFXButton fx:id="page4" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #26c6da;" text="4">
                <font>
                   <Font name="Helvetica Neue" size="26.0" />
                </font>
@@ -943,13 +943,13 @@
          <children>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="660.0" prefWidth="1300.0">
                <children>
-                  <VBox prefHeight="70.0" prefWidth="327.0">
-                     <HBox.margin>
-                        <Insets top="590.0" />
-                     </HBox.margin>
+                  <VBox prefHeight="110.0" prefWidth="319.0">
                      <children>
-                        <fx:include source="SubmitButton.fxml" />
+                        <fx:include layoutY="-100.0" source="SubmitButton.fxml" />
                      </children>
+                     <HBox.margin>
+                        <Insets top="550.0" />
+                     </HBox.margin>
                   </VBox>
                </children>
             </HBox>
