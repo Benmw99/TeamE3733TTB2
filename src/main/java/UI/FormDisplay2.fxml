@@ -13,6 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import com.jfoenix.controls.JFXTabPane?>
 <AnchorPane prefHeight="625.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.FormViewController">
     <children>
         <Pane prefHeight="625.0" prefWidth="696.0" style="-fx-background-color: #26c6da;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -20,7 +21,7 @@
                 <Pane prefHeight="625.0" prefWidth="696.0" style="-fx-background-color: white;">
 
                 </Pane>
-            <TabPane layoutX="-6.0" prefHeight="625.0" prefWidth="696.0" stylesheets="@TabPane.css" tabClosingPolicy="UNAVAILABLE">
+            <JFXTabPane layoutX="-6.0" prefHeight="625.0" prefWidth="696.0" stylesheets="@TabPane.css" tabClosingPolicy="UNAVAILABLE">
                <tabs>
                   <Tab fx:id="rulesRegTab" text="Rules and Regulations">
                      <content>
@@ -487,7 +488,7 @@
                      </content>
                   </Tab>
                </tabs>
-            </TabPane>
+            </JFXTabPane>
             </children></Pane>
     </children>
 </AnchorPane>
