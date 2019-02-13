@@ -2,23 +2,17 @@
 
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <TableView fx:id="table" maxHeight="1.7976931348623157E308" stylesheets="@TableView.css">
-         <columns>
-            <TableColumn fx:id="colttb" prefWidth="114.59823822975159" text="TTB ID#" />
-            <TableColumn fx:id="colsub" prefWidth="128.4017562866211" text="Date Submitted" />
-            <TableColumn fx:id="colbrand" prefWidth="112.60408020019531" text="Brand Name" />
-            <TableColumn fx:id="coltype" prefWidth="116.60408020019531" text="Type" />
-            <TableColumn fx:id="colstatus" prefWidth="111.60408020019531" text="Status" />
-            <TableColumn fx:id="colserial" prefWidth="110.60408020019531" text="Serial Number" />
-         </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
-   </children>
-</VBox>
+<TableView fx:id="table" stylesheets="@TableView.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <columns>
+      <TableColumn fx:id="colttb" prefWidth="114.59823822975159" text="TTB ID#" />
+      <TableColumn fx:id="colsub" prefWidth="128.4017562866211" text="Date Submitted" />
+      <TableColumn fx:id="colbrand" prefWidth="112.60408020019531" text="Brand Name" />
+      <TableColumn fx:id="coltype" prefWidth="116.60408020019531" text="Type" />
+      <TableColumn fx:id="colstatus" prefWidth="111.60408020019531" text="Status" />
+      <TableColumn fx:id="colserial" prefWidth="110.60408020019531" text="Serial Number" />
+   </columns>
+   <columnResizePolicy>
+      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+   </columnResizePolicy>
+</TableView>
