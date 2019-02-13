@@ -101,7 +101,7 @@
                               <Insets left="60.0" />
                            </HBox.margin>
                         </JFXButton>
-                        <JFXButton fx:id="PrintButton" buttonType="RAISED" onAction="#print" style="-fx-background-color: #26c6da;" text="Print">
+                        <JFXButton fx:id="PrintButton" buttonType="RAISED" onAction="#print" prefHeight="46.0" prefWidth="170.0" style="-fx-background-color: #26c6da;" text="Download">
                            <ripplerFill>
                               <RadialGradient centerX="0.5056179775280899" centerY="0.5" radius="0.5">
                                  <stops>
