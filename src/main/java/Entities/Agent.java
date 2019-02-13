@@ -1,5 +1,6 @@
 package Entities;
 
+import DB.Database;
 import UI.AttributeContainer;
 
 import javax.crypto.Cipher;
@@ -154,7 +155,14 @@ public class Agent implements IUser{
         return db.dbSelect.AuthenticateAgent(login,password);
     }
 
+    /**
+     * Loads a user from the database as long as THIS user's login is correct.
+     */
     public void loadUser(){
+         Agent temp = Database.getDatabase().dbSelect.getAgent(this.login);
+         this.password = temp.getPassword();
+         this.agentID = temp.getAgentID();
+         this.name = temp.getName();
 
     }
 
