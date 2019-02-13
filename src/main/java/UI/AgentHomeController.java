@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TablePosition;
@@ -20,9 +21,11 @@ import com.jfoenix.controls.*;
 
 import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Timestamp;
+import java.util.ResourceBundle;
 
-public class AgentHomeController extends PageControllerUI {
+public class AgentHomeController extends PageControllerUI implements Initializable {
 
     //From IFormDisplay
     @FXML
@@ -153,7 +156,7 @@ public class AgentHomeController extends PageControllerUI {
     JFXTextField SearchField;
 
     @FXML
-    JFXButton GetNewQueueButton;
+    JFXButton GetNewQueueButon;
 
 
 
@@ -272,7 +275,12 @@ public class AgentHomeController extends PageControllerUI {
         ((Agent)ac.currentUser).getQueueIntoAC();
 
     }
-    // TODO fix this so that it can be used with the nested table
+
+ @Override
+ public void initialize(URL location, ResourceBundle resources) {
+
+ }
+ // TODO fix this so that it can be used with the nested table
 //        attributeContainer.formQueue = ((Agent)attributeContainer.currentUser).getThreeForms();
        /* this.TTBIDColumn.setCellValueFactory(new PropertyValueFactory<>("ttbID"));
         this.DateSubmittedColumn.setCellValueFactory(new PropertyValueFactory<>("dateSubmitted"));
