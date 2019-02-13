@@ -739,4 +739,62 @@ public class DBSelect {
         query.setParameter("log", login);
         return (Agent) query.getSingleResult();
     }
+
+    /**
+     * Checks if a company login is already there
+     * @author Jordan
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    public boolean checkCompanyLogin(String login) {
+        String q = "SELECT count(*) FROM Manufacturer C WHERE C.login = :login";
+        return checkExistent(q, login);
+    }
+
+    /**
+     * Checks if a agent login is already there
+     * @author Jordan
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    public boolean checkAgentLogin(String login) {
+        String q = "SELECT count(*) FROM Agent C WHERE C.login = :login";
+        return checkExistent(q, login);
+    }
+
+    /**
+     * Checks if a rep login is already there
+     * @author Jordan
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    public boolean checkRepLogin(String login) {
+        String q = "SELECT count(*) FROM Representative C WHERE C.login = :login";
+        return checkExistent(q, login);
+    }
+
+    /**
+     * Checks that a user exists for a passed query, checking that there is 1 result in the database
+     * @author Jordan
+     * @param q String of the query to be used
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    private boolean checkExistent(String q, String login) {
+        Session session = factory.openSession();
+        Query query = session.createQuery(q);
+        query.setParameter("login", login);
+        int result = 0;
+        Long temp;
+        final Object obj = query.uniqueResult();
+        if (obj != null) {
+            temp = (Long) obj;
+            result = temp.intValue();
+        }
+        if (result == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
