@@ -751,4 +751,46 @@ public class DBSelect {
         session.close();
         return agent;
     }
+
+    public List<Form> getNext5() {
+        Session session = factory.openSession();
+        Transaction tx = null;
+        String q = "FROM Form F WHERE F.approvalStatus = :approval";
+        Query query = session.createQuery(q);
+        query.setParameter("approval", ApprovalStatus.Incomplete);
+        query.setMaxResults(5);
+        List<Form> result = new ArrayList<>();
+
+        try {
+            //Starts the transaction
+            tx = session.beginTransaction();
+            List temp = query.list();
+            //Iterates through that list initiazing and setting stuff
+            for (Iterator iterator = temp.iterator(); iterator.hasNext();){
+                Form form = (Form) iterator.next();
+
+                //Initializes the brewersPermit and the address
+                Hibernate.initialize(form.brewersPermit);
+                Hibernate.initialize(form.address);
+
+                //Set that primary address
+                for (int i = 0; i < form.getAddress().size(); i++) {
+                    if (form.getAddress().get(i).isMailing()) {
+                        form.setMailingAddress(form.getAddress().get(i));
+                    }
+                }
+
+                result.add(form);
+            }
+            //Commit the transaction
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            //Close the session
+            session.close();
+        }
+        return result;
+    }
 }
