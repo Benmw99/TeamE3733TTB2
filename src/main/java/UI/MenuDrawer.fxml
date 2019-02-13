@@ -14,17 +14,17 @@
          <children>
             <VBox fx:id="BoxSlider" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="300.0" style="-fx-background-color: #4e0000;">
                <children>
-                  <JFXButton fx:id="SearchSlider" accessibleText="SEARCH" buttonType="RAISED" onAction="#goToSearch" prefHeight="75.0" prefWidth="300.0" text="Search" textFill="WHITE">
-                     <font>
-                        <Font name="Apple SD Gothic Neo Regular" size="36.0" />
-                     </font>
-                  </JFXButton>
                   <JFXButton fx:id="GoHomeSlider" accessibleText="HOME" buttonType="RAISED" onAction="#goToHome" prefHeight="75.0" prefWidth="300.0" text="Go Home" textFill="WHITE">
                      <font>
                         <Font name="Apple SD Gothic Neo Regular" size="36.0" />
                      </font>
                   </JFXButton>
                   <JFXButton fx:id="LogOutSlider" accessibleText="LOGOUT" buttonType="RAISED" onAction="#goToLogOut" prefHeight="75.0" prefWidth="300.0" text="Log Out" textFill="WHITE">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="36.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="SearchSlider" accessibleText="SEARCH" buttonType="RAISED" onAction="#goToSearch" opacity="0.0" prefHeight="75.0" prefWidth="300.0" text="Search" textFill="WHITE">
                      <font>
                         <Font name="Apple SD Gothic Neo Regular" size="36.0" />
                      </font>

@@ -357,6 +357,11 @@ public class ManAppController extends PageControllerUI implements  Initializable
 
     }
 
+    @FXML
+    public void goBack(){
+        goToPage("ManHome.fxml");
+    }
+
     // Always checks if empty
     // 1 - Only Numbers
     // 2 - Only Strings

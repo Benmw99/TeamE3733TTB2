@@ -216,7 +216,7 @@
                                        <children>
                                           <HBox prefHeight="80.0" prefWidth="1010.0">
                                              <children>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
+                                                <Label contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
                                                    <font>
                                                       <Font name="Apple SD Gothic Neo Light" size="24.0" />
                                                    </font>
@@ -224,7 +224,7 @@
                                                       <Insets left="40.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <Label fx:id="Display6Label11" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                <Label fx:id="Display6Label11" contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" text="Number">
                                                    <font>
                                                       <Font name="Apple SD Gothic Neo Light" size="24.0" />
                                                    </font>
@@ -407,7 +407,7 @@
                                        <children>
                                           <HBox prefHeight="80.0" prefWidth="1010.0">
                                              <children>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
+                                                <Label contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
                                                    <font>
                                                       <Font name="Apple SD Gothic Neo Light" size="24.0" />
                                                    </font>
@@ -415,7 +415,7 @@
                                                       <Insets left="40.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <Label fx:id="Display6Label111" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                <Label fx:id="Display6Label111" contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" text="Number">
                                                    <font>
                                                       <Font name="Apple SD Gothic Neo Light" size="24.0" />
                                                    </font>
@@ -628,7 +628,7 @@
                                        <children>
                                           <HBox prefHeight="80.0" prefWidth="1010.0">
                                              <children>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
+                                                <Label contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
                                                    <font>
                                                       <Font name="Apple SD Gothic Neo Light" size="24.0" />
                                                    </font>
@@ -636,7 +636,7 @@
                                                       <Insets left="40.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <Label fx:id="Display16Label11" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                <Label fx:id="Display16Label11" contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" text="Number">
                                                    <font>
                                                       <Font name="Apple SD Gothic Neo Light" size="24.0" />
                                                    </font>
@@ -708,7 +708,7 @@
                                        <children>
                                           <HBox prefHeight="80.0" prefWidth="1010.0">
                                              <children>
-                                                <Label contentDisplay="CENTER" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
+                                                <Label contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
                                                    <font>
                                                       <Font name="Apple SD Gothic Neo Light" size="24.0" />
                                                    </font>
@@ -716,7 +716,7 @@
                                                       <Insets left="40.0" />
                                                    </HBox.margin>
                                                 </Label>
-                                                <Label fx:id="Display6Label113" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                <Label fx:id="Display6Label113" contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" text="Number">
                                                    <font>
                                                       <Font name="Apple SD Gothic Neo Light" size="24.0" />
                                                    </font>
