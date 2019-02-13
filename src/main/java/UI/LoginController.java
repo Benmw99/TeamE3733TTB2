@@ -5,11 +5,15 @@ import Entities.Manufacturer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import com.jfoenix.controls.*;
 
-public class LoginController extends PageControllerUI {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class LoginController extends PageControllerUI implements Initializable {
 
 
     @FXML
@@ -32,9 +36,9 @@ public class LoginController extends PageControllerUI {
 
     ToggleGroup userOptions = new ToggleGroup();
 
+    MenuDrawerController menu;
 
-    @FXML
-    MenuDrawerController Hamburger;
+
 
 
 //    Button getLoginUserLoginButton() {
@@ -133,5 +137,13 @@ public class LoginController extends PageControllerUI {
         ManRadioButton.setToggleGroup(userOptions);
         AgentRadioButton.setToggleGroup(userOptions);
         ManRadioButton.setSelected(true);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+       // menu.GoHomeSlider.setDisable(true);
+       // menu.LogOutSlider.setDisable(true);
+
+
     }
 }

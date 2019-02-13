@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -29,6 +30,9 @@
                      </font>
                   </JFXButton>
                </children>
+               <padding>
+                  <Insets top="30.0" />
+               </padding>
             </VBox>
          </children></JFXDrawer>
       <JFXHamburger fx:id="Hamburger" alignment="CENTER" layoutX="10.0" layoutY="15.0" styleClass="TabPane.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0" />
