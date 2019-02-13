@@ -181,7 +181,6 @@ public class DBSelectTest {
     public void testInsertData() {
         DB.Database db = DB.Database.getDatabase();
         AdvancedSearch as = new AdvancedSearch();
-        as.setAlcoholType(AlcoholType.MaltBeverage);
         SearchResult temp = db.dbSelect.searchBy(as);
         System.out.println(temp.getResults().size());
     }

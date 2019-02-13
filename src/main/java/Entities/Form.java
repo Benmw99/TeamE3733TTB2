@@ -158,6 +158,15 @@ public class Form {
         this.workingOn = 0;
     }
 
+    public Form(int ttbID, String serialNumber, AlcoholType alcoholType, String brandName, Date dateSubmitted, ApprovalStatus approvalStatus) {
+        this.serialNumber = serialNumber;
+        this.alcoholType = alcoholType;
+        this.brandName = brandName;
+        this.dateSubmitted = dateSubmitted;
+        this.approvalStatus = approvalStatus;
+        this.ttbID = ttbID;
+    }
+
     public Form(String brandName) {
         this.brandName = brandName;
     }

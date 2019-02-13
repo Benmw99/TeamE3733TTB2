@@ -217,26 +217,13 @@ public class DBSelect {
         }
         //Convert the predicates to an array and set the where statement with them
         cr.where(predicates.toArray(new Predicate[]{}));
-
+        //TODO FIX THIS cr.multiselect(root.get("ttbID"), root.get("serialNumber"), root.get("alcoholType"), root.get("brandName"), root.get("dateSubmitted"), root.get("approvalStatus"));
+        
         try {
             tx = session.beginTransaction();
             List<Form> results = session.createQuery(cr).list();
             for (Iterator iterator = results.iterator(); iterator.hasNext();){
                 Form form = (Form) iterator.next();
-
-
-                Hibernate.initialize(form.brewersPermit);
-                Hibernate.initialize(form.address);
-
-                //form.getBrewersPermit().size();
-                //form.getAddress().size();
-
-                //Set that primary address
-                for (int i = 0; i < form.getAddress().size(); i++) {
-                    if (form.getAddress().get(i).isMailing()) {
-                        form.setMailingAddress(form.getAddress().get(i));
-                    }
-                }
                 forms.add(form);
             }
             tx.commit();
@@ -740,5 +727,19 @@ public class DBSelect {
         Query query = session.createQuery(q);
         query.setParameter("log", login);
         return (Representative) query.getSingleResult();
+    }
+
+    /**
+     * Retrives the agent related to that user
+     * @author Jordan
+     * @param login Login name for the user
+     * @return An agent that is related to that login
+     */
+    public Agent getAgent(String login) {
+        Session session = factory.openSession();
+        String q = "FROM Agent A WHERE A.login = :log";
+        Query query = session.createQuery(q);
+        query.setParameter("log", login);
+        return (Agent) query.getSingleResult();
     }
 }
