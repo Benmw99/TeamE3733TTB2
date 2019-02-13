@@ -11,6 +11,7 @@
         <property name="hibernate.connection.url"> jdbc:derby:./ttb.db;create=true </property>
         <property name="hibernate.connection.username"></property>
         <property name="hibernate.connection.password"></property>
+        <property name = "hibernate.jdbc.batch_size">20</property>
 
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>

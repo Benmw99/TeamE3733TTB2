@@ -53,6 +53,9 @@ public class LoginController extends PageControllerUI {
 //        });
 //    }
 
+    /**
+     * Logs user in
+     */
     @FXML
     public void login(){
         if(authenticate()){
@@ -65,11 +68,18 @@ public class LoginController extends PageControllerUI {
         }
     }
 
+    /**
+     * Directs user to HomeSearch page
+     */
     @FXML
     void search() {
         goToPage("HomeSearch.fxml");
     }
 
+    /**
+     * Authenticates user by name and password to login
+     * @return
+     */
     @FXML
     public boolean authenticate(){
         String user = LoginUserUsernameTextField.getText();
@@ -114,6 +124,9 @@ public class LoginController extends PageControllerUI {
 
     }
 
+    /**
+     * Clears current user (logout in essence) and sets radio buttons correctly
+     */
     @Override
     void onLoad() {
         AttributeContainer.getInstance().currentUser = null;

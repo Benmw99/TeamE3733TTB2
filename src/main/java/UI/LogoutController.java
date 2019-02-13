@@ -8,6 +8,9 @@ public class LogoutController extends PageControllerUI {
     @FXML
     Button LogOutButton;
 
+    /**
+     * Logs user out and directs to WelcomePage
+     */
     @FXML
     void logOut(){
         AttributeContainer ac = AttributeContainer.getInstance();

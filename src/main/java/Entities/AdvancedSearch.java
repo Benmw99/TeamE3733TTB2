@@ -2,7 +2,7 @@ package Entities;
 
 public class AdvancedSearch {
     //Gotta be a Boolean so it can be null
-    public Boolean source;  //true for domestic, false for imported
+    public Boolean source;  //false for domestic, true for imported
     public String serialNumber;
     public AlcoholType alcoholType;
     public String brandName;

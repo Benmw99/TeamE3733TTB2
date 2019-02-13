@@ -18,4 +18,5 @@ dependencies {
     compile group: 'org.controlsfx', name: 'controlsfx', version: '9.0.0'
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
     compile group: 'com.jfoenix', name: 'jfoenix', version: '8.0.8'
+    compile 'com.opencsv:opencsv:4.5'
 }
