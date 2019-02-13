@@ -272,11 +272,12 @@ public class CivilController extends PageControllerUI implements Initializable {
         //if (manufactureDate.get) DATE NOT IMPLEMENTED YET
 
 
-
         List<Form> forms = Search.SearchDLBrand(advancedSearch, new SearchAlgo.DamerauLevenshtein());
 
         AttributeContainer.getInstance().formQueue = forms;
         printSearchResultsCSV.setDisable(false);
+        goToPage("HomeSearch.fxml");
+        AttributeContainer.getInstance().backlog.pop();
     }
 
 

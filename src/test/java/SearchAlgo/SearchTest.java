@@ -84,6 +84,13 @@ public class SearchTest {
     }
 
     @Test
+    public void searchDLBrand4() {
+        AdvancedSearch advancedSearch = new AdvancedSearch();
+        List<Form> test = Search.SearchDLBrand(advancedSearch, new DamerauLevenshtein());
+        assertTrue(test.get(0).getBrandName().equals("Bubbly"));
+    }
+
+    @Test
     public void algTest1() {
         ArrayList<String> test = new ArrayList<>();
         test.add("Dickson");
