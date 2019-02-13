@@ -112,6 +112,7 @@ public class Agent implements IUser{
      */
     public void getQueueIntoAC(){
         AttributeContainer ac =  AttributeContainer.getInstance();
+        ac.formQueue = new ArrayList<Form>();
         ac.formQueue.addAll(this.getQueue());
     }
 
@@ -124,11 +125,14 @@ public class Agent implements IUser{
     private List<Form> getQueue(){
         List<Form> lof = new ArrayList<Form>();
         int end = AttributeContainer.getInstance().numForQueue;
-        int start = AttributeContainer.getInstance().formQueue.size();
+        List<Form> current = new ArrayList<Form>();
+        current = Database.getDatabase().dbSelect.getCurrentApprovalQueue(this.getAgentID());
+        int start = current.size();
         for(int i = start; i < end; i ++){
             lof.add(getNextUnapproved());
         }
-        return lof;
+        current.addAll(lof);
+        return current;
     }
 
     String encryptPassword(){
