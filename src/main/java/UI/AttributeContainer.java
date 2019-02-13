@@ -26,6 +26,9 @@ public class AttributeContainer {
     public int numForQueue = 5;
     PageControllerUI current_page;
 
+    /**
+     * Instantiates new empty AttributeContainer
+     */
     private AttributeContainer() {
         formQueue = new ArrayList<Form>();
         currentForm = null;
@@ -36,6 +39,9 @@ public class AttributeContainer {
         backlog = new Stack<String>();
     }
 
+    /**
+     * Clears all stored data from AttributeContainer
+     */
     public void wipeSession() {
         formQueue = null;
         currentForm = null;

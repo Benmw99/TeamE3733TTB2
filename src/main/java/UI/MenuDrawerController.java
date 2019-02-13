@@ -21,6 +21,11 @@ public class MenuDrawerController implements Initializable {
     //@FXML
     //JFXDrawer Drawer;
 
+    /**
+     * Sets up menu drawer functionality
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //Drawer.setSidePane( );
