@@ -72,7 +72,7 @@ public class LoginController extends PageControllerUI {
 
     @FXML
     public boolean authenticate(){
-        System.out.println("TESTESTESTESTES");
+        //System.out.println("TESTESTESTESTES");
         String user = LoginUserUsernameTextField.getText();
         String pass = LoginUserPasswordTextField.getText();
         AttributeContainer attributeContainer = AttributeContainer.getInstance();
