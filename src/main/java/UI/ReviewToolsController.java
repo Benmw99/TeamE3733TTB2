@@ -2,12 +2,14 @@ package UI;
 
 import DB.Database;
 import Entities.Agent;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TreeTableView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,6 +24,14 @@ public class ReviewToolsController extends PageControllerUI implements Initializ
     public Button sendAgentButton;
     @FXML
     public TextField ttb_id;
+    @FXML
+    public Button addMessageButton;
+    @FXML
+    public TreeTableView messagesTable;
+    @FXML
+    public JFXTextField commentNumber;
+    @FXML
+    public JFXTextField commentMessage;
 
     @Override
     protected void onLeave() {
@@ -45,5 +55,10 @@ public class ReviewToolsController extends PageControllerUI implements Initializ
                 db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
             }
         });
+    }
+
+    public void addMessage() {
+        messagesTable.getColumns().add(0,commentNumber.getText());
+        messagesTable.getColumns().add(0,commentMessage.getText());
     }
 }

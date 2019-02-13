@@ -1,6 +1,7 @@
 package Entities;
 
 import DB.Database;
+import UI.AgentHomeController;
 import UI.AttributeContainer;
 
 import javax.crypto.Cipher;
@@ -110,9 +111,9 @@ public class Agent implements IUser{
      * Puts the form queue into the Current Queue in the AC
      * @author Michael
      */
-    public void getQueueIntoAC(){
+    public void getQueueIntoAC(int amount){
         AttributeContainer ac =  AttributeContainer.getInstance();
-        ac.formQueue.addAll(this.getQueue());
+        ac.formQueue.addAll(this.getQueue(amount));
     }
 
     /**
@@ -121,11 +122,10 @@ public class Agent implements IUser{
      * @author Michael
      * @return The List of Forms.
      */
-    private List<Form> getQueue(){
+    private List<Form> getQueue(int amount){
         List<Form> lof = new ArrayList<Form>();
         int end = AttributeContainer.getInstance().numForQueue;
-        int start = AttributeContainer.getInstance().formQueue.size();
-        for(int i = start; i < end; i ++){
+        for(int i = amount; i < end; i ++){
             lof.add(getNextUnapproved());
         }
         return lof;

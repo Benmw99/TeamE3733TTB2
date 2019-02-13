@@ -159,6 +159,10 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     JFXButton GetNewQueueButon;
 
 
+    @FXML
+    public JFXTextField queueAmountTextField;
+
+
 
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
@@ -272,7 +276,7 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     public void getNewQueue() throws IOException {
         AttributeContainer ac =  AttributeContainer.getInstance();
-        ((Agent)ac.currentUser).getQueueIntoAC();
+        ((Agent)ac.currentUser).getQueueIntoAC(Integer.parseInt(queueAmountTextField.getText()));
 
     }
 

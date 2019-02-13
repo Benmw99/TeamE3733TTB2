@@ -443,7 +443,7 @@
                            <children>
                               <Pane layoutX="5.0" prefHeight="590.0" prefWidth="690.0">
                                  <children>
-                                    <TreeTableView layoutY="152.0" prefHeight="441.0" prefWidth="691.0">
+                                    <TreeTableView fx:id="messagesTable" layoutY="152.0" prefHeight="441.0" prefWidth="691.0">
                                       <columns>
                                         <TreeTableColumn prefWidth="100.0" text="Number" />
                                         <TreeTableColumn prefWidth="600.0" text="Message" />
@@ -451,15 +451,15 @@
                                     </TreeTableView>
                                     <Pane layoutY="3.0" prefHeight="150.0" prefWidth="689.0">
                                        <children>
-                                          <JFXTextField alignment="CENTER" labelFloat="true" layoutX="14.0" layoutY="32.0" prefHeight="36.0" prefWidth="142.0" promptText="Number">
+                                          <JFXTextField fx:id="commentNumber" alignment="CENTER" labelFloat="true" layoutX="14.0" layoutY="32.0" prefHeight="36.0" prefWidth="142.0" promptText="Number">
                                              <font>
                                                 <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                                              </font></JFXTextField>
-                                          <Button fx:id="addMessageButton" layoutX="303.0" layoutY="103.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="75.0" style="-fx-background-color: #0095a8;" text="Add" textFill="WHITE">
+                                          <Button fx:id="addMessageButton" layoutX="303.0" layoutY="103.0" mnemonicParsing="false" onAction="#addMessage" prefHeight="34.0" prefWidth="75.0" style="-fx-background-color: #0095a8;" text="Add" textFill="WHITE">
                                              <font>
                                                 <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                                              </font></Button>
-                                          <JFXTextField alignment="CENTER" labelFloat="true" layoutX="201.0" layoutY="32.0" prefHeight="36.0" prefWidth="474.0" promptText="Message">
+                                          <JFXTextField fx:id="commentMessage" alignment="CENTER" labelFloat="true" layoutX="201.0" layoutY="32.0" prefHeight="36.0" prefWidth="474.0" promptText="Message">
                                              <font>
                                                 <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                                              </font>
