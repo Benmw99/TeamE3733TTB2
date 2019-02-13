@@ -46,6 +46,11 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
     void onLoad() {}
 
 
+    /**
+     * Sets up menu drawer functionality
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Drawer.setSidePane(BoxSlider);
@@ -64,6 +69,13 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
         Hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                BoxSlider.toFront();
+                Drawer.toFront();
+                Hamburger.toFront();
+                LogOutSlider.toFront();
+                GoHomeSlider.toFront();
+                SearchSlider.toFront();
+
                 transition.setRate(transition.getRate()*-1);
                 transition.play();
                 if(Drawer.isOpened()){
@@ -83,21 +95,36 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
         ac.backlog.pop();
         ac.current_page.goToPage((ac.backlog.pop()));
     }
-/*
+
     @FXML
     public void goToSearch(){
-        goToPage("AgentSearch.fxml");
+        AttributeContainer ac = AttributeContainer.getInstance();
+        if(ac.currentUser.isAgent()){
+
+            goToPage("AgentSearch.fxml");
+        }
+        if(ac.currentUser.isManufacturer()){
+            goToPage("ManSearch.fxml");
+        }
+
     }
 
 
     @FXML
     public void goToHome(){
-        goToPage("AgentHome.fxml");
+        AttributeContainer ac = AttributeContainer.getInstance();
+        if(ac.currentUser.isAgent()){
+            goToPage("AgentHome.fxml");
+        }
+        if(ac.currentUser.isManufacturer()){
+            goToPage("ManHome.fxml");
+        }
+
     }
 
     @FXML
     public void goToLogOut(){
         goToPage("HomeSearch.fxml");
     }
-*/
+
 }
