@@ -213,6 +213,10 @@ public class ManAppController extends PageControllerUI implements  Initializable
 
     public static boolean errorInForm = false;
 
+    /**
+     * Determines tab user is on and handles appropriately
+     * @param actionEvent
+     */
     public void handlePage(javafx.event.ActionEvent actionEvent) {
         if (actionEvent.getSource() == page1) {
             pane1.toFront();
@@ -261,6 +265,11 @@ public class ManAppController extends PageControllerUI implements  Initializable
         }
     }
 
+    /**
+     * Sets up application form and fields within it
+     * @param location URL of forms
+     * @param resources ResourceBundle
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Set up panes
@@ -320,6 +329,11 @@ public class ManAppController extends PageControllerUI implements  Initializable
     // 1 - Only Numbers
     // 2 - Only Strings
     // 3 - Valid email
+    /**
+     * Sets listener for fields on form
+     * @param field
+     * @param type
+     */
     public void setListener(JFXTextField field, int type) {
         if (type == 1) {
             NumberValidator numValidator = new NumberValidator();

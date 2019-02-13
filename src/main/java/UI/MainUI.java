@@ -5,6 +5,11 @@ import javafx.stage.Stage;
 
 public class MainUI extends Application {
 
+    /**
+     * Starts program UI and directs to HomeSearch
+     * @param primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception{
 //        Scene scene1;
@@ -19,7 +24,10 @@ public class MainUI extends Application {
         pageSwitcher.pageSwitch("HomeSearch.fxml");
     }
 
-
+    /**
+     * Launches the program UI
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }

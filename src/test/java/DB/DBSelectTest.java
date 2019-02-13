@@ -15,7 +15,8 @@ public class DBSelectTest {
     public static void setup() {
         DB.Database db = DB.Database.getDatabase();
         db.tableBuilder.resetDB();
-
+        db.dbInsert.insertData();
+        /*
         db.dbInsert.insertCompany(new Manufacturer(123, "Brewers Inc.", "TestCompany", "1234"));
         db.dbInsert.insertAgent(new Agent("TestAgent", "1234", "Sam Adamster"));
         db.dbInsert.insertRep(new Representative("123abc", "TestRep", "1234"));
@@ -51,6 +52,7 @@ public class DBSelectTest {
         Form form1 = new Form(null, Brews1, false, "56799BD", AlcoholType.DistilledLiquor, "VodWine", "VW", Adds1, "Alfred Redster", "18900f", null, "1112223333", "Bobert@johnmail.com", "750ml on bottle", d1, 123, new Approval(), (float)43.43, ApprovalStatus.Complete);
 
         db.dbInsert.insertForm(form1);
+        */
     }
 
     @Test
@@ -173,5 +175,13 @@ public class DBSelectTest {
         for (int i = 0; i < temp.size(); i++) {
             System.out.println(temp.get(i));
         }
+    }
+
+    @Test
+    public void testInsertData() {
+        DB.Database db = DB.Database.getDatabase();
+        AdvancedSearch as = new AdvancedSearch();
+        SearchResult temp = db.dbSelect.searchBy(as);
+        System.out.println(temp.getResults().size());
     }
 }

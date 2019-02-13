@@ -61,7 +61,7 @@
                      <columns>
                         <TreeTableColumn fx:id="TTBIDColumn" prefWidth="114.59823822975159" text="TTB ID#" />
                         <TreeTableColumn fx:id="DateSubmittedColumn" prefWidth="128.4017562866211" text="Date Submitted" />
-                        <TreeTableColumn fx:id="BrandNameColumn" prefWidth="112.60408020019531" text="Brand Name" />
+                        <TreeTableColumn fx:id="BrandNameColumn" prefWidth="112.6" text="Brand Name" />
                      </columns>
                   </JFXTreeTableView>
                </children>
@@ -139,7 +139,7 @@
                </children></Pane>
          </children></Pane>
       <fx:include source="MenuDrawer.fxml" />
-      <VBox alignment="CENTER" prefHeight="500.0" prefWidth="355.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="250.0">
+      <VBox alignment="CENTER" layoutY="174.0" prefHeight="576.0" prefWidth="355.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="85.0">
          <children>
             <fx:include source="TableView.fxml" />
          </children>

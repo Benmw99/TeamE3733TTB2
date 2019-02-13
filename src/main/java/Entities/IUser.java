@@ -11,6 +11,10 @@ public interface IUser {
     boolean authenticate();
     void loadUser();
 
+    boolean isAgent();
+    boolean isManufacturer();
+    boolean isRepresentative();
+
 
     //needs additional parameters relating to size of returned search
     SearchResult search(AdvancedSearch advancedSearch);
