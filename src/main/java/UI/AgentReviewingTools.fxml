@@ -50,7 +50,7 @@
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="printAVFButton" buttonType="RAISED" layoutX="1284.0" layoutY="88.0" prefHeight="31.0" prefWidth="76.0" style="-fx-background-color: #26c6da#26c6da;" text="Print">
+      <JFXButton fx:id="printAVFButton" buttonType="RAISED" layoutX="1232.0" layoutY="88.0" prefHeight="36.0" prefWidth="128.0" style="-fx-background-color: #26c6da#26c6da;" text="Download">
          <ripplerFill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
