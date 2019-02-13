@@ -1,5 +1,5 @@
 .root{
-    -fx-background-color: orange;
+    -fx-background-color: #9ea77a;
 }
 
 .table-view{
@@ -31,19 +31,19 @@
 }
 
 .table-row-cell{
-    -fx-background-color: -fx-table-cell-border-color, green;
+    -fx-background-color: -fx-table-cell-border-color, #ffffff;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em; /* 0 */
 }
 
 .table-row-cell:odd{
-    -fx-background-color: -fx-table-cell-border-color, pink;
+    -fx-background-color: -fx-table-cell-border-color, #cfd8dc;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em; /* 0 */
 }
 
 .table-row-cell:selected {
-    -fx-background-color: #005797;
+    -fx-background-color: #6ff9ff;
     -fx-background-insets: 0;
     -fx-background-radius: 1;
 }

@@ -13,9 +13,10 @@ import static org.junit.Assert.*;
 public class DBSelectTest {
     @BeforeClass
     public static void setup() {
-        DB.Database db = DB.Database.getDatabase();
-        db.tableBuilder.resetDB();
-        db.dbInsert.insertData();
+        //DB.Database db = DB.Database.getDatabase();
+        //db.tableBuilder.resetDB();
+        //db.dbInsert.insertData();
+
         /*
         db.dbInsert.insertCompany(new Manufacturer(123, "Brewers Inc.", "TestCompany", "1234"));
         db.dbInsert.insertAgent(new Agent("TestAgent", "1234", "Sam Adamster"));

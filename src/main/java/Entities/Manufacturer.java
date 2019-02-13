@@ -96,7 +96,6 @@ public class Manufacturer implements IUser {
         return db.dbSelect.AuthenticateCompany(login,password);
     }
 
-    //TODO WRITE THIS FUNCTION
     public void loadUser(){
         DB.Database db = DB.Database.getDatabase();
         Manufacturer man = db.dbSelect.getManufacturer(login);

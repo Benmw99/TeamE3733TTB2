@@ -98,7 +98,15 @@ public class DBSelect {
         String q = "FROM Form F WHERE F.ttbID = :id";
         Query query = session.createQuery(q);
         query.setParameter("id", TTBID);
-        return (Form)query.getSingleResult();
+        Form form = (Form)query.getSingleResult();
+        Hibernate.initialize(form.brewersPermit);
+        Hibernate.initialize(form.address);
+        for (int i = 0; i < form.getAddress().size(); i++) {
+            if (form.getAddress().get(i).isMailing()) {
+                form.setMailingAddress(form.getAddress().get(i));
+            }
+        }
+        return form;
     }
 
     /**
@@ -217,8 +225,9 @@ public class DBSelect {
         }
         //Convert the predicates to an array and set the where statement with them
         cr.where(predicates.toArray(new Predicate[]{}));
-        //TODO FIX THIS cr.multiselect(root.get("ttbID"), root.get("serialNumber"), root.get("alcoholType"), root.get("brandName"), root.get("dateSubmitted"), root.get("approvalStatus"));
-        
+        //Only selects the needed items for a minimal form to be displayed
+        cr.multiselect(root.get("ttbID"), root.get("serialNumber"), root.get("alcoholType"), root.get("brandName"), root.get("dateSubmitted"), root.get("approvalStatus"));
+
         try {
             tx = session.beginTransaction();
             List<Form> results = session.createQuery(cr).list();
@@ -286,26 +295,14 @@ public class DBSelect {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
         }
         cr.where(predicates.toArray(new Predicate[]{}));
+        //Only selects the needed items for a minimal form to be displayed
+        cr.multiselect(root.get("ttbID"), root.get("serialNumber"), root.get("alcoholType"), root.get("brandName"), root.get("dateSubmitted"), root.get("approvalStatus"));
 
         try {
             tx = session.beginTransaction();
             List<Form> results = session.createQuery(cr).list();
             for (Iterator iterator = results.iterator(); iterator.hasNext();){
                 Form form = (Form) iterator.next();
-
-
-                Hibernate.initialize(form.brewersPermit);
-                Hibernate.initialize(form.address);
-
-                //form.getBrewersPermit().size();
-                //form.getAddress().size();
-
-                //Set that primary address
-                for (int i = 0; i < form.getAddress().size(); i++) {
-                    if (form.getAddress().get(i).isMailing()) {
-                        form.setMailingAddress(form.getAddress().get(i));
-                    }
-                }
                 forms.add(form);
             }
             tx.commit();
@@ -741,5 +738,63 @@ public class DBSelect {
         Query query = session.createQuery(q);
         query.setParameter("log", login);
         return (Agent) query.getSingleResult();
+    }
+
+    /**
+     * Checks if a company login is already there
+     * @author Jordan
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    public boolean checkCompanyLogin(String login) {
+        String q = "SELECT count(*) FROM Manufacturer C WHERE C.login = :login";
+        return checkExistent(q, login);
+    }
+
+    /**
+     * Checks if a agent login is already there
+     * @author Jordan
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    public boolean checkAgentLogin(String login) {
+        String q = "SELECT count(*) FROM Agent C WHERE C.login = :login";
+        return checkExistent(q, login);
+    }
+
+    /**
+     * Checks if a rep login is already there
+     * @author Jordan
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    public boolean checkRepLogin(String login) {
+        String q = "SELECT count(*) FROM Representative C WHERE C.login = :login";
+        return checkExistent(q, login);
+    }
+
+    /**
+     * Checks that a user exists for a passed query, checking that there is 1 result in the database
+     * @author Jordan
+     * @param q String of the query to be used
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    private boolean checkExistent(String q, String login) {
+        Session session = factory.openSession();
+        Query query = session.createQuery(q);
+        query.setParameter("login", login);
+        int result = 0;
+        Long temp;
+        final Object obj = query.uniqueResult();
+        if (obj != null) {
+            temp = (Long) obj;
+            result = temp.intValue();
+        }
+        if (result == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
