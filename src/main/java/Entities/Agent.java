@@ -101,8 +101,13 @@ public class Agent implements IUser{
     public Form getNextUnapproved() {
         DB.Database db = DB.Database.getDatabase();
         Form temp = db.dbSelect.getNextUnapproved();
+        System.out.println(this.agentID);
         temp.setWorkingOn(this.agentID);
         db.dbSelect.updateWorkingOn(temp);
+        System.out.println("GET NEX UN");
+        System.out.println(temp.getWorkingOn());
+        System.out.println(this.getAgentID());
+        System.out.println("END GET NEX");
         return temp;
     }
 
@@ -112,23 +117,27 @@ public class Agent implements IUser{
      */
     public void getQueueIntoAC(){
         AttributeContainer ac =  AttributeContainer.getInstance();
+        ac.formQueue = new ArrayList<Form>();
         ac.formQueue.addAll(this.getQueue());
     }
 
     /**
      * Gets a number of forms based upon the integer set in the Attribute Container...
-     * Should properly set those forms as approved.
+     * Should properly set those forms as working on.
      * @author Michael
      * @return The List of Forms.
      */
     private List<Form> getQueue(){
         List<Form> lof = new ArrayList<Form>();
         int end = AttributeContainer.getInstance().numForQueue;
-        int start = AttributeContainer.getInstance().formQueue.size();
+        List<Form> current = new ArrayList<Form>();
+        current = Database.getDatabase().dbSelect.getCurrentApprovalQueue(this.getAgentID());
+        int start = current.size();
         for(int i = start; i < end; i ++){
             lof.add(getNextUnapproved());
         }
-        return lof;
+        current.addAll(lof);
+        return current;
     }
 
     String encryptPassword(){
@@ -161,6 +170,8 @@ public class Agent implements IUser{
     public void loadUser(){
          Agent temp = Database.getDatabase().dbSelect.getAgent(this.login);
          this.password = temp.getPassword();
+         System.out.print("Login:");
+         System.out.println(temp.getAgentID());
          this.agentID = temp.getAgentID();
          this.name = temp.getName();
 

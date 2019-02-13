@@ -49,11 +49,11 @@ public class AttributeContainer {
      * Clears all stored data from AttributeContainer
      */
     public void wipeSession() {
-        formQueue = null;
+        formQueue = new ArrayList<Form>();
         currentForm = null;
         currentUser = null;
         currentResults = null;
-        sounds = null;
+        sounds = new ArrayList<AudioClip>();
         searchPage = 0;
         backlog.empty();
     }

@@ -405,6 +405,7 @@ public class DBSelect {
         String q = "FROM Form F WHERE F.approvalStatus = :approval AND F.workingOn = 0";
         Query query = session.createQuery(q);
         query.setParameter("approval", ApprovalStatus.Incomplete);
+        query.setMaxResults(1);
         Form form = (Form)query.getSingleResult();
         session.close();
         return form;
