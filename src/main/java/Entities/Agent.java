@@ -51,6 +51,16 @@ public class Agent implements IUser{
         this.password = password;
     }
 
+    public boolean isAgent() {
+        return true;
+    }
+    public boolean isManufacturer() {
+        return false;
+    }
+    public boolean isRepresentative() {
+        return false;
+    }
+
     public int getAgentID() {
         return agentID;
     }
