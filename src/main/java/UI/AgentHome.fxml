@@ -133,9 +133,8 @@
                </children>
             </Pane>
             <Pane fx:id="UseReviewingToolsButton" layoutX="357.0" layoutY="173.0" prefHeight="590.0" prefWidth="1005.0" style="-fx-background-color: white;">
-               <children>
-                  <fx:include source="FormDisplay.fxml" />
-               </children></Pane>
+               <fx:include source="FormDisplay.fxml" fx:id="Label" />
+              </Pane>
          </children></Pane>
    </children>
 </AnchorPane>
