@@ -128,5 +128,6 @@
             <Font name="Apple SD Gothic Neo Thin" size="14.0" />
          </font>
       </JFXTextField>
+      <fx:include source="MenuDrawer.fxml" />
     </children>
 </AnchorPane>

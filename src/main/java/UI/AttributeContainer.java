@@ -53,6 +53,7 @@ public class AttributeContainer {
         currentForm = null;
         currentUser = null;
         currentResults = null;
+        formQueue = new ArrayList<Form>();
         sounds = null;
         searchPage = 0;
         backlog.empty();

@@ -58,6 +58,11 @@ public class TableViewController extends PageControllerUI implements Initializab
         colstatus.setCellValueFactory(new PropertyValueFactory("Status"));
         colsub.setCellValueFactory(new PropertyValueFactory("Submitted"));
         coltype.setCellValueFactory(new PropertyValueFactory("Type"));
+        if(!AttributeContainer.getInstance().backlog.peek().equals("HomeSearch.fxml")) {
+            colbrand.setMaxWidth(0);
+            colserial.setMaxWidth(0);
+            coltype.setMaxWidth(0);
+        }
         table.setItems(formlist);
         if(AttributeContainer.getInstance().backlog.peek().equals("HomeSearch.fxml")){
             enableSearchVersion();
@@ -74,6 +79,7 @@ public class TableViewController extends PageControllerUI implements Initializab
                         int row = pos.getRow();
                         int ID = Integer.valueOf(colttb.getCellData(row));
                         AttributeContainer.getInstance().currentForm = Database.getDatabase().dbSelect.getFormByTTB_ID(ID);
+                        System.out.println(ID);
                         goToPage(AttributeContainer.getInstance().backlog.pop());
                     }
                 }
@@ -81,8 +87,8 @@ public class TableViewController extends PageControllerUI implements Initializab
         }
         for(Form f : AttributeContainer.getInstance().formQueue){
                 formlist.add(new DisplayForm(f));
-
         }
+        table.setItems(formlist);
 
     }
 
