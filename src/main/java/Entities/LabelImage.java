@@ -1,5 +1,7 @@
 package Entities;
 
+import DB.Database;
+
 import javax.persistence.*;
 import java.io.InputStream;
 import java.util.Objects;
@@ -68,6 +70,14 @@ public class LabelImage {
         return (this.ID == aLabel.ID &&
                 this.imageName.equals(aLabel.imageName) &&
                 this.image.equals(aLabel.image));
+    }
+
+    /**
+     * Puts the label image into the DB. Make sure the form is properly set up (everything except ID
+     * @author Michael.
+     */
+    public void insert(){
+        Database.getDatabase().dbInsert.insertLabelImage(this);
     }
 
 }
