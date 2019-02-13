@@ -8,15 +8,18 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Timestamp;
+import java.util.ResourceBundle;
 
-public class ManHomeController extends PageControllerUI  {
+public class ManHomeController extends PageControllerUI  implements Initializable {
 
     @FXML
     JFXButton printButton;
@@ -46,7 +49,7 @@ public class ManHomeController extends PageControllerUI  {
 
     @Override
     void onLoad() {
-
+        AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
     }
 
 
@@ -112,4 +115,8 @@ public class ManHomeController extends PageControllerUI  {
         //TODO Make print
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        AttributeContainer.getInstance().formQueue.addAll(((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms());
+    }
 }
