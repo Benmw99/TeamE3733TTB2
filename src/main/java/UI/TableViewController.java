@@ -79,6 +79,7 @@ public class TableViewController extends PageControllerUI implements Initializab
                         int row = pos.getRow();
                         int ID = Integer.valueOf(colttb.getCellData(row));
                         AttributeContainer.getInstance().currentForm = Database.getDatabase().dbSelect.getFormByTTB_ID(ID);
+                        System.out.println(ID);
                         goToPage(AttributeContainer.getInstance().backlog.pop());
                     }
                 }
