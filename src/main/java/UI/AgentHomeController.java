@@ -6,6 +6,7 @@ import Entities.Form;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import com.jfoenix.controls.*;
 import javafx.scene.layout.AnchorPane;
@@ -278,7 +279,18 @@ public class AgentHomeController extends PageControllerUI implements Initializab
 
  @Override
  public void initialize(URL location, ResourceBundle resources) {
-        hamburger.setMaxWidth(50);
+    //    hamburger.setMaxWidth(50);
+   //     hamburger.setMouseTransparent(true);
+        hamburger.setBackground(null);
+        for(Node n : hamburger.getChildren()){
+         if(n.getId().equals("Hamburger")){
+             n.toFront();
+           //  n.setMouseTransparent(false);
+             n.setPickOnBounds(true);
+            }
+        }
+  //      hamburger.toBack();
+//(true);
         GetNewQueueButton.toFront();
 
 //        AttributeContainer.getInstance().formQueue = Database.getDatabase().dbSelect.getNext(AttributeContainer.getInstance().numForQueue);
