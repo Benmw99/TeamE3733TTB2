@@ -56,5 +56,6 @@ public class AttributeContainer {
         sounds = new ArrayList<AudioClip>();
         searchPage = 0;
         backlog.empty();
+        System.out.println("Gotta Blast!");
     }
 }
