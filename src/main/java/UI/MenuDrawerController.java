@@ -55,6 +55,8 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Drawer.setSidePane(BoxSlider);
+        Drawer.setPickOnBounds(false);
+        BoxSlider.setPickOnBounds(false);
         HamburgerNextArrowBasicTransition transition = new HamburgerNextArrowBasicTransition(Hamburger);
 
         /*for(Node node: BoxSlider.getChildren()){
