@@ -41,7 +41,7 @@
                      <font>
                         <Font name="Apple SD Gothic Neo Thin" size="13.0" />
                      </font></JFXTextField>
-                  <JFXButton fx:id="GetNewQueueButton" buttonType="RAISED" layoutX="84.0" layoutY="613.0" onAction="#getNewQueue" style="-fx-background-color: #26c6da;" text="Get New Queue">
+                  <JFXButton fx:id="GetNewQueueButton" buttonType="RAISED" layoutX="84.0" layoutY="613.0" onAction="#getNewQueue" style="-fx-background-color: #26c6da;" text="Get New Queue" >
                      <font>
                         <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                      </font>
