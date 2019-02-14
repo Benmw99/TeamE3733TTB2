@@ -3,8 +3,6 @@ package UI;
 import Entities.Agent;
 import Entities.IUser;
 import Entities.Manufacturer;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
