@@ -343,6 +343,7 @@ public class ManAppController extends PageControllerUI implements  Initializable
                 AttributeContainer.getInstance().labelImage.setTTBID(id);
                 AttributeContainer.getInstance().labelImage.insert();
                 AttributeContainer.getInstance().currentForm = null;
+                AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
                 goToPage("ManHome.fxml");
         }
         });
