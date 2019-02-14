@@ -23,6 +23,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AgentHomeController extends PageControllerUI implements Initializable {
@@ -194,6 +195,8 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     public void logOut(ActionEvent event) throws IOException {
         attributeContainer.currentUser = null;
+        attributeContainer.formQueue = new ArrayList<Form>();
+        attributeContainer.currentForm = null;
         goToPage("Login.fxml");
     }
 
@@ -218,17 +221,11 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     public void approveForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
-
             //TODO: get qualifications from text field
-            Agent age = new Agent();
-            age.setName("BINGO");
-            age.setLogin("BING");
-            age.setAgentID(123);
-            age.approveForm(AttributeContainer.getInstance().currentForm, "");
-       //     ((Agent) attributeContainer.currentUser).approveForm(attributeContainer.currentForm, "");
+            ((Agent)AttributeContainer.getInstance().currentUser).approveForm(AttributeContainer.getInstance().currentForm, "");
             attributeContainer.currentForm = null;
-    //        getNewQueue();//TODO: replace this with tableViewHelper
-//        tableViewHelper.updateTable(); //TODO: make tableViewHelper
+            attributeContainer.formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
+            goToPage("AgentHome.fxml");
         }
     }
 
@@ -240,10 +237,10 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     public void rejectForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
-            ((Agent) attributeContainer.currentUser).rejectForm(attributeContainer.currentForm);
-//            getNewQueue();//TODO: replace this with tableViewHelper
-            attributeContainer.currentForm = null;
-//        tableViewHelper.updateTable(); //TODO: make tableViewHelper
+            ((Agent)AttributeContainer.getInstance().currentUser).rejectForm(AttributeContainer.getInstance().currentForm);
+             attributeContainer.currentForm = null;
+            attributeContainer.formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
+            goToPage("AgentHome.fxml");
         }
     }
 
