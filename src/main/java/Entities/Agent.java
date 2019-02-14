@@ -120,6 +120,12 @@ public class Agent implements IUser{
         ac.formQueue = new ArrayList<Form>();
         ac.formQueue.addAll(this.getQueue());
     }
+    /**
+     * Gets the list of forms currently associated with the agent.
+     */
+    public List<Form> getCurrentQueue(){
+        return Database.getDatabase().dbSelect.getCurrentApprovalQueue(this.agentID);
+    }
 
     /**
      * Gets a number of forms based upon the integer set in the Attribute Container...
