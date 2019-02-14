@@ -30,11 +30,16 @@ public class AsciiPrinter {
             fw.write(Sep);
             fw.write("\n");
             for (Form f : lof) {
-                fw.write(f.getTtbID());
+                System.out.println(f.getTtbID());
+                fw.write("" + f.getTtbID());
                 fw.write(Sep);
                 fw.write(f.getBrandName());
                 fw.write(Sep);
-                fw.write(f.getFancifulName());
+                if (f.getFancifulName() != null) {
+                    fw.write(f.getFancifulName());
+                } else {
+                    fw.write("N/A");
+                }
                 fw.write(Sep);
                 fw.write(f.getSerialNumber());
                 fw.write(Sep);
@@ -42,8 +47,10 @@ public class AsciiPrinter {
                 fw.write(Sep);
                 fw.write("\n");
             }
+            fw.close();
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+
     }
 }
