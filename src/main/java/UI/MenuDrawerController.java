@@ -102,20 +102,23 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
     @FXML
     public void goToSearch(){
         AttributeContainer ac = AttributeContainer.getInstance();
-        if(ac.currentUser.isAgent()){
+        if(ac.currentUser == null){
+
             ac.currentForm = null;
             ac.formQueue = new ArrayList<Entities.Form>();
             goToPage("HomeSearch.fxml");
         }
-        if(ac.currentUser.isManufacturer()){
-            ac.currentForm = null;
-            ac.formQueue = new ArrayList<Entities.Form>();
-            goToPage("HomeSearch.fxml");
-        }
-        else{
-            ac.currentForm = null;
-            ac.formQueue = new ArrayList<Entities.Form>();
-            goToPage("HomeSearch.fxml");
+        else {
+            if (ac.currentUser.isAgent()) {
+                ac.currentForm = null;
+                ac.formQueue = new ArrayList<Entities.Form>();
+                goToPage("HomeSearch.fxml");
+            }
+            if (ac.currentUser.isManufacturer()) {
+                ac.currentForm = null;
+                ac.formQueue = new ArrayList<Entities.Form>();
+                goToPage("HomeSearch.fxml");
+            }
         }
     }
 

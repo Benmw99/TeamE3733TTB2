@@ -32,8 +32,6 @@ public class CivilController extends PageControllerUI implements Initializable {
 
 
     private Entities.SearchResult results;
-    static private Entities.Form selectedForm;
-    static private int initStuff = 0;
 
     //not added because no button to go back from civilsearch to welcome screen
     /*
@@ -188,52 +186,52 @@ public class CivilController extends PageControllerUI implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         SearchAlcoholType.getItems().addAll("Beers", "Wines", "Distilled Liquor");
 
-        if (initStuff == 1) {
-            Civ1Label.setText(selectedForm.getRepID());
+        if (attributeContainer.currentForm != null) {
+            Civ1Label.setText(attributeContainer.currentForm.getRepID());
             String fullPermit = "";
-            for (int i = 0; i < selectedForm.getBrewersPermit().size(); i++) {
-                fullPermit += selectedForm.getBrewersPermit().get(i) + "\n";
+            for (int i = 0; i < attributeContainer.currentForm.getBrewersPermit().size(); i++) {
+                fullPermit += attributeContainer.currentForm.getBrewersPermit().get(i) + "\n";
             }
             Civ2Label.setText(fullPermit);
-            if (selectedForm.getSource()) {
+            if (attributeContainer.currentForm.getSource()) {
                 Civ3Label.setText("Domestic");
             } else {
                 Civ3Label.setText("Imported");
             }
-            CivReview4Label1.setText(selectedForm.getSerialNumber());
-            Civ5Label1.setText(selectedForm.getAlcoholType().toString());
-            if (selectedForm.getAlcoholType().toInt() == Wine.toInt()) {
-                Civ5Label2.setText("" + selectedForm.getWineFormItems().getpH());
-                Civ5Label3.setText("" + selectedForm.getWineFormItems().getVintageYear());
-                Civ11Label.setText(selectedForm.getWineFormItems().getGrapeVarietal());
-                Civ12Label.setText(selectedForm.getWineFormItems().getAppellation());
+            CivReview4Label1.setText(attributeContainer.currentForm.getSerialNumber());
+            Civ5Label1.setText(attributeContainer.currentForm.getAlcoholType().toString());
+            if (attributeContainer.currentForm.getAlcoholType().toInt() == Wine.toInt()) {
+                Civ5Label2.setText("" + attributeContainer.currentForm.getWineFormItems().getpH());
+                Civ5Label3.setText("" + attributeContainer.currentForm.getWineFormItems().getVintageYear());
+                Civ11Label.setText(attributeContainer.currentForm.getWineFormItems().getGrapeVarietal());
+                Civ12Label.setText(attributeContainer.currentForm.getWineFormItems().getAppellation());
             } else {
                 Civ5Label2.setText("N/A");
                 Civ5Label3.setText("N/A");
                 Civ11Label.setText("N/A");
                 Civ12Label.setText("N/A");
             }
-            Civ6Label.setText(selectedForm.getBrandName());
-            Civ7Label.setText(selectedForm.getFancifulName());
+            Civ6Label.setText(attributeContainer.currentForm.getBrandName());
+            Civ7Label.setText(attributeContainer.currentForm.getFancifulName());
 
             String fullAddress = "";
-            for (int i = 0; i < selectedForm.getAddress().size(); i++) {
-                fullAddress += selectedForm.getAddress().get(i).getName() + "\n"; //NAME MIGHT NOT BE STORED OR RETRIEVED CORRECTLY
-                fullAddress += selectedForm.getAddress().get(i).getStreet() + ", " + selectedForm.getAddress().get(i).getCity() + ", " + selectedForm.getAddress().get(i).getState();
-                fullAddress += ", " + selectedForm.getAddress().get(i).getZip() + "\n";
+            for (int i = 0; i < attributeContainer.currentForm.getAddress().size(); i++) {
+                fullAddress += attributeContainer.currentForm.getAddress().get(i).getName() + "\n"; //NAME MIGHT NOT BE STORED OR RETRIEVED CORRECTLY
+                fullAddress += attributeContainer.currentForm.getAddress().get(i).getStreet() + ", " + attributeContainer.currentForm.getAddress().get(i).getCity() + ", " + attributeContainer.currentForm.getAddress().get(i).getState();
+                fullAddress += ", " + attributeContainer.currentForm.getAddress().get(i).getZip() + "\n";
             }
             Civ8Label.setText(fullAddress);
-            if (selectedForm.getMailingAddress() != null) {
+            if (attributeContainer.currentForm.getMailingAddress() != null) {
                 String mailingAddress = "";
-                mailingAddress += selectedForm.getMailingAddress().getStreet() + ", " + selectedForm.getMailingAddress().getCity() + ", " + selectedForm.getMailingAddress().getState() + ", " + selectedForm.getMailingAddress().getZip();
+                mailingAddress += attributeContainer.currentForm.getMailingAddress().getStreet() + ", " + attributeContainer.currentForm.getMailingAddress().getCity() + ", " + attributeContainer.currentForm.getMailingAddress().getState() + ", " + attributeContainer.currentForm.getMailingAddress().getZip();
                 Civ9Label.setText(mailingAddress);
             } else {
                 Civ9Label.setText("");
             }
-            Civ10Label.setText(selectedForm.getFormula());
-            Civ14Label.setText("" + selectedForm.getAlcoholContent());
-            Civ15Label.setText(selectedForm.getEmail());
-            Civ16Label.setText(selectedForm.getPhoneNumber());
+            Civ10Label.setText(attributeContainer.currentForm.getFormula());
+            Civ14Label.setText("" + attributeContainer.currentForm.getAlcoholContent());
+            Civ15Label.setText(attributeContainer.currentForm.getEmail());
+            Civ16Label.setText(attributeContainer.currentForm.getPhoneNumber());
 
 
         }
@@ -287,10 +285,9 @@ public class CivilController extends PageControllerUI implements Initializable {
     @FXML
     public void clickItem(MouseEvent event) throws IOException
     {
-        if (event.getClickCount() == 2) //Checking double click kinda, just click quick enough
+        if (event.getClickCount() == 1) //Checking double click kinda, just click quick enough
         {
-            selectedForm = resultTable.getSelectionModel().getSelectedItem();
-            initStuff = 1;
+            attributeContainer.currentForm = resultTable.getSelectionModel().getSelectedItem();
             Parent root;
             Stage stage;
             stage=(Stage) resultTable.getScene().getWindow();
