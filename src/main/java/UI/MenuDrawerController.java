@@ -1,5 +1,6 @@
 package UI;
 
+import Entities.Form;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
@@ -16,7 +17,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+
 
 public class MenuDrawerController extends PageControllerUI implements Initializable {
 
@@ -100,13 +103,20 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
     public void goToSearch(){
         AttributeContainer ac = AttributeContainer.getInstance();
         if(ac.currentUser.isAgent()){
-
-            goToPage("AgentSearch.fxml");
+            ac.currentForm = null;
+            ac.formQueue = new ArrayList<Entities.Form>();
+            goToPage("HomeSearch.fxml");
         }
         if(ac.currentUser.isManufacturer()){
-            goToPage("ManSearch.fxml");
+            ac.currentForm = null;
+            ac.formQueue = new ArrayList<Entities.Form>();
+            goToPage("HomeSearch.fxml");
         }
-
+        else{
+            ac.currentForm = null;
+            ac.formQueue = new ArrayList<Entities.Form>();
+            goToPage("HomeSearch.fxml");
+        }
     }
 
 
