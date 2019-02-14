@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AgentHomeController extends PageControllerUI implements Initializable {
@@ -244,7 +245,7 @@ public class AgentHomeController extends PageControllerUI implements Initializab
      */
     @FXML
     public void reviewingTools(ActionEvent event) throws IOException {
-        goToPage("AgentViewForm.fxml");
+        goToPage("resources/AgentViewForm.fxml");
     }
 
     /**
