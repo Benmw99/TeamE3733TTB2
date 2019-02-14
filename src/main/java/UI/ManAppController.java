@@ -184,6 +184,7 @@ public class ManAppController extends PageControllerUI implements  Initializable
 
     @FXML
     ImageView labelImageDisplay;
+    private Form workingForm;
 
     @Override
     void onLoad() {
@@ -341,15 +342,8 @@ public class ManAppController extends PageControllerUI implements  Initializable
                 }
                 AttributeContainer.getInstance().labelImage.setTTBID(id);
                 AttributeContainer.getInstance().labelImage.insert();
-                if(AttributeContainer.getInstance().backlog.peek().equals("ManApp.fxml")){
-                    AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
-                    goToPage("ManHome.fxml");
-                } else if (AttributeContainer.getInstance().backlog.peek().equals("AgentApp.fxml")){
-                    goToPage("AgentHome.fxml");
-                } else {
-                    AttributeContainer.getInstance().backlog.pop();
-                    goToPage(AttributeContainer.getInstance().backlog.pop());
-            }
+                AttributeContainer.getInstance().currentForm = null;
+                goToPage("ManHome.fxml");
         }
         });
 
@@ -357,6 +351,7 @@ public class ManAppController extends PageControllerUI implements  Initializable
 
     @FXML
     public void goBack(){
+        AttributeContainer.getInstance().currentForm = null;
         goToPage("ManHome.fxml");
     }
 
@@ -550,6 +545,7 @@ public class ManAppController extends PageControllerUI implements  Initializable
             addy.setZip(Zip9Field.getText());
         }
         man.submitForm(working);
+        this.workingForm = working;
         return working.getTtbID();
 
     }

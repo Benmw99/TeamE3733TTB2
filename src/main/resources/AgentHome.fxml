@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -24,11 +23,7 @@
                         <Font name="Apple SD Gothic Neo Thin" size="36.0" />
                      </font>
                   </Text>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <JFXHamburger opacity="0.0" />
-                     </children>
-                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
                </children>
             </Pane>
             <Pane layoutX="-1.0" layoutY="88.0" prefHeight="675.0" prefWidth="355.0" style="-fx-background-color: #cfd8dc;">
@@ -41,20 +36,6 @@
                      <font>
                         <Font name="Apple SD Gothic Neo Thin" size="13.0" />
                      </font></JFXTextField>
-                  <JFXButton fx:id="GetNewQueueButton" buttonType="RAISED" layoutX="84.0" layoutY="613.0" onAction="#getNewQueue" style="-fx-background-color: #26c6da;" text="Get New Queue" >
-                     <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
-                     </font>
-                     <ripplerFill>
-                        <RadialGradient centerX="0.5112359550561798" centerY="0.5" radius="0.5">
-                           <stops>
-                              <Stop color="BLACK" />
-                              <Stop color="BLACK" offset="0.007434944237918215" />
-                              <Stop color="#ffffff97" offset="1.0" />
-                           </stops>
-                        </RadialGradient>
-                     </ripplerFill>
-                  </JFXButton>
                </children>
             </Pane>
             <Pane layoutX="355.0" layoutY="88.0" prefHeight="86.0" prefWidth="1006.0" style="-fx-background-color: #cfd8dc;">
@@ -132,6 +113,20 @@
       <VBox alignment="CENTER" prefHeight="500.0" prefWidth="355.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="250.0">
          <children>
             <fx:include source="TableView.fxml" VBox.vgrow="ALWAYS" />
+            <JFXButton fx:id="GetNewQueueButton" buttonType="RAISED" onAction="#getNewQueue" style="-fx-background-color: #26c6da;" text="Get New Queue">
+               <font>
+                  <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+               </font>
+               <ripplerFill>
+                  <RadialGradient centerX="0.5112359550561798" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="BLACK" offset="0.007434944237918215" />
+                        <Stop color="#ffffff97" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+            </JFXButton>
          </children>
       </VBox>
       <fx:include source="MenuDrawer.fxml" />

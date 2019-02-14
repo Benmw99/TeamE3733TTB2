@@ -15,6 +15,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+
 public class MenuDrawerController extends PageControllerUI implements Initializable {
 
     @FXML
@@ -77,6 +78,11 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
                 transition.play();
                 if(Drawer.isOpened()){
                     Drawer.close();
+                    BoxSlider.toBack();
+                    Drawer.toBack();
+                    LogOutSlider.toBack();
+                    GoHomeSlider.toBack();
+                    SearchSlider.toBack();
                 }
                 else{
                     Drawer.open();
@@ -96,14 +102,24 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
     @FXML
     public void goToSearch(){
         AttributeContainer ac = AttributeContainer.getInstance();
-        if(ac.currentUser.isAgent()){
+        if(ac.currentUser == null){
 
-            goToPage("AgentSearch.fxml");
+            ac.currentForm = null;
+            ac.formQueue = new ArrayList<Entities.Form>();
+            goToPage("HomeSearch.fxml");
         }
-        if(ac.currentUser.isManufacturer()){
-            goToPage("ManSearch.fxml");
+        else {
+            if (ac.currentUser.isAgent()) {
+                ac.currentForm = null;
+                ac.formQueue = new ArrayList<Entities.Form>();
+                goToPage("HomeSearch.fxml");
+            }
+            if (ac.currentUser.isManufacturer()) {
+                ac.currentForm = null;
+                ac.formQueue = new ArrayList<Entities.Form>();
+                goToPage("HomeSearch.fxml");
+            }
         }
-
     }
 
 

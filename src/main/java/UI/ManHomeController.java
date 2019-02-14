@@ -70,6 +70,8 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
      */
     @FXML
     public void addForm(ActionEvent event) throws IOException {
+        AttributeContainer.getInstance().currentForm = new Form();
+
         goToPage("ManApp.fxml");
     }
 

@@ -18,7 +18,8 @@ public class main {
         DB.Database db = DB.Database.getDatabase();
         db.tableBuilder.resetDB();
         db.dbInsert.insertCompany(new Manufacturer(123, "Brewers Inc.", "manu", "manu"));
-        db.dbInsert.insertAgent(new Agent("ttb", "ttb", "Sam Adamster"));
+        Agent ttb = new Agent("ttb", "ttb", "Sam Adamster");
+        db.dbInsert.insertAgent(ttb);
         db.dbInsert.insertRep(new Representative("123abc", "TestRep", "1234"));
         System.out.println("Hello Iteration 2!");
 
@@ -37,7 +38,9 @@ public class main {
         Form form = new Form(null, Brews, true, "00123SE", AlcoholType.MaltBeverage,
                 "Bubbly", "BU", Adds, "John Smith", null, null,
                 "1112223333", "john@johnmail.com", "No other info", d, 123,
-                new Approval(), (float)12.3, ApprovalStatus.Complete);
+                new Approval(), (float)12.3, ApprovalStatus.Incomplete);
+        form.setWorkingOn(ttb.getAgentID());
+        System.out.println(ttb.getAgentID());
 
         //AttributeContainer.getInstance().formQueue.add(form);
 
