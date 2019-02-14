@@ -17,8 +17,8 @@ public class main {
     public static void main(String[] args) {
         DB.Database db = DB.Database.getDatabase();
         db.tableBuilder.resetDB();
-        db.dbInsert.insertCompany(new Manufacturer(123, "Brewers Inc.", "man1", "pass"));
-        db.dbInsert.insertAgent(new Agent("TestAgent", "1234", "Sam Adamster"));
+        db.dbInsert.insertCompany(new Manufacturer(123, "Brewers Inc.", "manu", "manu"));
+        db.dbInsert.insertAgent(new Agent("ttb", "ttb", "Sam Adamster"));
         db.dbInsert.insertRep(new Representative("123abc", "TestRep", "1234"));
         System.out.println("Hello Iteration 2!");
 

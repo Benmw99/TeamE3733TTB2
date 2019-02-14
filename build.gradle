@@ -4,6 +4,12 @@ plugins {
 
 version '1.0-SNAPSHOT'
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'main'
+    }
+}
+
 sourceCompatibility = 1.8
 
 repositories {
