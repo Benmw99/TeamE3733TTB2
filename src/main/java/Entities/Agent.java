@@ -180,7 +180,6 @@ public class Agent implements IUser{
     public void loadUser(){
          Agent temp = Database.getDatabase().dbSelect.getAgent(this.login);
          this.password = temp.getPassword();
-         System.out.print("Login:");
          System.out.println(temp.getAgentID());
          this.agentID = temp.getAgentID();
          this.name = temp.getName();
