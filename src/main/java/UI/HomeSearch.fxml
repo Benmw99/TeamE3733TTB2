@@ -97,5 +97,10 @@
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </JFXButton>
+      <JFXButton fx:id="aboutPageNav" buttonType="RAISED" layoutX="142.0" layoutY="688.0" onAction="#aboutPage" ripplerFill="#ababab" style="-fx-background-color: cfd8dc;" text="About">
+         <font>
+            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+         </font>
+      </JFXButton>
 </children>
 </AnchorPane>

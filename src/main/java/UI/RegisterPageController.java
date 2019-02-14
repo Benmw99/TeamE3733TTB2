@@ -9,6 +9,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+//import Entities.Agent.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -152,6 +153,7 @@ public class RegisterPageController extends PageControllerUI implements Initiali
 
                 }
             } else {
+                //TODO Make a password / username do not match screen
                 Alert yikes = new Alert(Alert.AlertType.WARNING);
                 yikes.setContentText("Passwords do not match");
                 yikes.setHeaderText("Oh Noes");

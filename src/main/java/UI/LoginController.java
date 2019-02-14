@@ -106,16 +106,18 @@ public class LoginController extends PageControllerUI implements Initializable {
         String pass = LoginUserPasswordTextField.getText();
 
         if(ManRadioButton.isSelected()){
-            newuser = new Manufacturer();
-            newuser.setLogin(user);
-            newuser.setPassword(pass);
-            return newuser.authenticate();
+            attributeContainer.currentUser = new Manufacturer();
+            attributeContainer.currentUser.setLogin(user);
+            attributeContainer.currentUser.setPassword(pass);
+            ((Manufacturer)attributeContainer.currentUser).encryptPassword();
+            return attributeContainer.currentUser.authenticate();
         }
         if(AgentRadioButton.isSelected()){
-            newuser = new Agent();
-            newuser.setLogin(user);
-            newuser.setPassword(pass);
-            return newuser.authenticate();
+            attributeContainer.currentUser = new Agent();
+            attributeContainer.currentUser.setLogin(user);
+            attributeContainer.currentUser.setPassword(pass);
+            ((Agent)attributeContainer.currentUser).encryptPassword();
+            return attributeContainer.currentUser.authenticate();
         }
 //        String user = LoginUserUsernameTextField.getText();
 //        String pass = LoginUserPasswordTextField.getText();
