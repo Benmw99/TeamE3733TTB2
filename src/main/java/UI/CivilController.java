@@ -174,6 +174,9 @@ public class CivilController extends PageControllerUI implements Initializable {
     @FXML
     Button printSearchResultsCSV;
 
+    @FXML
+    Button aboutPageNav;
+
 
 
     SearchResult result;
@@ -309,6 +312,9 @@ public class CivilController extends PageControllerUI implements Initializable {
     public void loginPage(){
         goToPage("Login.fxml");
     }
+
+    @FXML
+    public void aboutPage() {goToPage("AboutPage.fxml"); }
 
 
     @Override

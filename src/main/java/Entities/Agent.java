@@ -146,7 +146,7 @@ public class Agent implements IUser{
         return current;
     }
 
-    String encryptPassword(){
+    public void encryptPassword(){
         try {
             KeyGenerator generator = KeyGenerator.getInstance("AES");
             generator.init(128);
@@ -157,11 +157,10 @@ public class Agent implements IUser{
             Cipher aesCipher = Cipher.getInstance("AES");
             aesCipher.init(Cipher.ENCRYPT_MODE, secKey);
             byte[] byteCipherText = aesCipher.doFinal(this.password.getBytes());
-            return byteCipherText.toString();
+            this.password =  byteCipherText.toString().substring(0, 50);
         } catch (Exception e){
 
         }
-        return "We should never get here";
     }
 
 

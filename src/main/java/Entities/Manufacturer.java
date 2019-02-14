@@ -1,8 +1,13 @@
 package Entities;
 
+import java.security.SecureRandom;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;import javax.persistence.*;
+import java.util.List;
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -141,6 +146,24 @@ public class Manufacturer implements IUser {
             System.out.println(e.toString());
         }
 
+    }
+
+    public String encryptPassword(){
+        try {
+            KeyGenerator generator = KeyGenerator.getInstance("AES");
+            generator.init(128);
+            SecureRandom secRand = new SecureRandom();
+            secRand.setSeed(123);
+            generator.init(secRand);
+            SecretKey secKey = generator.generateKey();
+            Cipher aesCipher = Cipher.getInstance("AES");
+            aesCipher.init(Cipher.ENCRYPT_MODE, secKey);
+            byte[] byteCipherText = aesCipher.doFinal(this.password.getBytes());
+            return byteCipherText.toString().substring(0, 50);
+        } catch (Exception e){
+
+        }
+        return "We should never get here";
     }
 
     void SubmitLabel() {
