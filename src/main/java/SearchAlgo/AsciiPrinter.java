@@ -30,7 +30,6 @@ public class AsciiPrinter {
             fw.write(Sep);
             fw.write("\n");
             for (Form f : lof) {
-                System.out.println(f.getTtbID());
                 fw.write("" + f.getTtbID());
                 fw.write(Sep);
                 fw.write(f.getBrandName());

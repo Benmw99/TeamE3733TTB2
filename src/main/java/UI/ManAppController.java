@@ -505,8 +505,6 @@ public class ManAppController extends PageControllerUI implements  Initializable
         working.setEmail(EmailField.getText());
         working.setAlcoholContent(Float.parseFloat(AlcoholContentTextField.getText()));
         working.setFancifulName(FancifulField.getText());
-        ArrayList<String> los = new ArrayList<String>();
-        los.add(ProducerNumField.getText());
         working.setRepID(RepIDField.getText());
         working.setFormula(FormulaField.getText());
         working.setApprovalStatus(ApprovalStatus.Incomplete);
@@ -536,6 +534,7 @@ public class ManAppController extends PageControllerUI implements  Initializable
         addy.setState(State8ComboBox.getValue());
         addy.setStreet(Address8Field.getText());
         addy.setZip(Zip8Field.getText());
+        addy.setMailing(true);
         if(!SameAddressRadioButton.isSelected()){
             /* Other Address */
             Address other = new Address();
@@ -545,6 +544,13 @@ public class ManAppController extends PageControllerUI implements  Initializable
             addy.setStreet(Address9Field.getText());
             addy.setZip(Zip9Field.getText());
         }
+        List<Address> adds = new ArrayList<>();
+        adds.add(addy);
+        working.setAddress(adds);
+        List<BrewersPermit> brews = new ArrayList<>();
+        BrewersPermit brew = new BrewersPermit(ProducerNumField.getText(), true);
+        brews.add(brew);
+        working.setBrewersPermit(brews);
         man.submitForm(working);
         this.workingForm = working;
         return working.getTtbID();
