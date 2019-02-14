@@ -113,7 +113,7 @@
       <VBox alignment="CENTER" prefHeight="500.0" prefWidth="355.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="250.0">
          <children>
             <fx:include source="TableView.fxml" VBox.vgrow="ALWAYS" />
-            <JFXButton fx:id="GetNewQueueButton" buttonType="RAISED" onAction="#getNewQueue" style="-fx-background-color: #26c6da;" text="Get New Queue">
+            <JFXButton fx:id="GetNewQueueButton" buttonType="RAISED" onAction="#getNewQueue" style="-fx-background-color: #26c6da;" text="Get New Queue" pickOnBounds="true">
                <font>
                   <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                </font>
@@ -129,6 +129,6 @@
             </JFXButton>
          </children>
       </VBox>
-      <fx:include source="MenuDrawer.fxml" />
+      <fx:include source="MenuDrawer.fxml" fx:id="hamburger"/>
    </children>
 </AnchorPane>

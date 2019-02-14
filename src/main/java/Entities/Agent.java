@@ -95,20 +95,25 @@ public class Agent implements IUser{
 
     /**
      * This may or may not work.
+     * @throws  NullPointerException if there are no more forms to get
      * @Author: probably nick.
      * @return
      */
-    public Form getNextUnapproved() {
+    private Form getNextUnapproved() throws NullPointerException  {
         DB.Database db = DB.Database.getDatabase();
         Form temp = db.dbSelect.getNextUnapproved();
-        System.out.println(this.agentID);
-        temp.setWorkingOn(this.agentID);
-        db.dbSelect.updateWorkingOn(temp);
-        System.out.println("GET NEX UN");
-        System.out.println(temp.getWorkingOn());
-        System.out.println(this.getAgentID());
-        System.out.println("END GET NEX");
-        return temp;
+        if(temp == null){
+            throw  new NullPointerException();
+        } else {
+            System.out.println(this.agentID);
+            temp.setWorkingOn(this.agentID);
+            db.dbSelect.updateWorkingOn(temp);
+            System.out.println("GET NEX UN");
+            System.out.println(temp.getWorkingOn());
+            System.out.println(this.getAgentID());
+            System.out.println("END GET NEX");
+            return temp;
+        }
     }
 
     /**
@@ -129,7 +134,7 @@ public class Agent implements IUser{
 
     /**
      * Gets a number of forms based upon the integer set in the Attribute Container...
-     * Should properly set those forms as working on.
+     * Should properly set those forms as working on. Only gets forms as long as there are forms to get...
      * @author Michael
      * @return The List of Forms.
      */
@@ -140,7 +145,11 @@ public class Agent implements IUser{
         current = Database.getDatabase().dbSelect.getCurrentApprovalQueue(this.getAgentID());
         int start = current.size();
         for(int i = start; i < end; i ++){
-            lof.add(getNextUnapproved());
+            try {
+                lof.add(getNextUnapproved());
+            } catch (NullPointerException e){
+                //There was no valid form
+            }
         }
         current.addAll(lof);
         return current;

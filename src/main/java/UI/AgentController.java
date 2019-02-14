@@ -27,7 +27,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.List;
-
+@Deprecated
 public class AgentController extends PageControllerUI  {
 
 

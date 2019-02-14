@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import com.jfoenix.controls.*;
+import javafx.scene.layout.AnchorPane;
 
 
 import java.awt.*;
@@ -22,6 +23,8 @@ public class AgentHomeController extends PageControllerUI implements Initializab
 
     @FXML
     public JFXButton GetNewQueueButton;
+
+    public AnchorPane hamburger;
     //From IFormDisplay
     @FXML
     Label Display1Label;
@@ -150,8 +153,8 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     JFXTextField SearchField;
 
-    @FXML
-    JFXButton GetNewQueueButon;
+   // @FXML
+   // JFXButton GetNewQueueButon;
 
 
 
@@ -169,11 +172,11 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     */
     @Override
     void onLoad() {
-        try {
-            this.refreshQueue(null);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //try {
+    //        this.refreshQueue(null);
+    //    } catch (IOException e) {
+      //      e.printStackTrace();
+     //   }
     }
 
     /**
@@ -275,7 +278,10 @@ public class AgentHomeController extends PageControllerUI implements Initializab
 
  @Override
  public void initialize(URL location, ResourceBundle resources) {
-        AttributeContainer.getInstance().formQueue = Database.getDatabase().dbSelect.getNext(AttributeContainer.getInstance().numForQueue);
+        hamburger.setMaxWidth(50);
+        GetNewQueueButton.toFront();
+
+//        AttributeContainer.getInstance().formQueue = Database.getDatabase().dbSelect.getNext(AttributeContainer.getInstance().numForQueue);
  }
  // TODO fix this so that it can be used with the nested table
 //        attributeContainer.formQueue = ((Agent)attributeContainer.currentUser).getThreeForms();
