@@ -275,7 +275,6 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     public void getNewQueue() throws IOException {
         AttributeContainer ac =  AttributeContainer.getInstance();
-        System.out.println("queueAmount: " + queueAmountField.getText());
         if(queueAmountField.getText().trim().isEmpty()) {
             ac.numForQueue = 5;
         } else {

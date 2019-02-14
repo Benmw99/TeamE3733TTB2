@@ -87,7 +87,6 @@ public class DisplayForm extends com.jfoenix.controls.datamodels.treetable.Recur
         }
         if(form.getBrandName() != null) {
             Brand = form.getBrandName();
-            System.out.println(Brand);
         }
         if(form.getSerialNumber() != null) {
             Serial = form.getSerialNumber();

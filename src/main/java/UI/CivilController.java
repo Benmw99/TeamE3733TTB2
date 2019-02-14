@@ -5,6 +5,7 @@ import Entities.AdvancedSearch;
 import Entities.AlcoholType;
 import Entities.Form;
 import Entities.SearchResult;
+import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -303,7 +304,7 @@ public class CivilController extends PageControllerUI implements Initializable {
     public void printResults(ActionEvent event) throws IOException {
         //TODO REWRITE THIS PASSING A BOOLEAN FOR WHETHER OR NOT IT IS A CSV OR ASCII
         //results.printResults();
-        Database.getDatabase().dbSelect.downloadQuery(AttributeContainer.getInstance().currentResults, true);
+        AsciiPrinter.print(AttributeContainer.getInstance().formQueue, ',');
         //printSearchResultsCSV.setDisable(true);
         printSearchResultsCSV.setText("Printed");
     }
