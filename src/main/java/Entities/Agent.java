@@ -206,7 +206,7 @@ public class Agent implements IUser{
         long milli = System.currentTimeMillis();
         Date approved = new Date(milli);
         DB.Database db = DB.Database.getDatabase();
-        Approval app = form.getApproval();
+        Approval app = new Approval();
         app.setAgentApprovalName(this.getName());
         app.setDateApproved(approved);
         app.setExpDate(null);
