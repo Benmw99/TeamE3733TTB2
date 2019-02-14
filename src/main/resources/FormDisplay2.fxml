@@ -21,7 +21,7 @@
                 <Pane prefHeight="625.0" prefWidth="696.0" style="-fx-background-color: white;">
 
                 </Pane>
-            <JFXTabPane layoutX="-6.0" prefHeight="625.0" prefWidth="696.0" stylesheets="@TabPane.css" tabClosingPolicy="UNAVAILABLE">
+            <JFXTabPane layoutX="-6.0" prefHeight="625.0" prefWidth="696.0" stylesheets="@/TabPane.css" tabClosingPolicy="UNAVAILABLE">
                <tabs>
                   <Tab fx:id="rulesRegTab" text="Regulations">
                      <content>

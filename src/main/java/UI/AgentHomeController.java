@@ -2,27 +2,17 @@ package UI;
 
 import DB.Database;
 import Entities.Agent;
-import Entities.AlcoholType;
 import Entities.Form;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TablePosition;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import com.jfoenix.controls.*;
 
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Timestamp;
 import java.util.ResourceBundle;
 
 public class AgentHomeController extends PageControllerUI implements Initializable {
@@ -194,7 +184,7 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     public void logOut(ActionEvent event) throws IOException {
         attributeContainer.currentUser = null;
-        goToPage("Login.fxml");
+        goToPage("resources/Login.fxml");
     }
 
     /**
@@ -254,7 +244,7 @@ public class AgentHomeController extends PageControllerUI implements Initializab
      */
     @FXML
     public void reviewingTools(ActionEvent event) throws IOException {
-        goToPage("AgentViewForm.fxml");
+        goToPage("resources/AgentViewForm.fxml");
     }
 
     /**

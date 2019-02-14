@@ -6,9 +6,6 @@ import Entities.AlcoholType;
 import Entities.Form;
 import Entities.SearchResult;
 import SearchAlgo.Search;
-import com.sun.xml.internal.ws.addressing.model.ActionNotSupportedException;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +13,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -279,7 +275,7 @@ public class CivilController extends PageControllerUI implements Initializable {
         AttributeContainer.getInstance().currentResults.setSearch(advancedSearch);
         AttributeContainer.getInstance().currentResults.setQuery(advancedSearch.getBrandName());
         AttributeContainer.getInstance().formQueue = forms;
-        goToPage("HomeSearch.fxml");
+        goToPage("resources/HomeSearch.fxml");
         AttributeContainer.getInstance().backlog.pop();
     }
 
@@ -295,7 +291,7 @@ public class CivilController extends PageControllerUI implements Initializable {
             Parent root;
             Stage stage;
             stage=(Stage) resultTable.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("ViewSelectedForm.fxml"));
+            root = FXMLLoader.load(getClass().getResource("resources/ViewSelectedForm.fxml"));
             Scene scene = new Scene(root, 1360, 820);
             stage.setScene(scene);
             stage.show();

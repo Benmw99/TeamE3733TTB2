@@ -401,7 +401,7 @@ public class DBSelect {
     }
 
     /**
-     * Gets the next unapproved form that no agent is currently working on.
+     * Gets the next unapproved form that no agent is currently working on. RETURNS NULL IF THERE IS NO FORM TO GET
      * @author Jordan
      * @return A Form that does not have anyone currently working on it and is not approved
      */
@@ -424,8 +424,6 @@ public class DBSelect {
                 }
             }
         }
-
-
         session.close();
         return foundForm;
     }
