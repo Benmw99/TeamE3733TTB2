@@ -1,6 +1,5 @@
 package UI;
 
-import Entities.AlcoholType;
 import Entities.Form;
 import Entities.Manufacturer;
 import com.jfoenix.controls.JFXButton;
@@ -9,14 +8,9 @@ import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Timestamp;
 import java.util.ResourceBundle;
 
 public class ManHomeController extends PageControllerUI  implements Initializable {

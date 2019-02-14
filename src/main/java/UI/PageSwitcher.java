@@ -43,7 +43,10 @@ public class PageSwitcher {
         FXMLLoader loader = new FXMLLoader();
    //     System.out.println(new File("src/main/java/UI/WelcomePage.fxml").toURI());
   //      System.out.println(getClass().getResource("/src/main/java/UI/WelcomePage.fxml"));
-        loader.setLocation(new File("src/main/java/UI/" + filename).toURI().toURL());
+
+        //loader.setLocation(new File("src/main/java/UI/" + filename).toURI().toURL());
+        loader.setLocation(getClass().getResource("/" + filename));
+
         AttributeContainer ac = AttributeContainer.getInstance();
         ac.backlog.push(filename);
         root = loader.load();
