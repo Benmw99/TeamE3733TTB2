@@ -1,5 +1,6 @@
 package UI;
 
+import Entities.Form;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
@@ -16,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MenuDrawerController extends PageControllerUI implements Initializable {
@@ -124,7 +126,9 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
 
     @FXML
     public void goToLogOut(){
-        AttributeContainer.getInstance().wipeSession();
+        AttributeContainer.getInstance().currentForm = null;
+        AttributeContainer.getInstance().formQueue = new ArrayList<Form>();
+        AttributeContainer.getInstance().currentUser = null;
         goToPage("HomeSearch.fxml");
     }
 
