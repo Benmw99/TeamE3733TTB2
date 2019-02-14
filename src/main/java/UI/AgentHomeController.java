@@ -275,7 +275,6 @@ public class AgentHomeController extends PageControllerUI implements Initializab
 
     @FXML
     public void getNewQueue() throws IOException {
-       System.out.println("Ghosts be i nyour code");
         AttributeContainer ac =  AttributeContainer.getInstance();
         ((Agent)ac.currentUser).getQueueIntoAC();
         AttributeContainer.getInstance().backlog.pop();
