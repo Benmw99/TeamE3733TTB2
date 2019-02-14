@@ -108,10 +108,6 @@ public class Agent implements IUser{
             System.out.println(this.agentID);
             temp.setWorkingOn(this.agentID);
             db.dbSelect.updateWorkingOn(temp);
-            System.out.println("GET NEX UN");
-            System.out.println(temp.getWorkingOn());
-            System.out.println(this.getAgentID());
-            System.out.println("END GET NEX");
             return temp;
         }
     }
