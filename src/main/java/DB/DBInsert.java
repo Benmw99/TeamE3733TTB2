@@ -170,6 +170,7 @@ public class DBInsert {
      * Inserts all the legacy data into the system, takes roughly 2 minutes to work. I'm sorry it's bad
      * @author Jordan
      */
+    @SuppressWarnings( "deprecation" )
     public void insertData() {
         long startTime = System.nanoTime();
         int fullCount = 0;

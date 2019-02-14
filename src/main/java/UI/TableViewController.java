@@ -2,9 +2,6 @@ package UI;
 
 import DB.Database;
 import Entities.*;
-import com.jfoenix.controls.JFXTreeTableColumn;
-import com.jfoenix.controls.JFXTreeTableView;
-import com.jfoenix.controls.JFXTreeView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -16,9 +13,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class TableViewController extends PageControllerUI implements Initializable  {

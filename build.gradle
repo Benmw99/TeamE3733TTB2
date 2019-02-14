@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-version '1.0-SNAPSHOT'
+version '1.0'
 
 jar {
     manifest {
@@ -11,6 +11,20 @@ jar {
 }
 
 sourceCompatibility = 1.8
+
+
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'main'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+//sourceSets.main.resources.srcDirs = [ "src/main/java/UI" ]
+//sourceSets.main.resources.includes = [ "**/*.fxml" ]
 
 repositories {
     mavenCentral()
