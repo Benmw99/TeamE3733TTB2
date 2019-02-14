@@ -42,8 +42,10 @@ public class AsciiPrinter {
                 fw.write(Sep);
                 fw.write("\n");
             }
+            fw.close();
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+
     }
 }
