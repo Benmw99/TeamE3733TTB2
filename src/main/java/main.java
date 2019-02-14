@@ -40,7 +40,6 @@ public class main {
                 "1112223333", "john@johnmail.com", "No other info", d, 123,
                 new Approval(), (float)12.3, ApprovalStatus.Incomplete);
         form.setWorkingOn(ttb.getAgentID());
-        System.out.println(ttb.getAgentID());
 
         //AttributeContainer.getInstance().formQueue.add(form);
 

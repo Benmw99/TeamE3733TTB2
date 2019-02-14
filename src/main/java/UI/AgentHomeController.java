@@ -245,7 +245,7 @@ public class AgentHomeController extends PageControllerUI implements Initializab
      */
     @FXML
     public void reviewingTools(ActionEvent event) throws IOException {
-        goToPage("resources/AgentViewForm.fxml");
+        goToPage("AgentViewForm.fxml");
     }
 
     /**

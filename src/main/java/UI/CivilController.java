@@ -278,7 +278,7 @@ public class CivilController extends PageControllerUI implements Initializable {
         AttributeContainer.getInstance().currentResults.setSearch(advancedSearch);
         AttributeContainer.getInstance().currentResults.setQuery(advancedSearch.getBrandName());
         AttributeContainer.getInstance().formQueue = forms;
-        goToPage("resources/HomeSearch.fxml");
+        goToPage("HomeSearch.fxml");
         AttributeContainer.getInstance().backlog.pop();
     }
 
