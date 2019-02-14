@@ -8,16 +8,17 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.*;
 
 public class DBSelectTest {
     @BeforeClass
     public static void setup() {
-        //DB.Database db = DB.Database.getDatabase();
-        //db.tableBuilder.resetDB();
+        DB.Database db = DB.Database.getDatabase();
+        db.tableBuilder.resetDB();
         //db.dbInsert.insertData();
 
-        /*
+
         db.dbInsert.insertCompany(new Manufacturer(123, "Brewers Inc.", "TestCompany", "1234"));
         db.dbInsert.insertAgent(new Agent("TestAgent", "1234", "Sam Adamster"));
         db.dbInsert.insertRep(new Representative("123abc", "TestRep", "1234"));
@@ -50,10 +51,11 @@ public class DBSelectTest {
         long milli1 = System.currentTimeMillis();
         Date d1 = new Date(milli1);
 
-        Form form1 = new Form(null, Brews1, false, "56799BD", AlcoholType.DistilledLiquor, "VodWine", "VW", Adds1, "Alfred Redster", "18900f", null, "1112223333", "Bobert@johnmail.com", "750ml on bottle", d1, 123, new Approval(), (float)43.43, ApprovalStatus.Complete);
+        Form form1 = new Form(null, Brews1, false, "56799BD", AlcoholType.DistilledLiquor, "VodWine", "VW", Adds1, "Alfred Redster", "18900f", null, "1112223333", "Bobert@johnmail.com", "750ml on bottle", d1, 123, new Approval(), (float)43.43, ApprovalStatus.Incomplete);
+        form1.setWorkingOn(0);
 
         db.dbInsert.insertForm(form1);
-        */
+
     }
 
     @Test
@@ -184,5 +186,60 @@ public class DBSelectTest {
         AdvancedSearch as = new AdvancedSearch();
         SearchResult temp = db.dbSelect.searchBy(as);
         System.out.println(temp.getResults().size());
+    }
+
+    @Test
+    public void testApprovalMerges() {
+        DB.Database db = DB.Database.getDatabase();
+        Form pulled = db.dbSelect.getFormByTTB_ID(2);
+        //Proving that the pulled form is at first not set approved and doesn't have a qualification
+        assertThat(ApprovalStatus.Complete, not(pulled.getApprovalStatus()));
+        assertThat("Can't be used because this program isn't real", not(pulled.getApproval().getQualifications()));
+
+        Approval app = pulled.getApproval();
+        app.setAgentApprovalName("Tom");
+
+        long millis = System.currentTimeMillis();
+        Date d1 = new Date(millis);
+        app.setDateApproved(d1);
+        app.setExpDate(d1);
+
+        app.setQualifications("Can't be used because this program isn't real");
+        app.setPage1(ApprovalStatus.Complete);
+        app.setPage2(ApprovalStatus.Complete);
+        app.setPage3(ApprovalStatus.Complete);
+        app.setPage4(ApprovalStatus.Complete);
+        pulled.setApprovalStatus(ApprovalStatus.Complete);
+
+        pulled.setApproval(app);
+
+        db.dbInsert.updateApproval(pulled);
+
+        Form pulledUpdate = db.dbSelect.getFormByTTB_ID(2);
+        //Proves that the updated form is succesfully set and updated
+        assertEquals(ApprovalStatus.Complete, pulledUpdate.getApprovalStatus());
+        assertEquals("Can't be used because this program isn't real", pulledUpdate.getApproval().getQualifications());
+    }
+
+    //Hardcoded tests cause I'm a scrub sometimes
+    @Test
+    public void testWorkingOnMerge() {
+        DB.Database db = DB.Database.getDatabase();
+
+        Form newForm = db.dbSelect.getNextUnapproved();
+        //Check that it retrieved the form that was not approved and has no one working on it.
+        assertEquals(2, newForm.getTtbID());
+        newForm.setWorkingOn(1);
+        db.dbSelect.updateWorkingOn(newForm);
+
+        Form checkWorkingOn = db.dbSelect.getFormByTTB_ID(2);
+        //Checks that workingOn was actually updated
+        assertEquals(1, checkWorkingOn.getWorkingOn());
+        //Checks that it can't get another form, which means the first is claimed
+        assertNull(db.dbSelect.getNextUnapproved());
+
+        List<Form> currentQ = db.dbSelect.getCurrentApprovalQueue(1);
+        assertEquals(1, currentQ.size());
+        assertEquals(1, currentQ.get(0).getWorkingOn());
     }
 }
