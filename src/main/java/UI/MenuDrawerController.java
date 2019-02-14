@@ -43,14 +43,17 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
 
 
     @Override
-    protected void onLeave() {}
+    protected void onLeave() {
+    }
 
     @Override
-    void onLoad() {}
+    void onLoad() {
+    }
 
 
     /**
      * Sets up menu drawer functionality
+     *
      * @param location
      * @param resources
      */
@@ -72,24 +75,24 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
         Hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                BoxSlider.toFront();
-                Drawer.toFront();
-                Hamburger.toFront();
-                LogOutSlider.toFront();
-                GoHomeSlider.toFront();
-                SearchSlider.toFront();
 
-                transition.setRate(transition.getRate()*-1);
+
+                transition.setRate(transition.getRate() * -1);
                 transition.play();
-                if(Drawer.isOpened()){
+                if (Drawer.isOpened()) {
                     Drawer.close();
                     BoxSlider.toBack();
                     Drawer.toBack();
                     LogOutSlider.toBack();
                     GoHomeSlider.toBack();
                     SearchSlider.toBack();
-                }
-                else{
+                } else {
+                    BoxSlider.toFront();
+                    Drawer.toFront();
+                    Hamburger.toFront();
+                    LogOutSlider.toFront();
+                    GoHomeSlider.toFront();
+                    SearchSlider.toFront();
                     Drawer.open();
                 }
 
@@ -98,22 +101,21 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
     }
 
     @FXML
-    public void goBack(){
+    public void goBack() {
         AttributeContainer ac = AttributeContainer.getInstance();
         ac.backlog.pop();
         ac.current_page.goToPage((ac.backlog.pop()));
     }
 
     @FXML
-    public void goToSearch(){
+    public void goToSearch() {
         AttributeContainer ac = AttributeContainer.getInstance();
-        if(ac.currentUser == null){
+        if (ac.currentUser == null) {
 
             ac.currentForm = null;
             ac.formQueue = new ArrayList<Entities.Form>();
             goToPage("HomeSearch.fxml");
-        }
-        else {
+        } else {
             if (ac.currentUser.isAgent()) {
                 ac.currentForm = null;
                 ac.formQueue = new ArrayList<Entities.Form>();
@@ -129,16 +131,23 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
 
 
     @FXML
-    public void goToHome(){
+    public void goToHome() {
         AttributeContainer ac = AttributeContainer.getInstance();
-        if(ac.currentUser.isAgent()){
-            goToPage("AgentHome.fxml");
+        if (ac.currentUser == null) {
+            ac.currentForm = null;
+            ac.formQueue = new ArrayList<Entities.Form>();
+            goToPage("HomeSearch.fxml");
+        } else {
+            if (ac.currentUser.isAgent()) {
+                goToPage("AgentHome.fxml");
+            }
+            if (ac.currentUser.isManufacturer()) {
+                goToPage("ManHome.fxml");
+            }
         }
-        if(ac.currentUser.isManufacturer()){
-            goToPage("ManHome.fxml");
-        }
-
     }
+
+
 
     @FXML
     public void goToLogOut(){
