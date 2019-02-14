@@ -3,6 +3,7 @@ package UI;
 import Entities.Agent;
 import Entities.IUser;
 import Entities.Manufacturer;
+import com.sun.xml.internal.ws.api.FeatureConstructor;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -80,6 +81,11 @@ public class LoginController extends PageControllerUI implements Initializable {
                System.out.println(((Agent)AttributeContainer.getInstance().currentUser).getAgentID());
             }
         }
+    }
+    @FXML
+    public void register(){
+        AttributeContainer.getInstance().currentUser = null;
+        goToPage("RegisterPage.fxml");
     }
 
     /**

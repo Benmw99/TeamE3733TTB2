@@ -6,6 +6,7 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.query.Query;
 import org.hibernate.cfg.Configuration;
 
+import javax.persistence.NoResultException;
 import javax.persistence.Transient;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -662,7 +663,13 @@ public class DBSelect {
         String q = "FROM Manufacturer M WHERE M.login = :log";
         Query query = session.createQuery(q);
         query.setParameter("log", login);
-        Manufacturer man = (Manufacturer) query.getSingleResult();
+        Manufacturer man;
+        try {
+            man = (Manufacturer) query.getSingleResult();
+        } catch (NoResultException e) {
+            session.close();
+            return null;
+        }
         session.close();
         return man;
     }
@@ -747,7 +754,13 @@ public class DBSelect {
         String q = "FROM Agent A WHERE A.login = :log";
         Query query = session.createQuery(q);
         query.setParameter("log", login);
-        Agent agent = (Agent) query.getSingleResult();
+        Agent agent;
+        try {
+            agent = (Agent) query.getSingleResult();
+        } catch (NoResultException e) {
+            session.close();
+            return null;
+        }
         session.close();
         return agent;
     }
