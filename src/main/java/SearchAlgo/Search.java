@@ -1,5 +1,6 @@
 package SearchAlgo;
 
+import DB.Database;
 import Entities.AdvancedSearch;
 import Entities.Form;
 
@@ -19,10 +20,10 @@ public class Search {
         List<String> out;
         if(advancedSearch.getBrandName() != null) {
             out = fuzzyAlgo.run(in, 2, advancedSearch.getBrandName());
-        }else{
-            out = in;
+            return db.dbSelect.searchByLDBrand(advancedSearch, out);
         }
-        return db.dbSelect.searchByLDBrand(advancedSearch, out);
+
+        return Database.getDatabase().dbSelect.searchBy(advancedSearch).getResults();
 
     }
 
