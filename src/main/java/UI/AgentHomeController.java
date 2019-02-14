@@ -19,6 +19,8 @@ import java.util.ResourceBundle;
 
 public class AgentHomeController extends PageControllerUI implements Initializable {
 
+    @FXML
+    public JFXButton GetNewQueueButton;
     //From IFormDisplay
     @FXML
     Label Display1Label;
@@ -264,9 +266,11 @@ public class AgentHomeController extends PageControllerUI implements Initializab
 
     @FXML
     public void getNewQueue() throws IOException {
-//        AttributeContainer ac =  AttributeContainer.getInstance();
-//        ((Agent)ac.currentUser).getQueueIntoAC();
-
+       System.out.println("Ghosts be i nyour code");
+        AttributeContainer ac =  AttributeContainer.getInstance();
+        ((Agent)ac.currentUser).getQueueIntoAC();
+        AttributeContainer.getInstance().backlog.pop();
+        goToPage("AgentHome.fxml");
     }
 
  @Override
