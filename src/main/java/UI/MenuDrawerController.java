@@ -83,6 +83,11 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
                 transition.play();
                 if(Drawer.isOpened()){
                     Drawer.close();
+                    BoxSlider.toBack();
+                    Drawer.toBack();
+                    LogOutSlider.toBack();
+                    GoHomeSlider.toBack();
+                    SearchSlider.toBack();
                 }
                 else{
                     Drawer.open();

@@ -196,7 +196,6 @@ public class FormViewController extends PageControllerUI implements Initializabl
      */
     @Override
     void onLoad() {
-
     }
 
     /**
