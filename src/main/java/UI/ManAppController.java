@@ -344,18 +344,8 @@ public class ManAppController extends PageControllerUI implements  Initializable
                 }
                 AttributeContainer.getInstance().labelImage.setTTBID(id);
                 AttributeContainer.getInstance().labelImage.insert();
-//                if(AttributeContainer.getInstance().backlog.peek().equals("ManApp.fxml")){
-//                    AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
-//                    goToPage("ManHome.fxml");
-////                } else if (AttributeContainer.getInstance().backlog.peek().equals("AgentApp.fxml")){
-////                    goToPage("AgentHome.fxml");
-//                } else {
-//                    AttributeContainer.getInstance().backlog.pop();
-//                    goToPage(AttributeContainer.getInstance().backlog.pop());
-                    AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
-                    workingForm.setTtbID(id);
-                    AttributeContainer.getInstance().currentForm = workingForm;
-                    goToPage("ManHome.fxml");
+                AttributeContainer.getInstance().currentForm = null;
+                goToPage("ManHome.fxml");
         }
         });
 
