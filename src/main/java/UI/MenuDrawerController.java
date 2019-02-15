@@ -67,7 +67,6 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
             public void handle(MouseEvent event){
                 transition.setRate(transition.getRate()*-1);
                 transition.play();
-                //transition.setRate(transition.getRate() * -1);
                 if (Drawer.isOpened()) {
                     Drawer.close();
                     Pane.setMaxSize(50, 50);
