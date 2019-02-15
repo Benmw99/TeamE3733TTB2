@@ -105,6 +105,6 @@
             <fx:include source="FormDisplay.fxml" />
          </children>
       </HBox>
-      <fx:include source="MenuDrawer.fxml" AnchorPane.leftAnchor="0.0" />
+      <fx:include source="MenuDrawer.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

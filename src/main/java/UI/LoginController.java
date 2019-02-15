@@ -3,6 +3,7 @@ package UI;
 import Entities.Agent;
 import Entities.IUser;
 import Entities.Manufacturer;
+import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -163,6 +164,7 @@ public class LoginController extends PageControllerUI implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
        // menu.GoHomeSlider.setDisable(true);
        // menu.LogOutSlider.setDisable(true);
+
 
 
     }
