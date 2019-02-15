@@ -1,8 +1,14 @@
 package UI;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+
 
 public class ViewSelectedController extends PageControllerUI {
+
+    @FXML
+    Button backButton;
+
     @Override
     protected void onLeave() {
 
