@@ -311,6 +311,7 @@ public class CivilController extends PageControllerUI implements Initializable {
 
     @FXML
     public void loginPage(){
+        attributeContainer.currentUser = null;
         goToPage("Login.fxml");
     }
 

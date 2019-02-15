@@ -60,6 +60,7 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
     @FXML
     public void logOut(ActionEvent event) throws IOException {
         attributeContainer.currentUser = null;
+
         goToPage("Login.fxml");
     }
 
