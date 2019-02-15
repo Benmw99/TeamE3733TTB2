@@ -2,11 +2,17 @@ package UI;
 
 import Entities.Address;
 import Entities.Form;
+import Entities.LabelImage;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class FormViewController extends PageControllerUI implements Initializable {
@@ -66,6 +72,8 @@ public class FormViewController extends PageControllerUI implements Initializabl
     @FXML
     Label Display20Label;
 
+    @FXML
+    ImageView Display19Image1;
 
     /**
      * Displays the current form as specified in the AttributeContainer Singleton
@@ -184,6 +192,16 @@ public class FormViewController extends PageControllerUI implements Initializabl
             this.Display17Label.setText(form.getDateSubmitted().toString());
         }
         this.Display20Label.setText(String.valueOf(form.getAlcoholContent()));
+
+
+        //Getting the image from the db and setting it
+        DB.Database db = DB.Database.getDatabase();
+        List<LabelImage> labels = db.dbSelect.selectImagesbyTTBID(form.getTtbID());
+        if (!labels.isEmpty()) {
+            InputStream targetStream = new ByteArrayInputStream(labels.get(0).getImage());
+            Image img = new Image(targetStream);
+            Display19Image1.setImage(img);
+        }
     }
 
     @Override

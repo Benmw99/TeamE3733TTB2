@@ -53,9 +53,9 @@ public class SearchResult {
         this.query = query;
     }
 
+    @Deprecated
     public void printResults(boolean isCSV){
-        DB.Database db = DB.Database.getDatabase();
-        db.dbSelect.downloadQuery(this, isCSV);
+        System.out.println("This doesn't do anything and shouldn't be called");
     }
 
 

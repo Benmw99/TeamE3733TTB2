@@ -8,10 +8,7 @@ import org.hibernate.cfg.Configuration;
 
 import javax.persistence.NoResultException;
 import javax.persistence.Transient;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -198,6 +195,7 @@ public class DBSelect {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Form> cr = cb.createQuery(Form.class);
         Root<Form> root = cr.from(Form.class);
+        Join<Form, WineFormItems> wines = root.join("wineFormItems");
         //Predicate list which will be added to for every new condition
         List<Predicate> predicates = new ArrayList<>();
         predicates.add(cb.equal(root.get("approvalStatus"), as.approvalStatus));
@@ -212,22 +210,22 @@ public class DBSelect {
             predicates.add(cb.equal(root.get("alcoholType"), as.alcoholType));
         }
         if (as.brandName != null) {
-            predicates.add(cb.equal(root.get("brandName"), as.brandName));
+            predicates.add(cb.equal(cb.lower(root.get("brandName")), as.brandName.toLowerCase()));
         }
         if (as.fancifulName != null) {
-            predicates.add(cb.equal(root.get("fancifulName"), as.fancifulName));
+            predicates.add(cb.equal(cb.lower(root.get("fancifulName")), as.fancifulName.toLowerCase()));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
-            //predicates.add(cb.equal(root.get("wineFormItems.vintageYear"), as.vintageYear));
+            predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.pH > 0) {
-            //
+            predicates.add(cb.equal(wines.get("pH"), as.pH));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.grapeVarietal != null) {
-            //
+            predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.appellation != null) {
-            //
+            predicates.add(cb.equal(wines.get("appellation"), as.appellation));
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
@@ -272,6 +270,7 @@ public class DBSelect {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Form> cr = cb.createQuery(Form.class);
         Root<Form> root = cr.from(Form.class);
+        Join<Form, WineFormItems> wines = root.join("wineFormItems");
         List<Predicate> predicates = new ArrayList<>();
         predicates.add(cb.equal(root.get("approvalStatus"), as.approvalStatus));
         if (as.source != null) {
@@ -290,16 +289,16 @@ public class DBSelect {
             predicates.add(cb.like(cb.lower(root.get("fancifulName")), "%" + as.fancifulName.toLowerCase() + "%"));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
-            //predicates.add(cb.equal(root.get("wineFormItems.vintageYear"), as.vintageYear));
+            predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.pH > 0) {
-            //
+            predicates.add(cb.equal(wines.get("pH"), as.pH));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.grapeVarietal != null) {
-            //
+            predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.appellation != null) {
-            //
+            predicates.add(cb.equal(wines.get("appellation"), as.appellation));
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
@@ -341,6 +340,7 @@ public class DBSelect {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<String> cr = cb.createQuery(String.class);
         Root<Form> root = cr.from(Form.class);
+        Join<Form, WineFormItems> wines = root.join("wineFormItems");
         List<Predicate> predicates = new ArrayList<>();
         predicates.add(cb.equal(root.get("approvalStatus"), as.approvalStatus));
         if (as.source != null) {
@@ -353,16 +353,16 @@ public class DBSelect {
             predicates.add(cb.equal(root.get("alcoholType"), as.alcoholType));
         }//No brand name or fanciful name
         if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
-            //predicates.add(cb.equal(root.get("wineFormItems.vintageYear"), as.vintageYear));
+            predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.pH > 0) {
-            //
+            predicates.add(cb.equal(wines.get("pH"), as.pH));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.grapeVarietal != null) {
-            //
+            predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.appellation != null) {
-            //
+            predicates.add(cb.equal(wines.get("appellation"), as.appellation));
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
@@ -506,11 +506,12 @@ public class DBSelect {
     }
 
 
-    /**
-     * Generates the query to be used for downloading as a search result.
-     * @author Jordan
-     * @param sr The searchresult of the query to be downloaded
-     */
+    /*@Deprecated
+    ///**
+    // * Generates the query to be used for downloading as a search result.
+    // * @author Jordan
+    // * @param sr The searchresult of the query to be downloaded
+    //
     private String generateQuery(SearchResult sr) {
         AdvancedSearch as = sr.getSearch();
         String baseString;
@@ -550,15 +551,16 @@ public class DBSelect {
             baseString += " AND TTB_ID = ?";
         }
         return baseString;
-    }
+    }*/
 
+    /*@Deprecated
     /**
      * Downloads the search result as a file onto the computer
      * @author Jordan
      * @param sr The searchresult that you want printed
      * @param isCSV Whether or not it should be printed as a csv. True for csv, false for ASCII-Deliminated
      * @return True if it succeeds, false if it fails
-     */
+
     public boolean downloadQuery(SearchResult sr, boolean isCSV) {
         sr.setQuery(generateQuery(sr));
         Connection connection = null;
@@ -640,7 +642,7 @@ public class DBSelect {
             e.printStackTrace();
             return false;
         }
-    }
+    }*/
 
     /**
      * Retrieves a list of all the label images involved with that ttb id
@@ -687,7 +689,6 @@ public class DBSelect {
         try {
             man = (Manufacturer) query.getSingleResult();
         } catch (NoResultException e) {
-            session.close();
             return null;
         }
         session.close();
@@ -785,6 +786,66 @@ public class DBSelect {
         return agent;
     }
 
+    /**
+     * Checks if an agent login is already there
+     * @author Jordan
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    public boolean checkIfUsedAgent(String login) {
+        String q = "SELECT count(*) FROM Agent C WHERE C.login = :login";
+        return checkUsed(q, login);
+    }
+
+    /**
+     * Checks if a company login is already there
+     * @author Jordan
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    public boolean checkIfUsedCompany(String login) {
+        String q = "SELECT count(*) FROM Manufacturer C WHERE C.login = :login";
+        return checkUsed(q, login);
+    }
+
+    /**
+     * Checks if a rep login is already there
+     * @author Jordan
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    public boolean checkIfUsedRep(String login) {
+        String q = "SELECT count(*) FROM Representative C WHERE C.login = :login";
+        return checkUsed(q, login);
+    }
+
+    /**
+     * Checks that a user exists for a passed query, checking that there is 1 result in the database
+     * @author Jordan
+     * @param q String of the query to be used
+     * @param login String of the entered login
+     * @return True for it being there login already, false for it not being there
+     */
+    private boolean checkUsed(String q, String login) {
+        Session session = factory.openSession();
+        Query query = session.createQuery(q);
+        query.setParameter("login", login);
+        int result = 0;
+        Long temp;
+        final Object obj = query.uniqueResult();
+        if (obj != null) {
+            temp = (Long) obj;
+            result = temp.intValue();
+        }
+        session.close();
+        if (result == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /*@Deprecated
     public List<Form> getNext(int to) {
         Session session = factory.openSession();
         Transaction tx = null;
@@ -825,5 +886,5 @@ public class DBSelect {
             session.close();
         }
         return result;
-    }
+    }*/
 }
