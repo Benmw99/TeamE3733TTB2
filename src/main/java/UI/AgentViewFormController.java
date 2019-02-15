@@ -1,6 +1,7 @@
 package UI;
 
 import Entities.Agent;
+import SearchAlgo.AsciiPrinter;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
@@ -164,7 +165,7 @@ public class AgentViewFormController extends PageControllerUI {
     @FXML
     public void print(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
-            System.out.println("lol nah");
+            AsciiPrinter.print(AttributeContainer.getInstance().formQueue, ',');
         }
     }
 

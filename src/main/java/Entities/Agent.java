@@ -1,6 +1,7 @@
 package Entities;
 
 import DB.Database;
+import SearchAlgo.AsciiPrinter;
 import UI.AttributeContainer;
 
 import javax.crypto.Cipher;
@@ -260,8 +261,7 @@ public class Agent implements IUser{
     }
 
     public void csvDownload(SearchResult sr, boolean isCSV){
-        DB.Database db = DB.Database.getDatabase();
-        db.dbSelect.downloadQuery(sr, isCSV);
+        AsciiPrinter.print(AttributeContainer.getInstance().formQueue, ',');
 
     }
 

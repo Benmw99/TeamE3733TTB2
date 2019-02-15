@@ -3,10 +3,16 @@ import Entities.*;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class main {
     //private static SessionFactory factory;
     public static void main(String[] args) {
+        //FINALLY DISABLES THE INFO MESSAGES
+        Logger system = Logger.getLogger("org.hibernate");
+        system.setLevel(Level.WARNING);
+
         DB.Database db = DB.Database.getDatabase();
         db.tableBuilder.resetDB();
         db.dbInsert.insertCompany(new Manufacturer(123, "Brewers Inc.", "manu", "manu"));
