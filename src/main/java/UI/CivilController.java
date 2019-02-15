@@ -7,6 +7,7 @@ import Entities.Form;
 import Entities.SearchResult;
 import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -174,7 +175,11 @@ public class CivilController extends PageControllerUI implements Initializable {
     @FXML
     StackPane UsernameStackPane;
 
+    @FXML
+    JFXButton SearchLoginButton;
 
+    @FXML
+    JFXButton backToHomeButton;
 
 
     SearchResult result;
@@ -187,6 +192,18 @@ public class CivilController extends PageControllerUI implements Initializable {
         SearchAlcoholType.getItems().addAll("Beers", "Wines", "Distilled Liquor");
         UsernameStackPane.setOpacity(0);
         UsernameStackPane.setPickOnBounds(false);
+
+        if(attributeContainer.currentUser == null) {
+            SearchLoginButton.setDisable(false);
+            SearchLoginButton.setVisible(true);
+            backToHomeButton.setDisable(true);
+            backToHomeButton.setVisible(false);
+        } else {
+            SearchLoginButton.setDisable(true);
+            SearchLoginButton.setVisible(false);
+            backToHomeButton.setDisable(false);
+            backToHomeButton.setVisible(true);
+        }
 
         if(attributeContainer.currentUser != null){
             System.out.println("This is true");
@@ -325,6 +342,17 @@ public class CivilController extends PageControllerUI implements Initializable {
 
     @FXML
     public void aboutPage() {goToPage("AboutPage.fxml"); }
+
+    @FXML
+    public void backToHome() {
+        if(attributeContainer.currentUser.isAgent()){
+            goToPage("AgentHome.fxml");
+        } else {
+            goToPage("ManHome.fxml");
+
+        }
+    }
+
 
 
     @Override
