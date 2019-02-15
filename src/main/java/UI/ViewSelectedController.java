@@ -1,6 +1,14 @@
 package UI;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+
+
 public class ViewSelectedController extends PageControllerUI {
+
+    @FXML
+    Button backButton;
+
     @Override
     protected void onLeave() {
 
@@ -9,6 +17,10 @@ public class ViewSelectedController extends PageControllerUI {
     @Override
     void onLoad() {
 
+    }
+    @FXML
+    void goBack()   {
+        goToPage("HomeSearch.fxml");
     }
 
     //TODO Make this a thing.

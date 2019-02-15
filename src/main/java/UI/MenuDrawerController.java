@@ -157,7 +157,8 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
         AttributeContainer.getInstance().currentForm = null;
         AttributeContainer.getInstance().formQueue = new ArrayList<Form>();
         AttributeContainer.getInstance().currentUser = null;
-        goToPage("HomeSearch.fxml");
+//        goToPage("HomeSearch.fxml");
+        goToPage("Login.fxml"); // goes to login now instead of search
     }
 
 }
