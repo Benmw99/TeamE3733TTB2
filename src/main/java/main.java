@@ -9,9 +9,14 @@ import java.util.logging.Logger;
 public class main {
     //private static SessionFactory factory;
     public static void main(String[] args) {
+        System.out.println("Starting program...");
         //FINALLY DISABLES THE INFO MESSAGES
-        Logger system = Logger.getLogger("org.hibernate");
-        system.setLevel(Level.WARNING);
+        Logger hibSystem = Logger.getLogger("org.hibernate");
+        hibSystem.setLevel(Level.WARNING);
+        Logger c3System = Logger.getLogger("com.mchange.v2.c3p0");
+        c3System.setLevel(Level.WARNING);
+        Logger MLogSystem = Logger.getLogger("com.mchange");
+        MLogSystem.setLevel(Level.WARNING);
 
         DB.Database db = DB.Database.getDatabase();
         db.tableBuilder.resetDB();
@@ -43,6 +48,7 @@ public class main {
         //AttributeContainer.getInstance().formQueue.add(form);
 
         db.dbInsert.insertForm(form);
+
         UI.MainUI.main( args);
     }
 
