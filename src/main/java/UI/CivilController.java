@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -32,17 +33,6 @@ public class CivilController extends PageControllerUI implements Initializable {
 
 
     private Entities.SearchResult results;
-
-    //not added because no button to go back from civilsearch to welcome screen
-    /*
-    @FXML
-    Button BacktoWelcome;
-
-    @FXML
-    public void welcomePage(ActionEvent event) throws IOException {
-        pageSwitch(event, "WelcomePage.fxml", BacktoWelcome);
-    }
-    */
 
     //CivilSearch
     @FXML
@@ -178,6 +168,13 @@ public class CivilController extends PageControllerUI implements Initializable {
     @FXML
     Button aboutPageNav;
 
+    @FXML
+    Label UsernameLabel;
+
+    @FXML
+    StackPane UsernameStackPane;
+
+
 
 
     SearchResult result;
@@ -188,6 +185,17 @@ public class CivilController extends PageControllerUI implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         SearchAlcoholType.getItems().addAll("Beers", "Wines", "Distilled Liquor");
+        UsernameStackPane.setOpacity(0);
+        UsernameStackPane.setPickOnBounds(false);
+
+        if(attributeContainer.currentUser != null){
+            System.out.println("This is true");
+            UsernameStackPane.setOpacity(100);
+            UsernameLabel.setText(attributeContainer.currentUser.getLogin());
+        }
+        else{
+            UsernameStackPane.toBack();
+        }
 
         if (attributeContainer.currentForm != null) {
             Civ1Label.setText(attributeContainer.currentForm.getRepID());

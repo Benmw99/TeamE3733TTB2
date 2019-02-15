@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXClippedPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +14,7 @@
 
 <AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManHomeController">
    <children>
-      <Pane prefHeight="759.0" prefWidth="1360.0" style="-fx-background-color: WHITE;">
+      <Pane prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: WHITE;">
          <children>
             <Pane layoutX="-6.0" layoutY="-1.0" prefHeight="89.0" prefWidth="1367.0" style="-fx-background-color: #9ea7aa;">
                <children>
@@ -95,16 +96,16 @@
                </children>
             </Pane>
          </children></Pane>
-      <HBox layoutX="15.0" layoutY="200.0" prefHeight="575.0" prefWidth="475.0">
+      <HBox layoutX="15.0" layoutY="200.0" prefHeight="575.0" prefWidth="475.0" AnchorPane.topAnchor="150.0">
          <children>
             <fx:include source="TableView.fxml" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="-150.0" AnchorPane.topAnchor="150.0">
+      <JFXClippedPane prefWidth="850.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0">
          <children>
             <fx:include source="FormDisplay.fxml" />
          </children>
-      </HBox>
+      </JFXClippedPane>
       <fx:include source="MenuDrawer.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

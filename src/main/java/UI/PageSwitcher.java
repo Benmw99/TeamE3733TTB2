@@ -53,6 +53,7 @@ public class PageSwitcher {
         Scene scene = new Scene(root, 1360, 760);
         stage.setScene(scene);
         stage.show();
+        stage.setResizable(false);
         //////////////////////////////////////////////////////
         ////  DATA SHARING & CONTROLLER INITIALIZATION    ////
         //////////////////////////////////////////////////////
