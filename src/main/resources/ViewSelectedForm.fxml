@@ -21,6 +21,10 @@
             <fx:include fx:id="Label" source="FormDisplay.fxml" />
          </children>
       </Pane>
-      <fx:include source="MenuDrawer.fxml" />
+      <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="60.0" text="&lt;">
+         <font>
+            <Font name="Apple SD Gothic Neo Heavy" size="36.0" />
+         </font>
+      </JFXButton>
     </children>
 </AnchorPane>

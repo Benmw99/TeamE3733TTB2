@@ -329,6 +329,9 @@ public class ManAppController extends PageControllerUI implements  Initializable
         SourceComboBox.getItems().addAll("Domestic", "Imported");
         TypeComboBox.getItems().addAll("Malt Beverage", "Wine", "Distilled Liquor");
         /* setup submit button */
+
+        // we can just keep the button disabled through a listener
+
         this.SendApp.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
