@@ -339,6 +339,7 @@ public class ManAppController extends PageControllerUI implements  Initializable
                 if(AttributeContainer.getInstance().currentUser.isManufacturer()){
                     id = getForm((Manufacturer)AttributeContainer.getInstance().currentUser);
                 } else {
+                    // What?
                     Manufacturer temp = new Manufacturer();
                     temp.setManID(0);
                     id = getForm(temp);
@@ -350,6 +351,8 @@ public class ManAppController extends PageControllerUI implements  Initializable
                 goToPage("ManHome.fxml");
         }
         });
+
+
 
     }
 

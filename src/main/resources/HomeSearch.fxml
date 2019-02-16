@@ -18,10 +18,6 @@
 <AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.CivilController">
 <children>
     <Rectangle fill="#9ea7aa" height="77.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-    <Text fill="WHITE" layoutX="566.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COLA Search" wrappingWidth="256.9218606590072">
-        <font>
-            <Font name="Apple SD Gothic Neo Thin" size="48.0" />
-        </font></Text>
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="626.0" layoutX="1.0" layoutY="136.0" stroke="TRANSPARENT" strokeType="INSIDE" width="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="62.0" layoutY="66.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0" />
       <JFXButton fx:id="SearchLoginButton" buttonType="RAISED" layoutX="1248.0" layoutY="13.0" onAction="#loginPage" style="-fx-background-color: WHITE;" text="Login">
@@ -106,13 +102,22 @@
             <Font name="Apple SD Gothic Neo Thin" size="14.0" />
          </font>
       </JFXButton>
-      <StackPane fx:id="UsernameStackPane" layoutX="1087.0" layoutY="13.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #9ea7aa;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane fx:id="UsernameStackPane" layoutX="1087.0" layoutY="13.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #9ea7aa;" AnchorPane.leftAnchor="1114.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="UsernameLabel" text="Username">
                <font>
                   <Font name="Apple SD Gothic Neo Regular" size="24.0" />
                </font>
             </Label>
+         </children>
+      </StackPane>
+    <Text fill="WHITE" layoutX="566.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COLA Search" wrappingWidth="256.9218606590072">
+        <font>
+            <Font name="Apple SD Gothic Neo Thin" size="48.0" />
+        </font></Text>
+      <StackPane fx:id="MenuStackPane" alignment="CENTER_LEFT" layoutX="1097.0" layoutY="23.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #9ea7aa;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <fx:include source="MenuDrawer.fxml" />
          </children>
       </StackPane>
 </children>

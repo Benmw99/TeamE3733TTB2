@@ -174,9 +174,6 @@ public class CivilController extends PageControllerUI implements Initializable {
     @FXML
     StackPane UsernameStackPane;
 
-
-
-
     SearchResult result;
     int searchPage;
 
@@ -244,7 +241,6 @@ public class CivilController extends PageControllerUI implements Initializable {
             Civ15Label.setText(attributeContainer.currentForm.getEmail());
             Civ16Label.setText(attributeContainer.currentForm.getPhoneNumber());
 
-
         }
     }
     //#################################################################################################################################
@@ -280,7 +276,6 @@ public class CivilController extends PageControllerUI implements Initializable {
         //}
         //if (manufactureDate.get) DATE NOT IMPLEMENTED YET
 
-
         List<Form> forms = Search.SearchDLBrand(advancedSearch, new SearchAlgo.DamerauLevenshtein());
         AttributeContainer.getInstance().currentResults = new SearchResult();
         AttributeContainer.getInstance().currentResults.setResults(forms);
@@ -290,8 +285,6 @@ public class CivilController extends PageControllerUI implements Initializable {
         goToPage("HomeSearch.fxml");
         AttributeContainer.getInstance().backlog.pop();
     }
-
-
 
     @FXML
     public void clickItem(MouseEvent event) throws IOException
@@ -308,6 +301,7 @@ public class CivilController extends PageControllerUI implements Initializable {
             stage.show();
         }
     }
+
     @FXML
     public void printResults(ActionEvent event) throws IOException {
         //TODO REWRITE THIS PASSING A BOOLEAN FOR WHETHER OR NOT IT IS A CSV OR ASCII
