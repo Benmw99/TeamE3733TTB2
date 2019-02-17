@@ -501,7 +501,20 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Pane layoutX="5.0" prefHeight="590.0" prefWidth="690.0" />
+                              <Pane layoutX="5.0" prefHeight="590.0" prefWidth="690.0">
+                                 <children>
+                                    <JFXTextArea fx:id="comment" layoutX="47.0" layoutY="62.0" prefHeight="377.0" prefWidth="586.0" />
+                                    <Label layoutX="54.0" layoutY="38.0" text="Form Comments:">
+                                       <font>
+                                          <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Text layoutX="60.0" layoutY="471.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Please remember to include the number for which each comment is associated" wrappingWidth="498.95848141231164">
+                                       <font>
+                                          <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children></Pane>
                            </children>
                         </AnchorPane>
                      </content>
