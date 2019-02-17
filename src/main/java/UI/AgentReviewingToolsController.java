@@ -227,8 +227,8 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                     //TODO Hannah this is where you put any code you want to run if the user is fake.
                 }
                 to_recv.loadUser();
-                Mailer mail = new Mailer();
-                mail.sendAgentMail(to_recv);
+            //    Mailer mail = new Mailer();
+              //  mail.sendAgentMail(to_recv);
                 AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
                 db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
                 AttributeContainer.getInstance().currentForm = null;
