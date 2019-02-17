@@ -232,8 +232,8 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                     yikes.show();
                 } else {
                     to_recv.loadUser();
-                        Mailer mail = new Mailer();
-                      mail.sendAgentMail(to_recv, message.getText());
+                        Thread mailThread = new  Thread( new Mailer(to_recv, message.getText()));
+                        mailThread.start();
                     AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
                     db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
                     AttributeContainer.getInstance().currentForm = null;

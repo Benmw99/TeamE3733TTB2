@@ -649,8 +649,8 @@ public class AgentController extends PageControllerUI  {
         }
         formTable.setItems(tableValues);
         printAHButton.setDisable(false);
-        Mailer mail = new Mailer();
-        mail.sendMail(currentForm);
+        Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
+        mailThread.start();
 
         reject.play();
     }
@@ -673,8 +673,8 @@ public class AgentController extends PageControllerUI  {
         }
         formTable.setItems(tableValues);
         printAHButton.setDisable(false);
-        Mailer mail = new Mailer();
-        mail.sendMail(currentForm);
+        Thread mailThread = new Thread(new Mailer(currentForm));
+        mailThread.start();
         accept.play();
     }
 

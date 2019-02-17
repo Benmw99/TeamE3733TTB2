@@ -234,6 +234,7 @@ public class Agent implements IUser{
 
     public void rejectForm(Form form) {
         DB.Database db = DB.Database.getDatabase();
+        form.setApproval(new Approval());
         Approval app = form.getApproval();
         app.setAgentApprovalName(this.getName());
         app.setPage1(ApprovalStatus.Incorrect);

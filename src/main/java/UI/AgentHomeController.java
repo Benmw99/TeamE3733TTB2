@@ -3,6 +3,7 @@ package UI;
 import DB.Database;
 import Entities.Agent;
 import Entities.Form;
+import Entities.Mailer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -226,6 +227,8 @@ public class AgentHomeController extends PageControllerUI implements Initializab
             ((Agent)AttributeContainer.getInstance().currentUser).approveForm(AttributeContainer.getInstance().currentForm, "");
             attributeContainer.currentForm = null;
             attributeContainer.formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
+            Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
+            mailThread.start();
             goToPage("AgentHome.fxml");
         }
     }
@@ -241,6 +244,8 @@ public class AgentHomeController extends PageControllerUI implements Initializab
             ((Agent)AttributeContainer.getInstance().currentUser).rejectForm(AttributeContainer.getInstance().currentForm);
              attributeContainer.currentForm = null;
             attributeContainer.formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
+            Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
+            mailThread.start();
             goToPage("AgentHome.fxml");
         }
     }

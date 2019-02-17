@@ -9,12 +9,39 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 
-public class Mailer {
-    /**
-     * @author Michael
-     */
-    public Mailer(){
+public class Mailer implements Runnable {
 
+    boolean isAgent; //true for agent mailer, false for Manufacturer
+    Form to_inform;
+    Agent to_send_to;
+    String message;
+
+    /**
+     * @author Michael & Elizabeth
+     */
+
+  //  public Mailer(){
+
+    //}
+
+    /**
+     * The constructor for a manufacturer inform thread Mailer
+     * @param form the form which has been updated
+     */
+    public Mailer(Form form){
+        to_inform = form;
+        isAgent = false;
+    }
+
+    /**
+     * The constructor for an agent inform thread Mailer
+     * @param to_inform
+     * @param message
+     */
+    public Mailer(Agent to_inform, String message){
+        to_send_to = to_inform;
+        this.message = message;
+        isAgent = true;
     }
 
     /**
@@ -109,6 +136,15 @@ public class Mailer {
 
         } catch (MessagingException mx) {
             mx.printStackTrace();
+        }
+    }
+
+    @Override
+    public void run() {
+        if(this.isAgent){
+            sendAgentMail(this.to_send_to, message);
+        } else {
+            sendMail(this.to_inform);
         }
     }
 }
