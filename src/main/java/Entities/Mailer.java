@@ -10,7 +10,9 @@ import java.util.Properties;
 
 
 public class Mailer {
-
+    /**
+     * @author Michael
+     */
     public Mailer(){
 
     }
