@@ -175,8 +175,21 @@ public class AgentViewFormController extends PageControllerUI {
      * @throws IOException
      */
     @FXML
-    public void returnHome(ActionEvent event) throws IOException {
+   public void returnHome(ActionEvent event) throws IOException {
         goToPage("AgentHome.fxml");
+    }
+
+    /**
+     * Marks page of form as complete/incomplete/incorrect
+     */
+    public void markForm() {
+        if(markAsComboBox.getValue() == "Complete"){
+
+        } else if (markAsComboBox.getValue() == "Incomplete") {
+
+        } else {
+
+        }
     }
 
 }

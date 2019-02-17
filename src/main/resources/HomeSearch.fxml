@@ -115,5 +115,6 @@
             </Label>
          </children>
       </StackPane>
+      <JFXButton fx:id="backToHomeButton" onAction="#backToHome" layoutX="20.0" layoutY="16.0" prefHeight="35.0" prefWidth="103.0" text="Back To Home" />
 </children>
 </AnchorPane>

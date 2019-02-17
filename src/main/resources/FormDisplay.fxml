@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="586.0" prefWidth="1011.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.FormViewController">
+<AnchorPane prefHeight="586.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.FormViewController">
     <children>
-        <Pane prefHeight="759.0" prefWidth="1360.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Pane prefHeight="759.0" prefWidth="1006.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Pane prefWidth="1011.0" style="-fx-background-color: white;">
+                <Pane prefWidth="1006.0" style="-fx-background-color: white;">
                     <children>
-                        <JFXTabPane prefHeight="586.0" prefWidth="1011.0" stylesheets="@/TabPane.css">
+                        <JFXTabPane prefHeight="586.0" prefWidth="1006.0" stylesheets="@TabPane.css">
                             <tabs>
                                 <Tab text="Section 1">
                                     <content>
