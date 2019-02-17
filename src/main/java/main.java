@@ -22,6 +22,7 @@ public class main {
         db.tableBuilder.resetDB();
         db.dbInsert.insertCompany(new Manufacturer(123, "Brewers Inc.", "manu", "manu"));
         db.dbInsert.insertAgent(new Agent("ttb", "ttb", "Sam Adamster"));
+        db.dbInsert.insertAgent(new Agent("wwong2@wpi.edu", "pass", "Wilson Wong"));
         db.dbInsert.insertRep(new Representative("123abc", "TestRep", "1234"));
         //db.dbInsert.insertData();
         System.out.println("Hello Iteration 2!");

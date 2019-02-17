@@ -175,7 +175,7 @@ public class AgentViewFormController extends PageControllerUI {
      * @throws IOException
      */
     @FXML
-    public void returnHome(ActionEvent event) throws IOException {
+   public void returnHome(ActionEvent event) throws IOException {
         goToPage("AgentHome.fxml");
     }
 

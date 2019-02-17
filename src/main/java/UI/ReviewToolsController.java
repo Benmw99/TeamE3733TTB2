@@ -43,6 +43,9 @@ public class ReviewToolsController extends PageControllerUI implements Initializ
                 Database db = Database.getDatabase();
                 AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
                 db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
+                AttributeContainer.getInstance().currentForm = null;
+                AttributeContainer.getInstance().formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
+                goToPage("AgentHome.fxml");
             }
         });
     }
