@@ -8,14 +8,17 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,7 +27,7 @@ import java.util.ResourceBundle;
 public class AgentReviewingToolsController extends PageControllerUI implements Initializable {
 
     @FXML
-    JFXComboBox<String> markAsComboBox;
+    JFXComboBox<String> sectionMarkComboBox;
 
     @FXML
     JFXButton printViewFormButton;
@@ -131,7 +134,27 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     JFXTextField ttb_id;
 
     @FXML
+    Pane formDisplay;
+
+    @FXML
+    FormDisplayController formDisplayController;
+
+    boolean page1Complete;
+    boolean page2Complete;
+    boolean page3Complete;
+    boolean page4Complete;
+    boolean page1Incomplete;
+    boolean page2Incomplete;
+    boolean page3Incomplete;
+    boolean page4Incomplete;
+    boolean page1Incorrect;
+    boolean page2Incorrect;
+    boolean page3Incorrect;
+    boolean page4Incorrect;
+
+    @FXML
     JFXTextArea comment;
+
 
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
@@ -206,7 +229,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
      * @throws IOException
      */
     @FXML
-   public void returnHome(ActionEvent event) throws IOException {
+    public void returnHome(ActionEvent event) throws IOException {
         goToPage("AgentHome.fxml");
     }
 
@@ -214,17 +237,71 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
      * Marks page of form as complete/incomplete/incorrect
      */
     public void markForm() {
-        if(markAsComboBox.getValue() == "Complete"){
-
-        } else if (markAsComboBox.getValue().equals("Incomplete")) {
-
+        System.out.println("C-C-C-COMBO BOX");
+        if(sectionMarkComboBox.getValue() == "Complete"){
+            if(formDisplayController.getTab() == 1) {
+                page1Complete = true;
+                page1Incomplete = false;
+                page1Incorrect = false;
+            } else if(formDisplayController.getTab() == 2) {
+                page2Complete = true;
+                page2Incomplete = false;
+                page2Incorrect = false;
+            } else if(formDisplayController.getTab() == 3) {
+                page3Complete = true;
+                page3Incomplete = false;
+                page3Incorrect = false;
+            } else if(formDisplayController.getTab() == 4) {
+                page4Complete = true;
+                page4Incomplete = false;
+                page4Incorrect = false;
+            }
+        } else if (sectionMarkComboBox.getValue().equals("Incomplete")) {
+            if(formDisplayController.getTab() == 1) {
+                page1Complete = false;
+                page1Incomplete = true;
+                page1Incorrect = false;
+            } else if(formDisplayController.getTab() == 2) {
+                page2Complete = false;
+                page2Incomplete = true;
+                page2Incorrect = false;
+            } else if(formDisplayController.getTab() == 3) {
+                page3Complete = false;
+                page3Incomplete = true;
+                page3Incorrect = false;
+            } else if(formDisplayController.getTab() == 4) {
+                page4Complete = false;
+                page4Incomplete = true;
+                page4Incorrect = false;
+            }
         } else {
-
+            if(formDisplayController.getTab() == 1) {
+                page1Complete = false;
+                page1Incomplete = false;
+                page1Incorrect = true;
+            } else if(formDisplayController.getTab() == 2) {
+                page2Complete = false;
+                page2Incomplete = false;
+                page2Incorrect = true;
+            } else if(formDisplayController.getTab() == 3) {
+                page3Complete = false;
+                page3Incomplete = false;
+                page3Incorrect = true;
+            } else if(formDisplayController.getTab() == 4) {
+                page4Complete = false;
+                page4Incomplete = false;
+                page4Incorrect = true;
+            }
         }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        /**
+         * The different combo box options
+         */
+        sectionMarkComboBox.getItems().addAll("Complete", "Incomplete", "Incorrect");
+
         sendAgentButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -243,8 +320,8 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                     yikes.show();
                 } else {
                     to_recv.loadUser();
-                        Thread mailThread = new  Thread( new Mailer(to_recv, message.getText()));
-                        mailThread.start();
+                    Thread mailThread = new  Thread( new Mailer(to_recv, message.getText()));
+                    mailThread.start();
                     AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
                     db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
                     AttributeContainer.getInstance().currentForm = null;
@@ -253,11 +330,5 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                 }
             }
         });
-
-        /**The different combo box options
-         *
-         */
-    //    markAsComboBox.getItems().addAll("Complete, Incomplete, Incorrect");
-
     }
 }
