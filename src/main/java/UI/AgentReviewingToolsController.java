@@ -4,10 +4,7 @@ import DB.Database;
 import Entities.Agent;
 import Entities.Mailer;
 import SearchAlgo.AsciiPrinter;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -120,6 +117,9 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
 
     @FXML
     Button sendAgentButton;
+
+    @FXML
+    JFXToggleButton helpToggleButton;
 
     @FXML
     JFXTextField email;
