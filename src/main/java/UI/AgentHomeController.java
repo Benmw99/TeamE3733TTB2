@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import com.jfoenix.controls.*;
 import javafx.scene.layout.AnchorPane;
@@ -230,6 +231,11 @@ public class AgentHomeController extends PageControllerUI implements Initializab
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
             goToPage("AgentHome.fxml");
+        } else {
+            Alert yikes = new Alert(Alert.AlertType.WARNING);
+            yikes.setContentText("Please select a form!");
+            yikes.setHeaderText("Invalid Form Selection");
+            yikes.show();
         }
     }
 
@@ -241,12 +247,17 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     public void rejectForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
-            ((Agent)AttributeContainer.getInstance().currentUser).rejectForm(AttributeContainer.getInstance().currentForm);
+            ((Agent)AttributeContainer.getInstance().currentUser).rejectForm(AttributeContainer.getInstance().currentForm, "");
              attributeContainer.currentForm = null;
             attributeContainer.formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
             goToPage("AgentHome.fxml");
+        } else {
+            Alert yikes = new Alert(Alert.AlertType.WARNING);
+            yikes.setContentText("Please select a form!");
+            yikes.setHeaderText("Invalid Form Selection");
+            yikes.show();
         }
     }
 
@@ -257,7 +268,14 @@ public class AgentHomeController extends PageControllerUI implements Initializab
      */
     @FXML
     public void reviewingTools(ActionEvent event) throws IOException {
-        goToPage("AgentReviewingTools.fxml");
+        if(AttributeContainer.getInstance().currentForm != null) {
+            goToPage("AgentReviewingTools.fxml");
+        } else {
+            Alert yikes = new Alert(Alert.AlertType.WARNING);
+            yikes.setContentText("Please select a form!");
+            yikes.setHeaderText("Invalid Form Selection");
+            yikes.show();
+        }
     }
 
     /**

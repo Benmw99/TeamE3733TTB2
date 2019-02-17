@@ -232,7 +232,7 @@ public class Agent implements IUser{
         db.dbInsert.updateApproval(form);
     }
 
-    public void rejectForm(Form form) {
+    public void rejectForm(Form form, String qualifications) {
         DB.Database db = DB.Database.getDatabase();
         form.setApproval(new Approval());
         Approval app = form.getApproval();
@@ -241,12 +241,14 @@ public class Agent implements IUser{
         app.setPage2(ApprovalStatus.Incorrect);
         app.setPage3(ApprovalStatus.Incorrect);
         app.setPage4(ApprovalStatus.Incorrect);
+        app.setQualifications(qualifications);
         form.setApprovalStatus(ApprovalStatus.Incorrect);
         form.setApproval(app);
    //     Mailer inform = new Mailer();
      //   inform.sendMail(form);
         db.dbInsert.updateApproval(form);
     }
+
 
     void fillQueue() {
 
