@@ -2,6 +2,7 @@ package UI;
 
 import DB.Database;
 import Entities.Agent;
+import Entities.Mailer;
 import SearchAlgo.AsciiPrinter;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -221,10 +222,13 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                 Agent to_recv = new Agent();
                 to_recv.setLogin(email.getText());
                 Database db = Database.getDatabase();
+
                 if(db.dbSelect.checkIfUsedAgent(email.getText())){
                     //TODO Hannah this is where you put any code you want to run if the user is fake.
                 }
                 to_recv.loadUser();
+                Mailer mail = new Mailer();
+                mail.sendAgentMail(to_recv);
                 AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
                 db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
                 AttributeContainer.getInstance().currentForm = null;
