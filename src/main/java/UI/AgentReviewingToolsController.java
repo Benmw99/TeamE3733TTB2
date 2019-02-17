@@ -136,10 +136,12 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     ///////////////////////////////////////////////////
 
     @Override
-    void onLoad(){}
+    void onLoad() {
+    }
 
     @Override
-    protected void onLeave(){}
+    protected void onLeave() {
+    }
 
     //New controller overrides
     @FXML
@@ -150,6 +152,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
 
     /**
      * Set approval status of current form to approved
+     *
      * @param event
      * @throws IOException
      */
@@ -166,6 +169,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
 
     /**
      * Set approval status of current form to rejected
+     *
      * @param event
      * @throws IOException
      */
@@ -180,6 +184,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
 
     /**
      * Sends current form to printable format
+     *
      * @param event
      * @throws IOException
      */
@@ -192,11 +197,12 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
 
     /**
      * Directs Agent back to home page
+     *
      * @param event
      * @throws IOException
      */
     @FXML
-   public void returnHome(ActionEvent event) throws IOException {
+    public void returnHome(ActionEvent event) throws IOException {
         goToPage("AgentHome.fxml");
     }
 
@@ -204,7 +210,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
      * Marks page of form as complete/incomplete/incorrect
      */
     public void markForm() {
-        if(markAsComboBox.getValue() == "Complete"){
+        if (markAsComboBox.getValue() == "Complete") {
 
         } else if (markAsComboBox.getValue().equals("Incomplete")) {
 
@@ -226,15 +232,15 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                 to_recv.setLogin(email.getText());
                 Database db = Database.getDatabase();
 
-                if(!db.dbSelect.checkIfUsedAgent(email.getText())){
+                if (!db.dbSelect.checkIfUsedAgent(email.getText())) {
                     Alert yikes = new Alert(Alert.AlertType.WARNING);
                     yikes.setContentText("User does not exist");
                     yikes.setHeaderText("Error");
                     yikes.show();
                 } else {
                     to_recv.loadUser();
-                        Mailer mail = new Mailer();
-                      mail.sendAgentMail(to_recv, message.getText());
+                    Mailer mail = new Mailer();
+                    mail.sendAgentMail(to_recv, message.getText());
                     AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
                     db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
                     AttributeContainer.getInstance().currentForm = null;
@@ -247,21 +253,28 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
         /**The different combo box options
          *
          */
-    //    markAsComboBox.getItems().addAll("Complete, Incomplete, Incorrect");
+        //    markAsComboBox.getItems().addAll("Complete, Incomplete, Incorrect");
 
-       /* largePane.setVisible(false);
-        smallPane.setVisible(false);
 
-        helpToggleButton.selectedProperty().addListener(new ChangeListener < helpToggleButton > () {
-            @Override
-            public void changed(ObservableValue < ? extends helpToggleButton > ov, helpToggleButton t, helpToggleButton t1) {
-                paneA.setManaged(false);
-                paneA.setVisible(false);
-                paneB.setManaged(true);
-                paneB.setVisible(true);
-            }
-        }); */
+        if (helpToggleButton.isSelected() == false) {
+
+            largePane.setDisable(true);
+            smallPane.setDisable(true);
+            largePane.setVisible(false);
+            smallPane.setVisible(false);
+
+        }
+
+        else if (helpToggleButton.isSelected() == true) {
+
+            largePane.setDisable(false);
+            smallPane.setDisable(false);
+            largePane.setVisible(true);
+            smallPane.setVisible(true);
+
+        }
+
     }
 
-    }
+}
 
