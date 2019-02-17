@@ -1,20 +1,30 @@
 package UI;
 
+import DB.Database;
 import Entities.Agent;
+import Entities.Mailer;
 import SearchAlgo.AsciiPrinter;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class AgentViewFormController extends PageControllerUI {
+public class AgentReviewingToolsController extends PageControllerUI implements Initializable {
 
     @FXML
-    JFXComboBox markAsComboBox;
+    JFXComboBox<String> markAsComboBox;
 
     @FXML
     JFXButton printViewFormButton;
@@ -108,7 +118,17 @@ public class AgentViewFormController extends PageControllerUI {
     @FXML
     Label Display20Label;
 
+    @FXML
+    Button sendAgentButton;
 
+    @FXML
+    JFXTextField email;
+
+    @FXML
+    JFXTextArea message;
+
+    @FXML
+    JFXTextField ttb_id;
 
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
@@ -185,11 +205,48 @@ public class AgentViewFormController extends PageControllerUI {
     public void markForm() {
         if(markAsComboBox.getValue() == "Complete"){
 
-        } else if (markAsComboBox.getValue() == "Incomplete") {
+        } else if (markAsComboBox.getValue().equals("Incomplete")) {
 
         } else {
 
         }
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        sendAgentButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                /**
+                 * This is the logic which takes care of sending a form to an agent... it loads the agent based on the login
+                 *
+                 */
+                Agent to_recv = new Agent();
+                to_recv.setLogin(email.getText());
+                Database db = Database.getDatabase();
+
+                if(!db.dbSelect.checkIfUsedAgent(email.getText())){
+                    Alert yikes = new Alert(Alert.AlertType.WARNING);
+                    yikes.setContentText("User does not exist");
+                    yikes.setHeaderText("Error");
+                    yikes.show();
+                } else {
+                    to_recv.loadUser();
+                        Mailer mail = new Mailer();
+                      mail.sendAgentMail(to_recv, message.getText());
+                    AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
+                    db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
+                    AttributeContainer.getInstance().currentForm = null;
+                    AttributeContainer.getInstance().formQueue = ((Agent) AttributeContainer.getInstance().currentUser).getCurrentQueue();
+                    goToPage("AgentHome.fxml");
+                }
+            }
+        });
+
+        /**The different combo box options
+         *
+         */
+    //    markAsComboBox.getItems().addAll("Complete, Incomplete, Incorrect");
+
+    }
 }

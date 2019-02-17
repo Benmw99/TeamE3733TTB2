@@ -1,10 +1,11 @@
 package Entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "BREWERSPERMIT")
-public class BrewersPermit {
+public class BrewersPermit implements Serializable {
     @Column(name = "Brewers_No")
     private String brewersNo;
 
@@ -53,6 +54,7 @@ public class BrewersPermit {
     public void setPrimary(boolean primary) {
         isPrimary = primary;
     }
+    //TODO: TODOs and github issues are dead nothing i write here matters
 
     //public int getTtbid() {
     //    return ttbid;

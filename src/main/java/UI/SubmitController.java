@@ -5,7 +5,7 @@ import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
 
 import java.util.ArrayList;
-
+@Deprecated
 public class SubmitController extends PageControllerUI {
 
     @FXML

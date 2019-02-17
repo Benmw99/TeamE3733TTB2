@@ -16,7 +16,7 @@ public class AsciiPrinter {
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
         File output = new File(home + "/Downloads/" + "TTBSearch" + dateFormat.format(date) + ".csv");
-        try {
+        try {   //TODO: YEET
             FileWriter fw = new FileWriter(output);
             fw.write("TTBID");
             fw.write(Sep);

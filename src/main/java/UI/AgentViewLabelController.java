@@ -1,5 +1,5 @@
 package UI;
-
+@Deprecated
 public class AgentViewLabelController extends PageControllerUI {
 
     @Override

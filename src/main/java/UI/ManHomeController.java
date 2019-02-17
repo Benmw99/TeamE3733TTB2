@@ -36,9 +36,9 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
     @FXML
     JFXTextField searchAppsTextField;
 
-    FormViewController formViewController;
+    FormDisplayController formViewController;
 
-    public FormViewController getFormViewController() {
+    public FormDisplayController getFormViewController() {
         return formViewController;
     }
 

@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 import java.util.ArrayList;
-
+@Deprecated
 public class FormSubmitController {
     @FXML
     JFXTextField RepIDField;
