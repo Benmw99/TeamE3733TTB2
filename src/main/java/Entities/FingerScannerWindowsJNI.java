@@ -1,6 +1,6 @@
 package Entities;
 
-public class FingerScannerJNI {
+public class FingerScannerWindowsJNI {
     static {
         System.loadLibrary("hello"); // Load native library hello.dll (Windows) or libhello.so (Unixes)
         //  at runtime
@@ -10,8 +10,9 @@ public class FingerScannerJNI {
 
     // Test Driver
     public static void main(String[] args) {
-        new FingerScannerJNI().sayHello();  // Create an instance and invoke the native method
+        new FingerScannerWindowsJNI().sayHello();  // Create an instance and invoke the native method
     }
+
 
 
 }
