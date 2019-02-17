@@ -58,7 +58,7 @@ public class Mailer {
 
     }
 
-    public void sendAgentMail(Agent to_inform) {
+    public void sendAgentMail(Agent to_inform, String msg) {
         String host = "smtp.gmail.com";
         String from = "TTBTEAME@gmail.com";
         String pass = "michaelclements";
@@ -85,6 +85,8 @@ public class Mailer {
             String body = "Hello ";
             body += ",\n";
             body += "You have been assigned a new form. Please log in and check your TTB Form Queue.\n";
+            body += "The sending agent has specified the following message: \n";
+            body += msg + "\n";
             body += "\n Sincerely yours,";
             body += "The Ebony Elves' TTB Application";
             message.setText(body);

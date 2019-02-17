@@ -6,6 +6,8 @@ import Entities.Mailer;
 import SearchAlgo.AsciiPrinter;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -120,13 +122,13 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     Button sendAgentButton;
 
     @FXML
-    TextField email;
+    JFXTextField email;
 
     @FXML
-    TextField message;
+    JFXTextArea message;
 
     @FXML
-    TextField ttb_id;
+    JFXTextField ttb_id;
 
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
@@ -217,29 +219,27 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
             public void handle(ActionEvent event) {
                 /**
                  * This is the logic which takes care of sending a form to an agent... it loads the agent based on the login
-                 * Right now, there is no real logic to make sure that the agent exists... and it will go to a null agent if there
-                 * isnt a valid one...
+                 *
                  */
                 Agent to_recv = new Agent();
                 to_recv.setLogin(email.getText());
                 Database db = Database.getDatabase();
 
-                if(db.dbSelect.checkIfUsedAgent(email.getText())){
-
+                if(!db.dbSelect.checkIfUsedAgent(email.getText())){
                     Alert yikes = new Alert(Alert.AlertType.WARNING);
                     yikes.setContentText("User does not exist");
                     yikes.setHeaderText("Error");
                     yikes.show();
-
+                } else {
+                    to_recv.loadUser();
+                        Mailer mail = new Mailer();
+                      mail.sendAgentMail(to_recv, message.getText());
+                    AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
+                    db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
+                    AttributeContainer.getInstance().currentForm = null;
+                    AttributeContainer.getInstance().formQueue = ((Agent) AttributeContainer.getInstance().currentUser).getCurrentQueue();
+                    goToPage("AgentHome.fxml");
                 }
-                to_recv.loadUser();
-            //    Mailer mail = new Mailer();
-              //  mail.sendAgentMail(to_recv);
-                AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
-                db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
-                AttributeContainer.getInstance().currentForm = null;
-                AttributeContainer.getInstance().formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
-                goToPage("AgentHome.fxml");
             }
         });
 
