@@ -30,7 +30,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ManAppController extends PageControllerUI implements  Initializable {
+public class AppController extends PageControllerUI implements  Initializable {
     @FXML
     public JFXButton SendApp;
     @FXML

@@ -15,9 +15,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class FormViewController extends PageControllerUI implements Initializable {
+public class FormDisplayController extends PageControllerUI implements Initializable {
 
-    public FormViewController(){
+    public FormDisplayController(){
 
     }
     @FXML
