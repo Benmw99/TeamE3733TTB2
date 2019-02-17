@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -24,6 +25,11 @@
                      </font>
                   </Text>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
+                  <JFXToggleButton layoutX="1218.0" layoutY="15.0" text="Help">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                     </font>
+                  </JFXToggleButton>
                </children>
             </Pane>
             <Pane layoutX="-1.0" layoutY="88.0" prefHeight="675.0" prefWidth="358.0" style="-fx-background-color: #eeeeee;">
@@ -138,5 +144,22 @@
          </children>
       </VBox>
       <fx:include fx:id="hamburger" source="MenuDrawer.fxml" />
+      <Pane opacity="0.94" prefHeight="768.0" prefWidth="1374.0" style="-fx-background-color: grey;">
+         <children>
+            <JFXButton buttonType="RAISED" layoutX="519.0" layoutY="98.0" style="-fx-background-color: #4285f4;" text="Approve Form" textFill="WHITE">
+               <font>
+                  <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+               </font>
+               <ripplerFill>
+                  <RadialGradient centerX="0.5056179775280899" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="WHITE" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+            </JFXButton>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
