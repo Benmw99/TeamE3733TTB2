@@ -213,10 +213,16 @@ public class AgentViewFormController extends PageControllerUI implements Initial
         sendAgentButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                /**
+                 * This is the logic which takes care of sending a form to an agent... it loads the agent based on the login
+                 * Right now, there is no real logic to make sure that the agent exists... and it will go to a null agent if there
+                 * isnt a valid one...
+                 */
                 Agent to_recv = new Agent();
                 to_recv.setLogin(email.getText());
-                to_recv.loadUser();
                 Database db = Database.getDatabase();
+                db.dbSelect.checkIfUsedAgent(email.getText());
+                to_recv.loadUser();
                 AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
                 db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
                 AttributeContainer.getInstance().currentForm = null;
@@ -228,7 +234,7 @@ public class AgentViewFormController extends PageControllerUI implements Initial
         /**The different combo box options
          *
          */
-        markAsComboBox.getItems().addAll("Complete, Incomplete, Incorrect");
+    //    markAsComboBox.getItems().addAll("Complete, Incomplete, Incorrect");
 
     }
 }
