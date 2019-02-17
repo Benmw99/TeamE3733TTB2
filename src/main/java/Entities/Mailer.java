@@ -15,6 +15,10 @@ public class Mailer {
 
     }
 
+    /**
+     * Informs the comopany that their form has been updated
+     * @param to_inform the form which has been updated, which has the company to be informed.
+     */
     public void sendMail(Form to_inform) {
         String host = "smtp.gmail.com";
         String from = "TTBTEAME@gmail.com";
@@ -58,6 +62,11 @@ public class Mailer {
 
     }
 
+    /**
+     * Sends a message to an agent when they have a form updated
+     * @param to_inform the agent to be emailed
+     * @param msg the message to send
+     */
     public void sendAgentMail(Agent to_inform, String msg) {
         String host = "smtp.gmail.com";
         String from = "TTBTEAME@gmail.com";
