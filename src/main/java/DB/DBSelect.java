@@ -664,6 +664,7 @@ public class DBSelect {
                 LabelImage image = (LabelImage) iterator.next();
                 results.add(image);
             }
+            //TODO: Hey hows it going?
             tx.commit();
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();

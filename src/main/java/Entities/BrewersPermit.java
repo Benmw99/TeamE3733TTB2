@@ -54,6 +54,7 @@ public class BrewersPermit implements Serializable {
     public void setPrimary(boolean primary) {
         isPrimary = primary;
     }
+    //TODO: TODOs and github issues are dead nothing i write here matters
 
     //public int getTtbid() {
     //    return ttbid;
