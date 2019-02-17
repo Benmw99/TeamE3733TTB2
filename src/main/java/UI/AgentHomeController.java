@@ -189,7 +189,7 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     void newApp() {
         attributeContainer.currentForm = new Form();
-//        goToPage("AgentApp.fxml");//TODO: this is not a page
+//        goToPage("App.fxml");//TODO: this is not a page
     }
 
     //New controller overrides

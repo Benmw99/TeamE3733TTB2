@@ -1,6 +1,5 @@
 package UI;
 
-import DB.Database;
 import Entities.Agent;
 import SearchAlgo.AsciiPrinter;
 import com.jfoenix.controls.JFXButton;
@@ -17,10 +16,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AgentViewFormController extends PageControllerUI implements Initializable {
+public class AgentReviewingToolsController extends PageControllerUI {
 
     @FXML
-    JFXComboBox markAsComboBox;
+    JFXComboBox<String> markAsComboBox;
 
     @FXML
     JFXButton printViewFormButton;

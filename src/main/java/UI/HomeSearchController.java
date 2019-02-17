@@ -29,7 +29,7 @@ import java.util.ResourceBundle;
 
 import static Entities.AlcoholType.*;
 
-public class CivilController extends PageControllerUI implements Initializable {
+public class HomeSearchController extends PageControllerUI implements Initializable {
 
 
 

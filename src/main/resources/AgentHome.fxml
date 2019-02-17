@@ -55,7 +55,8 @@
                            <ripplerFill>
                               <RadialGradient centerX="0.5056179775280899" centerY="0.5" radius="0.5">
                                  <stops>
-                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" />
+                                    <Stop color="WHITE" offset="0.007434944237918215" />
                                     <Stop color="WHITE" offset="1.0" />
                                  </stops>
                               </RadialGradient>
@@ -71,7 +72,8 @@
                            <ripplerFill>
                               <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                                  <stops>
-                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" />
+                                    <Stop color="WHITE" offset="0.007434944237918215" />
                                     <Stop color="WHITE" offset="1.0" />
                                  </stops>
                               </RadialGradient>
@@ -92,7 +94,8 @@
                            <ripplerFill>
                               <RadialGradient centerX="0.5056179775280899" centerY="0.5" radius="0.5">
                                  <stops>
-                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" />
+                                    <Stop color="WHITE" offset="0.007434944237918215" />
                                     <Stop color="WHITE" offset="1.0" />
                                  </stops>
                               </RadialGradient>
@@ -135,7 +138,7 @@
                   <RadialGradient centerX="0.5112359550561798" centerY="0.5" radius="0.5">
                      <stops>
                         <Stop color="BLACK" />
-                        <Stop color="BLACK" offset="0.007434944237918215" />
+                        <Stop color="WHITE" offset="0.007434944237918215" />
                         <Stop color="#ffffff97" offset="1.0" />
                      </stops>
                   </RadialGradient>
