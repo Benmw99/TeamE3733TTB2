@@ -1,12 +1,13 @@
 package Entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.Calendar;
 
 @Entity
 @Table(name = "APPROVAL")
-public class Approval {
+public class Approval implements Serializable {
     @Enumerated
     @Column(name = "Page_1", columnDefinition = "smallint")
     private ApprovalStatus page1;
@@ -30,7 +31,7 @@ public class Approval {
     private String agentApprovalName;
 
     @Column(name = "Expiration", columnDefinition = "DATE")
-    private Date expDate;
+    private transient Date expDate;
 
     @Column(name = "Qualification")
     private String qualifications;

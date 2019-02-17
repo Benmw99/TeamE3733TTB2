@@ -1,10 +1,11 @@
 package Entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "BREWERSPERMIT")
-public class BrewersPermit {
+public class BrewersPermit implements Serializable {
     @Column(name = "Brewers_No")
     private String brewersNo;
 
