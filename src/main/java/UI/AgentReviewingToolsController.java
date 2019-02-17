@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -224,7 +225,12 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                 Database db = Database.getDatabase();
 
                 if(db.dbSelect.checkIfUsedAgent(email.getText())){
-                    //TODO Hannah this is where you put any code you want to run if the user is fake.
+
+                    Alert yikes = new Alert(Alert.AlertType.WARNING);
+                    yikes.setContentText("User does not exist");
+                    yikes.setHeaderText("Error");
+                    yikes.show();
+
                 }
                 to_recv.loadUser();
             //    Mailer mail = new Mailer();
