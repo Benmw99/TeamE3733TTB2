@@ -11,7 +11,7 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 
-public class AgentViewFormController extends PageControllerUI {
+public class AgentReviewingToolsController extends PageControllerUI {
 
     @FXML
     JFXComboBox markAsComboBox;
