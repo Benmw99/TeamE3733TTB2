@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 public class AgentViewFormController extends PageControllerUI implements Initializable {
 
     @FXML
-    JFXComboBox markAsComboBox;
+    JFXComboBox<String> markAsComboBox;
 
     @FXML
     JFXButton printViewFormButton;
