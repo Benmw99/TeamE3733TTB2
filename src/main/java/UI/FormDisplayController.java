@@ -6,6 +6,7 @@ import Entities.LabelImage;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -74,6 +75,9 @@ public class FormDisplayController extends PageControllerUI implements Initializ
 
     @FXML
     ImageView Display19Image1;
+
+    @FXML
+    TabPane tabPane;
 
     /**
      * Displays the current form as specified in the AttributeContainer Singleton
@@ -229,5 +233,25 @@ public class FormDisplayController extends PageControllerUI implements Initializ
             wipeForm();
         }
     }
+
+    /**
+     * Gets current tab of display
+     */
+    public int getTab() {
+        int tab;
+        if (tabPane.getSelectionModel().getSelectedItem().getText() == "Section 1") {
+            tab = 1;
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText() == "Section 2") {
+            tab = 2;
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText() == "Section 3") {
+            tab = 3;
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText() == "Section 4") {
+            tab = 4;
+        } else {
+            tab = -1;
+        }
+        return tab;
+    }
+
 }
 

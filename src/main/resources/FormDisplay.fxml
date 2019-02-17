@@ -18,7 +18,7 @@
             <children>
                 <Pane prefWidth="1006.0" style="-fx-background-color: white;">
                     <children>
-                        <JFXTabPane prefHeight="586.0" prefWidth="1006.0" stylesheets="@TabPane.css">
+                        <JFXTabPane fx:id="tabPane" prefHeight="586.0" prefWidth="1006.0" stylesheets="@TabPane.css">
                             <tabs>
                                 <Tab text="Section 1">
                                     <content>
