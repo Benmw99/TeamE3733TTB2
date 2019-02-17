@@ -144,22 +144,5 @@
          </children>
       </VBox>
       <fx:include fx:id="hamburger" source="MenuDrawer.fxml" />
-      <Pane opacity="0.94" prefHeight="768.0" prefWidth="1374.0" style="-fx-background-color: grey;">
-         <children>
-            <JFXButton buttonType="RAISED" layoutX="519.0" layoutY="98.0" style="-fx-background-color: #4285f4;" text="Approve Form" textFill="WHITE">
-               <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="24.0" />
-               </font>
-               <ripplerFill>
-                  <RadialGradient centerX="0.5056179775280899" centerY="0.5" radius="0.5">
-                     <stops>
-                        <Stop color="WHITE" />
-                        <Stop color="WHITE" offset="1.0" />
-                     </stops>
-                  </RadialGradient>
-               </ripplerFill>
-            </JFXButton>
-         </children>
-      </Pane>
    </children>
 </AnchorPane>

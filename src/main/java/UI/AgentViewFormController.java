@@ -179,4 +179,17 @@ public class AgentViewFormController extends PageControllerUI {
         goToPage("AgentHome.fxml");
     }
 
+    /**
+     * Marks page of form as complete/incomplete/incorrect
+     */
+    public void markForm() {
+        if(markAsComboBox.getValue() == "Complete"){
+
+        } else if (markAsComboBox.getValue() == "Incomplete") {
+
+        } else {
+
+        }
+    }
+
 }

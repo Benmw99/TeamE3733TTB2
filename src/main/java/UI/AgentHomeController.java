@@ -252,7 +252,7 @@ public class AgentHomeController extends PageControllerUI implements Initializab
      */
     @FXML
     public void reviewingTools(ActionEvent event) throws IOException {
-        goToPage("AgentViewForm.fxml");
+        goToPage("AgentReviewingTools.fxml");
     }
 
     /**
@@ -298,7 +298,7 @@ public class AgentHomeController extends PageControllerUI implements Initializab
             }
         }
   //      hamburger.toBack();
-//(true);
+//(true);a
         GetNewQueueButton.toFront();
 
 //        AttributeContainer.getInstance().formQueue = Database.getDatabase().dbSelect.getNext(AttributeContainer.getInstance().numForQueue);
