@@ -1,17 +1,23 @@
 package UI;
 
+import DB.Database;
 import Entities.Agent;
 import SearchAlgo.AsciiPrinter;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class AgentViewFormController extends PageControllerUI {
+public class AgentViewFormController extends PageControllerUI implements Initializable {
 
     @FXML
     JFXComboBox markAsComboBox;
@@ -108,7 +114,17 @@ public class AgentViewFormController extends PageControllerUI {
     @FXML
     Label Display20Label;
 
+    @FXML
+    Button sendAgentButton;
 
+    @FXML
+    TextField email;
+
+    @FXML
+    TextField message;
+
+    @FXML
+    TextField ttb_id;
 
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
@@ -192,4 +208,21 @@ public class AgentViewFormController extends PageControllerUI {
         }
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        sendAgentButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Agent to_recv = new Agent();
+                to_recv.setLogin(email.getText());
+                to_recv.loadUser();
+                Database db = Database.getDatabase();
+                AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
+                db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
+                AttributeContainer.getInstance().currentForm = null;
+                AttributeContainer.getInstance().formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
+                goToPage("AgentHome.fxml");
+            }
+        });
+    }
 }
