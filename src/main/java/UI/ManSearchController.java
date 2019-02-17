@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 import com.jfoenix.controls.*;
 
 import java.sql.Timestamp;
-
+@Deprecated
 public class ManSearchController extends PageControllerUI  {
 
     @FXML

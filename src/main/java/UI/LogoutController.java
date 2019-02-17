@@ -3,7 +3,7 @@ package UI;
 import javafx.fxml.FXML;
 
 import java.awt.*;
-
+@Deprecated
 public class LogoutController extends PageControllerUI {
     @FXML
     Button LogOutButton;

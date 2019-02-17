@@ -1,5 +1,6 @@
 package Entities;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
@@ -7,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "FORM")
-public class Form{
+public class Form implements Serializable {
     @Column(name = "Rep_ID")
     private String repID;
 
@@ -60,7 +61,7 @@ public class Form{
     private String otherInfo;
 
     @Column(name = "Date_Submitted", columnDefinition = "DATE")
-    private Date dateSubmitted;
+    private transient Date dateSubmitted;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -409,6 +410,70 @@ public class Form{
             }
         }
         return(this.brewersPermit.size() == resultList.size());
+    }
+
+    /////////////////////////////////////////////////////////////////////////////
+    //                    Serialization Code (write to file)                   //
+    /////////////////////////////////////////////////////////////////////////////
+    boolean serialize(String filename)  {
+        // Serialization
+        try
+        {
+            //Saving of object in a file
+            FileOutputStream file = new FileOutputStream(filename);
+            ObjectOutputStream out = new ObjectOutputStream(file);
+            // Method for serialization of object
+            out.writeObject(this);
+            out.close();
+            file.close();
+            System.out.println("form has been serialized");
+        }
+        catch(IOException ex)
+        {
+            System.out.println("IOException is caught");
+            return false;
+        }
+        return true;
+    }
+
+    /** Reads a form serial file and returns the object
+     *
+     * @param filename
+     * @return the form
+     */
+    static Form deserialize(String filename){
+        Form form = null;
+
+        // Deserialization
+        try
+        {
+            // Reading the object from a file
+            FileInputStream file = new FileInputStream(filename);
+            ObjectInputStream in = new ObjectInputStream(file);
+
+            // Method for deserialization of object
+            form = (Form)in.readObject();
+
+            in.close();
+            file.close();
+
+            System.out.println("Object has been deserialized ");
+//            System.out.println("BrandName = " + object1.getBrandName());
+//            System.out.println("fancyName = " + object1.getFancifulName());
+//            System.out.println("Approval = " + object1.getApprovalStatus());
+//            System.out.println("Email = " + object1.getEmail());
+        }
+
+        catch(IOException ex)
+        {
+            System.out.println("IOException is caught");
+        }
+
+        catch(ClassNotFoundException ex)
+        {
+            System.out.println("ClassNotFoundException is caught");
+        }
+        return form;
     }
 
 }
