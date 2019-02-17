@@ -224,5 +224,11 @@ public class AgentViewFormController extends PageControllerUI implements Initial
                 goToPage("AgentHome.fxml");
             }
         });
+
+        /**The different combo box options
+         *
+         */
+        markAsComboBox.getItems().addAll("Complete, Incomplete, Incorrect");
+
     }
 }
