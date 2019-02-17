@@ -1,5 +1,6 @@
 package UI;
 
+import DB.Database;
 import Entities.Agent;
 import SearchAlgo.AsciiPrinter;
 import com.jfoenix.controls.JFXButton;
@@ -16,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AgentReviewingToolsController extends PageControllerUI {
+public class AgentReviewingToolsController extends PageControllerUI implements Initializable {
 
     @FXML
     JFXComboBox<String> markAsComboBox;
@@ -200,7 +201,7 @@ public class AgentReviewingToolsController extends PageControllerUI {
     public void markForm() {
         if(markAsComboBox.getValue() == "Complete"){
 
-        } else if (markAsComboBox.getValue() == "Incomplete") {
+        } else if (markAsComboBox.getValue().equals("Incomplete")) {
 
         } else {
 
