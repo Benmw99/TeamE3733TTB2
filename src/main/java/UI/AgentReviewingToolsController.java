@@ -159,7 +159,11 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
             //TODO: get qualifications from text field
             ((Agent) attributeContainer.currentUser).approveForm(attributeContainer.currentForm, "");
             attributeContainer.formQueue.remove(attributeContainer.currentForm);
+            ((Agent) attributeContainer.currentUser).getCurrentQueue();
+            Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
+            mailThread.start();
             attributeContainer.currentForm = null;
+            goToPage("AgentHome.fxml");
         }
     }
 
@@ -173,7 +177,11 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
         if (!(attributeContainer.currentForm == null)) {
             ((Agent) attributeContainer.currentUser).rejectForm(attributeContainer.currentForm);
             attributeContainer.formQueue.remove(attributeContainer.currentForm);
+            ((Agent) attributeContainer.currentUser).getCurrentQueue();
+            Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
+            mailThread.start();
             attributeContainer.currentForm = null;
+            goToPage("AgentHome.fxml");
         }
     }
 
