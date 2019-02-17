@@ -4,9 +4,12 @@
 <?import com.jfoenix.controls.JFXClippedPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
@@ -107,5 +110,141 @@
          </children>
       </JFXClippedPane>
       <fx:include source="MenuDrawer.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Pane layoutX="292.0" layoutY="147.0" prefHeight="471.0" prefWidth="877.0" style="-fx-background-color: #9ea7aa;">
+         <children>
+            <HBox prefHeight="564.0" prefWidth="821.0">
+               <children>
+                  <VBox prefHeight="564.0" prefWidth="264.0">
+                     <children>
+                        <JFXButton buttonType="RAISED" style="-fx-background-color: #800020;" text="Download" textFill="WHITE">
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                           </font>
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="80.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" style="-fx-background-color: #800020;" text="View Agent Comments" textFill="WHITE">
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="35.0" top="15.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" style="-fx-background-color: #800020;" text="Refresh" textFill="WHITE">
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="90.0" top="15.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton style="-fx-background-radius: 15; -fx-background-color: #800020;" text="+" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="120.0" top="15.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" style="-fx-background-color: #800020;" text="Print" textFill="WHITE">
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="100.0" top="15.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXTextField prefHeight="36.0" prefWidth="179.0" style="-fx-background-color: WHITE;" text="Search Applications">
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="5.0" top="15.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXToggleButton text="Edit">
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="75.0" top="15.0" />
+                           </VBox.margin>
+                        </JFXToggleButton>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="564.0" prefWidth="555.0">
+                     <children>
+                        <Label text="Selecting this button allows you to download the selected application">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="15.0" top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Selecting this button allows you to view the comments made by an agent on a selected application" wrapText="true">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="15.0" top="18.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Selecting this button allows you to refesh your application list">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="15.0" top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Selecting this button will allow you to start a new application">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="15.0" top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Selecting this button will allow you to print a new page">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="15.0" top="35.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Typing into this search bar and hitting the &quot;return&quot; button will allow you to search all of your applications  " wrapText="true">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="15.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Selecting this button will allow you to edit a previously-submitted application">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="15.0" top="30.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
