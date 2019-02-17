@@ -221,7 +221,9 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                 Agent to_recv = new Agent();
                 to_recv.setLogin(email.getText());
                 Database db = Database.getDatabase();
-                db.dbSelect.checkIfUsedAgent(email.getText());
+                if(db.dbSelect.checkIfUsedAgent(email.getText())){
+                    //TODO Hannah this is where you put any code you want to run if the user is fake.
+                }
                 to_recv.loadUser();
                 AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
                 db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
