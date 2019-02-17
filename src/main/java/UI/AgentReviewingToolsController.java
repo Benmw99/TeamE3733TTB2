@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,7 +22,13 @@ import java.util.ResourceBundle;
 public class AgentReviewingToolsController extends PageControllerUI implements Initializable {
 
     @FXML
+    StackPane largePane, smallPane;
+
+    @FXML
     JFXComboBox<String> markAsComboBox;
+
+    @FXML
+    JFXToggleButton helpToggleButton;
 
     @FXML
     JFXButton printViewFormButton;
@@ -119,16 +126,10 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     Button sendAgentButton;
 
     @FXML
-    JFXToggleButton helpToggleButton;
-
-    @FXML
     JFXTextField email;
 
     @FXML
     JFXTextArea message;
-
-    @FXML
-    JFXTextField ttb_id;
 
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
@@ -248,5 +249,19 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
          */
     //    markAsComboBox.getItems().addAll("Complete, Incomplete, Incorrect");
 
+       /* largePane.setVisible(false);
+        smallPane.setVisible(false);
+
+        helpToggleButton.selectedProperty().addListener(new ChangeListener < helpToggleButton > () {
+            @Override
+            public void changed(ObservableValue < ? extends helpToggleButton > ov, helpToggleButton t, helpToggleButton t1) {
+                paneA.setManaged(false);
+                paneA.setVisible(false);
+                paneB.setManaged(true);
+                paneB.setVisible(true);
+            }
+        }); */
     }
-}
+
+    }
+

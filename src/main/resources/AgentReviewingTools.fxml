@@ -540,7 +540,7 @@
             </JFXTabPane>
          </children>
       </Pane>
-      <Pane opacity="0.63" prefHeight="763.0" prefWidth="1374.0" style="-fx-background-color: white;" />
+      <Pane fx:id="largePane" opacity="0.63" prefHeight="763.0" prefWidth="1374.0" style="-fx-background-color: white;" />
       <Pane layoutX="13.0" layoutY="187.0" prefHeight="552.0" prefWidth="1349.0" style="-fx-background-color: #999999;">
          <children>
             <Text fill="WHITE" layoutX="173.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pressing this button will approve the form with the qualifications given in the Comments section." wrappingWidth="420.92169189453125">
