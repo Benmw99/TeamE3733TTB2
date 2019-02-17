@@ -1,5 +1,6 @@
 package UI;
 
+import DB.Database;
 import Entities.Agent;
 import SearchAlgo.AsciiPrinter;
 import com.jfoenix.controls.JFXButton;
@@ -16,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AgentReviewingToolsController extends PageControllerUI {
+public class AgentReviewingToolsController extends PageControllerUI implements Initializable {
 
     @FXML
     JFXComboBox<String> markAsComboBox;
@@ -200,7 +201,7 @@ public class AgentReviewingToolsController extends PageControllerUI {
     public void markForm() {
         if(markAsComboBox.getValue() == "Complete"){
 
-        } else if (markAsComboBox.getValue() == "Incomplete") {
+        } else if (markAsComboBox.getValue().equals("Incomplete")) {
 
         } else {
 
@@ -212,10 +213,18 @@ public class AgentReviewingToolsController extends PageControllerUI {
         sendAgentButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                /**
+                 * This is the logic which takes care of sending a form to an agent... it loads the agent based on the login
+                 * Right now, there is no real logic to make sure that the agent exists... and it will go to a null agent if there
+                 * isnt a valid one...
+                 */
                 Agent to_recv = new Agent();
                 to_recv.setLogin(email.getText());
-                to_recv.loadUser();
                 Database db = Database.getDatabase();
+                if(db.dbSelect.checkIfUsedAgent(email.getText())){
+                    //TODO Hannah this is where you put any code you want to run if the user is fake.
+                }
+                to_recv.loadUser();
                 AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
                 db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
                 AttributeContainer.getInstance().currentForm = null;
@@ -227,7 +236,7 @@ public class AgentReviewingToolsController extends PageControllerUI {
         /**The different combo box options
          *
          */
-        markAsComboBox.getItems().addAll("Complete, Incomplete, Incorrect");
+    //    markAsComboBox.getItems().addAll("Complete, Incomplete, Incorrect");
 
     }
 }
