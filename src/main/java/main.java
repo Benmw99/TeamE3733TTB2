@@ -27,7 +27,7 @@ public class main {
         db.dbInsert.insertAgent(new Agent("mjclements@wpi.edu", "1234", "Michael Clements"));
         db.dbInsert.insertRep(new Representative("123abc", "TestRep", "1234"));
         //db.dbInsert.insertData();
-        System.out.println("Hello Iteration 2!");
+
 
         //Oh boy lets make a complete form
         List<BrewersPermit> Brews = new ArrayList<>();
@@ -52,7 +52,8 @@ public class main {
 
         db.dbInsert.insertForm(form);
 
+
+        System.out.println("Hello Iteration 2!");
         UI.MainUI.main( args);
     }
-
 }
