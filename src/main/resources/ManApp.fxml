@@ -10,8 +10,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -33,39 +36,39 @@
             </JFXButton>
          </children>
       </Pane>
-      <VBox prefHeight="660.0" prefWidth="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="ALWAYS" />
+          <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="ALWAYS" />
+          <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="ALWAYS" />
+        </rowConstraints>
          <children>
-            <JFXButton fx:id="page1" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #800020;" text="1" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton fx:id="page1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handlePage" prefHeight="70.0" prefWidth="166.0" ripplerFill="#51454e" rotate="90.0" style="-fx-background-color: #800020;" text="Page 1" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
-                  <Font name="Helvetica Neue" size="26.0" />
+                  <Font name="Helvetica Neue" size="14.0" />
                </font>
-               <VBox.margin>
-                  <Insets bottom="1.5" />
-               </VBox.margin>
             </JFXButton>
-            <JFXButton fx:id="page2" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #800020;" text="2" textFill="WHITE">
+            <JFXButton fx:id="page2" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handlePage" prefHeight="70.0" prefWidth="166.0" ripplerFill="#51454e" rotate="90.0" style="-fx-background-color: #800020;" text="Page 2" textFill="WHITE" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
                <font>
-                  <Font name="Helvetica Neue" size="26.0" />
+                  <Font name="Helvetica Neue" size="14.0" />
                </font>
-               <VBox.margin>
-                  <Insets bottom="1.5" />
-               </VBox.margin>
             </JFXButton>
-            <JFXButton fx:id="page3" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #800020;" text="3" textFill="WHITE">
+            <JFXButton fx:id="page3" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handlePage" prefHeight="70.0" prefWidth="166.0" ripplerFill="#51454e" rotate="90.0" style="-fx-background-color: #800020;" text="Page 3" textFill="WHITE" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
                <font>
-                  <Font name="Helvetica Neue" size="26.0" />
+                  <Font name="Helvetica Neue" size="14.0" />
                </font>
-               <VBox.margin>
-                  <Insets bottom="1.5" />
-               </VBox.margin>
             </JFXButton>
-            <JFXButton fx:id="page4" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #800020;" text="4" textFill="WHITE">
+            <JFXButton fx:id="page4" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#handlePage" prefHeight="70.0" prefWidth="166.0" ripplerFill="#51454e" rotate="90.0" style="-fx-background-color: #800020;" text="Page 4" textFill="WHITE" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
                <font>
-                  <Font name="Helvetica Neue" size="26.0" />
+                  <Font name="Helvetica Neue" size="14.0" />
                </font>
             </JFXButton>
          </children>
-      </VBox>
+      </GridPane>
       <Pane fx:id="pane1" prefHeight="660.0" prefWidth="1300.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
             <VBox prefHeight="660.0" prefWidth="200.0">

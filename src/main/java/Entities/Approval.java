@@ -31,7 +31,7 @@ public class Approval implements Serializable {
     private String agentApprovalName;
 
     @Column(name = "Expiration", columnDefinition = "DATE")
-    private transient Date expDate;
+    private Date expDate;
 
     @Column(name = "Qualification")
     private String qualifications;
