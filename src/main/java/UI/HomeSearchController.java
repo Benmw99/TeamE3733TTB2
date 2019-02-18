@@ -7,7 +7,7 @@ import Entities.Form;
 import Entities.SearchResult;
 import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
-import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXRadioButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,8 +22,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -176,8 +178,19 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     StackPane UsernameStackPane;
 
     @FXML
+    Button clearSearch;
+
+    @FXML
+    JFXRadioButton fuzzy;
+
+    @FXML
     JFXButton SearchLoginButton;
 
+    @FXML
+    JFXRadioButton levenshtein;
+
+    @FXML
+    JFXRadioButton damereauLevenshtein;
     @FXML
     JFXButton backToHomeButton;
 
@@ -185,8 +198,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     SearchResult result;
     int searchPage;
 
-    //Brewers Permit
-    //Mailing address
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         SearchAlcoholType.getItems().addAll("Beers", "Wines", "Distilled Liquor");
@@ -267,6 +279,8 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     //                                   advanced search
     @FXML
     public void searchAdvanced(ActionEvent event) throws IOException {
+
+        // TODO INTEGRATE SEARCH PATTERN DEPENDING ON WHAT RADIO BUTTON IS SELECTED
         printSearchResultsCSV.setDisable(false);
         printSearchResultsCSV.setText("Print Results");
 
@@ -332,6 +346,11 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     }
 
     @FXML
+    public void clearResults(ActionEvent event) throws IOException{
+        // TODO FIGURE OUT HOW TO CLEAR THE RESULTS QUEUE
+    }
+
+    @FXML
     public void loginPage(){
         attributeContainer.currentUser = null;
         goToPage("Login.fxml");
@@ -349,7 +368,6 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
         }
     }
-
 
 
     @Override
