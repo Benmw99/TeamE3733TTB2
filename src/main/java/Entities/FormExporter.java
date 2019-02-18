@@ -28,7 +28,8 @@ public class FormExporter {
                         for (XWPFParagraph p : cell.getParagraphs()) {
                             for (XWPFRun r : p.getRuns()) {
                                // replaceString(r, "TTB_ID", String.valueOf(form.getTtbID()));
-                                replaceString(r, "REP_ID", form.getRepID());
+                              //  replaceString(r, "REP_ID", form.getRepID());
+                                replaceString(r, "REP_ID", "Peach");
                             }
                         }
                     }
@@ -54,7 +55,7 @@ public class FormExporter {
     public void replaceString(XWPFRun r, String rep, String to_rep){
         String text = r.getText(0);
         if(text!= null && text.contains(rep)){
-            text = text.replace(rep, to_rep);
+            text.replace(rep, to_rep);
             r.setText(text);
         }
     }
