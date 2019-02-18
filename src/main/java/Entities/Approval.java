@@ -35,6 +35,12 @@ public class Approval implements Serializable {
 
     @Column(name = "Qualification")
     private String qualifications;
+    
+    @Column(name = "CT")
+    private int CT;
+
+    @Column(name = "OR")
+    private int OR;
 
     @OneToOne()
     @JoinColumn(name = "TTB_ID")
@@ -54,6 +60,8 @@ public class Approval implements Serializable {
         this.agentApprovalName = null;
         this.expDate = null;
         this.qualifications = null;
+        this.CT = 0;
+        this.OR = 0;
     }
 
     public Approval(ApprovalStatus page1, ApprovalStatus page2, ApprovalStatus page3, ApprovalStatus page4, Date dateApproved, String agentApprovalName, Date expDate, String qualifications, Form form) {
@@ -65,6 +73,22 @@ public class Approval implements Serializable {
         this.agentApprovalName = agentApprovalName;
         this.expDate = expDate;
         this.qualifications = qualifications;
+        this.form = form;
+        this.CT = 0;
+        this.OR = 0;
+    }
+
+    public Approval(ApprovalStatus page1, ApprovalStatus page2, ApprovalStatus page3, ApprovalStatus page4, Date dateApproved, String agentApprovalName, Date expDate, String qualifications, int CT, int OR, Form form) {
+        this.page1 = page1;
+        this.page2 = page2;
+        this.page3 = page3;
+        this.page4 = page4;
+        this.dateApproved = dateApproved;
+        this.agentApprovalName = agentApprovalName;
+        this.expDate = expDate;
+        this.qualifications = qualifications;
+        this.CT = CT;
+        this.OR = OR;
         this.form = form;
     }
 
@@ -132,8 +156,23 @@ public class Approval implements Serializable {
         this.qualifications = qualifications;
     }
 
+    public int getCT() {
+        return CT;
+    }
 
-//methods n the lot
+    public void setCT(int CT) {
+        this.CT = CT;
+    }
+
+    public int getOR() {
+        return OR;
+    }
+
+    public void setOR(int OR) {
+        this.OR = OR;
+    }
+
+    //methods n the lot
 
     public void approve(String name, String qualifications){
         agentApprovalName = name;
