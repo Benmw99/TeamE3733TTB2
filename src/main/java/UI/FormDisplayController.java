@@ -5,6 +5,7 @@ import Entities.Form;
 import Entities.LabelImage;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
@@ -78,6 +79,8 @@ public class FormDisplayController extends PageControllerUI implements Initializ
 
     @FXML
     TabPane tabPane;
+
+    ComboBox<String> comboBox;
 
     /**
      * Displays the current form as specified in the AttributeContainer Singleton
@@ -235,17 +238,24 @@ public class FormDisplayController extends PageControllerUI implements Initializ
     }
 
     /**
+     * Set parent of nested form
+     */
+    public void setComboBox(ComboBox<String> comboBox) {
+        this.comboBox = comboBox;
+    }
+
+    /**
      * Gets current tab of display
      */
     public int getTab() {
         int tab;
-        if (tabPane.getSelectionModel().getSelectedItem().getText() == "Section 1") {
+        if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 1")) {
             tab = 1;
-        } else if (tabPane.getSelectionModel().getSelectedItem().getText() == "Section 2") {
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 2")) {
             tab = 2;
-        } else if (tabPane.getSelectionModel().getSelectedItem().getText() == "Section 3") {
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 3")) {
             tab = 3;
-        } else if (tabPane.getSelectionModel().getSelectedItem().getText() == "Section 4") {
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 4")) {
             tab = 4;
         } else {
             tab = -1;
@@ -253,5 +263,174 @@ public class FormDisplayController extends PageControllerUI implements Initializ
         return tab;
     }
 
+    public void displayStatus() {
+        System.out.println("Current Section: " + tabPane.getSelectionModel().getSelectedItem().getText());
+        if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 1")) {
+            if(attributeContainer.page1Complete) {
+                comboBox.setValue("Complete");
+            } else if(attributeContainer.page1Incomplete) {
+                comboBox.setValue("Incomplete");
+            } else if(attributeContainer.page1Incorrect) {
+                comboBox.setValue("Incorrect");
+            }
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 2")) {
+            if(attributeContainer.page2Complete) {
+                comboBox.setValue("Complete");
+            } else if(attributeContainer.page2Incomplete) {
+                comboBox.setValue("Incomplete");
+            } else if(attributeContainer.page2Incorrect) {
+                comboBox.setValue("Incorrect");
+            }
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 3")) {
+            if(attributeContainer.page3Complete) {
+                comboBox.setValue("Complete");
+            } else if(attributeContainer.page3Incomplete) {
+                comboBox.setValue("Incomplete");
+            } else if(attributeContainer.page3Incorrect) {
+                comboBox.setValue("Incorrect");
+            }
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 4")) {
+            if(attributeContainer.page4Complete) {
+                comboBox.setValue("Complete");
+            } else if(attributeContainer.page4Incomplete) {
+                comboBox.setValue("Incomplete");
+            } else if(attributeContainer.page4Incorrect) {
+                comboBox.setValue("Incorrect");
+            }
+        }
+    }
+
+    /**
+     * Marks page of form as complete/incomplete/incorrect
+     */
+    public void markForm() {
+        System.out.println("C-C-C-COMBO BOX " + comboBox.getValue() + "Current Tab: " + getTab());
+        if (comboBox.getValue() == null) {
+            if(getTab() == 1) {
+                attributeContainer.page1Complete = false;
+                attributeContainer.page1Incomplete = false;
+                attributeContainer.page1Incorrect = false;
+            } else if(getTab() == 2) {
+                attributeContainer.page2Complete = false;
+                attributeContainer.page2Incomplete = false;
+                attributeContainer.page2Incorrect = false;
+            } else if(getTab() == 3) {
+                attributeContainer.page3Complete = false;
+                attributeContainer.page3Incomplete = false;
+                attributeContainer.page3Incorrect = false;
+            } else if(getTab() == 4) {
+                attributeContainer.page4Complete = false;
+                attributeContainer.page4Incomplete = false;
+                attributeContainer.page4Incorrect = false;
+            }
+        } else if(comboBox.getValue().equals("Complete")){
+            if(getTab() == 1) {
+                attributeContainer.page1Complete = true;
+                attributeContainer.page1Incomplete = false;
+                attributeContainer.page1Incorrect = false;
+            } else if(getTab() == 2) {
+                attributeContainer.page2Complete = true;
+                attributeContainer.page2Incomplete = false;
+                attributeContainer.page2Incorrect = false;
+            } else if(getTab() == 3) {
+                attributeContainer.page3Complete = true;
+                attributeContainer.page3Incomplete = false;
+                attributeContainer.page3Incorrect = false;
+            } else if(getTab() == 4) {
+                attributeContainer.page4Complete = true;
+                attributeContainer.page4Incomplete = false;
+                attributeContainer.page4Incorrect = false;
+            }
+        } else if (comboBox.getValue().equals("Incomplete")) {
+            if(getTab() == 1) {
+                attributeContainer.page1Complete = false;
+                attributeContainer.page1Incomplete = true;
+                attributeContainer.page1Incorrect = false;
+            } else if(getTab() == 2) {
+                attributeContainer.page2Complete = false;
+                attributeContainer.page2Incomplete = true;
+                attributeContainer.page2Incorrect = false;
+            } else if(getTab() == 3) {
+                attributeContainer.page3Complete = false;
+                attributeContainer.page3Incomplete = true;
+                attributeContainer.page3Incorrect = false;
+            } else if(getTab() == 4) {
+                attributeContainer.page4Complete = false;
+                attributeContainer.page4Incomplete = true;
+                attributeContainer.page4Incorrect = false;
+            }
+        } else if (comboBox.getValue().equals("Incorrect")){
+            if(getTab() == 1) {
+                attributeContainer.page1Complete = false;
+                attributeContainer.page1Incomplete = false;
+                attributeContainer.page1Incorrect = true;
+            } else if(getTab() == 2) {
+                attributeContainer.page2Complete = false;
+                attributeContainer.page2Incomplete = false;
+                attributeContainer.page2Incorrect = true;
+            } else if(getTab() == 3) {
+                attributeContainer.page3Complete = false;
+                attributeContainer.page3Incomplete = false;
+                attributeContainer.page3Incorrect = true;
+            } else if(getTab() == 4) {
+                attributeContainer.page4Complete = false;
+                attributeContainer.page4Incomplete = false;
+                attributeContainer.page4Incorrect = true;
+            }
+        }
+        System.out.println("Page 1 Statuses: Complete: " + attributeContainer.page1Complete + " Incomplete: " +
+                attributeContainer.page1Incomplete + " Incorrect: " + attributeContainer.page1Incorrect);
+        System.out.println("Page 2 Statuses: Complete: " + attributeContainer.page2Complete + " Incomplete: " +
+                attributeContainer.page2Incomplete + " Incorrect: " + attributeContainer.page2Incorrect);
+        System.out.println("Page 3 Statuses: Complete: " + attributeContainer.page3Complete + " Incomplete: " +
+                attributeContainer.page3Incomplete + " Incorrect: " + attributeContainer.page3Incorrect);
+        System.out.println("Page 4 Statuses: Complete: " + attributeContainer.page4Complete + " Incomplete: " +
+                attributeContainer.page4Incomplete + " Incorrect: " + attributeContainer.page4Incorrect);
+    }
+
+    public void page1() {
+        if(attributeContainer.isInReviewingTools) {
+            System.out.println("Page 1");
+            if(attributeContainer.isFirstTab) {
+                attributeContainer.isFirstTab = false;
+                markForm();
+            } else {
+                attributeContainer.isFirstTab = true;
+            }
+        }
+    }
+    public void page2() {
+        if(attributeContainer.isInReviewingTools) {
+            System.out.println("Page 2");
+            if(attributeContainer.isFirstTab) {
+                attributeContainer.isFirstTab = false;
+                markForm();
+            } else {
+                attributeContainer.isFirstTab = true;
+            }
+        }
+    }
+    public void page3() {
+        if(attributeContainer.isInReviewingTools) {
+            System.out.println("Page 3");
+            if(attributeContainer.isFirstTab) {
+                attributeContainer.isFirstTab = false;
+                markForm();
+            } else {
+                attributeContainer.isFirstTab = true;
+            }
+        }
+    }
+    public void page4() {
+        if(attributeContainer.isInReviewingTools) {
+            System.out.println("Page 4");
+            if(attributeContainer.isFirstTab) {
+                attributeContainer.isFirstTab = false;
+                markForm();
+            } else {
+                attributeContainer.isFirstTab = true;
+            }
+        }
+    }
 }
 

@@ -14,6 +14,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -134,23 +135,10 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     JFXTextField ttb_id;
 
     @FXML
-    Pane formDisplay;
+    Parent formDisplay;
 
     @FXML
     FormDisplayController formDisplayController;
-
-    boolean page1Complete;
-    boolean page2Complete;
-    boolean page3Complete;
-    boolean page4Complete;
-    boolean page1Incomplete;
-    boolean page2Incomplete;
-    boolean page3Incomplete;
-    boolean page4Incomplete;
-    boolean page1Incorrect;
-    boolean page2Incorrect;
-    boolean page3Incorrect;
-    boolean page4Incorrect;
 
     @FXML
     JFXTextArea comment;
@@ -189,6 +177,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
             attributeContainer.currentForm = null;
+            attributeContainer.isInReviewingTools = false;
             goToPage("AgentHome.fxml");
         }
     }
@@ -207,6 +196,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
             attributeContainer.currentForm = null;
+            attributeContainer.isInReviewingTools = false;
             goToPage("AgentHome.fxml");
         }
     }
@@ -233,74 +223,13 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
         goToPage("AgentHome.fxml");
     }
 
-    /**
-     * Marks page of form as complete/incomplete/incorrect
-     */
-    public void markForm() {
-        System.out.println("C-C-C-COMBO BOX");
-        if(sectionMarkComboBox.getValue() == "Complete"){
-            if(formDisplayController.getTab() == 1) {
-                page1Complete = true;
-                page1Incomplete = false;
-                page1Incorrect = false;
-            } else if(formDisplayController.getTab() == 2) {
-                page2Complete = true;
-                page2Incomplete = false;
-                page2Incorrect = false;
-            } else if(formDisplayController.getTab() == 3) {
-                page3Complete = true;
-                page3Incomplete = false;
-                page3Incorrect = false;
-            } else if(formDisplayController.getTab() == 4) {
-                page4Complete = true;
-                page4Incomplete = false;
-                page4Incorrect = false;
-            }
-        } else if (sectionMarkComboBox.getValue().equals("Incomplete")) {
-            if(formDisplayController.getTab() == 1) {
-                page1Complete = false;
-                page1Incomplete = true;
-                page1Incorrect = false;
-            } else if(formDisplayController.getTab() == 2) {
-                page2Complete = false;
-                page2Incomplete = true;
-                page2Incorrect = false;
-            } else if(formDisplayController.getTab() == 3) {
-                page3Complete = false;
-                page3Incomplete = true;
-                page3Incorrect = false;
-            } else if(formDisplayController.getTab() == 4) {
-                page4Complete = false;
-                page4Incomplete = true;
-                page4Incorrect = false;
-            }
-        } else {
-            if(formDisplayController.getTab() == 1) {
-                page1Complete = false;
-                page1Incomplete = false;
-                page1Incorrect = true;
-            } else if(formDisplayController.getTab() == 2) {
-                page2Complete = false;
-                page2Incomplete = false;
-                page2Incorrect = true;
-            } else if(formDisplayController.getTab() == 3) {
-                page3Complete = false;
-                page3Incomplete = false;
-                page3Incorrect = true;
-            } else if(formDisplayController.getTab() == 4) {
-                page4Complete = false;
-                page4Incomplete = false;
-                page4Incorrect = true;
-            }
-        }
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         /**
          * The different combo box options
          */
         sectionMarkComboBox.getItems().addAll("Complete", "Incomplete", "Incorrect");
+        formDisplayController.setComboBox(sectionMarkComboBox);
 
         sendAgentButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
