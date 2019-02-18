@@ -27,4 +27,16 @@ public class Search {
 
     }
 
+    public static List<Form> SearchLD(AdvancedSearch advancedSearch){
+        return SearchDLBrand(advancedSearch, new LevenshteinDistance());
+    }
+
+    public static List<Form> SearchDL(AdvancedSearch advancedSearch){
+        return SearchDLBrand(advancedSearch, new DamerauLevenshtein());
+    }
+
+    public static List<Form> SearchWild(AdvancedSearch advancedSearch){
+        return Database.getDatabase().dbSelect.searchByWild(advancedSearch).getResults();
+    }
+
 }

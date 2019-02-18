@@ -296,7 +296,14 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         //}
         //if (manufactureDate.get) DATE NOT IMPLEMENTED YET
 
-        List<Form> forms = Search.SearchDLBrand(advancedSearch, new SearchAlgo.DamerauLevenshtein());
+        List<Form> forms;
+        if(false) {           //DL
+            forms = Search.SearchDL(advancedSearch);
+        }else if(false) {     //LD
+            forms = Search.SearchLD(advancedSearch);
+        }else{                //wild
+            forms = Search.SearchWild(advancedSearch);
+        }
         AttributeContainer.getInstance().currentResults = new SearchResult();
         AttributeContainer.getInstance().currentResults.setResults(forms);
         AttributeContainer.getInstance().currentResults.setSearch(advancedSearch);
