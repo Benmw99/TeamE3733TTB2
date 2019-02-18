@@ -159,7 +159,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     public void approveForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
 
-            //TODO: get qualifications from text field
+            //TODO: get qualifications from text field;
             ((Agent) attributeContainer.currentUser).approveForm(attributeContainer.currentForm, comment.getText());
             attributeContainer.formQueue.remove(attributeContainer.currentForm);
             AttributeContainer.getInstance().formQueue = ((Agent) attributeContainer.currentUser).getCurrentQueue();

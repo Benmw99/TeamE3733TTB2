@@ -12,20 +12,51 @@ import org.apache.poi.hwpf.usermodel.CharacterRun;
 import org.apache.poi.hwpf.usermodel.Paragraph;
 import org.apache.poi.hwpf.usermodel.Range;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.*;
 
 public class FormExporter {
-    public XWPFDocument doc2;
+    public XWPFDocument doc;
 
-    public FormExporter(){
+    public FormExporter(Form form) {
         try {
-            File doc = new File("/Users/mjclements/IdeaProjects/TeamE3733TTB2/src/main/resources/converted.docx");
-            InputStream inputstream = new FileInputStream(doc);
-            doc2 = new XWPFDocument(inputstream);
-        } catch (IOException e){
+            File doc2 = new File("/Users/mjclements/IdeaProjects/TeamE3733TTB2/src/main/resources/converted.docx");
+            InputStream inputstream = new FileInputStream(doc2);
+            doc = new XWPFDocument(inputstream);
+            for (XWPFTable tbl : doc.getTables()) {
+                for (XWPFTableRow row : tbl.getRows()) {
+                    for (XWPFTableCell cell : row.getTableCells()) {
+                        for (XWPFParagraph p : cell.getParagraphs()) {
+                            for (XWPFRun r : p.getRuns()) {
+                               // replaceString(r, "TTB_ID", String.valueOf(form.getTtbID()));
+                                replaceString(r, "REP_ID", form.getRepID());
+                            }
+                        }
+                    }
+                }
+            }
+            File file = new File("/Users/mjclements/IdeaProjects/TeamE3733TTB2/src/main/resources/output.docx");
+            doc.write(new FileOutputStream(file));
+        } catch (Exception e) {
             System.out.println(e.toString());
         }
 
+    }
+
+
+
+
+    /**
+     *
+     * @param r
+     * @param rep
+     * @param to_rep
+     */
+    public void replaceString(XWPFRun r, String rep, String to_rep){
+        String text = r.getText(0);
+        if(text!= null && text.contains(rep)){
+            text = text.replace(rep, to_rep);
+            r.setText(text);
+        }
     }
 
 }
