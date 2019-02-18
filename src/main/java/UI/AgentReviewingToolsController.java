@@ -4,10 +4,7 @@ import DB.Database;
 import Entities.Agent;
 import Entities.Mailer;
 import SearchAlgo.AsciiPrinter;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,7 +22,13 @@ import java.util.ResourceBundle;
 public class AgentReviewingToolsController extends PageControllerUI implements Initializable {
 
     @FXML
+    StackPane largePane, smallPane;
+
+    @FXML
     JFXComboBox<String> markAsComboBox;
+
+    @FXML
+    JFXToggleButton helpToggleButton;
 
     @FXML
     JFXButton printViewFormButton;
@@ -127,18 +131,17 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     @FXML
     JFXTextArea message;
 
-    @FXML
-    JFXTextField ttb_id;
-
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
     ///////////////////////////////////////////////////
 
     @Override
-    void onLoad(){}
+    void onLoad() {
+    }
 
     @Override
-    protected void onLeave(){}
+    protected void onLeave() {
+    }
 
     //New controller overrides
     @FXML
@@ -149,6 +152,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
 
     /**
      * Set approval status of current form to approved
+     *
      * @param event
      * @throws IOException
      */
@@ -165,6 +169,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
 
     /**
      * Set approval status of current form to rejected
+     *
      * @param event
      * @throws IOException
      */
@@ -179,6 +184,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
 
     /**
      * Sends current form to printable format
+     *
      * @param event
      * @throws IOException
      */
@@ -191,11 +197,12 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
 
     /**
      * Directs Agent back to home page
+     *
      * @param event
      * @throws IOException
      */
     @FXML
-   public void returnHome(ActionEvent event) throws IOException {
+    public void returnHome(ActionEvent event) throws IOException {
         goToPage("AgentHome.fxml");
     }
 
@@ -203,7 +210,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
      * Marks page of form as complete/incomplete/incorrect
      */
     public void markForm() {
-        if(markAsComboBox.getValue() == "Complete"){
+        if (markAsComboBox.getValue() == "Complete") {
 
         } else if (markAsComboBox.getValue().equals("Incomplete")) {
 
@@ -225,15 +232,15 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                 to_recv.setLogin(email.getText());
                 Database db = Database.getDatabase();
 
-                if(!db.dbSelect.checkIfUsedAgent(email.getText())){
+                if (!db.dbSelect.checkIfUsedAgent(email.getText())) {
                     Alert yikes = new Alert(Alert.AlertType.WARNING);
                     yikes.setContentText("User does not exist");
                     yikes.setHeaderText("Error");
                     yikes.show();
                 } else {
                     to_recv.loadUser();
-                        Mailer mail = new Mailer();
-                      mail.sendAgentMail(to_recv, message.getText());
+                    Mailer mail = new Mailer();
+                    mail.sendAgentMail(to_recv, message.getText());
                     AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
                     db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
                     AttributeContainer.getInstance().currentForm = null;
@@ -246,7 +253,28 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
         /**The different combo box options
          *
          */
-    //    markAsComboBox.getItems().addAll("Complete, Incomplete, Incorrect");
+        //    markAsComboBox.getItems().addAll("Complete, Incomplete, Incorrect");
+
+
+        if (helpToggleButton.isSelected() == false) {
+
+            largePane.setDisable(true);
+            smallPane.setDisable(true);
+            largePane.setVisible(false);
+            smallPane.setVisible(false);
+
+        }
+
+        else if (helpToggleButton.isSelected() == true) {
+
+            largePane.setDisable(false);
+            smallPane.setDisable(false);
+            largePane.setVisible(true);
+            smallPane.setVisible(true);
+
+        }
 
     }
+
 }
+

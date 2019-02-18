@@ -119,7 +119,7 @@
       <VBox alignment="CENTER" layoutY="173.0" prefHeight="590.0" prefWidth="355.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="173.0">
          <children>
             <fx:include source="TableView.fxml" VBox.vgrow="ALWAYS" />
-            <JFXTextField fx:id="queueAmountField" alignment="CENTER" maxWidth="-Infinity" promptText="Enter Number of Forms">
+            <JFXTextField fx:id="queueAmountField" alignment="CENTER" labelFloat="true" maxWidth="-Infinity" promptText="Enter Number of Forms">
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>

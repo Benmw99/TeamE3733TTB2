@@ -3,13 +3,14 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -21,8 +22,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import com.jfoenix.controls.JFXTextField?>
-<?import com.jfoenix.controls.JFXTextArea?>
 <AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: #ffffff;" stylesheets="@/TabPane.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AgentReviewingToolsController">
    <children>
       <Rectangle fill="WHITE" height="89.0" layoutX="-2.0" layoutY="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1376.0" />
@@ -541,7 +540,7 @@
             </JFXTabPane>
          </children>
       </Pane>
-      <Pane opacity="0.63" prefHeight="763.0" prefWidth="1374.0" style="-fx-background-color: white;" />
+      <Pane fx:id="largePane" opacity="0.63" prefHeight="763.0" prefWidth="1374.0" style="-fx-background-color: white;" />
       <Pane layoutX="13.0" layoutY="187.0" prefHeight="552.0" prefWidth="1349.0" style="-fx-background-color: #999999;">
          <children>
             <Text fill="WHITE" layoutX="173.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pressing this button will approve the form with the qualifications given in the Comments section." wrappingWidth="420.92169189453125">
@@ -657,7 +656,7 @@
             </Text>
          </children>
       </Pane>
-      <JFXToggleButton fx:id="help" layoutX="1229.0" layoutY="11.0" text="Help">
+      <JFXToggleButton fx:id="helpToggleButton" layoutX="1229.0" layoutY="11.0" text="Help">
          <font>
             <Font name="Apple SD Gothic Neo Thin" size="24.0" />
          </font>

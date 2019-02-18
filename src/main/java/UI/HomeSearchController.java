@@ -8,6 +8,7 @@ import Entities.SearchResult;
 import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXRadioButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -176,17 +177,28 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     StackPane UsernameStackPane;
 
     @FXML
-    JFXButton SearchLoginButton;
+    Button clearSearch;
 
     @FXML
-    JFXButton backToHomeButton;
+    JFXRadioButton fuzzy;
+
+    @FXML
+    Button SearchLoginButton;
+
+    @FXML
+    JFXRadioButton levenshtein;
+
+    @FXML
+    JFXRadioButton damereauLevenshtein;
+
+    @FXML
+    Button backToHomeButton;
 
 
     SearchResult result;
     int searchPage;
 
-    //Brewers Permit
-    //Mailing address
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         SearchAlcoholType.getItems().addAll("Beers", "Wines", "Distilled Liquor");
@@ -268,6 +280,8 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     //                                   advanced search
     @FXML
     public void searchAdvanced(ActionEvent event) throws IOException {
+
+        // TODO INTEGRATE SEARCH PATTERN DEPENDING ON WHAT RADIO BUTTON IS SELECTED
         printSearchResultsCSV.setDisable(false);
         printSearchResultsCSV.setText("Print Results");
 
@@ -332,6 +346,11 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         AsciiPrinter.print(AttributeContainer.getInstance().formQueue, ',');
         //printSearchResultsCSV.setDisable(true);
         printSearchResultsCSV.setText("Printed");
+    }
+
+    @FXML
+    public void clearResults(ActionEvent event) throws IOException{
+        // TODO FIGURE OUT HOW TO CLEAR THE RESULTS QUEUE
     }
 
     @FXML
