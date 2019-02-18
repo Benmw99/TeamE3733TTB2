@@ -85,7 +85,7 @@
          <font>
             <Font name="Apple SD Gothic Neo Thin" size="14.0" />
          </font></JFXTextField>
-      <JFXButton fx:id="SearchButton" buttonType="RAISED" layoutX="142.0" layoutY="408.0" onAction="#searchAdvanced" prefHeight="39.0" prefWidth="84.0" style="-fx-background-color: cfd8dc;" text="Search">
+      <JFXButton fx:id="SearchButton" buttonType="RAISED" layoutX="80.0" layoutY="410.0" onAction="#searchAdvanced" prefHeight="39.0" prefWidth="84.0" style="-fx-background-color: cfd8dc;" text="Search">
          <ripplerFill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -112,7 +112,7 @@
             </Label>
          </children>
       </StackPane>
-      <JFXButton fx:id="clearSearch" buttonType="RAISED" layoutX="1075.0" layoutY="80.0" onAction="#clearResults" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: WHITE;" text="Clear Search">
+      <JFXButton fx:id="clearSearch" buttonType="RAISED" layoutX="184.0" layoutY="410.0" onAction="#clearResults" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: cfd8dc;" text="Clear Search">
          <ripplerFill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -137,6 +137,6 @@
             <fx:include source="MenuDrawer.fxml" />
          </children>
       </StackPane>
-      <JFXButton fx:id="backToHomeButton" onAction="#backToHome" layoutX="20.0" layoutY="16.0" prefHeight="35.0" prefWidth="103.0" text="Back To Home" />
+      <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" layoutX="109.0" layoutY="575.0" promptText="Download Delimiter" />
 </children>
 </AnchorPane>

@@ -8,6 +8,7 @@ import Entities.SearchResult;
 import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
 import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -194,6 +195,9 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @FXML
     Button backToHomeButton;
+
+    @FXML
+    JFXTextField downloadDelimiter;
 
 
     ToggleGroup searchOptions = new ToggleGroup();
