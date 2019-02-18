@@ -8,14 +8,18 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,7 +28,7 @@ import java.util.ResourceBundle;
 public class AgentReviewingToolsController extends PageControllerUI implements Initializable {
 
     @FXML
-    JFXComboBox<String> markAsComboBox;
+    JFXComboBox<String> sectionMarkComboBox;
 
     @FXML
     JFXButton printViewFormButton;
@@ -131,7 +135,16 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     JFXTextField ttb_id;
 
     @FXML
+    Parent formDisplay;
+
+    @FXML
+    FormDisplayController formDisplayController;
+
+    @FXML
     JFXTextArea comment;
+
+    @FXML
+    JFXButton approveAVFButton;
 
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
@@ -166,6 +179,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
             attributeContainer.currentForm = null;
+            attributeContainer.isInReviewingTools = false;
             goToPage("AgentHome.fxml");
         }
     }
@@ -184,6 +198,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
             attributeContainer.currentForm = null;
+            attributeContainer.isInReviewingTools = false;
             goToPage("AgentHome.fxml");
         }
     }
@@ -206,25 +221,19 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
      * @throws IOException
      */
     @FXML
-   public void returnHome(ActionEvent event) throws IOException {
+    public void returnHome(ActionEvent event) throws IOException {
         goToPage("AgentHome.fxml");
-    }
-
-    /**
-     * Marks page of form as complete/incomplete/incorrect
-     */
-    public void markForm() {
-        if(markAsComboBox.getValue() == "Complete"){
-
-        } else if (markAsComboBox.getValue().equals("Incomplete")) {
-
-        } else {
-
-        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //The different combo box options
+        sectionMarkComboBox.getItems().addAll("Complete", "Incomplete", "Incorrect");
+
+        //Passes FormDisplay necessary items
+        formDisplayController.setComboBox(sectionMarkComboBox);
+        formDisplayController.setApproveButton(approveAVFButton);
+
         sendAgentButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -243,8 +252,8 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                     yikes.show();
                 } else {
                     to_recv.loadUser();
-                        Thread mailThread = new  Thread( new Mailer(to_recv, message.getText()));
-                        mailThread.start();
+                    Thread mailThread = new  Thread( new Mailer(to_recv, message.getText()));
+                    mailThread.start();
                     AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
                     db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);
                     AttributeContainer.getInstance().currentForm = null;
@@ -253,11 +262,5 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                 }
             }
         });
-
-        /**The different combo box options
-         *
-         */
-    //    markAsComboBox.getItems().addAll("Complete, Incomplete, Incorrect");
-
     }
 }

@@ -73,6 +73,7 @@ public class LoginController extends PageControllerUI implements Initializable {
                 AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
                 AttributeContainer.getInstance().currentForm = null;
                 AttributeContainer.getInstance().backlog.empty();
+                attributeContainer.isInReviewingTools = false;
                 goToPage("ManHome.fxml");
             }
             if(AgentRadioButton.isSelected()){
@@ -82,6 +83,7 @@ public class LoginController extends PageControllerUI implements Initializable {
                 AttributeContainer.getInstance().currentForm = null;
                 System.out.println(((Agent) AttributeContainer.getInstance().currentUser).getAgentID());
                 AttributeContainer.getInstance().backlog.empty();
+                attributeContainer.isInReviewingTools = false;
                 goToPage("AgentHome.fxml");
                System.out.println(((Agent)AttributeContainer.getInstance().currentUser).getAgentID());
             }
