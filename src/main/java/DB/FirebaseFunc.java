@@ -1,6 +1,7 @@
 package DB;
 
 import Entities.Address;
+import Entities.AdvancedSearch;
 import Entities.Form;
 import Entities.FormFirebase;
 import com.google.auth.oauth2.GoogleCredentials;
@@ -15,7 +16,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class FirebaseFunc {
@@ -73,6 +76,12 @@ public class FirebaseFunc {
         Map<String, FormFirebase> forms = new HashMap<>();
         forms.put("" + form.getTtbID(), form);
         ref.setValueAsync(forms);
+    }
+
+    public List<FormFirebase> searchFirebase(AdvancedSearch as) {
+        List<FormFirebase> results = new ArrayList<>();
+
+        return results;
     }
 
     @SuppressWarnings( "deprecation" )
