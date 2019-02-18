@@ -329,7 +329,8 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     public void printResults(ActionEvent event) throws IOException {
         //TODO REWRITE THIS PASSING A BOOLEAN FOR WHETHER OR NOT IT IS A CSV OR ASCII
         //results.printResults();
-        AsciiPrinter.print(AttributeContainer.getInstance().formQueue, ',');
+
+        AsciiPrinter.print(AttributeContainer.getInstance().formQueue, AttributeContainer.getInstance().delimiter);
         //printSearchResultsCSV.setDisable(true);
         printSearchResultsCSV.setText("Printed");
     }

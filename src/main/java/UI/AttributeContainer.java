@@ -31,6 +31,7 @@ public class AttributeContainer {
     public int numForQueue = 5;
     PageControllerUI current_page;
     LabelImage labelImage;
+    public Character  delimiter = ',';
 
     /**
      * Instantiates new empty AttributeContainer
