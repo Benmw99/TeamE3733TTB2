@@ -270,6 +270,7 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     public void reviewingTools(ActionEvent event) throws IOException {
         if(AttributeContainer.getInstance().currentForm != null) {
             attributeContainer.isInReviewingTools = true;
+            attributeContainer.isFirstTab = false;
             goToPage("AgentReviewingTools.fxml");
         } else {
             Alert yikes = new Alert(Alert.AlertType.WARNING);
