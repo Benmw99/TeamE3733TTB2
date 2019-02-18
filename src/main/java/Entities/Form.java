@@ -61,7 +61,7 @@ public class Form implements Serializable {
     private String otherInfo;
 
     @Column(name = "Date_Submitted", columnDefinition = "DATE")
-    private transient Date dateSubmitted;
+    private Date dateSubmitted;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -195,7 +195,7 @@ public class DBSelect {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Form> cr = cb.createQuery(Form.class);
         Root<Form> root = cr.from(Form.class);
-        Join<Form, WineFormItems> wines = root.join("wineFormItems");
+        //Join<Form, WineFormItems> wines = root.join("wineFormItems");
         //Predicate list which will be added to for every new condition
         List<Predicate> predicates = new ArrayList<>();
         predicates.add(cb.equal(root.get("approvalStatus"), as.approvalStatus));
@@ -216,16 +216,16 @@ public class DBSelect {
             predicates.add(cb.equal(cb.lower(root.get("fancifulName")), as.fancifulName.toLowerCase()));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
-            predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
+            //predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.pH > 0) {
-            predicates.add(cb.equal(wines.get("pH"), as.pH));
+            //predicates.add(cb.equal(wines.get("pH"), as.pH));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.grapeVarietal != null) {
-            predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
+            //predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.appellation != null) {
-            predicates.add(cb.equal(wines.get("appellation"), as.appellation));
+            //predicates.add(cb.equal(wines.get("appellation"), as.appellation));
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
@@ -270,7 +270,7 @@ public class DBSelect {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Form> cr = cb.createQuery(Form.class);
         Root<Form> root = cr.from(Form.class);
-        Join<Form, WineFormItems> wines = root.join("wineFormItems");
+        //Join<Form, WineFormItems> wines = root.join("wineFormItems");
         List<Predicate> predicates = new ArrayList<>();
         predicates.add(cb.equal(root.get("approvalStatus"), as.approvalStatus));
         if (as.source != null) {
@@ -289,16 +289,16 @@ public class DBSelect {
             predicates.add(cb.like(cb.lower(root.get("fancifulName")), "%" + as.fancifulName.toLowerCase() + "%"));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
-            predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
+            //predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.pH > 0) {
-            predicates.add(cb.equal(wines.get("pH"), as.pH));
+            //predicates.add(cb.equal(wines.get("pH"), as.pH));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.grapeVarietal != null) {
-            predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
+            //predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.appellation != null) {
-            predicates.add(cb.equal(wines.get("appellation"), as.appellation));
+            //predicates.add(cb.equal(wines.get("appellation"), as.appellation));
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
@@ -340,7 +340,7 @@ public class DBSelect {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<String> cr = cb.createQuery(String.class);
         Root<Form> root = cr.from(Form.class);
-        Join<Form, WineFormItems> wines = root.join("wineFormItems");
+        //Join<Form, WineFormItems> wines = root.join("wineFormItems");
         List<Predicate> predicates = new ArrayList<>();
         predicates.add(cb.equal(root.get("approvalStatus"), as.approvalStatus));
         if (as.source != null) {
@@ -353,16 +353,16 @@ public class DBSelect {
             predicates.add(cb.equal(root.get("alcoholType"), as.alcoholType));
         }//No brand name or fanciful name
         if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
-            predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
+            //predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.pH > 0) {
-            predicates.add(cb.equal(wines.get("pH"), as.pH));
+            //predicates.add(cb.equal(wines.get("pH"), as.pH));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.grapeVarietal != null) {
-            predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
+            //predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
         }
         if (as.getAlcoholType() == AlcoholType.Wine && as.appellation != null) {
-            predicates.add(cb.equal(wines.get("appellation"), as.appellation));
+            //predicates.add(cb.equal(wines.get("appellation"), as.appellation));
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
