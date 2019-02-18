@@ -192,6 +192,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     @FXML
     public void rejectForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
+            System.out.println(comment.getText());
             ((Agent) attributeContainer.currentUser).rejectForm(attributeContainer.currentForm, comment.getText());
             attributeContainer.formQueue.remove(attributeContainer.currentForm);
             AttributeContainer.getInstance().formQueue = ((Agent) attributeContainer.currentUser).getCurrentQueue();
