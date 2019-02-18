@@ -4,10 +4,7 @@ import DB.Database;
 import Entities.Agent;
 import Entities.Mailer;
 import SearchAlgo.AsciiPrinter;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -146,6 +143,15 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     @FXML
     JFXButton approveAVFButton;
 
+    @FXML
+    JFXToggleButton helpToggleButton;
+
+    @FXML
+    Pane largePane;
+
+    @FXML
+    Pane smallPane;
+
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
     ///////////////////////////////////////////////////
@@ -234,6 +240,10 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
         formDisplayController.setComboBox(sectionMarkComboBox);
         formDisplayController.setApproveButton(approveAVFButton);
 
+        // Set help opacity to 0
+        largePane.setOpacity(0);
+        smallPane.setOpacity(0);
+
         sendAgentButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -262,5 +272,25 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                 }
             }
         });
+
+        helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if(helpToggleButton.isSelected()){
+                    largePane.setOpacity(100);
+                    smallPane.setOpacity(10);
+                    System.out.println("Is selected");
+                }
+                else{
+                    largePane.setOpacity(0);
+                    smallPane.setOpacity(0);
+                    System.out.println("Is not selector");
+                }
+            }
+        });
+
+
+
+
     }
 }
