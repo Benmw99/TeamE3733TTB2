@@ -51,7 +51,7 @@ public class main {
         //AttributeContainer.getInstance().formQueue.add(form);
 
         db.dbInsert.insertForm(form);
-
+        new FormExporter();
 
         System.out.println("Hello Iteration 2!");
         UI.MainUI.main( args);
