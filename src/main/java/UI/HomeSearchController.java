@@ -8,6 +8,7 @@ import Entities.SearchResult;
 import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
 import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -196,6 +197,9 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     @FXML
     Button backToHomeButton;
 
+    @FXML
+    JFXTextField downloadDelimiter;
+
 
     ToggleGroup searchOptions = new ToggleGroup();
 
@@ -351,7 +355,15 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @FXML
     public void printResults(ActionEvent event) throws IOException {
-        AsciiPrinter.print(AttributeContainer.getInstance().formQueue, ',');
+        String raw = downloadDelimiter.getText();
+        char sep;
+        if(downloadDelimiter.getText() == null || downloadDelimiter.getText().trim().isEmpty()){  //TODO Spacebar cannot be delimeter, fix
+            sep = ',';
+        }else{
+            sep = raw.charAt(0);  //TODO properly check raw input
+        }
+
+        AsciiPrinter.print(AttributeContainer.getInstance().formQueue, sep);
         printSearchResultsCSV.setText("Printed");
     }
 
@@ -404,12 +416,14 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         if(!(AttributeContainer.getInstance().currentResults.getSearch() == null)) {
             brandNameTextField.setText(AttributeContainer.getInstance().currentResults.getSearch().brandName);
 
-            if(AttributeContainer.getInstance().currentResults.getSearch().getAlcoholType().toString().equals("Wine")){
-                SearchAlcoholType.getSelectionModel().select(1);
-            }else if(AttributeContainer.getInstance().currentResults.getSearch().getAlcoholType().toString().equals("DistilledLiquor")){
-                SearchAlcoholType.getSelectionModel().select(2);
-            }else if(AttributeContainer.getInstance().currentResults.getSearch().getAlcoholType().toString().equals("MaltBeverage")){
-                SearchAlcoholType.getSelectionModel().select(0);
+            if(AttributeContainer.getInstance().currentResults.getSearch().getAlcoholType() != null) {
+                if (AttributeContainer.getInstance().currentResults.getSearch().getAlcoholType().toString().equals("Wine")) {
+                    SearchAlcoholType.getSelectionModel().select(1);
+                } else if (AttributeContainer.getInstance().currentResults.getSearch().getAlcoholType().toString().equals("DistilledLiquor")) {
+                    SearchAlcoholType.getSelectionModel().select(2);
+                } else if (AttributeContainer.getInstance().currentResults.getSearch().getAlcoholType().toString().equals("MaltBeverage")) {
+                    SearchAlcoholType.getSelectionModel().select(0);
+                }
             }
 
 
