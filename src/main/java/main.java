@@ -50,8 +50,10 @@ public class main {
 
         //AttributeContainer.getInstance().formQueue.add(form);
 
-        db.dbInsert.insertForm(form);
+        form.setTtbID(db.dbInsert.insertForm(form));
 
+        System.out.println("Inserting Data into firebase");
+        db.firebaseFunc.insertDataFirebase();
 
         System.out.println("Hello Iteration 2!");
         UI.MainUI.main( args);

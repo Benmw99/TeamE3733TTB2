@@ -186,17 +186,17 @@ public class Form implements Serializable {
         return brewersPermit;
     }
 
-    public void setBrewersPermit(ArrayList<BrewersPermit> brewersPermit) {
-        this.brewersPermit = brewersPermit;
-    }
+    //public void setBrewersPermit(ArrayList<BrewersPermit> brewersPermit) {
+    //    this.brewersPermit = brewersPermit;
+    //}
 
-    public boolean isSource() {
-        return source;
-    }
+    //public boolean isSource() {
+    //    return source;
+    //}
 
-    public void setSource(boolean source) {
-        this.source = source;
-    }
+    //public void setSource(boolean source) {
+    //    this.source = source;
+    //}
 
     public String getSerialNumber() {
         return serialNumber;
@@ -234,9 +234,9 @@ public class Form implements Serializable {
         return address;
     }
 
-    public void setAddress(ArrayList<Address> address) {
-        this.address = address;
-    }
+    //public void setAddress(ArrayList<Address> address) {
+    //    this.address = address;
+    //}
 
     public Address getMailingAddress() {
         return mailingAddress;
