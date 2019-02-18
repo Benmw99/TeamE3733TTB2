@@ -357,7 +357,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     public void printResults(ActionEvent event) throws IOException {
         String raw = downloadDelimiter.getText();
         char sep;
-        if(downloadDelimiter.getText() == null || downloadDelimiter.getText().trim().isEmpty()){  //TODO Spacebar cannot be delimeter, fix
+        if(downloadDelimiter.getText() == null || downloadDelimiter.getText().isEmpty()){
             sep = ',';
         }else{
             sep = raw.charAt(0);  //TODO properly check raw input
