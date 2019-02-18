@@ -49,7 +49,7 @@
                <tabs>
                   <Tab fx:id="rulesRegTab" style="-fx-background-color: #c4001d;" text="Qualifications">
                      <content>
-                        <JFXTextArea />
+                        <JFXTextArea fx:id="agentComments" />
                      </content></Tab>
                </tabs>
             </JFXTabPane>
