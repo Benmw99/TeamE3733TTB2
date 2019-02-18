@@ -66,6 +66,7 @@ public class PageSwitcher {
         controller.onLoad();
     }
 
+    // Nice
     private void printStackTrace(String filename, AttributeContainer ac){
         System.out.println("------------------");
         try {
