@@ -200,6 +200,8 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     JFXTextField downloadDelimiter;
 
 
+    ToggleGroup searchOptions = new ToggleGroup();
+
     SearchResult result;
     int searchPage;
 
@@ -278,6 +280,8 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             Civ15Label.setText(attributeContainer.currentForm.getEmail());
             Civ16Label.setText(attributeContainer.currentForm.getPhoneNumber());
 
+
+
         }
     }
     //#################################################################################################################################
@@ -315,7 +319,14 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         //}
         //if (manufactureDate.get) DATE NOT IMPLEMENTED YET
 
-        List<Form> forms = Search.SearchDLBrand(advancedSearch, new SearchAlgo.DamerauLevenshtein());
+        List<Form> forms;
+        if(damereauLevenshtein.isSelected()) {           //DL
+            forms = Search.SearchDL(advancedSearch);
+        }else if(levenshtein.isSelected()) {             //LD
+            forms = Search.SearchLD(advancedSearch);
+        }else{                                           //wild
+            forms = Search.SearchWild(advancedSearch);
+        }
         AttributeContainer.getInstance().currentResults = new SearchResult();
         AttributeContainer.getInstance().currentResults.setResults(forms);
         AttributeContainer.getInstance().currentResults.setSearch(advancedSearch);
@@ -382,7 +393,11 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @Override
     void onLoad() {
+        fuzzy.setToggleGroup(searchOptions);
+        levenshtein.setToggleGroup(searchOptions);
+        damereauLevenshtein.setToggleGroup(searchOptions);
 
+        fuzzy.setSelected(true);
     }
 
 }
