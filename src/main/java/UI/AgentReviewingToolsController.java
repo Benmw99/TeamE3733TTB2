@@ -143,6 +143,8 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     @FXML
     JFXTextArea comment;
 
+    @FXML
+    JFXButton approveAVFButton;
 
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
@@ -225,11 +227,12 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /**
-         * The different combo box options
-         */
+        //The different combo box options
         sectionMarkComboBox.getItems().addAll("Complete", "Incomplete", "Incorrect");
+
+        //Passes FormDisplay necessary items
         formDisplayController.setComboBox(sectionMarkComboBox);
+        formDisplayController.setApproveButton(approveAVFButton);
 
         sendAgentButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override

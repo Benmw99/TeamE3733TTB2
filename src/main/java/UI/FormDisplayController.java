@@ -3,6 +3,7 @@ package UI;
 import Entities.Address;
 import Entities.Form;
 import Entities.LabelImage;
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -81,6 +82,8 @@ public class FormDisplayController extends PageControllerUI implements Initializ
     TabPane tabPane;
 
     ComboBox<String> comboBox;
+
+    JFXButton approveButton;
 
     /**
      * Displays the current form as specified in the AttributeContainer Singleton
@@ -245,6 +248,13 @@ public class FormDisplayController extends PageControllerUI implements Initializ
     }
 
     /**
+     * Set reject button to hide
+     */
+    public void setApproveButton(JFXButton approveButton) {
+        this.approveButton = approveButton;
+    }
+
+    /**
      * Gets current tab of display
      */
     public int getTab() {
@@ -386,6 +396,16 @@ public class FormDisplayController extends PageControllerUI implements Initializ
                 attributeContainer.page3Incomplete + " Incorrect: " + attributeContainer.page3Incorrect);
         System.out.println("Page 4 Statuses: Complete: " + attributeContainer.page4Complete + " Incomplete: " +
                 attributeContainer.page4Incomplete + " Incorrect: " + attributeContainer.page4Incorrect);
+
+        if(attributeContainer.page1Incomplete || attributeContainer.page1Incorrect||
+                attributeContainer.page2Incomplete || attributeContainer.page2Incorrect||
+                attributeContainer.page3Incomplete || attributeContainer.page3Incorrect||
+                attributeContainer.page4Incomplete || attributeContainer.page4Incorrect) {
+            approveButton.setDisable(true);
+        } else {
+            approveButton.setDisable(false);
+        }
+
     }
 
     public void page1() {
