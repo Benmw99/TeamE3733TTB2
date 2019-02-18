@@ -117,16 +117,19 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
 
             ac.currentForm = null;
             ac.formQueue = new ArrayList<Entities.Form>();
+            attributeContainer.isInReviewingTools = false;
             goToPage("HomeSearch.fxml");
         } else {
             if (ac.currentUser.isAgent()) {
                 ac.currentForm = null;
                 ac.formQueue = new ArrayList<Entities.Form>();
+                attributeContainer.isInReviewingTools = false;
                 goToPage("HomeSearch.fxml");
             }
             if (ac.currentUser.isManufacturer()) {
                 ac.currentForm = null;
                 ac.formQueue = new ArrayList<Entities.Form>();
+                attributeContainer.isInReviewingTools = false;
                 goToPage("HomeSearch.fxml");
             }
         }
@@ -139,12 +142,15 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
         if (ac.currentUser == null) {
             ac.currentForm = null;
             ac.formQueue = new ArrayList<Entities.Form>();
+            attributeContainer.isInReviewingTools = false;
             goToPage("HomeSearch.fxml");
         } else {
             if (ac.currentUser.isAgent()) {
+                attributeContainer.isInReviewingTools = false;
                 goToPage("AgentHome.fxml");
             }
             if (ac.currentUser.isManufacturer()) {
+                attributeContainer.isInReviewingTools = false;
                 goToPage("ManHome.fxml");
             }
         }
@@ -158,6 +164,7 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
         AttributeContainer.getInstance().formQueue = new ArrayList<Form>();
         AttributeContainer.getInstance().currentUser = null;
 //        goToPage("HomeSearch.fxml");
+        attributeContainer.isInReviewingTools = false;
         goToPage("Login.fxml"); // goes to login now instead of search
     }
 

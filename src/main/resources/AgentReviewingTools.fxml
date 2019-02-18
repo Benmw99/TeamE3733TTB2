@@ -30,7 +30,7 @@
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </Text>
-      <JFXComboBox fx:id="sectionMarkComboBox" layoutX="203.0" layoutY="86.0" prefHeight="39.0" prefWidth="253.0" style="-jfx-focus-color: WHITE;" />
+      <JFXComboBox fx:id="sectionMarkComboBox" layoutX="203.0" layoutY="86.0" prefHeight="39.0" prefWidth="253.0" promptText="Select Status" style="-jfx-focus-color: WHITE;" />
       <JFXButton fx:id="approveAVFButton" buttonType="RAISED" layoutX="538.0" layoutY="86.0" onAction="#approveForm" prefHeight="39.0" prefWidth="132.0" style="-fx-background-color: #4285F4;" text="Approve Form" textFill="WHITE">
          <ripplerFill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
@@ -77,7 +77,7 @@
       </Label>
       <Pane layoutX="-4.0" layoutY="138.0" prefHeight="624.0" prefWidth="688.0">
          <children>
-            <fx:include source="FormDisplay.fxml" />
+            <fx:include fx:id="formDisplay" source="FormDisplay.fxml" />
          </children>
       </Pane>
       <Line endX="-100.00006103515625" endY="595.7626342773438" layoutX="783.0" layoutY="153.0" startX="-100.0" stroke="#b1bdc3" />
