@@ -8,7 +8,6 @@ import Entities.SearchResult;
 import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
 import com.jfoenix.controls.JFXRadioButton;
-import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,6 +25,7 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -196,9 +196,6 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     @FXML
     Button backToHomeButton;
 
-    @FXML
-    JFXTextField downloadDelimiter;
-
 
     ToggleGroup searchOptions = new ToggleGroup();
 
@@ -212,6 +209,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         UsernameStackPane.setOpacity(0);
         UsernameStackPane.setPickOnBounds(false);
 
+        /*
         if(attributeContainer.currentUser == null) {
             SearchLoginButton.setDisable(false);
             SearchLoginButton.setVisible(true);
@@ -223,7 +221,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             backToHomeButton.setDisable(false);
             backToHomeButton.setVisible(true);
         }
-
+        */
         if(attributeContainer.currentUser != null){
             System.out.println("This is true");
             UsernameStackPane.setOpacity(100);
@@ -289,7 +287,6 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     @FXML
     public void searchAdvanced(ActionEvent event) throws IOException {
 
-        // TODO INTEGRATE SEARCH PATTERN DEPENDING ON WHAT RADIO BUTTON IS SELECTED
         printSearchResultsCSV.setDisable(false);
         printSearchResultsCSV.setText("Print Results");
 
@@ -345,7 +342,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             Parent root;
             Stage stage;
             stage=(Stage) resultTable.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("resources/ViewSelectedForm.fxml"));
+            root = FXMLLoader.load(getClass().getResource("ViewSelectedForm.fxml"));
             Scene scene = new Scene(root, 1360, 820);
             stage.setScene(scene);
             stage.show();
@@ -354,12 +351,18 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @FXML
     public void printResults(ActionEvent event) throws IOException {
-        //TODO REWRITE THIS PASSING A BOOLEAN FOR WHETHER OR NOT IT IS A CSV OR ASCII
-        //results.printResults();
         AsciiPrinter.print(AttributeContainer.getInstance().formQueue, ',');
-        //printSearchResultsCSV.setDisable(true);
         printSearchResultsCSV.setText("Printed");
     }
+
+    @FXML
+    public void clearSearch(ActionEvent event) throws IOException {
+        AttributeContainer.getInstance().currentResults.setSearch( null);
+        AttributeContainer.getInstance().formQueue = new ArrayList<Form>();
+        goToPage("HomeSearch.fxml");
+        AttributeContainer.getInstance().backlog.pop();
+    }
+
 
     @FXML
     public void clearResults(ActionEvent event) throws IOException{
@@ -396,8 +399,22 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         fuzzy.setToggleGroup(searchOptions);
         levenshtein.setToggleGroup(searchOptions);
         damereauLevenshtein.setToggleGroup(searchOptions);
-
         fuzzy.setSelected(true);
+
+        if(!(AttributeContainer.getInstance().currentResults.getSearch() == null)) {
+            brandNameTextField.setText(AttributeContainer.getInstance().currentResults.getSearch().brandName);
+
+            if(AttributeContainer.getInstance().currentResults.getSearch().getAlcoholType().toString().equals("Wine")){
+                SearchAlcoholType.getSelectionModel().select(1);
+            }else if(AttributeContainer.getInstance().currentResults.getSearch().getAlcoholType().toString().equals("DistilledLiquor")){
+                SearchAlcoholType.getSelectionModel().select(2);
+            }else if(AttributeContainer.getInstance().currentResults.getSearch().getAlcoholType().toString().equals("MaltBeverage")){
+                SearchAlcoholType.getSelectionModel().select(0);
+            }
+
+
+        }
+
     }
 
 }
