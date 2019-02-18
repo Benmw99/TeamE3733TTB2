@@ -184,15 +184,16 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     JFXRadioButton fuzzy;
 
     @FXML
-    JFXButton SearchLoginButton;
+    Button SearchLoginButton;
 
     @FXML
     JFXRadioButton levenshtein;
 
     @FXML
     JFXRadioButton damereauLevenshtein;
+
     @FXML
-    JFXButton backToHomeButton;
+    Button backToHomeButton;
 
 
     SearchResult result;
