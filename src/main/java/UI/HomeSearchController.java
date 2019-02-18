@@ -196,6 +196,8 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     Button backToHomeButton;
 
 
+    ToggleGroup searchOptions = new ToggleGroup();
+
     SearchResult result;
     int searchPage;
 
@@ -274,6 +276,8 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             Civ15Label.setText(attributeContainer.currentForm.getEmail());
             Civ16Label.setText(attributeContainer.currentForm.getPhoneNumber());
 
+
+
         }
     }
     //#################################################################################################################################
@@ -312,11 +316,11 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         //if (manufactureDate.get) DATE NOT IMPLEMENTED YET
 
         List<Form> forms;
-        if(false) {           //DL
+        if(damereauLevenshtein.isSelected()) {           //DL
             forms = Search.SearchDL(advancedSearch);
-        }else if(false) {     //LD
+        }else if(levenshtein.isSelected()) {             //LD
             forms = Search.SearchLD(advancedSearch);
-        }else{                //wild
+        }else{                                           //wild
             forms = Search.SearchWild(advancedSearch);
         }
         AttributeContainer.getInstance().currentResults = new SearchResult();
@@ -385,7 +389,11 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @Override
     void onLoad() {
+        fuzzy.setToggleGroup(searchOptions);
+        levenshtein.setToggleGroup(searchOptions);
+        damereauLevenshtein.setToggleGroup(searchOptions);
 
+        fuzzy.setSelected(true);
     }
 
 }
