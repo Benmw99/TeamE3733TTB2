@@ -634,7 +634,7 @@ public class AgentController extends PageControllerUI  {
     }
     @FXML
     public void rejectForm(ActionEvent event) throws IOException {
-        currentAgent.rejectForm(currentForm);
+        currentAgent.rejectForm(currentForm, "");
         queue.remove(currentForm);
   //      pageSwitch(event, "AgentHome.fxml", backButton);
         tTBIDColumn.setCellValueFactory(new PropertyValueFactory<>("ttbID"));

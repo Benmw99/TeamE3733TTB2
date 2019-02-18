@@ -261,7 +261,6 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             Civ15Label.setText(attributeContainer.currentForm.getEmail());
             Civ16Label.setText(attributeContainer.currentForm.getPhoneNumber());
 
-
         }
     }
     //#################################################################################################################################
@@ -297,7 +296,6 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         //}
         //if (manufactureDate.get) DATE NOT IMPLEMENTED YET
 
-
         List<Form> forms = Search.SearchDLBrand(advancedSearch, new SearchAlgo.DamerauLevenshtein());
         AttributeContainer.getInstance().currentResults = new SearchResult();
         AttributeContainer.getInstance().currentResults.setResults(forms);
@@ -307,8 +305,6 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         goToPage("HomeSearch.fxml");
         AttributeContainer.getInstance().backlog.pop();
     }
-
-
 
     @FXML
     public void clickItem(MouseEvent event) throws IOException
@@ -325,6 +321,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             stage.show();
         }
     }
+
     @FXML
     public void printResults(ActionEvent event) throws IOException {
         //TODO REWRITE THIS PASSING A BOOLEAN FOR WHETHER OR NOT IT IS A CSV OR ASCII

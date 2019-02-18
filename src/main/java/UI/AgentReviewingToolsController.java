@@ -130,6 +130,9 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     @FXML
     JFXTextField ttb_id;
 
+    @FXML
+    JFXTextArea comment;
+
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
     ///////////////////////////////////////////////////
@@ -157,9 +160,9 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
         if (!(attributeContainer.currentForm == null)) {
 
             //TODO: get qualifications from text field
-            ((Agent) attributeContainer.currentUser).approveForm(attributeContainer.currentForm, "");
+            ((Agent) attributeContainer.currentUser).approveForm(attributeContainer.currentForm, comment.getText());
             attributeContainer.formQueue.remove(attributeContainer.currentForm);
-            ((Agent) attributeContainer.currentUser).getCurrentQueue();
+            AttributeContainer.getInstance().formQueue = ((Agent) attributeContainer.currentUser).getCurrentQueue();
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
             attributeContainer.currentForm = null;
@@ -175,9 +178,9 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     @FXML
     public void rejectForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
-            ((Agent) attributeContainer.currentUser).rejectForm(attributeContainer.currentForm);
+            ((Agent) attributeContainer.currentUser).rejectForm(attributeContainer.currentForm, comment.getText());
             attributeContainer.formQueue.remove(attributeContainer.currentForm);
-            ((Agent) attributeContainer.currentUser).getCurrentQueue();
+            AttributeContainer.getInstance().formQueue = ((Agent) attributeContainer.currentUser).getCurrentQueue();
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
             attributeContainer.currentForm = null;
