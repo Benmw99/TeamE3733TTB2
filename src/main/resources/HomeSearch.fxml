@@ -125,8 +125,8 @@
             <Font name="Helvetica" size="14.0" />
          </font>
       </JFXButton>
-      <JFXRadioButton fx:id="fuzzy" layoutX="132.0" layoutY="474.0" text="Fuzzy Search" />
-      <JFXRadioButton fx:id="levenshtein" layoutX="132.0" layoutY="506.0" text="Levenshtein" />
+      <JFXRadioButton fx:id="fuzzy" layoutX="132.0" layoutY="474.0" text="SQL Wild Search" />
+      <JFXRadioButton fx:id="levenshtein" layoutX="132.0" layoutY="506.0" text="Levenshtein Distance" />
       <JFXRadioButton fx:id="damereauLevenshtein" layoutX="132.0" layoutY="534.0" text="Damerau Levenshtein" />
     <Text fill="WHITE" layoutX="566.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COLA Search" wrappingWidth="256.9218606590072">
         <font>
