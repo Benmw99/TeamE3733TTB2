@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ProfileController">
 <children>
       <StackPane prefHeight="80.0" prefWidth="1360.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -168,15 +168,6 @@
                         </HBox>
                         <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label prefHeight="50.0" prefWidth="200.0" text="Enter Old Password:">
-                                 <font>
-                                    <Font name="Apple SD Gothic Neo Regular" size="18.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="15.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <JFXPasswordField fx:id="OldPasswordField" prefWidth="150.0" />
                               <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0">
@@ -213,6 +204,42 @@
                                  </children>
                                  <HBox.margin>
                                     <Insets left="25.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label prefHeight="50.0" prefWidth="200.0" text="Enter Old Password:">
+                                             <font>
+                                                <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXPasswordField fx:id="OldPasswordField" prefWidth="150.0">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </JFXPasswordField>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0">
+                                       <children>
+                                          <JFXButton fx:id="ChangePass" maxWidth="150.0" ripplerFill="#790a0a" style="-fx-background-color: grey;" text="Change Password" textFill="WHITE">
+                                             <font>
+                                                <Font name="Apple SD Gothic Neo Regular" size="13.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
                                  </HBox.margin>
                               </VBox>
                            </children>
