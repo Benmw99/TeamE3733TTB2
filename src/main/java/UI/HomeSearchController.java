@@ -9,9 +9,11 @@ import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -100,6 +103,15 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @FXML
     ComboBox SearchAlcoholType;
+
+    @FXML
+    JFXToggleButton helpToggleButton;
+
+    @FXML
+    Pane largePane;
+
+    @FXML
+    Pane smallPane;
 
     //Form Labels
     @FXML
@@ -285,6 +297,22 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
 
         }
+
+        helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if(helpToggleButton.isSelected()){
+                    largePane.setOpacity(0.63);
+                    smallPane.setOpacity(1);
+                    System.out.println("Is selected");
+                }
+                else{
+                    largePane.setOpacity(0);
+                    smallPane.setOpacity(0);
+                    System.out.println("Is not selector");
+                }
+            }
+        });
     }
     //#################################################################################################################################
     //                                   advanced search
