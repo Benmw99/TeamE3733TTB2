@@ -8,7 +8,6 @@
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
@@ -31,8 +30,7 @@
       </JFXButton>
       <HBox layoutX="360.0" layoutY="132.0" prefHeight="411.0" prefWidth="948.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="15.0">
          <children>
-            <Pagination prefHeight="411.0" prefWidth="790.0" />
-            <fx:include source="TableView.fxml" />
+            <fx:include prefWidth="900.0" source="TableView.fxml" />
          </children>
          <padding>
             <Insets left="15.0" />
@@ -143,5 +141,8 @@
       </StackPane>
       <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" layoutX="183.0" layoutY="590.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" promptText="Download Delimiter" />
       <JFXToggleButton fx:id="helpToggleButton" layoutX="1025.0" text="Help" />
+      <Label fx:id="pageLabel" layoutX="854.0" layoutY="567.0" text="Label" />
+      <JFXButton fx:id="previousButton" layoutX="775.0" layoutY="562.0" style="-fx-background-color: grey;" text="Previous" textFill="WHITE" />
+      <JFXButton fx:id="nextButton" layoutX="896.0" layoutY="563.0" style="-fx-background-color: grey;" text="Next" textFill="WHITE" />
 </children>
 </AnchorPane>
