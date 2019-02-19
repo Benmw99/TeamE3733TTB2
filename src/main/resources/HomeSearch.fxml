@@ -29,7 +29,7 @@
             <Font name="Apple SD Gothic Neo Regular" size="18.0" />
          </font>
       </JFXButton>
-    <JFXTextField fx:id="SearchField" alignment="CENTER" disable="true" layoutX="406.0" layoutY="84.0" prefHeight="26.0" prefWidth="708.0" style="-fx-background-color: WHITE;" AnchorPane.leftAnchor="406.0" AnchorPane.rightAnchor="250.0" />
+    <JFXTextField fx:id="SearchField" alignment="CENTER" disable="true" layoutX="419.0" layoutY="84.0" prefHeight="26.0" prefWidth="708.0" style="-fx-background-color: WHITE;" AnchorPane.leftAnchor="419.0" AnchorPane.rightAnchor="237.0" />
     <Text layoutX="32.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
         <font>
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
@@ -137,9 +137,9 @@
       <Label fx:id="pageLabel" layoutX="854.0" layoutY="719.0" text="0" />
       <JFXButton fx:id="previousButton" layoutX="818.0" layoutY="714.0" onAction="#prevPage" style="-fx-background-color: #9ea7aa;" text="&lt;" textFill="WHITE" />
       <JFXButton fx:id="nextButton" layoutX="872.0" layoutY="714.0" onAction="#nextPage" style="-fx-background-color: #9ea7aa;" text="&gt;" textFill="WHITE" />
-      <Pane layoutX="404.0" layoutY="135.0" prefHeight="577.0" prefWidth="951.0">
+      <Pane layoutX="404.0" layoutY="135.0" prefHeight="565.0" prefWidth="951.0">
          <children>
-            <HBox prefHeight="564.0" prefWidth="948.0" style="-fx-background-color: white;">
+            <HBox prefHeight="566.0" prefWidth="948.0" style="-fx-background-color: white;">
                <children>
                   <fx:include prefWidth="900.0" source="TableView.fxml" HBox.hgrow="ALWAYS" />
                </children>
