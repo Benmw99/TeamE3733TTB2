@@ -184,6 +184,10 @@ public class AppController extends PageControllerUI implements  Initializable {
 
     @FXML
     ImageView labelImageDisplay;
+
+    @FXML
+    private JFXButton goBackHome;
+
     private Form workingForm;
 
     @Override

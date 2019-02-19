@@ -8,6 +8,7 @@ import Entities.SearchResult;
 import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
 import SearchAlgo.SearchContainer;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
@@ -440,9 +441,6 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         AttributeContainer.getInstance().backlog.pop();
     }
 
-
-
-
     @FXML
     public void loginPage(){
         attributeContainer.currentUser = null;
@@ -462,7 +460,6 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
         }
     }
-
 
     @Override
     protected void onLeave() {
