@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXScrollPane?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ProfileController">
+<children>
+      <StackPane prefHeight="80.0" prefWidth="1360.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+          <Rectangle fill="#9ea7aa" height="80.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1360.0" />
+            <Label text="Proflie">
+               <font>
+                  <Font name="Apple SD Gothic Neo Regular" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <StackPane alignment="TOP_CENTER" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
+         <children>
+            <JFXScrollPane alignment="TOP_CENTER" style="-fx-background-color: black;">
+               <children>
+                  <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" style="-fx-background-color: white;">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="15.0" top="50.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="NameLabel" text="NAME">
+                                       <font>
+                                          <Font name="Apple SD Gothic Neo Bold" size="24.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="UsernameLabel" text="USERNAME">
+                                       <font>
+                                          <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="EmailLabel" text="EMAIL">
+                                       <font>
+                                          <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="15.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="50.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <JFXButton maxWidth="150.0" ripplerFill="#790a0a" style="-fx-background-color: grey;" text="Upload Profile Picture" textFill="WHITE" translateX="-285.0">
+                           <font>
+                              <Font name="Apple SD Gothic Neo Regular" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <HBox prefHeight="50.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" prefHeight="20.0" text="Settings" textFill="#000000af">
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Separator HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets top="20.0" />
+                                 </HBox.margin>
+                              </Separator>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="50.0" prefWidth="250.0" text="Enable Form Submission Wizard">
+                                 <font>
+                                    <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <JFXToggleButton fx:id="FormPrefToggleButton" text="On">
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </JFXToggleButton>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="50.0" prefWidth="250.0" text="Enable Email Notifications">
+                                 <font>
+                                    <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <JFXToggleButton fx:id="EmailPrefToggleButton" text="On">
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </JFXToggleButton>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="50.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="BOTTOM_CENTER" prefHeight="20.0" text="Update Information" textFill="#000000af">
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="5.0" top="10.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Separator HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets top="20.0" />
+                                 </HBox.margin>
+                              </Separator>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="50.0" prefWidth="140.0" text="Change Password">
+                                 <font>
+                                    <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <JFXToggleButton fx:id="ChangePasswordToggleButton" prefWidth="140.0" text="On">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </JFXToggleButton>
+                           </children>
+                        </HBox>
+                        <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="50.0" prefWidth="200.0" text="Enter Old Password:">
+                                 <font>
+                                    <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <JFXPasswordField fx:id="OldPasswordField" prefWidth="150.0" />
+                              <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0">
+                                       <children>
+                                          <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" text="Enter New Password:">
+                                             <font>
+                                                <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXPasswordField fx:id="NewPasswordField1" prefWidth="150.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </JFXPasswordField>
+                                       </children>
+                                    </HBox>
+                                    <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="200.0">
+                                       <children>
+                                          <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" text="Re-enter New Password:">
+                                             <font>
+                                                <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXPasswordField fx:id="NewPasswordField2" prefWidth="150.0">
+                                             <HBox.margin>
+                                                <Insets left="15.0" />
+                                             </HBox.margin>
+                                          </JFXPasswordField>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="25.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </JFXScrollPane>
+         </children>
+      </StackPane>
+      <StackPane fx:id="MenuStackPane" alignment="CENTER_LEFT" layoutX="1097.0" layoutY="23.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #9ea7aa;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <fx:include source="MenuDrawer.fxml" />
+         </children>
+      </StackPane>
+</children>
+</AnchorPane>
