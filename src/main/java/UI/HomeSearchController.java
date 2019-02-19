@@ -9,6 +9,7 @@ import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
 import SearchAlgo.SearchContainer;
 import com.jfoenix.controls.JFXButton;
+import SearchAlgo.*;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
@@ -38,11 +39,13 @@ import java.util.ResourceBundle;
 
 import static Entities.AlcoholType.*;
 
-public class HomeSearchController extends PageControllerUI implements Initializable {
+public class HomeSearchController extends PageControllerUI implements Initializable, PageObservable {
 
 
 
     private Entities.SearchResult results;
+
+    List<PageObserver> pageObservers = new ArrayList<PageObserver>();
 
     //CivilSearch
     @FXML
@@ -516,6 +519,8 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             nextButton.setDisable(true);
         }
 
+        this.register(new PageNumberUpdater());
+
     }
 
     @FXML
@@ -535,4 +540,19 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         }
         return true;
     }
+
+
+    @Override
+    public void register(PageObserver o) {
+        pageObservers.add(o);
+    }
+
+    @FXML
+    @Override
+    public void notifyObservers() {
+        for (PageObserver o:pageObservers) { o.notify(pageTextField.getText());}
+
+    }
+
+
 }

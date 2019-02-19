@@ -1,6 +1,7 @@
 package UI;
 
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.fxml.FXML;
@@ -28,6 +29,12 @@ public class ProfileController {
     private JFXToggleButton ChangePasswordToggleButton;
 
     @FXML
+    private JFXButton ChangeButton;
+
+    @FXML
+    private JFXButton uploadButton;
+
+    @FXML
     private JFXPasswordField OldPasswordField;
 
     @FXML
@@ -38,4 +45,23 @@ public class ProfileController {
 
     @FXML
     private StackPane MenuStackPane;
+
+    @FXML
+    public void changePass() {
+        //Yeet a new password into the DB
+
+    }
+
+    @FXML
+    public void setProfile() {
+        //Yeet a new password into the DB
+    }
+
+    @FXML
+    public void observer() {
+        //Yeet a new password into the DB
+    }
+
+
+
 }
