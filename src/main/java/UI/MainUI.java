@@ -1,5 +1,6 @@
 package UI;
 
+import Entities.EntitiesContainer;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -19,6 +20,7 @@ public class MainUI extends Application {
 //        primaryStage.setScene(scene1);
 //
 //        primaryStage.show();
+        EntitiesContainer.getInstance();
         PageSwitcher.setStage(primaryStage);
         PageSwitcher pageSwitcher = new PageSwitcher();
         pageSwitcher.pageSwitch("HomeSearch.fxml");
