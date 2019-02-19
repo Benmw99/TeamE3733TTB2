@@ -4,14 +4,11 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
@@ -119,108 +116,5 @@
          </children>
       </StackPane>
       <JFXButton fx:id="backToHomeButton" buttonType="RAISED" layoutX="20.0" layoutY="16.0" onAction="#backToHome" prefHeight="35.0" prefWidth="120.0" ripplerFill="#9a9797" style="-fx-background-color: WHITE;" text="Back To Home" />
-      <JFXToggleButton layoutX="1004.0" layoutY="4.0" prefHeight="60.0" prefWidth="149.0" text="Help" toggleColor="#3c3838" toggleLineColor="#646868" />
-      <Pane layoutX="362.0" layoutY="197.0" prefHeight="474.0" prefWidth="844.0" style="-fx-background-color: #9ea7aa;">
-         <children>
-            <HBox prefHeight="475.0" prefWidth="832.0">
-               <children>
-                  <VBox prefHeight="284.0" prefWidth="291.0">
-                     <children>
-                        <JFXButton buttonType="RAISED" prefHeight="39.0" prefWidth="84.0" style="-fx-background-color: cfd8dc;" text="Search" VBox.vgrow="ALWAYS">
-                           <ripplerFill>
-                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-                                 <stops>
-                                    <Stop color="BLACK" />
-                                    <Stop color="WHITE" offset="1.0" />
-                                 </stops>
-                              </RadialGradient>
-                           </ripplerFill>
-                           <font>
-                              <Font name="Arial" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="8.0" left="100.0" top="8.0" />
-                           </VBox.margin>
-                        </JFXButton>
-                        <JFXButton fx:id="aboutPageNav1" buttonType="RAISED" onAction="#aboutPage" ripplerFill="#ababab" style="-fx-background-color: cfd8dc;" text="About" VBox.vgrow="ALWAYS">
-                           <font>
-                              <Font name="Arial" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="11.0" left="105.0" top="5.0" />
-                           </VBox.margin>
-                        </JFXButton>
-                        <JFXButton fx:id="printSearchResultsCSV1" buttonType="RAISED" onAction="#printResults" style="-fx-background-color: WHITE;" text="Print Results" VBox.vgrow="ALWAYS">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Regular" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="21.0" left="82.0" top="5.0" />
-                           </VBox.margin>
-                        </JFXButton>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Type">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="21.0" left="95.0" top="5.0" />
-                           </VBox.margin>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Content">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="21.0" left="80.0" top="5.0" />
-                           </VBox.margin>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Brand Name">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="21.0" left="90.0" top="5.0" />
-                           </VBox.margin>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="21.0" left="70.0" top="5.0" />
-                           </VBox.margin>
-                        </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID Number">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="21.0" left="95.0" top="5.0" />
-                           </VBox.margin>
-                        </Text>
-                        <JFXButton fx:id="backToHomeButton1" buttonType="RAISED" onAction="#backToHome" prefHeight="35.0" prefWidth="120.0" ripplerFill="#9a9797" style="-fx-background-color: WHITE;" text="Back To Home">
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="80.0" top="5.0" />
-                           </VBox.margin>
-                        </JFXButton>
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="475.0" prefWidth="572.0">
-                     <children>
-                        <Label prefHeight="50.0" prefWidth="585.0" text="Selecting this button allows you to search based upon the attributes listed above" wrapText="true" />
-                        <Label prefHeight="50.0" prefWidth="535.0" text="Selecting this button allows you to learn more information about the project team" wrapText="true" />
-                        <Label prefHeight="50.0" prefWidth="607.0" text="Selecting this button allows you to download and print the results produced from your search" wrapText="true" />
-                        <Label prefHeight="50.0" prefWidth="456.0" text="Select the alcohol type by clicking on a type within the dropdown menu" wrapText="true" />
-                        <Label prefHeight="50.0" prefWidth="569.0" text="Type in the alcohol percentage you are looking at in order to search based on this" wrapText="true" />
-                        <Label prefHeight="50.0" prefWidth="535.0" text="Type in the brand name you are looking at in order to search based on this" wrapText="true" />
-                        <Label prefHeight="50.0" prefWidth="456.0" text="Selecting this button allows you to go back to your home page" wrapText="true" />
-                        <Label prefHeight="50.0" prefWidth="456.0" text="Type in the ID number you are referencing to search based on this" wrapText="true" />
-                        <Label prefHeight="50.0" prefWidth="569.0" text="Select the small calendar to the right of the input line to select the date from the calendar" wrapText="true" />
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-         </children>
-      </Pane>
 </children>
 </AnchorPane>

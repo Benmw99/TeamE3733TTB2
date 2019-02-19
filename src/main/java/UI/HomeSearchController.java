@@ -20,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -39,6 +40,12 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     //CivilSearch
     @FXML
     TextField searchfield;
+
+    @FXML
+    ToggleButton helpToggleButton;
+
+    @FXML
+    Pane largePane, smallPane;
 
     @FXML
     Button advSearchButton;
@@ -273,6 +280,24 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             Civ15Label.setText(attributeContainer.currentForm.getEmail());
             Civ16Label.setText(attributeContainer.currentForm.getPhoneNumber());
 
+
+        }
+
+        if (helpToggleButton.isSelected() == false) {
+
+            largePane.setDisable(true);
+            smallPane.setDisable(true);
+            largePane.setVisible(false);
+            smallPane.setVisible(false);
+
+        }
+
+        else if (helpToggleButton.isSelected() == true) {
+
+            largePane.setDisable(false);
+            smallPane.setDisable(false);
+            largePane.setVisible(true);
+            smallPane.setVisible(true);
 
         }
     }

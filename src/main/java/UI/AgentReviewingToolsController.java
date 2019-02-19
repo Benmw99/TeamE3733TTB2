@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
@@ -22,7 +23,10 @@ import java.util.ResourceBundle;
 public class AgentReviewingToolsController extends PageControllerUI implements Initializable {
 
     @FXML
-    StackPane largePane, smallPane;
+    Pane largePane;
+
+    @FXML
+    Pane smallPane;
 
     @FXML
     JFXComboBox<String> markAsComboBox;
@@ -255,26 +259,19 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
          */
         //    markAsComboBox.getItems().addAll("Complete, Incomplete, Incorrect");
 
-
-        if (helpToggleButton.isSelected() == false) {
-
-            largePane.setDisable(true);
-            smallPane.setDisable(true);
-            largePane.setVisible(false);
-            smallPane.setVisible(false);
-
-        }
-
-        else if (helpToggleButton.isSelected() == true) {
-
-            largePane.setDisable(false);
-            smallPane.setDisable(false);
-            largePane.setVisible(true);
-            smallPane.setVisible(true);
-
-        }
-
+        helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if(helpToggleButton.isSelected()){
+                    largePane.setOpacity(0);
+                    smallPane.setOpacity(0);
+                }
+                else{
+                    largePane.setOpacity(15);
+                    smallPane.setOpacity(100);
+                }
+            }
+        });
     }
-
 }
 

@@ -9,7 +9,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import com.jfoenix.controls.*;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 
 import java.awt.*;
@@ -21,6 +23,15 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AgentHomeController extends PageControllerUI implements Initializable {
+
+    @FXML
+    Pane largePane;
+
+    @FXML
+    Pane smallPane;
+
+    @FXML
+    ToggleButton helpToggleButton;
 
     @FXML
     public JFXButton GetNewQueueButton;
@@ -300,6 +311,24 @@ public class AgentHomeController extends PageControllerUI implements Initializab
   //      hamburger.toBack();
 //(true);a
         GetNewQueueButton.toFront();
+
+     if (helpToggleButton.isSelected() == false) {
+
+         largePane.setDisable(true);
+         smallPane.setDisable(true);
+         largePane.setVisible(false);
+         smallPane.setVisible(false);
+
+     }
+
+     else if (helpToggleButton.isSelected() == true) {
+
+         largePane.setDisable(false);
+         smallPane.setDisable(false);
+         largePane.setVisible(true);
+         smallPane.setVisible(true);
+
+     }
 
 //        AttributeContainer.getInstance().formQueue = Database.getDatabase().dbSelect.getNext(AttributeContainer.getInstance().numForQueue);
  }
