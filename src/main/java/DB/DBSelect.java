@@ -237,8 +237,7 @@ public class DBSelect {
 
         try {
             tx = session.beginTransaction();
-            //SETTING MAX RESULTS
-            List<Form> results = session.createQuery(cr).setMaxResults(50).list();
+            List<Form> results = session.createQuery(cr).list();
             for (Iterator iterator = results.iterator(); iterator.hasNext();){
                 Form form = (Form) iterator.next();
                 forms.add(form);
@@ -309,8 +308,7 @@ public class DBSelect {
 
         try {
             tx = session.beginTransaction();
-            //SETTING MAX RESULT
-            List<Form> results = session.createQuery(cr).setMaxResults(50).list();
+            List<Form> results = session.createQuery(cr).list();
             for (Iterator iterator = results.iterator(); iterator.hasNext();){
                 Form form = (Form) iterator.next();
                 forms.add(form);
@@ -372,8 +370,7 @@ public class DBSelect {
         cr.select(root.get("brandName").as(String.class));
         try {
             tx = session.beginTransaction();
-            //SETTING MAX RESULTS
-            result = session.createQuery(cr).setMaxResults(50).list();
+            result = session.createQuery(cr).list();
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
@@ -664,7 +661,6 @@ public class DBSelect {
                 LabelImage image = (LabelImage) iterator.next();
                 results.add(image);
             }
-            //TODO: Hey hows it going?
             tx.commit();
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();

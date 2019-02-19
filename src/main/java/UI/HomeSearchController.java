@@ -7,6 +7,7 @@ import Entities.Form;
 import Entities.SearchResult;
 import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
+import SearchAlgo.SearchContainer;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
@@ -298,21 +299,21 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
         }
 
-        helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+        /*helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 if(helpToggleButton.isSelected()){
                     largePane.setOpacity(0.63);
-                    smallPane.setOpacity(1);
+                    //smallPane.setOpacity(1);
                     System.out.println("Is selected");
                 }
                 else{
                     largePane.setOpacity(0);
-                    smallPane.setOpacity(0);
+                   // smallPane.setOpacity(0);
                     System.out.println("Is not selector");
                 }
             }
-        });
+        });*/
     }
     //#################################################################################################################################
     //                                   advanced search
@@ -356,14 +357,39 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         }else{                                           //wild
             forms = Search.SearchWild(advancedSearch);
         }
-        AttributeContainer.getInstance().currentResults = new SearchResult();
-        AttributeContainer.getInstance().currentResults.setResults(forms);
-        AttributeContainer.getInstance().currentResults.setSearch(advancedSearch);
-        AttributeContainer.getInstance().currentResults.setQuery(advancedSearch.getBrandName());
-        AttributeContainer.getInstance().formQueue = forms;
+        SearchContainer.getInstance().searchResult = new SearchResult();
+        SearchContainer.getInstance().searchResult.setResults(forms);
+        SearchContainer.getInstance().searchResult.setSearch(advancedSearch);
+        SearchContainer.getInstance().searchResult.setQuery(advancedSearch.getBrandName());
+        SearchContainer.getInstance().setPages();
+        SearchContainer.getInstance().currentPage = 1;
+        SearchContainer.getInstance().loadQueue();
         goToPage("HomeSearch.fxml");
         AttributeContainer.getInstance().backlog.pop();
     }
+
+    @FXML
+    public void nextPage(ActionEvent event) throws IOException {
+        if(SearchContainer.getInstance().currentPage != SearchContainer.getInstance().maxPages) {
+            SearchContainer.getInstance().currentPage += 1;
+            SearchContainer.getInstance().loadQueue();
+            goToPage("HomeSearch.fxml");
+            AttributeContainer.getInstance().backlog.pop();
+        }
+    }
+
+    @FXML
+    public void prevPage(ActionEvent event) throws IOException {
+        if(SearchContainer.getInstance().currentPage != 1) {
+            SearchContainer.getInstance().currentPage -= 1;
+            SearchContainer.getInstance().loadQueue();
+            goToPage("HomeSearch.fxml");
+            AttributeContainer.getInstance().backlog.pop();
+        }
+    }
+
+
+
 
     @FXML
     public void clickItem(MouseEvent event) throws IOException
@@ -405,14 +431,12 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     }
 
 
-    @FXML
-    public void clearResults(ActionEvent event) throws IOException{
-        // TODO FIGURE OUT HOW TO CLEAR THE RESULTS QUEUE
-    }
+
 
     @FXML
     public void loginPage(){
         attributeContainer.currentUser = null;
+        SearchContainer.getInstance().searchResult = new SearchResult();
         goToPage("Login.fxml");
     }
 
