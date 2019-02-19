@@ -1001,6 +1001,7 @@
                               <Insets left="15.0" right="15.0" />
                            </HBox.margin>
                         </JFXButton>
+                        <ImageView fx:id="labelImageDisplay" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="15.0" left="150.0" top="15.0" />

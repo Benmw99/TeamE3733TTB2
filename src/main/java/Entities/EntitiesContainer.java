@@ -10,7 +10,7 @@ public class EntitiesContainer {
             +"These three deities lived in harmony within the   \n"
             +"spaghetti, along with the Database Singleton that \n"
             +"lurked in the darkest depths of the code. One day \n"
-            +"the mighty Wong commanded that the gods classes   \n"
+            +"the mighty Wong commanded that the god classes    \n"
             +"be destroyed, which cast the codebase into chaos. \n"
             +"The power of the god controllers was split among  \n"
             +"the many lesser controllers for each page, but a  \n"

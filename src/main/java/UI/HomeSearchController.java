@@ -9,6 +9,7 @@ import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
 import SearchAlgo.SearchContainer;
 import com.jfoenix.controls.JFXButton;
+import SearchAlgo.*;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
@@ -38,11 +39,13 @@ import java.util.ResourceBundle;
 
 import static Entities.AlcoholType.*;
 
-public class HomeSearchController extends PageControllerUI implements Initializable {
+public class HomeSearchController extends PageControllerUI implements Initializable, PageObservable {
 
 
 
     private Entities.SearchResult results;
+
+    List<PageObserver> pageObservers = new ArrayList<PageObserver>();
 
     //CivilSearch
     @FXML
@@ -349,8 +352,10 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         if (brandNameTextField.getText() != null && !brandNameTextField.getText().trim().equals("")) {
             advancedSearch.setBrandName(brandNameTextField.getText());
         }
-        if(SearchID.getText() != null && !SearchID.getText().trim().equals("") && isNumeric(SearchID.getText())) {
-            advancedSearch.setTtbID((int)Double.parseDouble(SearchID.getText()));
+        if(SearchID.getText() != null && !SearchID.getText().trim().equals("") && isNumeric(SearchID.getText()) && SearchID.getText() != "0") {
+            if((int)Double.parseDouble(SearchID.getText()) > 0) {
+                advancedSearch.setTtbID((int) Double.parseDouble(SearchID.getText()));
+            }
         }
 
         //if (alcoholContentTextField.getText() != "") {
@@ -454,6 +459,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     public void loginPage(){
         attributeContainer.currentUser = null;
         SearchContainer.getInstance().searchResult = new SearchResult();
+        SearchContainer.getInstance().currentPage = 1;
         AttributeContainer.getInstance().formQueue = new ArrayList<Form>();
         AttributeContainer.getInstance().currentResults = new SearchResult();
         goToPage("Login.fxml");
@@ -493,8 +499,9 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         //persist search stuff
         if(!(SearchContainer.getInstance().searchResult.getSearch() == null)) {
             brandNameTextField.setText(SearchContainer.getInstance().searchResult.getSearch().brandName);
-            SearchID.setText(SearchContainer.getInstance().searchResult.getSearch().ttbID +"");
-
+            if(SearchContainer.getInstance().searchResult.getSearch().ttbID != 0){
+                SearchID.setText(SearchContainer.getInstance().searchResult.getSearch().ttbID + "");
+            }
             if(SearchContainer.getInstance().searchResult.getSearch().getAlcoholType() != null) {
                 if (SearchContainer.getInstance().searchResult.getSearch().getAlcoholType().toString().equals("Wine")) {
                     SearchAlcoholType.getSelectionModel().select(1);
@@ -516,6 +523,8 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             nextButton.setDisable(true);
         }
 
+        this.register(new PageNumberUpdater());
+
     }
 
     @FXML
@@ -535,4 +544,19 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         }
         return true;
     }
+
+
+    @Override
+    public void register(PageObserver o) {
+        pageObservers.add(o);
+    }
+
+    @FXML
+    @Override
+    public void notifyObservers() {
+        for (PageObserver o:pageObservers) { o.notify(pageTextField.getText());}
+
+    }
+
+
 }
