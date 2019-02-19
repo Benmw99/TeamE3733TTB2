@@ -38,6 +38,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import static Entities.AlcoholType.*;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 public class HomeSearchController extends PageControllerUI implements Initializable, PageObservable {
 
@@ -313,24 +315,37 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             Civ16Label.setText(attributeContainer.currentForm.getPhoneNumber());
 
 
-
         }
 
-        /*helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+        helpToggleButton.setSelected(false);
+        largePane.setOpacity(0);
+        largePane.setDisable(true);
+        smallPane.setOpacity(0);
+        smallPane.setDisable(true);
+
+        helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+
             @Override
             public void handle(ActionEvent event) {
-                if(helpToggleButton.isSelected()){
+                if (helpToggleButton.isSelected()){
                     largePane.setOpacity(0.63);
-                    //smallPane.setOpacity(1);
+                    largePane.setDisable(false);
+                    smallPane.setOpacity(1);
+                    smallPane.setDisable(false);
                     System.out.println("Is selected");
+
+
                 }
-                else{
+                else {
                     largePane.setOpacity(0);
-                   // smallPane.setOpacity(0);
+                    largePane.setDisable(true);
+                    smallPane.setOpacity(0);
+                    smallPane.setDisable(true);
                     System.out.println("Is not selector");
+
                 }
             }
-        });*/
+        });
     }
     //#################################################################################################################################
     //                                   advanced search

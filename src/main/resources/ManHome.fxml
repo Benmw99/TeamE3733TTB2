@@ -4,9 +4,12 @@
 <?import com.jfoenix.controls.JFXClippedPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
@@ -108,5 +111,138 @@
          </children>
       </JFXClippedPane>
       <fx:include source="MenuDrawer.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Pane fx:id="largePane" opacity="0.63" prefHeight="763.0" prefWidth="1361.0" style="-fx-background-color: white;" />
+      <Pane fx:id="smallPane" prefHeight="471.0" prefWidth="877.0" style="-fx-background-color: #999999; -fx-background-radius: 15;" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="200.0">
+         <children>
+            <HBox layoutX="266.0" layoutY="-5.0" prefHeight="477.0" prefWidth="614.0">
+               <children>
+                  <VBox prefHeight="564.0" prefWidth="612.0">
+                     <children>
+                        <Label text="Selecting this button allows you to download the selected application" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="15.0" top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Selecting this button allows you to view the comments made by an agent on a selected application" textFill="WHITE" wrapText="true">
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" top="13.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Selecting this button allows you to refesh your application list" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="15.0" top="2.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Selecting this button will allow you to start a new application" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="15.0" top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Selecting this button will allow you to print a new page" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="15.0" top="19.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Typing into this search bar and hitting the &quot;return&quot; button will allow you to search all of your applications  " textFill="WHITE" wrapText="true">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="15.0" top="15.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Selecting this button will allow you to edit a previously-submitted application" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="15.0" top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <JFXToggleButton layoutX="50.0" layoutY="386.0" text="Edit">
+               <font>
+                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+               </font>
+            </JFXToggleButton>
+            <JFXTextField layoutX="47.0" layoutY="326.0" prefHeight="36.0" prefWidth="179.0" style="-fx-background-color: WHITE;" text="Search Applications">
+               <font>
+                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton buttonType="RAISED" layoutX="54.0" layoutY="260.0" style="-fx-background-color: #800020;" text="Print" textFill="WHITE">
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="62.0" layoutY="200.0" style="-fx-background-radius: 15; -fx-background-color: #800020;" text="+" textFill="WHITE" />
+            <JFXButton buttonType="RAISED" layoutX="49.0" layoutY="132.0" style="-fx-background-color: #800020;" text="Refresh" textFill="WHITE">
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="48.0" layoutY="77.0" style="-fx-background-color: #800020;" text="View Agent Comments" textFill="WHITE">
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="13.0" prefWidth="97.0" style="-fx-background-color: #800020;" text="Download" textFill="WHITE">
+               <font>
+                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+               </font>
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+            </JFXButton>
+         </children>
+      </Pane>
+      <JFXToggleButton fx:id="helpToggleButton" text="Help" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="10.0" />
    </children>
 </AnchorPane>
