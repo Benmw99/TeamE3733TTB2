@@ -6,13 +6,18 @@ import org.apache.*;
 import java.io.*;
 
 import org.apache.poi.hwpf.HWPFDocument;
+import org.apache.poi.hwpf.converter.WordToHtmlConverter;
+import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.hwpf.model.StyleDescription;
 import org.apache.poi.hwpf.model.StyleSheet;
 import org.apache.poi.hwpf.usermodel.CharacterRun;
 import org.apache.poi.hwpf.usermodel.Paragraph;
 import org.apache.poi.hwpf.usermodel.Range;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.*;
+
+import javax.xml.parsers.DocumentBuilderFactory;
 
 public class FormExporter {
     public XWPFDocument doc;
@@ -66,6 +71,10 @@ public class FormExporter {
             }
             File file = new File("/Users/mjclements/IdeaProjects/TeamE3733TTB2/src/main/resources/output.docx");
             doc.write(new FileOutputStream(file));
+            XWPFWordExtractor  we = new XWPFWordExtractor(doc);
+            org.w3c.dom.Document newDocument = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
+            WordToHtmlConverter wordToHtmlConverter = new WordToHtmlConverter(newDocument);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
