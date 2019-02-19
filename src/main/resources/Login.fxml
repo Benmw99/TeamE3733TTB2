@@ -13,13 +13,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.LoginController">
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.LoginController">
    <children>
       <Rectangle fill="#9ea7aa" height="89.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1376.0" AnchorPane.bottomAnchor="671.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Rectangle fill="#cfd8dc" height="62.0" layoutY="54.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="1384.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="89.0" />
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="88.0">
          <children>
-            <JFXTextField fx:id="LoginUserUsernameTextField" alignment="CENTER" maxWidth="350.0" prefWidth="350.0" promptText="username">
+            <JFXTextField fx:id="LoginUserUsernameTextField" alignment="CENTER" labelFloat="true" maxWidth="350.0" prefWidth="350.0" promptText="username">
                <font>
                   <Font name="Apple SD Gothic Neo Thin" size="13.0" />
                </font>
@@ -27,7 +27,7 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </JFXTextField>
-            <JFXPasswordField fx:id="LoginUserPasswordTextField" alignment="CENTER" maxWidth="350.0" prefWidth="350.0" promptText="password">
+            <JFXPasswordField fx:id="LoginUserPasswordTextField" alignment="CENTER" labelFloat="true" maxWidth="350.0" prefWidth="350.0" promptText="password">
                <font>
                   <Font name="Apple SD Gothic Neo Thin" size="13.0" />
                </font>
@@ -59,7 +59,7 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </JFXRadioButton>
-            <JFXButton fx:id="LoginUserLoginButton" buttonType="RAISED" onAction="#login" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: WHITE;" text="log in">
+            <JFXButton fx:id="LoginUserLoginButton" buttonType="RAISED" defaultButton="true" onAction="#login" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: WHITE;" text="log in">
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>

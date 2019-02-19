@@ -7,11 +7,14 @@ import Entities.Form;
 import Entities.SearchResult;
 import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
+import SearchAlgo.SearchContainer;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -100,6 +104,15 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @FXML
     ComboBox SearchAlcoholType;
+
+    @FXML
+    JFXToggleButton helpToggleButton;
+
+    @FXML
+    Pane largePane;
+
+    @FXML
+    Pane smallPane;
 
     //Form Labels
     @FXML
@@ -285,6 +298,22 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
 
         }
+
+        helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if(helpToggleButton.isSelected()){
+                    largePane.setOpacity(0.63);
+                    smallPane.setOpacity(1);
+                    System.out.println("Is selected");
+                }
+                else{
+                    largePane.setOpacity(0);
+                    smallPane.setOpacity(0);
+                    System.out.println("Is not selector");
+                }
+            }
+        });
     }
     //#################################################################################################################################
     //                                   advanced search
@@ -328,14 +357,39 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         }else{                                           //wild
             forms = Search.SearchWild(advancedSearch);
         }
-        AttributeContainer.getInstance().currentResults = new SearchResult();
-        AttributeContainer.getInstance().currentResults.setResults(forms);
-        AttributeContainer.getInstance().currentResults.setSearch(advancedSearch);
-        AttributeContainer.getInstance().currentResults.setQuery(advancedSearch.getBrandName());
-        AttributeContainer.getInstance().formQueue = forms;
+        SearchContainer.getInstance().searchResult = new SearchResult();
+        SearchContainer.getInstance().searchResult.setResults(forms);
+        SearchContainer.getInstance().searchResult.setSearch(advancedSearch);
+        SearchContainer.getInstance().searchResult.setQuery(advancedSearch.getBrandName());
+        SearchContainer.getInstance().setPages();
+        SearchContainer.getInstance().currentPage = 1;
+        SearchContainer.getInstance().loadQueue();
         goToPage("HomeSearch.fxml");
         AttributeContainer.getInstance().backlog.pop();
     }
+
+    @FXML
+    public void nextPage(ActionEvent event) throws IOException {
+        if(SearchContainer.getInstance().currentPage != SearchContainer.getInstance().maxPages) {
+            SearchContainer.getInstance().currentPage += 1;
+            SearchContainer.getInstance().loadQueue();
+            goToPage("HomeSearch.fxml");
+            AttributeContainer.getInstance().backlog.pop();
+        }
+    }
+
+    @FXML
+    public void prevPage(ActionEvent event) throws IOException {
+        if(SearchContainer.getInstance().currentPage != 0) {
+            SearchContainer.getInstance().currentPage -= 1;
+            SearchContainer.getInstance().loadQueue();
+            goToPage("HomeSearch.fxml");
+            AttributeContainer.getInstance().backlog.pop();
+        }
+    }
+
+
+
 
     @FXML
     public void clickItem(MouseEvent event) throws IOException
@@ -355,15 +409,16 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @FXML
     public void printResults(ActionEvent event) throws IOException {
+        printSearchResultsCSV.setDisable(true);
         String raw = downloadDelimiter.getText();
         char sep;
         if(downloadDelimiter.getText() == null || downloadDelimiter.getText().isEmpty()){
             sep = ',';
         }else{
-            sep = raw.charAt(0);  //TODO properly check raw input
+            sep = raw.charAt(0);
         }
-
-        AsciiPrinter.print(AttributeContainer.getInstance().formQueue, sep);
+        AttributeContainer.getInstance().delimeter = sep;
+        AsciiPrinter.print(AttributeContainer.getInstance().formQueue, AttributeContainer.getInstance().delimeter);
         printSearchResultsCSV.setText("Printed");
     }
 
@@ -376,14 +431,12 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     }
 
 
-    @FXML
-    public void clearResults(ActionEvent event) throws IOException{
-        // TODO FIGURE OUT HOW TO CLEAR THE RESULTS QUEUE
-    }
+
 
     @FXML
     public void loginPage(){
         attributeContainer.currentUser = null;
+        SearchContainer.getInstance().searchResult = new SearchResult();
         goToPage("Login.fxml");
     }
 
@@ -408,11 +461,18 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @Override
     void onLoad() {
+        if(AttributeContainer.getInstance().formQueue.size() == 0) {
+            printSearchResultsCSV.setDisable(true);
+        }
+
+        //search radio buttons
         fuzzy.setToggleGroup(searchOptions);
         levenshtein.setToggleGroup(searchOptions);
         damereauLevenshtein.setToggleGroup(searchOptions);
         fuzzy.setSelected(true);
 
+
+        //persist search stuff
         if(!(AttributeContainer.getInstance().currentResults.getSearch() == null)) {
             brandNameTextField.setText(AttributeContainer.getInstance().currentResults.getSearch().brandName);
 
@@ -425,10 +485,17 @@ public class HomeSearchController extends PageControllerUI implements Initializa
                     SearchAlcoholType.getSelectionModel().select(0);
                 }
             }
-
-
         }
 
+        //TODO save the type of search algorithm
+
+    }
+
+    @FXML
+    public void limitDelimit()  {
+        if (downloadDelimiter.getText().length() > 1) {
+            downloadDelimiter.setText(downloadDelimiter.getText().substring(0, 1));
+        }
     }
 
 }

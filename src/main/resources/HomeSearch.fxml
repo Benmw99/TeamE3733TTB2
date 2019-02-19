@@ -5,10 +5,12 @@
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -113,7 +115,7 @@
             </Label>
          </children>
       </StackPane>
-      <JFXButton fx:id="clearSearch" buttonType="RAISED" layoutX="199.0" layoutY="409.0" onAction="#clearResults" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: cfd8dc;" text="Clear Search">
+      <JFXButton fx:id="clearSearch" buttonType="RAISED" layoutX="199.0" layoutY="409.0" onAction="#clearSearch" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: cfd8dc;" text="Clear Search">
          <ripplerFill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -138,6 +140,8 @@
             <fx:include source="MenuDrawer.fxml" />
          </children>
       </StackPane>
-      <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" layoutX="183.0" layoutY="590.0" promptText="Download Delimiter" />
+      <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" layoutX="183.0" layoutY="590.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" promptText="Download Delimiter" />
+      <Pane fx:id="largePane" opacity="0.63" prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: white;" />
+      <JFXToggleButton fx:id="helpToggleButton" layoutX="1025.0" text="Help" />
 </children>
 </AnchorPane>
