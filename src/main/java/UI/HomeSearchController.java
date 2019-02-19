@@ -380,7 +380,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @FXML
     public void prevPage(ActionEvent event) throws IOException {
-        if(SearchContainer.getInstance().currentPage != 0) {
+        if(SearchContainer.getInstance().currentPage != 1) {
             SearchContainer.getInstance().currentPage -= 1;
             SearchContainer.getInstance().loadQueue();
             goToPage("HomeSearch.fxml");
