@@ -373,7 +373,9 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         SearchContainer.getInstance().searchResult.setQuery(advancedSearch.getBrandName());
         SearchContainer.getInstance().setPages();
         SearchContainer.getInstance().currentPage = 1;
-        SearchContainer.getInstance().loadQueue();
+        if(SearchContainer.getInstance().searchResult.getResults().size() != 0) {
+            SearchContainer.getInstance().loadQueue();
+        }
         goToPage("HomeSearch.fxml");
         AttributeContainer.getInstance().backlog.pop();
     }
@@ -428,13 +430,13 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             sep = raw.charAt(0);
         }
         AttributeContainer.getInstance().delimeter = sep;
-        AsciiPrinter.print(AttributeContainer.getInstance().formQueue, AttributeContainer.getInstance().delimeter);
+        AsciiPrinter.print(SearchContainer.getInstance().searchResult.getResults(),AttributeContainer.getInstance().delimeter);
         printSearchResultsCSV.setText("Printed");
     }
 
     @FXML
     public void clearSearch(ActionEvent event) throws IOException {
-        AttributeContainer.getInstance().currentResults.setSearch( null);
+        SearchContainer.getInstance().searchResult.setSearch(null);
         AttributeContainer.getInstance().formQueue = new ArrayList<Form>();
         goToPage("HomeSearch.fxml");
         AttributeContainer.getInstance().backlog.pop();
@@ -483,15 +485,15 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
 
         //persist search stuff
-        if(!(AttributeContainer.getInstance().currentResults.getSearch() == null)) {
-            brandNameTextField.setText(AttributeContainer.getInstance().currentResults.getSearch().brandName);
+        if(!(SearchContainer.getInstance().searchResult.getSearch() == null)) {
+            brandNameTextField.setText(SearchContainer.getInstance().searchResult.getSearch().brandName);
 
-            if(AttributeContainer.getInstance().currentResults.getSearch().getAlcoholType() != null) {
-                if (AttributeContainer.getInstance().currentResults.getSearch().getAlcoholType().toString().equals("Wine")) {
+            if(SearchContainer.getInstance().searchResult.getSearch().getAlcoholType() != null) {
+                if (SearchContainer.getInstance().searchResult.getSearch().getAlcoholType().toString().equals("Wine")) {
                     SearchAlcoholType.getSelectionModel().select(1);
-                } else if (AttributeContainer.getInstance().currentResults.getSearch().getAlcoholType().toString().equals("DistilledLiquor")) {
+                } else if (SearchContainer.getInstance().searchResult.getSearch().getAlcoholType().toString().equals("DistilledLiquor")) {
                     SearchAlcoholType.getSelectionModel().select(2);
-                } else if (AttributeContainer.getInstance().currentResults.getSearch().getAlcoholType().toString().equals("MaltBeverage")) {
+                } else if (SearchContainer.getInstance().searchResult.getSearch().getAlcoholType().toString().equals("MaltBeverage")) {
                     SearchAlcoholType.getSelectionModel().select(0);
                 }
             }
