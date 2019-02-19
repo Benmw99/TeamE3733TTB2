@@ -10,6 +10,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -21,21 +22,13 @@
 <children>
     <Rectangle fill="#9ea7aa" height="77.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="626.0" layoutX="1.0" layoutY="136.0" stroke="TRANSPARENT" strokeType="INSIDE" width="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
-      <Rectangle fill="#cfd8dc" height="65.0" layoutX="19.0" layoutY="571.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="338.0" />
+      <Rectangle fill="#cfd8dc" height="65.0" layoutX="33.0" layoutY="582.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="324.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="62.0" layoutY="66.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0" />
       <JFXButton fx:id="SearchLoginButton" buttonType="RAISED" layoutX="1248.0" layoutY="13.0" onAction="#loginPage" style="-fx-background-color: WHITE;" text="Login">
          <font>
             <Font name="Apple SD Gothic Neo Regular" size="18.0" />
          </font>
       </JFXButton>
-      <HBox layoutX="360.0" layoutY="132.0" prefHeight="559.0" prefWidth="915.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="46.0">
-         <children>
-            <fx:include prefWidth="900.0" source="TableView.fxml" HBox.hgrow="ALWAYS" />
-         </children>
-         <padding>
-            <Insets left="15.0" />
-         </padding>
-      </HBox>
     <JFXTextField fx:id="SearchField" alignment="CENTER" disable="true" layoutX="406.0" layoutY="84.0" prefHeight="26.0" prefWidth="708.0" style="-fx-background-color: WHITE;" AnchorPane.leftAnchor="406.0" AnchorPane.rightAnchor="250.0" />
     <Text layoutX="32.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
         <font>
@@ -47,14 +40,14 @@
             <Font name="Apple SD Gothic Neo Thin" size="36.0" />
         </font>
     </Text>
-      <JFXButton fx:id="printSearchResultsCSV" buttonType="RAISED" layoutX="41.0" layoutY="586.0" onAction="#printResults" style="-fx-background-color: WHITE;" text="Print Results">
+      <JFXButton fx:id="printSearchResultsCSV" buttonType="RAISED" layoutX="184.0" layoutY="595.0" onAction="#printResults" style="-fx-background-color: WHITE;" text="Print Results">
          <font>
             <Font name="Apple SD Gothic Neo Regular" size="18.0" />
          </font></JFXButton>
       <JFXDatePicker fx:id="SearchDate" layoutX="197.0" layoutY="298.0" prefHeight="25.0" prefWidth="149.0" promptText="date" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="7.0" layoutY="208.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
       <JFXComboBox fx:id="SearchAlcoholType" layoutX="196.0" layoutY="151.0" prefWidth="150.0" />
-      <JFXTextField fx:id="SearchID" alignment="CENTER" layoutX="196.0" layoutY="348.0" promptText="number">
+      <JFXTextField fx:id="SearchID" alignment="CENTER" labelFloat="true" layoutX="196.0" layoutY="348.0" promptText="number">
          <font>
             <Font name="Apple SD Gothic Neo Thin" size="14.0" />
          </font></JFXTextField>
@@ -69,7 +62,7 @@
          </font>
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="7.0" layoutY="196.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
-      <JFXTextField fx:id="SearchPercentage" alignment="CENTER" layoutX="196.0" layoutY="200.0" promptText="percentage">
+      <JFXTextField fx:id="SearchPercentage" alignment="CENTER" labelFloat="true" layoutX="196.0" layoutY="200.0" promptText="percentage">
          <font>
             <Font name="Apple SD Gothic Neo Thin" size="14.0" />
          </font></JFXTextField>
@@ -83,7 +76,7 @@
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="brandNameTextField" alignment="CENTER" layoutX="196.0" layoutY="250.0" promptText="name">
+      <JFXTextField fx:id="brandNameTextField" alignment="CENTER" labelFloat="true" layoutX="196.0" layoutY="250.0" promptText="name">
          <font>
             <Font name="Apple SD Gothic Neo Thin" size="14.0" />
          </font></JFXTextField>
@@ -139,10 +132,22 @@
             <fx:include source="MenuDrawer.fxml" />
          </children>
       </StackPane>
-      <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" layoutX="183.0" layoutY="590.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" promptText="Download Delimiter" />
+      <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" labelFloat="true" layoutX="92.0" layoutY="598.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" prefHeight="27.0" prefWidth="65.0" promptText="Delimiter" />
       <JFXToggleButton fx:id="helpToggleButton" layoutX="1025.0" text="Help" />
       <Label fx:id="pageLabel" layoutX="854.0" layoutY="719.0" text="0" />
-      <JFXButton fx:id="previousButton" layoutX="818.0" layoutY="714.0" onAction="#prevPage" style="-fx-background-color: grey;" text="&lt;" textFill="WHITE" />
-      <JFXButton fx:id="nextButton" layoutX="872.0" layoutY="714.0" onAction="#nextPage" style="-fx-background-color: grey;" text="&gt;" textFill="WHITE" />
+      <JFXButton fx:id="previousButton" layoutX="818.0" layoutY="714.0" onAction="#prevPage" style="-fx-background-color: #9ea7aa;" text="&lt;" textFill="WHITE" />
+      <JFXButton fx:id="nextButton" layoutX="872.0" layoutY="714.0" onAction="#nextPage" style="-fx-background-color: #9ea7aa;" text="&gt;" textFill="WHITE" />
+      <Pane layoutX="404.0" layoutY="135.0" prefHeight="577.0" prefWidth="951.0">
+         <children>
+            <HBox prefHeight="564.0" prefWidth="948.0" style="-fx-background-color: white;">
+               <children>
+                  <fx:include prefWidth="900.0" source="TableView.fxml" HBox.hgrow="ALWAYS" />
+               </children>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </HBox>
+         </children>
+      </Pane>
 </children>
 </AnchorPane>
