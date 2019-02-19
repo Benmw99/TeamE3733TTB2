@@ -35,12 +35,12 @@ public class Approval implements Serializable {
 
     @Column(name = "Qualification")
     private String qualifications;
-    
+
     @Column(name = "CT")
     private int CT;
 
-    @Column(name = "OR")
-    private int OR;
+    @Column(name = "Origin")
+    private int origin;
 
     @OneToOne()
     @JoinColumn(name = "TTB_ID")
@@ -61,7 +61,7 @@ public class Approval implements Serializable {
         this.expDate = null;
         this.qualifications = null;
         this.CT = 0;
-        this.OR = 0;
+        this.origin = 0;
     }
 
     public Approval(ApprovalStatus page1, ApprovalStatus page2, ApprovalStatus page3, ApprovalStatus page4, Date dateApproved, String agentApprovalName, Date expDate, String qualifications, Form form) {
@@ -75,7 +75,7 @@ public class Approval implements Serializable {
         this.qualifications = qualifications;
         this.form = form;
         this.CT = 0;
-        this.OR = 0;
+        this.origin = 0;
     }
 
     public Approval(ApprovalStatus page1, ApprovalStatus page2, ApprovalStatus page3, ApprovalStatus page4, Date dateApproved, String agentApprovalName, Date expDate, String qualifications, int CT, int OR, Form form) {
@@ -88,7 +88,7 @@ public class Approval implements Serializable {
         this.expDate = expDate;
         this.qualifications = qualifications;
         this.CT = CT;
-        this.OR = OR;
+        this.origin = OR;
         this.form = form;
     }
 
@@ -164,12 +164,12 @@ public class Approval implements Serializable {
         this.CT = CT;
     }
 
-    public int getOR() {
-        return OR;
+    public int getOrigin() {
+        return origin;
     }
 
-    public void setOR(int OR) {
-        this.OR = OR;
+    public void setOrigin(int origin) {
+        this.origin = origin;
     }
 
     //methods n the lot

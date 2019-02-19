@@ -184,7 +184,7 @@ public class TableBuilder {
                 "Page_3 Int, " +
                 "Page_4 Int, " +
                 "CT Int, " +
-                "OR Int, " +
+                "Origin Int, " +
                 "Qualification VARCHAR(600) DEFAULT NULL, " +
                 "Constraint Approval_PK Primary Key (ID), " +
                 "Constraint Approval_FK Foreign Key (TTB_ID) References Form(TTB_ID) On Delete Cascade)";
