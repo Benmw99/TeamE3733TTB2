@@ -361,7 +361,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         if(downloadDelimiter.getText() == null || downloadDelimiter.getText().isEmpty()){
             sep = ',';
         }else{
-            sep = raw.charAt(0);  //TODO properly check raw input
+            sep = raw.charAt(0);
         }
         AttributeContainer.getInstance().delimeter = sep;
         AsciiPrinter.print(AttributeContainer.getInstance().formQueue, AttributeContainer.getInstance().delimeter);
