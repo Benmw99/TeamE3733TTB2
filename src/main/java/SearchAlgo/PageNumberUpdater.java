@@ -16,11 +16,12 @@ public class PageNumberUpdater implements PageObserver {
         try {
             int i = parsePageNum(k);
 //            System.out.println(i);
-            if (i > s.maxPages)  {i = s.maxPages;}
             while(i < 1) {//handle negatives
-                i = i + s.maxPages;
+                i = i + s.maxPages + 1;
                 if (i == 0) {i = 1;}
                 }
+            if (i > s.maxPages)  {i = s.maxPages;}
+
 //            System.out.println(i);
             SearchContainer.getInstance().currentPage = i;
             SearchContainer.getInstance().loadQueue();
