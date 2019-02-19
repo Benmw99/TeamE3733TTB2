@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManSingleAppPageController">
+   <children>
+      <Rectangle fill="#9a9c9e" height="83.0" layoutX="-1.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1360.0" AnchorPane.bottomAnchor="677.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label layoutX="615.0" layoutY="24.0" text="Application" textFill="WHITE">
+         <font>
+            <Font name="Helvetica" size="24.0" />
+         </font>
+      </Label>
+      <Pane layoutX="-1.0" layoutY="83.0" prefHeight="200.0" prefWidth="495.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="83.0">
+         <children>
+            <HBox prefHeight="677.0" prefWidth="1360.0">
+               <children>
+                  <VBox prefHeight="677.0" prefWidth="340.0">
+                     <children>
+                        <JFXTextField fx:id="RepIDField" prefHeight="27.0" prefWidth="260.0" text="1. Representative ID">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="75.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="ProducerNumField" text="2. Brewer's Number">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="SourceComboBox" promptText="3. Source">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXComboBox>
+                        <JFXTextField fx:id="SerialYearField" text="4. Serial Number Year">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="SerialDigitsField" text="Serial Number Digits">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="TypeComboBox" onAction="#checkWine" promptText="5. Type" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXComboBox>
+                        <JFXTextField fx:id="BrandField" text="6. Brand Name">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="FancifulField" text="7. Fanciful Name">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                     </children></VBox>
+                  <VBox prefHeight="677.0" prefWidth="340.0">
+                     <children>
+                        <JFXTextField fx:id="Name8Field" text="8. Name">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="75.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="Address8Field" text="Address">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="City8Field" text="City">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="State8ComboBox" promptText="State">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXComboBox>
+                        <JFXTextField fx:id="Zip8Field" text="Zip">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXRadioButton fx:id="SameAddressRadioButton" onAction="#checkMail" text="Same as Mailing">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXRadioButton>
+                        <JFXTextField fx:id="Name9Field" text="9. Name">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="Address9Field" text="Address">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="City9Field" text="City">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="State9ComboBox" promptText="State">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXComboBox>
+                        <JFXTextField fx:id="Zip9Field" text="Zip">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                     </children></VBox>
+                  <VBox prefHeight="677.0" prefWidth="340.0">
+                     <children>
+                        <JFXTextField fx:id="FormulaField" text="10. Formula">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="75.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="VintageYearField" text="Vintage Year">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="PhField" text="Wine pH">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="GrapeVarField" text="11. Grape Varietal">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="WineAppField" text="12. Wine Appellation">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="PhoneNumField" text="13. Phone Number">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="EmailField" text="14. Email">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="677.0" prefWidth="340.0">
+                     <children>
+                        <JFXTextField fx:id="AdditionalInfoField" prefHeight="27.0" prefWidth="99.0" text="16. Additional Info">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="75.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="TranslationField" prefHeight="27.0" prefWidth="111.0" text="Translation of Additional Info">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXDatePicker fx:id="AppDate" defaultColor="#ab1818" promptText="17. Date of Application">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXDatePicker>
+                        <JFXTextField fx:id="SignatureField" text="18. Signature of Applicant">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXButton fx:id="UploadButton" buttonType="RAISED" onAction="#uploadLabelImage" style="-fx-background-color: #ff616f;" text="19. Submit Label">
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="110.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXTextField fx:id="AlcoholContentTextField" text="20. Alcohol Content">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXButton fx:id="SendApp" buttonType="RAISED" style="-fx-background-color: #800020;" text="Submit Application" textFill="WHITE">
+                           <ripplerFill>
+                              <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                 <stops>
+                                    <Stop color="BLACK" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </RadialGradient>
+                           </ripplerFill>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="50.0" right="10.0" top="240.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </JFXButton>
+                     </children></VBox>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <JFXButton fx:id="goBackHome" buttonType="RAISED" layoutX="63.0" layoutY="28.0" onAction="#goBack" style="-fx-background-color: WHITE;" text="Go Back">
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+      </JFXButton>
+   </children>
+</AnchorPane>
