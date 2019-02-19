@@ -499,11 +499,18 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
         //TODO save the type of search algorithm
 
+        pageLabel.setText(SearchContainer.getInstance().currentPage + "");
+        if(SearchContainer.getInstance().currentPage == 1){
+            previousButton.setDisable(true);
+        }
+        if(SearchContainer.getInstance().currentPage == SearchContainer.getInstance().maxPages){
+            nextButton.setDisable(true);
+        }
+
     }
 
     @FXML
     public void limitDelimit()  {
-
         if (downloadDelimiter.getText().length() > 1) {
             downloadDelimiter.setText(downloadDelimiter.getText().substring(0, 1));
         }
