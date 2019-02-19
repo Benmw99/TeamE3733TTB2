@@ -264,64 +264,64 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             backToHomeButton.setVisible(true);
         }
         */
-        if(attributeContainer.currentUser != null){
-            System.out.println("This is true");
-            UsernameStackPane.setOpacity(100);
-            UsernameLabel.setText(attributeContainer.currentUser.getLogin());
-        }
-        else{
-            UsernameStackPane.toBack();
-        }
-
-        if (attributeContainer.currentForm != null) {
-            Civ1Label.setText(attributeContainer.currentForm.getRepID());
-            String fullPermit = "";
-            for (int i = 0; i < attributeContainer.currentForm.getBrewersPermit().size(); i++) {
-                fullPermit += attributeContainer.currentForm.getBrewersPermit().get(i) + "\n";
-            }
-            Civ2Label.setText(fullPermit);
-            if (attributeContainer.currentForm.getSource()) {
-                Civ3Label.setText("Domestic");
-            } else {
-                Civ3Label.setText("Imported");
-            }
-            CivReview4Label1.setText(attributeContainer.currentForm.getSerialNumber());
-            Civ5Label1.setText(attributeContainer.currentForm.getAlcoholType().toString());
-            if (attributeContainer.currentForm.getAlcoholType().toInt() == Wine.toInt()) {
-                Civ5Label2.setText("" + attributeContainer.currentForm.getWineFormItems().getpH());
-                Civ5Label3.setText("" + attributeContainer.currentForm.getWineFormItems().getVintageYear());
-                Civ11Label.setText(attributeContainer.currentForm.getWineFormItems().getGrapeVarietal());
-                Civ12Label.setText(attributeContainer.currentForm.getWineFormItems().getAppellation());
-            } else {
-                Civ5Label2.setText("N/A");
-                Civ5Label3.setText("N/A");
-                Civ11Label.setText("N/A");
-                Civ12Label.setText("N/A");
-            }
-            Civ6Label.setText(attributeContainer.currentForm.getBrandName());
-            Civ7Label.setText(attributeContainer.currentForm.getFancifulName());
-
-            String fullAddress = "";
-            for (int i = 0; i < attributeContainer.currentForm.getAddress().size(); i++) {
-                fullAddress += attributeContainer.currentForm.getAddress().get(i).getName() + "\n"; //NAME MIGHT NOT BE STORED OR RETRIEVED CORRECTLY
-                fullAddress += attributeContainer.currentForm.getAddress().get(i).getStreet() + ", " + attributeContainer.currentForm.getAddress().get(i).getCity() + ", " + attributeContainer.currentForm.getAddress().get(i).getState();
-                fullAddress += ", " + attributeContainer.currentForm.getAddress().get(i).getZip() + "\n";
-            }
-            Civ8Label.setText(fullAddress);
-            if (attributeContainer.currentForm.getMailingAddress() != null) {
-                String mailingAddress = "";
-                mailingAddress += attributeContainer.currentForm.getMailingAddress().getStreet() + ", " + attributeContainer.currentForm.getMailingAddress().getCity() + ", " + attributeContainer.currentForm.getMailingAddress().getState() + ", " + attributeContainer.currentForm.getMailingAddress().getZip();
-                Civ9Label.setText(mailingAddress);
-            } else {
-                Civ9Label.setText("");
-            }
-            Civ10Label.setText(attributeContainer.currentForm.getFormula());
-            Civ14Label.setText("" + attributeContainer.currentForm.getAlcoholContent());
-            Civ15Label.setText(attributeContainer.currentForm.getEmail());
-            Civ16Label.setText(attributeContainer.currentForm.getPhoneNumber());
-
-
-        }
+//        if(attributeContainer.currentUser != null){
+//            System.out.println("This is true");
+//            UsernameStackPane.setOpacity(100);
+//            UsernameLabel.setText(attributeContainer.currentUser.getLogin());
+//        }
+//        else{
+//            UsernameStackPane.toBack();
+//        }
+//
+//        if (attributeContainer.currentForm != null) {
+//            Civ1Label.setText(attributeContainer.currentForm.getRepID());
+//            String fullPermit = "";
+//            for (int i = 0; i < attributeContainer.currentForm.getBrewersPermit().size(); i++) {
+//                fullPermit += attributeContainer.currentForm.getBrewersPermit().get(i) + "\n";
+//            }
+//            Civ2Label.setText(fullPermit);
+//            if (attributeContainer.currentForm.getSource()) {
+//                Civ3Label.setText("Domestic");
+//            } else {
+//                Civ3Label.setText("Imported");
+//            }
+//            CivReview4Label1.setText(attributeContainer.currentForm.getSerialNumber());
+//            Civ5Label1.setText(attributeContainer.currentForm.getAlcoholType().toString());
+//            if (attributeContainer.currentForm.getAlcoholType().toInt() == Wine.toInt()) {
+//                Civ5Label2.setText("" + attributeContainer.currentForm.getWineFormItems().getpH());
+//                Civ5Label3.setText("" + attributeContainer.currentForm.getWineFormItems().getVintageYear());
+//                Civ11Label.setText(attributeContainer.currentForm.getWineFormItems().getGrapeVarietal());
+//                Civ12Label.setText(attributeContainer.currentForm.getWineFormItems().getAppellation());
+//            } else {
+//                Civ5Label2.setText("N/A");
+//                Civ5Label3.setText("N/A");
+//                Civ11Label.setText("N/A");
+//                Civ12Label.setText("N/A");
+//            }
+//            Civ6Label.setText(attributeContainer.currentForm.getBrandName());
+//            Civ7Label.setText(attributeContainer.currentForm.getFancifulName());
+//
+//            String fullAddress = "";
+//            for (int i = 0; i < attributeContainer.currentForm.getAddress().size(); i++) {
+//                fullAddress += attributeContainer.currentForm.getAddress().get(i).getName() + "\n"; //NAME MIGHT NOT BE STORED OR RETRIEVED CORRECTLY
+//                fullAddress += attributeContainer.currentForm.getAddress().get(i).getStreet() + ", " + attributeContainer.currentForm.getAddress().get(i).getCity() + ", " + attributeContainer.currentForm.getAddress().get(i).getState();
+//                fullAddress += ", " + attributeContainer.currentForm.getAddress().get(i).getZip() + "\n";
+//            }
+//            Civ8Label.setText(fullAddress);
+//            if (attributeContainer.currentForm.getMailingAddress() != null) {
+//                String mailingAddress = "";
+//                mailingAddress += attributeContainer.currentForm.getMailingAddress().getStreet() + ", " + attributeContainer.currentForm.getMailingAddress().getCity() + ", " + attributeContainer.currentForm.getMailingAddress().getState() + ", " + attributeContainer.currentForm.getMailingAddress().getZip();
+//                Civ9Label.setText(mailingAddress);
+//            } else {
+//                Civ9Label.setText("");
+//            }
+//            Civ10Label.setText(attributeContainer.currentForm.getFormula());
+//            Civ14Label.setText("" + attributeContainer.currentForm.getAlcoholContent());
+//            Civ15Label.setText(attributeContainer.currentForm.getEmail());
+//            Civ16Label.setText(attributeContainer.currentForm.getPhoneNumber());
+//
+//
+//        }
 
         helpToggleButton.setSelected(false);
         largePane.setOpacity(0);
