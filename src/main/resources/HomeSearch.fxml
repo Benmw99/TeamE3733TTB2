@@ -30,8 +30,8 @@
             <Font name="Roboto-Light" size="18.0" />
          </font>
       </JFXButton>
-    <JFXTextField fx:id="SearchField" alignment="CENTER" disable="true" layoutX="419.0" layoutY="84.0" prefHeight="26.0" prefWidth="708.0" style="-fx-background-color: WHITE;" AnchorPane.leftAnchor="419.0" AnchorPane.rightAnchor="237.0" />
-    <Text layoutX="32.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
+    <JFXTextField fx:id="SearchField" alignment="CENTER" disable="true" layoutX="419.0" layoutY="84.0" prefHeight="26.0" prefWidth="708.0" style="-fx-background-color: WHITE;" visible="false" AnchorPane.leftAnchor="419.0" AnchorPane.rightAnchor="237.0" />
+    <Text disable="true" layoutX="32.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
         <font>
             <Font name="Roboto-Light" size="18.0" />
         </font>
@@ -45,7 +45,7 @@
          <font>
             <Font name="Roboto-Light" size="18.0" />
          </font></JFXButton>
-      <JFXDatePicker fx:id="SearchDate" layoutX="197.0" layoutY="298.0" prefHeight="25.0" prefWidth="149.0" promptText="date" />
+      <JFXDatePicker fx:id="SearchDate" disable="true" layoutX="197.0" layoutY="298.0" prefHeight="25.0" prefWidth="149.0" promptText="date" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="7.0" layoutY="208.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
       <JFXComboBox fx:id="SearchAlcoholType" layoutX="196.0" layoutY="151.0" prefWidth="150.0" />
       <JFXTextField fx:id="SearchID" alignment="CENTER" labelFloat="true" layoutX="196.0" layoutY="348.0" promptText="number">
@@ -63,11 +63,11 @@
          </font>
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="7.0" layoutY="196.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
-      <JFXTextField fx:id="SearchPercentage" alignment="CENTER" labelFloat="true" layoutX="196.0" layoutY="200.0" promptText="percentage">
+      <JFXTextField fx:id="SearchPercentage" alignment="CENTER" disable="true" labelFloat="true" layoutX="196.0" layoutY="200.0" promptText="percentage">
          <font>
             <Font name="Roboto-Light" size="14.0" />
          </font></JFXTextField>
-      <Text layoutX="32.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Content">
+      <Text disable="true" layoutX="32.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Content">
          <font>
             <Font name="Roboto-Light" size="18.0" />
          </font>
@@ -148,13 +148,15 @@
             </HBox>
          </children>
       </Pane>
-      <JFXTextField fx:id="pageTextField" alignment="CENTER" labelFloat="true" layoutX="819.0" layoutY="715.0" prefHeight="27.0" prefWidth="96.0" promptText="Go To Page" />
+      <JFXTextField fx:id="pageTextField" alignment="CENTER" labelFloat="true" layoutX="819.0" layoutY="715.0" onAction="#notifyObservers" prefHeight="27.0" prefWidth="96.0" promptText="Go To Page" />
+      <JFXRadioButton fx:id="apacheRadioButton" layoutX="32.0" layoutY="475.0" text="Local Apache Derby" />
+      <JFXRadioButton fx:id="mongoRadioButton" layoutX="33.0" layoutY="508.0" text="Online MongoDB" />
       <Pane fx:id="largePane" opacity="0.63" prefHeight="759.0" prefWidth="1366.0" style="-fx-background-color: white;" />
       <Pane fx:id="smallPane" style="-fx-background-color: #999999; -fx-background-radius: 15;" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="120.0">
          <children>
             <HBox prefHeight="475.0" prefWidth="952.0">
                <children>
-                  <VBox prefHeight="284.0" prefWidth="291.0" style="-fx-background-color: #9999999;">
+                  <VBox prefHeight="284.0" prefWidth="291.0" style="-fx-background-color: #999999; -fx-background-radius: 15;">
                      <children>
                         <JFXButton buttonType="RAISED" prefHeight="39.0" prefWidth="84.0" style="-fx-background-color: cfd8dc;" text="Search" VBox.vgrow="ALWAYS">
                            <ripplerFill>
@@ -295,8 +297,5 @@
          </children>
       </Pane>
       <JFXToggleButton fx:id="helpToggleButton" layoutX="17.0" layoutY="10.0" text="Help" AnchorPane.rightAnchor="213.0" AnchorPane.topAnchor="4.0" />
-      <JFXTextField fx:id="pageTextField" alignment="CENTER" labelFloat="true" layoutX="819.0" layoutY="715.0" onAction="#notifyObservers" prefHeight="27.0" prefWidth="96.0" promptText="Go To Page" />
-      <JFXRadioButton fx:id="apacheRadioButton" layoutX="32.0" layoutY="475.0" text="Local Apache Derby" />
-      <JFXRadioButton fx:id="mongoRadioButton" layoutX="33.0" layoutY="508.0" text="Online MongoDB" />
 </children>
 </AnchorPane>
