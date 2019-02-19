@@ -32,6 +32,5 @@ dependencies {
     compile group: 'com.jfoenix', name: 'jfoenix', version: '8.0.8'
     compile 'com.opencsv:opencsv:4.5'
     compile group: 'org.hibernate', name: 'hibernate-c3p0', version: '5.4.1.Final'
-    compile group: 'org.hibernate.ogm', name: 'hibernate-ogm-mongodb', version: '5.4.1.Final'
     compile group: 'org.apache.poi', name: 'poi', version: '4.0.1'
 }

@@ -37,10 +37,10 @@ public class Approval implements Serializable {
     private String qualifications;
 
     @Column(name = "CT")
-    private int CT;
+    private String CT;
 
     @Column(name = "Origin")
-    private int origin;
+    private String origin;
 
     @OneToOne()
     @JoinColumn(name = "TTB_ID")
@@ -60,8 +60,8 @@ public class Approval implements Serializable {
         this.agentApprovalName = null;
         this.expDate = null;
         this.qualifications = null;
-        this.CT = 0;
-        this.origin = 0;
+        this.CT = null;
+        this.origin = null;
     }
 
     public Approval(ApprovalStatus page1, ApprovalStatus page2, ApprovalStatus page3, ApprovalStatus page4, Date dateApproved, String agentApprovalName, Date expDate, String qualifications, Form form) {
@@ -74,11 +74,11 @@ public class Approval implements Serializable {
         this.expDate = expDate;
         this.qualifications = qualifications;
         this.form = form;
-        this.CT = 0;
-        this.origin = 0;
+        this.CT = null;
+        this.origin = null;
     }
 
-    public Approval(ApprovalStatus page1, ApprovalStatus page2, ApprovalStatus page3, ApprovalStatus page4, Date dateApproved, String agentApprovalName, Date expDate, String qualifications, int CT, int OR, Form form) {
+    public Approval(ApprovalStatus page1, ApprovalStatus page2, ApprovalStatus page3, ApprovalStatus page4, Date dateApproved, String agentApprovalName, Date expDate, String qualifications, String CT, String OR, Form form) {
         this.page1 = page1;
         this.page2 = page2;
         this.page3 = page3;
@@ -156,19 +156,19 @@ public class Approval implements Serializable {
         this.qualifications = qualifications;
     }
 
-    public int getCT() {
+    public String getCT() {
         return CT;
     }
 
-    public void setCT(int CT) {
+    public void setCT(String CT) {
         this.CT = CT;
     }
 
-    public int getOrigin() {
+    public String getOrigin() {
         return origin;
     }
 
-    public void setOrigin(int origin) {
+    public void setOrigin(String origin) {
         this.origin = origin;
     }
 
