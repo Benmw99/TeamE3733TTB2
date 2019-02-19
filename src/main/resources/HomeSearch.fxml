@@ -28,9 +28,9 @@
             <Font name="Apple SD Gothic Neo Regular" size="18.0" />
          </font>
       </JFXButton>
-      <HBox layoutX="360.0" layoutY="132.0" prefHeight="411.0" prefWidth="948.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="15.0">
+      <HBox layoutX="360.0" layoutY="132.0" prefHeight="559.0" prefWidth="915.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="46.0">
          <children>
-            <fx:include prefWidth="900.0" source="TableView.fxml" />
+            <fx:include prefWidth="900.0" source="TableView.fxml" HBox.hgrow="ALWAYS" />
          </children>
          <padding>
             <Insets left="15.0" />
@@ -141,8 +141,8 @@
       </StackPane>
       <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" layoutX="183.0" layoutY="590.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" promptText="Download Delimiter" />
       <JFXToggleButton fx:id="helpToggleButton" layoutX="1025.0" text="Help" />
-      <Label fx:id="pageLabel" layoutX="854.0" layoutY="567.0" text="Label" />
-      <JFXButton fx:id="previousButton" layoutX="775.0" layoutY="562.0" style="-fx-background-color: grey;" text="Previous" textFill="WHITE" />
-      <JFXButton fx:id="nextButton" layoutX="896.0" layoutY="563.0" style="-fx-background-color: grey;" text="Next" textFill="WHITE" />
+      <Label fx:id="pageLabel" layoutX="854.0" layoutY="719.0" text="0" />
+      <JFXButton fx:id="previousButton" layoutX="818.0" layoutY="714.0" onAction="#prevPage" style="-fx-background-color: grey;" text="&lt;" textFill="WHITE" />
+      <JFXButton fx:id="nextButton" layoutX="872.0" layoutY="714.0" onAction="#nextPage" style="-fx-background-color: grey;" text="&gt;" textFill="WHITE" />
 </children>
 </AnchorPane>

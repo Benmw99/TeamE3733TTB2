@@ -213,6 +213,16 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     @FXML
     JFXTextField downloadDelimiter;
 
+    @FXML
+    Button previousButton;
+
+    @FXML
+    Button nextButton;
+
+    @FXML
+    Label pageLabel;
+
+
 
     ToggleGroup searchOptions = new ToggleGroup();
 
