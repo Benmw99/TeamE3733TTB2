@@ -13,6 +13,7 @@ import org.apache.poi.hwpf.usermodel.Paragraph;
 import org.apache.poi.hwpf.usermodel.Range;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.xwpf.usermodel.*;
+import java.time.LocalDate;
 
 public class FormExporter {
     public XWPFDocument doc;
@@ -27,8 +28,6 @@ public class FormExporter {
                     for (XWPFTableCell cell : row.getTableCells()) {
                         for (XWPFParagraph p : cell.getParagraphs()) {
                             for (XWPFRun r : p.getRuns()) {
-                               // replaceString(r, "TTB_ID", String.valueOf(form.getTtbID()));
-                              //  replaceString(r, "REP_ID", form.getRepID());
                                 replaceString(r, "REP_ID", form.getRepID());
                                 replaceString(r, "TTB_ID", String.valueOf(form.getTtbID()));
                                 replaceString(r, "PLANT_REGISTRY", form.getBrewersPermit().get(0).getBrewersNo());
@@ -59,6 +58,12 @@ public class FormExporter {
                                 replaceString(r, "_PHONE_", form.getPhoneNumber());
                                 replaceString(r, "_EMAIL_", form.getEmail());
                                 replaceString(r, "_OTHER_INFO_", form.getOtherInfo());
+
+                                replaceString(r, "_DATEOFAPP_", form.getDateSubmitted().toString());
+                                replaceString(r, "_NAMEAPP_", form.getApplicantName());
+                                replaceString(r, "_DATEISS_", java.time.LocalDate.now().toString());
+                                replaceString(r, "_QUALIFIICATIONS_", form.getApproval().getQualifications());
+
                             }
                         }
                     }
@@ -66,14 +71,13 @@ public class FormExporter {
             }
             File file = new File("/Users/mjclements/IdeaProjects/TeamE3733TTB2/src/main/resources/output.docx");
             doc.write(new FileOutputStream(file));
+            doc.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-
-
-
 
     /**
      *
