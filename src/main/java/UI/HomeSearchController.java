@@ -352,8 +352,10 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         if (brandNameTextField.getText() != null && !brandNameTextField.getText().trim().equals("")) {
             advancedSearch.setBrandName(brandNameTextField.getText());
         }
-        if(SearchID.getText() != null && !SearchID.getText().trim().equals("") && isNumeric(SearchID.getText())) {
-            advancedSearch.setTtbID((int)Double.parseDouble(SearchID.getText()));
+        if(SearchID.getText() != null && !SearchID.getText().trim().equals("") && isNumeric(SearchID.getText()) && SearchID.getText() != "0") {
+            if((int)Double.parseDouble(SearchID.getText()) > 0) {
+                advancedSearch.setTtbID((int) Double.parseDouble(SearchID.getText()));
+            }
         }
 
         //if (alcoholContentTextField.getText() != "") {
@@ -457,6 +459,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     public void loginPage(){
         attributeContainer.currentUser = null;
         SearchContainer.getInstance().searchResult = new SearchResult();
+        SearchContainer.getInstance().currentPage = 1;
         AttributeContainer.getInstance().formQueue = new ArrayList<Form>();
         AttributeContainer.getInstance().currentResults = new SearchResult();
         goToPage("Login.fxml");
@@ -496,8 +499,9 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         //persist search stuff
         if(!(SearchContainer.getInstance().searchResult.getSearch() == null)) {
             brandNameTextField.setText(SearchContainer.getInstance().searchResult.getSearch().brandName);
-            SearchID.setText(SearchContainer.getInstance().searchResult.getSearch().ttbID +"");
-
+            if(SearchContainer.getInstance().searchResult.getSearch().ttbID != 0){
+                SearchID.setText(SearchContainer.getInstance().searchResult.getSearch().ttbID + "");
+            }
             if(SearchContainer.getInstance().searchResult.getSearch().getAlcoholType() != null) {
                 if (SearchContainer.getInstance().searchResult.getSearch().getAlcoholType().toString().equals("Wine")) {
                     SearchAlcoholType.getSelectionModel().select(1);
