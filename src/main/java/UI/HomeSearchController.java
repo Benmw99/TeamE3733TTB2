@@ -217,6 +217,12 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     JFXRadioButton damereauLevenshtein;
 
     @FXML
+    JFXRadioButton mongoRadioButton;
+
+    @FXML
+    JFXRadioButton apacheRadioButton;
+
+    @FXML
     Button backToHomeButton;
 
     @FXML

@@ -19,69 +19,70 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/YEET" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.HomeSearchController">
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.HomeSearchController">
 <children>
+      <Pane fx:id="largePane" disable="true" opacity="0.0" prefHeight="759.0" prefWidth="1366.0" style="-fx-background-color: white;" />
     <Rectangle fill="#9ea7aa" height="77.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="626.0" layoutX="1.0" layoutY="136.0" stroke="TRANSPARENT" strokeType="INSIDE" width="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
       <Rectangle fill="#cfd8dc" height="65.0" layoutX="33.0" layoutY="582.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="324.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="62.0" layoutY="66.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0" />
       <JFXButton fx:id="SearchLoginButton" buttonType="RAISED" layoutX="1248.0" layoutY="13.0" onAction="#loginPage" style="-fx-background-color: WHITE;" text="Login">
          <font>
-            <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+            <Font name="Roboto-Light" size="18.0" />
          </font>
       </JFXButton>
     <JFXTextField fx:id="SearchField" alignment="CENTER" disable="true" layoutX="419.0" layoutY="84.0" prefHeight="26.0" prefWidth="708.0" style="-fx-background-color: WHITE;" AnchorPane.leftAnchor="419.0" AnchorPane.rightAnchor="237.0" />
     <Text layoutX="32.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
         <font>
-            <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+            <Font name="Roboto-Light" size="18.0" />
         </font>
     </Text>
     <Text layoutX="108.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories">
         <font>
-            <Font name="Apple SD Gothic Neo Thin" size="36.0" />
+            <Font name="Roboto-Light" size="36.0" />
         </font>
     </Text>
       <JFXButton fx:id="printSearchResultsCSV" buttonType="RAISED" layoutX="184.0" layoutY="595.0" onAction="#printResults" style="-fx-background-color: WHITE;" text="Print Results">
          <font>
-            <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+            <Font name="Roboto-Light" size="18.0" />
          </font></JFXButton>
       <JFXDatePicker fx:id="SearchDate" layoutX="197.0" layoutY="298.0" prefHeight="25.0" prefWidth="149.0" promptText="date" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="7.0" layoutY="208.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
       <JFXComboBox fx:id="SearchAlcoholType" layoutX="196.0" layoutY="151.0" prefWidth="150.0" />
       <JFXTextField fx:id="SearchID" alignment="CENTER" labelFloat="true" layoutX="196.0" layoutY="348.0" promptText="number">
          <font>
-            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+            <Font name="Roboto-Light" size="14.0" />
          </font></JFXTextField>
       <Text layoutX="33.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Type">
          <font>
-            <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+            <Font name="Roboto-Light" size="18.0" />
          </font>
       </Text>
       <Text layoutX="32.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Number">
          <font>
-            <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+            <Font name="Roboto-Light" size="18.0" />
          </font>
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="7.0" layoutY="196.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
       <JFXTextField fx:id="SearchPercentage" alignment="CENTER" labelFloat="true" layoutX="196.0" layoutY="200.0" promptText="percentage">
          <font>
-            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+            <Font name="Roboto-Light" size="14.0" />
          </font></JFXTextField>
       <Text layoutX="32.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Content">
          <font>
-            <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+            <Font name="Roboto-Light" size="18.0" />
          </font>
       </Text>
       <Text layoutX="33.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand Name">
          <font>
-            <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+            <Font name="Roboto-Light" size="18.0" />
          </font>
       </Text>
       <JFXTextField fx:id="brandNameTextField" alignment="CENTER" labelFloat="true" layoutX="196.0" layoutY="250.0" promptText="name">
          <font>
-            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+            <Font name="Roboto-Light" size="14.0" />
          </font></JFXTextField>
-      <JFXButton fx:id="SearchButton" buttonType="RAISED" layoutX="84.0" layoutY="410.0" onAction="#searchAdvanced" prefHeight="39.0" prefWidth="84.0" style="-fx-background-color: cfd8dc;" text="Search">
+      <JFXButton fx:id="SearchButton" buttonType="RAISED" layoutX="74.0" layoutY="402.0" onAction="#searchAdvanced" prefHeight="39.0" prefWidth="84.0" style="-fx-background-color: cfd8dc;" text="Search">
          <ripplerFill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -91,24 +92,24 @@
             </RadialGradient>
          </ripplerFill>
          <font>
-            <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+            <Font name="Roboto-Light" size="18.0" />
          </font>
       </JFXButton>
       <JFXButton fx:id="aboutPageNav" buttonType="RAISED" layoutX="156.0" layoutY="690.0" onAction="#aboutPage" ripplerFill="#ababab" style="-fx-background-color: cfd8dc;" text="About">
          <font>
-            <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+            <Font name="Roboto-Light" size="14.0" />
          </font>
       </JFXButton>
       <StackPane fx:id="UsernameStackPane" layoutX="1087.0" layoutY="13.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #9ea7aa;" AnchorPane.leftAnchor="1114.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="UsernameLabel" text="Username">
                <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="24.0" />
+                  <Font name="Roboto-Light" size="24.0" />
                </font>
             </Label>
          </children>
       </StackPane>
-      <JFXButton fx:id="clearSearch" buttonType="RAISED" layoutX="199.0" layoutY="409.0" onAction="#clearSearch" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: cfd8dc;" text="Clear Search">
+      <JFXButton fx:id="clearSearch" buttonType="RAISED" layoutX="199.0" layoutY="404.0" onAction="#clearSearch" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: cfd8dc;" text="Clear Search">
          <ripplerFill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -118,15 +119,15 @@
             </RadialGradient>
          </ripplerFill>
          <font>
-            <Font name="Helvetica" size="14.0" />
+            <Font name="Roboto-Light" size="14.0" />
          </font>
       </JFXButton>
-      <JFXRadioButton fx:id="fuzzy" layoutX="132.0" layoutY="474.0" text="SQL Wild Search" />
-      <JFXRadioButton fx:id="levenshtein" layoutX="132.0" layoutY="506.0" text="Levenshtein Distance" />
-      <JFXRadioButton fx:id="damereauLevenshtein" layoutX="132.0" layoutY="534.0" text="Damerau Levenshtein" />
+      <JFXRadioButton fx:id="fuzzy" layoutX="202.0" layoutY="474.0" text="SQL Wild Search" />
+      <JFXRadioButton fx:id="levenshtein" layoutX="202.0" layoutY="506.0" text="Levenshtein Distance" />
+      <JFXRadioButton fx:id="damereauLevenshtein" layoutX="202.0" layoutY="534.0" text="Damerau Levenshtein" />
     <Text fill="WHITE" layoutX="566.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COLA Search" wrappingWidth="256.9218606590072">
         <font>
-            <Font name="Apple SD Gothic Neo Thin" size="48.0" />
+            <Font name="Roboto-Light" size="48.0" />
         </font></Text>
       <StackPane fx:id="MenuStackPane" alignment="CENTER_LEFT" layoutX="1097.0" layoutY="23.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #9ea7aa;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -134,7 +135,6 @@
          </children>
       </StackPane>
       <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" labelFloat="true" layoutX="92.0" layoutY="598.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" prefHeight="27.0" prefWidth="65.0" promptText="Delimiter" />
-      <JFXToggleButton fx:id="helpToggleButton" layoutX="1025.0" text="Help" />
       <JFXButton fx:id="previousButton" layoutX="776.0" layoutY="716.0" onAction="#prevPage" style="-fx-background-color: #9ea7aa;" text="&lt;" textFill="WHITE" />
       <JFXButton fx:id="nextButton" layoutX="930.0" layoutY="716.0" onAction="#nextPage" style="-fx-background-color: #9ea7aa;" text="&gt;" textFill="WHITE" />
       <Pane layoutX="404.0" layoutY="135.0" prefHeight="565.0" prefWidth="951.0">
@@ -150,8 +150,7 @@
          </children>
       </Pane>
       <JFXTextField fx:id="pageTextField" alignment="CENTER" labelFloat="true" layoutX="819.0" layoutY="715.0" prefHeight="27.0" prefWidth="96.0" promptText="Go To Page" />
-      <Pane fx:id="largePane" opacity="0.63" prefHeight="759.0" prefWidth="1366.0" style="-fx-background-color: white;" />
-      <Pane fx:id="smallPane" style="-fx-background-color: #999999; -fx-background-radius: 15;" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="120.0">
+      <Pane fx:id="smallPane" opacity="0.0" style="-fx-background-color: #999999; -fx-background-radius: 15;" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="120.0">
          <children>
             <HBox prefHeight="475.0" prefWidth="952.0">
                <children>
@@ -297,5 +296,7 @@
       </Pane>
       <JFXToggleButton fx:id="helpToggleButton" layoutX="17.0" layoutY="10.0" text="Help" AnchorPane.rightAnchor="213.0" AnchorPane.topAnchor="4.0" />
       <JFXTextField fx:id="pageTextField" alignment="CENTER" labelFloat="true" layoutX="819.0" layoutY="715.0" onAction="#notifyObservers" prefHeight="27.0" prefWidth="96.0" promptText="Go To Page" />
+      <JFXRadioButton fx:id="apacheRadioButton" layoutX="32.0" layoutY="475.0" text="Local Apache Derby" />
+      <JFXRadioButton fx:id="mongoRadioButton" layoutX="33.0" layoutY="508.0" text="Online MongoDB" />
 </children>
 </AnchorPane>
