@@ -355,6 +355,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @FXML
     public void printResults(ActionEvent event) throws IOException {
+        printSearchResultsCSV.setDisable(true);
         String raw = downloadDelimiter.getText();
         char sep;
         if(downloadDelimiter.getText() == null || downloadDelimiter.getText().isEmpty()){
@@ -408,6 +409,11 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @Override
     void onLoad() {
+        if(AttributeContainer.getInstance().formQueue.size() == 0) {
+            printSearchResultsCSV.setDisable(true);
+        }
+
+        //search radio buttons
         fuzzy.setToggleGroup(searchOptions);
         levenshtein.setToggleGroup(searchOptions);
         damereauLevenshtein.setToggleGroup(searchOptions);
