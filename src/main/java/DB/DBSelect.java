@@ -35,7 +35,7 @@ public class DBSelect {
     public static void setFactory(SessionFactory factory) {
         DBSelect.factory = factory;
     }
-    
+
 
     /**
      * Gets a form from the database
