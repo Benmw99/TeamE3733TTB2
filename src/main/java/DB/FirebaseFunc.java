@@ -7,9 +7,7 @@ import Entities.FormFirebase;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.*;
 import com.opencsv.CSVReader;
 
 import java.io.File;
@@ -20,10 +18,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class FirebaseFunc {
     private FirebaseDatabase database;
     private DatabaseReference ref;
+    private List<FormFirebase> FormList;
 
     private FirebaseFunc() {
         try {
@@ -43,7 +43,10 @@ public class FirebaseFunc {
 
             this.database = FirebaseDatabase.getInstance();
             this.ref = database.getReference("forms");
+            ref.orderByKey();
+
             //Listener for data sendback
+            /*
             this.ref.setValue("I'm writing data", new DatabaseReference.CompletionListener() {
                 @Override
                 public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
@@ -52,6 +55,24 @@ public class FirebaseFunc {
                     } else {
                         System.out.println("Data saved successfully.");
                     }
+                }
+            });*/
+
+            FormList = new ArrayList<>();
+            ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot snapshot) {
+                    FormList.clear();
+                    for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                        FormFirebase form = postSnapshot.getValue(FormFirebase.class);
+                        FormList.add(form);
+                        //Can do stuff here if I need to
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    System.out.println("The read failed: " + databaseError.getMessage());
                 }
             });
         } catch (Exception e) {
@@ -73,15 +94,12 @@ public class FirebaseFunc {
      * @param form A FormFirebase with all the info filled out to be inserted into the db
      */
     public void insertFormFirebase(FormFirebase form) {
-        Map<String, FormFirebase> forms = new HashMap<>();
-        forms.put("" + form.getTtbID(), form);
-        ref.setValueAsync(forms);
-    }
+        DatabaseReference newPostRef = ref.push();
+        newPostRef.setValue(form, null);
 
-    public List<FormFirebase> searchFirebase(AdvancedSearch as) {
-        List<FormFirebase> results = new ArrayList<>();
-
-        return results;
+        //Map<String, FormFirebase> forms = new HashMap<>();
+        //forms.put("" + form.getTtbID(), form);
+        //ref.setValueAsync(forms);
     }
 
     @SuppressWarnings( "deprecation" )
@@ -95,7 +113,6 @@ public class FirebaseFunc {
             while ((record = reader.readNext()) != null) {
                 fullCount++;
                 FormFirebase form = new FormFirebase();
-                Address add = new Address();
 
                 if (record[0].length() > 0) {
                     form.setTtbID(record[0]);
@@ -148,29 +165,29 @@ public class FirebaseFunc {
                     form.setFancifulName(null);
                 }
                 if (record[10].length() > 0) {
-                    add.setName(record[10]);
+                    form.setAddressName(record[10]);
                 } else {
-                    add.setName(null);
+                    form.setAddressName(null);
                 }
                 if (record[11].length() > 0) {
-                    add.setStreet(record[11]);
+                    form.setAddressStreet(record[11]);
                 } else {
-                    add.setStreet(null);
+                    form.setAddressStreet(null);
                 }
                 if (record[12].length() > 0) {
-                    add.setCity(record[12]);
+                    form.setAddressCity(record[12]);
                 } else {
-                    add.setCity(null);
+                    form.setAddressCity(null);
                 }
                 if (record[13].length() > 0) {
-                    add.setState(record[13]);
+                    form.setAddressState(record[13]);
                 } else {
-                    add.setState(null);
+                    form.setAddressState(null);
                 }
                 if (record[14].length() > 0) {
-                    add.setZip(record[14]);
+                    form.setAddressZip(record[14]);
                 } else {
-                    add.setZip(null);
+                    form.setAddressZip(null);
                 }
                 if (record[15].length() > 1) {
                     form.setGrapes(record[15]);
@@ -214,8 +231,6 @@ public class FirebaseFunc {
                     form.setQualifications(null);
                 }
 
-                form.setMailingAddress(add);
-
                 insertFormFirebase(form);
             }
         } catch (Exception e) {
@@ -227,4 +242,20 @@ public class FirebaseFunc {
         System.out.println("Time in seconds of execution: " + ((endTime - startTime) / 1000000000));
     }
 
+    public List<FormFirebase> searchFirebase(AdvancedSearch as) {
+        List<FormFirebase> results = new ArrayList<>();
+        //ref.orderByKey().
+        return results;
+    }
+
+    public void testF() {
+        System.out.println("Start Test");
+        FormFirebase f = new FormFirebase();
+        f.setTtbID("2");
+        insertFormFirebase(f);
+        System.out.println(FormList.size());
+        for (int i = 0; i < FormList.size(); i++) {
+            System.out.println(FormList.get(i).getTtbID());
+        }
+    }
 }

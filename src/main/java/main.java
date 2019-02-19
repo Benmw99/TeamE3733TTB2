@@ -52,8 +52,9 @@ public class main {
 
         form.setTtbID(db.dbInsert.insertForm(form));
 
-        System.out.println("Inserting Data into firebase");
+        //System.out.println("Inserting Data into firebase");
         db.firebaseFunc.insertDataFirebase();
+        db.firebaseFunc.testF();
 
         System.out.println("Hello Iteration 2!");
         UI.MainUI.main( args);

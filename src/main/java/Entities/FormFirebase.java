@@ -16,7 +16,15 @@ public class FormFirebase {
 
     private String fancifulName;
 
-    private Address mailingAddress;
+    private String addressCity;
+
+    private String addressState;
+
+    private String addressZip;
+
+    private String addressStreet;
+
+    private String addressName;
 
     private String otherInfo;
 
@@ -45,7 +53,7 @@ public class FormFirebase {
     public FormFirebase() {
     }
 
-    public FormFirebase(String repID, String brewersPermit, String source, String serialNumber, String alcoholType, String brandName, String fancifulName, Address mailingAddress, String otherInfo, String dateSubmitted, String dateApproved, String dateExpired, String ttbID, String alcoholContent, String classType, String origin, String vintage, String appellation, String grapes, String qualifications) {
+    public FormFirebase(String repID, String brewersPermit, String source, String serialNumber, String alcoholType, String brandName, String fancifulName, String addressCity, String addressState, String addressZip, String addressStreet, String addressName, String otherInfo, String dateSubmitted, String dateApproved, String dateExpired, String ttbID, String alcoholContent, String classType, String origin, String vintage, String appellation, String grapes, String qualifications) {
         this.repID = repID;
         this.brewersPermit = brewersPermit;
         this.source = source;
@@ -53,7 +61,11 @@ public class FormFirebase {
         this.alcoholType = alcoholType;
         this.brandName = brandName;
         this.fancifulName = fancifulName;
-        this.mailingAddress = mailingAddress;
+        this.addressCity = addressCity;
+        this.addressState = addressState;
+        this.addressZip = addressZip;
+        this.addressStreet = addressStreet;
+        this.addressName = addressName;
         this.otherInfo = otherInfo;
         this.dateSubmitted = dateSubmitted;
         this.dateApproved = dateApproved;
@@ -124,12 +136,44 @@ public class FormFirebase {
         this.fancifulName = fancifulName;
     }
 
-    public Address getMailingAddress() {
-        return mailingAddress;
+    public String getAddressCity() {
+        return addressCity;
     }
 
-    public void setMailingAddress(Address mailingAddress) {
-        this.mailingAddress = mailingAddress;
+    public void setAddressCity(String addressCity) {
+        this.addressCity = addressCity;
+    }
+
+    public String getAddressState() {
+        return addressState;
+    }
+
+    public void setAddressState(String addressState) {
+        this.addressState = addressState;
+    }
+
+    public String getAddressZip() {
+        return addressZip;
+    }
+
+    public void setAddressZip(String addressZip) {
+        this.addressZip = addressZip;
+    }
+
+    public String getAddressStreet() {
+        return addressStreet;
+    }
+
+    public void setAddressStreet(String addressStreet) {
+        this.addressStreet = addressStreet;
+    }
+
+    public String getAddressName() {
+        return addressName;
+    }
+
+    public void setAddressName(String addressName) {
+        this.addressName = addressName;
     }
 
     public String getOtherInfo() {
