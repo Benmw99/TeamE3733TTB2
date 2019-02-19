@@ -265,14 +265,14 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             backToHomeButton.setVisible(true);
         }
         */
-//        if(attributeContainer.currentUser != null){
-//            System.out.println("This is true");
-//            UsernameStackPane.setOpacity(100);
-//            UsernameLabel.setText(attributeContainer.currentUser.getLogin());
-//        }
-//        else{
-//            UsernameStackPane.toBack();
-//        }
+        if(attributeContainer.currentUser != null){
+            System.out.println("This is true");
+            UsernameStackPane.setOpacity(100);
+            UsernameLabel.setText(attributeContainer.currentUser.getLogin());
+        }
+        else{
+            UsernameStackPane.toBack();
+        }
 //
 //        if (attributeContainer.currentForm != null) {
 //            Civ1Label.setText(attributeContainer.currentForm.getRepID());
@@ -321,7 +321,9 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 //            Civ15Label.setText(attributeContainer.currentForm.getEmail());
 //            Civ16Label.setText(attributeContainer.currentForm.getPhoneNumber());
 //
-//
+
+
+
 //        }
 
         helpToggleButton.setSelected(false);
