@@ -469,6 +469,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @FXML
     public void limitDelimit()  {
+
         if (downloadDelimiter.getText().length() > 1) {
             downloadDelimiter.setText(downloadDelimiter.getText().substring(0, 1));
         }
