@@ -20,7 +20,7 @@ import java.util.Locale;
 //Class controlling inserting and updating in DB. Singleton class
 public class DBInsert {
     private static DBInsert dbinsert; //TODO GET RID OF REPEATED CODE
-    private static SessionFactory factory; //TODO ONE SESSIONFACTORY, INTERFACE THAT INCLUDES CLOSING METHOD
+    private static SessionFactory factory;
 
     private DBInsert() {
     }
