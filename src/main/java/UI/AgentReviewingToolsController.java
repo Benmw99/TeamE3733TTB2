@@ -277,8 +277,8 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
             @Override
             public void handle(ActionEvent event) {
                 if(helpToggleButton.isSelected()){
-                    largePane.setOpacity(100);
-                    smallPane.setOpacity(10);
+                    largePane.setOpacity(0.63);
+                    smallPane.setOpacity(1);
                     System.out.println("Is selected");
                 }
                 else{

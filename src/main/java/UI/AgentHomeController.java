@@ -326,6 +326,8 @@ public class AgentHomeController extends PageControllerUI implements Initializab
 //(true);a
         GetNewQueueButton.toFront();
 
+
+
 //        AttributeContainer.getInstance().formQueue = Database.getDatabase().dbSelect.getNext(AttributeContainer.getInstance().numForQueue);
  }
  // TODO fix this so that it can be used with the nested table
