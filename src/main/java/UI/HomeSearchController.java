@@ -240,6 +240,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
 
     ToggleGroup searchOptions = new ToggleGroup();
+    ToggleGroup searchOptions2 = new ToggleGroup();
 
     SearchResult result;
     int searchPage;
@@ -514,6 +515,11 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         fuzzy.setToggleGroup(searchOptions);
         levenshtein.setToggleGroup(searchOptions);
         damereauLevenshtein.setToggleGroup(searchOptions);
+        fuzzy.setSelected(true);
+
+        //search radio buttons
+        apacheRadioButton.setToggleGroup(searchOptions2);
+        mongoRadioButton.setToggleGroup(searchOptions2);
         fuzzy.setSelected(true);
 
 
