@@ -143,7 +143,7 @@
       </VBox>
       <fx:include fx:id="hamburger" source="MenuDrawer.fxml" />
       <Pane fx:id="largePane" opacity="0.63" prefHeight="763.0" prefWidth="1364.0" style="-fx-background-color: white;" />
-      <Pane fx:id="smallPane" layoutX="220.0" layoutY="215.0" prefHeight="481.0" prefWidth="960.0" style="-fx-background-color: #999999; -fx-background-radius: 15;">
+      <Pane fx:id="smallPane" layoutX="220.0" layoutY="215.0" prefHeight="481.0" prefWidth="960.0" style="-fx-background-color: grey; -fx-background-radius: 15;">
          <children>
             <Text layoutX="445.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reject: Click me after fully reviewing the form to reject it. Remember, if all of the fields are correct press &quot;Approve&quot;instead." wrappingWidth="158.00000488571823" />
             <Text layoutX="671.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Use Reviewing Tools: Click me to compare this form to the regulations associated with it. This is will let you mark the form as complete or incomplete. You can also use me to leave comments or send this form to another agent." wrappingWidth="249.00000885128975" />

@@ -299,21 +299,21 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
         }
 
-        helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+        /*helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 if(helpToggleButton.isSelected()){
                     largePane.setOpacity(0.63);
-                    smallPane.setOpacity(1);
+                    //smallPane.setOpacity(1);
                     System.out.println("Is selected");
                 }
                 else{
                     largePane.setOpacity(0);
-                    smallPane.setOpacity(0);
+                   // smallPane.setOpacity(0);
                     System.out.println("Is not selector");
                 }
             }
-        });
+        });*/
     }
     //#################################################################################################################################
     //                                   advanced search

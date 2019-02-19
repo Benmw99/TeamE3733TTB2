@@ -8,9 +8,9 @@
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -29,9 +29,10 @@
             <Font name="Apple SD Gothic Neo Regular" size="18.0" />
          </font>
       </JFXButton>
-      <HBox layoutX="360.0" layoutY="132.0" prefHeight="617.0" prefWidth="1002.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="15.0">
+      <HBox layoutX="360.0" layoutY="132.0" prefHeight="411.0" prefWidth="948.0" style="-fx-background-color: white;" AnchorPane.rightAnchor="15.0">
          <children>
-            <fx:include source="TableView.fxml" HBox.hgrow="ALWAYS" />
+            <Pagination prefHeight="411.0" prefWidth="790.0" />
+            <fx:include source="TableView.fxml" />
          </children>
          <padding>
             <Insets left="15.0" />
@@ -141,7 +142,6 @@
          </children>
       </StackPane>
       <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" layoutX="183.0" layoutY="590.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" promptText="Download Delimiter" />
-      <Pane fx:id="largePane" opacity="0.63" prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: white;" />
       <JFXToggleButton fx:id="helpToggleButton" layoutX="1025.0" text="Help" />
 </children>
 </AnchorPane>
