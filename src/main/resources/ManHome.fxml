@@ -93,6 +93,7 @@
                         <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                      </font>
                   </JFXButton>
+                  <JFXButton fx:id="goToSingleApp" layoutX="14.0" layoutY="19.0" onAction="#addSingleForm" text="Single Page App" />
                </children>
             </Pane>
          </children></Pane>

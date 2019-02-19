@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.HomeSearchController">
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/YEET" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.HomeSearchController">
 <children>
     <Rectangle fill="#9ea7aa" height="77.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="626.0" layoutX="1.0" layoutY="136.0" stroke="TRANSPARENT" strokeType="INSIDE" width="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
@@ -134,9 +134,8 @@
       </StackPane>
       <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" labelFloat="true" layoutX="92.0" layoutY="598.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" prefHeight="27.0" prefWidth="65.0" promptText="Delimiter" />
       <JFXToggleButton fx:id="helpToggleButton" layoutX="1025.0" text="Help" />
-      <Label fx:id="pageLabel" layoutX="854.0" layoutY="719.0" text="0" />
-      <JFXButton fx:id="previousButton" layoutX="818.0" layoutY="714.0" onAction="#prevPage" style="-fx-background-color: #9ea7aa;" text="&lt;" textFill="WHITE" />
-      <JFXButton fx:id="nextButton" layoutX="872.0" layoutY="714.0" onAction="#nextPage" style="-fx-background-color: #9ea7aa;" text="&gt;" textFill="WHITE" />
+      <JFXButton fx:id="previousButton" layoutX="776.0" layoutY="716.0" onAction="#prevPage" style="-fx-background-color: #9ea7aa;" text="&lt;" textFill="WHITE" />
+      <JFXButton fx:id="nextButton" layoutX="930.0" layoutY="716.0" onAction="#nextPage" style="-fx-background-color: #9ea7aa;" text="&gt;" textFill="WHITE" />
       <Pane layoutX="404.0" layoutY="135.0" prefHeight="565.0" prefWidth="951.0">
          <children>
             <HBox prefHeight="566.0" prefWidth="948.0" style="-fx-background-color: white;">
@@ -149,5 +148,6 @@
             </HBox>
          </children>
       </Pane>
+      <JFXTextField fx:id="pageTextField" alignment="CENTER" labelFloat="true" layoutX="819.0" layoutY="715.0" onAction="#notifyObservers" prefHeight="27.0" prefWidth="96.0" promptText="Go To Page" />
 </children>
 </AnchorPane>

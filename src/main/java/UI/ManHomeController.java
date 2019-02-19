@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,6 +36,9 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
 
     @FXML
     JFXTextField searchAppsTextField;
+
+    @FXML
+    JFXButton goToSingleApp;
 
     FormDisplayController formViewController;
 
@@ -64,6 +68,16 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
         goToPage("Login.fxml");
     }
 
+    /**
+     * Directs user to a single paged form
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    public void addSingleForm(ActionEvent event) throws IOException{
+        AttributeContainer.getInstance().currentForm = new Form();
+        goToPage("ManSingleAppPage.fxml");
+    }
     /**
      * Directs user to ManApp to input a form
      * @param event
