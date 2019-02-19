@@ -141,10 +141,7 @@
          </children>
       </StackPane>
       <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" layoutX="183.0" layoutY="590.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" promptText="Download Delimiter" />
-      <Pane fx:id="largePane" opacity="0.63" prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: white;">
-         <children>
-            <JFXToggleButton fx:id="helpToggleButton" layoutX="1034.0" layoutY="4.0" text="Help" />
-         </children>
-      </Pane>
+      <Pane fx:id="largePane" opacity="0.63" prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: white;" />
+      <JFXToggleButton fx:id="helpToggleButton" layoutX="1025.0" text="Help" />
 </children>
 </AnchorPane>

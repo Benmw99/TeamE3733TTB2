@@ -25,11 +25,6 @@
                      </font>
                   </Text>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
-                  <JFXToggleButton layoutX="1218.0" layoutY="15.0" text="Help">
-                     <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
-                     </font>
-                  </JFXToggleButton>
                </children>
             </Pane>
             <Pane layoutX="-1.0" layoutY="88.0" prefHeight="675.0" prefWidth="358.0" style="-fx-background-color: #eeeeee;">
@@ -147,5 +142,7 @@
          </children>
       </VBox>
       <fx:include fx:id="hamburger" source="MenuDrawer.fxml" />
+      <Pane fx:id="largePane" opacity="0.63" prefHeight="763.0" prefWidth="1364.0" style="-fx-background-color: white;" />
+      <JFXToggleButton fx:id="helpToggleButton" layoutX="1212.0" layoutY="23.0" text="Help" />
    </children>
 </AnchorPane>
