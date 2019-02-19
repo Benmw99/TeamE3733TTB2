@@ -362,8 +362,8 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         }else{
             sep = raw.charAt(0);  //TODO properly check raw input
         }
-
-        AsciiPrinter.print(AttributeContainer.getInstance().formQueue, sep);
+        AttributeContainer.getInstance().delimeter = sep;
+        AsciiPrinter.print(AttributeContainer.getInstance().formQueue, AttributeContainer.getInstance().delimeter);
         printSearchResultsCSV.setText("Printed");
     }
 

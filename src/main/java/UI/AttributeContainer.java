@@ -31,6 +31,7 @@ public class AttributeContainer {
     public int numForQueue = 5;
     PageControllerUI current_page;
     LabelImage labelImage;
+    char delimeter;
 
     //Page approval checking
     public boolean page1Complete;
@@ -61,6 +62,7 @@ public class AttributeContainer {
         sounds = new ArrayList<AudioClip>();
         searchPage = 0;
         backlog = new Stack<String>();
+        delimeter = ',';
     }
 
     /**
@@ -74,6 +76,7 @@ public class AttributeContainer {
         sounds = new ArrayList<AudioClip>();
         searchPage = 0;
         backlog.empty();
+        delimeter = ',';
         System.out.println("Gotta Blast!");
     }
 }
