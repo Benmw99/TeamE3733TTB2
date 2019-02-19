@@ -220,7 +220,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     Button nextButton;
 
     @FXML
-    Label pageLabel;
+    TextField pageTextField;
 
 
 
@@ -499,7 +499,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
         //TODO save the type of search algorithm
 
-        pageLabel.setText(SearchContainer.getInstance().currentPage + "");
+        pageTextField.setText(SearchContainer.getInstance().currentPage + "");
         if(SearchContainer.getInstance().currentPage == 1){
             previousButton.setDisable(true);
         }

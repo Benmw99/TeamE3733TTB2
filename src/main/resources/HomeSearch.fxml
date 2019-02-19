@@ -134,9 +134,8 @@
       </StackPane>
       <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" labelFloat="true" layoutX="92.0" layoutY="598.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" prefHeight="27.0" prefWidth="65.0" promptText="Delimiter" />
       <JFXToggleButton fx:id="helpToggleButton" layoutX="1025.0" text="Help" />
-      <Label fx:id="pageLabel" layoutX="854.0" layoutY="719.0" text="0" />
-      <JFXButton fx:id="previousButton" layoutX="818.0" layoutY="714.0" onAction="#prevPage" style="-fx-background-color: #9ea7aa;" text="&lt;" textFill="WHITE" />
-      <JFXButton fx:id="nextButton" layoutX="872.0" layoutY="714.0" onAction="#nextPage" style="-fx-background-color: #9ea7aa;" text="&gt;" textFill="WHITE" />
+      <JFXButton fx:id="previousButton" layoutX="776.0" layoutY="716.0" onAction="#prevPage" style="-fx-background-color: #9ea7aa;" text="&lt;" textFill="WHITE" />
+      <JFXButton fx:id="nextButton" layoutX="930.0" layoutY="716.0" onAction="#nextPage" style="-fx-background-color: #9ea7aa;" text="&gt;" textFill="WHITE" />
       <Pane layoutX="404.0" layoutY="135.0" prefHeight="565.0" prefWidth="951.0">
          <children>
             <HBox prefHeight="566.0" prefWidth="948.0" style="-fx-background-color: white;">
@@ -149,5 +148,6 @@
             </HBox>
          </children>
       </Pane>
+      <JFXTextField fx:id="pageTextField" alignment="CENTER" labelFloat="true" layoutX="819.0" layoutY="715.0" prefHeight="27.0" prefWidth="96.0" promptText="Go To Page" />
 </children>
 </AnchorPane>
