@@ -413,6 +413,8 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         damereauLevenshtein.setToggleGroup(searchOptions);
         fuzzy.setSelected(true);
 
+
+        //persist search stuff
         if(!(AttributeContainer.getInstance().currentResults.getSearch() == null)) {
             brandNameTextField.setText(AttributeContainer.getInstance().currentResults.getSearch().brandName);
 
@@ -425,9 +427,9 @@ public class HomeSearchController extends PageControllerUI implements Initializa
                     SearchAlcoholType.getSelectionModel().select(0);
                 }
             }
-
-
         }
+
+        //TODO save the type of search algorithm
 
     }
 
