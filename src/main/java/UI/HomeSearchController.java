@@ -1,6 +1,5 @@
 package UI;
 
-import DB.Database;
 import Entities.AdvancedSearch;
 import Entities.AlcoholType;
 import Entities.Form;
@@ -8,13 +7,10 @@ import Entities.SearchResult;
 import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
 import SearchAlgo.SearchContainer;
-import com.jfoenix.controls.JFXButton;
 import SearchAlgo.*;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -31,17 +27,13 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import static Entities.AlcoholType.*;
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
 
 public class HomeSearchController extends PageControllerUI implements Initializable, PageObservable {
 
@@ -253,7 +245,9 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Font.loadFont("Roboto-Thin.ttf", 12);
+
+
+
         SearchAlcoholType.getItems().addAll("Beers", "Wines", "Distilled Liquor");
         UsernameStackPane.setOpacity(0);
         UsernameStackPane.setPickOnBounds(false);
