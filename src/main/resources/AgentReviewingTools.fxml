@@ -14,8 +14,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.RadialGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -24,48 +22,24 @@
 <AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: #ffffff;" stylesheets="@/TabPane.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AgentReviewingToolsController">
    <children>
       <Rectangle fill="WHITE" height="89.0" layoutX="-2.0" layoutY="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1376.0" />
-      <Rectangle fill="#cfd8dc" height="62.0" layoutX="-2.0" layoutY="75.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1376.0" />
-      <Text layoutX="58.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mark Section as:" wrappingWidth="124.02001190185547">
+      <Rectangle fill="WHITE" height="62.0" layoutX="-2.0" layoutY="75.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1376.0" />
+      <Text layoutX="58.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mark Section as:" wrappingWidth="124.02001190185547">
          <font>
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </Text>
-      <JFXComboBox fx:id="sectionMarkComboBox" layoutX="203.0" layoutY="86.0" prefHeight="39.0" prefWidth="253.0" style="-jfx-focus-color: WHITE;" />
-      <JFXButton fx:id="approveAVFButton" buttonType="RAISED" layoutX="538.0" layoutY="86.0" onAction="#approveForm" prefHeight="39.0" prefWidth="132.0" style="-fx-background-color: #4285F4;" text="Approve Form" textFill="WHITE">
-         <ripplerFill>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </ripplerFill>
+      <JFXComboBox fx:id="sectionMarkComboBox" layoutX="203.0" layoutY="86.0" prefHeight="39.0" prefWidth="253.0" promptText="Select Status" style="-jfx-focus-color: WHITE;" />
+      <JFXButton fx:id="approveAVFButton" buttonType="RAISED" layoutX="538.0" layoutY="86.0" onAction="#approveForm" prefHeight="39.0" prefWidth="132.0" ripplerFill="#9d9797" style="-fx-background-color: #4285F4;" text="Approve Form" textFill="WHITE">
          <font>
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="rejectAVFButton" buttonType="RAISED" layoutX="694.0" layoutY="86.0" onAction="#rejectForm" prefHeight="39.0" prefWidth="132.0" style="-fx-background-color: #4285F4;" text="Reject Form" textFill="WHITE">
-         <ripplerFill>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </ripplerFill>
+      <JFXButton fx:id="rejectAVFButton" buttonType="RAISED" layoutX="694.0" layoutY="86.0" onAction="#rejectForm" prefHeight="39.0" prefWidth="132.0" ripplerFill="#9d9797" style="-fx-background-color: #4285F4;" text="Reject Form" textFill="WHITE">
          <font>
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="printAVFButton" buttonType="RAISED" layoutX="1284.0" layoutY="88.0" prefHeight="31.0" prefWidth="76.0" style="-fx-background-color: #4285F4;" text="Print" textFill="WHITE">
-         <ripplerFill>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </ripplerFill>
+      <JFXButton fx:id="printAVFButton" buttonType="RAISED" layoutX="1284.0" layoutY="88.0" prefHeight="31.0" prefWidth="76.0" ripplerFill="#9d9797" style="-fx-background-color: #4285F4;" text="Print" textFill="WHITE">
          <font>
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
@@ -501,20 +475,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Pane layoutX="5.0" prefHeight="590.0" prefWidth="690.0">
-                                 <children>
-                                    <JFXTextArea fx:id="comment" layoutX="47.0" layoutY="62.0" prefHeight="377.0" prefWidth="586.0" />
-                                    <Label layoutX="54.0" layoutY="38.0" text="Form Comments:">
-                                       <font>
-                                          <Font name="Apple SD Gothic Neo Thin" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Text layoutX="60.0" layoutY="471.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Please remember to include the number for which each comment is associated" wrappingWidth="498.95848141231164">
-                                       <font>
-                                          <Font name="Apple SD Gothic Neo Thin" size="14.0" />
-                                       </font>
-                                    </Text>
-                                 </children></Pane>
+                              <Pane layoutX="5.0" prefHeight="590.0" prefWidth="690.0" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -527,21 +488,21 @@
                                  <children>
                                     <Text layoutX="35.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agent Email">
                                        <font>
-                                          <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                                          <Font size="18.0" />
                                        </font>
                                     </Text>
                                     <Text layoutX="38.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Message">
                                        <font>
-                                          <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                                          <Font size="18.0" />
                                        </font>
                                     </Text>
+                                    <JFXTextField fx:id="email" layoutX="154.0" layoutY="52.0" prefHeight="27.0" prefWidth="241.0" />
+                                    <JFXTextArea fx:id="message" layoutX="136.0" layoutY="121.0" prefHeight="375.0" prefWidth="413.0" />
                                     <Button fx:id="sendAgentButton" layoutX="468.0" layoutY="52.0" mnemonicParsing="false" style="-fx-background-color: #4285F4;" text="Send" textFill="WHITE">
                                        <font>
                                           <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                                        </font>
                                     </Button>
-                                    <JFXTextField fx:id="email" layoutX="136.0" layoutY="50.0" prefHeight="27.0" prefWidth="270.0" />
-                                    <JFXTextArea fx:id="message" layoutX="130.0" layoutY="128.0" prefHeight="117.0" prefWidth="349.0" />
                                  </children>
                               </Pane>
                            </children>

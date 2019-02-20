@@ -8,16 +8,23 @@ import com.jfoenix.validation.RegexValidator;
 import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.TreeItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import org.apache.commons.io.IOUtils;
+import org.controlsfx.control.BreadCrumbBar;
+import org.controlsfx.control.PopOver;
 
 
 import java.io.File;
@@ -30,55 +37,40 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class AppController extends PageControllerUI implements  Initializable {
-    @FXML
-    public JFXButton SendApp;
-    @FXML
-    private JFXButton page1;
+public class AppController extends PageControllerUI implements Initializable {
 
     @FXML
-    private JFXButton page2;
-
-    @FXML
-    private JFXButton page3;
-
-    @FXML
-    private JFXButton page4;
+    private JFXButton back;
 
     @FXML
     private Pane pane1;
 
     @FXML
-    private HBox GrapeVarHBox;
-
-    @FXML
-    private HBox WineAppHBox;
-
-    @FXML
-    private Pane pane2;
-
-    @FXML
-    private Pane pane3;
-
-    @FXML
-    private Pane pane4;
-
-    // Below are OG fx:id's
-
-    @FXML
     private JFXTextField RepIDField;
+
+    @FXML
+    private JFXButton RepInfo;
 
     @FXML
     private JFXTextField ProducerNumField;
 
     @FXML
+    private JFXButton ProducerInfo;
+
+    @FXML
     private JFXComboBox<String> SourceComboBox;
+
+    @FXML
+    private JFXButton SourceInfo;
 
     @FXML
     private JFXTextField SerialYearField;
 
     @FXML
     private JFXTextField SerialDigitsField;
+
+    @FXML
+    private JFXButton SerialInfo;
 
     @FXML
     private JFXComboBox<String> TypeComboBox;
@@ -90,10 +82,22 @@ public class AppController extends PageControllerUI implements  Initializable {
     private JFXTextField PhField;
 
     @FXML
+    private JFXButton TypeInfo;
+
+    @FXML
     private JFXTextField BrandField;
 
     @FXML
+    private JFXButton BrandInfo;
+
+    @FXML
+    private Pane pane2;
+
+    @FXML
     private JFXTextField FancifulField;
+
+    @FXML
+    private JFXButton FancyInfo;
 
     @FXML
     private JFXTextField Name8Field;
@@ -109,6 +113,9 @@ public class AppController extends PageControllerUI implements  Initializable {
 
     @FXML
     private JFXTextField Zip8Field;
+
+    @FXML
+    private JFXButton AddressInfo;
 
     @FXML
     private JFXRadioButton SameAddressRadioButton;
@@ -129,19 +136,46 @@ public class AppController extends PageControllerUI implements  Initializable {
     private JFXTextField Zip9Field;
 
     @FXML
+    private JFXButton MailingInfo;
+
+    @FXML
     private JFXTextField FormulaField;
+
+    @FXML
+    private JFXButton FormulaInfo;
+
+    @FXML
+    private HBox GrapeVarHBox;
 
     @FXML
     private JFXTextField GrapeVarField;
 
     @FXML
+    private JFXButton WineGrapeInfo;
+
+    @FXML
+    private HBox WineAppHBox;
+
+    @FXML
     private JFXTextField WineAppField;
+
+    @FXML
+    private JFXButton WineAppelationInfo;
+
+    @FXML
+    private Pane pane3;
 
     @FXML
     private JFXTextField PhoneNumField;
 
     @FXML
+    private JFXButton PhoneInfo;
+
+    @FXML
     private JFXTextField EmailField;
+
+    @FXML
+    private JFXButton EmailInfo;
 
     @FXML
     private JFXRadioButton LiquorRadioButton;
@@ -171,47 +205,55 @@ public class AppController extends PageControllerUI implements  Initializable {
     private JFXTextField TranslationField;
 
     @FXML
+    private JFXButton AdditionalInfoInfo;
+
+    @FXML
     private JFXDatePicker AppDate;
+
+    @FXML
+    private JFXButton DateInfo;
+
+    @FXML
+    private Pane pane4;
+
+    @FXML
+    private JFXButton SendApp;
 
     @FXML
     private JFXTextField SignatureField;
 
     @FXML
+    private JFXButton SignatureInfo;
+
+    @FXML
     private JFXButton UploadButton;
+
+    @FXML
+    private JFXButton LabelSubmitInfo;
+
+    @FXML
+    private ImageView labelImageDisplay;
 
     @FXML
     private JFXTextField AlcoholContentTextField;
 
     @FXML
-    ImageView labelImageDisplay;
+    private JFXButton AlcoholPercentInfo;
+
+    @FXML
+    private BreadCrumbBar<String> Nav;
+
+    @FXML
+    private JFXButton TypeAppInfo;
+
     private Form workingForm;
 
     @Override
     void onLoad() {
     }
+
     @Override
     protected void onLeave() {
-    }
-
-
-    public JFXButton getPage1() {
-        return page1;
-    }
-
-    public JFXButton getPage2() {
-        return page2;
-    }
-
-    public JFXButton getPage3() {
-        return page3;
-    }
-
-    public JFXButton getPage4() {
-        return page4;
-    }
-
-    public Pane getPane1() {
-        return pane1;
     }
 
 
@@ -219,60 +261,63 @@ public class AppController extends PageControllerUI implements  Initializable {
 
     /**
      * Determines tab user is on and handles appropriately
+     *
      * @param actionEvent
      */
-    public void handlePage(javafx.event.ActionEvent actionEvent) {
-        if (actionEvent.getSource() == page1) {
-            pane1.toFront();
-            pane1.setDisable(false);
-            pane1.setVisible(true);
-            pane2.setVisible(false);
-            pane2.setDisable(true);
-            pane3.setVisible(false);
-            pane3.setDisable(true);
-            pane4.setVisible(false);
-            pane4.setDisable(true);
-            //System.out.println("Page1");
-        } else if (actionEvent.getSource() == page2) {
-            pane2.toFront();
-            pane2.setDisable(false);
-            pane2.setVisible(true);
-            pane1.setVisible(false);
-            pane1.setDisable(true);
-            pane3.setVisible(false);
-            pane3.setDisable(true);
-            pane4.setVisible(false);
-            pane4.setDisable(true);
-            //System.out.println("Page2");
-        } else if (actionEvent.getSource() == page3) {
-            pane3.toFront();
-            pane3.setDisable(false);
-            pane3.setVisible(true);
-            pane1.setVisible(false);
-            pane1.setDisable(true);
-            pane2.setVisible(false);
-            pane2.setDisable(true);
-            pane4.setVisible(false);
-            pane4.setDisable(true);
-            //System.out.println("Page3");
-        } else if (actionEvent.getSource() == page4) {
-            pane4.toFront();
-            pane4.setDisable(false);
-            pane4.setVisible(true);
-            pane1.setVisible(false);
-            pane1.setDisable(true);
-            pane2.setVisible(false);
-            pane2.setDisable(true);
-            pane3.setVisible(false);
-            pane3.setDisable(true);
-            //System.out.println("Page4");
-        }
-
-    }
+//    public void handlePage(javafx.event.ActionEvent actionEvent) {
+//        if (actionEvent.getSource() == page1) {
+//                pane1.toFront();
+//                pane1.setDisable(false);
+//                pane1.setVisible(true);
+//                pane2.setVisible(false);
+//                pane2.setDisable(true);
+//                pane3.setVisible(false);
+//                pane3.setDisable(true);
+//                pane4.setVisible(false);
+//                pane4.setDisable(true);
+//                //System.out.println("Page1");
+//
+//        } else if (actionEvent.getSource() == page2) {
+//            pane2.toFront();
+//            pane2.setDisable(false);
+//            pane2.setVisible(true);
+//            pane1.setVisible(false);
+//            pane1.setDisable(true);
+//            pane3.setVisible(false);
+//            pane3.setDisable(true);
+//            pane4.setVisible(false);
+//            pane4.setDisable(true);
+//            //System.out.println("Page2");
+//        } else if (actionEvent.getSource() == page3) {
+//            pane3.toFront();
+//            pane3.setDisable(false);
+//            pane3.setVisible(true);
+//            pane1.setVisible(false);
+//            pane1.setDisable(true);
+//            pane2.setVisible(false);
+//            pane2.setDisable(true);
+//            pane4.setVisible(false);
+//            pane4.setDisable(true);
+//            //System.out.println("Page3");
+//        } else if (actionEvent.getSource() == page4) {
+//            pane4.toFront();
+//            pane4.setDisable(false);
+//            pane4.setVisible(true);
+//            pane1.setVisible(false);
+//            pane1.setDisable(true);
+//            pane2.setVisible(false);
+//            pane2.setDisable(true);
+//            pane3.setVisible(false);
+//            pane3.setDisable(true);
+//            //System.out.println("Page4");
+//        }
+//
+//    }
 
     /**
      * Sets up application form and fields within it
-     * @param location URL of forms
+     *
+     * @param location  URL of forms
      * @param resources ResourceBundle
      */
     @Override
@@ -288,6 +333,60 @@ public class AppController extends PageControllerUI implements  Initializable {
         pane4.setVisible(false);
         pane4.setDisable(true);
 
+        // Set up crumb bar
+        TreeItem<String> model = BreadCrumbBar.buildTreeModel("Page 1", "Page 2", "Page 3", "Page 4");
+        Nav.setSelectedCrumb(model);
+        Nav.setAutoNavigationEnabled(false);
+        Nav.setOnCrumbAction(new EventHandler<BreadCrumbBar.BreadCrumbActionEvent<String>>() {
+            @Override
+            public void handle(BreadCrumbBar.BreadCrumbActionEvent<String> event) {
+                if(event.getSelectedCrumb().getValue() == "Page 1"){
+                    pane1.toFront();
+                    pane1.setDisable(false);
+                    pane1.setVisible(true);
+                    pane2.setVisible(false);
+                    pane2.setDisable(true);
+                    pane3.setVisible(false);
+                    pane3.setDisable(true);
+                    pane4.setVisible(false);
+                    pane4.setDisable(true);
+                }
+                else if(event.getSelectedCrumb().getValue() == "Page 2"){
+                    pane2.toFront();
+                    pane2.setDisable(false);
+                    pane2.setVisible(true);
+                    pane1.setVisible(false);
+                    pane1.setDisable(true);
+                    pane3.setVisible(false);
+                    pane3.setDisable(true);
+                    pane4.setVisible(false);
+                    pane4.setDisable(true);
+                }
+                else if(event.getSelectedCrumb().getValue() == "Page 3"){
+                    pane3.toFront();
+                    pane3.setDisable(false);
+                    pane3.setVisible(true);
+                    pane1.setVisible(false);
+                    pane1.setDisable(true);
+                    pane2.setVisible(false);
+                    pane2.setDisable(true);
+                    pane4.setVisible(false);
+                    pane4.setDisable(true);
+                }
+                else if(event.getSelectedCrumb().getValue() == "Page 4"){
+                    pane4.toFront();
+                    pane4.setDisable(false);
+                    pane4.setVisible(true);
+                    pane1.setVisible(false);
+                    pane1.setDisable(true);
+                    pane2.setVisible(false);
+                    pane2.setDisable(true);
+                    pane3.setVisible(false);
+                    pane3.setDisable(true);
+                }
+            }
+        });
+
         // Initialize TextFields
         VintageYearField.disableProperty().setValue(true);
         PhField.disableProperty().setValue(true);
@@ -298,12 +397,13 @@ public class AppController extends PageControllerUI implements  Initializable {
         WineAppHBox.disableProperty().setValue(true);
 
         // Initialize Validators
+        setListener(RepIDField, 7);
         setListener(ProducerNumField, 1);
-        setListener(SerialYearField, 1);
+        setListener(SerialYearField, 5);
         setListener(SerialDigitsField, 1);
         setListener(BrandField, 2);
-        setListener(VintageYearField, 1);
-        setListener(PhField, 1);
+        setListener(VintageYearField, 5);
+        setListener(PhField, 6);
         setListener(Name8Field, 2);
         setListener(Address8Field, 0);
         setListener(City8Field, 0);
@@ -313,10 +413,11 @@ public class AppController extends PageControllerUI implements  Initializable {
         setListener(City9Field, 0);
         setListener(Zip9Field, 1);
         setListener(FormulaField, 0);
-        setListener(PhoneNumField, 1);
+        setListener(PhoneNumField, 4);
         setListener(EmailField, 3);
         setListener(SignatureField, 0);
         setListener(AlcoholContentTextField, 1);
+
 
         // Fill ComboBoxes
         List<String> states = Arrays.asList("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL",
@@ -329,29 +430,40 @@ public class AppController extends PageControllerUI implements  Initializable {
         SourceComboBox.getItems().addAll("Domestic", "Imported");
         TypeComboBox.getItems().addAll("Malt Beverage", "Wine", "Distilled Liquor");
         /* setup submit button */
+
+        // we can just keep the button disabled through a listener
+
         this.SendApp.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 int id;
-                if(AttributeContainer.getInstance().currentUser.isManufacturer()){
-                    id = getForm((Manufacturer)AttributeContainer.getInstance().currentUser);
-                } else {
-                    Manufacturer temp = new Manufacturer();
-                    temp.setManID(0);
-                    id = getForm(temp);
+                if (!SendApp.isDisable()) {
+                    if (AttributeContainer.getInstance().currentUser.isManufacturer()) {
+                        id = getForm((Manufacturer) AttributeContainer.getInstance().currentUser);
+                    } else {
+                        // What?
+                        Manufacturer temp = new Manufacturer();
+                        temp.setManID(0);
+                        id = getForm(temp);
+                    }
+                    AttributeContainer.getInstance().labelImage.setTTBID(id);
+                    AttributeContainer.getInstance().labelImage.insert();
+                    AttributeContainer.getInstance().currentForm = null;
+                    AttributeContainer.getInstance().formQueue = ((Manufacturer) AttributeContainer.getInstance().currentUser).loadForms();
+                    goToPage("ManHome.fxml");
                 }
-                AttributeContainer.getInstance().labelImage.setTTBID(id);
-                AttributeContainer.getInstance().labelImage.insert();
-                AttributeContainer.getInstance().currentForm = null;
-                AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
-                goToPage("ManHome.fxml");
-        }
+            }
         });
+
+
+
+
+
 
     }
 
     @FXML
-    public void goBack(){
+    public void goBack() {
         AttributeContainer.getInstance().currentForm = null;
         goToPage("ManHome.fxml");
     }
@@ -360,8 +472,14 @@ public class AppController extends PageControllerUI implements  Initializable {
     // 1 - Only Numbers
     // 2 - Only Strings
     // 3 - Valid email
+    // 4 - Valid phone number
+    // 5 - Valid 4 digits
+    // 6 - Valid pH
+    // 7 - Valid rep Id
+
     /**
      * Sets listener for fields on form
+     *
      * @param field
      * @param type
      */
@@ -370,35 +488,86 @@ public class AppController extends PageControllerUI implements  Initializable {
             NumberValidator numValidator = new NumberValidator();
             field.getValidators().add(numValidator);
             numValidator.setMessage("Enter a number");
+            RequiredFieldValidator validator = new RequiredFieldValidator();
+            field.getValidators().add(validator);
+            validator.setMessage("* Required");
         }
         if (type == 2) {
             RegexValidator regexValidator = new RegexValidator();
             regexValidator.setRegexPattern("[a-zA-Z]*");
             field.getValidators().add(regexValidator);
             regexValidator.setMessage("Enter a string!");
+            RequiredFieldValidator validator = new RequiredFieldValidator();
+            field.getValidators().add(validator);
+            validator.setMessage("* Required");
         }
         if (type == 3) {
             RegexValidator validEmail = new RegexValidator();
-            validEmail.setRegexPattern("(.*)+[@]+(.*)+");
+            validEmail.setRegexPattern(".+\\@.+\\..+");
             field.getValidators().add(validEmail);
             validEmail.setMessage("Enter a valid email");
+            RequiredFieldValidator validator = new RequiredFieldValidator();
+            field.getValidators().add(validator);
+            validator.setMessage("* Required");
         }
+        if (type == 4) {
+            RegexValidator validEmail = new RegexValidator();
+            validEmail.setRegexPattern("^\\D?(\\d{3})\\D?\\D?(\\d{3})\\D?(\\d{4})$");
+            field.getValidators().add(validEmail);
+            validEmail.setMessage("Enter a valid phone number");
+            RequiredFieldValidator validator = new RequiredFieldValidator();
+            field.getValidators().add(validator);
+            validator.setMessage("* Required");
+        }
+        if (type == 5) {
+            RegexValidator validEmail = new RegexValidator();
+            validEmail.setRegexPattern("^\\d{4}$");
+            field.getValidators().add(validEmail);
+            validEmail.setMessage("Enter a valid year");
+            RequiredFieldValidator validator = new RequiredFieldValidator();
+            field.getValidators().add(validator);
+            validator.setMessage("* Required");
+        }
+        if (type == 6) {
+            RegexValidator validEmail = new RegexValidator();
+            validEmail.setRegexPattern("^[0-1]?[1-4]$"); // Doesn't account for decimals
+            field.getValidators().add(validEmail);
+            validEmail.setMessage("Enter a valid pH");
+            RequiredFieldValidator validator = new RequiredFieldValidator();
+            field.getValidators().add(validator);
+            validator.setMessage("* Required");
+        }
+        if (type == 7) {
+            RegexValidator validRepId = new RegexValidator();
+            validRepId.setRegexPattern("^[a-zA-Z0-9]{0,16}$"); // Doesn't account for decimals
+            field.getValidators().add(validRepId);
+            validRepId.setMessage("Enter a valid rep id");
+
+        }
+
         if (errorInForm) {
             //
         }
 
 
-        RequiredFieldValidator validator = new RequiredFieldValidator();
-        field.getValidators().add(validator);
-        validator.setMessage("* Required");
         field.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if (!newValue) {
                     field.validate();
+                    if(field.validate()) {
+                        System.out.println("Fields has no errors");
+                        SendApp.setOpacity(1);
+                    }
+                    if (!field.validate()) {
+                        System.out.println("Fields have errors");
+                        SendApp.setOpacity(0);
+                    }
+
                 }
             }
         });
+
     }
 
     /**
@@ -465,24 +634,22 @@ public class AppController extends PageControllerUI implements  Initializable {
     }
 
     @FXML
-    public void typeCheck() throws IOException{
-        if(!LiquorRadioButton.isSelected()) {
+    public void typeCheck() throws IOException {
+        if (!LiquorRadioButton.isSelected()) {
             AmountField.setText("");
             AmountField.disableProperty().setValue(true);
-        }
-        else
+        } else
             AmountField.disableProperty().setValue(false);
 
-        if(!ExemptionRadioButton.isSelected())
+        if (!ExemptionRadioButton.isSelected())
             State15ComboBox.disableProperty().setValue(true);
         else
             State15ComboBox.disableProperty().setValue(false);
 
-        if(!ResubmitRadioButton.isSelected()){
+        if (!ResubmitRadioButton.isSelected()) {
             TTBIDField.setText("");
             TTBIDField.disableProperty().setValue(true);
-        }
-        else
+        } else
             TTBIDField.disableProperty().setValue(false);
 
 
@@ -492,10 +659,11 @@ public class AppController extends PageControllerUI implements  Initializable {
      * This is the method which gets a form from the associated controller and persists
      * it to the database. Pass it the manufacturer who is inserting the form. Later there might
      * be another option using no Manufacturer at all.
+     *
      * @param man The manufacturer performing the insert... We need to think about this?
      * @return int the TTBID
      */
-    int getForm(Manufacturer man){
+    int getForm(Manufacturer man) {
         Form working = new Form();
         working.setBrandName(BrandField.getText());
         working.setSerialNumber(SerialYearField.getText()
@@ -508,17 +676,17 @@ public class AppController extends PageControllerUI implements  Initializable {
         working.setRepID(RepIDField.getText());
         working.setFormula(FormulaField.getText());
         working.setApprovalStatus(ApprovalStatus.Incomplete);
-        if(SourceComboBox.getValue().equals("Domestic")) {
+        if (SourceComboBox.getValue().equals("Domestic")) {
             working.setSource(false);
         } else {
             working.setSource(true);
         }
-        if(TypeComboBox.getValue().equals("Malt Beverage")){
+        if (TypeComboBox.getValue().equals("Malt Beverage")) {
             working.setAlcoholType(AlcoholType.MaltBeverage);
-        } else if(TypeComboBox.getValue().equals("Wine")){
+        } else if (TypeComboBox.getValue().equals("Wine")) {
             working.setAlcoholType(AlcoholType.Wine);
             /* This part takes care of the Wine */
-            WineFormItems wine = new  WineFormItems();
+            WineFormItems wine = new WineFormItems();
             wine.setVintageYear(Integer.valueOf(VintageYearField.getText()));
             wine.setGrapeVarietal(GrapeVarField.getText());
             wine.setpH(Float.valueOf(PhField.getText()));
@@ -535,7 +703,7 @@ public class AppController extends PageControllerUI implements  Initializable {
         addy.setStreet(Address8Field.getText());
         addy.setZip(Zip8Field.getText());
         addy.setMailing(true);
-        if(!SameAddressRadioButton.isSelected()){
+        if (!SameAddressRadioButton.isSelected()) {
             /* Other Address */
             Address other = new Address();
             addy.setCity(City9Field.getText());
@@ -556,13 +724,14 @@ public class AppController extends PageControllerUI implements  Initializable {
         return working.getTtbID();
 
     }
+
     @FXML
-    void uploadLabelImage(){
+    void uploadLabelImage() {
         FileChooser fileChooser = new FileChooser();
 
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("PNG Files", "*.png")
-                ,new FileChooser.ExtensionFilter("JPEG Files", "*.jpg")
+                , new FileChooser.ExtensionFilter("JPEG Files", "*.jpg")
         );
 
 
@@ -578,10 +747,246 @@ public class AppController extends PageControllerUI implements  Initializable {
 //            BufferedImage img = ImageIO.read(selectedFile);
             Image img = new Image(selectedFile.toURI().toString());
             labelImageDisplay.setImage(img);
-        }
-        catch(IOException e) {
+        } catch (IOException e) {
             System.out.println(e);
         }
+    }
+
+    @FXML
+    public void handleButtonAction(ActionEvent event){
+//        System.out.println(event.toString());
+//        System.out.println(event.getPickResult().getIntersectedNode().getId());
+//        popOver.show(AlcoholContentInfo);
+//        if(id == RepIDField)
+//        popOver.show(AlcoholContentInfo);
+        final Node source = (Node) event.getSource();
+        String id = source.getId();
+        System.out.println(id);
+
+        switch (id){
+            case "RepInfo":
+                JFXTextArea RepInfoText = new JFXTextArea("Include a third party representative ID number if your application will be submitted by a third party representative, and if you consent to the disclosure of information abou tthe applciation to thiis representative, as well as the return of the processed application to this representative. Third party filers who do not already have a Representative ID Number, please contact TTB to obtain one (See section IV for contact information)"); // Create JFXTextArea & put info here
+                RepInfoText.setEditable(false);
+                RepInfoText.setStyle("-fx-font-size: 14"); // Same for all
+                VBox vBox = new VBox(RepInfoText); // Make sure update the TextArea for the VBox
+                vBox.setPrefSize(300, 150.0);  // Same for all
+                vBox.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE); // Same for all
+                vBox.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver = new PopOver(vBox); // Same for all
+                popOver.show(RepInfo); //Change to make sure it is linked to proper button
+                break;
+
+            case "ProducerInfo":
+                JFXTextArea ProducerInfoText = new JFXTextArea("For bonded wine cellars, taxpaid wine bottline houses, and distilled spirits plants, enter the applicable registry number (BW- or TPWBH- or DSP- number). Importers must enter the TTB basic permit number and brewers must enter the brewer's notice number. Wholesalers applying to relabel must enter the wholesaler's basic permis number. ");
+                ProducerInfoText.setEditable(false);
+                ProducerInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox1 = new VBox(ProducerInfoText);
+                vBox1.setPrefSize(300, 150.0);
+                vBox1.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox1.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver1 = new PopOver(vBox1);
+                popOver1.show(ProducerInfo);
+                break;
+            case "SourceInfo":
+                JFXTextArea SourceInfoText = new JFXTextArea("Indicate the source of the product by checking the appropriate box.");
+                SourceInfoText.setEditable(false);
+                SourceInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox2 = new VBox(SourceInfoText);
+                vBox2.setPrefSize(300, 150.0);
+                vBox2.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox2.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver2 = new PopOver(vBox2);
+                popOver2.show(SourceInfo);
+                break;
+            case "SerialInfo":
+                JFXTextArea SerialInfoText = new JFXTextArea("You must assign a sequential serial number beginning with the last two digits of the current calendar year to each application and its duplicate, not to exceed 6 characters; e.g., 12-1, 12-2, etc.");
+                SerialInfoText.setEditable(false);
+                SerialInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox3 = new VBox(SerialInfoText);
+                vBox3.setPrefSize(300, 150.0);
+                vBox3.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox3.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver3 = new PopOver(vBox3);
+                popOver3.show(SerialInfo);
+                break;
+            case "TypeInfo":
+                JFXTextArea TypeInfoText = new JFXTextArea("Indicate the type of product by checking the appropriate box. For Sake, check the \"wine\" box.");
+                TypeInfoText.setEditable(false);
+                TypeInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox4 = new VBox(TypeInfoText);
+                vBox4.setPrefSize(300, 150.0);
+                vBox4.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox4.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver4 = new PopOver(vBox4);
+                popOver4.show(TypeInfo);
+                break;
+            case "BrandInfo":
+                JFXTextArea BrandInfoText = new JFXTextArea("A brand name is a name under which the product is sold. If the product is not sold under a brand name, enter the name of the bottler, packer, or importer, as applicable.");
+                BrandInfoText.setEditable(false);
+                BrandInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox5 = new VBox(BrandInfoText);
+                vBox5.setPrefSize(300, 150.0);
+                vBox5.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox5.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver5 = new PopOver(vBox5);
+                popOver5.show(BrandInfo);
+                break;
+            case "FancyInfo":
+                JFXTextArea FancyInfoText = new JFXTextArea("A fanciful name is a name that further identifies the product and is required for some specialty products. It is optional for other products.");
+                FancyInfoText.setEditable(false);
+                FancyInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox6 = new VBox(FancyInfoText);
+                vBox6.setPrefSize(300, 150.0);
+                vBox6.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox6.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver6 = new PopOver(vBox6);
+                popOver6.show(FancyInfo);
+                break;
+            case "AddressInfo":
+                JFXTextArea AddressInfoText = new JFXTextArea("Indicate your company name and address exactly as they appear on your plant registry, basic permint, or brewer's notic (include your approved DBA or trade name if you use it on the label). In the case of distilled spirits and malt beverages that are bottled at more than one location indicate your principal place of business address in this field.");
+                AddressInfoText.setEditable(false);
+                AddressInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox7 = new VBox(AddressInfoText);
+                vBox7.setPrefSize(300, 150.0);
+                vBox7.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox7.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver7 = new PopOver(vBox7);
+                popOver7.show(AddressInfo);
+                break;
+            case "MailingInfo":
+                JFXTextArea MailingInfoText = new JFXTextArea("You may enter a mailing address here if you receive mail at an address other than the address shown in item 8");
+                MailingInfoText.setEditable(false);
+                MailingInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox8 = new VBox(MailingInfoText);
+                vBox8.setPrefSize(300, 150.0);
+                vBox8.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox8.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver8 = new PopOver(vBox8);
+                popOver8.show(MailingInfo);
+                break;
+            case "FormulaInfo":
+                JFXTextArea FormulaInfoText = new JFXTextArea("The term \"Formula\" encompasses the following pre-COLA product evaluations: domestic beverage alcohol formulas, pre-import approval letters, lab analyses, and submissions formerly known as statements of process (SOPs). A formula is a quantitative list of ingredients and a step-by-step method of manufacture for alcohol beverages (wine, distilled spirits, and malt beverages) requireing approval from TTB prior to production or importation as set out in Industry Circular 2007-4. TTB's regulatory authority for such products may also be found in 27 CFR parts 4, 5, 7, 19, 24, 25, and 26. Please visit http://www.ttb.gov/formulation/pre_cola.shtml for more information about when a formula is required. For any domestic or imported alcohol beverage product requireing formula approval, specify the TTB formula ID/TTB ID number, or TTB lab number. A copy of the approved formula or pre-import approval letter must accompany this label application. If the formula approval was obtained electronically through Formulas Online, the system-generated TTB Formula ID number must be provided.");
+                FormulaInfoText.setEditable(false);
+                FormulaInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox9 = new VBox(FormulaInfoText);
+                vBox9.setPrefSize(300, 150.0);
+                vBox9.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox9.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver9 = new PopOver(vBox9);
+                popOver9.show(FormulaInfo);
+                break;
+            case "WineGrapeInfo":
+                JFXTextArea WineGrapeInfoText = new JFXTextArea("You must list in this block each grape varietal (if any) that appears on wine labels");
+                WineGrapeInfoText.setEditable(false);
+                WineGrapeInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox10 = new VBox(WineGrapeInfoText);
+                vBox10.setPrefSize(300, 150.0);
+                vBox10.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox10.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver10 = new PopOver(vBox10);
+                popOver10.show(WineGrapeInfo);
+                break;
+            case "WineAppelationInfo":
+                JFXTextArea WineAppelationInfoText = new JFXTextArea("Fill in only if a wine appellation of origin is stated on the label");
+                WineAppelationInfoText.setEditable(false);
+                WineAppelationInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox11 = new VBox(WineAppelationInfoText);
+                vBox11.setPrefSize(300, 150.0);
+                vBox11.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox11.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver11 = new PopOver(vBox11);
+                popOver11.show(WineAppelationInfo);
+                break;
+            case "PhoneInfo":
+                JFXTextArea PhoneInfoText = new JFXTextArea("Provide the phone number of the person responsible for the application");
+                PhoneInfoText.setEditable(false);
+                PhoneInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox12 = new VBox(PhoneInfoText);
+                vBox12.setPrefSize(300, 150.0);
+                vBox12.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox12.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver12 = new PopOver(vBox12);
+                popOver12.show(PhoneInfo);
+                break;
+            case "EmailInfo":
+                JFXTextArea EmailInfoText = new JFXTextArea("You may provide the e-mail address of the person who should receive TTB's response to this application. TTB will process and return all paper applications to this e-mail address if one is provided.");
+                EmailInfoText.setEditable(false);
+                EmailInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox13 = new VBox(EmailInfoText);
+                vBox13.setPrefSize(300, 150.0);
+                vBox13.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox13.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver13 = new PopOver(vBox13);
+                popOver13.show(EmailInfo);
+                break;
+            case "TypeAppInfo":
+                JFXTextArea TypeAppInfoText = new JFXTextArea("You must check \"a\" or \"b\". You must also check \"c\" if you intend to bottle distilled spirits in a distinctive container. You must check \"d\" and enter the TTB ID number as shown in the upper left hand corner of the rejected application if you are submitting an application that was previously rejected. If you check \"b\" 1) you may only sell this product in the State where it is bolled AND 2) the statment \"For sale in ___ only\" (using State abbreviation) must appear on each container. We do not issue certificates of exemption for products imported in bottles or for malt beverages.");
+                TypeAppInfoText.setEditable(false);
+                TypeAppInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox14 = new VBox(TypeAppInfoText);
+                vBox14.setPrefSize(300, 150.0);
+                vBox14.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox14.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver14 = new PopOver(vBox14);
+                popOver14.show(TypeAppInfo);
+                break;
+            case "AdditionalInfoInfo":
+                JFXTextArea AdditionalInfoInfoText = new JFXTextArea("ADDITIONAL HELP!");
+                AdditionalInfoInfoText.setEditable(false);
+                AdditionalInfoInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox15 = new VBox(AdditionalInfoInfoText);
+                vBox15.setPrefSize(300, 150.0);
+                vBox15.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox15.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver15 = new PopOver(vBox15);
+                popOver15.show(AdditionalInfoInfo);
+                break;
+            case "DateInfo":
+                JFXTextArea DateInfoText = new JFXTextArea("Enter date application is prepared or submitted");
+                DateInfoText.setEditable(false);
+                DateInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox16 = new VBox(DateInfoText);
+                vBox16.setPrefSize(300, 150.0);
+                vBox16.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox16.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver16 = new PopOver(vBox16);
+                popOver16.show(DateInfo);
+                break;
+            case "SignatureInfo":
+                JFXTextArea SignatureInfoText = new JFXTextArea("The applicant or authorized agent must sign in this block");
+                SignatureInfoText.setEditable(false);
+                SignatureInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox17 = new VBox(SignatureInfoText);
+                vBox17.setPrefSize(300, 150.0);
+                vBox17.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox17.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver17 = new PopOver(vBox17);
+                popOver17.show(SignatureInfo);
+                break;
+            case "LabelSubmitInfo":
+                JFXTextArea LabelSubmitInfoText = new JFXTextArea("Picture/ scan must be in .pdf or .png format");
+                LabelSubmitInfoText.setEditable(false);
+                LabelSubmitInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox18 = new VBox(LabelSubmitInfoText);
+                vBox18.setPrefSize(300, 150.0);
+                vBox18.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox18.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver18 = new PopOver(vBox18);
+                popOver18.show(LabelSubmitInfo);
+                break;
+            case "AlcoholPercentInfo":
+                JFXTextArea AlcoholPercentInfoText = new JFXTextArea("Enter the actual alcohol percentage of your beverage");
+                AlcoholPercentInfoText.setEditable(false);
+                AlcoholPercentInfoText.setStyle("-fx-font-size: 14");
+                VBox vBox19 = new VBox(AlcoholPercentInfoText);
+                vBox19.setPrefSize(300, 150.0);
+                vBox19.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
+                vBox19.setStyle("-fx-background-color: #9ea7aa");
+                PopOver popOver19 = new PopOver(vBox19);
+                popOver19.show(AlcoholPercentInfo);
+                break;
+        }
+
     }
 
 }

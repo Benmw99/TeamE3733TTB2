@@ -5,10 +5,13 @@ import Entities.Form;
 import Entities.IUser;
 import Entities.LabelImage;
 import com.jfoenix.controls.JFXTabPane;
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -81,7 +84,25 @@ public class FormDisplayController extends PageControllerUI implements Initializ
     @FXML
     JFXTabPane sectionPane;
 
+    @FXML
+    TabPane tabPane;
+
+
+    ComboBox<String> comboBox;
+
+    JFXButton approveButton;
+
     /**
+     @FXML
+     Label Display4Label2;
+     @FXML
+     Label Display5Label1;
+     @FXML
+     Label Display5Label2;
+     @FXML
+     Label Display5Label3;
+     @FXML
+     Label Display6Label;
      * Displays the current form as specified in the AttributeContainer Singleton
      */
     public void displayCurrentForm() {
