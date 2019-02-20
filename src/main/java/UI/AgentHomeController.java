@@ -34,7 +34,7 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     Pane smallPane;
 
     @FXML
-    ToggleButton helpToggleButton;
+    JFXToggleButton helpToggleButton;
 
     @FXML
     public JFXButton GetNewQueueButton;
