@@ -83,6 +83,8 @@ public class Mailer implements Runnable {
             body += ",\n";
             body += "There are updates on your form! Please use the TTB Application to check your status.\n";
             body += "Your form's current status is " + to_inform.getApprovalStatus().toString();
+
+            new FormExporter(to_inform);
             mailHelper(message, body);
 
             message.setSubject("RE: TTB APP UPDATE");

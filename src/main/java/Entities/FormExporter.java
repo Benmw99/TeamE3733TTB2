@@ -20,7 +20,11 @@ public class FormExporter {
 
     public FormExporter(Form form) {
         try {
+
             File doc2 = new File(getClass().getResource("/" + "converted.docx").toURI());
+            System.out.println(doc2.toPath());
+
+
             InputStream inputstream = new FileInputStream(doc2);
             doc = new XWPFDocument(inputstream);
             for (XWPFTable tbl : doc.getTables()) {
@@ -28,18 +32,23 @@ public class FormExporter {
                     for (XWPFTableCell cell : row.getTableCells()) {
                         for (XWPFParagraph p : cell.getParagraphs()) {
                             for (XWPFRun r : p.getRuns()) {
-                                replaceString(r, "REP_ID", form.getRepID());
-                                replaceString(r, "TTB ID", "boop");
+                                //replaceString(r, "REP_ID", form.getRepID());
+                                replaceString(r, "REP_ID", "hello");
+                                replaceString(r, "TTB ID", "TTB ID: " + String.valueOf(form.getTtbID()));
                                 replaceString(r, "PLANT_REGISTRY", form.getBrewersPermit().get(0).getBrewersNo());
                                 //TODO _DOM_ and _IMP_
                                 Address add = form.getMailingAddress();
                                 if(add != null) {
-                                    String addy = add.getName() + "\n" + add.getStreet() + "\n" + add.getCity() +
-                                            "\n" + add.getState() + "\n" + add.getZip();
-                                    replaceString(r, "_ADDRESS_", addy);
+                                    replaceString(r, "_NM", form.getMailingAddress().getName());
+                                    replaceString(r, "_STREET_", form.getMailingAddress().getStreet());
+                                    replaceString(r, "_CS_", form.getMailingAddress().getCity() + " " + form.getMailingAddress().getState());
+                                    replaceString(r, "_ZIP_", form.getMailingAddress().getZip());
                                 }
                                 else{
-                                    replaceString(r, "_ADDRESS_", "");
+                                    replaceString(r, "_NM", "");
+                                    replaceString(r, "_STREET_", "");
+                                    replaceString(r, "_CS_", "");
+                                    replaceString(r, "_ZIP_", "");
                                 }
                                 //TODO TYPE OF PRODUCE
                                 replaceString(r, "SERIAL_1", form.getSerialNumber().substring(0,1));
@@ -62,17 +71,50 @@ public class FormExporter {
                                 replaceString(r, "_EMAIL_", form.getEmail());
                                 replaceString(r, "_OTHER_INFO_", form.getOtherInfo());
 
-                                replaceString(r, "_DATEOFAPP_", form.getDateSubmitted().toString());
+                                if(form.getDateSubmitted() != null){
+                                    replaceString(r, "_DATEOFAPP_", form.getDateSubmitted().toString());
+                                }
                                 replaceString(r, "_NAMEAPP_", form.getApplicantName());
                                 replaceString(r, "_DATEISS_", java.time.LocalDate.now().toString());
                                 replaceString(r, "_QUALIFIICATIONS_", form.getApproval().getQualifications());
+
+                                //if true, isImported
+                                if(form.getSource() == true){
+                                    replaceString(r, "IMP_", "    ☒");
+                                    replaceString(r, "_DOM_", "    ☐");
+                                }
+                                else{
+                                    replaceString(r, "IMP_", "   ☐");
+                                    replaceString(r, "_DOM_", "   ☒");
+                                }
+
+                                if(form.getAlcoholType() == AlcoholType.Wine){
+                                    replaceString(r, "_WINE_", "☒  ");
+                                    replaceString(r, "_DIST_", "☐  ");
+                                    replaceString(r, "_MALT_", "☐  ");
+                                }
+                                else if(form.getAlcoholType() == AlcoholType.DistilledLiquor){
+                                    replaceString(r, "_WINE_", "☐  ");
+                                    replaceString(r, "_DIST_", "☒  ");
+                                    replaceString(r, "_MALT_", "☐  ");
+                                }
+                                else{
+                                    replaceString(r, "_WINE_", "☐  ");
+                                    replaceString(r, "_DIST_", "☐  ");
+                                    replaceString(r, "_MALT_", "☒  ");
+                                }
+
 
                             }
                         }
                     }
                 }
             }
-            File file = new File(getClass().getResource("/" +"output.docx").toURI());
+            //File file = new File(getClass().getResource("/" +"output.docx").toURI());
+        //    File file = new File("C:\\Users\\Elizabeth Del Monaco\\Desktop\\TeamE3733TTB2\\src\\main\\resources\\output.docx");
+            File file = new File(getClass().getResource("/" + "output.docx").toURI());
+       //     System.out.println(doc3.toPath());
+
             doc.write(new FileOutputStream(file));
             doc.close();
 
@@ -91,12 +133,13 @@ public class FormExporter {
     public void replaceString(XWPFRun r, String rep, String to_rep){
         String text = r.getText(0);
         String rep_String;
+        System.out.println(text);
         if(to_rep == null){
             rep_String = "";
         } else {
             rep_String = to_rep;
         }
-        System.out.println(text);
+        //System.out.println(text);
         if(text!= null && text.contains(rep) ){
             text = text.replace(rep, rep_String);
             r.setText(text, 0);
