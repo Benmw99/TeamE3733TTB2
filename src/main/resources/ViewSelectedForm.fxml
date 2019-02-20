@@ -15,7 +15,7 @@
             <font>
                 <Font name="Roboto Light" size="48.0" />
             </font></Text>
-      <Button fx:id="printButton" layoutX="1097.0" layoutY="54.0" mnemonicParsing="false" style="-fx-background-color: #9d9797;" text="Print" textFill="WHITE">
+      <Button fx:id="printButton" onAction="#print" layoutX="1097.0" layoutY="54.0" mnemonicParsing="false" style="-fx-background-color: #9d9797;" text="Print" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Button>
