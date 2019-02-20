@@ -32,16 +32,6 @@ public class FormDisplayController extends PageControllerUI implements Initializ
     @FXML
     Label DisplayReview4Label1;
     @FXML
-    Label Display4Label2;
-    @FXML
-    Label Display5Label1;
-    @FXML
-    Label Display5Label2;
-    @FXML
-    Label Display5Label3;
-    @FXML
-    Label Display6Label;
-    @FXML
     Label Display7Label;
     @FXML
     Label Display8Label;
@@ -81,11 +71,26 @@ public class FormDisplayController extends PageControllerUI implements Initializ
     @FXML
     TabPane tabPane;
 
+    @FXML
+    JFXTabPane sectionPane;
+
+
+
     ComboBox<String> comboBox;
 
     JFXButton approveButton;
 
     /**
+     @FXML
+     Label Display4Label2;
+     @FXML
+     Label Display5Label1;
+     @FXML
+     Label Display5Label2;
+     @FXML
+     Label Display5Label3;
+     @FXML
+     Label Display6Label;
      * Displays the current form as specified in the AttributeContainer Singleton
      */
     public void displayCurrentForm() {
@@ -239,13 +244,14 @@ public class FormDisplayController extends PageControllerUI implements Initializ
             wipeForm();
         }
 
-       /*This is where color switching should go
+       //This is where color switching should go
 
-        if (){
+        if (AttributeContainer.getInstance().currentUser.isManufacturer() == true ||
+        AttributeContainer.getInstance().currentUser.isRepresentative() == true){
 
         }
 
-        */
+
 
     }
 
