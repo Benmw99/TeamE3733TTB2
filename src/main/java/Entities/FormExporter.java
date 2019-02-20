@@ -20,7 +20,7 @@ public class FormExporter {
 
     public FormExporter(Form form) {
         try {
-            File doc2 = new File("/Users/mjclements/IdeaProjects/TeamE3733TTB2/src/main/resources/converted.docx");
+            File doc2 = new File(getClass().getResource("/" + "converted.docx").toURI());
             InputStream inputstream = new FileInputStream(doc2);
             doc = new XWPFDocument(inputstream);
             for (XWPFTable tbl : doc.getTables()) {
@@ -72,7 +72,7 @@ public class FormExporter {
                     }
                 }
             }
-            File file = new File("/Users/mjclements/IdeaProjects/TeamE3733TTB2/src/main/resources/output.docx");
+            File file = new File(getClass().getResource("/" +"output.docx").toURI());
             doc.write(new FileOutputStream(file));
             doc.close();
 
