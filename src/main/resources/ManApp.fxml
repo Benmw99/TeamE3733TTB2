@@ -465,7 +465,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXComboBox fx:id="State8ComboBox" prefHeight="50.0" prefWidth="200.0" promptText="State" unFocusColor="WHITE">
+                        <JFXComboBox fx:id="State8ComboBox" focusColor="#9d9797" prefHeight="50.0" prefWidth="200.0" promptText="State" unFocusColor="WHITE">
                            <padding>
                               <Insets left="15.0" />
                            </padding>
@@ -528,7 +528,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXComboBox fx:id="State9ComboBox" prefHeight="50.0" prefWidth="200.0" promptText="State" unFocusColor="WHITE">
+                        <JFXComboBox fx:id="State9ComboBox" focusColor="#9d9797" prefHeight="50.0" prefWidth="200.0" promptText="State" unFocusColor="WHITE">
                            <padding>
                               <Insets left="15.0" />
                            </padding>
@@ -881,7 +881,7 @@
                               <Font name="Apple SD Gothic Neo Thin" size="32.0" />
                            </font>
                         </Label>
-                        <JFXDatePicker fx:id="AppDate" defaultColor="#12e8d2" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: white;">
+                        <JFXDatePicker fx:id="AppDate" defaultColor="#800020" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: white;">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -914,7 +914,7 @@
                      <children>
                         <AnchorPane prefHeight="60.0" prefWidth="280.0" stylesheets="@SubmitButtonColors.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
                            <children>
-                              <JFXButton fx:id="SendApp" buttonType="RAISED" layoutX="5.0" layoutY="5.0" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #800020;" text="Submit Application" textFill="WHITE">
+                              <JFXButton fx:id="SendApp" buttonType="RAISED" layoutX="5.0" layoutY="5.0" prefHeight="50.0" prefWidth="270.0" ripplerFill="#9d9797" style="-fx-background-color: #800020;" text="Submit Application" textFill="WHITE">
                                  <font>
                                     <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                                  </font>
@@ -990,7 +990,7 @@
                               <Font name="Apple SD Gothic Neo Thin" size="32.0" />
                            </font>
                         </Label>
-                        <JFXButton fx:id="UploadButton" buttonType="RAISED" onAction="#uploadLabelImage" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #ff616f;" text="Upload" textFill="WHITE">
+                        <JFXButton fx:id="UploadButton" buttonType="RAISED" onAction="#uploadLabelImage" prefHeight="50.0" prefWidth="270.0" ripplerFill="#9d9797" style="-fx-background-color: #ff616f;" text="Upload" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
