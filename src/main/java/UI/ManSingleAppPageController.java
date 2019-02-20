@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
-
+@Deprecated
 public class ManSingleAppPageController extends PageControllerUI implements  Initializable {
     @FXML
     public JFXButton SendApp;
