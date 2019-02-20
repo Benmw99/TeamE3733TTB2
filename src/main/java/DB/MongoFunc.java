@@ -155,7 +155,7 @@ public class MongoFunc {
         newForm.setAddress(adds);
         newForm.setOtherInfo(fm.getOtherInfo());
 
-
+        System.gc();
         return newForm;
     }
 
@@ -173,6 +173,8 @@ public class MongoFunc {
                         results.add(formMongoToForm(fm));
                     }
                 }
+                info.remove(fm);
+                System.gc();
             }
         }
         else if (as.serialNumber != null) {
@@ -180,6 +182,8 @@ public class MongoFunc {
                 if (fm.getSerialNumber().equals(as.getSerialNumber())) {
                     results.add(formMongoToForm(fm));
                 }
+                info.remove(fm);
+                System.gc();
             }
         }
         else if (as.alcoholType != null) {
@@ -187,6 +191,8 @@ public class MongoFunc {
                 if (fm.getAlcoholType().equals(as.getAlcoholType().toString())) {
                     results.add(formMongoToForm(fm));
                 }
+                info.remove(fm);
+                System.gc();
             }
         }
         else if (as.brandName != null) {
@@ -194,6 +200,8 @@ public class MongoFunc {
                 if (fm.getBrandName().equals(as.getBrandName())) {
                     results.add(formMongoToForm(fm));
                 }
+                info.remove(fm);
+                System.gc();
             }
         }
         else if (as.fancifulName != null) {
@@ -201,6 +209,8 @@ public class MongoFunc {
                 if (fm.getFancifulName().equals(as.getFancifulName())) {
                     results.add(formMongoToForm(fm));
                 }
+                info.remove(fm);
+                System.gc();
             }
         }
         else if (as.ttbID > 0) {
@@ -208,10 +218,14 @@ public class MongoFunc {
                 if (fm.getTtbID().equals("" + as.getTtbID())) {
                     results.add(formMongoToForm(fm));
                 }
+                info.remove(fm);
+                System.gc();
             }
         } else {
             for(FormMongo fm : info) {
                 results.add(formMongoToForm(fm));
+                info.remove(fm);
+                System.gc();
             }
         }
         return results;
