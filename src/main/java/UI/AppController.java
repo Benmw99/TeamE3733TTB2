@@ -329,6 +329,7 @@ public class AppController extends PageControllerUI implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Set up panes
+        santa_List = new ArrayList<ValidatorBase>();
         pane1.toFront();
         pane1.setDisable(false);
         pane1.setVisible(true);
@@ -571,14 +572,16 @@ public class AppController extends PageControllerUI implements Initializable {
                     boolean t = true;
                     for(ValidatorBase vb : santa_List){
                         t = t && !vb.getHasErrors();
-                    }
+                        System.out.println(vb.getHasErrors());}
 
                     if(t) {
+
                         System.out.println("Fields has no errors");
                         SendApp.setOpacity(1);
                     } else {
-                        System.out.println("Fields has no errors");
-                        SendApp.setOpacity(1);
+                        System.out.println("Fields has  errors");
+                        SendApp.setDisable(true);
+                        SendApp.setOpacity(0);
 
                 }
         }}});
