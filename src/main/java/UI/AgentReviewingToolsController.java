@@ -235,6 +235,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        approveAVFButton.setDisable(true);
         //The different combo box options
         sectionMarkComboBox.getItems().addAll("Complete", "Incomplete", "Incorrect");
 

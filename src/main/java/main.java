@@ -19,8 +19,8 @@ public class main {
         MLogSystem.setLevel(Level.WARNING);
 
         DB.Database db = DB.Database.getDatabase();
-        //db.tableBuilder.resetDB();
-        /*
+        db.tableBuilder.resetDB();
+
         db.dbInsert.insertCompany(new Manufacturer(123, "Brewers Inc.", "manu", "manu"));
         db.dbInsert.insertCompany(new Manufacturer(420, "Michael's Company", "mike", "1234"));
         db.dbInsert.insertAgent(new Agent("ttb", "ttb", "Sam Adamster"));
@@ -53,7 +53,7 @@ public class main {
 
         db.dbInsert.insertForm(form);
 
-        */
+
         System.out.println("Hello Iteration 2!");
         UI.MainUI.main( args);
     }
