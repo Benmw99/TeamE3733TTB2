@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
@@ -190,6 +191,7 @@
             </JFXButton>
          </children>
       </VBox>
+      <StackPane prefHeight="150.0" prefWidth="200.0" />
       <fx:include fx:id="hamburger" source="MenuDrawer.fxml" />
       <JFXToggleButton fx:id="helpToggleButton" layoutX="1212.0" layoutY="17.0" prefHeight="66.0" prefWidth="130.0" text="Help" />
    </children>
