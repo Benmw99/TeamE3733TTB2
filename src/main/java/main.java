@@ -50,7 +50,8 @@ public class main {
 
         //AttributeContainer.getInstance().formQueue.add(form);
 
-        db.dbInsert.insertForm(form);
+        form.setTtbID(db.dbInsert.insertForm(form));
+        form.setTtbID(0);
         new FormExporter(form);
 
         System.out.println("Hello Iteration 2!");

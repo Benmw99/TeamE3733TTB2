@@ -29,7 +29,7 @@ public class FormExporter {
                         for (XWPFParagraph p : cell.getParagraphs()) {
                             for (XWPFRun r : p.getRuns()) {
                                 replaceString(r, "REP_ID", form.getRepID());
-                                replaceString(r, "TTB_ID", String.valueOf(form.getTtbID()));
+                                replaceString(r, "TTB ID", "boop");
                                 replaceString(r, "PLANT_REGISTRY", form.getBrewersPermit().get(0).getBrewersNo());
                                 //TODO _DOM_ and _IMP_
                                 Address add = form.getMailingAddress();
@@ -37,6 +37,9 @@ public class FormExporter {
                                     String addy = add.getName() + "\n" + add.getStreet() + "\n" + add.getCity() +
                                             "\n" + add.getState() + "\n" + add.getZip();
                                     replaceString(r, "_ADDRESS_", addy);
+                                }
+                                else{
+                                    replaceString(r, "_ADDRESS_", "");
                                 }
                                 //TODO TYPE OF PRODUCE
                                 replaceString(r, "SERIAL_1", form.getSerialNumber().substring(0,1));
@@ -93,6 +96,7 @@ public class FormExporter {
         } else {
             rep_String = to_rep;
         }
+        System.out.println(text);
         if(text!= null && text.contains(rep) ){
             text = text.replace(rep, rep_String);
             r.setText(text, 0);
