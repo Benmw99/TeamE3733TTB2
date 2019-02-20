@@ -2,9 +2,12 @@ package UI;
 
 import Entities.Address;
 import Entities.Form;
+import Entities.IUser;
 import Entities.LabelImage;
+import com.jfoenix.controls.JFXTabPane;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -74,6 +77,9 @@ public class FormDisplayController extends PageControllerUI implements Initializ
 
     @FXML
     ImageView Display19Image1;
+
+    @FXML
+    JFXTabPane sectionPane;
 
     /**
      * Displays the current form as specified in the AttributeContainer Singleton
@@ -227,6 +233,13 @@ public class FormDisplayController extends PageControllerUI implements Initializ
             displayCurrentForm();
         } else {
             wipeForm();
+        }
+
+        if(AttributeContainer.getInstance().currentUser.isManufacturer() == true || AttributeContainer.getInstance().currentUser.isRepresentative()){
+            System.out.println("here");
+            sectionPane.getStylesheets().add("ManDisplay.css");
+            System.out.println(sectionPane.getStyle());
+
         }
     }
 }
