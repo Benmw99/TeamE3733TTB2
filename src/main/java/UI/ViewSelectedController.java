@@ -3,7 +3,7 @@ package UI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-@Deprecated
+
 public class ViewSelectedController extends PageControllerUI {
 
     @FXML

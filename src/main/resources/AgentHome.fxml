@@ -25,11 +25,6 @@
                      </font>
                   </Text>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
-                  <JFXToggleButton layoutX="1218.0" layoutY="15.0" text="Help">
-                     <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
-                     </font>
-                  </JFXToggleButton>
                </children>
             </Pane>
             <Pane layoutX="-1.0" layoutY="88.0" prefHeight="675.0" prefWidth="358.0" style="-fx-background-color: #eeeeee;">
@@ -147,5 +142,74 @@
          </children>
       </VBox>
       <fx:include fx:id="hamburger" source="MenuDrawer.fxml" />
+      <Pane fx:id="largePane" disable="true" opacity="0.63" prefHeight="763.0" prefWidth="1364.0" style="-fx-background-color: white;" />
+      <Pane fx:id="smallPane" layoutX="220.0" layoutY="215.0" prefHeight="481.0" prefWidth="960.0" style="-fx-background-color: grey; -fx-background-radius: 15;">
+         <children>
+            <Text layoutX="445.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reject: Click me after fully reviewing the form to reject it. Remember, if all of the fields are correct press &quot;Approve&quot;instead." wrappingWidth="158.00000488571823" />
+            <Text layoutX="671.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Use Reviewing Tools: Click me to compare this form to the regulations associated with it. This is will let you mark the form as complete or incomplete. You can also use me to leave comments or send this form to another agent." wrappingWidth="249.00000885128975" />
+            <JFXButton buttonType="RAISED" layoutX="209.0" layoutY="51.0" style="-fx-background-color: #4285f4;" text="Approve Form" textFill="WHITE">
+               <font>
+                  <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+               </font>
+               <ripplerFill>
+                  <RadialGradient centerX="0.5056179775280899" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="672.0" layoutY="52.0" style="-fx-background-color: #4285f4;" text="Use Reviewing Tools" textFill="WHITE">
+               <font>
+                  <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="446.0" layoutY="52.0" style="-fx-background-color: #4285f4;" text="Reject Form" textFill="WHITE">
+               <font>
+                  <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+               </font>
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="51.0" layoutY="51.0" style="-fx-background-color: #4285f4;" text="Print" textFill="WHITE">
+               <ripplerFill>
+                  <RadialGradient centerX="0.5056179775280899" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+               <font>
+                  <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+               </font>
+            </JFXButton>
+            <Text layoutX="209.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Approve: Click me after fully reviewing the form to reject it. Remember, if any of the fields are not correct press &quot;Reject&quot; instead." wrappingWidth="183.99999031424522" />
+            <JFXButton buttonType="RAISED" layoutX="22.0" layoutY="260.0" pickOnBounds="true" prefHeight="9.0" prefWidth="187.0" style="-fx-background-color: #4285f4;" text="Get New Queue" textFill="WHITE">
+               <font>
+                  <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+               </font>
+               <ripplerFill>
+                  <RadialGradient centerX="0.5112359550561798" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="BLACK" offset="0.007434944237918215" />
+                        <Stop color="#ffffff97" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+            </JFXButton>
+            <Text layoutX="32.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Print: Click me to print the form with your comments" wrappingWidth="135.51171922683716" />
+            <Text layoutX="22.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get New Queue: Click me if your table says &quot;No content in table&quot; enter an amount of forms you would like to review, and click me to add that amount to your table." wrappingWidth="187.00001940131187" />
+         </children>
+      </Pane>
+      <JFXToggleButton fx:id="helpToggleButton" layoutX="1212.0" layoutY="23.0" text="Help" />
    </children>
 </AnchorPane>

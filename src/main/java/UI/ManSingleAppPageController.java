@@ -30,40 +30,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class AppController extends PageControllerUI implements Initializable {
+public class ManSingleAppPageController extends PageControllerUI implements  Initializable {
     @FXML
     public JFXButton SendApp;
-    @FXML
-    private JFXButton page1;
-
-    @FXML
-    private JFXButton page2;
-
-    @FXML
-    private JFXButton page3;
-
-    @FXML
-    private JFXButton page4;
-
-    @FXML
-    private Pane pane1;
-
-    @FXML
-    private HBox GrapeVarHBox;
-
-    @FXML
-    private HBox WineAppHBox;
-
-    @FXML
-    private Pane pane2;
-
-    @FXML
-    private Pane pane3;
-
-    @FXML
-    private Pane pane4;
-
-    // Below are OG fx:id's
 
     @FXML
     private JFXTextField RepIDField;
@@ -144,40 +113,25 @@ public class AppController extends PageControllerUI implements Initializable {
     private JFXTextField EmailField;
 
     @FXML
-    private JFXRadioButton LiquorRadioButton;
+    JFXTextField AmountField;
 
     @FXML
-    private JFXRadioButton CertRadioButton;
-
-    @FXML
-    private JFXTextField AmountField;
-
-    @FXML
-    private JFXRadioButton ExemptionRadioButton;
-
-    @FXML
-    private JFXComboBox<String> State15ComboBox;
-
-    @FXML
-    private JFXRadioButton ResubmitRadioButton;
-
-    @FXML
-    private JFXTextField TTBIDField;
+    JFXTextField TTBIDField;
 
     @FXML
     private JFXTextField AdditionalInfoField;
 
     @FXML
-    private JFXTextField TranslationField;
+    JFXTextField TranslationField;
 
     @FXML
-    private JFXDatePicker AppDate;
+    JFXDatePicker AppDate;
 
     @FXML
     private JFXTextField SignatureField;
 
     @FXML
-    private JFXButton UploadButton;
+    JFXButton UploadButton;
 
     @FXML
     private JFXTextField AlcoholContentTextField;
@@ -186,112 +140,43 @@ public class AppController extends PageControllerUI implements Initializable {
     ImageView labelImageDisplay;
 
     @FXML
-    private JFXButton goBackHome;
+    JFXButton goBackHome;
 
     private Form workingForm;
 
     @Override
     void onLoad() {
     }
-
     @Override
     protected void onLeave() {
     }
 
 
+
     public static boolean errorInForm = false;
 
-    /**
-     * Determines tab user is on and handles appropriately
-     *
-     * @param actionEvent
-     */
-    public void handlePage(javafx.event.ActionEvent actionEvent) {
-        if (actionEvent.getSource() == page1) {
-                pane1.toFront();
-                pane1.setDisable(false);
-                pane1.setVisible(true);
-                pane2.setVisible(false);
-                pane2.setDisable(true);
-                pane3.setVisible(false);
-                pane3.setDisable(true);
-                pane4.setVisible(false);
-                pane4.setDisable(true);
-                //System.out.println("Page1");
-
-        } else if (actionEvent.getSource() == page2) {
-            pane2.toFront();
-            pane2.setDisable(false);
-            pane2.setVisible(true);
-            pane1.setVisible(false);
-            pane1.setDisable(true);
-            pane3.setVisible(false);
-            pane3.setDisable(true);
-            pane4.setVisible(false);
-            pane4.setDisable(true);
-            //System.out.println("Page2");
-        } else if (actionEvent.getSource() == page3) {
-            pane3.toFront();
-            pane3.setDisable(false);
-            pane3.setVisible(true);
-            pane1.setVisible(false);
-            pane1.setDisable(true);
-            pane2.setVisible(false);
-            pane2.setDisable(true);
-            pane4.setVisible(false);
-            pane4.setDisable(true);
-            //System.out.println("Page3");
-        } else if (actionEvent.getSource() == page4) {
-            pane4.toFront();
-            pane4.setDisable(false);
-            pane4.setVisible(true);
-            pane1.setVisible(false);
-            pane1.setDisable(true);
-            pane2.setVisible(false);
-            pane2.setDisable(true);
-            pane3.setVisible(false);
-            pane3.setDisable(true);
-            //System.out.println("Page4");
-        }
-
-    }
 
     /**
      * Sets up application form and fields within it
-     *
-     * @param location  URL of forms
+     * @param location URL of forms
      * @param resources ResourceBundle
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Set up panes
-        pane1.toFront();
-        pane1.setDisable(false);
-        pane1.setVisible(true);
-        pane2.setVisible(false);
-        pane2.setDisable(true);
-        pane3.setVisible(false);
-        pane3.setDisable(true);
-        pane4.setVisible(false);
-        pane4.setDisable(true);
-
+/*
         // Initialize TextFields
         VintageYearField.disableProperty().setValue(true);
         PhField.disableProperty().setValue(true);
         AmountField.disableProperty().setValue(true);
-        State15ComboBox.disableProperty().setValue(true);
         TTBIDField.disableProperty().setValue(true);
-        GrapeVarHBox.disableProperty().setValue(true);
-        WineAppHBox.disableProperty().setValue(true);
-
+*/
         // Initialize Validators
-        setListener(RepIDField, 7);
         setListener(ProducerNumField, 1);
-        setListener(SerialYearField, 5);
+        setListener(SerialYearField, 1);
         setListener(SerialDigitsField, 1);
         setListener(BrandField, 2);
-        setListener(VintageYearField, 5);
-        setListener(PhField, 6);
+        setListener(VintageYearField, 1);
+        setListener(PhField, 1);
         setListener(Name8Field, 2);
         setListener(Address8Field, 0);
         setListener(City8Field, 0);
@@ -301,11 +186,10 @@ public class AppController extends PageControllerUI implements Initializable {
         setListener(City9Field, 0);
         setListener(Zip9Field, 1);
         setListener(FormulaField, 0);
-        setListener(PhoneNumField, 4);
+        setListener(PhoneNumField, 1);
         setListener(EmailField, 3);
         setListener(SignatureField, 0);
         setListener(AlcoholContentTextField, 1);
-
 
         // Fill ComboBoxes
         List<String> states = Arrays.asList("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL",
@@ -314,10 +198,9 @@ public class AppController extends PageControllerUI implements Initializable {
                 "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY");
         State8ComboBox.getItems().addAll(states);
         State9ComboBox.getItems().addAll(states);
-        State15ComboBox.getItems().addAll(states);
         SourceComboBox.getItems().addAll("Domestic", "Imported");
         TypeComboBox.getItems().addAll("Malt Beverage", "Wine", "Distilled Liquor");
-        /* setup submit button */
+        //setup submit button
 
         // we can just keep the button disabled through a listener
 
@@ -325,29 +208,28 @@ public class AppController extends PageControllerUI implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 int id;
-                if (!SendApp.isDisable()) {
-                    if (AttributeContainer.getInstance().currentUser.isManufacturer()) {
-                        id = getForm((Manufacturer) AttributeContainer.getInstance().currentUser);
-                    } else {
-                        // What?
-                        Manufacturer temp = new Manufacturer();
-                        temp.setManID(0);
-                        id = getForm(temp);
-                    }
-                    AttributeContainer.getInstance().labelImage.setTTBID(id);
-                    AttributeContainer.getInstance().labelImage.insert();
-                    AttributeContainer.getInstance().currentForm = null;
-                    AttributeContainer.getInstance().formQueue = ((Manufacturer) AttributeContainer.getInstance().currentUser).loadForms();
-                    goToPage("ManHome.fxml");
+                if(AttributeContainer.getInstance().currentUser.isManufacturer()){
+                    id = getForm((Manufacturer)AttributeContainer.getInstance().currentUser);
+                } else {
+                    // What?
+                    Manufacturer temp = new Manufacturer();
+                    temp.setManID(0);
+                    id = getForm(temp);
                 }
+                AttributeContainer.getInstance().labelImage.setTTBID(id);
+                AttributeContainer.getInstance().labelImage.insert();
+                AttributeContainer.getInstance().currentForm = null;
+                AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
+                goToPage("ManHome.fxml");
             }
         });
+
 
 
     }
 
     @FXML
-    public void goBack() {
+    public void goBack(){
         AttributeContainer.getInstance().currentForm = null;
         goToPage("ManHome.fxml");
     }
@@ -356,14 +238,8 @@ public class AppController extends PageControllerUI implements Initializable {
     // 1 - Only Numbers
     // 2 - Only Strings
     // 3 - Valid email
-    // 4 - Valid phone number
-    // 5 - Valid 4 digits
-    // 6 - Valid pH
-    // 7 - Valid rep Id
-
     /**
      * Sets listener for fields on form
-     *
      * @param field
      * @param type
      */
@@ -372,86 +248,35 @@ public class AppController extends PageControllerUI implements Initializable {
             NumberValidator numValidator = new NumberValidator();
             field.getValidators().add(numValidator);
             numValidator.setMessage("Enter a number");
-            RequiredFieldValidator validator = new RequiredFieldValidator();
-            field.getValidators().add(validator);
-            validator.setMessage("* Required");
         }
         if (type == 2) {
             RegexValidator regexValidator = new RegexValidator();
             regexValidator.setRegexPattern("[a-zA-Z]*");
             field.getValidators().add(regexValidator);
             regexValidator.setMessage("Enter a string!");
-            RequiredFieldValidator validator = new RequiredFieldValidator();
-            field.getValidators().add(validator);
-            validator.setMessage("* Required");
         }
         if (type == 3) {
             RegexValidator validEmail = new RegexValidator();
-            validEmail.setRegexPattern(".+\\@.+\\..+");
+            validEmail.setRegexPattern("(.*)+[@]+(.*)+");
             field.getValidators().add(validEmail);
             validEmail.setMessage("Enter a valid email");
-            RequiredFieldValidator validator = new RequiredFieldValidator();
-            field.getValidators().add(validator);
-            validator.setMessage("* Required");
         }
-        if (type == 4) {
-            RegexValidator validEmail = new RegexValidator();
-            validEmail.setRegexPattern("^\\D?(\\d{3})\\D?\\D?(\\d{3})\\D?(\\d{4})$");
-            field.getValidators().add(validEmail);
-            validEmail.setMessage("Enter a valid phone number");
-            RequiredFieldValidator validator = new RequiredFieldValidator();
-            field.getValidators().add(validator);
-            validator.setMessage("* Required");
-        }
-        if (type == 5) {
-            RegexValidator validEmail = new RegexValidator();
-            validEmail.setRegexPattern("^\\d{4}$");
-            field.getValidators().add(validEmail);
-            validEmail.setMessage("Enter a valid year");
-            RequiredFieldValidator validator = new RequiredFieldValidator();
-            field.getValidators().add(validator);
-            validator.setMessage("* Required");
-        }
-        if (type == 6) {
-            RegexValidator validEmail = new RegexValidator();
-            validEmail.setRegexPattern("^[0-1]?[1-4]$"); // Doesn't account for decimals
-            field.getValidators().add(validEmail);
-            validEmail.setMessage("Enter a valid pH");
-            RequiredFieldValidator validator = new RequiredFieldValidator();
-            field.getValidators().add(validator);
-            validator.setMessage("* Required");
-        }
-        if (type == 7) {
-            RegexValidator validRepId = new RegexValidator();
-            validRepId.setRegexPattern("^[a-zA-Z0-9]{16}$"); // Doesn't account for decimals
-            field.getValidators().add(validRepId);
-            validRepId.setMessage("Enter a valid rep id");
-
-        }
-
         if (errorInForm) {
             //
         }
 
 
+        RequiredFieldValidator validator = new RequiredFieldValidator();
+        field.getValidators().add(validator);
+        validator.setMessage("* Required");
         field.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if (!newValue) {
                     field.validate();
-                    if(field.validate()) {
-                        System.out.println("Fields has no errors");
-                        SendApp.setOpacity(1);
-                    }
-                    if (!field.validate()) {
-                        System.out.println("Fields have errors");
-                        SendApp.setOpacity(0);
-                    }
-
                 }
             }
         });
-
     }
 
     /**
@@ -502,52 +327,25 @@ public class AppController extends PageControllerUI implements Initializable {
         if (TypeComboBox.getValue().equals("Wine")) {
             VintageYearField.disableProperty().setValue(false);
             PhField.disableProperty().setValue(false);
-            GrapeVarHBox.disableProperty().setValue(false);
-            WineAppHBox.disableProperty().setValue(false);
 
         } else {
             VintageYearField.disableProperty().setValue(true);
             VintageYearField.setText("");
             PhField.disableProperty().setValue(true);
             PhField.setText("");
-            GrapeVarHBox.disableProperty().setValue(true);
             GrapeVarField.setText("");
-            WineAppHBox.disableProperty().setValue(true);
             WineAppField.setText("");
         }
-    }
-
-    @FXML
-    public void typeCheck() throws IOException {
-        if (!LiquorRadioButton.isSelected()) {
-            AmountField.setText("");
-            AmountField.disableProperty().setValue(true);
-        } else
-            AmountField.disableProperty().setValue(false);
-
-        if (!ExemptionRadioButton.isSelected())
-            State15ComboBox.disableProperty().setValue(true);
-        else
-            State15ComboBox.disableProperty().setValue(false);
-
-        if (!ResubmitRadioButton.isSelected()) {
-            TTBIDField.setText("");
-            TTBIDField.disableProperty().setValue(true);
-        } else
-            TTBIDField.disableProperty().setValue(false);
-
-
     }
 
     /**
      * This is the method which gets a form from the associated controller and persists
      * it to the database. Pass it the manufacturer who is inserting the form. Later there might
      * be another option using no Manufacturer at all.
-     *
      * @param man The manufacturer performing the insert... We need to think about this?
      * @return int the TTBID
      */
-    int getForm(Manufacturer man) {
+    int getForm(Manufacturer man){
         Form working = new Form();
         working.setBrandName(BrandField.getText());
         working.setSerialNumber(SerialYearField.getText()
@@ -560,17 +358,17 @@ public class AppController extends PageControllerUI implements Initializable {
         working.setRepID(RepIDField.getText());
         working.setFormula(FormulaField.getText());
         working.setApprovalStatus(ApprovalStatus.Incomplete);
-        if (SourceComboBox.getValue().equals("Domestic")) {
+        if(SourceComboBox.getValue().equals("Domestic")) {
             working.setSource(false);
         } else {
             working.setSource(true);
         }
-        if (TypeComboBox.getValue().equals("Malt Beverage")) {
+        if(TypeComboBox.getValue().equals("Malt Beverage")){
             working.setAlcoholType(AlcoholType.MaltBeverage);
-        } else if (TypeComboBox.getValue().equals("Wine")) {
+        } else if(TypeComboBox.getValue().equals("Wine")){
             working.setAlcoholType(AlcoholType.Wine);
             /* This part takes care of the Wine */
-            WineFormItems wine = new WineFormItems();
+            WineFormItems wine = new  WineFormItems();
             wine.setVintageYear(Integer.valueOf(VintageYearField.getText()));
             wine.setGrapeVarietal(GrapeVarField.getText());
             wine.setpH(Float.valueOf(PhField.getText()));
@@ -587,7 +385,7 @@ public class AppController extends PageControllerUI implements Initializable {
         addy.setStreet(Address8Field.getText());
         addy.setZip(Zip8Field.getText());
         addy.setMailing(true);
-        if (!SameAddressRadioButton.isSelected()) {
+        if(!SameAddressRadioButton.isSelected()){
             /* Other Address */
             Address other = new Address();
             addy.setCity(City9Field.getText());
@@ -603,20 +401,18 @@ public class AppController extends PageControllerUI implements Initializable {
         BrewersPermit brew = new BrewersPermit(ProducerNumField.getText(), true);
         brews.add(brew);
         working.setBrewersPermit(brews);
-        working.setApproval(new Approval());
         man.submitForm(working);
         this.workingForm = working;
         return working.getTtbID();
 
     }
-
     @FXML
-    void uploadLabelImage() {
+    void uploadLabelImage(){
         FileChooser fileChooser = new FileChooser();
 
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("PNG Files", "*.png")
-                , new FileChooser.ExtensionFilter("JPEG Files", "*.jpg")
+                ,new FileChooser.ExtensionFilter("JPEG Files", "*.jpg")
         );
 
 
@@ -632,7 +428,8 @@ public class AppController extends PageControllerUI implements Initializable {
 //            BufferedImage img = ImageIO.read(selectedFile);
             Image img = new Image(selectedFile.toURI().toString());
             labelImageDisplay.setImage(img);
-        } catch (IOException e) {
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }

@@ -177,14 +177,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -205,14 +202,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -230,14 +224,11 @@
                               <Insets left="20.0" />
                            </HBox.margin>
                         </JFXComboBox>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -266,14 +257,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -307,14 +295,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </ImageView>
+                        <JFXButton style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE" />
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -335,14 +316,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -460,14 +438,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -517,14 +492,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -583,14 +555,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -611,14 +580,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -639,14 +605,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </ImageView>
+                        <JFXButton style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE" />
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -667,14 +626,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -1015,14 +971,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
-                              <Insets left="15.0" />
+                              <Insets left="15.0" top="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets bottom="15.0" left="150.0" top="15.0" />
@@ -1043,14 +996,12 @@
                               <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                            </font>
                         </JFXButton>
-                        <ImageView fx:id="labelImageDisplay" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
-                              <Insets left="15.0" />
+                              <Insets left="15.0" right="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
+                        <ImageView fx:id="labelImageDisplay" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="15.0" left="150.0" top="15.0" />
@@ -1071,14 +1022,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets bottom="15.0" left="150.0" top="15.0" />

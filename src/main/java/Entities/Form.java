@@ -161,11 +161,26 @@ public class Form implements Serializable {
 
     //Constructor specifically for hibernate to create smaller forms for search results
     public Form(int ttbID, String serialNumber, AlcoholType alcoholType, String brandName, java.util.Date dateSubmitted, ApprovalStatus approvalStatus) {
+        if (serialNumber != null) {
+            this.serialNumber = serialNumber;
+        } else {
+            this.serialNumber = "";
+        }
+        this.alcoholType = alcoholType;
+        this.brandName = brandName;
+        if (dateSubmitted != null) {
+            this.dateSubmitted = new java.sql.Date(dateSubmitted.getTime());
+        } else {
+            this.dateSubmitted = null;
+        }
+        this.approvalStatus = approvalStatus;
+        this.ttbID = ttbID;
+    }
+
+    public Form(int ttbID, String serialNumber, AlcoholType alcoholType, String brandName, ApprovalStatus approvalStatus) {
         this.serialNumber = serialNumber;
         this.alcoholType = alcoholType;
         this.brandName = brandName;
-
-        this.dateSubmitted = new java.sql.Date(dateSubmitted.getTime());
         this.approvalStatus = approvalStatus;
         this.ttbID = ttbID;
     }

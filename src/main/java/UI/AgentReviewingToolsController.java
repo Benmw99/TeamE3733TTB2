@@ -4,18 +4,19 @@ import DB.Database;
 import Entities.Agent;
 import Entities.Mailer;
 import SearchAlgo.AsciiPrinter;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -142,6 +143,15 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     @FXML
     JFXButton approveAVFButton;
 
+    @FXML
+    JFXToggleButton helpToggleButton;
+
+    @FXML
+    Pane largePane;
+
+    @FXML
+    Pane smallPane;
+
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
     ///////////////////////////////////////////////////
@@ -187,7 +197,6 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     @FXML
     public void rejectForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
-            System.out.println(comment.getText());
             ((Agent) attributeContainer.currentUser).rejectForm(attributeContainer.currentForm, comment.getText());
             attributeContainer.formQueue.remove(attributeContainer.currentForm);
             AttributeContainer.getInstance().formQueue = ((Agent) attributeContainer.currentUser).getCurrentQueue();
@@ -233,6 +242,10 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
         formDisplayController.setComboBox(sectionMarkComboBox);
         formDisplayController.setApproveButton(approveAVFButton);
 
+        // Set help opacity to 0
+        largePane.setOpacity(0);
+        smallPane.setOpacity(0);
+
         sendAgentButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -261,5 +274,38 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                 }
             }
         });
+
+        helpToggleButton.setSelected(false);
+        largePane.setOpacity(0);
+        largePane.setDisable(true);
+        smallPane.setOpacity(0);
+        smallPane.setDisable(true);
+
+        helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                if (helpToggleButton.isSelected()){
+                    largePane.setOpacity(0.63);
+                    largePane.setDisable(false);
+                    smallPane.setOpacity(1);
+                    smallPane.setDisable(false);
+                    System.out.println("Is selected");
+
+
+                }
+                else {
+                    largePane.setOpacity(0);
+                    largePane.setDisable(true);
+                    smallPane.setOpacity(0);
+                    smallPane.setDisable(true);
+                    System.out.println("Is not selector");
+
+                }
+            }
+        });
+
+
+
     }
 }

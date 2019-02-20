@@ -19,7 +19,8 @@ public class main {
         MLogSystem.setLevel(Level.WARNING);
 
         DB.Database db = DB.Database.getDatabase();
-        db.tableBuilder.resetDB();
+        //db.tableBuilder.resetDB();
+        /*
         db.dbInsert.insertCompany(new Manufacturer(123, "Brewers Inc.", "manu", "manu"));
         db.dbInsert.insertCompany(new Manufacturer(420, "Michael's Company", "mike", "1234"));
         db.dbInsert.insertAgent(new Agent("ttb", "ttb", "Sam Adamster"));
@@ -44,7 +45,7 @@ public class main {
         Form form = new Form(null, Brews, true, "00123SE", AlcoholType.MaltBeverage,
                 "Bubbly", "BU", Adds, "John Smith", null, null,
                 "1112223333", "mjclements@wpi.edu", "No other info", d, 123,
-                new Approval(), (float)12.3, ApprovalStatus.Incomplete);
+                new Approval(), (float)12.3, ApprovalStatus.Complete);
         form.setWorkingOn(0);
 
 
@@ -52,7 +53,7 @@ public class main {
 
         db.dbInsert.insertForm(form);
 
-
+        */
         System.out.println("Hello Iteration 2!");
         UI.MainUI.main( args);
     }
