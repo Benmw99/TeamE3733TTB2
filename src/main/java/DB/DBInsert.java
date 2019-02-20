@@ -295,11 +295,7 @@ public class DBInsert {
                 form.setApprovalStatus(ApprovalStatus.Complete);
                 form.setFormula(null);
                 form.setApplicantName(null);
-                if (form.getAlcoholType() == AlcoholType.Wine) {
-                    form.setWineFormItems(wineStuff);
-                } else {
-                    form.setWineFormItems(null);
-                }
+                form.setWineFormItems(wineStuff);
                 form.setPhoneNumber(null);
                 form.setWorkingOn(0);
                 form.setCompanyID(0);
@@ -456,11 +452,7 @@ public class DBInsert {
                 form.setApprovalStatus(ApprovalStatus.Complete);
                 form.setFormula(null);
                 form.setApplicantName(null);
-                if (form.getAlcoholType() == AlcoholType.Wine) {
-                    form.setWineFormItems(wineStuff);
-                } else {
-                    form.setWineFormItems(null);
-                }
+                form.setWineFormItems(wineStuff);
                 form.setPhoneNumber(null);
                 form.setWorkingOn(0);
                 form.setCompanyID(0);
@@ -621,11 +613,7 @@ public class DBInsert {
                 form.setApprovalStatus(ApprovalStatus.Complete);
                 form.setFormula(null);
                 form.setApplicantName(null);
-                if (form.getAlcoholType() == AlcoholType.Wine) {
-                    form.setWineFormItems(wineStuff);
-                } else {
-                    form.setWineFormItems(null);
-                }
+                form.setWineFormItems(wineStuff);
                 form.setPhoneNumber(null);
                 form.setWorkingOn(0);
                 form.setCompanyID(0);
