@@ -54,7 +54,11 @@ public class FormExporter {
                         for (XWPFParagraph p : cell.getParagraphs()) {
                             for (XWPFRun r : p.getRuns()) {
                                 //replaceString(r, "REP_ID", form.getRepID());
-                                replaceString(r, "REP_ID", "hello");
+                                try {
+                                    replaceString(r, "REP_ID", form.getRepID());
+                                } catch (Exception e){
+                                    replaceString(r, "REP_ID", " ");
+                                }
                                 replaceString(r, "TTB ID", "TTB ID: " + String.valueOf(form.getTtbID()));
                                 replaceString(r, "PLANT_REGISTRY", form.getBrewersPermit().get(0).getBrewersNo());
                                 //TODO _DOM_ and _IMP_
