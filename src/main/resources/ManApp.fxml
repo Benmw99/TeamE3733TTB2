@@ -132,7 +132,7 @@
                               <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="RepIDField" alignment="CENTER" focusColor="BLACK" prefHeight="50.0" prefWidth="270.0" promptText="ID" unFocusColor="WHITE">
+                        <JFXTextField fx:id="RepIDField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="ID" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -157,7 +157,7 @@
                               <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="ProducerNumField" alignment="CENTER" focusColor="BLACK" prefHeight="50.0" prefWidth="270.0" promptText="Number" unFocusColor="WHITE">
+                        <JFXTextField fx:id="ProducerNumField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Number" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -204,7 +204,7 @@
                               <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="SerialYearField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="150.0" promptText="Year 00" unFocusColor="WHITE">
+                        <JFXTextField fx:id="SerialYearField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="150.0" promptText="Year 00" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -212,7 +212,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="SerialDigitsField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="150.0" promptText="Digits 0000" unFocusColor="WHITE">
+                        <JFXTextField fx:id="SerialDigitsField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="150.0" promptText="Digits 0000" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -242,7 +242,7 @@
                               <Insets left="20.0" />
                            </HBox.margin>
                         </JFXComboBox>
-                        <JFXTextField fx:id="VintageYearField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="Vintage Year" unFocusColor="WHITE">
+                        <JFXTextField fx:id="VintageYearField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="Vintage Year" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -250,7 +250,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="PhField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="pH Level" unFocusColor="WHITE">
+                        <JFXTextField fx:id="PhField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="pH Level" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -271,7 +271,7 @@
                               <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="BrandField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Name" unFocusColor="WHITE">
+                        <JFXTextField fx:id="BrandField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Name" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -393,7 +393,7 @@
                               <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="FancifulField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Name" unFocusColor="WHITE">
+                        <JFXTextField fx:id="FancifulField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Name" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -418,7 +418,7 @@
                               <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="Name8Field" alignment="CENTER" focusColor="BLACK" prefHeight="50.0" prefWidth="175.0" promptText="Name" unFocusColor="WHITE">
+                        <JFXTextField fx:id="Name8Field" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="175.0" promptText="Name" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -431,7 +431,7 @@
                               <Insets left="15.0" />
                            </padding>
                         </JFXComboBox>
-                        <JFXTextField fx:id="Address8Field" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="175.0" promptText="Address" unFocusColor="WHITE">
+                        <JFXTextField fx:id="Address8Field" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="175.0" promptText="Address" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -439,7 +439,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="City8Field" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="City" unFocusColor="WHITE">
+                        <JFXTextField fx:id="City8Field" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="City" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -447,7 +447,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="Zip8Field" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="Zip Code" unFocusColor="WHITE">
+                        <JFXTextField fx:id="Zip8Field" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="Zip Code" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -481,7 +481,7 @@
                               </JFXRadioButton>
                            </children>
                         </VBox>
-                        <JFXTextField fx:id="Name9Field" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="175.0" promptText="Name" unFocusColor="WHITE">
+                        <JFXTextField fx:id="Name9Field" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="175.0" promptText="Name" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -494,7 +494,7 @@
                               <Insets left="15.0" />
                            </padding>
                         </JFXComboBox>
-                        <JFXTextField fx:id="Address9Field" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="175.0" promptText="Address" unFocusColor="WHITE">
+                        <JFXTextField fx:id="Address9Field" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="175.0" promptText="Address" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -502,7 +502,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="City9Field" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="City" unFocusColor="WHITE">
+                        <JFXTextField fx:id="City9Field" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="City" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -510,7 +510,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="Zip9Field" alignment="BOTTOM_CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="Zip Code" unFocusColor="WHITE">
+                        <JFXTextField fx:id="Zip9Field" alignment="BOTTOM_CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="Zip Code" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -535,7 +535,7 @@
                               <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="FormulaField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="List" unFocusColor="WHITE">
+                        <JFXTextField fx:id="FormulaField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="List" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -560,7 +560,7 @@
                               <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="GrapeVarField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="List" unFocusColor="WHITE">
+                        <JFXTextField fx:id="GrapeVarField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="List" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -581,7 +581,7 @@
                               <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="WineAppField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Only if stated on label" unFocusColor="WHITE">
+                        <JFXTextField fx:id="WineAppField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Only if stated on label" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -661,7 +661,7 @@
                               <Font name="Roboto Light" size="32.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="PhoneNumField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Enter a phone number" unFocusColor="WHITE">
+                        <JFXTextField fx:id="PhoneNumField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Enter a phone number" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -686,7 +686,7 @@
                               <Font name="Roboto Light" size="32.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="EmailField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Enter a valid email address" unFocusColor="WHITE">
+                        <JFXTextField fx:id="EmailField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Enter a valid email address" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -728,7 +728,7 @@
                               </JFXRadioButton>
                            </children>
                         </VBox>
-                        <JFXTextField fx:id="AmountField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="Total Amount" unFocusColor="WHITE">
+                        <JFXTextField fx:id="AmountField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="Total Amount" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -768,7 +768,7 @@
                                           <Insets top="20.0" />
                                        </HBox.margin>
                                     </JFXRadioButton>
-                                    <JFXTextField fx:id="TTBIDField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="TTB ID" unFocusColor="WHITE" HBox.hgrow="ALWAYS">
+                                    <JFXTextField fx:id="TTBIDField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="TTB ID" unFocusColor="WHITE" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets left="15.0" />
                                        </HBox.margin>
@@ -797,7 +797,7 @@
                               <Font name="Roboto Light" size="32.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="AdditionalInfoField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Branded/Embossed" unFocusColor="WHITE">
+                        <JFXTextField fx:id="AdditionalInfoField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Branded/Embossed" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -805,7 +805,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="TranslationField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Translation" unFocusColor="WHITE">
+                        <JFXTextField fx:id="TranslationField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Translation" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -911,7 +911,7 @@
                               <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="SignatureField" alignment="CENTER" focusColor="BLACK" prefHeight="50.0" prefWidth="270.0" promptText="Sign" unFocusColor="WHITE">
+                        <JFXTextField fx:id="SignatureField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Sign" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -962,7 +962,7 @@
                               <Font name="Roboto Light" size="32.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="AlcoholContentTextField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="Percentage" unFocusColor="WHITE">
+                        <JFXTextField fx:id="AlcoholContentTextField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="Percentage" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -984,6 +984,6 @@
             </VBox>
          </children>
       </Pane>
-      <BreadCrumbBar fx:id="Nav" prefHeight="100.0" prefWidth="100.0" AnchorPane.leftAnchor="1000.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0" />
+      <BreadCrumbBar fx:id="Nav" layoutX="947.0" prefHeight="100.0" prefWidth="402.0" stylesheets="@breadcrumb.css" AnchorPane.leftAnchor="947.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

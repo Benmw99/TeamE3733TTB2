@@ -296,37 +296,39 @@ public class FormDisplayController extends PageControllerUI implements Initializ
     }
 
     public void displayStatus() {
-        if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 1")) {
-            if(attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Complete)) {
-                comboBox.setValue("Complete");
-            } else if(attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Incomplete)) {
-                comboBox.setValue("Incomplete");
-            } else if(attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Incorrect)) {
-                comboBox.setValue("Incorrect");
-            }
-        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 2")) {
-            if(attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Complete)) {
-                comboBox.setValue("Complete");
-            } else if(attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Incomplete)) {
-                comboBox.setValue("Incomplete");
-            } else if(attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Incorrect)) {
-                comboBox.setValue("Incorrect");
-            }
-        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 3")) {
-            if(attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Complete)) {
-                comboBox.setValue("Complete");
-            } else if(attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Incomplete)) {
-                comboBox.setValue("Incomplete");
-            } else if(attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Incorrect)) {
-                comboBox.setValue("Incorrect");
-            }
-        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 4")) {
-            if(attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Complete)) {
-                comboBox.setValue("Complete");
-            } else if(attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Incomplete)) {
-                comboBox.setValue("Incomplete");
-            } else if(attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Incorrect)) {
-                comboBox.setValue("Incorrect");
+        if(AttributeContainer.getInstance().backlog.peek().equals("AgentReviewingTools.fxml")) {
+            if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 1")) {
+                if (attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Complete)) {
+                    comboBox.setValue("Complete");
+                } else if (attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Incomplete)) {
+                    comboBox.setValue("Incomplete");
+                } else if (attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Incorrect)) {
+                    comboBox.setValue("Incorrect");
+                }
+            } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 2")) {
+                if (attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Complete)) {
+                    comboBox.setValue("Complete");
+                } else if (attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Incomplete)) {
+                    comboBox.setValue("Incomplete");
+                } else if (attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Incorrect)) {
+                    comboBox.setValue("Incorrect");
+                }
+            } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 3")) {
+                if (attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Complete)) {
+                    comboBox.setValue("Complete");
+                } else if (attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Incomplete)) {
+                    comboBox.setValue("Incomplete");
+                } else if (attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Incorrect)) {
+                    comboBox.setValue("Incorrect");
+                }
+            } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 4")) {
+                if (attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Complete)) {
+                    comboBox.setValue("Complete");
+                } else if (attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Incomplete)) {
+                    comboBox.setValue("Incomplete");
+                } else if (attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Incorrect)) {
+                    comboBox.setValue("Incorrect");
+                }
             }
         }
     }
