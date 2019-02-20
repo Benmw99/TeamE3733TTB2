@@ -984,6 +984,6 @@
             </VBox>
          </children>
       </Pane>
-      <BreadCrumbBar fx:id="Nav" layoutX="947.0" prefHeight="100.0" prefWidth="402.0" stylesheets="@breadcrumb.css" AnchorPane.leftAnchor="947.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="0.0" />
+      <BreadCrumbBar fx:id="Nav" layoutX="958.0" layoutY="35.0" prefHeight="100.0" prefWidth="402.0" stylesheets="@breadcrumb.css" AnchorPane.leftAnchor="958.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" />
    </children>
 </AnchorPane>
