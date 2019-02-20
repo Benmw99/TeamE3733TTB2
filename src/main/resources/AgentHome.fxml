@@ -105,6 +105,25 @@
                      <font>
                         <Font name="Roboto Light" size="13.0" />
                      </font></JFXTextField>
+                  <JFXTextField fx:id="queueAmountField" alignment="CENTER" labelFloat="true" layoutX="80.0" layoutY="568.0" maxWidth="-Infinity" promptText="Enter Number of Forms">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXButton fx:id="GetNewQueueButton" buttonType="RAISED" layoutX="78.0" layoutY="615.0" onAction="#getNewQueue" pickOnBounds="true" prefHeight="9.0" prefWidth="200.0" style="-fx-background-color: #4285f4;" text="Get New Queue" textFill="WHITE">
+                     <ripplerFill>
+                        <RadialGradient centerX="0.5112359550561798" centerY="0.5" radius="0.5">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="BLACK" offset="0.007434944237918215" />
+                              <Stop color="#ffffff97" offset="1.0" />
+                           </stops>
+                        </RadialGradient>
+                     </ripplerFill>
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                  </JFXButton>
                </children>
             </Pane>
             <Pane layoutX="355.0" layoutY="88.0" prefHeight="86.0" prefWidth="1006.0" style="-fx-background-color: #cfd8dc;">
@@ -161,33 +180,14 @@
             <Pane fx:id="UseReviewingToolsButton" layoutX="368.0" layoutY="173.0" prefHeight="586.0" prefWidth="998.0" style="-fx-background-color: white;">
                <children>
                   <fx:include layoutX="-10.0" source="FormDisplay.fxml" />
-               </children></Pane>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></Pane>
          </children></Pane>
-      <VBox alignment="CENTER" layoutY="173.0" prefHeight="547.0" prefWidth="355.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="173.0">
+      <VBox alignment="CENTER" layoutY="173.0" prefHeight="460.0" prefWidth="355.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="173.0">
          <children>
             <fx:include source="TableView.fxml" VBox.vgrow="ALWAYS" />
-            <JFXTextField fx:id="queueAmountField" alignment="CENTER" labelFloat="true" maxWidth="-Infinity" promptText="Enter Number of Forms">
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="Roboto Light" size="18.0" />
-               </font>
-            </JFXTextField>
-            <JFXButton fx:id="GetNewQueueButton" buttonType="RAISED" onAction="#getNewQueue" pickOnBounds="true" prefHeight="9.0" prefWidth="200.0" ripplerFill="#9d9797" style="-fx-background-color: #4285f4;" text="Get New Queue" textFill="WHITE">
-               <font>
-                  <Font name="Roboto Light" size="24.0" />
-               </font>
-               <ripplerFill>
-                  <RadialGradient centerX="0.5112359550561798" centerY="0.5" radius="0.5">
-                     <stops>
-                        <Stop color="BLACK" />
-                        <Stop color="BLACK" offset="0.007434944237918215" />
-                        <Stop color="#ffffff97" offset="1.0" />
-                     </stops>
-                  </RadialGradient>
-               </ripplerFill>
-            </JFXButton>
          </children>
       </VBox>
       <fx:include fx:id="hamburger" source="MenuDrawer.fxml" />

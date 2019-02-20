@@ -21,6 +21,129 @@
 
 <AnchorPane prefHeight="760.0" prefWidth="1360.0" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.HomeSearchController">
 <children>
+    <Rectangle fill="#9ea7aa" height="77.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="626.0" layoutX="1.0" layoutY="136.0" stroke="TRANSPARENT" strokeType="INSIDE" width="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+      <Rectangle fill="#cfd8dc" height="65.0" layoutX="33.0" layoutY="582.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="324.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="62.0" layoutY="66.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0" />
+      <JFXButton fx:id="SearchLoginButton" buttonType="RAISED" layoutX="1248.0" layoutY="13.0" onAction="#loginPage" style="-fx-background-color: WHITE;" text="Login">
+         <font>
+            <Font name="Roboto Thin" size="18.0" />
+         </font>
+      </JFXButton>
+    <JFXTextField fx:id="SearchField" alignment="CENTER" disable="true" layoutX="419.0" layoutY="84.0" prefHeight="26.0" prefWidth="708.0" style="-fx-background-color: WHITE;" visible="false" AnchorPane.leftAnchor="419.0" AnchorPane.rightAnchor="237.0" />
+    <Text disable="true" layoutX="32.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
+        <font>
+            <Font name="Roboto Light" size="18.0" />
+        </font>
+    </Text>
+    <Text layoutX="108.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories">
+        <font>
+            <Font name="Roboto Light" size="36.0" />
+        </font>
+    </Text>
+      <JFXButton fx:id="printSearchResultsCSV" buttonType="RAISED" layoutX="77.0" layoutY="597.0" onAction="#printResults" ripplerFill="#9d9797" style="-fx-background-color: WHITE;" text="Print Results">
+         <font>
+            <Font name="Roboto Light" size="18.0" />
+         </font></JFXButton>
+      <JFXDatePicker fx:id="SearchDate" disable="true" layoutX="197.0" layoutY="298.0" prefHeight="25.0" prefWidth="149.0" promptText="date" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="7.0" layoutY="208.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
+      <JFXComboBox fx:id="SearchAlcoholType" layoutX="196.0" layoutY="151.0" prefWidth="150.0" />
+      <JFXTextField fx:id="SearchID" alignment="CENTER" labelFloat="true" layoutX="196.0" layoutY="348.0" promptText="number">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font></JFXTextField>
+      <Text layoutX="33.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Type">
+         <font>
+            <Font name="Roboto Light" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="32.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Number">
+         <font>
+            <Font name="Roboto Light" size="18.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="7.0" layoutY="196.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
+      <JFXTextField fx:id="SearchPercentage" alignment="CENTER" disable="true" labelFloat="true" layoutX="196.0" layoutY="200.0" promptText="percentage">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font></JFXTextField>
+      <Text disable="true" layoutX="32.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Content">
+         <font>
+            <Font name="Roboto Light" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="33.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand Name">
+         <font>
+            <Font name="Roboto Light" size="18.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="brandNameTextField" alignment="CENTER" labelFloat="true" layoutX="196.0" layoutY="250.0" promptText="name">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font></JFXTextField>
+      <JFXButton fx:id="SearchButton" buttonType="RAISED" layoutX="98.0" layoutY="410.0" onAction="#searchAdvanced" prefHeight="39.0" prefWidth="84.0" ripplerFill="#9d9797" style="-fx-background-color: cfd8dc;" text="Search">
+         <font>
+            <Font name="Roboto Light" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="aboutPageNav" buttonType="RAISED" layoutX="156.0" layoutY="687.0" onAction="#aboutPage" ripplerFill="#9d9797" style="-fx-background-color: cfd8dc;" text="About">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </JFXButton>
+      <StackPane fx:id="UsernameStackPane" layoutX="1087.0" layoutY="13.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #9ea7aa;" AnchorPane.leftAnchor="1114.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="UsernameLabel" text="Username">
+               <font>
+                  <Font name="Roboto Light" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <JFXButton fx:id="backToHomeButton" buttonType="RAISED" layoutX="20.0" layoutY="16.0" onAction="#backToHome" prefHeight="35.0" prefWidth="120.0" ripplerFill="#9d9797" style="-fx-background-color: WHITE;" text="Back To Home" />
+      <JFXButton fx:id="clearSearch" buttonType="RAISED" layoutX="199.0" layoutY="409.0" onAction="#clearSearch" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: cfd8dc;" text="Clear Search">
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXRadioButton fx:id="fuzzy" layoutX="202.0" layoutY="474.0" text="SQL Wild Search" />
+      <JFXRadioButton fx:id="levenshtein" layoutX="202.0" layoutY="506.0" text="Levenshtein Distance" />
+      <JFXRadioButton fx:id="damereauLevenshtein" layoutX="202.0" layoutY="534.0" text="Damerau Levenshtein" />
+    <Text fill="WHITE" layoutX="566.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COLA Search" wrappingWidth="256.9218606590072">
+        <font>
+            <Font name="Roboto Light" size="48.0" />
+        </font></Text>
+      <StackPane fx:id="MenuStackPane" alignment="CENTER_LEFT" layoutX="1097.0" layoutY="23.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #9ea7aa;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <fx:include source="MenuDrawer.fxml" />
+         </children>
+      </StackPane>
+      <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" labelFloat="true" layoutX="231.0" layoutY="601.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" prefHeight="27.0" prefWidth="65.0" promptText="Delimiter" />
+      <JFXButton fx:id="previousButton" buttonType="RAISED" layoutX="776.0" layoutY="716.0" onAction="#prevPage" style="-fx-background-color: #9ea7aa;" text="&lt;" textFill="WHITE" />
+      <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="930.0" layoutY="716.0" onAction="#nextPage" style="-fx-background-color: #9ea7aa;" text="&gt;" textFill="WHITE" />
+      <Pane layoutX="404.0" layoutY="135.0" prefHeight="565.0" prefWidth="951.0">
+         <children>
+            <HBox prefHeight="566.0" prefWidth="948.0" style="-fx-background-color: white;">
+               <children>
+                  <fx:include prefWidth="900.0" source="TableView.fxml" HBox.hgrow="ALWAYS" />
+               </children>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </HBox>
+         </children>
+      </Pane>
+      <JFXTextField fx:id="pageTextField" alignment="CENTER" labelFloat="true" layoutX="819.0" layoutY="715.0" onAction="#notifyObservers" prefHeight="27.0" prefWidth="96.0" promptText="Go To Page" />
+      <JFXRadioButton fx:id="apacheRadioButton" layoutX="32.0" layoutY="475.0" text="Local Apache Derby" />
+      <JFXRadioButton fx:id="mongoRadioButton" layoutX="33.0" layoutY="508.0" text="Online MongoDB" />
       <Pane fx:id="largePane" opacity="0.63" prefHeight="759.0" prefWidth="1366.0" style="-fx-background-color: white;" />
       <Pane fx:id="smallPane" style="-fx-background-color: #999999; -fx-background-radius: 15;" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="120.0">
          <children>
@@ -169,129 +292,6 @@
             </HBox>
          </children>
       </Pane>
-    <Rectangle fill="#9ea7aa" height="77.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="626.0" layoutX="1.0" layoutY="136.0" stroke="TRANSPARENT" strokeType="INSIDE" width="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
-      <Rectangle fill="#cfd8dc" height="65.0" layoutX="33.0" layoutY="582.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="324.0" />
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="62.0" layoutY="66.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0" />
-      <JFXButton fx:id="SearchLoginButton" buttonType="RAISED" layoutX="1248.0" layoutY="13.0" onAction="#loginPage" style="-fx-background-color: WHITE;" text="Login">
-         <font>
-            <Font name="Roboto Thin" size="18.0" />
-         </font>
-      </JFXButton>
-    <JFXTextField fx:id="SearchField" alignment="CENTER" disable="true" layoutX="419.0" layoutY="84.0" prefHeight="26.0" prefWidth="708.0" style="-fx-background-color: WHITE;" visible="false" AnchorPane.leftAnchor="419.0" AnchorPane.rightAnchor="237.0" />
-    <Text disable="true" layoutX="32.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
-        <font>
-            <Font name="Roboto Light" size="18.0" />
-        </font>
-    </Text>
-    <Text layoutX="108.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories">
-        <font>
-            <Font name="Roboto Light" size="36.0" />
-        </font>
-    </Text>
-      <JFXButton fx:id="printSearchResultsCSV" buttonType="RAISED" layoutX="77.0" layoutY="597.0" onAction="#printResults" ripplerFill="#9d9797" style="-fx-background-color: WHITE;" text="Print Results">
-         <font>
-            <Font name="Roboto Light" size="18.0" />
-         </font></JFXButton>
-      <JFXDatePicker fx:id="SearchDate" disable="true" layoutX="197.0" layoutY="298.0" prefHeight="25.0" prefWidth="149.0" promptText="date" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="7.0" layoutY="208.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
-      <JFXComboBox fx:id="SearchAlcoholType" layoutX="196.0" layoutY="151.0" prefWidth="150.0" />
-      <JFXTextField fx:id="SearchID" alignment="CENTER" labelFloat="true" layoutX="196.0" layoutY="348.0" promptText="number">
-         <font>
-            <Font name="Roboto Light" size="14.0" />
-         </font></JFXTextField>
-      <Text layoutX="33.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Type">
-         <font>
-            <Font name="Roboto Light" size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="32.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Number">
-         <font>
-            <Font name="Roboto Light" size="18.0" />
-         </font>
-      </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="7.0" layoutY="196.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
-      <JFXTextField fx:id="SearchPercentage" alignment="CENTER" disable="true" labelFloat="true" layoutX="196.0" layoutY="200.0" promptText="percentage">
-         <font>
-            <Font name="Roboto Light" size="14.0" />
-         </font></JFXTextField>
-      <Text disable="true" layoutX="32.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Content">
-         <font>
-            <Font name="Roboto Light" size="18.0" />
-         </font>
-      </Text>
-      <Text layoutX="33.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand Name">
-         <font>
-            <Font name="Roboto Light" size="18.0" />
-         </font>
-      </Text>
-      <JFXTextField fx:id="brandNameTextField" alignment="CENTER" labelFloat="true" layoutX="196.0" layoutY="250.0" promptText="name">
-         <font>
-            <Font name="Roboto Light" size="14.0" />
-         </font></JFXTextField>
-      <JFXButton fx:id="SearchButton" buttonType="RAISED" layoutX="98.0" layoutY="410.0" onAction="#searchAdvanced" prefHeight="39.0" prefWidth="84.0" ripplerFill="#9d9797" style="-fx-background-color: cfd8dc;" text="Search">
-         <font>
-            <Font name="Roboto Light" size="18.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="aboutPageNav" buttonType="RAISED" layoutX="156.0" layoutY="687.0" onAction="#aboutPage" ripplerFill="#9d9797" style="-fx-background-color: cfd8dc;" text="About">
-         <font>
-            <Font name="Roboto Light" size="14.0" />
-         </font>
-      </JFXButton>
-      <StackPane fx:id="UsernameStackPane" layoutX="1087.0" layoutY="13.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #9ea7aa;" AnchorPane.leftAnchor="1114.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label fx:id="UsernameLabel" text="Username">
-               <font>
-                  <Font name="Roboto Light" size="24.0" />
-               </font>
-            </Label>
-         </children>
-      </StackPane>
-      <JFXButton fx:id="backToHomeButton" buttonType="RAISED" layoutX="20.0" layoutY="16.0" onAction="#backToHome" prefHeight="35.0" prefWidth="120.0" ripplerFill="#9d9797" style="-fx-background-color: WHITE;" text="Back To Home" />
-      <JFXButton fx:id="clearSearch" buttonType="RAISED" layoutX="199.0" layoutY="409.0" onAction="#clearSearch" prefHeight="41.0" prefWidth="102.0" style="-fx-background-color: cfd8dc;" text="Clear Search">
-         <ripplerFill>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </ripplerFill>
-         <font>
-            <Font name="Roboto Light" size="14.0" />
-         </font>
-      </JFXButton>
-      <JFXRadioButton fx:id="fuzzy" layoutX="202.0" layoutY="474.0" text="SQL Wild Search" />
-      <JFXRadioButton fx:id="levenshtein" layoutX="202.0" layoutY="506.0" text="Levenshtein Distance" />
-      <JFXRadioButton fx:id="damereauLevenshtein" layoutX="202.0" layoutY="534.0" text="Damerau Levenshtein" />
-    <Text fill="WHITE" layoutX="566.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COLA Search" wrappingWidth="256.9218606590072">
-        <font>
-            <Font name="Roboto Light" size="48.0" />
-        </font></Text>
-      <StackPane fx:id="MenuStackPane" alignment="CENTER_LEFT" layoutX="1097.0" layoutY="23.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #9ea7aa;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <fx:include source="MenuDrawer.fxml" />
-         </children>
-      </StackPane>
-      <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" labelFloat="true" layoutX="231.0" layoutY="601.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" prefHeight="27.0" prefWidth="65.0" promptText="Delimiter" />
-      <JFXButton fx:id="previousButton" buttonType="RAISED" layoutX="776.0" layoutY="716.0" onAction="#prevPage" style="-fx-background-color: #9ea7aa;" text="&lt;" textFill="WHITE" />
-      <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="930.0" layoutY="716.0" onAction="#nextPage" style="-fx-background-color: #9ea7aa;" text="&gt;" textFill="WHITE" />
-      <Pane layoutX="404.0" layoutY="135.0" prefHeight="565.0" prefWidth="951.0">
-         <children>
-            <HBox prefHeight="566.0" prefWidth="948.0" style="-fx-background-color: white;">
-               <children>
-                  <fx:include prefWidth="900.0" source="TableView.fxml" HBox.hgrow="ALWAYS" />
-               </children>
-               <padding>
-                  <Insets left="15.0" />
-               </padding>
-            </HBox>
-         </children>
-      </Pane>
-      <JFXTextField fx:id="pageTextField" alignment="CENTER" labelFloat="true" layoutX="819.0" layoutY="715.0" onAction="#notifyObservers" prefHeight="27.0" prefWidth="96.0" promptText="Go To Page" />
-      <JFXRadioButton fx:id="apacheRadioButton" layoutX="32.0" layoutY="475.0" text="Local Apache Derby" />
-      <JFXRadioButton fx:id="mongoRadioButton" layoutX="33.0" layoutY="508.0" text="Online MongoDB" />
       <JFXToggleButton fx:id="helpToggleButton" layoutX="17.0" layoutY="10.0" text="Help" AnchorPane.rightAnchor="213.0" AnchorPane.topAnchor="4.0">
          <font>
             <Font name="Roboto Light" size="13.0" />
