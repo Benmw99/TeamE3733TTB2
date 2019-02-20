@@ -34,16 +34,8 @@
                      <font>
                         <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                      </font></JFXTextField>
-                  <JFXButton fx:id="newFormButton" layoutX="411.0" layoutY="18.0" onAction="#addForm" style="-fx-background-radius: 15; -fx-background-color: #800020;" text="+" textFill="WHITE" />
-                  <JFXButton fx:id="refreshButton" buttonType="RAISED" layoutX="463.0" layoutY="14.0" onAction="#refreshForms" style="-fx-background-color: #800020;" text="Refresh" textFill="WHITE">
-                     <ripplerFill>
-                        <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-                           <stops>
-                              <Stop color="BLACK" />
-                              <Stop color="WHITE" offset="1.0" />
-                           </stops>
-                        </RadialGradient>
-                     </ripplerFill>
+                  <JFXButton fx:id="newFormButton" layoutX="411.0" layoutY="18.0" onAction="#addForm" ripplerFill="#9d9797" style="-fx-background-radius: 15; -fx-background-color: #800020;" text="+" textFill="WHITE" />
+                  <JFXButton fx:id="refreshButton" buttonType="RAISED" layoutX="463.0" layoutY="14.0" onAction="#refreshForms" ripplerFill="#9c9797" style="-fx-background-color: #800020;" text="Refresh" textFill="WHITE">
                      <font>
                         <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                      </font>
@@ -52,15 +44,7 @@
             </Pane>
             <Pane layoutX="558.0" layoutY="88.0" prefHeight="64.0" prefWidth="803.0" style="-fx-background-color: #cfd8dc;">
                <children>
-                  <JFXButton fx:id="commentsButton" buttonType="RAISED" layoutX="326.0" layoutY="15.0" onAction="#viewAgentComments" style="-fx-background-color: #800020;" text="View Agent Comments" textFill="WHITE">
-                     <ripplerFill>
-                        <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-                           <stops>
-                              <Stop color="BLACK" />
-                              <Stop color="WHITE" offset="1.0" />
-                           </stops>
-                        </RadialGradient>
-                     </ripplerFill>
+                  <JFXButton fx:id="commentsButton" buttonType="RAISED" layoutX="326.0" layoutY="15.0" onAction="#viewAgentComments" ripplerFill="#9d9797" style="-fx-background-color: #800020;" text="View Agent Comments" textFill="WHITE">
                      <font>
                         <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                      </font>
@@ -70,28 +54,12 @@
                         <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                      </font>
                   </JFXToggleButton>
-                  <JFXButton fx:id="downloadButton" buttonType="RAISED" layoutX="551.0" layoutY="15.0" onAction="#download" style="-fx-background-color: #800020;" text="Download" textFill="WHITE">
+                  <JFXButton fx:id="downloadButton" buttonType="RAISED" layoutX="551.0" layoutY="15.0" onAction="#download" ripplerFill="#9d9797" style="-fx-background-color: #800020;" text="Download" textFill="WHITE">
                      <font>
                         <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                      </font>
-                     <ripplerFill>
-                        <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-                           <stops>
-                              <Stop color="BLACK" />
-                              <Stop color="WHITE" offset="1.0" />
-                           </stops>
-                        </RadialGradient>
-                     </ripplerFill>
                   </JFXButton>
-                  <JFXButton fx:id="printButton" buttonType="RAISED" layoutX="680.0" layoutY="15.0" onAction="#print" style="-fx-background-color: #800020;" text="Print" textFill="WHITE">
-                     <ripplerFill>
-                        <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-                           <stops>
-                              <Stop color="BLACK" />
-                              <Stop color="WHITE" offset="1.0" />
-                           </stops>
-                        </RadialGradient>
-                     </ripplerFill>
+                  <JFXButton fx:id="printButton" buttonType="RAISED" layoutX="680.0" layoutY="15.0" onAction="#print" ripplerFill="#9d9797" style="-fx-background-color: #800020;" text="Print" textFill="WHITE">
                      <font>
                         <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                      </font>
