@@ -150,7 +150,6 @@ public class FormExporter {
             //File file = new File(getClass().getResource("/" +"output.docx").toURI());
             //    File file = new File("C:\\Users\\Elizabeth Del Monaco\\Desktop\\TeamE3733TTB2\\src\\main\\resources\\output.docx");
             File file = new File(home + "/Downloads/" + "TTBFORM" + "S" + ".docx");
-            //     System.out.println(doc3.toPath());
 
             doc.write(new FileOutputStream(file));
             doc.close();
@@ -168,7 +167,7 @@ public class FormExporter {
         try {
 
             File doc2 = new File(getClass().getResource("/" + "converted.docx").toURI());
-            System.out.println(doc2.toPath());
+ //           System.out.println(doc2.toPath());
 
             Address add = form.getMailingAddress();
             InputStream inputstream = new FileInputStream(doc2);
@@ -304,7 +303,7 @@ public class FormExporter {
     public void replaceString(XWPFRun r, String rep, String to_rep){
         String text = r.getText(0);
         String rep_String;
-        System.out.println(text);
+ //       System.out.println(text);
         if(to_rep == null){
             rep_String = "";
         } else {
