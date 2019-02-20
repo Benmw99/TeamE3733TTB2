@@ -6,6 +6,7 @@ import com.jfoenix.controls.*;
 import com.jfoenix.validation.NumberValidator;
 import com.jfoenix.validation.RegexValidator;
 import com.jfoenix.validation.RequiredFieldValidator;
+import com.jfoenix.validation.base.ValidatorBase;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
@@ -29,7 +30,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
-@Deprecated
 public class ManSingleAppPageController extends PageControllerUI implements  Initializable {
 
     @FXML
@@ -143,6 +143,8 @@ public class ManSingleAppPageController extends PageControllerUI implements  Ini
     @FXML
     JFXButton goBackHome;
 
+//    List<ValidatorBase> santas_list;
+
     private Form workingForm;
 
     @Override
@@ -164,7 +166,7 @@ public class ManSingleAppPageController extends PageControllerUI implements  Ini
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+    //    santas_list = new ArrayList<ValidatorBase>();
         // Fill ComboBoxes
         List<String> states = Arrays.asList("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL",
                 "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT",
