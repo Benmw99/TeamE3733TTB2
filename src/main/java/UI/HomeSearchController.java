@@ -1,5 +1,6 @@
 package UI;
 
+import DB.Database;
 import Entities.AdvancedSearch;
 import Entities.AlcoholType;
 import Entities.Form;
@@ -27,6 +28,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -246,6 +248,8 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        //Font.loadFont(CustomFontApp.class.getResource("TRON.TTF"));
+
 
 
         SearchAlcoholType.getItems().addAll("Beers", "Wines", "Distilled Liquor");
@@ -397,12 +401,19 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         //if (manufactureDate.get) DATE NOT IMPLEMENTED YET
 
         List<Form> forms;
-        if(damereauLevenshtein.isSelected()) {           //DL
-            forms = Search.SearchDL(advancedSearch);
-        }else if(levenshtein.isSelected()) {             //LD
-            forms = Search.SearchLD(advancedSearch);
-        }else{                                           //wild
+
+        if (apacheRadioButton.isSelected()) {
+            if (damereauLevenshtein.isSelected()) {           //DL
+                forms = Search.SearchDL(advancedSearch);
+            } else if (levenshtein.isSelected()) {             //LD
+                forms = Search.SearchLD(advancedSearch);
+            } else {                                           //wild
+                forms = Search.SearchWild(advancedSearch);
+            }
+        } else {
+            Database db = Database.getDatabase();
             forms = Search.SearchWild(advancedSearch);
+            //forms = db.mongoFunc.searchMongo(advancedSearch);
         }
         SearchContainer.getInstance().searchResult = new SearchResult();
         SearchContainer.getInstance().searchResult.setResults(forms);

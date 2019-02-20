@@ -178,14 +178,13 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     public void approveForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
 
-            //TODO: get qualifications from text field
+            //TODO: get qualifications from text field;
             ((Agent) attributeContainer.currentUser).approveForm(attributeContainer.currentForm, comment.getText());
             attributeContainer.formQueue.remove(attributeContainer.currentForm);
             AttributeContainer.getInstance().formQueue = ((Agent) attributeContainer.currentUser).getCurrentQueue();
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
             attributeContainer.currentForm = null;
-            attributeContainer.isInReviewingTools = false;
             goToPage("AgentHome.fxml");
         }
     }
@@ -204,7 +203,6 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
             attributeContainer.currentForm = null;
-            attributeContainer.isInReviewingTools = false;
             goToPage("AgentHome.fxml");
         }
     }
@@ -231,8 +229,13 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
         goToPage("AgentHome.fxml");
     }
 
+    public void markForm() {
+        formDisplayController.markForm();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        approveAVFButton.setDisable(true);
         //The different combo box options
         sectionMarkComboBox.getItems().addAll("Complete", "Incomplete", "Incorrect");
 
@@ -262,7 +265,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                     yikes.show();
                 } else {
                     to_recv.loadUser();
-                    Thread mailThread = new  Thread( new Mailer(to_recv, message.getText()));
+                    Thread mailThread = new  Thread( new Mailer(to_recv, message.getText(), AttributeContainer.getInstance().currentForm));
                     mailThread.start();
                     AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
                     db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);

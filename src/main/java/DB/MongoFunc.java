@@ -76,8 +76,8 @@ public class MongoFunc {
         System.out.println("Done inserting all forms to mongo");
     }
 
-    public List<FormMongo> getAllMongo() {
-        List<FormMongo> results = new ArrayList<>();
+    public List<Form> getAllMongo() {
+        List<Form> results = new ArrayList<>();
         MongoCollection<Document> collection = database.getCollection("TTBForms");
         List<Document> docs = new ArrayList<>();
 
@@ -119,34 +119,116 @@ public class MongoFunc {
             form.setGrapes((String) docs.get(i).get("grapes"));
             form.setQualifications((String) docs.get(i).get("qual"));
 
-            results.add(form);
+            results.add(formMongoToForm(form));
         }
         return results;
+    }
+
+    public Form formMongoToForm(FormMongo fm) {
+        Form newForm = new Form();
+        newForm.setRepID(fm.getRepID());
+        newForm.brewersPermit.add(new BrewersPermit(fm.getBrewersPermit(), true));
+        if (fm.getSource().equals("Domestic")) {
+            newForm.setSource(false);
+        } else {
+            newForm.setSource(true);
+        }
+        newForm.setSerialNumber(fm.getSerialNumber());
+        if (fm.getAlcoholType().equals("Wine")) {
+            newForm.setAlcoholType(AlcoholType.Wine);
+        } else if (fm.getAlcoholType().equals("Distilled Liquor")) {
+            newForm.setAlcoholType(AlcoholType.DistilledLiquor);
+        } else {
+            newForm.setAlcoholType(AlcoholType.MaltBeverage);
+        }
+        try {
+            newForm.setTtbID(Integer.parseInt(fm.getTtbID()));
+        } catch (Exception e) {
+            newForm.setTtbID(0);
+        }
+        newForm.setRepID(fm.getRepID());
+        newForm.setSerialNumber(fm.getSerialNumber());
+        newForm.setBrandName(fm.getBrandName());
+        newForm.setFancifulName(fm.getFancifulName());
+        List<Address> adds = new ArrayList<>();
+        adds.add(new Address(fm.getAddressCity(), fm.getAddressState(), fm.getAddressZip(), fm.getAddressStreet(), fm.getAddressName(), true));
+        newForm.setAddress(adds);
+        newForm.setOtherInfo(fm.getOtherInfo());
+
+        System.gc();
+        return newForm;
     }
 
     public List<Form> searchMongo(AdvancedSearch as) {
-        List<FormMongo> info = getAllMongo();
+        List<Form> info = getAllMongo();
         List<Form> results = new ArrayList<>();
         if (as.source != null) {
-
+            for(Form fm : info) {
+                if (as.source) {
+                    if (fm.getSource()) {
+                        results.add(fm);
+                    } else {
+                        results.add(fm);
+                    }
+                info.remove(fm);
+                System.gc();
+            }
         }
-        if (as.serialNumber != null) {
-
         }
-        if (as.alcoholType != null) {
-
+        else if (as.serialNumber != null) {
+            for(Form fm : info) {
+                if (fm.getSerialNumber().equals(as.getSerialNumber())) {
+                    results.add(fm);
+                }
+                info.remove(fm);
+                System.gc();
+            }
         }
-        if (as.brandName != null) {
-
+        else if (as.alcoholType != null) {
+            for(Form fm : info) {
+                if (fm.getAlcoholType().equals(as.getAlcoholType().toString())) {
+                    results.add(fm);
+                }
+                info.remove(fm);
+                System.gc();
+            }
         }
-        if (as.fancifulName != null) {
-
+        else if (as.brandName != null) {
+            for(Form fm : info) {
+                if (fm.getBrandName().equals(as.getBrandName())) {
+                    results.add(fm);
+                }
+                info.remove(fm);
+                System.gc();
+            }
         }
-        if (as.ttbID > 0) {
-
+        else if (as.fancifulName != null) {
+            for(Form fm : info) {
+                if (fm.getFancifulName().equals(as.getFancifulName())) {
+                    results.add(fm);
+                }
+                info.remove(fm);
+                System.gc();
+            }
+        }
+        else if (as.ttbID > 0) {
+            for(Form fm : info) {
+                if (fm.getTtbID() == as.getTtbID()) {
+                    results.add(fm);
+                }
+                info.remove(fm);
+                System.gc();
+            }
+        } else {
+            for(Form fm : info) {
+                results.add(fm);
+                info.remove(fm);
+                System.gc();
+            }
         }
         return results;
     }
+
 
     @SuppressWarnings( "deprecation" )
     public void insertDataMongo() {

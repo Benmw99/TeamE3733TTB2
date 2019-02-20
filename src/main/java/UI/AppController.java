@@ -247,6 +247,9 @@ public class AppController extends PageControllerUI implements Initializable {
     @FXML
     private JFXButton TypeAppInfo;
 
+    @FXML
+    private JFXButton SubmitButton;
+
     private Form workingForm;
 
     List<ValidatorBase> santa_List;
@@ -552,11 +555,9 @@ public class AppController extends PageControllerUI implements Initializable {
             validRepId.setRegexPattern("^[a-zA-Z0-9]{0,16}$"); // Doesn't account for decimals
             field.getValidators().add(validRepId);
             validRepId.setMessage("Enter a valid rep id");
-
         }
 
         if (errorInForm) {
-            //
         }
 
 
@@ -679,6 +680,7 @@ public class AppController extends PageControllerUI implements Initializable {
      */
     int getForm(Manufacturer man) {
         Form working = new Form();
+        WineFormItems wine = new WineFormItems();
         working.setBrandName(BrandField.getText());
         working.setSerialNumber(SerialYearField.getText()
                 + SerialDigitsField.getText());
@@ -700,15 +702,14 @@ public class AppController extends PageControllerUI implements Initializable {
         } else if (TypeComboBox.getValue().equals("Wine")) {
             working.setAlcoholType(AlcoholType.Wine);
             /* This part takes care of the Wine */
-            WineFormItems wine = new WineFormItems();
             wine.setVintageYear(Integer.valueOf(VintageYearField.getText()));
             wine.setGrapeVarietal(GrapeVarField.getText());
             wine.setpH(Float.valueOf(PhField.getText()));
             wine.setAppellation(WineAppField.getText());
-            working.setWineFormItems(wine);
         } else {
             working.setAlcoholType(AlcoholType.DistilledLiquor);
         }
+        working.setWineFormItems(wine);
         /* Mailing Address */
         Address addy = new Address();
         addy.setCity(City8Field.getText());
@@ -733,6 +734,7 @@ public class AppController extends PageControllerUI implements Initializable {
         BrewersPermit brew = new BrewersPermit(ProducerNumField.getText(), true);
         brews.add(brew);
         working.setBrewersPermit(brews);
+        working.setApproval(new Approval());
         man.submitForm(working);
         this.workingForm = working;
         return working.getTtbID();

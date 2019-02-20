@@ -85,6 +85,7 @@ public class TableViewController extends PageControllerUI implements Initializab
      * the form will page switch to the
      */
     public void enableSearchVersion(){
+        colstatus.setMaxWidth(0); //TODO This is spaghetti
         table.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             /**
