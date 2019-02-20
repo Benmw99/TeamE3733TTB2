@@ -7,6 +7,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import java.io.File;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -104,19 +105,24 @@ public class Mailer implements Runnable {
         body += "The Ebony Elves' TTB Application";
 
         Multipart multi = new MimeMultipart();
+        try {
+            File file = new File(getClass().getResource("/" + "output.docx").toURI());
+            MimeBodyPart textBodyPart = new MimeBodyPart();
+            textBodyPart.setText(body);
+            MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+            FileDataSource fds = new FileDataSource(file);
+            System.out.println(fds.getFile().getAbsolutePath());
+            DataSource src = fds;
+            attachmentBodyPart.setDataHandler(new DataHandler(src));
+            attachmentBodyPart.setFileName("TTB Application Form.docx");
 
-        MimeBodyPart textBodyPart = new MimeBodyPart();
-        textBodyPart.setText(body);
+            multi.addBodyPart(textBodyPart);
+            multi.addBodyPart(attachmentBodyPart);
 
-        MimeBodyPart attachmentBodyPart = new MimeBodyPart();
-        DataSource src = new FileDataSource("output.docx");
-        attachmentBodyPart.setDataHandler(new DataHandler(src));
-        attachmentBodyPart.setFileName("TTB Application Form.docx");
-
-        multi.addBodyPart(textBodyPart);
-        multi.addBodyPart(attachmentBodyPart);
-
-        message.setContent(multi);
+            message.setContent(multi);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**

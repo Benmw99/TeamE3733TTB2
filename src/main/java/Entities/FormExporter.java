@@ -1,4 +1,5 @@
 package Entities;
+import org.apache.commons.math3.analysis.function.Add;
 import org.apache.poi.POIDocument;
 import org.apache.poi.*;
 import org.apache.*;
@@ -24,9 +25,18 @@ public class FormExporter {
             File doc2 = new File(getClass().getResource("/" + "converted.docx").toURI());
             System.out.println(doc2.toPath());
 
-
+            Address add = form.getMailingAddress();
             InputStream inputstream = new FileInputStream(doc2);
             doc = new XWPFDocument(inputstream);
+            for(XWPFParagraph p : doc.getParagraphs()){
+                for(XWPFRun r : p.getRuns()){
+                    if( form.getApproval() != null && form.getApproval().getQualifications() != null){
+                        replaceString(r, "_QUALIFICATIONS_", form.getApproval().getQualifications());
+                    } else {
+                        replaceString(r, "_QUALIFICATIONS_", "");
+                    }
+                }
+            }
             for (XWPFTable tbl : doc.getTables()) {
                 for (XWPFTableRow row : tbl.getRows()) {
                     for (XWPFTableCell cell : row.getTableCells()) {
@@ -37,7 +47,6 @@ public class FormExporter {
                                 replaceString(r, "TTB ID", "TTB ID: " + String.valueOf(form.getTtbID()));
                                 replaceString(r, "PLANT_REGISTRY", form.getBrewersPermit().get(0).getBrewersNo());
                                 //TODO _DOM_ and _IMP_
-                                Address add = form.getMailingAddress();
                                 if(add != null) {
                                     replaceString(r, "_NM", form.getMailingAddress().getName());
                                     replaceString(r, "_STREET_", form.getMailingAddress().getStreet());
@@ -50,7 +59,22 @@ public class FormExporter {
                                     replaceString(r, "_CS_", "");
                                     replaceString(r, "_ZIP_", "");
                                 }
-                                //TODO TYPE OF PRODUCE
+                                if(form.getAddress() != null && !form.getAddress().isEmpty()) {
+                                    Address a = form.getAddress().get(0);
+                                    replaceString(r, "QW", a.getName());
+                                    replaceString(r, "_MTREET_", a.getStreet());
+                                    replaceString(r, "_MS_", a.getCity() + " " + a.getState());
+                                    replaceString(r, "_MIP_", a.getZip());
+                                }
+                                else{
+                                    replaceString(r, "QW", "");
+                                    replaceString(r, "_MTREET_", "");
+                                    replaceString(r, "_MS_", "");
+                                    replaceString(r, "_MIP_", "");
+                                }
+                                    replaceString(r, "C_T", " ");
+                                    replaceString(r, "O_R", " ");
+
                                 replaceString(r, "SERIAL_1", form.getSerialNumber().substring(0,1));
                                 replaceString(r, "SERIAL_2", form.getSerialNumber().substring(1,2));
                                 replaceString(r, "SERIAL_3", form.getSerialNumber().substring(2,3));
@@ -73,10 +97,12 @@ public class FormExporter {
 
                                 if(form.getDateSubmitted() != null){
                                     replaceString(r, "_DATEOFAPP_", form.getDateSubmitted().toString());
+                                } else {
+                                    replaceString(r, "_DATEOFAPP_", "");
                                 }
                                 replaceString(r, "_NAMEAPP_", form.getApplicantName());
                                 replaceString(r, "_DATEISS_", java.time.LocalDate.now().toString());
-                                replaceString(r, "_QUALIFIICATIONS_", form.getApproval().getQualifications());
+
 
                                 //if true, isImported
                                 if(form.getSource() == true){
