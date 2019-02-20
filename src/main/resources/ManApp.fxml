@@ -20,15 +20,14 @@
    <children>
       <Pane prefHeight="100.0" prefWidth="1360.0" style="-fx-background-color: white;">
          <children>
-            <Rectangle fill="#9ea7aa" height="100.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="1360.0" />
-            <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="100.0" prefWidth="1360.0" text="TTB Application Form" textFill="WHITE">
+            <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="78.0" prefWidth="1360.0" text="TTB Application Form" textFill="#4d4d4d">
                <font>
                   <Font name="Roboto Light" size="48.0" />
                </font>
             </Label>
-            <JFXButton fx:id="back" onAction="#goBack" prefHeight="100.0" prefWidth="100.0" text="&lt;">
+            <JFXButton fx:id="back" layoutY="-3.0" onAction="#goBack" prefHeight="83.0" prefWidth="100.0" text="&lt;">
                <font>
-                  <Font name="Apple SD Gothic Neo Heavy" size="47.0" />
+                  <Font name="Roboto Light" size="47.0" />
                </font>
             </JFXButton>
          </children>
@@ -937,7 +936,7 @@
                               <Font name="Roboto Light" size="32.0" />
                            </font>
                         </Label>
-                        <JFXButton fx:id="UploadButton" buttonType="RAISED" onAction="#uploadLabelImage" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #ff616f;" text="Upload" textFill="WHITE">
+                        <JFXButton fx:id="UploadButton" buttonType="RAISED" onAction="#uploadLabelImage" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #800020;" text="Upload" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>

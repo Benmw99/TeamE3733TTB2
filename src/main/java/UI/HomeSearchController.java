@@ -248,6 +248,8 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        //Font.loadFont(CustomFontApp.class.getResource("TRON.TTF"));
+
 
 
         SearchAlcoholType.getItems().addAll("Beers", "Wines", "Distilled Liquor");
