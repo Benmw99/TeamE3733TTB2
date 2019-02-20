@@ -33,6 +33,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.sql.Date;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -739,6 +742,8 @@ public class AppController extends PageControllerUI implements Initializable {
         brews.add(brew);
         working.setBrewersPermit(brews);
         working.setApproval(new Approval());
+        working.setDateSubmitted(Date.valueOf(LocalDate.now()));
+     //   working.setDateSubmitted(java.sql.Date.from(Instant.now()));
         man.submitForm(working);
         this.workingForm = working;
         return working.getTtbID();
