@@ -116,10 +116,15 @@
       <JFXRadioButton fx:id="fuzzy" layoutX="202.0" layoutY="474.0" text="SQL Wild Search" />
       <JFXRadioButton fx:id="levenshtein" layoutX="202.0" layoutY="506.0" text="Levenshtein Distance" />
       <JFXRadioButton fx:id="damereauLevenshtein" layoutX="202.0" layoutY="534.0" text="Damerau Levenshtein" />
-    <Text fill="#464646" layoutX="497.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB COLA Search" wrappingWidth="394.79916468329">
+    <Text fill="#464646" layoutX="410.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB                      COLA Search" wrappingWidth="662.3418466756353">
         <font>
             <Font name="Roboto Light" size="48.0" />
         </font></Text>
+      <Text fill="#464646" layoutX="497.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
+         <font>
+            <Font name="Roboto Light" size="24.0" />
+         </font>
+      </Text>
       <StackPane fx:id="MenuStackPane" alignment="CENTER_LEFT" layoutX="1097.0" layoutY="23.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <fx:include source="MenuDrawer.fxml" />
@@ -291,7 +296,7 @@
             </HBox>
          </children>
       </Pane>
-      <JFXToggleButton fx:id="helpToggleButton" layoutX="17.0" layoutY="10.0" text="Help" toggleColor="#3c3c3c" toggleLineColor="GREY" AnchorPane.rightAnchor="213.0" AnchorPane.topAnchor="4.0">
+      <JFXToggleButton fx:id="helpToggleButton" layoutX="1201.0" layoutY="55.0" text="Help" toggleColor="#3c3c3c" toggleLineColor="GREY" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="55.0">
          <font>
             <Font name="Roboto Light" size="13.0" />
          </font></JFXToggleButton>
