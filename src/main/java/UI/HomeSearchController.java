@@ -522,7 +522,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         //search radio buttons
         apacheRadioButton.setToggleGroup(searchOptions2);
         mongoRadioButton.setToggleGroup(searchOptions2);
-        fuzzy.setSelected(true);
+        apacheRadioButton.setSelected(true);
 
 
         //persist search stuff
