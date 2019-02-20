@@ -1,9 +1,6 @@
 package UI;
 
-import Entities.Agent;
-import Entities.ApprovalStatus;
-import Entities.Form;
-import Entities.Mailer;
+import Entities.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -305,8 +302,14 @@ public class AgentHomeController extends PageControllerUI implements Initializab
      */
     @FXML
     public void print(ActionEvent event) throws IOException {
-        if (!(attributeContainer.currentForm == null)) {
-            System.out.println("lol nah");
+        if(AttributeContainer.getInstance().currentForm != null){
+            new FormExporter(AttributeContainer.getInstance().currentForm, "S");
+            PrintButton.setText("Printed!");
+        } else {
+            Alert yikes = new Alert(Alert.AlertType.WARNING);
+            yikes.setContentText("Please select a form!");
+            yikes.setHeaderText("Invalid Form Selection");
+            yikes.show();
         }
     }
 
