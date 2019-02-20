@@ -12,15 +12,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="586.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.FormDisplayController">
+<AnchorPane prefHeight="586.0" prefWidth="1006.0" style="-fx-background-color: white;" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.FormDisplayController">
     <children>
-        <Pane prefHeight="759.0" prefWidth="1006.0" style="-fx-background-color: WHITE;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Pane prefHeight="759.0" prefWidth="1006.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Pane prefWidth="1006.0" style="-fx-background-color: white;">
                     <children>
-                        <JFXTabPane fx:id="sectionPane" prefHeight="586.0" prefWidth="1006.0" stylesheets="@TabPane.css">
+                        <JFXTabPane fx:id="tabPane" onMouseClicked="#displayStatus" prefHeight="586.0" prefWidth="1006.0" stylesheets="@TabPane.css">
                             <tabs>
-                                <Tab text="Section 1">
+                                <Tab onSelectionChanged="#page1" text="Section 1">
                                     <content>
                                         <VBox prefHeight="200.0" prefWidth="100.0">
                                             <children>
@@ -28,19 +28,19 @@
                                                     <children>
                                                         <HBox>
                                                             <children>
-                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="1">
+                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="1">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Representative ID #">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display1Label" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="25.0" />
@@ -56,17 +56,17 @@
                                                             <children>
                                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="2*" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Plant Registry/Basic Permit Brewer's #" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display2Label" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="25.0" />
@@ -82,17 +82,17 @@
                                                             <children>
                                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="3*" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Source of Product" textFill="BLACK" HBox.hgrow="ALWAYS">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display3Label" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="25.0" />
@@ -108,17 +108,17 @@
                                                             <children>
                                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="4*" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Seriel Number" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="DisplayReview4Label1" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="25.0" right="15.0" />
@@ -127,7 +127,7 @@
                                                                 <Separator orientation="VERTICAL" style="-fx-background-color: grey;" />
                                                                 <Label fx:id="Display4Label2" contentDisplay="CENTER" prefHeight="80.0" prefWidth="619.0" text="Number">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="15.0" />
@@ -143,17 +143,17 @@
                                                             <children>
                                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="5*" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Type of Product" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display5Label1" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="25.0" />
@@ -166,7 +166,7 @@
                                                                 </Separator>
                                                                 <Label fx:id="Display5Label2" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Separator orientation="VERTICAL" style="-fx-background-color: grey;">
@@ -176,7 +176,7 @@
                                                                 </Separator>
                                                                 <Label fx:id="Display5Label3" contentDisplay="CENTER" prefHeight="80.0" prefWidth="486.0" text="Number">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets />
@@ -192,17 +192,17 @@
                                                             <children>
                                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="6*" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Brand Name" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display6Label" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="25.0" />
@@ -243,7 +243,7 @@
                                         </VBox>
                                     </content>
                                 </Tab>
-                                <Tab text="Section 2">
+                                <Tab onSelectionChanged="#page2" text="Section 2">
                                     <content>
                                         <VBox prefHeight="200.0" prefWidth="100.0">
                                             <children>
@@ -253,17 +253,17 @@
                                                             <children>
                                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="7" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Fanciful Name" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display7Label" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="15.0" />
@@ -279,17 +279,17 @@
                                                             <children>
                                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="8*" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Name and Address" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display8Label" contentDisplay="CENTER" prefHeight="80.0" text="Address">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="15.0" />
@@ -305,17 +305,17 @@
                                                             <children>
                                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="9*" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Mailing Adress" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display9Label" contentDisplay="CENTER" prefHeight="80.0" text="Address">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="15.0" />
@@ -331,17 +331,17 @@
                                                             <children>
                                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="10" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Formula" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display10Label" contentDisplay="CENTER" prefHeight="80.0" text="Address">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="15.0" />
@@ -357,17 +357,17 @@
                                                             <children>
                                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="11" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Grape Varietal(s)" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display11Label" contentDisplay="CENTER" prefHeight="80.0" text="Address">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="15.0" />
@@ -383,17 +383,17 @@
                                                             <children>
                                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="12" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Wine Appellation" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display12Label" contentDisplay="CENTER" prefHeight="80.0" text="Address">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="15.0" />
@@ -434,7 +434,7 @@
                                         </VBox>
                                     </content>
                                 </Tab>
-                                <Tab text="Section 3">
+                                <Tab onSelectionChanged="#page3" text="Section 3">
                                     <content>
                                         <VBox prefHeight="200.0" prefWidth="100.0">
                                             <children>
@@ -444,17 +444,17 @@
                                                             <children>
                                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="13" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Phone Number" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display13Label" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="25.0" />
@@ -468,19 +468,19 @@
                                                     <children>
                                                         <HBox>
                                                             <children>
-                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="14" textFill="BLACK">
+                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="14" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Email Address" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display14Label" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="25.0" />
@@ -494,19 +494,19 @@
                                                     <children>
                                                         <HBox>
                                                             <children>
-                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="15" textFill="BLACK">
+                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="15" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Type of Application" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display15Label1" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="25.0" />
@@ -519,7 +519,7 @@
                                                                 </Separator>
                                                                 <Label fx:id="Display15Label2" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Separator orientation="VERTICAL" style="-fx-background-color: grey;">
@@ -529,7 +529,7 @@
                                                                 </Separator>
                                                                 <Label fx:id="Display15Label3" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                             </children>
@@ -540,19 +540,19 @@
                                                     <children>
                                                         <HBox>
                                                             <children>
-                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="16" textFill="BLACK">
+                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="16" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Additional Information" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display16Label1" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="25.0" />
@@ -565,7 +565,7 @@
                                                                 </Separator>
                                                                 <Label fx:id="Display16Label2" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                             </children>
@@ -576,19 +576,19 @@
                                                     <children>
                                                         <HBox>
                                                             <children>
-                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="17" textFill="BLACK">
+                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="17" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Date of Application" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display17Label" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="25.0" />
@@ -602,19 +602,19 @@
                                                     <children>
                                                         <HBox>
                                                             <children>
-                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="18" textFill="BLACK">
+                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="18" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Signature of Applicant" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display18Label" contentDisplay="CENTER" prefHeight="80.0" text="String">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="25.0" />
@@ -655,7 +655,7 @@
                                         </VBox>
                                     </content>
                                 </Tab>
-                                <Tab text="Section 4">
+                                <Tab onSelectionChanged="#page4" text="Section 4">
                                     <content>
                                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                                             <children>
@@ -663,14 +663,14 @@
                                                     <children>
                                                         <HBox>
                                                             <children>
-                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="19" textFill="BLACK">
+                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="19" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Label Submitted" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                             </children>
@@ -682,19 +682,19 @@
                                                     <children>
                                                         <HBox>
                                                             <children>
-                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: WHITE;" text="20" textFill="BLACK">
+                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="20" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label contentDisplay="CENTER" prefHeight="80.0" text=" Alcohol Content" textFill="BLACK">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
                                                                 <Label fx:id="Display20Label" contentDisplay="CENTER" prefHeight="80.0" text="Number">
                                                                     <font>
-                                                                        <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                                                        <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                     <HBox.margin>
                                                                         <Insets left="25.0" />
