@@ -127,7 +127,7 @@
     -fx-padding: 0 5 0 0;
 }
 .table-view .show-hide-columns-button {
-    -fx-background-color: white;
+    -fx-background-color:  #4285f4;
     -fx-border-color: -fx-box-border;
     -fx-border-insets: -1 -1 0 0;
 }
