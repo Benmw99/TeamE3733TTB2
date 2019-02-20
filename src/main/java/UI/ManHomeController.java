@@ -121,11 +121,25 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
     @FXML
     public void viewAgentComments(ActionEvent event) throws IOException {
         if(attributeContainer.currentForm.getApproval().getQualifications() != null) {
-            Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
-            agentComments.setContentText(attributeContainer.currentForm.getApproval().getQualifications());
-            agentComments.setHeaderText("Agent Comments");
-            agentComments.setTitle("Comments");
-            agentComments.show();
+            if(attributeContainer.currentForm.getApprovalStatus().toInt() == 1) {
+                Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
+                agentComments.setHeaderText("Qualifications");
+                agentComments.setTitle("Form approved with following qualifications:");
+                agentComments.setContentText(attributeContainer.currentForm.getApproval().getQualifications());
+                agentComments.show();
+            } else if(attributeContainer.currentForm.getApprovalStatus().toInt() == 2) {
+                Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
+                agentComments.setHeaderText("Corrections");
+                agentComments.setTitle("Form rejected with following corrections needed:");
+                agentComments.setContentText(attributeContainer.currentForm.getApproval().getQualifications());
+                agentComments.show();
+            } else if(attributeContainer.currentForm.getApprovalStatus().toInt() == 3) {
+                Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
+                agentComments.setHeaderText("Rejected");
+                agentComments.setTitle("Form rejected for following reasons:");
+                agentComments.setContentText(attributeContainer.currentForm.getApproval().getQualifications());
+                agentComments.show();
+            }
         } else {
             Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
             agentComments.setContentText("No current comments");
