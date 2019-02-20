@@ -1,15 +1,14 @@
 package UI;
 
 import Entities.Address;
+import Entities.ApprovalStatus;
 import Entities.Form;
-import Entities.IUser;
 import Entities.LabelImage;
 import com.jfoenix.controls.JFXTabPane;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
@@ -82,11 +81,10 @@ public class FormDisplayController extends PageControllerUI implements Initializ
     ImageView Display19Image1;
 
     @FXML
-    JFXTabPane sectionPane;
-
-    @FXML
-    TabPane tabPane;
-
+    JFXTabPane tabPane;
+//
+//    @FXML
+//    TabPane tabPane;
 
     ComboBox<String> comboBox;
 
@@ -250,18 +248,153 @@ public class FormDisplayController extends PageControllerUI implements Initializ
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if(AttributeContainer.getInstance().currentForm != null) {
+        if (AttributeContainer.getInstance().currentForm != null) {
             displayCurrentForm();
         } else {
             wipeForm();
         }
 
-        if(AttributeContainer.getInstance().currentUser.isManufacturer() == true || AttributeContainer.getInstance().currentUser.isRepresentative()){
+        if (attributeContainer.currentUser.isManufacturer() == true || AttributeContainer.getInstance().currentUser.isRepresentative()) {
             System.out.println("here");
-            sectionPane.getStylesheets().add("ManDisplay.css");
-            System.out.println(sectionPane.getStyle());
+            tabPane.getStylesheets().add("ManDisplay.css");
+            System.out.println(tabPane.getStyle());
+        }
 
+    }
+
+    /**
+     * Set parent of nested form
+     */
+    public void setComboBox(ComboBox<String> comboBox) {
+        this.comboBox = comboBox;
+    }
+
+    /**
+     * Set reject button to hide
+     */
+    public void setApproveButton(JFXButton approveButton) {
+        this.approveButton = approveButton;
+    }
+
+    /**
+     * Gets current tab of display
+     */
+    public int getTab() {
+        int tab;
+        if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 1")) {
+            tab = 1;
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 2")) {
+            tab = 2;
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 3")) {
+            tab = 3;
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 4")) {
+            tab = 4;
+        } else {
+            tab = -1;
+        }
+        return tab;
+    }
+
+    public void displayStatus() {
+        if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 1")) {
+            if(attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Complete)) {
+                comboBox.setValue("Complete");
+            } else if(attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Incomplete)) {
+                comboBox.setValue("Incomplete");
+            } else if(attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Incorrect)) {
+                comboBox.setValue("Incorrect");
+            }
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 2")) {
+            if(attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Complete)) {
+                comboBox.setValue("Complete");
+            } else if(attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Incomplete)) {
+                comboBox.setValue("Incomplete");
+            } else if(attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Incorrect)) {
+                comboBox.setValue("Incorrect");
+            }
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 3")) {
+            if(attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Complete)) {
+                comboBox.setValue("Complete");
+            } else if(attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Incomplete)) {
+                comboBox.setValue("Incomplete");
+            } else if(attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Incorrect)) {
+                comboBox.setValue("Incorrect");
+            }
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 4")) {
+            if(attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Complete)) {
+                comboBox.setValue("Complete");
+            } else if(attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Incomplete)) {
+                comboBox.setValue("Incomplete");
+            } else if(attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Incorrect)) {
+                comboBox.setValue("Incorrect");
+            }
         }
     }
-}
 
+    /**
+     * Marks page of form as complete/incomplete/incorrect
+     */
+    public void markForm() {
+        System.out.println("C-C-C-COMBO BOX " + comboBox.getValue() + "Current Tab: " + getTab());
+        if (comboBox.getValue() == null) {
+            if(getTab() == 1) {
+                attributeContainer.currentForm.getApproval().setPage1(ApprovalStatus.Incomplete);
+            } else if(getTab() == 2) {
+                attributeContainer.currentForm.getApproval().setPage2(ApprovalStatus.Incomplete);
+            } else if(getTab() == 3) {
+                attributeContainer.currentForm.getApproval().setPage3(ApprovalStatus.Incomplete);
+            } else if(getTab() == 4) {
+                attributeContainer.currentForm.getApproval().setPage4(ApprovalStatus.Incomplete);
+            }
+        } else if(comboBox.getValue().equals("Complete")){
+            if(getTab() == 1) {
+                attributeContainer.currentForm.getApproval().setPage1(ApprovalStatus.Complete);
+            } else if(getTab() == 2) {
+                attributeContainer.currentForm.getApproval().setPage2(ApprovalStatus.Complete);
+            } else if(getTab() == 3) {
+                attributeContainer.currentForm.getApproval().setPage3(ApprovalStatus.Complete);
+            } else if(getTab() == 4) {
+                attributeContainer.currentForm.getApproval().setPage4(ApprovalStatus.Complete);
+            }
+        } else if (comboBox.getValue().equals("Incomplete")) {
+            if(getTab() == 1) {
+                attributeContainer.currentForm.getApproval().setPage1(ApprovalStatus.Incomplete);
+            } else if(getTab() == 2) {
+                attributeContainer.currentForm.getApproval().setPage2(ApprovalStatus.Incomplete);
+            } else if(getTab() == 3) {
+                attributeContainer.currentForm.getApproval().setPage3(ApprovalStatus.Incomplete);
+            } else if(getTab() == 4) {
+                attributeContainer.currentForm.getApproval().setPage4(ApprovalStatus.Incomplete);
+            }
+        } else if (comboBox.getValue().equals("Incorrect")){
+            if(getTab() == 1) {
+                attributeContainer.currentForm.getApproval().setPage1(ApprovalStatus.Incorrect);
+            } else if(getTab() == 2) {
+                attributeContainer.currentForm.getApproval().setPage2(ApprovalStatus.Incorrect);
+            } else if(getTab() == 3) {
+                attributeContainer.currentForm.getApproval().setPage3(ApprovalStatus.Incorrect);
+            } else if(getTab() == 4) {
+                attributeContainer.currentForm.getApproval().setPage4(ApprovalStatus.Incorrect);
+            }
+        }
+        System.out.println("Page 1 Status:" + attributeContainer.currentForm.getApproval().getPage1() +
+                "Page 2 Status:" + attributeContainer.currentForm.getApproval().getPage2() +
+                "Page 3 Status:" + attributeContainer.currentForm.getApproval().getPage3() +
+                "Page 4 Status:" + attributeContainer.currentForm.getApproval().getPage4());
+
+        if(attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Incorrect) ||
+                attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Incomplete) ||
+                attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Incorrect) ||
+                attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Incomplete) ||
+                attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Incorrect) ||
+                attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Incomplete) ||
+                attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Incorrect) ||
+                attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Incomplete)) {
+            approveButton.setDisable(true);
+        } else {
+            approveButton.setDisable(false);
+        }
+
+    }
+
+}

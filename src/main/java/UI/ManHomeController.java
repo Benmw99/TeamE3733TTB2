@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.Pane;
 
 import javax.swing.*;
@@ -119,8 +120,33 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
      */
     @FXML
     public void viewAgentComments(ActionEvent event) throws IOException {
-
-       goToPage("ManViewAgentComments.fxml");
+        if(attributeContainer.currentForm.getApproval().getQualifications() != null) {
+            if(attributeContainer.currentForm.getApprovalStatus().toInt() == 1) {
+                Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
+                agentComments.setHeaderText("Qualifications");
+                agentComments.setTitle("Form approved with following qualifications:");
+                agentComments.setContentText(attributeContainer.currentForm.getApproval().getQualifications());
+                agentComments.show();
+            } else if(attributeContainer.currentForm.getApprovalStatus().toInt() == 2) {
+                Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
+                agentComments.setHeaderText("Corrections");
+                agentComments.setTitle("Form rejected with following corrections needed:");
+                agentComments.setContentText(attributeContainer.currentForm.getApproval().getQualifications());
+                agentComments.show();
+            } else if(attributeContainer.currentForm.getApprovalStatus().toInt() == 3) {
+                Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
+                agentComments.setHeaderText("Rejected");
+                agentComments.setTitle("Form rejected for following reasons:");
+                agentComments.setContentText(attributeContainer.currentForm.getApproval().getQualifications());
+                agentComments.show();
+            }
+        } else {
+            Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
+            agentComments.setContentText("No current comments");
+            agentComments.setHeaderText("Agent Comments");
+            agentComments.setTitle("Comments");
+            agentComments.show();
+        }
     }
 
     /**

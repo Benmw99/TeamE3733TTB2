@@ -124,11 +124,39 @@ public class MongoFunc {
         return results;
     }
 
+    public Form formMongoToForm(FormMongo fm) {
+        Form newForm = new Form();
+        newForm.setRepID(fm.getRepID());
+        newForm.brewersPermit.add(new BrewersPermit(fm.getBrewersPermit(), true));
+        boolean source;
+        try {
+            if (fm.getSource().equals("Domestic")) {
+                source = true;
+            } else {
+                source = false;
+            }
+        } catch (Exception e) {
+
+        }
+        //newForm.setSource(source);
+        newForm.setSerialNumber(fm.getSerialNumber());
+        AlcoholType alcoholType;
+        if (fm.getAlcoholType().equals("Wine")) {
+
+        }
+
+        return newForm;
+    }
+
     public List<Form> searchMongo(AdvancedSearch as) {
         List<FormMongo> info = getAllMongo();
         List<Form> results = new ArrayList<>();
         if (as.source != null) {
-
+            for(FormMongo fm : info) {
+                if (fm.getSource().equals(as.source)) {
+                    results.add(formMongoToForm(fm));
+                }
+            }
         }
         if (as.serialNumber != null) {
 
