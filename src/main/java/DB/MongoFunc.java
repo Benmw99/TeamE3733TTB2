@@ -76,8 +76,8 @@ public class MongoFunc {
         System.out.println("Done inserting all forms to mongo");
     }
 
-    public List<FormMongo> getAllMongo() {
-        List<FormMongo> results = new ArrayList<>();
+    public List<Form> getAllMongo() {
+        List<Form> results = new ArrayList<>();
         MongoCollection<Document> collection = database.getCollection("TTBForms");
         List<Document> docs = new ArrayList<>();
 
@@ -119,7 +119,7 @@ public class MongoFunc {
             form.setGrapes((String) docs.get(i).get("grapes"));
             form.setQualifications((String) docs.get(i).get("qual"));
 
-            results.add(form);
+            results.add(formMongoToForm(form));
         }
         return results;
     }
@@ -160,70 +160,68 @@ public class MongoFunc {
     }
 
     public List<Form> searchMongo(AdvancedSearch as) {
-        List<FormMongo> info = getAllMongo();
+        List<Form> info = getAllMongo();
         List<Form> results = new ArrayList<>();
         if (as.source != null) {
-            for(FormMongo fm : info) {
+            for(Form fm : info) {
                 if (as.source) {
-                    if (fm.getSource().equals("Imported")) {
-                        results.add(formMongoToForm(fm));
+                    if (fm.getSource()) {
+                        results.add(fm);
+                    } else {
+                        results.add(fm);
                     }
-                } else {
-                    if (fm.getSource().equals("Domestric")) {
-                        results.add(formMongoToForm(fm));
-                    }
-                }
                 info.remove(fm);
                 System.gc();
             }
         }
+        }
         else if (as.serialNumber != null) {
-            for(FormMongo fm : info) {
+            for(Form fm : info) {
                 if (fm.getSerialNumber().equals(as.getSerialNumber())) {
-                    results.add(formMongoToForm(fm));
+                    results.add(fm);
                 }
                 info.remove(fm);
                 System.gc();
             }
         }
         else if (as.alcoholType != null) {
-            for(FormMongo fm : info) {
+            for(Form fm : info) {
                 if (fm.getAlcoholType().equals(as.getAlcoholType().toString())) {
-                    results.add(formMongoToForm(fm));
+                    results.add(fm);
                 }
                 info.remove(fm);
                 System.gc();
             }
         }
         else if (as.brandName != null) {
-            for(FormMongo fm : info) {
+            for(Form fm : info) {
                 if (fm.getBrandName().equals(as.getBrandName())) {
-                    results.add(formMongoToForm(fm));
+                    results.add(fm);
                 }
                 info.remove(fm);
                 System.gc();
             }
         }
         else if (as.fancifulName != null) {
-            for(FormMongo fm : info) {
+            for(Form fm : info) {
                 if (fm.getFancifulName().equals(as.getFancifulName())) {
-                    results.add(formMongoToForm(fm));
+                    results.add(fm);
                 }
                 info.remove(fm);
                 System.gc();
             }
         }
         else if (as.ttbID > 0) {
-            for(FormMongo fm : info) {
-                if (fm.getTtbID().equals("" + as.getTtbID())) {
-                    results.add(formMongoToForm(fm));
+            for(Form fm : info) {
+                if (fm.getTtbID() == as.getTtbID()) {
+                    results.add(fm);
                 }
                 info.remove(fm);
                 System.gc();
             }
         } else {
-            for(FormMongo fm : info) {
-                results.add(formMongoToForm(fm));
+            for(Form fm : info) {
+                results.add(fm);
                 info.remove(fm);
                 System.gc();
             }
