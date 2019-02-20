@@ -239,6 +239,15 @@ public class FormDisplayController extends PageControllerUI implements Initializ
         } else {
             wipeForm();
         }
+
+       /*This is where color switching should go
+
+        if (){
+
+        }
+
+        */
+
     }
 
     /**

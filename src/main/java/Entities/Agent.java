@@ -216,7 +216,7 @@ public class Agent implements IUser{
         long milli = System.currentTimeMillis();
         Date approved = new Date(milli);
         DB.Database db = DB.Database.getDatabase();
-        form.setApproval(new Approval());
+        //form.setApproval(new Approval());
         Approval app = form.getApproval();
         app.setAgentApprovalName(this.getName());
         app.setDateApproved(approved);
@@ -235,7 +235,7 @@ public class Agent implements IUser{
 
     public void rejectForm(Form form, String qualifications) {
         DB.Database db = DB.Database.getDatabase();
-        form.setApproval(new Approval());
+        //form.setApproval(new Approval());
         Approval app = form.getApproval();
         app.setAgentApprovalName(this.getName());
         app.setQualifications(qualifications);

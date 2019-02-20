@@ -25,8 +25,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -48,6 +50,9 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     private Entities.SearchResult results;
 
     List<PageObserver> pageObservers = new ArrayList<PageObserver>();
+
+    @FXML
+    AnchorPane MasterPane;
 
     //CivilSearch
     @FXML
@@ -248,6 +253,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Font.loadFont("Roboto-Thin.ttf", 12);
         SearchAlcoholType.getItems().addAll("Beers", "Wines", "Distilled Liquor");
         UsernameStackPane.setOpacity(0);
         UsernameStackPane.setPickOnBounds(false);
@@ -453,6 +459,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             Scene scene = new Scene(root, 1360, 820);
             stage.setScene(scene);
             stage.show();
+
         }
     }
 

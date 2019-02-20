@@ -1,13 +1,9 @@
 package DB;
 
-import Entities.Form;
-import Entities.FormMongo;
+import Entities.*;
 import com.mongodb.*;
+import com.mongodb.client.*;
 import com.mongodb.client.MongoClient;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import com.opencsv.CSVReader;
 import org.bson.Document;
 
@@ -87,7 +83,6 @@ public class MongoFunc {
 
         // Getting the iterable object
         FindIterable<Document> iterDoc = collection.find();
-        int i = 1;
 
         // Getting the iterator
         Iterator it = iterDoc.iterator();
@@ -95,7 +90,89 @@ public class MongoFunc {
         while (it.hasNext()) {
             docs.add((Document)it.next());
         }
+        ((MongoCursor) it).close();
         System.out.println(docs.size());
+        for (int i = 0; i < docs.size(); i++) {
+            FormMongo form = new FormMongo();
+            form.setTtbID((String) docs.get(i).get("ttbID"));
+            form.setRepID((String) docs.get(i).get("repID"));
+            form.setBrewersPermit((String) docs.get(i).get("permit"));
+            form.setSource((String) docs.get(i).get("source"));
+            form.setSerialNumber((String) docs.get(i).get("serial"));
+            form.setAlcoholType((String) docs.get(i).get("alcoholType"));
+            form.setBrandName((String) docs.get(i).get("brandName"));
+            form.setFancifulName((String) docs.get(i).get("fancifulName"));
+            form.setAddressCity((String) docs.get(i).get("City"));
+            form.setAddressState((String) docs.get(i).get("State"));
+            form.setAddressZip((String) docs.get(i).get("Zip"));
+            form.setAddressStreet((String) docs.get(i).get("Street"));
+            form.setAddressName((String) docs.get(i).get("Name"));
+            form.setOtherInfo((String) docs.get(i).get("otherInfo"));
+            form.setDateSubmitted((String) docs.get(i).get("Submitted"));
+            form.setDateApproved((String) docs.get(i).get("Approved"));
+            form.setDateExpired((String) docs.get(i).get("Expired"));
+            form.setAlcoholContent((String) docs.get(i).get("alcoholContent"));
+            form.setClassType((String) docs.get(i).get("classType"));
+            form.setOrigin((String) docs.get(i).get("origin"));
+            form.setVintage((String) docs.get(i).get("vintage"));
+            form.setAppellation((String) docs.get(i).get("appellation"));
+            form.setGrapes((String) docs.get(i).get("grapes"));
+            form.setQualifications((String) docs.get(i).get("qual"));
+
+            results.add(form);
+        }
+        return results;
+    }
+
+    public Form formMongoToForm(FormMongo fm) {
+        Form newForm = new Form();
+        newForm.setRepID(fm.getRepID());
+        newForm.brewersPermit.add(new BrewersPermit(fm.getBrewersPermit(), true));
+        boolean source;
+        try {
+            if (fm.getSource().equals("Domestic")) {
+                source = true;
+            } else {
+                source = false;
+            }
+        } catch (Exception e) {
+
+        }
+        //newForm.setSource(source);
+        newForm.setSerialNumber(fm.getSerialNumber());
+        AlcoholType alcoholType;
+        if (fm.getAlcoholType().equals("Wine")) {
+
+        }
+
+        return newForm;
+    }
+
+    public List<Form> searchMongo(AdvancedSearch as) {
+        List<FormMongo> info = getAllMongo();
+        List<Form> results = new ArrayList<>();
+        if (as.source != null) {
+            for(FormMongo fm : info) {
+                if (fm.getSource().equals(as.source)) {
+                    results.add(formMongoToForm(fm));
+                }
+            }
+        }
+        if (as.serialNumber != null) {
+
+        }
+        if (as.alcoholType != null) {
+
+        }
+        if (as.brandName != null) {
+
+        }
+        if (as.fancifulName != null) {
+
+        }
+        if (as.ttbID > 0) {
+
+        }
         return results;
     }
 
@@ -232,28 +309,28 @@ public class MongoFunc {
                 //insertFormMongo(form);
                 Document document = new Document("ttbID", form.getTtbID())
                         .append("repID", form.getRepID())
-                        .append("brewersPermit", form.getBrewersPermit())
+                        .append("permit", form.getBrewersPermit())
                         .append("source", form.getSource())
-                        .append("serialNumber", form.getSerialNumber())
+                        .append("serial", form.getSerialNumber())
                         .append("alcoholType", form.getAlcoholType())
                         .append("brandName", form.getBrandName())
                         .append("fancifulName", form.getFancifulName())
-                        .append("addressCity", form.getAddressCity())
-                        .append("addressState", form.getAddressState())
-                        .append("addressZip", form.getAddressZip())
-                        .append("addressStreet", form.getAddressStreet())
-                        .append("addressName", form.getAddressName())
+                        .append("City", form.getAddressCity())
+                        .append("State", form.getAddressState())
+                        .append("Zip", form.getAddressZip())
+                        .append("Street", form.getAddressStreet())
+                        .append("Name", form.getAddressName())
                         .append("otherInfo", form.getOtherInfo())
-                        .append("dateSubmitted", form.getDateSubmitted())
-                        .append("dateApproved", form.getDateApproved())
-                        .append("dateExpired", form.getDateExpired())
+                        .append("Submitted", form.getDateSubmitted())
+                        .append("Approved", form.getDateApproved())
+                        .append("Expired", form.getDateExpired())
                         .append("alcoholContent", form.getAlcoholContent())
                         .append("classType", form.getClassType())
                         .append("origin", form.getOrigin())
                         .append("vintage", form.getVintage())
                         .append("appellation", form.getAppellation())
                         .append("grapes", form.getGrapes())
-                        .append("qualifications", form.getQualifications());
+                        .append("qual", form.getQualifications());
                 docs.add(document);
             }
         } catch (Exception e) {
@@ -387,28 +464,28 @@ public class MongoFunc {
                 //insertFormMongo(form);
                 Document document = new Document("ttbID", form.getTtbID())
                         .append("repID", form.getRepID())
-                        .append("brewersPermit", form.getBrewersPermit())
+                        .append("permit", form.getBrewersPermit())
                         .append("source", form.getSource())
-                        .append("serialNumber", form.getSerialNumber())
+                        .append("serial", form.getSerialNumber())
                         .append("alcoholType", form.getAlcoholType())
                         .append("brandName", form.getBrandName())
                         .append("fancifulName", form.getFancifulName())
-                        .append("addressCity", form.getAddressCity())
-                        .append("addressState", form.getAddressState())
-                        .append("addressZip", form.getAddressZip())
-                        .append("addressStreet", form.getAddressStreet())
-                        .append("addressName", form.getAddressName())
+                        .append("City", form.getAddressCity())
+                        .append("State", form.getAddressState())
+                        .append("Zip", form.getAddressZip())
+                        .append("Street", form.getAddressStreet())
+                        .append("Name", form.getAddressName())
                         .append("otherInfo", form.getOtherInfo())
-                        .append("dateSubmitted", form.getDateSubmitted())
-                        .append("dateApproved", form.getDateApproved())
-                        .append("dateExpired", form.getDateExpired())
+                        .append("Submitted", form.getDateSubmitted())
+                        .append("Approved", form.getDateApproved())
+                        .append("Expired", form.getDateExpired())
                         .append("alcoholContent", form.getAlcoholContent())
                         .append("classType", form.getClassType())
                         .append("origin", form.getOrigin())
                         .append("vintage", form.getVintage())
                         .append("appellation", form.getAppellation())
                         .append("grapes", form.getGrapes())
-                        .append("qualifications", form.getQualifications());
+                        .append("qual", form.getQualifications());
                 docs.add(document);
             }
         } catch (Exception e) {
@@ -542,28 +619,28 @@ public class MongoFunc {
                 //insertFormMongo(form);
                 Document document = new Document("ttbID", form.getTtbID())
                         .append("repID", form.getRepID())
-                        .append("brewersPermit", form.getBrewersPermit())
+                        .append("permit", form.getBrewersPermit())
                         .append("source", form.getSource())
-                        .append("serialNumber", form.getSerialNumber())
+                        .append("serial", form.getSerialNumber())
                         .append("alcoholType", form.getAlcoholType())
                         .append("brandName", form.getBrandName())
                         .append("fancifulName", form.getFancifulName())
-                        .append("addressCity", form.getAddressCity())
-                        .append("addressState", form.getAddressState())
-                        .append("addressZip", form.getAddressZip())
-                        .append("addressStreet", form.getAddressStreet())
-                        .append("addressName", form.getAddressName())
+                        .append("City", form.getAddressCity())
+                        .append("State", form.getAddressState())
+                        .append("Zip", form.getAddressZip())
+                        .append("Street", form.getAddressStreet())
+                        .append("Name", form.getAddressName())
                         .append("otherInfo", form.getOtherInfo())
-                        .append("dateSubmitted", form.getDateSubmitted())
-                        .append("dateApproved", form.getDateApproved())
-                        .append("dateExpired", form.getDateExpired())
+                        .append("Submitted", form.getDateSubmitted())
+                        .append("Approved", form.getDateApproved())
+                        .append("Expired", form.getDateExpired())
                         .append("alcoholContent", form.getAlcoholContent())
                         .append("classType", form.getClassType())
                         .append("origin", form.getOrigin())
                         .append("vintage", form.getVintage())
                         .append("appellation", form.getAppellation())
                         .append("grapes", form.getGrapes())
-                        .append("qualifications", form.getQualifications());
+                        .append("qual", form.getQualifications());
                 docs.add(document);
             }
         } catch (Exception e) {
