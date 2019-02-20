@@ -14,8 +14,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.RadialGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -30,42 +28,18 @@
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </Text>
-      <JFXComboBox fx:id="sectionMarkComboBox" layoutX="203.0" layoutY="79.0" prefHeight="39.0" prefWidth="253.0" style="-jfx-focus-color: WHITE;" />
-      <JFXButton fx:id="approveAVFButton" buttonType="RAISED" layoutX="538.0" layoutY="86.0" onAction="#approveForm" prefHeight="39.0" prefWidth="132.0" style="-fx-background-color: #4285F4;" text="Approve Form" textFill="WHITE">
-         <ripplerFill>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </ripplerFill>
+      <JFXComboBox fx:id="sectionMarkComboBox" layoutX="203.0" layoutY="86.0" prefHeight="39.0" prefWidth="253.0" promptText="Select Status" style="-jfx-focus-color: WHITE;" />
+      <JFXButton fx:id="approveAVFButton" buttonType="RAISED" layoutX="538.0" layoutY="86.0" onAction="#approveForm" prefHeight="39.0" prefWidth="132.0" ripplerFill="#9d9797" style="-fx-background-color: #4285F4;" text="Approve Form" textFill="WHITE">
          <font>
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="rejectAVFButton" buttonType="RAISED" layoutX="694.0" layoutY="86.0" onAction="#rejectForm" prefHeight="39.0" prefWidth="132.0" style="-fx-background-color: #4285F4;" text="Reject Form" textFill="WHITE">
-         <ripplerFill>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </ripplerFill>
+      <JFXButton fx:id="rejectAVFButton" buttonType="RAISED" layoutX="694.0" layoutY="86.0" onAction="#rejectForm" prefHeight="39.0" prefWidth="132.0" ripplerFill="#9d9797" style="-fx-background-color: #4285F4;" text="Reject Form" textFill="WHITE">
          <font>
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="printAVFButton" buttonType="RAISED" layoutX="1284.0" layoutY="88.0" prefHeight="31.0" prefWidth="76.0" style="-fx-background-color: #4285F4;" text="Print" textFill="WHITE">
-         <ripplerFill>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </ripplerFill>
+      <JFXButton fx:id="printAVFButton" buttonType="RAISED" layoutX="1284.0" layoutY="88.0" prefHeight="31.0" prefWidth="76.0" ripplerFill="#9d9797" style="-fx-background-color: #4285F4;" text="Print" textFill="WHITE">
          <font>
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
