@@ -254,7 +254,7 @@ public class FormDisplayController extends PageControllerUI implements Initializ
             wipeForm();
         }
 
-        if (attributeContainer.currentUser.isManufacturer() == true || AttributeContainer.getInstance().currentUser.isRepresentative()) {
+        if (attributeContainer.currentUser != null && (attributeContainer.currentUser.isManufacturer() == true || AttributeContainer.getInstance().currentUser.isRepresentative())) {
             System.out.println("here");
             tabPane.getStylesheets().add("ManDisplay.css");
             System.out.println(tabPane.getStyle());

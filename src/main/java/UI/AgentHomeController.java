@@ -1,6 +1,7 @@
 package UI;
 
 import Entities.Agent;
+import Entities.ApprovalStatus;
 import Entities.Form;
 import Entities.Mailer;
 import javafx.event.ActionEvent;
@@ -234,7 +235,11 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     public void approveForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
-            //TODO: get qualifications from text field
+            //TODO: mail
+            AttributeContainer.getInstance().currentForm.getApproval().setPage1(ApprovalStatus.Complete);
+            AttributeContainer.getInstance().currentForm.getApproval().setPage2(ApprovalStatus.Complete);
+            AttributeContainer.getInstance().currentForm.getApproval().setPage3(ApprovalStatus.Complete);
+            AttributeContainer.getInstance().currentForm.getApproval().setPage4(ApprovalStatus.Complete);
             ((Agent)AttributeContainer.getInstance().currentUser).approveForm(AttributeContainer.getInstance().currentForm, "");
             attributeContainer.currentForm = null;
             attributeContainer.formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
@@ -257,6 +262,11 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     public void rejectForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
+            //TODO: mail
+            AttributeContainer.getInstance().currentForm.getApproval().setPage1(ApprovalStatus.Incorrect);
+            AttributeContainer.getInstance().currentForm.getApproval().setPage2(ApprovalStatus.Incorrect);
+            AttributeContainer.getInstance().currentForm.getApproval().setPage3(ApprovalStatus.Incorrect);
+            AttributeContainer.getInstance().currentForm.getApproval().setPage4(ApprovalStatus.Incorrect);
             ((Agent)AttributeContainer.getInstance().currentUser).rejectForm(AttributeContainer.getInstance().currentForm, "");
              attributeContainer.currentForm = null;
             attributeContainer.formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
