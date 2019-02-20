@@ -410,7 +410,8 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             }
         } else {
             Database db = Database.getDatabase();
-            forms = db.mongoFunc.searchMongo(advancedSearch);
+            forms = Search.SearchWild(advancedSearch);
+            //forms = db.mongoFunc.searchMongo(advancedSearch);
         }
         SearchContainer.getInstance().searchResult = new SearchResult();
         SearchContainer.getInstance().searchResult.setResults(forms);

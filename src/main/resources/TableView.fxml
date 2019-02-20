@@ -4,9 +4,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="5000.0" maxWidth="5000.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="248.0" stylesheets="@TableViewer.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.TableViewController">
+<VBox maxHeight="5000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.TableViewController">
    <children>
-      <TableView fx:id="table" maxHeight="1.7976931348623157E308" prefHeight="395.0" prefWidth="248.0" stylesheets="@TableViewer.css" VBox.vgrow="ALWAYS">
+      <TableView fx:id="table" maxHeight="5000.0" stylesheets="@/TableViewer.css" VBox.vgrow="ALWAYS">
          <columns>
             <TableColumn fx:id="colttb" editable="false" minWidth="-1.0" prefWidth="-1.0" sortable="false" text="TTB ID#" />
             <TableColumn fx:id="colsub" editable="false" minWidth="-1.0" prefWidth="-1.0" sortable="false" text="Date Submitted" />

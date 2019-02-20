@@ -7,6 +7,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManSingleAppPageController">
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManSingleAppPageController">
    <children>
       <Rectangle fill="#9a9c9e" height="83.0" layoutX="-1.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1360.0" AnchorPane.bottomAnchor="677.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Label layoutX="615.0" layoutY="24.0" text="Application" textFill="WHITE">
@@ -164,13 +165,9 @@
                               <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
                            </VBox.margin>
                         </JFXTextField>
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="677.0" prefWidth="340.0">
-                     <children>
                         <JFXTextField fx:id="AdditionalInfoField" focusColor="#405aa800" prefHeight="27.0" prefWidth="99.0" text="16. Additional Info">
                            <VBox.margin>
-                              <Insets bottom="10.0" left="30.0" right="30.0" top="75.0" />
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
                            </VBox.margin>
                         </JFXTextField>
                         <JFXTextField fx:id="TranslationField" focusColor="#405aa800" prefHeight="27.0" prefWidth="111.0" text="Translation of Additional Info">
@@ -183,9 +180,18 @@
                               <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
                            </VBox.margin>
                         </JFXDatePicker>
-                        <JFXTextField fx:id="SignatureField" focusColor="#405aa800" text="18. Signature of Applicant">
+                        <JFXTextField fx:id="AlcoholContentTextField" focusColor="#405aa800" text="20. Alcohol Content">
                            <VBox.margin>
                               <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="677.0" prefWidth="340.0">
+                     <children>
+                        <JFXTextField fx:id="SignatureField" focusColor="#405aa800" text="18. Signature of Applicant">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="75.0" />
                            </VBox.margin>
                         </JFXTextField>
                         <JFXButton fx:id="UploadButton" buttonType="RAISED" onAction="#uploadLabelImage" ripplerFill="#9d9797" style="-fx-background-color: #ff616f;" text="19. Submit Label">
@@ -193,14 +199,14 @@
                               <Insets bottom="10.0" left="110.0" right="10.0" top="10.0" />
                            </VBox.margin>
                         </JFXButton>
-                        <JFXTextField fx:id="AlcoholContentTextField" focusColor="#405aa800" text="20. Alcohol Content">
+                        <ImageView fx:id="labelImageDisplay" fitHeight="360.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <VBox.margin>
-                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                              <Insets bottom="10.0" left="65.0" top="10.0" />
                            </VBox.margin>
-                        </JFXTextField>
+                        </ImageView>
                         <JFXButton fx:id="SendApp" buttonType="RAISED" ripplerFill="#9d9797" style="-fx-background-color: #800020;" text="Submit Application" textFill="WHITE">
                            <VBox.margin>
-                              <Insets bottom="10.0" left="50.0" right="10.0" top="240.0" />
+                              <Insets bottom="10.0" left="50.0" right="10.0" top="10.0" />
                            </VBox.margin>
                            <font>
                               <Font size="24.0" />

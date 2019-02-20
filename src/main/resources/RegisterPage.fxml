@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -106,6 +105,6 @@
                 </JFXButton>
             </children>
         </VBox>
-        <JFXHamburger layoutX="51.0" layoutY="33.0" />
+      <fx:include source="MenuDrawer.fxml" />
     </children>
 </AnchorPane>

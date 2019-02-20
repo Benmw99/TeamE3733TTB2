@@ -246,6 +246,9 @@ public class AppController extends PageControllerUI implements Initializable {
     @FXML
     private JFXButton TypeAppInfo;
 
+    @FXML
+    private JFXButton SubmitButton;
+
     private Form workingForm;
 
     @Override
@@ -546,7 +549,7 @@ public class AppController extends PageControllerUI implements Initializable {
         }
 
         if (errorInForm) {
-            //
+
         }
 
 
