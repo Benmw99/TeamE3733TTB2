@@ -7,7 +7,6 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -15,6 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.BreadCrumbBar?>
 
 <AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AppController">
    <children>
@@ -33,40 +33,7 @@
             </JFXButton>
          </children>
       </Pane>
-      <VBox prefHeight="660.0" prefWidth="60.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-         <children>
-            <JFXButton fx:id="page1" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #800020;" text="1" textAlignment="JUSTIFY" textFill="WHITE">
-               <font>
-                  <Font name="Helvetica Neue" size="26.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="1.5" />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton fx:id="page2" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #800020;" text="2" textFill="WHITE">
-               <font>
-                  <Font name="Helvetica Neue" size="26.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="1.5" />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton fx:id="page3" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #800020;" text="3" textFill="WHITE">
-               <font>
-                  <Font name="Helvetica Neue" size="26.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="1.5" />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton fx:id="page4" buttonType="RAISED" onAction="#handlePage" prefHeight="165.0" prefWidth="60.0" ripplerFill="#b3aabc" style="-fx-background-color: #800020;" text="4" textFill="WHITE">
-               <font>
-                  <Font name="Helvetica Neue" size="26.0" />
-               </font>
-            </JFXButton>
-         </children>
-      </VBox>
-      <Pane fx:id="pane1" prefHeight="660.0" prefWidth="1300.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <Pane fx:id="pane1" prefHeight="660.0" prefWidth="1360.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
             <VBox prefHeight="660.0" prefWidth="200.0">
                <children>
@@ -174,14 +141,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="RepInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -202,14 +166,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="ProducerInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -227,14 +188,11 @@
                               <Insets left="20.0" />
                            </HBox.margin>
                         </JFXComboBox>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="SourceInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -263,14 +221,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="SerialInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -304,14 +259,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </ImageView>
+                        <JFXButton fx:id="TypeInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE" />
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -332,14 +280,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="BrandInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -349,7 +294,7 @@
             </VBox>
          </children>
       </Pane>
-      <Pane fx:id="pane2" prefHeight="660.0" prefWidth="1300.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <Pane fx:id="pane2" prefHeight="660.0" prefWidth="1360.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
             <VBox prefHeight="660.0" prefWidth="200.0">
                <children>
@@ -457,14 +402,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="FancyInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -514,14 +456,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="AddressInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -580,14 +519,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="MailingInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -608,14 +544,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="FormulaInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -636,14 +569,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </ImageView>
+                        <JFXButton fx:id="WineGrapeInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE" />
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -664,14 +590,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="WineAppelationInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets left="150.0" />
@@ -681,7 +604,7 @@
             </VBox>
          </children>
       </Pane>
-      <Pane fx:id="pane3" prefHeight="660.0" prefWidth="1300.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <Pane fx:id="pane3" prefHeight="660.0" prefWidth="1360.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="660.0">
                <children>
@@ -747,14 +670,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="PhoneInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets bottom="15.0" left="150.0" top="15.0" />
@@ -775,14 +695,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="EmailInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets bottom="15.0" left="150.0" top="15.0" />
@@ -864,14 +781,11 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="TypeAppInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
-                              <Insets left="15.0" top="80.0" />
+                              <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets bottom="30.0" left="150.0" top="30.0" />
@@ -900,14 +814,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="AdditionalInfoInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets bottom="15.0" left="150.0" top="15.0" />
@@ -925,14 +836,11 @@
                               <Insets left="20.0" />
                            </HBox.margin>
                         </JFXDatePicker>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="DateInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets bottom="15.0" left="150.0" top="15.0" />
@@ -942,7 +850,7 @@
             </VBox>
          </children>
       </Pane>
-      <Pane fx:id="pane4" prefHeight="660.0" prefWidth="1300.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <Pane fx:id="pane4" prefHeight="660.0" prefWidth="1360.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="660.0" prefWidth="1300.0">
                <children>
@@ -1012,14 +920,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="SignatureInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
-                              <Insets left="15.0" />
+                              <Insets left="15.0" top="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets bottom="15.0" left="150.0" top="15.0" />
@@ -1040,14 +945,12 @@
                               <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                            </font>
                         </JFXButton>
-                        <ImageView fx:id="labelImageDisplay" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="LabelSubmitInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
-                              <Insets left="15.0" />
+                              <Insets left="15.0" right="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
+                        <ImageView fx:id="labelImageDisplay" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="15.0" left="150.0" top="15.0" />
@@ -1068,14 +971,11 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/tool-tip.png" />
-                           </image>
+                        <JFXButton fx:id="AlcoholPercentInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </JFXButton>
                      </children>
                      <VBox.margin>
                         <Insets bottom="15.0" left="150.0" top="15.0" />
@@ -1085,5 +985,6 @@
             </VBox>
          </children>
       </Pane>
+      <BreadCrumbBar fx:id="Nav" prefHeight="100.0" prefWidth="100.0" AnchorPane.leftAnchor="1000.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>

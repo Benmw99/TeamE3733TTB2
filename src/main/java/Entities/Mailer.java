@@ -46,10 +46,11 @@ public class Mailer implements Runnable {
      * @param to_inform
      * @param message
      */
-    public Mailer(Agent to_inform, String message){
+    public Mailer(Agent to_inform, String message, Form form){
         to_send_to = to_inform;
         this.message = message;
         isAgent = true;
+        this.to_inform = form;
     }
 
     /**
@@ -86,7 +87,7 @@ public class Mailer implements Runnable {
             body += "Your form's current status is " + to_inform.getApprovalStatus().toString();
 
             new FormExporter(to_inform);
-            mailHelper(message, body);
+            mailHelper(message, body, to_inform);
 
             message.setSubject("RE: TTB APP UPDATE");
             Transport transport = session.getTransport("smtp");
@@ -100,12 +101,13 @@ public class Mailer implements Runnable {
 
     }
 
-    private void mailHelper(MimeMessage message, String body) throws MessagingException {
+    private void mailHelper(MimeMessage message, String body, Form form) throws MessagingException {
         body += "\n Sincerely yours,";
         body += "The Ebony Elves' TTB Application";
 
         Multipart multi = new MimeMultipart();
         try {
+            new FormExporter(form);
             File file = new File(getClass().getResource("/" + "output.docx").toURI());
             MimeBodyPart textBodyPart = new MimeBodyPart();
             textBodyPart.setText(body);
@@ -130,7 +132,7 @@ public class Mailer implements Runnable {
      * @param to_inform the agent to be emailed
      * @param msg the message to send
      */
-    public void sendAgentMail(Agent to_inform, String msg) {
+    public void sendAgentMail(Agent to_inform, String msg, Form form) {
         String host = "smtp.gmail.com";
         String from = "TTBTEAME@gmail.com";
         String pass = "michaelclements";
@@ -159,7 +161,7 @@ public class Mailer implements Runnable {
             body += "You have been assigned a new form. Please log in and check your TTB Form Queue.\n";
             body += "The sending agent has specified the following message: \n";
             body += msg + "\n";
-            mailHelper(message, body);
+            mailHelper(message, body, form);
 
             message.setSubject("RE: TTB QUEUE UPDATE");
             Transport transport = session.getTransport("smtp");
@@ -175,7 +177,7 @@ public class Mailer implements Runnable {
     @Override
     public void run() {
         if(this.isAgent){
-            sendAgentMail(this.to_send_to, message);
+            sendAgentMail(this.to_send_to, message, to_inform);
         } else {
             sendMail(this.to_inform);
         }

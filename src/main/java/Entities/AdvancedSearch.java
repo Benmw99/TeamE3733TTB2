@@ -17,9 +17,9 @@ public class AdvancedSearch {
     public float pH;
     public String grapeVarietal;
     public String appellation;
-
+    //used for all liquor types
     public ApprovalStatus approvalStatus;
-
+//fields you can search by
     public AdvancedSearch() {
         this.source = null;
         this.serialNumber = null;
@@ -34,7 +34,7 @@ public class AdvancedSearch {
         this.appellation = null;
         this.approvalStatus = ApprovalStatus.Complete;
     }
-
+//getters and setters
     public Boolean getSource() {
         return source;
     }
@@ -123,6 +123,11 @@ public class AdvancedSearch {
         this.numResults = numResults;
     }
 
+    /**
+     * compare advanced search, check if they repeat or if they're equal
+     * @param aSearch
+     * @return
+     */
     boolean equals(AdvancedSearch aSearch){
         return(
             this.serialNumber.equals(aSearch.serialNumber) &&

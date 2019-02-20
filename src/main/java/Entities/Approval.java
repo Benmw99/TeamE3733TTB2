@@ -31,10 +31,16 @@ public class Approval implements Serializable {
     private String agentApprovalName;
 
     @Column(name = "Expiration", columnDefinition = "DATE")
-    private transient Date expDate;
+    private Date expDate;
 
     @Column(name = "Qualification")
     private String qualifications;
+
+    @Column(name = "CT")
+    private String CT;
+
+    @Column(name = "Origin")
+    private String origin;
 
     @OneToOne()
     @JoinColumn(name = "TTB_ID")
@@ -54,6 +60,8 @@ public class Approval implements Serializable {
         this.agentApprovalName = null;
         this.expDate = null;
         this.qualifications = null;
+        this.CT = null;
+        this.origin = null;
     }
 
     public Approval(ApprovalStatus page1, ApprovalStatus page2, ApprovalStatus page3, ApprovalStatus page4, Date dateApproved, String agentApprovalName, Date expDate, String qualifications, Form form) {
@@ -65,6 +73,22 @@ public class Approval implements Serializable {
         this.agentApprovalName = agentApprovalName;
         this.expDate = expDate;
         this.qualifications = qualifications;
+        this.form = form;
+        this.CT = null;
+        this.origin = null;
+    }
+
+    public Approval(ApprovalStatus page1, ApprovalStatus page2, ApprovalStatus page3, ApprovalStatus page4, Date dateApproved, String agentApprovalName, Date expDate, String qualifications, String CT, String OR, Form form) {
+        this.page1 = page1;
+        this.page2 = page2;
+        this.page3 = page3;
+        this.page4 = page4;
+        this.dateApproved = dateApproved;
+        this.agentApprovalName = agentApprovalName;
+        this.expDate = expDate;
+        this.qualifications = qualifications;
+        this.CT = CT;
+        this.origin = OR;
         this.form = form;
     }
 
@@ -132,8 +156,23 @@ public class Approval implements Serializable {
         this.qualifications = qualifications;
     }
 
+    public String getCT() {
+        return CT;
+    }
 
-//methods n the lot
+    public void setCT(String CT) {
+        this.CT = CT;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    //methods n the lot
 
     public void approve(String name, String qualifications){
         agentApprovalName = name;

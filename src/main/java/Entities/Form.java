@@ -46,7 +46,7 @@ public class Form implements Serializable {
     private String formula;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "TTB_ID")
+    @JoinColumn(name = "TTB_ID", nullable = false)
     private WineFormItems wineFormItems;
 
     @Column(name = "Phone")
@@ -61,7 +61,7 @@ public class Form implements Serializable {
     private String otherInfo;
 
     @Column(name = "Date_Submitted", columnDefinition = "DATE")
-    private transient Date dateSubmitted;
+    private Date dateSubmitted;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -72,7 +72,7 @@ public class Form implements Serializable {
     private int companyID;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "TTB_ID")
+    @JoinColumn(name = "TTB_ID", nullable = false)
     private Approval approval;
 
     @Column(name = "APV")
@@ -161,11 +161,26 @@ public class Form implements Serializable {
 
     //Constructor specifically for hibernate to create smaller forms for search results
     public Form(int ttbID, String serialNumber, AlcoholType alcoholType, String brandName, java.util.Date dateSubmitted, ApprovalStatus approvalStatus) {
+        if (serialNumber != null) {
+            this.serialNumber = serialNumber;
+        } else {
+            this.serialNumber = "";
+        }
+        this.alcoholType = alcoholType;
+        this.brandName = brandName;
+        if (dateSubmitted != null) {
+            this.dateSubmitted = new java.sql.Date(dateSubmitted.getTime());
+        } else {
+            this.dateSubmitted = null;
+        }
+        this.approvalStatus = approvalStatus;
+        this.ttbID = ttbID;
+    }
+
+    public Form(int ttbID, String serialNumber, AlcoholType alcoholType, String brandName, ApprovalStatus approvalStatus) {
         this.serialNumber = serialNumber;
         this.alcoholType = alcoholType;
         this.brandName = brandName;
-
-        this.dateSubmitted = new java.sql.Date(dateSubmitted.getTime());
         this.approvalStatus = approvalStatus;
         this.ttbID = ttbID;
     }
