@@ -127,7 +127,6 @@
          </children>
       </StackPane>
       <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" labelFloat="true" layoutX="231.0" layoutY="601.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" prefHeight="27.0" prefWidth="65.0" promptText="Delimiter" />
-      <JFXToggleButton fx:id="helpToggleButton" layoutX="1025.0" text="Help" />
       <JFXButton fx:id="previousButton" buttonType="RAISED" layoutX="776.0" layoutY="716.0" onAction="#prevPage" style="-fx-background-color: #9ea7aa;" text="&lt;" textFill="WHITE" />
       <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="930.0" layoutY="716.0" onAction="#nextPage" style="-fx-background-color: #9ea7aa;" text="&gt;" textFill="WHITE" />
       <Pane layoutX="404.0" layoutY="135.0" prefHeight="565.0" prefWidth="951.0">
