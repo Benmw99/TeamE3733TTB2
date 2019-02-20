@@ -6,6 +6,7 @@ import com.jfoenix.controls.*;
 import com.jfoenix.validation.NumberValidator;
 import com.jfoenix.validation.RegexValidator;
 import com.jfoenix.validation.RequiredFieldValidator;
+import com.jfoenix.validation.base.ValidatorBase;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -248,6 +249,8 @@ public class AppController extends PageControllerUI implements Initializable {
 
     private Form workingForm;
 
+    List<ValidatorBase> santa_List;
+
     @Override
     void onLoad() {
     }
@@ -486,6 +489,7 @@ public class AppController extends PageControllerUI implements Initializable {
     public void setListener(JFXTextField field, int type) {
         if (type == 1) {
             NumberValidator numValidator = new NumberValidator();
+            santa_List.add(numValidator);
             field.getValidators().add(numValidator);
             numValidator.setMessage("Enter a number");
             RequiredFieldValidator validator = new RequiredFieldValidator();
@@ -494,6 +498,7 @@ public class AppController extends PageControllerUI implements Initializable {
         }
         if (type == 2) {
             RegexValidator regexValidator = new RegexValidator();
+            santa_List.add(regexValidator);
             regexValidator.setRegexPattern("[a-zA-Z]*");
             field.getValidators().add(regexValidator);
             regexValidator.setMessage("Enter a string!");
@@ -503,6 +508,7 @@ public class AppController extends PageControllerUI implements Initializable {
         }
         if (type == 3) {
             RegexValidator validEmail = new RegexValidator();
+            santa_List.add(validEmail);
             validEmail.setRegexPattern(".+\\@.+\\..+");
             field.getValidators().add(validEmail);
             validEmail.setMessage("Enter a valid email");
@@ -512,6 +518,7 @@ public class AppController extends PageControllerUI implements Initializable {
         }
         if (type == 4) {
             RegexValidator validEmail = new RegexValidator();
+            santa_List.add(validEmail);
             validEmail.setRegexPattern("^\\D?(\\d{3})\\D?\\D?(\\d{3})\\D?(\\d{4})$");
             field.getValidators().add(validEmail);
             validEmail.setMessage("Enter a valid phone number");
@@ -521,6 +528,7 @@ public class AppController extends PageControllerUI implements Initializable {
         }
         if (type == 5) {
             RegexValidator validEmail = new RegexValidator();
+            santa_List.add(validEmail);
             validEmail.setRegexPattern("^\\d{4}$");
             field.getValidators().add(validEmail);
             validEmail.setMessage("Enter a valid year");
@@ -530,6 +538,7 @@ public class AppController extends PageControllerUI implements Initializable {
         }
         if (type == 6) {
             RegexValidator validEmail = new RegexValidator();
+            santa_List.add(validEmail);
             validEmail.setRegexPattern("^[0-1]?[1-4]$"); // Doesn't account for decimals
             field.getValidators().add(validEmail);
             validEmail.setMessage("Enter a valid pH");
@@ -539,6 +548,7 @@ public class AppController extends PageControllerUI implements Initializable {
         }
         if (type == 7) {
             RegexValidator validRepId = new RegexValidator();
+            santa_List.add(validRepId);
             validRepId.setRegexPattern("^[a-zA-Z0-9]{0,16}$"); // Doesn't account for decimals
             field.getValidators().add(validRepId);
             validRepId.setMessage("Enter a valid rep id");
@@ -555,18 +565,22 @@ public class AppController extends PageControllerUI implements Initializable {
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if (!newValue) {
                     field.validate();
-                    if(field.validate()) {
-                        System.out.println("Fields has no errors");
-                        SendApp.setOpacity(1);
-                    }
-                    if (!field.validate()) {
-                        System.out.println("Fields have errors");
-                        SendApp.setOpacity(0);
+
+
+                    boolean t = true;
+                    for(ValidatorBase vb : santa_List){
+                        t = t && !vb.getHasErrors();
                     }
 
+                    if(t) {
+                        System.out.println("Fields has no errors");
+                        SendApp.setOpacity(1);
+                    } else {
+                        System.out.println("Fields has no errors");
+                        SendApp.setOpacity(1);
+
                 }
-            }
-        });
+        }}});
 
     }
 
