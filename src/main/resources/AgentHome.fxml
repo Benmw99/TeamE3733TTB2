@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -12,7 +13,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import com.jfoenix.controls.JFXToggleButton?>
 <AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AgentHomeController">
    <children>
       <Pane prefHeight="759.0" prefWidth="1360.0" style="-fx-background-color: WHITE;">
@@ -106,19 +106,13 @@
                   <Font name="Apple SD Gothic Neo Thin" size="18.0" />
                </font>
             </JFXTextField>
-            <JFXButton fx:id="GetNewQueueButton" buttonType="RAISED" onAction="#getNewQueue" pickOnBounds="true" prefHeight="9.0" prefWidth="187.0" ripplerFill="#9d9797" style="-fx-background-color: #4285f4;" text="Get New Queue" textFill="WHITE">
+            <JFXButton fx:id="GetNewQueueButton" buttonType="RAISED" onAction="#getNewQueue" pickOnBounds="true" prefHeight="9.0" prefWidth="187.0" ripplerFill="#8a888896" style="-fx-background-color: #4285f4;" text="Get New Queue" textFill="WHITE">
                <font>
                   <Font name="Apple SD Gothic Neo Thin" size="24.0" />
                </font>
-               <ripplerFill>
-                  <RadialGradient centerX="0.5112359550561798" centerY="0.5" radius="0.5">
-                     <stops>
-                        <Stop color="BLACK" />
-                        <Stop color="BLACK" offset="0.007434944237918215" />
-                        <Stop color="#ffffff97" offset="1.0" />
-                     </stops>
-                  </RadialGradient>
-               </ripplerFill>
+               <VBox.margin>
+                  <Insets bottom="25.0" />
+               </VBox.margin>
             </JFXButton>
          </children>
       </VBox>
