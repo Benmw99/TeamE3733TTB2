@@ -238,10 +238,11 @@ public class AgentHomeController extends PageControllerUI implements Initializab
             AttributeContainer.getInstance().currentForm.getApproval().setPage3(ApprovalStatus.Complete);
             AttributeContainer.getInstance().currentForm.getApproval().setPage4(ApprovalStatus.Complete);
             ((Agent)AttributeContainer.getInstance().currentUser).approveForm(AttributeContainer.getInstance().currentForm, "");
-            attributeContainer.currentForm = null;
             attributeContainer.formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
+            attributeContainer.currentForm = null;
+
             goToPage("AgentHome.fxml");
         } else {
             Alert yikes = new Alert(Alert.AlertType.WARNING);
@@ -265,10 +266,10 @@ public class AgentHomeController extends PageControllerUI implements Initializab
             AttributeContainer.getInstance().currentForm.getApproval().setPage3(ApprovalStatus.Incorrect);
             AttributeContainer.getInstance().currentForm.getApproval().setPage4(ApprovalStatus.Incorrect);
             ((Agent)AttributeContainer.getInstance().currentUser).rejectForm(AttributeContainer.getInstance().currentForm, "");
-             attributeContainer.currentForm = null;
             attributeContainer.formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
+            attributeContainer.currentForm = null;
             goToPage("AgentHome.fxml");
         } else {
             Alert yikes = new Alert(Alert.AlertType.WARNING);
