@@ -3,14 +3,12 @@ package UI;
 import Entities.Address;
 import Entities.ApprovalStatus;
 import Entities.Form;
-import Entities.IUser;
 import Entities.LabelImage;
 import com.jfoenix.controls.JFXTabPane;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
@@ -83,10 +81,10 @@ public class FormDisplayController extends PageControllerUI implements Initializ
     ImageView Display19Image1;
 
     @FXML
-    JFXTabPane sectionPane;
-
-    @FXML
-    TabPane tabPane;
+    JFXTabPane tabPane;
+//
+//    @FXML
+//    TabPane tabPane;
 
     ComboBox<String> comboBox;
 
@@ -256,10 +254,10 @@ public class FormDisplayController extends PageControllerUI implements Initializ
             wipeForm();
         }
 
-        if (AttributeContainer.getInstance().currentUser.isManufacturer() == true || AttributeContainer.getInstance().currentUser.isRepresentative()) {
+        if (attributeContainer.currentUser.isManufacturer() == true || AttributeContainer.getInstance().currentUser.isRepresentative()) {
             System.out.println("here");
-            sectionPane.getStylesheets().add("ManDisplay.css");
-            System.out.println(sectionPane.getStyle());
+            tabPane.getStylesheets().add("ManDisplay.css");
+            System.out.println(tabPane.getStyle());
         }
 
     }
@@ -399,7 +397,4 @@ public class FormDisplayController extends PageControllerUI implements Initializ
 
     }
 
-        }
-    }
 }
-
