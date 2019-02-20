@@ -12,7 +12,7 @@
    <children>
       <JFXDrawer fx:id="Drawer" defaultDrawerSize="300.0" miniDrawerSize="-300.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox fx:id="BoxSlider" maxHeight="50" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #4e0000;">
+            <VBox fx:id="BoxSlider" maxHeight="50" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #464646;">
                <children>
                   <JFXButton fx:id="GoHomeSlider" accessibleText="HOME" buttonType="RAISED" maxHeight="0.0" maxWidth="0.0" minHeight="0.0" minWidth="0.0" onAction="#goToHome" prefHeight="0.0" prefWidth="0.0" text="Go Home" textFill="WHITE">
                      <font>

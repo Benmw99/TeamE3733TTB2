@@ -545,11 +545,9 @@ public class AppController extends PageControllerUI implements Initializable {
             validRepId.setRegexPattern("^[a-zA-Z0-9]{0,16}$"); // Doesn't account for decimals
             field.getValidators().add(validRepId);
             validRepId.setMessage("Enter a valid rep id");
-
         }
 
         if (errorInForm) {
-
         }
 
 
