@@ -178,7 +178,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     public void approveForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
 
-            //TODO: get qualifications from text field
+            //TODO: get qualifications from text field;
             ((Agent) attributeContainer.currentUser).approveForm(attributeContainer.currentForm, comment.getText());
             attributeContainer.formQueue.remove(attributeContainer.currentForm);
             AttributeContainer.getInstance().formQueue = ((Agent) attributeContainer.currentUser).getCurrentQueue();
@@ -265,7 +265,7 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                     yikes.show();
                 } else {
                     to_recv.loadUser();
-                    Thread mailThread = new  Thread( new Mailer(to_recv, message.getText()));
+                    Thread mailThread = new  Thread( new Mailer(to_recv, message.getText(), AttributeContainer.getInstance().currentForm));
                     mailThread.start();
                     AttributeContainer.getInstance().currentForm.setWorkingOn(to_recv.getAgentID());
                     db.dbSelect.updateWorkingOn(AttributeContainer.getInstance().currentForm);

@@ -41,7 +41,7 @@
             <Font name="Roboto Light" size="36.0" />
         </font>
     </Text>
-      <JFXButton fx:id="printSearchResultsCSV" buttonType="RAISED" layoutX="1198.0" layoutY="77.0" onAction="#printResults" ripplerFill="#9d9797" style="-fx-background-color: WHITE;" text="Print Results">
+      <JFXButton fx:id="printSearchResultsCSV" buttonType="RAISED" layoutX="77.0" layoutY="597.0" onAction="#printResults" ripplerFill="#9d9797" style="-fx-background-color: WHITE;" text="Print Results">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font></JFXButton>
