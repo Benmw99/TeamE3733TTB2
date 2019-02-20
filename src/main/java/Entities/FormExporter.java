@@ -218,13 +218,14 @@ public class FormExporter {
                                 }
                                     replaceString(r, "C_T", " ");
                                     replaceString(r, "O_R", " ");
+                                    String serial = form.getSerialNumber().concat("      ");
+                                replaceString(r, "SERIAL_1", serial);
+                                replaceString(r, "SERIAL_2", serial);
+                                replaceString(r, "SERIAL_3", serial);
+                                replaceString(r, "SERIAL_4", serial);
+                                replaceString(r, "SERIAL_5", serial);
+                                replaceString(r, "SERIAL_6", serial);
 
-                                replaceString(r, "SERIAL_1", form.getSerialNumber().substring(0,1));
-                                replaceString(r, "SERIAL_2", form.getSerialNumber().substring(1,2));
-                                replaceString(r, "SERIAL_3", form.getSerialNumber().substring(2,3));
-                                replaceString(r, "SERIAL_4", form.getSerialNumber().substring(3,4));
-                                replaceString(r, "SERIAL_5", form.getSerialNumber().substring(4,5));
-                                replaceString(r, "SERIAL_6", form.getSerialNumber().substring(5,6));
                                 replaceString(r, "_BRAND_", form.getBrandName());
                                 replaceString(r,"_FANCY_", form.getFancifulName());
                                 replaceString(r, "_FORMULA_", form.getFormula());

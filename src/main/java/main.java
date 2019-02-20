@@ -44,7 +44,7 @@ public class main {
         Form form = new Form(null, Brews, true, "00123SE", AlcoholType.MaltBeverage,
                 "Bubbly", "BU", Adds, "John Smith", null, new WineFormItems(),
                 "1112223333", "mjclements@wpi.edu", "No other info", d, 123,
-                new Approval(), (float)12.3, ApprovalStatus.Complete);
+                new Approval(), (float)12.3, ApprovalStatus.Incomplete);
         form.setWorkingOn(0);
 
 
