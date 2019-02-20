@@ -185,7 +185,6 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
             attributeContainer.currentForm = null;
-            attributeContainer.isInReviewingTools = false;
             goToPage("AgentHome.fxml");
         }
     }
@@ -204,7 +203,6 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
             attributeContainer.currentForm = null;
-            attributeContainer.isInReviewingTools = false;
             goToPage("AgentHome.fxml");
         }
     }
@@ -231,8 +229,13 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
         goToPage("AgentHome.fxml");
     }
 
+    public void markForm() {
+        formDisplayController.markForm();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        approveAVFButton.setDisable(true);
         //The different combo box options
         sectionMarkComboBox.getItems().addAll("Complete", "Incomplete", "Incorrect");
 

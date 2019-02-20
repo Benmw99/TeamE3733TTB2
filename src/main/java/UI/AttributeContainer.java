@@ -33,24 +33,6 @@ public class AttributeContainer {
     LabelImage labelImage;
     char delimeter;
 
-    //Page approval checking
-    public boolean page1Complete;
-    public boolean page2Complete;
-    public boolean page3Complete;
-    public boolean page4Complete;
-    public boolean page1Incomplete;
-    public boolean page2Incomplete;
-    public boolean page3Incomplete;
-    public boolean page4Incomplete;
-    public boolean page1Incorrect;
-    public boolean page2Incorrect;
-    public boolean page3Incorrect;
-    public boolean page4Incorrect;
-    //Checking because tab switching calls twice, used to determine proper tab
-    public boolean isFirstTab;
-    //Checks if FormDisplay is loaded in the reviewing tools or not
-    public boolean isInReviewingTools;
-
     /**
      * Instantiates new empty AttributeContainer
      */
