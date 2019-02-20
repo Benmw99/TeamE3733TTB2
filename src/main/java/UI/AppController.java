@@ -503,7 +503,7 @@ public class AppController extends PageControllerUI implements Initializable {
         if (type == 2) {
             RegexValidator regexValidator = new RegexValidator();
             santa_List.add(regexValidator);
-            regexValidator.setRegexPattern("[a-zA-Z]*");
+            regexValidator.setRegexPattern("[a-z A-Z]*");
             field.getValidators().add(regexValidator);
             regexValidator.setMessage("Enter a string!");
             RequiredFieldValidator validator = new RequiredFieldValidator();
@@ -543,7 +543,7 @@ public class AppController extends PageControllerUI implements Initializable {
         if (type == 6) {
             RegexValidator validEmail = new RegexValidator();
             santa_List.add(validEmail);
-            validEmail.setRegexPattern("^[0-1]?[1-4]$"); // Doesn't account for decimals
+            validEmail.setRegexPattern("^[0-9]+(\\.[0-9][0-9]*)?$"); // Doesn't account for decimals
             field.getValidators().add(validEmail);
             validEmail.setMessage("Enter a valid pH");
             RequiredFieldValidator validator = new RequiredFieldValidator();
@@ -578,10 +578,11 @@ public class AppController extends PageControllerUI implements Initializable {
 
                         System.out.println("Fields has no errors");
                         SendApp.setOpacity(1);
+                        SendApp.setDisable(false);
                     } else {
                         System.out.println("Fields has  errors");
                         SendApp.setDisable(true);
-                        SendApp.setOpacity(0);
+             //           SendApp.setOpacity(0);
 
                 }
         }}});
