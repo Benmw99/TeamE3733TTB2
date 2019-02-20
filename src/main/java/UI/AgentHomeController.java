@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import com.jfoenix.controls.*;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -25,6 +26,15 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AgentHomeController extends PageControllerUI implements Initializable {
+
+    @FXML
+    Pane largePane;
+
+    @FXML
+    Pane smallPane;
+
+    @FXML
+    ToggleButton helpToggleButton;
 
     @FXML
     public JFXButton GetNewQueueButton;
@@ -164,14 +174,6 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     JFXTextField queueAmountField;
 
-    @FXML
-    JFXToggleButton helpToggleButton;
-
-    @FXML
-    Pane largePane;
-
-    @FXML
-    Pane smallPane;
 
 
 

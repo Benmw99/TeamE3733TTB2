@@ -120,6 +120,7 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
     @FXML
     public void viewAgentComments(ActionEvent event) throws IOException {
 
+       goToPage("ManViewAgentComments.fxml");
     }
 
     /**

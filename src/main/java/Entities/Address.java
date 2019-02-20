@@ -28,7 +28,7 @@ public class Address implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private int ID;
-
+//set a many to one connection between ID and form
     @ManyToOne
     @JoinColumn(name = "TTB_ID", insertable = false, updatable = false, nullable = false)
     private Form form;
@@ -55,7 +55,7 @@ public class Address implements Serializable {
         this.name = name;
         this.isMailing = isMailing;
     }
-
+//getters and setters
     public String getCity() {
         return city;
     }
@@ -120,7 +120,11 @@ public class Address implements Serializable {
         isMailing = mailing;
     }
 
-
+    /**
+     * an equals method to check if an address is repeated or equal to another
+     * @param anAddy
+     * @return
+     */
     boolean equals(Address anAddy) {
         return (this.city.equals(anAddy.city) &&
                 this.state.equals(anAddy.state) &&
