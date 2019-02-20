@@ -27,75 +27,75 @@
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cfd8dc" height="62.0" layoutY="66.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0" />
       <JFXButton fx:id="SearchLoginButton" buttonType="RAISED" layoutX="1248.0" layoutY="13.0" onAction="#loginPage" style="-fx-background-color: WHITE;" text="Login">
          <font>
-            <Font name="Roboto-Thin.ttf" size="18.0" />
+            <Font name="Roboto Thin" size="18.0" />
          </font>
       </JFXButton>
     <JFXTextField fx:id="SearchField" alignment="CENTER" disable="true" layoutX="419.0" layoutY="84.0" prefHeight="26.0" prefWidth="708.0" style="-fx-background-color: WHITE;" visible="false" AnchorPane.leftAnchor="419.0" AnchorPane.rightAnchor="237.0" />
     <Text disable="true" layoutX="32.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
         <font>
-            <Font name="Roboto-Thin.ttf" size="18.0" />
+            <Font name="Roboto Thin" size="18.0" />
         </font>
     </Text>
     <Text layoutX="108.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories">
         <font>
-            <Font name="Roboto/Roboto-Thin.ttf" size="36.0" />
+            <Font name="Roboto Thin" size="36.0" />
         </font>
     </Text>
       <JFXButton fx:id="printSearchResultsCSV" buttonType="RAISED" layoutX="1198.0" layoutY="77.0" onAction="#printResults" ripplerFill="#9d9797" style="-fx-background-color: WHITE;" text="Print Results">
          <font>
-            <Font name="Roboto-Thin.ttf" size="18.0" />
+            <Font name="Roboto Thin" size="18.0" />
          </font></JFXButton>
       <JFXDatePicker fx:id="SearchDate" disable="true" layoutX="197.0" layoutY="298.0" prefHeight="25.0" prefWidth="149.0" promptText="date" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="7.0" layoutY="208.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
       <JFXComboBox fx:id="SearchAlcoholType" layoutX="196.0" layoutY="151.0" prefWidth="150.0" />
       <JFXTextField fx:id="SearchID" alignment="CENTER" labelFloat="true" layoutX="196.0" layoutY="348.0" promptText="number">
          <font>
-            <Font name="Roboto/Roboto-Thin.ttf" size="14.0" />
+            <Font name="Roboto Thin" size="14.0" />
          </font></JFXTextField>
       <Text layoutX="33.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Type">
          <font>
-            <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+            <Font name="Roboto Thin" size="18.0" />
          </font>
       </Text>
       <Text layoutX="32.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Number">
          <font>
-            <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+            <Font name="Roboto Thin" size="18.0" />
          </font>
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="7.0" layoutY="196.0" stroke="TRANSPARENT" strokeType="INSIDE" width="320.0" />
       <JFXTextField fx:id="SearchPercentage" alignment="CENTER" disable="true" labelFloat="true" layoutX="196.0" layoutY="200.0" promptText="percentage">
          <font>
-            <Font name="Roboto/Roboto-Thin.ttf" size="14.0" />
+            <Font name="Roboto Thin" size="14.0" />
          </font></JFXTextField>
       <Text disable="true" layoutX="32.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Content">
          <font>
-            <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+            <Font name="Roboto Thin" size="18.0" />
          </font>
       </Text>
       <Text layoutX="33.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand Name">
          <font>
-            <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+            <Font name="Roboto Thin" size="18.0" />
          </font>
       </Text>
       <JFXTextField fx:id="brandNameTextField" alignment="CENTER" labelFloat="true" layoutX="196.0" layoutY="250.0" promptText="name">
          <font>
-            <Font name="Roboto/Roboto-Thin.ttf" size="14.0" />
+            <Font name="Roboto Thin" size="14.0" />
          </font></JFXTextField>
       <JFXButton fx:id="SearchButton" buttonType="RAISED" layoutX="98.0" layoutY="410.0" onAction="#searchAdvanced" prefHeight="39.0" prefWidth="84.0" ripplerFill="#9d9797" style="-fx-background-color: cfd8dc;" text="Search">
          <font>
-            <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+            <Font name="Roboto Thin" size="18.0" />
          </font>
       </JFXButton>
       <JFXButton fx:id="aboutPageNav" buttonType="RAISED" layoutX="156.0" layoutY="687.0" onAction="#aboutPage" ripplerFill="#9d9797" style="-fx-background-color: cfd8dc;" text="About">
          <font>
-            <Font name="Roboto/Roboto-Thin.ttf" size="14.0" />
+            <Font name="Roboto Thin" size="14.0" />
          </font>
       </JFXButton>
       <StackPane fx:id="UsernameStackPane" layoutX="1087.0" layoutY="13.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #9ea7aa;" AnchorPane.leftAnchor="1114.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="UsernameLabel" text="Username">
                <font>
-                  <Font name="Roboto/Roboto-Thin.ttf" size="24.0" />
+                  <Font name="Roboto Thin" size="24.0" />
                </font>
             </Label>
          </children>
@@ -111,7 +111,7 @@
             </RadialGradient>
          </ripplerFill>
          <font>
-            <Font name="Roboto/Roboto-Thin.ttf" size="14.0" />
+            <Font name="Roboto Thin" size="14.0" />
          </font>
       </JFXButton>
       <JFXRadioButton fx:id="fuzzy" layoutX="202.0" layoutY="474.0" text="SQL Wild Search" />
@@ -119,7 +119,7 @@
       <JFXRadioButton fx:id="damereauLevenshtein" layoutX="202.0" layoutY="534.0" text="Damerau Levenshtein" />
     <Text fill="WHITE" layoutX="566.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COLA Search" wrappingWidth="256.9218606590072">
         <font>
-            <Font name="Roboto/Roboto-Thin.ttf" size="48.0" />
+            <Font name="Roboto Thin" size="48.0" />
         </font></Text>
       <StackPane fx:id="MenuStackPane" alignment="CENTER_LEFT" layoutX="1097.0" layoutY="23.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #9ea7aa;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -127,7 +127,6 @@
          </children>
       </StackPane>
       <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" labelFloat="true" layoutX="231.0" layoutY="601.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" prefHeight="27.0" prefWidth="65.0" promptText="Delimiter" />
-      <JFXToggleButton fx:id="helpToggleButton" layoutX="1025.0" text="Help" />
       <JFXButton fx:id="previousButton" buttonType="RAISED" layoutX="776.0" layoutY="716.0" onAction="#prevPage" style="-fx-background-color: #9ea7aa;" text="&lt;" textFill="WHITE" />
       <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="930.0" layoutY="716.0" onAction="#nextPage" style="-fx-background-color: #9ea7aa;" text="&gt;" textFill="WHITE" />
       <Pane layoutX="404.0" layoutY="135.0" prefHeight="565.0" prefWidth="951.0">
@@ -150,7 +149,7 @@
          <children>
             <HBox prefHeight="475.0" prefWidth="952.0">
                <children>
-                  <VBox prefHeight="284.0" prefWidth="291.0" style="-fx-background-color: #999999; -fx-background-radius: 15;">
+                  <VBox prefHeight="475.0" prefWidth="330.0" style="-fx-background-color: #999999; -fx-background-radius: 15;">
                      <children>
                         <JFXButton buttonType="RAISED" prefHeight="39.0" prefWidth="84.0" style="-fx-background-color: cfd8dc;" text="Search" VBox.vgrow="ALWAYS">
                            <ripplerFill>
@@ -162,7 +161,7 @@
                               </RadialGradient>
                            </ripplerFill>
                            <font>
-                              <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="8.0" left="100.0" top="8.0" />
@@ -170,7 +169,7 @@
                         </JFXButton>
                         <JFXButton buttonType="RAISED" ripplerFill="#ababab" style="-fx-background-color: cfd8dc;" text="About" VBox.vgrow="ALWAYS">
                            <font>
-                              <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="11.0" left="105.0" top="5.0" />
@@ -178,7 +177,7 @@
                         </JFXButton>
                         <JFXButton buttonType="RAISED" style="-fx-background-color: WHITE;" text="Print Results" VBox.vgrow="ALWAYS">
                            <font>
-                              <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="21.0" left="82.0" top="5.0" />
@@ -189,12 +188,12 @@
                               <Insets bottom="21.0" left="95.0" top="5.0" />
                            </VBox.margin>
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Text>
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol Content">
                            <font>
-                              <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="21.0" left="80.0" top="5.0" />
@@ -202,7 +201,7 @@
                         </Text>
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Brand Name">
                            <font>
-                              <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="21.0" left="90.0" top="5.0" />
@@ -210,7 +209,7 @@
                         </Text>
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Manufactured">
                            <font>
-                              <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="21.0" left="70.0" top="5.0" />
@@ -218,16 +217,19 @@
                         </Text>
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ID Number">
                            <font>
-                              <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                            <VBox.margin>
                               <Insets bottom="21.0" left="95.0" top="5.0" />
                            </VBox.margin>
                         </Text>
-                        <JFXButton buttonType="RAISED" prefHeight="35.0" prefWidth="120.0" ripplerFill="#9a9797" style="-fx-background-color: WHITE;" text="Back To Home">
+                        <JFXButton buttonType="RAISED" contentDisplay="CENTER" prefHeight="35.0" prefWidth="141.0" ripplerFill="#9a9797" style="-fx-background-color: WHITE;" text="Back To Home" textAlignment="CENTER">
                            <VBox.margin>
                               <Insets bottom="5.0" left="80.0" top="5.0" />
                            </VBox.margin>
+                           <font>
+                              <Font name="Roboto Thin" size="18.0" />
+                           </font>
                         </JFXButton>
                      </children>
                   </VBox>
@@ -235,7 +237,7 @@
                      <children>
                         <Label prefHeight="50.0" prefWidth="622.0" text="Selecting this button allows you to search based upon the attributes listed above" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="6.0" />
@@ -243,42 +245,42 @@
                         </Label>
                         <Label prefHeight="50.0" prefWidth="646.0" text="Selecting this button allows you to learn more information about the project team" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <Label prefHeight="50.0" prefWidth="703.0" text="Selecting this button allows you to download and print the results produced from your search" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <Label prefHeight="50.0" prefWidth="706.0" text="Select the alcohol type by clicking on a type within the dropdown menu" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="50.0" prefWidth="703.0" text="Type in the alcohol percentage you are looking at in order to search based on this" textFill="WHITE" wrapText="true">
+                        <Label prefHeight="50.0" prefWidth="666.0" text="Type in the alcohol percentage you are looking at in order to search based on this" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <Label prefHeight="50.0" prefWidth="695.0" text="Type in the brand name you are looking at in order to search based on this" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <Label prefHeight="50.0" prefWidth="580.0" text="Selecting this button allows you to go back to your home page" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <Label prefHeight="50.0" prefWidth="639.0" text="Type in the ID number you are referencing to search based on this" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                         </Label>
                         <Label prefHeight="50.0" prefWidth="705.0" text="Select the small calendar to the right of the input line to select the date from the calendar" textFill="WHITE" wrapText="true">
                            <font>
-                              <Font name="Roboto/Roboto-Thin.ttf" size="18.0" />
+                              <Font name="Roboto Thin" size="18.0" />
                            </font>
                            <VBox.margin>
                               <Insets />
@@ -292,7 +294,7 @@
       </Pane>
       <JFXToggleButton fx:id="helpToggleButton" layoutX="17.0" layoutY="10.0" text="Help" AnchorPane.rightAnchor="213.0" AnchorPane.topAnchor="4.0">
          <font>
-            <Font name="Roboto/Roboto-Thin.ttf" size="13.0" />
+            <Font name="Roboto Thin" size="13.0" />
          </font></JFXToggleButton>
 </children>
 </AnchorPane>
