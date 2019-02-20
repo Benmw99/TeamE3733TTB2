@@ -6,8 +6,10 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.Pane;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -36,6 +38,15 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
 
     @FXML
     JFXTextField searchAppsTextField;
+
+    @FXML
+    JFXToggleButton helpToggleButton;
+
+    @FXML
+    Pane largePane;
+
+    @FXML
+    Pane smallPane;
 
     @FXML
     JFXButton goToSingleApp;
@@ -108,7 +119,8 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
      */
     @FXML
     public void viewAgentComments(ActionEvent event) throws IOException {
-        //TODO Make comments a thing
+
+       goToPage("ManViewAgentComments.fxml");
     }
 
     /**
@@ -136,5 +148,36 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
         AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
         for(Form f : AttributeContainer.getInstance().formQueue){
         }
+
+        helpToggleButton.setSelected(false);
+        largePane.setOpacity(0);
+        largePane.setDisable(true);
+        smallPane.setOpacity(0);
+        smallPane.setDisable(true);
+
+        helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                if (helpToggleButton.isSelected()){
+                    largePane.setOpacity(0.63);
+                    largePane.setDisable(false);
+                    smallPane.setOpacity(1);
+                    smallPane.setDisable(false);
+                    System.out.println("Is selected");
+
+
+                }
+                else {
+                    largePane.setOpacity(0);
+                    largePane.setDisable(true);
+                    smallPane.setOpacity(0);
+                    smallPane.setDisable(true);
+                    System.out.println("Is not selector");
+
+                }
+            }
+        });
+
     }
 }

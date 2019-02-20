@@ -35,7 +35,7 @@ public class DBSelect {
     public static void setFactory(SessionFactory factory) {
         DBSelect.factory = factory;
     }
-    
+
 
     /**
      * Gets a form from the database
@@ -580,7 +580,7 @@ public class DBSelect {
     }
 
     /**
-     * Retrives the agent related to that user
+     * Retrieves the agent related to that user
      * @author Jordan
      * @param login Login name for the user
      * @return An agent that is related to that login

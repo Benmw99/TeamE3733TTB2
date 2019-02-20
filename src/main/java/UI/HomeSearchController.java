@@ -1,6 +1,5 @@
 package UI;
 
-import DB.Database;
 import Entities.AdvancedSearch;
 import Entities.AlcoholType;
 import Entities.Form;
@@ -8,13 +7,10 @@ import Entities.SearchResult;
 import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
 import SearchAlgo.SearchContainer;
-import com.jfoenix.controls.JFXButton;
 import SearchAlgo.*;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -25,15 +21,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -46,6 +42,9 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     private Entities.SearchResult results;
 
     List<PageObserver> pageObservers = new ArrayList<PageObserver>();
+
+    @FXML
+    AnchorPane MasterPane;
 
     //CivilSearch
     @FXML
@@ -215,6 +214,12 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     JFXRadioButton damereauLevenshtein;
 
     @FXML
+    JFXRadioButton mongoRadioButton;
+
+    @FXML
+    JFXRadioButton apacheRadioButton;
+
+    @FXML
     Button backToHomeButton;
 
     @FXML
@@ -232,6 +237,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
 
     ToggleGroup searchOptions = new ToggleGroup();
+    ToggleGroup searchOptions2 = new ToggleGroup();
 
     SearchResult result;
     int searchPage;
@@ -239,6 +245,9 @@ public class HomeSearchController extends PageControllerUI implements Initializa
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
+
         SearchAlcoholType.getItems().addAll("Beers", "Wines", "Distilled Liquor");
         UsernameStackPane.setOpacity(0);
         UsernameStackPane.setPickOnBounds(false);
@@ -264,73 +273,88 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         else{
             UsernameStackPane.toBack();
         }
+//
+//        if (attributeContainer.currentForm != null) {
+//            Civ1Label.setText(attributeContainer.currentForm.getRepID());
+//            String fullPermit = "";
+//            for (int i = 0; i < attributeContainer.currentForm.getBrewersPermit().size(); i++) {
+//                fullPermit += attributeContainer.currentForm.getBrewersPermit().get(i) + "\n";
+//            }
+//            Civ2Label.setText(fullPermit);
+//            if (attributeContainer.currentForm.getSource()) {
+//                Civ3Label.setText("Domestic");
+//            } else {
+//                Civ3Label.setText("Imported");
+//            }
+//            CivReview4Label1.setText(attributeContainer.currentForm.getSerialNumber());
+//            Civ5Label1.setText(attributeContainer.currentForm.getAlcoholType().toString());
+//            if (attributeContainer.currentForm.getAlcoholType().toInt() == Wine.toInt()) {
+//                Civ5Label2.setText("" + attributeContainer.currentForm.getWineFormItems().getpH());
+//                Civ5Label3.setText("" + attributeContainer.currentForm.getWineFormItems().getVintageYear());
+//                Civ11Label.setText(attributeContainer.currentForm.getWineFormItems().getGrapeVarietal());
+//                Civ12Label.setText(attributeContainer.currentForm.getWineFormItems().getAppellation());
+//            } else {
+//                Civ5Label2.setText("N/A");
+//                Civ5Label3.setText("N/A");
+//                Civ11Label.setText("N/A");
+//                Civ12Label.setText("N/A");
+//            }
+//            Civ6Label.setText(attributeContainer.currentForm.getBrandName());
+//            Civ7Label.setText(attributeContainer.currentForm.getFancifulName());
+//
+//            String fullAddress = "";
+//            for (int i = 0; i < attributeContainer.currentForm.getAddress().size(); i++) {
+//                fullAddress += attributeContainer.currentForm.getAddress().get(i).getName() + "\n"; //NAME MIGHT NOT BE STORED OR RETRIEVED CORRECTLY
+//                fullAddress += attributeContainer.currentForm.getAddress().get(i).getStreet() + ", " + attributeContainer.currentForm.getAddress().get(i).getCity() + ", " + attributeContainer.currentForm.getAddress().get(i).getState();
+//                fullAddress += ", " + attributeContainer.currentForm.getAddress().get(i).getZip() + "\n";
+//            }
+//            Civ8Label.setText(fullAddress);
+//            if (attributeContainer.currentForm.getMailingAddress() != null) {
+//                String mailingAddress = "";
+//                mailingAddress += attributeContainer.currentForm.getMailingAddress().getStreet() + ", " + attributeContainer.currentForm.getMailingAddress().getCity() + ", " + attributeContainer.currentForm.getMailingAddress().getState() + ", " + attributeContainer.currentForm.getMailingAddress().getZip();
+//                Civ9Label.setText(mailingAddress);
+//            } else {
+//                Civ9Label.setText("");
+//            }
+//            Civ10Label.setText(attributeContainer.currentForm.getFormula());
+//            Civ14Label.setText("" + attributeContainer.currentForm.getAlcoholContent());
+//            Civ15Label.setText(attributeContainer.currentForm.getEmail());
+//            Civ16Label.setText(attributeContainer.currentForm.getPhoneNumber());
+//
 
-        if (attributeContainer.currentForm != null) {
-            Civ1Label.setText(attributeContainer.currentForm.getRepID());
-            String fullPermit = "";
-            for (int i = 0; i < attributeContainer.currentForm.getBrewersPermit().size(); i++) {
-                fullPermit += attributeContainer.currentForm.getBrewersPermit().get(i) + "\n";
-            }
-            Civ2Label.setText(fullPermit);
-            if (attributeContainer.currentForm.getSource()) {
-                Civ3Label.setText("Domestic");
-            } else {
-                Civ3Label.setText("Imported");
-            }
-            CivReview4Label1.setText(attributeContainer.currentForm.getSerialNumber());
-            Civ5Label1.setText(attributeContainer.currentForm.getAlcoholType().toString());
-            if (attributeContainer.currentForm.getAlcoholType().toInt() == Wine.toInt()) {
-                Civ5Label2.setText("" + attributeContainer.currentForm.getWineFormItems().getpH());
-                Civ5Label3.setText("" + attributeContainer.currentForm.getWineFormItems().getVintageYear());
-                Civ11Label.setText(attributeContainer.currentForm.getWineFormItems().getGrapeVarietal());
-                Civ12Label.setText(attributeContainer.currentForm.getWineFormItems().getAppellation());
-            } else {
-                Civ5Label2.setText("N/A");
-                Civ5Label3.setText("N/A");
-                Civ11Label.setText("N/A");
-                Civ12Label.setText("N/A");
-            }
-            Civ6Label.setText(attributeContainer.currentForm.getBrandName());
-            Civ7Label.setText(attributeContainer.currentForm.getFancifulName());
-
-            String fullAddress = "";
-            for (int i = 0; i < attributeContainer.currentForm.getAddress().size(); i++) {
-                fullAddress += attributeContainer.currentForm.getAddress().get(i).getName() + "\n"; //NAME MIGHT NOT BE STORED OR RETRIEVED CORRECTLY
-                fullAddress += attributeContainer.currentForm.getAddress().get(i).getStreet() + ", " + attributeContainer.currentForm.getAddress().get(i).getCity() + ", " + attributeContainer.currentForm.getAddress().get(i).getState();
-                fullAddress += ", " + attributeContainer.currentForm.getAddress().get(i).getZip() + "\n";
-            }
-            Civ8Label.setText(fullAddress);
-            if (attributeContainer.currentForm.getMailingAddress() != null) {
-                String mailingAddress = "";
-                mailingAddress += attributeContainer.currentForm.getMailingAddress().getStreet() + ", " + attributeContainer.currentForm.getMailingAddress().getCity() + ", " + attributeContainer.currentForm.getMailingAddress().getState() + ", " + attributeContainer.currentForm.getMailingAddress().getZip();
-                Civ9Label.setText(mailingAddress);
-            } else {
-                Civ9Label.setText("");
-            }
-            Civ10Label.setText(attributeContainer.currentForm.getFormula());
-            Civ14Label.setText("" + attributeContainer.currentForm.getAlcoholContent());
-            Civ15Label.setText(attributeContainer.currentForm.getEmail());
-            Civ16Label.setText(attributeContainer.currentForm.getPhoneNumber());
 
 
+//        }
 
-        }
+        helpToggleButton.setSelected(false);
+        largePane.setOpacity(0);
+        largePane.setDisable(true);
+        smallPane.setOpacity(0);
+        smallPane.setDisable(true);
 
-        /*helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+        helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+
             @Override
             public void handle(ActionEvent event) {
-                if(helpToggleButton.isSelected()){
+                if (helpToggleButton.isSelected()){
                     largePane.setOpacity(0.63);
-                    //smallPane.setOpacity(1);
+                    largePane.setDisable(false);
+                    smallPane.setOpacity(1);
+                    smallPane.setDisable(false);
                     System.out.println("Is selected");
+
+
                 }
-                else{
+                else {
                     largePane.setOpacity(0);
-                   // smallPane.setOpacity(0);
+                    largePane.setDisable(true);
+                    smallPane.setOpacity(0);
+                    smallPane.setDisable(true);
                     System.out.println("Is not selector");
+
                 }
             }
-        });*/
+        });
     }
     //#################################################################################################################################
     //                                   advanced search
@@ -429,6 +453,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
             Scene scene = new Scene(root, 1360, 820);
             stage.setScene(scene);
             stage.show();
+
         }
     }
 
@@ -494,6 +519,11 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         levenshtein.setToggleGroup(searchOptions);
         damereauLevenshtein.setToggleGroup(searchOptions);
         fuzzy.setSelected(true);
+
+        //search radio buttons
+        apacheRadioButton.setToggleGroup(searchOptions2);
+        mongoRadioButton.setToggleGroup(searchOptions2);
+        apacheRadioButton.setSelected(true);
 
 
         //persist search stuff

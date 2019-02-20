@@ -46,7 +46,7 @@ public class Form implements Serializable {
     private String formula;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "TTB_ID")
+    @JoinColumn(name = "TTB_ID", nullable = false)
     private WineFormItems wineFormItems;
 
     @Column(name = "Phone")
@@ -72,7 +72,7 @@ public class Form implements Serializable {
     private int companyID;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "TTB_ID")
+    @JoinColumn(name = "TTB_ID", nullable = false)
     private Approval approval;
 
     @Column(name = "APV")

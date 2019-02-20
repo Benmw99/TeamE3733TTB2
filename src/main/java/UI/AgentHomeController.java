@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import com.jfoenix.controls.*;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -25,6 +26,15 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AgentHomeController extends PageControllerUI implements Initializable {
+
+    @FXML
+    Pane largePane;
+
+    @FXML
+    Pane smallPane;
+
+    @FXML
+    JFXToggleButton helpToggleButton;
 
     @FXML
     public JFXButton GetNewQueueButton;
@@ -164,14 +174,6 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     JFXTextField queueAmountField;
 
-    @FXML
-    JFXToggleButton helpToggleButton;
-
-    @FXML
-    Pane largePane;
-
-    @FXML
-    Pane smallPane;
 
 
 
@@ -337,22 +339,35 @@ public class AgentHomeController extends PageControllerUI implements Initializab
 //(true);a
         GetNewQueueButton.toFront();
 
+     helpToggleButton.setSelected(false);
+     largePane.setOpacity(0);
+     largePane.setDisable(true);
+     smallPane.setOpacity(0);
+     smallPane.setDisable(true);
+
      helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+
          @Override
          public void handle(ActionEvent event) {
-             if(helpToggleButton.isSelected()){
+             if (helpToggleButton.isSelected()){
                  largePane.setOpacity(0.63);
+                 largePane.setDisable(false);
                  smallPane.setOpacity(1);
+                 smallPane.setDisable(false);
                  System.out.println("Is selected");
+
+
              }
-             else{
+             else {
                  largePane.setOpacity(0);
+                 largePane.setDisable(true);
                  smallPane.setOpacity(0);
+                 smallPane.setDisable(true);
                  System.out.println("Is not selector");
+
              }
          }
      });
-
 
 
 //        AttributeContainer.getInstance().formQueue = Database.getDatabase().dbSelect.getNext(AttributeContainer.getInstance().numForQueue);
