@@ -881,7 +881,7 @@
                               <Font name="Apple SD Gothic Neo Thin" size="32.0" />
                            </font>
                         </Label>
-                        <JFXDatePicker fx:id="AppDate" defaultColor="#12e8d2" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: white;">
+                        <JFXDatePicker fx:id="AppDate" defaultColor="#800020" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: white;">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
