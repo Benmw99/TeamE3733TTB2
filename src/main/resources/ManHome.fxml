@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManHomeController">
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManHomeController">
    <children>
       <Pane prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: WHITE;">
          <children>
@@ -23,7 +23,7 @@
                <children>
                   <Text layoutX="547.0" layoutY="53.0" strokeWidth="0.0" text="My Applications">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="36.0" />
+                        <Font name="Roboto Light" size="36.0" />
                      </font>
                   </Text>
                </children>
@@ -32,31 +32,31 @@
                <children>
                   <JFXTextField fx:id="searchAppsTextField" disable="true" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="377.0" style="-fx-background-color: WHITE;" text="Search Applications">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                        <Font name="Roboto Light" size="18.0" />
                      </font></JFXTextField>
                   <JFXButton fx:id="newFormButton" layoutX="411.0" layoutY="18.0" onAction="#addForm" ripplerFill="#9d9797" style="-fx-background-radius: 15; -fx-background-color: AC2B37;" text="+" textFill="WHITE" />
                </children>
             </Pane>
             <Pane layoutX="558.0" layoutY="88.0" prefHeight="64.0" prefWidth="803.0" style="-fx-background-color: white;">
                <children>
-                  <JFXButton fx:id="commentsButton" buttonType="RAISED" layoutX="450.0" layoutY="5.0" onAction="#viewAgentComments" ripplerFill="#9d9797" style="-fx-background-color: AC2B37;" text="View Agent Comments" textFill="WHITE">
+                  <JFXButton fx:id="commentsButton" buttonType="RAISED" layoutX="326.0" layoutY="5.0" onAction="#viewAgentComments" ripplerFill="#9d9797" style="-fx-background-color: AC2B37;" text="View Agent Comments" textFill="WHITE">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                        <Font name="Roboto Light" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="downloadButton" disable="true" layoutX="551.0" layoutY="5.0" onAction="#download" opacity="0.0" ripplerFill="#9d9797" style="-fx-background-color: AC2B37;" text="Download" textFill="WHITE">
+                  <JFXButton fx:id="downloadButton" buttonType="RAISED" layoutX="551.0" layoutY="5.0" onAction="#download" ripplerFill="#9d9797" style="-fx-background-color: #AC2B37;" text="Download" textFill="WHITE">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                        <Font name="Roboto Light" size="18.0" />
                      </font>
                   </JFXButton>
                   <JFXButton fx:id="printButton" buttonType="RAISED" layoutX="680.0" layoutY="5.0" onAction="#print" ripplerFill="#9d9797" style="-fx-background-color: AC2B37;" text="Print" textFill="WHITE">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                        <Font name="Roboto Light" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="goToSingleApp" buttonType="RAISED" layoutX="275.0" layoutY="5.0" onAction="#addSingleForm" prefHeight="36.0" style="-fx-background-color: AC2B37;" text="Single Page App" textFill="WHITE">
+                  <JFXButton fx:id="goToSingleApp" layoutX="150.0" layoutY="5.0" onAction="#addSingleForm" prefHeight="36.0" style="-fx-background-color: AC2B37;" text="Single Page App" textFill="WHITE">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                        <Font name="Roboto Light" size="18.0" />
                      </font></JFXButton>
                </children>
             </Pane>
@@ -66,7 +66,7 @@
             <fx:include maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="475.0" source="TableView.fxml" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
             <JFXButton fx:id="refreshButton1" buttonType="RAISED" onAction="#refreshForms" prefHeight="45.0" prefWidth="200.0" ripplerFill="#9c9797" style="-fx-background-color: AC2B37;" text="Refresh" textFill="WHITE">
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                  <Font name="Roboto Light" size="18.0" />
                </font>
                <VBox.margin>
                   <Insets top="25.0" />
@@ -92,7 +92,7 @@
                               <Insets bottom="20.0" left="15.0" top="20.0" />
                            </VBox.margin>
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                              <Font name="Roboto Light" size="18.0" />
                            </font>
                         </Label>
                         <Label text="Selecting this button allows you to view the comments made by an agent on a selected application" textFill="WHITE" wrapText="true">
@@ -100,7 +100,7 @@
                               <Insets bottom="15.0" left="15.0" top="13.0" />
                            </VBox.margin>
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                              <Font name="Roboto Light" size="18.0" />
                            </font>
                         </Label>
                         <Label text="Selecting this button allows you to refesh your application list" textFill="WHITE">
@@ -108,7 +108,7 @@
                               <Insets bottom="20.0" left="15.0" top="2.0" />
                            </VBox.margin>
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                              <Font name="Roboto Light" size="18.0" />
                            </font>
                         </Label>
                         <Label text="Selecting this button will allow you to start a new application" textFill="WHITE">
@@ -116,7 +116,7 @@
                               <Insets bottom="20.0" left="15.0" top="20.0" />
                            </VBox.margin>
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                              <Font name="Roboto Light" size="18.0" />
                            </font>
                         </Label>
                         <Label text="Selecting this button will allow you to print a new page" textFill="WHITE">
@@ -124,7 +124,7 @@
                               <Insets bottom="20.0" left="15.0" top="19.0" />
                            </VBox.margin>
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                              <Font name="Roboto Light" size="18.0" />
                            </font>
                         </Label>
                         <Label text="Typing into this search bar and hitting the &quot;return&quot; button will allow you to search all of your applications  " textFill="WHITE" wrapText="true">
@@ -132,7 +132,7 @@
                               <Insets bottom="20.0" left="15.0" top="15.0" />
                            </VBox.margin>
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                              <Font name="Roboto Light" size="18.0" />
                            </font>
                         </Label>
                         <Label text="Selecting this button will allow you to edit a previously-submitted application" textFill="WHITE">
@@ -140,7 +140,7 @@
                               <Insets bottom="20.0" left="15.0" top="20.0" />
                            </VBox.margin>
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                              <Font name="Roboto Light" size="18.0" />
                            </font>
                         </Label>
                      </children>
@@ -149,12 +149,12 @@
             </HBox>
             <JFXToggleButton layoutX="50.0" layoutY="386.0" text="Edit">
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                  <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXToggleButton>
             <JFXTextField layoutX="47.0" layoutY="326.0" prefHeight="36.0" prefWidth="179.0" style="-fx-background-color: WHITE;" text="Search Applications">
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                  <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXTextField>
             <JFXButton buttonType="RAISED" layoutX="54.0" layoutY="260.0" style="-fx-background-color: #800020;" text="Print" textFill="WHITE">
@@ -167,7 +167,7 @@
                   </RadialGradient>
                </ripplerFill>
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                  <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXButton>
             <JFXButton layoutX="62.0" layoutY="200.0" style="-fx-background-radius: 15; -fx-background-color: #800020;" text="+" textFill="WHITE" />
@@ -181,7 +181,7 @@
                   </RadialGradient>
                </ripplerFill>
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                  <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXButton>
             <JFXButton buttonType="RAISED" layoutX="48.0" layoutY="77.0" style="-fx-background-color: #800020;" text="View Agent Comments" textFill="WHITE">
@@ -194,12 +194,12 @@
                   </RadialGradient>
                </ripplerFill>
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                  <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXButton>
             <JFXButton buttonType="RAISED" layoutX="50.0" layoutY="13.0" prefWidth="97.0" style="-fx-background-color: #800020;" text="Download" textFill="WHITE">
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                  <Font name="Roboto Light" size="18.0" />
                </font>
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
