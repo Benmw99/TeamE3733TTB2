@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 
 import java.io.IOException;
 import java.net.URL;
@@ -94,7 +95,19 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
      */
     @FXML
     public void viewAgentComments(ActionEvent event) throws IOException {
-        System.out.println(attributeContainer.currentForm.getApproval().getQualifications());
+        if(attributeContainer.currentForm.getApproval().getQualifications() != null) {
+            Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
+            agentComments.setContentText(attributeContainer.currentForm.getApproval().getQualifications());
+            agentComments.setHeaderText("Agent Comments");
+            agentComments.setTitle("Comments");
+            agentComments.show();
+        } else {
+            Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
+            agentComments.setContentText("No current comments");
+            agentComments.setHeaderText("Agent Comments");
+            agentComments.setTitle("Comments");
+            agentComments.show();
+        }
     }
 
     /**

@@ -20,7 +20,7 @@
                     <children>
                         <JFXTabPane fx:id="tabPane" onMouseClicked="#displayStatus" prefHeight="586.0" prefWidth="1006.0" stylesheets="@TabPane.css">
                             <tabs>
-                                <Tab text="Section 1" onSelectionChanged="#page1">
+                                <Tab text="Section 1">
                                     <content>
                                         <VBox prefHeight="200.0" prefWidth="100.0">
                                             <children>
@@ -243,7 +243,7 @@
                                         </VBox>
                                     </content>
                                 </Tab>
-                                <Tab text="Section 2" onSelectionChanged="#page2">
+                                <Tab text="Section 2">
                                     <content>
                                         <VBox prefHeight="200.0" prefWidth="100.0">
                                             <children>
@@ -434,7 +434,7 @@
                                         </VBox>
                                     </content>
                                 </Tab>
-                                <Tab text="Section 3" onSelectionChanged="#page3">
+                                <Tab text="Section 3">
                                     <content>
                                         <VBox prefHeight="200.0" prefWidth="100.0">
                                             <children>
@@ -655,7 +655,7 @@
                                         </VBox>
                                     </content>
                                 </Tab>
-                                <Tab text="Section 4" onSelectionChanged="#page4">
+                                <Tab text="Section 4">
                                     <content>
                                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                                             <children>

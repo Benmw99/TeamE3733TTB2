@@ -557,6 +557,7 @@ public class AppController extends PageControllerUI implements  Initializable {
         BrewersPermit brew = new BrewersPermit(ProducerNumField.getText(), true);
         brews.add(brew);
         working.setBrewersPermit(brews);
+        working.setApproval(new Approval());
         man.submitForm(working);
         this.workingForm = working;
         return working.getTtbID();

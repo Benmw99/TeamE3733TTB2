@@ -30,7 +30,7 @@
             <Font name="Apple SD Gothic Neo Thin" size="18.0" />
          </font>
       </Text>
-      <JFXComboBox fx:id="sectionMarkComboBox" layoutX="203.0" layoutY="86.0" prefHeight="39.0" prefWidth="253.0" promptText="Select Status" style="-jfx-focus-color: WHITE;" />
+      <JFXComboBox fx:id="sectionMarkComboBox" onAction="#markForm" layoutX="203.0" layoutY="86.0" prefHeight="39.0" prefWidth="253.0" promptText="Select Status" style="-jfx-focus-color: WHITE;" />
       <JFXButton fx:id="approveAVFButton" buttonType="RAISED" layoutX="538.0" layoutY="86.0" onAction="#approveForm" prefHeight="39.0" prefWidth="132.0" style="-fx-background-color: #4285F4;" text="Approve Form" textFill="WHITE">
          <ripplerFill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
