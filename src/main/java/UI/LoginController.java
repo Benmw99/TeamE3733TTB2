@@ -3,9 +3,6 @@ package UI;
 import Entities.Agent;
 import Entities.IUser;
 import Entities.Manufacturer;
-import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -73,7 +70,6 @@ public class LoginController extends PageControllerUI implements Initializable {
                 AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
                 AttributeContainer.getInstance().currentForm = null;
                 AttributeContainer.getInstance().backlog.empty();
-                attributeContainer.isInReviewingTools = false;
                 goToPage("ManHome.fxml");
             }
             if(AgentRadioButton.isSelected()){
@@ -83,7 +79,6 @@ public class LoginController extends PageControllerUI implements Initializable {
                 AttributeContainer.getInstance().currentForm = null;
                 System.out.println(((Agent) AttributeContainer.getInstance().currentUser).getAgentID());
                 AttributeContainer.getInstance().backlog.empty();
-                attributeContainer.isInReviewingTools = false;
                 goToPage("AgentHome.fxml");
                System.out.println(((Agent)AttributeContainer.getInstance().currentUser).getAgentID());
             }

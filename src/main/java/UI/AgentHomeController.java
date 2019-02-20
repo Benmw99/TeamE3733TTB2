@@ -1,6 +1,5 @@
 package UI;
 
-import DB.Database;
 import Entities.Agent;
 import Entities.Form;
 import Entities.Mailer;
@@ -20,8 +19,6 @@ import javafx.scene.layout.Pane;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -282,8 +279,6 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     public void reviewingTools(ActionEvent event) throws IOException {
         if(AttributeContainer.getInstance().currentForm != null) {
-            attributeContainer.isInReviewingTools = true;
-            attributeContainer.isFirstTab = false;
             goToPage("AgentReviewingTools.fxml");
         } else {
             Alert yikes = new Alert(Alert.AlertType.WARNING);
