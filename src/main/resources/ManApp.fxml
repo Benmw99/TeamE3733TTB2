@@ -16,19 +16,18 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.BreadCrumbBar?>
 
-<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AppController">
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AppController">
    <children>
       <Pane prefHeight="100.0" prefWidth="1360.0" style="-fx-background-color: white;">
          <children>
-            <Rectangle fill="#9ea7aa" height="100.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="1360.0" />
-            <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="100.0" prefWidth="1360.0" text="TTB Application Form" textFill="WHITE">
+            <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="78.0" prefWidth="1360.0" text="TTB Application Form" textFill="#4d4d4d">
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="48.0" />
+                  <Font name="Roboto Light" size="48.0" />
                </font>
             </Label>
-            <JFXButton fx:id="back" onAction="#goBack" prefHeight="100.0" prefWidth="100.0" text="&lt;">
+            <JFXButton fx:id="back" layoutY="-3.0" onAction="#goBack" prefHeight="83.0" prefWidth="100.0" text="&lt;">
                <font>
-                  <Font name="Apple SD Gothic Neo Heavy" size="47.0" />
+                  <Font name="Roboto Light" size="47.0" />
                </font>
             </JFXButton>
          </children>
@@ -73,7 +72,7 @@
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="1" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -81,7 +80,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="2*">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -89,7 +88,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="3*">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -97,7 +96,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="4*">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -105,7 +104,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="5*">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -113,7 +112,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="6*">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -130,10 +129,10 @@
                      <children>
                         <Label prefHeight="80.0" text="Representative ID #">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                              <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="RepIDField" alignment="CENTER" focusColor="BLACK" prefHeight="50.0" prefWidth="270.0" promptText="ID" unFocusColor="WHITE">
+                        <JFXTextField fx:id="RepIDField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="ID" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -155,10 +154,10 @@
                      <children>
                         <Label prefHeight="80.0" text="Plant Registry/Basic Permit/Brewer’s #">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                              <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="ProducerNumField" alignment="CENTER" focusColor="BLACK" prefHeight="50.0" prefWidth="270.0" promptText="Number" unFocusColor="WHITE">
+                        <JFXTextField fx:id="ProducerNumField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Number" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -180,7 +179,7 @@
                      <children>
                         <Label prefHeight="80.0" text="Source Of Product">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                              <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
                         <JFXComboBox fx:id="SourceComboBox" focusColor="BLACK" prefHeight="50.0" prefWidth="270.0" promptText="Source" unFocusColor="WHITE">
@@ -202,10 +201,10 @@
                      <children>
                         <Label prefHeight="80.0" text="Serial Number">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                              <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="SerialYearField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="150.0" promptText="Year 00" unFocusColor="WHITE">
+                        <JFXTextField fx:id="SerialYearField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="150.0" promptText="Year 00" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -213,7 +212,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="SerialDigitsField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="150.0" promptText="Digits 0000" unFocusColor="WHITE">
+                        <JFXTextField fx:id="SerialDigitsField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="150.0" promptText="Digits 0000" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -235,7 +234,7 @@
                      <children>
                         <Label prefHeight="80.0" text="Type Of Product">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                              <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
                         <JFXComboBox fx:id="TypeComboBox" onAction="#checkWine" prefHeight="50.0" prefWidth="270.0" promptText="Choose" unFocusColor="WHITE">
@@ -243,7 +242,7 @@
                               <Insets left="20.0" />
                            </HBox.margin>
                         </JFXComboBox>
-                        <JFXTextField fx:id="VintageYearField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="Vintage Year" unFocusColor="WHITE">
+                        <JFXTextField fx:id="VintageYearField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="Vintage Year" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -251,7 +250,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="PhField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="pH Level" unFocusColor="WHITE">
+                        <JFXTextField fx:id="PhField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="pH Level" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -269,10 +268,10 @@
                      <children>
                         <Label prefHeight="80.0" text="Brand Name">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                              <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="BrandField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Name" unFocusColor="WHITE">
+                        <JFXTextField fx:id="BrandField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Name" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -334,7 +333,7 @@
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="7" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -342,7 +341,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="8*">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -350,7 +349,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="9*">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -358,7 +357,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="10*">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -366,7 +365,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="11">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -374,7 +373,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="12">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -391,10 +390,10 @@
                      <children>
                         <Label prefHeight="80.0" text="Fanciful Name">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                              <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="FancifulField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Name" unFocusColor="WHITE">
+                        <JFXTextField fx:id="FancifulField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Name" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -416,10 +415,10 @@
                      <children>
                         <Label prefHeight="80.0" text="Name &amp; Address">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                              <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="Name8Field" alignment="CENTER" focusColor="BLACK" prefHeight="50.0" prefWidth="175.0" promptText="Name" unFocusColor="WHITE">
+                        <JFXTextField fx:id="Name8Field" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="175.0" promptText="Name" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -432,7 +431,7 @@
                               <Insets left="15.0" />
                            </padding>
                         </JFXComboBox>
-                        <JFXTextField fx:id="Address8Field" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="175.0" promptText="Address" unFocusColor="WHITE">
+                        <JFXTextField fx:id="Address8Field" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="175.0" promptText="Address" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -440,7 +439,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="City8Field" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="City" unFocusColor="WHITE">
+                        <JFXTextField fx:id="City8Field" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="City" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -448,7 +447,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="Zip8Field" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="Zip Code" unFocusColor="WHITE">
+                        <JFXTextField fx:id="Zip8Field" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="Zip Code" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -472,17 +471,17 @@
                            <children>
                               <Label prefHeight="80.0" text="Mailing Address">
                                  <font>
-                                    <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                                    <Font name="Roboto Light" size="28.0" />
                                  </font>
                               </Label>
                               <JFXRadioButton fx:id="SameAddressRadioButton" onAction="#checkMail" style="-jfx-unselected-color: #f8b195;" text="Same as question 8">
                                  <font>
-                                    <Font name="Apple SD Gothic Neo Thin" size="16.0" />
+                                    <Font name="Roboto Light" size="16.0" />
                                  </font>
                               </JFXRadioButton>
                            </children>
                         </VBox>
-                        <JFXTextField fx:id="Name9Field" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="175.0" promptText="Name" unFocusColor="WHITE">
+                        <JFXTextField fx:id="Name9Field" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="175.0" promptText="Name" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -495,7 +494,7 @@
                               <Insets left="15.0" />
                            </padding>
                         </JFXComboBox>
-                        <JFXTextField fx:id="Address9Field" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="175.0" promptText="Address" unFocusColor="WHITE">
+                        <JFXTextField fx:id="Address9Field" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="175.0" promptText="Address" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -503,7 +502,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="City9Field" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="City" unFocusColor="WHITE">
+                        <JFXTextField fx:id="City9Field" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="City" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -511,7 +510,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="Zip9Field" alignment="BOTTOM_CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="Zip Code" unFocusColor="WHITE">
+                        <JFXTextField fx:id="Zip9Field" alignment="BOTTOM_CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="Zip Code" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -533,10 +532,10 @@
                      <children>
                         <Label prefHeight="80.0" text="Formula">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                              <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="FormulaField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="List" unFocusColor="WHITE">
+                        <JFXTextField fx:id="FormulaField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="List" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -558,10 +557,10 @@
                      <children>
                         <Label prefHeight="80.0" text="Grape Varietal(s)">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                              <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="GrapeVarField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="List" unFocusColor="WHITE">
+                        <JFXTextField fx:id="GrapeVarField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="List" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -579,10 +578,10 @@
                      <children>
                         <Label prefHeight="80.0" text="Wine Appellation">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                              <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="WineAppField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Only if stated on label" unFocusColor="WHITE">
+                        <JFXTextField fx:id="WineAppField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Only if stated on label" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -610,7 +609,7 @@
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="13*" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -618,7 +617,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="14*">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -626,7 +625,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="160.0" prefWidth="100.0" text="15*">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="30.0" top="30.0" />
@@ -634,7 +633,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="16">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -642,7 +641,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="17*">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -659,10 +658,10 @@
                      <children>
                         <Label prefHeight="80.0" text="Phone Number">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="32.0" />
+                              <Font name="Roboto Light" size="32.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="PhoneNumField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Enter a phone number" unFocusColor="WHITE">
+                        <JFXTextField fx:id="PhoneNumField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Enter a phone number" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -684,10 +683,10 @@
                      <children>
                         <Label prefHeight="80.0" text="Email Address">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="32.0" />
+                              <Font name="Roboto Light" size="32.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="EmailField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Enter a valid email address" unFocusColor="WHITE">
+                        <JFXTextField fx:id="EmailField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Enter a valid email address" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -711,17 +710,17 @@
                            <children>
                               <Label prefHeight="80.0" text="Type of Application">
                                  <font>
-                                    <Font name="Apple SD Gothic Neo Thin" size="32.0" />
+                                    <Font name="Roboto Light" size="32.0" />
                                  </font>
                               </Label>
                               <JFXRadioButton fx:id="LiquorRadioButton" onAction="#typeCheck" style="-jfx-unselected-color: black;" text="Distinctive Liquor Bottle Approval">
                                  <font>
-                                    <Font name="Apple SD Gothic Neo Thin" size="16.0" />
+                                    <Font name="Roboto Light" size="16.0" />
                                  </font>
                               </JFXRadioButton>
                               <JFXRadioButton fx:id="CertRadioButton" alignment="BOTTOM_CENTER" style="-jfx-unselected-color: black;" text="Certificate of Label Approval">
                                  <font>
-                                    <Font name="Apple SD Gothic Neo Thin" size="16.0" />
+                                    <Font name="Roboto Light" size="16.0" />
                                  </font>
                                  <VBox.margin>
                                     <Insets top="30.0" />
@@ -729,7 +728,7 @@
                               </JFXRadioButton>
                            </children>
                         </VBox>
-                        <JFXTextField fx:id="AmountField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="Total Amount" unFocusColor="WHITE">
+                        <JFXTextField fx:id="AmountField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="Total Amount" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -746,7 +745,7 @@
                                  <children>
                                     <JFXRadioButton fx:id="ExemptionRadioButton" alignment="BOTTOM_CENTER" onAction="#typeCheck" style="-jfx-unselected-color: black;" text="Certificate of Exemption" HBox.hgrow="ALWAYS">
                                        <font>
-                                          <Font name="Apple SD Gothic Neo Thin" size="16.0" />
+                                          <Font name="Roboto Light" size="16.0" />
                                        </font>
                                        <HBox.margin>
                                           <Insets right="20.0" top="80.0" />
@@ -763,13 +762,13 @@
                                  <children>
                                     <JFXRadioButton fx:id="ResubmitRadioButton" alignment="BOTTOM_CENTER" onAction="#typeCheck" style="-jfx-unselected-color: black;" text="Resubmition After Rejection" HBox.hgrow="ALWAYS">
                                        <font>
-                                          <Font name="Apple SD Gothic Neo Thin" size="16.0" />
+                                          <Font name="Roboto Light" size="16.0" />
                                        </font>
                                        <HBox.margin>
                                           <Insets top="20.0" />
                                        </HBox.margin>
                                     </JFXRadioButton>
-                                    <JFXTextField fx:id="TTBIDField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="TTB ID" unFocusColor="WHITE" HBox.hgrow="ALWAYS">
+                                    <JFXTextField fx:id="TTBIDField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="TTB ID" unFocusColor="WHITE" HBox.hgrow="ALWAYS">
                                        <HBox.margin>
                                           <Insets left="15.0" />
                                        </HBox.margin>
@@ -795,10 +794,10 @@
                      <children>
                         <Label prefHeight="80.0" text="Additional Information">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="32.0" />
+                              <Font name="Roboto Light" size="32.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="AdditionalInfoField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Branded/Embossed" unFocusColor="WHITE">
+                        <JFXTextField fx:id="AdditionalInfoField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Branded/Embossed" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -806,7 +805,7 @@
                               <Font size="19.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="TranslationField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="270.0" promptText="Translation" unFocusColor="WHITE">
+                        <JFXTextField fx:id="TranslationField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Translation" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>
@@ -828,7 +827,7 @@
                      <children>
                         <Label prefHeight="80.0" text="Date of Application">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="32.0" />
+                              <Font name="Roboto Light" size="32.0" />
                            </font>
                         </Label>
                         <JFXDatePicker fx:id="AppDate" defaultColor="#12e8d2" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: white;">
@@ -863,7 +862,7 @@
                            <children>
                               <JFXButton fx:id="SendApp" buttonType="RAISED" layoutX="5.0" layoutY="5.0" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #800020;" text="Submit Application" textFill="WHITE">
                                  <font>
-                                    <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                                    <Font name="Roboto Light" size="24.0" />
                                  </font>
                               </JFXButton>
                            </children>
@@ -876,7 +875,7 @@
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="18*" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -884,7 +883,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="19*">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -892,7 +891,7 @@
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="20*">
                      <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                        <Font name="Roboto Light" size="28.0" />
                      </font>
                      <VBox.margin>
                         <Insets bottom="15.0" top="15.0" />
@@ -909,10 +908,10 @@
                      <children>
                         <Label prefHeight="80.0" text="Signature of Applicant or Authorized Agent">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="28.0" />
+                              <Font name="Roboto Light" size="28.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="SignatureField" alignment="CENTER" focusColor="BLACK" prefHeight="50.0" prefWidth="270.0" promptText="Sign" unFocusColor="WHITE">
+                        <JFXTextField fx:id="SignatureField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="270.0" promptText="Sign" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -934,15 +933,15 @@
                      <children>
                         <Label prefHeight="80.0" text="Label Submission">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="32.0" />
+                              <Font name="Roboto Light" size="32.0" />
                            </font>
                         </Label>
-                        <JFXButton fx:id="UploadButton" buttonType="RAISED" onAction="#uploadLabelImage" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #ff616f;" text="Upload" textFill="WHITE">
+                        <JFXButton fx:id="UploadButton" buttonType="RAISED" onAction="#uploadLabelImage" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #800020;" text="Upload" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+                              <Font name="Roboto Light" size="24.0" />
                            </font>
                         </JFXButton>
                         <JFXButton fx:id="LabelSubmitInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
@@ -960,10 +959,10 @@
                      <children>
                         <Label prefHeight="80.0" text="Alcohol Content">
                            <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="32.0" />
+                              <Font name="Roboto Light" size="32.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="AlcoholContentTextField" alignment="CENTER" focusColor="#f67280" prefHeight="50.0" prefWidth="115.0" promptText="Percentage" unFocusColor="WHITE">
+                        <JFXTextField fx:id="AlcoholContentTextField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="Percentage" unFocusColor="WHITE">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
@@ -985,6 +984,6 @@
             </VBox>
          </children>
       </Pane>
-      <BreadCrumbBar fx:id="Nav" prefHeight="100.0" prefWidth="100.0" AnchorPane.leftAnchor="1000.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0" />
+      <BreadCrumbBar fx:id="Nav" layoutX="958.0" layoutY="35.0" prefHeight="100.0" prefWidth="402.0" stylesheets="@breadcrumb.css" AnchorPane.leftAnchor="958.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" />
    </children>
 </AnchorPane>

@@ -125,9 +125,10 @@
     -fx-border-color: -fx-box-border;
     -fx-border-insets: -1 0 0 -1;
     -fx-padding: 0 5 0 0;
+    -fx-font-color: white;
 }
 .table-view .show-hide-columns-button {
-    -fx-background-color:  #4285f4;
+    -fx-background-color:  white;
     -fx-border-color: -fx-box-border;
     -fx-border-insets: -1 -1 0 0;
 }
@@ -146,3 +147,7 @@
     -fx-padding: 0.2em;
     -fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";
 }
+
+
+
+

@@ -1,6 +1,7 @@
 package UI;
 
 import Entities.Form;
+import Entities.FormExporter;
 import Entities.Manufacturer;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -166,7 +167,15 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
      */
     @FXML
     public void print(ActionEvent event) throws IOException {
-        //TODO Make print
+        if(AttributeContainer.getInstance().currentForm != null){
+            new FormExporter(AttributeContainer.getInstance().currentForm, "S");
+            printButton.setText("Printed!");
+        } else {
+            Alert yikes = new Alert(Alert.AlertType.WARNING);
+            yikes.setContentText("Please select a form!");
+            yikes.setHeaderText("Invalid Form Selection");
+            yikes.show();
+        }
     }
 
     @Override

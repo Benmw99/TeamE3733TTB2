@@ -1,9 +1,6 @@
 package UI;
 
-import Entities.Agent;
-import Entities.ApprovalStatus;
-import Entities.Form;
-import Entities.Mailer;
+import Entities.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -241,10 +238,11 @@ public class AgentHomeController extends PageControllerUI implements Initializab
             AttributeContainer.getInstance().currentForm.getApproval().setPage3(ApprovalStatus.Complete);
             AttributeContainer.getInstance().currentForm.getApproval().setPage4(ApprovalStatus.Complete);
             ((Agent)AttributeContainer.getInstance().currentUser).approveForm(AttributeContainer.getInstance().currentForm, "");
-            attributeContainer.currentForm = null;
             attributeContainer.formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
+            attributeContainer.currentForm = null;
+
             goToPage("AgentHome.fxml");
         } else {
             Alert yikes = new Alert(Alert.AlertType.WARNING);
@@ -268,10 +266,10 @@ public class AgentHomeController extends PageControllerUI implements Initializab
             AttributeContainer.getInstance().currentForm.getApproval().setPage3(ApprovalStatus.Incorrect);
             AttributeContainer.getInstance().currentForm.getApproval().setPage4(ApprovalStatus.Incorrect);
             ((Agent)AttributeContainer.getInstance().currentUser).rejectForm(AttributeContainer.getInstance().currentForm, "");
-             attributeContainer.currentForm = null;
             attributeContainer.formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
+            attributeContainer.currentForm = null;
             goToPage("AgentHome.fxml");
         } else {
             Alert yikes = new Alert(Alert.AlertType.WARNING);
@@ -305,8 +303,14 @@ public class AgentHomeController extends PageControllerUI implements Initializab
      */
     @FXML
     public void print(ActionEvent event) throws IOException {
-        if (!(attributeContainer.currentForm == null)) {
-            System.out.println("lol nah");
+        if(AttributeContainer.getInstance().currentForm != null){
+            new FormExporter(AttributeContainer.getInstance().currentForm, "S");
+            PrintButton.setText("Printed!");
+        } else {
+            Alert yikes = new Alert(Alert.AlertType.WARNING);
+            yikes.setContentText("Please select a form!");
+            yikes.setHeaderText("Invalid Form Selection");
+            yikes.show();
         }
     }
 

@@ -20,17 +20,17 @@
 
 .jfx-tab-pane .tab
 {
-    -fx-background-color:  #AC2B37;
+    -fx-background-color: #grey;
 
 }
 
 .jfx-tab-pane .tab:selected
 {
-    -fx-background-color: #AC2B37;
+    -fx-background-color: #grey;
 }
 
 .jfx-tab-pane .tab-header-background {
-    -fx-background-color: #AC2B37;
+    -fx-background-color: #grey;
 }
 
 

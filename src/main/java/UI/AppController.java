@@ -6,6 +6,7 @@ import com.jfoenix.controls.*;
 import com.jfoenix.validation.NumberValidator;
 import com.jfoenix.validation.RegexValidator;
 import com.jfoenix.validation.RequiredFieldValidator;
+import com.jfoenix.validation.base.ValidatorBase;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -32,6 +33,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.sql.Date;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -246,7 +250,12 @@ public class AppController extends PageControllerUI implements Initializable {
     @FXML
     private JFXButton TypeAppInfo;
 
+    @FXML
+    private JFXButton SubmitButton;
+
     private Form workingForm;
+
+    List<ValidatorBase> santa_List;
 
     @Override
     void onLoad() {
@@ -323,6 +332,7 @@ public class AppController extends PageControllerUI implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Set up panes
+        santa_List = new ArrayList<ValidatorBase>();
         pane1.toFront();
         pane1.setDisable(false);
         pane1.setVisible(true);
@@ -486,6 +496,7 @@ public class AppController extends PageControllerUI implements Initializable {
     public void setListener(JFXTextField field, int type) {
         if (type == 1) {
             NumberValidator numValidator = new NumberValidator();
+            santa_List.add(numValidator);
             field.getValidators().add(numValidator);
             numValidator.setMessage("Enter a number");
             RequiredFieldValidator validator = new RequiredFieldValidator();
@@ -494,7 +505,8 @@ public class AppController extends PageControllerUI implements Initializable {
         }
         if (type == 2) {
             RegexValidator regexValidator = new RegexValidator();
-            regexValidator.setRegexPattern("[a-zA-Z]*");
+            santa_List.add(regexValidator);
+            regexValidator.setRegexPattern("[a-z A-Z]*");
             field.getValidators().add(regexValidator);
             regexValidator.setMessage("Enter a string!");
             RequiredFieldValidator validator = new RequiredFieldValidator();
@@ -503,6 +515,7 @@ public class AppController extends PageControllerUI implements Initializable {
         }
         if (type == 3) {
             RegexValidator validEmail = new RegexValidator();
+            santa_List.add(validEmail);
             validEmail.setRegexPattern(".+\\@.+\\..+");
             field.getValidators().add(validEmail);
             validEmail.setMessage("Enter a valid email");
@@ -512,6 +525,7 @@ public class AppController extends PageControllerUI implements Initializable {
         }
         if (type == 4) {
             RegexValidator validEmail = new RegexValidator();
+            santa_List.add(validEmail);
             validEmail.setRegexPattern("^\\D?(\\d{3})\\D?\\D?(\\d{3})\\D?(\\d{4})$");
             field.getValidators().add(validEmail);
             validEmail.setMessage("Enter a valid phone number");
@@ -521,6 +535,7 @@ public class AppController extends PageControllerUI implements Initializable {
         }
         if (type == 5) {
             RegexValidator validEmail = new RegexValidator();
+            santa_List.add(validEmail);
             validEmail.setRegexPattern("^\\d{4}$");
             field.getValidators().add(validEmail);
             validEmail.setMessage("Enter a valid year");
@@ -530,7 +545,8 @@ public class AppController extends PageControllerUI implements Initializable {
         }
         if (type == 6) {
             RegexValidator validEmail = new RegexValidator();
-            validEmail.setRegexPattern("^[0-1]?[1-4]$"); // Doesn't account for decimals
+            santa_List.add(validEmail);
+            validEmail.setRegexPattern("^[0-9]+(\\.[0-9][0-9]*)?$"); // Doesn't account for decimals
             field.getValidators().add(validEmail);
             validEmail.setMessage("Enter a valid pH");
             RequiredFieldValidator validator = new RequiredFieldValidator();
@@ -539,14 +555,13 @@ public class AppController extends PageControllerUI implements Initializable {
         }
         if (type == 7) {
             RegexValidator validRepId = new RegexValidator();
+            santa_List.add(validRepId);
             validRepId.setRegexPattern("^[a-zA-Z0-9]{0,16}$"); // Doesn't account for decimals
             field.getValidators().add(validRepId);
             validRepId.setMessage("Enter a valid rep id");
-
         }
 
         if (errorInForm) {
-            //
         }
 
 
@@ -555,18 +570,25 @@ public class AppController extends PageControllerUI implements Initializable {
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if (!newValue) {
                     field.validate();
-                    if(field.validate()) {
+
+
+                    boolean t = true;
+                    for(ValidatorBase vb : santa_List){
+                        t = t && !vb.getHasErrors();
+                        System.out.println(vb.getHasErrors());}
+
+                    if(t) {
+
                         System.out.println("Fields has no errors");
                         SendApp.setOpacity(1);
-                    }
-                    if (!field.validate()) {
-                        System.out.println("Fields have errors");
-                        SendApp.setOpacity(0);
-                    }
+                        SendApp.setDisable(false);
+                    } else {
+                        System.out.println("Fields has  errors");
+                        SendApp.setDisable(true);
+             //           SendApp.setOpacity(0);
 
                 }
-            }
-        });
+        }}});
 
     }
 
@@ -720,6 +742,8 @@ public class AppController extends PageControllerUI implements Initializable {
         brews.add(brew);
         working.setBrewersPermit(brews);
         working.setApproval(new Approval());
+        working.setDateSubmitted(Date.valueOf(LocalDate.now()));
+     //   working.setDateSubmitted(java.sql.Date.from(Instant.now()));
         man.submitForm(working);
         this.workingForm = working;
         return working.getTtbID();
