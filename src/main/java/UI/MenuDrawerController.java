@@ -115,7 +115,6 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
                         ProfileSlider.setMaxSize(300,70);
                         ProfileSlider.setPrefSize(300,70);
                     }
-
                     Drawer.open();
                 }
             }
