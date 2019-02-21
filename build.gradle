@@ -6,6 +6,10 @@ version '1.0'
 
 sourceCompatibility = 1.8
 
+compileJava.options.encoding = 'UTF-8' 
+compileTestJava.options.encoding = 'UTF-8'
+javadoc.options.encoding = 'UTF-8'
+
 jar {
     manifest {
         attributes 'Main-Class': 'main'
@@ -32,7 +36,6 @@ dependencies {
     compile group: 'com.jfoenix', name: 'jfoenix', version: '8.0.8'
     compile 'com.opencsv:opencsv:4.5'
     compile group: 'org.hibernate', name: 'hibernate-c3p0', version: '5.4.1.Final'
-    compile group: 'org.hibernate.ogm', name: 'hibernate-ogm-mongodb', version: '5.4.1.Final'
     compile group: 'org.apache.poi', name: 'poi', version: '3.17'
     compile group: 'org.apache.poi', name: 'poi-scratchpad', version: '3.17'
     compile group: 'org.apache.poi', name: 'poi-ooxml', version: '4.0.1'
