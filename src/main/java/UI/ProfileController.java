@@ -5,10 +5,14 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 
-public class ProfileController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ProfileController extends PageControllerUI implements Initializable {
 
     @FXML
     private Label NameLabel;
@@ -63,5 +67,18 @@ public class ProfileController {
     }
 
 
+    @Override
+    protected void onLeave() {
 
+    }
+
+    @Override
+    void onLoad() {
+
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 }

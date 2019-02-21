@@ -39,6 +39,9 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
     @FXML
     VBox BoxSlider;
 
+    @FXML
+    JFXButton ProfileSlider;
+
 
     @Override
     protected void onLeave() {
@@ -56,10 +59,17 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        boolean isSignedIn;
         Drawer.setSidePane(BoxSlider);
         HamburgerNextArrowBasicTransition transition = new HamburgerNextArrowBasicTransition(Hamburger);
         transition.setRate(transition.getRate()*-1);
         transition.play();
+        if(attributeContainer.currentUser != null){
+            isSignedIn = true;
+        }
+        else{
+            isSignedIn = false;
+        }
 
         Hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
@@ -81,6 +91,11 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
                     SearchSlider.setPrefSize(0, 0);
                     GoHomeSlider.setPrefSize(0, 0);
                     LogOutSlider.setPrefSize(0, 0);
+
+                    if(isSignedIn){
+                        ProfileSlider.setMaxSize(0,0);
+                        ProfileSlider.setPrefSize(0,0);
+                    }
                 } else {
                     Pane.setMaxSize(300, 760);
                     Drawer.setMaxSize(300, 760);
@@ -95,6 +110,11 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
                     SearchSlider.setPrefSize(300, 70);
                     GoHomeSlider.setPrefSize(300, 70);
                     LogOutSlider.setPrefSize(300,70);
+
+                    if(isSignedIn){
+                        ProfileSlider.setMaxSize(300,70);
+                        ProfileSlider.setPrefSize(300,70);
+                    }
 
                     Drawer.open();
                 }
@@ -158,6 +178,11 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
         AttributeContainer.getInstance().currentUser = null;
 //        goToPage("HomeSearch.fxml");
         goToPage("Login.fxml"); // goes to login now instead of search
+    }
+
+    @FXML
+    public void goToProfile(){
+        goToPage("Profile.fxml");
     }
 
 }

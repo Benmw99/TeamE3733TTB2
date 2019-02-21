@@ -9,6 +9,7 @@ import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
 import SearchAlgo.SearchContainer;
 import SearchAlgo.*;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
@@ -38,8 +39,6 @@ import java.util.ResourceBundle;
 import static Entities.AlcoholType.*;
 
 public class HomeSearchController extends PageControllerUI implements Initializable, PageObservable {
-
-
 
     private Entities.SearchResult results;
 
@@ -195,7 +194,7 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     Button aboutPageNav;
 
     @FXML
-    Label UsernameLabel;
+    JFXButton UsernameButton;
 
     @FXML
     StackPane UsernameStackPane;
@@ -236,8 +235,6 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     @FXML
     TextField pageTextField;
 
-
-
     ToggleGroup searchOptions = new ToggleGroup();
     ToggleGroup searchOptions2 = new ToggleGroup();
 
@@ -248,31 +245,14 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        //Font.loadFont(CustomFontApp.class.getResource("TRON.TTF"));
-
-
-
         SearchAlcoholType.getItems().addAll("Beers", "Wines", "Distilled Liquor");
         UsernameStackPane.setOpacity(0);
         UsernameStackPane.setPickOnBounds(false);
 
-        /*
-        if(attributeContainer.currentUser == null) {
-            SearchLoginButton.setDisable(false);
-            SearchLoginButton.setVisible(true);
-            backToHomeButton.setDisable(true);
-            backToHomeButton.setVisible(false);
-        } else {
-            SearchLoginButton.setDisable(true);
-            SearchLoginButton.setVisible(false);
-            backToHomeButton.setDisable(false);
-            backToHomeButton.setVisible(true);
-        }
-        */
         if(attributeContainer.currentUser != null){
-            System.out.println("This is true");
-            UsernameStackPane.setOpacity(100);
-            UsernameLabel.setText(attributeContainer.currentUser.getLogin());
+//            System.out.println("This is true");
+            UsernameStackPane.setOpacity(1);
+            UsernameButton.setText(attributeContainer.currentUser.getLogin());
         }
         else{
             UsernameStackPane.toBack();
@@ -597,6 +577,11 @@ public class HomeSearchController extends PageControllerUI implements Initializa
     public void notifyObservers() {
         for (PageObserver o:pageObservers) { o.notify(pageTextField.getText());}
 
+    }
+
+    @FXML
+    public void toProfile(){
+        goToPage("Profile.fxml");
     }
 
 
