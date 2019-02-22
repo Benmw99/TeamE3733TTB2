@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.SimpleSearchController">
+   <children>
+      <Label layoutX="283.0" layoutY="14.0" text="Search" />
+      <JFXTextField fx:id="searchBy" alignment="CENTER" layoutX="130.0" layoutY="152.0" prefHeight="27.0" prefWidth="350.0" text="Search the TTB Database" />
+      <JFXButton fx:id="searchButton" buttonType="RAISED" layoutX="274.0" layoutY="200.0" onAction="#search" ripplerFill="#949494" text="Search" />
+      <JFXButton fx:id="randomDrink" buttonType="RAISED" layoutX="245.0" layoutY="227.0" onAction="#pourMeADrink" ripplerFill="#908b8b" text="Pour me a Drink!" />
+      <JFXButton fx:id="goBack" buttonType="RAISED" layoutX="21.0" layoutY="18.0" text="&lt;" />
+   </children>
+</AnchorPane>
