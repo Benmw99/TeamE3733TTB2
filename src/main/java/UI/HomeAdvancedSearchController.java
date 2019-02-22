@@ -38,7 +38,7 @@ import java.util.ResourceBundle;
 
 import static Entities.AlcoholType.*;
 
-public class HomeSearchController extends PageControllerUI implements Initializable, PageObservable {
+public class HomeAdvancedSearchController extends PageControllerUI implements Initializable, PageObservable {
 
     private Entities.SearchResult results;
 
@@ -367,16 +367,16 @@ public class HomeSearchController extends PageControllerUI implements Initializa
         }
 
         //if (alcoholContentTextField.getText() != "") {
-            //Alcohol Content not in search yet
+        //Alcohol Content not in search yet
         //}
         //if (manField.getText() != "") {
-            //Manufacturer not in search yet
+        //Manufacturer not in search yet
         //}
         //if (stateField.getText() != "") {
-            //State not in search yet
+        //State not in search yet
         //}
         //if (cityField.getText() != "") {
-            //city not in search yet
+        //city not in search yet
         //}
         //if (manufactureDate.get) DATE NOT IMPLEMENTED YET
 
