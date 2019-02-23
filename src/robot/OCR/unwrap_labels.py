@@ -352,6 +352,36 @@ class LabelUnwrapper(object):
         return avg_width, avg_height
 
 
+class linefinder:
+    def __init__(self):
+        pass
+
+    def findShape(self):
+        # find lines and arcs
+        pass
+
+    def findLines(self):
+        # grayscale
+        # canny dedge detection
+        # houghes transform   -- houghlines
+        # masks from houghes lines, then AND with thresholded edge detection to get lengths
+        # ^^^Actually double check, line lengths are encoded as vote magnitude in hughes TF
+        # Get 2 longest lines, these are A-F C-D
+        #
+        # https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_houghlines/py_houghlines.html
+        pass
+
+    def findArcs(self):
+        # grayscale
+        # canny dedge detection
+        # houghes transform circle
+        # ^^^Correction - huoghes ellipse
+        # once again, check for 2 highest voted options
+        # pull A-B and D-E from the params
+        # http://scikit-image.org/docs/dev/auto_examples/edges/plot_circular_elliptical_hough_transform.html
+        # https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_houghcircles/py_houghcircles.html
+        pass
+
 if __name__ == '__main__':
     shape = {"shape": [{"x": 0.1966774926240951, "y": 0.14160193093695747},
                        {"x": 0.5121546063150226, "y": 0.11453768386725166},
