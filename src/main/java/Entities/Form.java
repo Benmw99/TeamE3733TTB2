@@ -85,6 +85,10 @@ public class Form implements Serializable {
     @Column(name = "WorkingOn")
     private int workingOn;
 
+
+
+    String labelText;
+
     public Form() {
     }
 
@@ -377,8 +381,13 @@ public class Form implements Serializable {
         this.workingOn = workingOn;
     }
 
+    public String getLabelText() {
+        return labelText;
+    }
 
-
+    public void setLabelText(String labelText) {
+        this.labelText = labelText;
+    }
 
     boolean equals(Form aform){
         return (this.repID.equals(aform.repID) &&
