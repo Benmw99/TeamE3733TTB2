@@ -362,7 +362,7 @@ class linefinder:
 
     def findLines(self):
         # grayscale
-        # canny dedge detection
+        # canny edge detection
         # houghes transform   -- houghlines
         # masks from houghes lines, then AND with thresholded edge detection to get lengths
         # ^^^Actually double check, line lengths are encoded as vote magnitude in hughes TF
