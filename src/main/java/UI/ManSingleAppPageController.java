@@ -6,6 +6,7 @@ import com.jfoenix.controls.*;
 import com.jfoenix.validation.NumberValidator;
 import com.jfoenix.validation.RegexValidator;
 import com.jfoenix.validation.RequiredFieldValidator;
+import com.jfoenix.validation.base.ValidatorBase;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
@@ -25,12 +26,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
-@Deprecated
 public class ManSingleAppPageController extends PageControllerUI implements  Initializable {
+
     @FXML
     public JFXButton SendApp;
 
@@ -142,6 +145,8 @@ public class ManSingleAppPageController extends PageControllerUI implements  Ini
     @FXML
     JFXButton goBackHome;
 
+//    List<ValidatorBase> santas_list;
+
     private Form workingForm;
 
     @Override
@@ -163,34 +168,7 @@ public class ManSingleAppPageController extends PageControllerUI implements  Ini
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-/*
-        // Initialize TextFields
-        VintageYearField.disableProperty().setValue(true);
-        PhField.disableProperty().setValue(true);
-        AmountField.disableProperty().setValue(true);
-        TTBIDField.disableProperty().setValue(true);
-*/
-        // Initialize Validators
-        setListener(ProducerNumField, 1);
-        setListener(SerialYearField, 1);
-        setListener(SerialDigitsField, 1);
-        setListener(BrandField, 2);
-        setListener(VintageYearField, 1);
-        setListener(PhField, 1);
-        setListener(Name8Field, 2);
-        setListener(Address8Field, 0);
-        setListener(City8Field, 0);
-        setListener(Zip8Field, 1);
-        setListener(Name9Field, 2);
-        setListener(Address9Field, 0);
-        setListener(City9Field, 0);
-        setListener(Zip9Field, 1);
-        setListener(FormulaField, 0);
-        setListener(PhoneNumField, 1);
-        setListener(EmailField, 3);
-        setListener(SignatureField, 0);
-        setListener(AlcoholContentTextField, 1);
-
+    //    santas_list = new ArrayList<ValidatorBase>();
         // Fill ComboBoxes
         List<String> states = Arrays.asList("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL",
                 "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT",
@@ -232,51 +210,6 @@ public class ManSingleAppPageController extends PageControllerUI implements  Ini
     public void goBack(){
         AttributeContainer.getInstance().currentForm = null;
         goToPage("ManHome.fxml");
-    }
-
-    // Always checks if empty
-    // 1 - Only Numbers
-    // 2 - Only Strings
-    // 3 - Valid email
-    /**
-     * Sets listener for fields on form
-     * @param field
-     * @param type
-     */
-    public void setListener(JFXTextField field, int type) {
-        if (type == 1) {
-            NumberValidator numValidator = new NumberValidator();
-            field.getValidators().add(numValidator);
-            numValidator.setMessage("Enter a number");
-        }
-        if (type == 2) {
-            RegexValidator regexValidator = new RegexValidator();
-            regexValidator.setRegexPattern("[a-zA-Z]*");
-            field.getValidators().add(regexValidator);
-            regexValidator.setMessage("Enter a string!");
-        }
-        if (type == 3) {
-            RegexValidator validEmail = new RegexValidator();
-            validEmail.setRegexPattern("(.*)+[@]+(.*)+");
-            field.getValidators().add(validEmail);
-            validEmail.setMessage("Enter a valid email");
-        }
-        if (errorInForm) {
-            //
-        }
-
-
-        RequiredFieldValidator validator = new RequiredFieldValidator();
-        field.getValidators().add(validator);
-        validator.setMessage("* Required");
-        field.focusedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                if (!newValue) {
-                    field.validate();
-                }
-            }
-        });
     }
 
     /**
@@ -401,6 +334,7 @@ public class ManSingleAppPageController extends PageControllerUI implements  Ini
         BrewersPermit brew = new BrewersPermit(ProducerNumField.getText(), true);
         brews.add(brew);
         working.setBrewersPermit(brews);
+        working.setDateSubmitted(Date.valueOf(LocalDate.now()));
         man.submitForm(working);
         this.workingForm = working;
         return working.getTtbID();

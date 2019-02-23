@@ -17,9 +17,13 @@ public class main {
         c3System.setLevel(Level.WARNING);
         Logger MLogSystem = Logger.getLogger("com.mchange");
         MLogSystem.setLevel(Level.WARNING);
+        Logger mongoSystem = Logger.getLogger("mongodb");
+        mongoSystem.setLevel(Level.WARNING);
 
         DB.Database db = DB.Database.getDatabase();
+        /*
         db.tableBuilder.resetDB();
+
         db.dbInsert.insertCompany(new Manufacturer(123, "Brewers Inc.", "manu", "manu"));
         db.dbInsert.insertCompany(new Manufacturer(420, "Michael's Company", "mike", "1234"));
         db.dbInsert.insertAgent(new Agent("ttb", "ttb", "Sam Adamster"));
@@ -35,7 +39,7 @@ public class main {
         Brews.add(new BrewersPermit("456DEF", false));
 
         List<Address> Adds = new ArrayList<>();
-        Adds.add(new Address("Worcester", "MA", "01609", "100 Institue Road", "John Smith", true));
+        Adds.add(new Address("Worcester", "MA", "01609", "100 Institute Road", "John Smith", true));
         Adds.add(new Address("Acton", "MA", "123456", "2 Street Ave", "Bob Dijon", false));
 
         long milli = System.currentTimeMillis();
@@ -44,13 +48,27 @@ public class main {
         Form form = new Form(null, Brews, true, "00123SE", AlcoholType.MaltBeverage,
                 "Bubbly", "BU", Adds, "John Smith", null, new WineFormItems(),
                 "1112223333", "mjclements@wpi.edu", "No other info", d, 123,
-                new Approval(), (float)12.3, ApprovalStatus.Complete);
+                new Approval(), (float)12.3, ApprovalStatus.Incomplete);
         form.setWorkingOn(0);
 
 
         //AttributeContainer.getInstance().formQueue.add(form);
 
         db.dbInsert.insertForm(form);
+
+       System.out.println("*****************06 Data*************************");
+        db.dbInsert.insertData06();
+        System.out.println("*****************09 Data*************************");
+        db.dbInsert.insertData09();
+        System.out.println("*****************12 Data*************************");
+        db.dbInsert.insertData12();
+*/
+        //System.out.println("Inserting Mongo info");
+        //db.mongoFunc.insertDataMongo();
+
+        //System.out.println("Printing all mongo data");
+        //List<FormMongo> temp = db.mongoFunc.getAllMongo();
+        //System.out.println(temp.size());
 
         System.out.println("Hello Iteration 2!");
         UI.MainUI.main( args);

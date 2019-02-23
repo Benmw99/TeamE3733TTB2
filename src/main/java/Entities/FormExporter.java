@@ -54,7 +54,11 @@ public class FormExporter {
                         for (XWPFParagraph p : cell.getParagraphs()) {
                             for (XWPFRun r : p.getRuns()) {
                                 //replaceString(r, "REP_ID", form.getRepID());
-                                replaceString(r, "REP_ID", "hello");
+                                try {
+                                    replaceString(r, "REP_ID", form.getRepID());
+                                } catch (Exception e){
+                                    replaceString(r, "REP_ID", " ");
+                                }
                                 replaceString(r, "TTB ID", "TTB ID: " + String.valueOf(form.getTtbID()));
                                 replaceString(r, "PLANT_REGISTRY", form.getBrewersPermit().get(0).getBrewersNo());
                                 //TODO _DOM_ and _IMP_
@@ -150,7 +154,6 @@ public class FormExporter {
             //File file = new File(getClass().getResource("/" +"output.docx").toURI());
             //    File file = new File("C:\\Users\\Elizabeth Del Monaco\\Desktop\\TeamE3733TTB2\\src\\main\\resources\\output.docx");
             File file = new File(home + "/Downloads/" + "TTBFORM" + "S" + ".docx");
-            //     System.out.println(doc3.toPath());
 
             doc.write(new FileOutputStream(file));
             doc.close();
@@ -168,7 +171,7 @@ public class FormExporter {
         try {
 
             File doc2 = new File(getClass().getResource("/" + "converted.docx").toURI());
-            System.out.println(doc2.toPath());
+ //           System.out.println(doc2.toPath());
 
             Address add = form.getMailingAddress();
             InputStream inputstream = new FileInputStream(doc2);
@@ -219,13 +222,14 @@ public class FormExporter {
                                 }
                                     replaceString(r, "C_T", " ");
                                     replaceString(r, "O_R", " ");
+                                    String serial = form.getSerialNumber().concat("      ");
+                                replaceString(r, "SERIAL_1", serial);
+                                replaceString(r, "SERIAL_2", serial);
+                                replaceString(r, "SERIAL_3", serial);
+                                replaceString(r, "SERIAL_4", serial);
+                                replaceString(r, "SERIAL_5", serial);
+                                replaceString(r, "SERIAL_6", serial);
 
-                                replaceString(r, "SERIAL_1", form.getSerialNumber().substring(0,1));
-                                replaceString(r, "SERIAL_2", form.getSerialNumber().substring(1,2));
-                                replaceString(r, "SERIAL_3", form.getSerialNumber().substring(2,3));
-                                replaceString(r, "SERIAL_4", form.getSerialNumber().substring(3,4));
-                                replaceString(r, "SERIAL_5", form.getSerialNumber().substring(4,5));
-                                replaceString(r, "SERIAL_6", form.getSerialNumber().substring(5,6));
                                 replaceString(r, "_BRAND_", form.getBrandName());
                                 replaceString(r,"_FANCY_", form.getFancifulName());
                                 replaceString(r, "_FORMULA_", form.getFormula());
@@ -304,7 +308,7 @@ public class FormExporter {
     public void replaceString(XWPFRun r, String rep, String to_rep){
         String text = r.getText(0);
         String rep_String;
-        System.out.println(text);
+ //       System.out.println(text);
         if(to_rep == null){
             rep_String = "";
         } else {

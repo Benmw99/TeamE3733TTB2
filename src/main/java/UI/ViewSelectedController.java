@@ -36,7 +36,7 @@ public class ViewSelectedController extends PageControllerUI {
 
     public void print(ActionEvent actionEvent) {
         if(AttributeContainer.getInstance().currentForm != null){
-            new FormExporter(AttributeContainer.getInstance().currentForm);
+            new FormExporter(AttributeContainer.getInstance().currentForm, "S");
             printButton.setText("Printed!");
         } else {
             Alert yikes = new Alert(Alert.AlertType.WARNING);

@@ -94,6 +94,12 @@ public class Manufacturer implements IUser {
         this.password = password;
     }
 
+    @Override
+    public String getName() { return manName;}
+
+    @Override
+    public String getEmail() { return Integer.toString(manID); }
+
 
 
     public boolean authenticate(){

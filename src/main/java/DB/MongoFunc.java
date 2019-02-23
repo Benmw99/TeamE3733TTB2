@@ -8,9 +8,14 @@ import com.opencsv.CSVReader;
 import org.bson.Document;
 
 import java.io.FileReader;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
+import java.util.regex.Pattern;
 
 public class MongoFunc {
     private static MongoFunc mongoFunc;
@@ -82,6 +87,7 @@ public class MongoFunc {
         List<Document> docs = new ArrayList<>();
 
         // Getting the iterable object
+        //TODO PUT SEARCH IN HERE KINDA
         FindIterable<Document> iterDoc = collection.find();
 
         // Getting the iterator
@@ -96,7 +102,7 @@ public class MongoFunc {
             FormMongo form = new FormMongo();
             form.setTtbID((String) docs.get(i).get("ttbID"));
             form.setRepID((String) docs.get(i).get("repID"));
-            form.setBrewersPermit((String) docs.get(i).get("permit"));
+            //form.setBrewersPermit((String) docs.get(i).get("permit"));
             form.setSource((String) docs.get(i).get("source"));
             form.setSerialNumber((String) docs.get(i).get("serial"));
             form.setAlcoholType((String) docs.get(i).get("alcoholType"));
@@ -127,7 +133,16 @@ public class MongoFunc {
     public Form formMongoToForm(FormMongo fm) {
         Form newForm = new Form();
         newForm.setRepID(fm.getRepID());
-        newForm.brewersPermit.add(new BrewersPermit(fm.getBrewersPermit(), true));
+        //try {
+        //    if (!fm.getBrewersPermit().isEmpty() && fm.getBrewersPermit() != null && fm.getBrewersPermit().length() > 0) {
+        //        newForm.brewersPermit.add(new BrewersPermit(fm.getBrewersPermit(), true));
+        //    } else {
+        //        newForm.brewersPermit.add(new BrewersPermit(" ", true));
+        //    }
+        //} catch (Exception e) {
+        //    System.out.println(e.toString());
+        //    newForm.brewersPermit.add(new BrewersPermit(" ", true));
+        //}
         if (fm.getSource().equals("Domestic")) {
             newForm.setSource(false);
         } else {
@@ -160,73 +175,177 @@ public class MongoFunc {
     }
 
     public List<Form> searchMongo(AdvancedSearch as) {
-        List<Form> info = getAllMongo();
         List<Form> results = new ArrayList<>();
+        MongoCollection<Document> collection = database.getCollection("TTBForms");
+        List<Document> docs = new ArrayList<>();
+        System.out.println("Got here");
         if (as.source != null) {
-            for(Form fm : info) {
-                if (as.source) {
-                    if (fm.getSource()) {
-                        results.add(fm);
-                    } else {
-                        results.add(fm);
-                    }
-                info.remove(fm);
-                System.gc();
+            if (as.source) {
+                Pattern j = Pattern.compile("Imported", Pattern.CASE_INSENSITIVE);
+                BasicDBObject query = new BasicDBObject("source", j);
+                FindIterable<Document> iterDoc = collection.find(query);
+                Iterator it = iterDoc.iterator();
+                while (it.hasNext()) {
+                    docs.add((Document)it.next());
+                }
+                for (Document doc: docs) {
+                    results.add(docToForm(doc));
+                }
+            } else {
+                Pattern j = Pattern.compile("Domestic", Pattern.CASE_INSENSITIVE);
+                BasicDBObject query = new BasicDBObject("source", j);
+                FindIterable<Document> iterDoc = collection.find(query);
+                Iterator it = iterDoc.iterator();
+                while (it.hasNext()) {
+                    docs.add((Document)it.next());
+                }
+                for (Document doc: docs) {
+                    results.add(docToForm(doc));
+                }
             }
         }
-        }
         else if (as.serialNumber != null) {
-            for(Form fm : info) {
-                if (fm.getSerialNumber().equals(as.getSerialNumber())) {
-                    results.add(fm);
-                }
-                info.remove(fm);
-                System.gc();
+            Pattern j = Pattern.compile(as.serialNumber, Pattern.CASE_INSENSITIVE);
+            BasicDBObject query = new BasicDBObject("serial", j);
+            FindIterable<Document> iterDoc = collection.find(query);
+            Iterator it = iterDoc.iterator();
+            while (it.hasNext()) {
+                docs.add((Document)it.next());
+            }
+            for (Document doc: docs) {
+                results.add(docToForm(doc));
             }
         }
         else if (as.alcoholType != null) {
-            for(Form fm : info) {
-                if (fm.getAlcoholType().equals(as.getAlcoholType().toString())) {
-                    results.add(fm);
+            if (as.alcoholType == AlcoholType.Wine) {
+                Pattern j = Pattern.compile("Wine", Pattern.CASE_INSENSITIVE);
+                BasicDBObject query = new BasicDBObject("alcoholType", j);
+                FindIterable<Document> iterDoc = collection.find(query);
+                Iterator it = iterDoc.iterator();
+                while (it.hasNext()) {
+                    docs.add((Document)it.next());
                 }
-                info.remove(fm);
-                System.gc();
+                for (Document doc: docs) {
+                    results.add(docToForm(doc));
+                }
+            } else if (as.alcoholType == AlcoholType.DistilledLiquor) {
+                Pattern j = Pattern.compile("Distilled Spirit", Pattern.CASE_INSENSITIVE);
+                BasicDBObject query = new BasicDBObject("alcoholType", j);
+                FindIterable<Document> iterDoc = collection.find(query);
+                Iterator it = iterDoc.iterator();
+                while (it.hasNext()) {
+                    docs.add((Document)it.next());
+                }
+                for (Document doc: docs) {
+                    results.add(docToForm(doc));
+                }
+            } else {
+                Pattern j = Pattern.compile("Malt Beverage", Pattern.CASE_INSENSITIVE);
+                BasicDBObject query = new BasicDBObject("alcoholType", j);
+                FindIterable<Document> iterDoc = collection.find(query);
+                Iterator it = iterDoc.iterator();
+                while (it.hasNext()) {
+                    docs.add((Document)it.next());
+                }
+                for (Document doc: docs) {
+                    results.add(docToForm(doc));
+                }
             }
         }
         else if (as.brandName != null) {
-            for(Form fm : info) {
-                if (fm.getBrandName().equals(as.getBrandName())) {
-                    results.add(fm);
-                }
-                info.remove(fm);
-                System.gc();
+            Pattern j = Pattern.compile(as.brandName, Pattern.CASE_INSENSITIVE);
+            BasicDBObject query = new BasicDBObject("brandName", j);
+            FindIterable<Document> iterDoc = collection.find(query);
+            Iterator it = iterDoc.iterator();
+            while (it.hasNext()) {
+                docs.add((Document)it.next());
+            }
+            for (Document doc: docs) {
+                results.add(docToForm(doc));
             }
         }
         else if (as.fancifulName != null) {
-            for(Form fm : info) {
-                if (fm.getFancifulName().equals(as.getFancifulName())) {
-                    results.add(fm);
-                }
-                info.remove(fm);
-                System.gc();
+            Pattern j = Pattern.compile(as.fancifulName, Pattern.CASE_INSENSITIVE);
+            BasicDBObject query = new BasicDBObject("fancifulName", j);
+            FindIterable<Document> iterDoc = collection.find(query);
+            Iterator it = iterDoc.iterator();
+            while (it.hasNext()) {
+                docs.add((Document)it.next());
+            }
+            for (Document doc: docs) {
+                results.add(docToForm(doc));
             }
         }
         else if (as.ttbID > 0) {
-            for(Form fm : info) {
-                if (fm.getTtbID() == as.getTtbID()) {
-                    results.add(fm);
-                }
-                info.remove(fm);
-                System.gc();
+            //Pattern j = Pattern.compile("" + as.ttbID, Pattern.CASE_INSENSITIVE);
+            BasicDBObject query = new BasicDBObject("ttbID", "" + as.ttbID);
+            FindIterable<Document> iterDoc = collection.find(query);
+            Iterator it = iterDoc.iterator();
+            while (it.hasNext()) {
+                docs.add((Document)it.next());
+            }
+            for (Document doc: docs) {
+                results.add(docToForm(doc));
             }
         } else {
-            for(Form fm : info) {
-                results.add(fm);
-                info.remove(fm);
-                System.gc();
+            FindIterable<Document> iterDoc = collection.find();
+            Iterator it = iterDoc.iterator();
+            while (it.hasNext()) {
+                docs.add((Document)it.next());
+            }
+            for (Document doc: docs) {
+                results.add(docToForm(doc));
             }
         }
         return results;
+    }
+
+    public Form docToForm(Document doc) {
+        Form form = new Form();
+
+        try {
+            form.setTtbID(Integer.parseInt((String)doc.get("ttbID")));
+            //form.setRepID((String) doc.get("repID"));
+            //form.setBrewersPermit((String) docs.get(i).get("permit"));
+            form.setApprovalStatus(ApprovalStatus.Complete);
+            //form.setSource((String) doc.get("source"));
+            form.setSerialNumber((String) doc.get("serial"));
+            if (((String)doc.get("alcoholType")).equals("Wine")) {
+                form.setAlcoholType(AlcoholType.Wine);
+            } else if (((String)doc.get("alcoholType")).equals("Malt Beverage")) {
+                form.setAlcoholType(AlcoholType.MaltBeverage);
+            } else {
+                form.setAlcoholType(AlcoholType.DistilledLiquor);
+            }
+            form.setBrandName((String) doc.get("brandName"));
+            //form.setFancifulName((String) doc.get("fancifulName"));
+            //form.setAddressCity((String) doc.get("City"));
+            //form.setAddressState((String) doc.get("State"));
+            //form.setAddressZip((String) doc.get("Zip"));
+            //form.setAddressStreet((String) doc.get("Street"));
+            //form.setAddressName((String) doc.get("Name"));
+            //form.setOtherInfo((String) doc.get("otherInfo"));
+            try {
+                DateFormat format = new SimpleDateFormat("MM/dd/yy", Locale.ENGLISH);
+                form.setDateSubmitted(new java.sql.Date(format.parse((String) doc.get("Submitted")).getTime()));
+            } catch (ParseException e) {
+                System.out.println(e.toString());
+            }
+
+            //form.setDateApproved((String) doc.get("Approved"));
+            //form.setDateExpired((String) doc.get("Expired"));
+            //form.setAlcoholContent((String) doc.get("alcoholContent"));
+            //form.setClassType((String) doc.get("classType"));
+            //form.setOrigin((String) doc.get("origin"));
+            //form.setVintage((String) doc.get("vintage"));
+            //form.setAppellation((String) doc.get("appellation"));
+            //form.setGrapes((String) doc.get("grapes"));
+            //form.setQualifications((String) doc.get("qual"));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+
+        return form;
     }
 
 
@@ -399,7 +518,7 @@ public class MongoFunc {
                 FormMongo form = new FormMongo();
 
                 if (record[0].length() > 0) {
-                    form.setTtbID(record[0]);
+                    form.setTtbID("" + fullCount);
                 } else {
                     form.setTtbID(null);
                 }
@@ -554,7 +673,7 @@ public class MongoFunc {
                 FormMongo form = new FormMongo();
 
                 if (record[0].length() > 0) {
-                    form.setTtbID(record[0]);
+                    form.setTtbID("" + fullCount);
                 } else {
                     form.setTtbID(null);
                 }

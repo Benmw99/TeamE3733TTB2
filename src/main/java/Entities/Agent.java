@@ -94,6 +94,8 @@ public class Agent implements IUser{
         this.name = name;
     }
 
+    public String getEmail(){ return Integer.toString(agentID); }
+
     /**
      * This may or may not work.
      * @throws  NullPointerException if there are no more forms to get

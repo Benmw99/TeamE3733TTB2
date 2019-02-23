@@ -28,7 +28,7 @@ public class TableViewController extends PageControllerUI implements Initializab
     TableColumn<DisplayForm, String> coltype = new TableColumn<DisplayForm, String>("Type");
 
     @FXML
-    TableColumn<DisplayForm, String> colsub = new TableColumn<DisplayForm, String>("Date_Submitted");
+    TableColumn<DisplayForm, String> colsub = new TableColumn<DisplayForm, String>("Submitted");
 
     @FXML
     TableColumn<DisplayForm, String>  colbrand = new TableColumn<DisplayForm, String>("Brand");

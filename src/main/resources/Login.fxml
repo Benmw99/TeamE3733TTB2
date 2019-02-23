@@ -8,18 +8,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.LoginController">
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.LoginController">
    <children>
-      <Rectangle fill="#9ea7aa" height="89.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1376.0" AnchorPane.bottomAnchor="671.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Rectangle fill="#cfd8dc" height="62.0" layoutY="54.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="1384.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="89.0" />
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="88.0">
          <children>
             <JFXTextField fx:id="LoginUserUsernameTextField" alignment="CENTER" labelFloat="true" maxWidth="350.0" prefWidth="350.0" promptText="username">
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="13.0" />
+                  <Font name="Roboto Light" size="13.0" />
                </font>
                <VBox.margin>
                   <Insets top="25.0" />
@@ -27,7 +25,7 @@
             </JFXTextField>
             <JFXPasswordField fx:id="LoginUserPasswordTextField" alignment="CENTER" labelFloat="true" maxWidth="350.0" prefWidth="350.0" promptText="password">
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="13.0" />
+                  <Font name="Roboto Light" size="13.0" />
                </font>
                <VBox.margin>
                   <Insets top="25.0" />
@@ -35,7 +33,7 @@
             </JFXPasswordField>
             <Label text="I'm a: ">
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="13.0" />
+                  <Font name="Roboto Light" size="13.0" />
                </font>
                <VBox.margin>
                   <Insets top="25.0" />
@@ -43,7 +41,7 @@
             </Label>
             <JFXRadioButton fx:id="ManRadioButton" text="manufacturer">
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="13.0" />
+                  <Font name="Roboto Light" size="13.0" />
                </font>
                <VBox.margin>
                   <Insets top="25.0" />
@@ -51,7 +49,7 @@
             </JFXRadioButton>
             <JFXRadioButton fx:id="AgentRadioButton" text="agent">
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="13.0" />
+                  <Font name="Roboto Light" size="13.0" />
                </font>
                <VBox.margin>
                   <Insets top="25.0" />
@@ -59,7 +57,7 @@
             </JFXRadioButton>
             <JFXButton fx:id="LoginUserLoginButton" buttonType="RAISED" defaultButton="true" onAction="#login" prefHeight="50.0" prefWidth="200.0" ripplerFill="#9d9797" style="-fx-background-color: WHITE;" text="log in">
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                  <Font name="Roboto Light" size="18.0" />
                </font>
                <VBox.margin>
                   <Insets top="25.0" />
@@ -70,21 +68,26 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </VBox.margin>
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                  <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXButton>
             <JFXButton fx:id="searchbutton1" buttonType="RAISED" onAction="#search" prefHeight="57.0" prefWidth="198.0" ripplerFill="#9d9797" style="-fx-background-color: WHITE;" text="search the database">
                <font>
-                  <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                  <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXButton>
          </children>
       </VBox>
-      <Label layoutX="643.0" layoutY="18.0" text="Login" textFill="WHITE">
+      <fx:include source="MenuDrawer.fxml" />
+      <Label layoutX="598.0" layoutY="19.0" prefHeight="127.0" prefWidth="164.0" text="Login" textFill="#4a4a4a">
          <font>
-            <Font name="Apple SD Gothic Neo Thin" size="48.0" />
+            <Font name="Roboto Light" size="64.0" />
          </font>
       </Label>
-      <fx:include source="MenuDrawer.fxml" />
+      <Text fill="#464646" layoutX="441.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="485.03612019047114">
+         <font>
+            <Font name="Roboto Light" size="24.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
