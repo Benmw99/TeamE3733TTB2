@@ -192,8 +192,9 @@ public class DBSelect {
         if (as.startDate != null && as.endDate != null) {
             Join<Form, Approval> approvals = root.join("approval");
             //This conversion might not work because of util.Date to sql.Date
-            predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
-            predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
+            predicates.add(cb.between(approvals.get("dateApproved"), as.startDate, as.endDate));
+            //predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
+            //predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
         }
         //Convert the predicates to an array and set the where statement with them
         cr.where(predicates.toArray(new Predicate[]{}));
@@ -269,6 +270,18 @@ public class DBSelect {
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
         }
+        if (as.stateCountry != null) {
+            //Might not work because it is a list
+            Join<Form, Address> addresses = root.join("address");
+            predicates.add(cb.equal(addresses.get("state"), as.stateCountry));
+        }
+        if (as.startDate != null && as.endDate != null) {
+            Join<Form, Approval> approvals = root.join("approval");
+            //This conversion might not work because of util.Date to sql.Date
+            predicates.add(cb.between(approvals.get("dateApproved"), as.startDate, as.endDate));
+            //predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
+            //predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
+        }
         cr.where(predicates.toArray(new Predicate[]{}));
         //Only selects the needed items for a minimal form to be displayed
         cr.multiselect(root.get("ttbID"), root.get("serialNumber"), root.get("alcoholType"), root.get("brandName"), root.get("dateSubmitted"), root.get("approvalStatus"));
@@ -333,6 +346,18 @@ public class DBSelect {
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
+        }
+        if (as.stateCountry != null) {
+            //Might not work because it is a list
+            Join<Form, Address> addresses = root.join("address");
+            predicates.add(cb.equal(addresses.get("state"), as.stateCountry));
+        }
+        if (as.startDate != null && as.endDate != null) {
+            Join<Form, Approval> approvals = root.join("approval");
+            //This conversion might not work because of util.Date to sql.Date
+            predicates.add(cb.between(approvals.get("dateApproved"), as.startDate, as.endDate));
+            //predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
+            //predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
         }
         cr.where(predicates.toArray(new Predicate[]{}));
         //Adds a select so we only get the brandName from the results
