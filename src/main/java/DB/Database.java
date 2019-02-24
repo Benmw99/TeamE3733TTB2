@@ -11,14 +11,14 @@ public class Database {
     public TableBuilder tableBuilder;
     public DBSelect dbSelect;
     public DBInsert dbInsert;
-    //public MongoFunc mongoFunc;
+    public MongoFunc mongoFunc;
     private static SessionFactory factory;
 
     private Database() {
         tableBuilder = TableBuilder.getTablebuilder();
         dbSelect = DBSelect.getDbselect();
         dbInsert = DBInsert.getDbinsert();
-        //mongoFunc = MongoFunc.getMongoFunc();
+        mongoFunc = MongoFunc.getMongoFunc();
         try {
             //factory = new Configuration().configure().buildSessionFactory();
             factory = new Configuration().configure().addAnnotatedClass(Address.class).buildSessionFactory();
