@@ -18,6 +18,9 @@
                      <font>
                         <Font name="Apple SD Gothic Neo Regular" size="36.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
                   </JFXButton>
                   <JFXButton fx:id="LogOutSlider" accessibleText="LOGOUT" buttonType="RAISED" maxHeight="0.0" maxWidth="0.0" minHeight="0.0" minWidth="0.0" onAction="#goToLogOut" prefHeight="0.0" prefWidth="0.0" text="Log Out" textFill="WHITE">
                      <font>
@@ -25,6 +28,11 @@
                      </font>
                   </JFXButton>
                   <JFXButton fx:id="SearchSlider" accessibleText="SEARCH" buttonType="RAISED" maxHeight="0.0" maxWidth="0.0" minHeight="0.0" minWidth="0.0" onAction="#goToSearch" prefHeight="0.0" prefWidth="0.0" text="Search" textFill="WHITE">
+                     <font>
+                        <Font name="Apple SD Gothic Neo Regular" size="36.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="ProfileSlider" accessibleText="SEARCH" buttonType="RAISED" maxHeight="0.0" maxWidth="0.0" minHeight="0.0" minWidth="0.0" onAction="#goToProfile" prefHeight="0.0" prefWidth="0.0" text="Profile" textFill="WHITE">
                      <font>
                         <Font name="Apple SD Gothic Neo Regular" size="36.0" />
                      </font>

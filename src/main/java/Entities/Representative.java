@@ -66,6 +66,12 @@ public class Representative implements IUser {
         this.password = password;
     }
 
+    @Override
+    public String getName(){ return repID; }
+
+    @Override
+    public String getEmail(){ return "No Email on record"; }
+
     public boolean authenticate(){
         DB.Database db = DB.Database.getDatabase();
         return db.dbSelect.AuthenticateRep(login,password);

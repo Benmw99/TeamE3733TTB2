@@ -10,12 +10,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ProfileController">
 <children>
       <StackPane prefHeight="80.0" prefWidth="1360.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -159,7 +160,7 @@
                                     <Insets left="15.0" />
                                  </HBox.margin>
                               </Label>
-                              <JFXToggleButton fx:id="ChangePasswordToggleButton" prefWidth="140.0" text="On">
+                              <JFXToggleButton fx:id="ChangePasswordToggleButton" onAction="#changePasswordToggle" prefWidth="140.0" text="On">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -255,5 +256,6 @@
             <fx:include source="MenuDrawer.fxml" />
          </children>
       </StackPane>
+      <Pane fx:id="PasswordPane" layoutX="280.0" layoutY="620.0" prefHeight="110.0" prefWidth="800.0" style="-fx-background-color: white;" />
 </children>
 </AnchorPane>
