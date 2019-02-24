@@ -107,7 +107,6 @@ public class MongoFunc {
         List<Document> docs = new ArrayList<>();
 
         // Getting the iterable object
-        //TODO PUT SEARCH IN HERE KINDA
         FindIterable<Document> iterDoc = collection.find();
 
         // Getting the iterator

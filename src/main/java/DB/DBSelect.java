@@ -136,6 +136,7 @@ public class DBSelect {
      * @param as Advanced search with the things that want to be search for set
      * @return A SearchResult with all the forms that came from the query
      */
+    //TODO ADD DATE RANGE SEARCH AND CITY/COUNTRY SEARCH, sorta done
     public SearchResult searchBy(AdvancedSearch as) {
         Session session = factory.openSession();
         Transaction tx = null;
@@ -182,6 +183,17 @@ public class DBSelect {
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
+        }
+        if (as.stateCountry != null) {
+            //Might not work because it is a list
+            Join<Form, Address> addresses = root.join("address");
+            predicates.add(cb.equal(addresses.get("state"), as.stateCountry));
+        }
+        if (as.startDate != null && as.endDate != null) {
+            Join<Form, Approval> approvals = root.join("approval");
+            //This conversion might not work because of util.Date to sql.Date
+            predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
+            predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
         }
         //Convert the predicates to an array and set the where statement with them
         cr.where(predicates.toArray(new Predicate[]{}));

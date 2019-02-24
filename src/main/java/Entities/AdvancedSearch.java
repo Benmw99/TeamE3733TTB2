@@ -1,5 +1,7 @@
 package Entities;
 
+import java.util.Date;
+
 public class AdvancedSearch {
     //Gotta be a Boolean so it can be null
     public Boolean source;  //false for domestic, true for imported
@@ -12,6 +14,11 @@ public class AdvancedSearch {
     //Number of results to return
     public int numResults;
 
+    public String stateCountry;
+    //Might need to be sql dates
+    public Date startDate;
+    public Date endDate;
+
     //Wine stuff
     public int vintageYear;
     public float pH;
@@ -19,7 +26,7 @@ public class AdvancedSearch {
     public String appellation;
     //used for all liquor types
     public ApprovalStatus approvalStatus;
-//fields you can search by
+
     public AdvancedSearch() {
         this.source = null;
         this.serialNumber = null;
@@ -33,6 +40,9 @@ public class AdvancedSearch {
         this.grapeVarietal = null;
         this.appellation = null;
         this.approvalStatus = ApprovalStatus.Complete;
+        this.startDate = null;
+        this.endDate = null;
+        this.stateCountry = null;
     }
 //getters and setters
     public Boolean getSource() {
@@ -121,6 +131,30 @@ public class AdvancedSearch {
 
     public void setNumResults(int numResults) {
         this.numResults = numResults;
+    }
+
+    public String getStateCountry() {
+        return stateCountry;
+    }
+
+    public void setStateCountry(String stateCountry) {
+        this.stateCountry = stateCountry;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     /**
