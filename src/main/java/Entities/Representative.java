@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Representative implements IUser {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Rep_ID")
     private String repID;
 

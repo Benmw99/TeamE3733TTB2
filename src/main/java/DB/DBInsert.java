@@ -65,13 +65,15 @@ public class DBInsert {
      * Inserts a company into the database.
      * @author Jordan
      * @param company A fully filled out company
+     * @return The company id of the newly inserted agent
      */
-    public void insertCompany(Manufacturer company) {
+    public int insertCompany(Manufacturer company) {
         Session session = factory.openSession();
         Transaction tx = null;
+        Integer companyID = null;
         try {
             tx = session.beginTransaction();
-            session.save(company);
+            companyID = (Integer)session.save(company);
             tx.commit();
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();
@@ -79,19 +81,22 @@ public class DBInsert {
         } finally {
             session.close();
         }
+        return companyID;
     }
 
     /**
      * Inserts a rep into the database
      * @author Jordan
      * @param rep A fully filled out rep to be inserted
+     * @return The rep id of the newly inserted agent
      */
-    public void insertRep(Representative rep) {
+    public int insertRep(Representative rep) {
         Session session = factory.openSession();
         Transaction tx = null;
+        Integer repID = null;
         try {
             tx = session.beginTransaction();
-            session.save(rep);
+            repID = (Integer)session.save(rep);
             tx.commit();
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();
@@ -99,6 +104,7 @@ public class DBInsert {
         } finally {
             session.close();
         }
+        return repID;
     }
 
     /**

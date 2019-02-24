@@ -14,6 +14,7 @@ import java.util.List;
 @Table(name = "COMPANY")
 public class Manufacturer implements IUser {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Company_ID")
     private int manID;
 
