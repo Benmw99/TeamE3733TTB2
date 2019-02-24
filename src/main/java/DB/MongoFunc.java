@@ -21,11 +21,13 @@ public class MongoFunc {
     private static MongoFunc mongoFunc;
     private MongoDatabase database;
 
+    //Creates the connection to the mongodb
     private MongoFunc() {
         //MongoClientURI uri = new MongoClientURI(
          //       "mongodb+srv://TTBAgent:<>@experimental-cluster-eix1m.mongodb.net/test?retryWrites=true");
 
         //MongoClient mongoClient = new MongoClient(uri);
+        //This works for some reason and the others don't so I guess this is what we are using
         MongoClient mongoClient = MongoClients.create("mongodb+srv://Admin:AdminTTB@experimental-cluster-eix1m.mongodb.net/test?retryWrites=true");
         //MongoCredential credential;
         //credential = MongoCredential.createCredential("Admin", "TTBForms",
@@ -42,36 +44,47 @@ public class MongoFunc {
         return SingletonHelper.mongoFunc;
     }
 
+    /**
+     * Inserts a FormMongo into the mongoDB
+     * @author Jordan
+     * @param form A fully filled out FormMongo
+     */
     public void insertFormMongo(FormMongo form) {
         MongoCollection<Document> collection = database.getCollection("TTBForms");
         Document document = new Document("ttbID", form.getTtbID())
                 .append("repID", form.getRepID())
-                .append("brewersPermit", form.getBrewersPermit())
+                .append("permit", form.getBrewersPermit())
                 .append("source", form.getSource())
-                .append("serialNumber", form.getSerialNumber())
+                .append("serial", form.getSerialNumber())
                 .append("alcoholType", form.getAlcoholType())
                 .append("brandName", form.getBrandName())
                 .append("fancifulName", form.getFancifulName())
-                .append("addressCity", form.getAddressCity())
-                .append("addressState", form.getAddressState())
-                .append("addressZip", form.getAddressZip())
-                .append("addressStreet", form.getAddressStreet())
-                .append("addressName", form.getAddressName())
+                .append("City", form.getAddressCity())
+                .append("State", form.getAddressState())
+                .append("Zip", form.getAddressZip())
+                .append("Street", form.getAddressStreet())
+                .append("Name", form.getAddressName())
                 .append("otherInfo", form.getOtherInfo())
-                .append("dateSubmitted", form.getDateSubmitted())
-                .append("dateApproved", form.getDateApproved())
-                .append("dateExpired", form.getDateExpired())
+                .append("Submitted", form.getDateSubmitted())
+                .append("Approved", form.getDateApproved())
+                .append("Expired", form.getDateExpired())
                 .append("alcoholContent", form.getAlcoholContent())
                 .append("classType", form.getClassType())
                 .append("origin", form.getOrigin())
                 .append("vintage", form.getVintage())
                 .append("appellation", form.getAppellation())
                 .append("grapes", form.getGrapes())
-                .append("qualifications", form.getQualifications());
+                .append("qual", form.getQualifications());
         collection.insertOne(document);
     }
 
-    public void insertAllMongo(List<Document> docs) {
+    /**
+     * Inserts a large amount of forms into the database in the most efficient way
+     * NOTE: DELETES ALL PREVIOUS DATA IN THE DATABASE BY DROPPING THE COLLECTION
+     * @author Jordan
+     * @param docs A list of documents, either generated from a csv or just in general
+     */
+    private void insertAllMongo(List<Document> docs) {
         MongoCollection<Document> collection = database.getCollection("TTBForms");
         collection.drop();
         database.createCollection("TTBForms");
@@ -81,6 +94,13 @@ public class MongoFunc {
         System.out.println("Done inserting all forms to mongo");
     }
 
+    //Pretty broke and probably shouldn't be used. Mongosearch is definitively better.
+    /**
+     * Returns a list of all forms from the database, converting from a FormMongo to Form isn't perfect
+     * @author Jordan
+     * @return A list of all forms from the database except converting between them isn't the best working thing
+     */
+    @Deprecated
     public List<Form> getAllMongo() {
         List<Form> results = new ArrayList<>();
         MongoCollection<Document> collection = database.getCollection("TTBForms");
@@ -130,6 +150,13 @@ public class MongoFunc {
         return results;
     }
 
+    /**
+     * Converts from a FormMongo to a form, doesn't fully work and is kinda sketch
+     * @author Jordan
+     * @param fm A FormMongo to convert, hopefully all filled out
+     * @return A Form that should contain all the info from the FormMongo
+     */
+    @Deprecated
     public Form formMongoToForm(FormMongo fm) {
         Form newForm = new Form();
         newForm.setRepID(fm.getRepID());
@@ -170,10 +197,18 @@ public class MongoFunc {
         newForm.setAddress(adds);
         newForm.setOtherInfo(fm.getOtherInfo());
 
-        System.gc();
         return newForm;
     }
 
+    /**
+     * Searches the mongoDB database for items and returns them as forms.
+     * NOTE: ONLY SEARCHES FOR THE FIRST ITEM IN THE ADVANCED SEARCH. DOES NOT DO MULTIPLE SEARCHES RIGHT NOW
+     * NOTE: TTBIDS ARE NOT CONSISTENT BETWEEN THE TWO DB'S, CAUSING ISSUES WHEN VIEWING DETAIL INFO
+     * @author Jordan
+     * @param as An AdvancedSearch with everything null except the things that you want to search for
+     * @return A list of forms that fulfill the search requirements from the mongoDB database, only contains the necessary info for tableview
+     */
+    //TODO MULTIPLE SEARCHES
     public List<Form> searchMongo(AdvancedSearch as) {
         List<Form> results = new ArrayList<>();
         MongoCollection<Document> collection = database.getCollection("TTBForms");
@@ -300,7 +335,14 @@ public class MongoFunc {
         return results;
     }
 
-    public Form docToForm(Document doc) {
+    /**
+     * Converts a mongoDB document to a form for use in search results
+     * NOTE: DOES NOT CONVERT THE WHOLE DOCUMENT, ONLY THE PARTS NECESSARY FOR TABLEVIEW
+     * @author Jordan
+     * @param doc A mongoDB document that you want converted to a form
+     * @return A Form that has all the info necessary for tableview
+     */
+    private Form docToForm(Document doc) {
         Form form = new Form();
 
         try {
@@ -349,480 +391,178 @@ public class MongoFunc {
     }
 
 
+    /**
+     * Inserts info from tab delimited csv to the formMongos and then bulk inserts them into mongoDB
+     * NOTE: PATHS ARE HARDCODED
+     * NOTE: CURRENTLY ONLY LAST TWO DATASETS ARE INSERTED BECAUSE OF FREE HOSTING LIMITS
+     * @author Jordan
+     */
     @SuppressWarnings( "deprecation" )
     public void insertDataMongo() {
-        long startTime = System.nanoTime();
         int fullCount = 0;
         List<Document> docs = new ArrayList<>();
-        /*try {
-            //This is hardcoded, cause reasons
-            CSVReader reader = new CSVReader(new FileReader("/Users/Jordan/Downloads/FirebaseData/ttbdata06.txt"), '\t');
-            String[] record;
-            while ((record = reader.readNext()) != null) {
-                fullCount++;
-                FormMongo form = new FormMongo();
+        List<String> paths = new ArrayList<>();
+        //paths.add("/Users/Jordan/Downloads/FirebaseData/ttbdata06.txt");
+        paths.add("/Users/Jordan/Downloads/FirebaseData/ttbdata09.txt");
+        paths.add("/Users/Jordan/Downloads/FirebaseData/ttbdata12.txt");
+        for (int i = 0; i < paths.size(); i++) {
+            try {
+                CSVReader reader = new CSVReader(new FileReader(paths.get(i)), '\t');
+                String[] record;
+                while ((record = reader.readNext()) != null) {
+                    fullCount++;
+                    FormMongo form = new FormMongo();
 
-                if (record[0].length() > 0) {
-                    form.setTtbID(record[0]);
-                } else {
-                    form.setTtbID(null);
-                }
-                if (record[1].length() > 0) {
-                    form.setRepID(record[1]);
-                } else {
-                    form.setRepID(null);
-                }
-                if (record[2].length() > 0) {
-                    form.setClassType(record[2]);
-                } else {
-                    form.setClassType(null);
-                }
-                if (record[3].length() > 0) {
-                    form.setOrigin(record[3]);
-                } else {
-                    form.setOrigin(null);
-                }
-                if (record[4].length() > 0) {
-                    form.setBrewersPermit(record[4]);
-                } else {
-                    form.setBrewersPermit(null);
-                }
-                if (record[5].length() > 0) {
-                    form.setSource(record[5]);
-                } else {
-                    form.setSource(null);
-                }
-                if (record[6].length() > 0) {
-                    form.setSerialNumber(record[6]);
-                } else {
-                    form.setSerialNumber(null);
-                }
-                if (record[7].length() > 0) {
-                    form.setAlcoholType(record[7]);
-                } else {
-                    form.setAlcoholType(null);
-                }
-                if (record[8].length() > 0) {
-                    form.setBrandName(record[8]);
-                } else {
-                    form.setBrandName(null);
-                }
-                if (record[9].length() > 1) {
-                    form.setFancifulName(record[9]);
-                } else {
-                    form.setFancifulName(null);
-                }
-                if (record[10].length() > 0) {
-                    form.setAddressName(record[10]);
-                } else {
-                    form.setAddressName(null);
-                }
-                if (record[11].length() > 0) {
-                    form.setAddressStreet(record[11]);
-                } else {
-                    form.setAddressStreet(null);
-                }
-                if (record[12].length() > 0) {
-                    form.setAddressCity(record[12]);
-                } else {
-                    form.setAddressCity(null);
-                }
-                if (record[13].length() > 0) {
-                    form.setAddressState(record[13]);
-                } else {
-                    form.setAddressState(null);
-                }
-                if (record[14].length() > 0) {
-                    form.setAddressZip(record[14]);
-                } else {
-                    form.setAddressZip(null);
-                }
-                if (record[15].length() > 1) {
-                    form.setGrapes(record[15]);
-                } else {
-                    form.setGrapes(null);
-                }
-                form.setOtherInfo(record[16] + " " + record[20]);
-                if (record[17].length() > 0) {
-                    form.setAlcoholContent(record[17]);
-                } else {
-                    form.setAlcoholContent(null);
-                }
-                if (record[18].length() > 1) {
-                    form.setAppellation(record[18]);
-                } else {
-                    form.setAppellation(null);
-                }
-                if (record[19].length() > 1) {
-                    form.setVintage(record[19]);
-                } else {
-                    form.setVintage(null);
-                }
-                if (record[21].length() > 0) {
-                    form.setDateApproved(record[21]);
-                } else {
-                    form.setDateApproved(null);
-                }
-                if (record[22].length() > 0) {
-                    form.setDateSubmitted(record[22]);
-                } else {
-                    form.setDateSubmitted(null);
-                }
-                if (record[23].length() > 0) {
-                    form.setDateExpired(record[23]);
-                } else {
-                    form.setDateExpired(null);
-                }
-                if (record[24].length() > 0) {
-                    form.setQualifications(record[24]);
-                } else {
-                    form.setQualifications(null);
-                }
+                    if (record[0].length() > 0) {
+                        form.setTtbID("" + fullCount);
+                    } else {
+                        form.setTtbID(null);
+                    }
+                    if (record[1].length() > 0) {
+                        form.setRepID(record[1]);
+                    } else {
+                        form.setRepID(null);
+                    }
+                    if (record[2].length() > 0) {
+                        form.setClassType(record[2]);
+                    } else {
+                        form.setClassType(null);
+                    }
+                    if (record[3].length() > 0) {
+                        form.setOrigin(record[3]);
+                    } else {
+                        form.setOrigin(null);
+                    }
+                    if (record[4].length() > 0) {
+                        form.setBrewersPermit(record[4]);
+                    } else {
+                        form.setBrewersPermit(null);
+                    }
+                    if (record[5].length() > 0) {
+                        form.setSource(record[5]);
+                    } else {
+                        form.setSource(null);
+                    }
+                    if (record[6].length() > 0) {
+                        form.setSerialNumber(record[6]);
+                    } else {
+                        form.setSerialNumber(null);
+                    }
+                    if (record[7].length() > 0) {
+                        form.setAlcoholType(record[7]);
+                    } else {
+                        form.setAlcoholType(null);
+                    }
+                    if (record[8].length() > 0) {
+                        form.setBrandName(record[8]);
+                    } else {
+                        form.setBrandName(null);
+                    }
+                    if (record[9].length() > 1) {
+                        form.setFancifulName(record[9]);
+                    } else {
+                        form.setFancifulName(null);
+                    }
+                    if (record[10].length() > 0) {
+                        form.setAddressName(record[10]);
+                    } else {
+                        form.setAddressName(null);
+                    }
+                    if (record[11].length() > 0) {
+                        form.setAddressStreet(record[11]);
+                    } else {
+                        form.setAddressStreet(null);
+                    }
+                    if (record[12].length() > 0) {
+                        form.setAddressCity(record[12]);
+                    } else {
+                        form.setAddressCity(null);
+                    }
+                    if (record[13].length() > 0) {
+                        form.setAddressState(record[13]);
+                    } else {
+                        form.setAddressState(null);
+                    }
+                    if (record[14].length() > 0) {
+                        form.setAddressZip(record[14]);
+                    } else {
+                        form.setAddressZip(null);
+                    }
+                    if (record[15].length() > 1) {
+                        form.setGrapes(record[15]);
+                    } else {
+                        form.setGrapes(null);
+                    }
+                    form.setOtherInfo(record[16] + " " + record[20]);
+                    if (record[17].length() > 0) {
+                        form.setAlcoholContent(record[17]);
+                    } else {
+                        form.setAlcoholContent(null);
+                    }
+                    if (record[18].length() > 1) {
+                        form.setAppellation(record[18]);
+                    } else {
+                        form.setAppellation(null);
+                    }
+                    if (record[19].length() > 1) {
+                        form.setVintage(record[19]);
+                    } else {
+                        form.setVintage(null);
+                    }
+                    if (record[21].length() > 0) {
+                        form.setDateApproved(record[21]);
+                    } else {
+                        form.setDateApproved(null);
+                    }
+                    if (record[22].length() > 0) {
+                        form.setDateSubmitted(record[22]);
+                    } else {
+                        form.setDateSubmitted(null);
+                    }
+                    if (record[23].length() > 0) {
+                        form.setDateExpired(record[23]);
+                    } else {
+                        form.setDateExpired(null);
+                    }
+                    if (record[24].length() > 0) {
+                        form.setQualifications(record[24]);
+                    } else {
+                        form.setQualifications(null);
+                    }
 
-                //insertFormMongo(form);
-                Document document = new Document("ttbID", form.getTtbID())
-                        .append("repID", form.getRepID())
-                        .append("permit", form.getBrewersPermit())
-                        .append("source", form.getSource())
-                        .append("serial", form.getSerialNumber())
-                        .append("alcoholType", form.getAlcoholType())
-                        .append("brandName", form.getBrandName())
-                        .append("fancifulName", form.getFancifulName())
-                        .append("City", form.getAddressCity())
-                        .append("State", form.getAddressState())
-                        .append("Zip", form.getAddressZip())
-                        .append("Street", form.getAddressStreet())
-                        .append("Name", form.getAddressName())
-                        .append("otherInfo", form.getOtherInfo())
-                        .append("Submitted", form.getDateSubmitted())
-                        .append("Approved", form.getDateApproved())
-                        .append("Expired", form.getDateExpired())
-                        .append("alcoholContent", form.getAlcoholContent())
-                        .append("classType", form.getClassType())
-                        .append("origin", form.getOrigin())
-                        .append("vintage", form.getVintage())
-                        .append("appellation", form.getAppellation())
-                        .append("grapes", form.getGrapes())
-                        .append("qual", form.getQualifications());
-                docs.add(document);
+                    Document document = new Document("ttbID", form.getTtbID())
+                            .append("repID", form.getRepID())
+                            .append("permit", form.getBrewersPermit())
+                            .append("source", form.getSource())
+                            .append("serial", form.getSerialNumber())
+                            .append("alcoholType", form.getAlcoholType())
+                            .append("brandName", form.getBrandName())
+                            .append("fancifulName", form.getFancifulName())
+                            .append("City", form.getAddressCity())
+                            .append("State", form.getAddressState())
+                            .append("Zip", form.getAddressZip())
+                            .append("Street", form.getAddressStreet())
+                            .append("Name", form.getAddressName())
+                            .append("otherInfo", form.getOtherInfo())
+                            .append("Submitted", form.getDateSubmitted())
+                            .append("Approved", form.getDateApproved())
+                            .append("Expired", form.getDateExpired())
+                            .append("alcoholContent", form.getAlcoholContent())
+                            .append("classType", form.getClassType())
+                            .append("origin", form.getOrigin())
+                            .append("vintage", form.getVintage())
+                            .append("appellation", form.getAppellation())
+                            .append("grapes", form.getGrapes())
+                            .append("qual", form.getQualifications());
+                    docs.add(document);
+                }
+            } catch (Exception e) {
+                System.out.println(e.toString());
             }
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }*/
-        try {
-            //This is hardcoded, cause reasons
-            CSVReader reader = new CSVReader(new FileReader("/Users/Jordan/Downloads/FirebaseData/ttbdata09.txt"), '\t');
-            String[] record;
-            while ((record = reader.readNext()) != null) {
-                fullCount++;
-                FormMongo form = new FormMongo();
-
-                if (record[0].length() > 0) {
-                    form.setTtbID("" + fullCount);
-                } else {
-                    form.setTtbID(null);
-                }
-                if (record[1].length() > 0) {
-                    form.setRepID(record[1]);
-                } else {
-                    form.setRepID(null);
-                }
-                if (record[2].length() > 0) {
-                    form.setClassType(record[2]);
-                } else {
-                    form.setClassType(null);
-                }
-                if (record[3].length() > 0) {
-                    form.setOrigin(record[3]);
-                } else {
-                    form.setOrigin(null);
-                }
-                if (record[4].length() > 0) {
-                    form.setBrewersPermit(record[4]);
-                } else {
-                    form.setBrewersPermit(null);
-                }
-                if (record[5].length() > 0) {
-                    form.setSource(record[5]);
-                } else {
-                    form.setSource(null);
-                }
-                if (record[6].length() > 0) {
-                    form.setSerialNumber(record[6]);
-                } else {
-                    form.setSerialNumber(null);
-                }
-                if (record[7].length() > 0) {
-                    form.setAlcoholType(record[7]);
-                } else {
-                    form.setAlcoholType(null);
-                }
-                if (record[8].length() > 0) {
-                    form.setBrandName(record[8]);
-                } else {
-                    form.setBrandName(null);
-                }
-                if (record[9].length() > 1) {
-                    form.setFancifulName(record[9]);
-                } else {
-                    form.setFancifulName(null);
-                }
-                if (record[10].length() > 0) {
-                    form.setAddressName(record[10]);
-                } else {
-                    form.setAddressName(null);
-                }
-                if (record[11].length() > 0) {
-                    form.setAddressStreet(record[11]);
-                } else {
-                    form.setAddressStreet(null);
-                }
-                if (record[12].length() > 0) {
-                    form.setAddressCity(record[12]);
-                } else {
-                    form.setAddressCity(null);
-                }
-                if (record[13].length() > 0) {
-                    form.setAddressState(record[13]);
-                } else {
-                    form.setAddressState(null);
-                }
-                if (record[14].length() > 0) {
-                    form.setAddressZip(record[14]);
-                } else {
-                    form.setAddressZip(null);
-                }
-                if (record[15].length() > 1) {
-                    form.setGrapes(record[15]);
-                } else {
-                    form.setGrapes(null);
-                }
-                form.setOtherInfo(record[16] + " " + record[20]);
-                if (record[17].length() > 0) {
-                    form.setAlcoholContent(record[17]);
-                } else {
-                    form.setAlcoholContent(null);
-                }
-                if (record[18].length() > 1) {
-                    form.setAppellation(record[18]);
-                } else {
-                    form.setAppellation(null);
-                }
-                if (record[19].length() > 1) {
-                    form.setVintage(record[19]);
-                } else {
-                    form.setVintage(null);
-                }
-                if (record[21].length() > 0) {
-                    form.setDateApproved(record[21]);
-                } else {
-                    form.setDateApproved(null);
-                }
-                if (record[22].length() > 0) {
-                    form.setDateSubmitted(record[22]);
-                } else {
-                    form.setDateSubmitted(null);
-                }
-                if (record[23].length() > 0) {
-                    form.setDateExpired(record[23]);
-                } else {
-                    form.setDateExpired(null);
-                }
-                if (record[24].length() > 0) {
-                    form.setQualifications(record[24]);
-                } else {
-                    form.setQualifications(null);
-                }
-
-                //insertFormMongo(form);
-                Document document = new Document("ttbID", form.getTtbID())
-                        .append("repID", form.getRepID())
-                        .append("permit", form.getBrewersPermit())
-                        .append("source", form.getSource())
-                        .append("serial", form.getSerialNumber())
-                        .append("alcoholType", form.getAlcoholType())
-                        .append("brandName", form.getBrandName())
-                        .append("fancifulName", form.getFancifulName())
-                        .append("City", form.getAddressCity())
-                        .append("State", form.getAddressState())
-                        .append("Zip", form.getAddressZip())
-                        .append("Street", form.getAddressStreet())
-                        .append("Name", form.getAddressName())
-                        .append("otherInfo", form.getOtherInfo())
-                        .append("Submitted", form.getDateSubmitted())
-                        .append("Approved", form.getDateApproved())
-                        .append("Expired", form.getDateExpired())
-                        .append("alcoholContent", form.getAlcoholContent())
-                        .append("classType", form.getClassType())
-                        .append("origin", form.getOrigin())
-                        .append("vintage", form.getVintage())
-                        .append("appellation", form.getAppellation())
-                        .append("grapes", form.getGrapes())
-                        .append("qual", form.getQualifications());
-                docs.add(document);
-            }
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }
-        try {
-            //This is hardcoded, cause reasons
-            CSVReader reader = new CSVReader(new FileReader("/Users/Jordan/Downloads/FirebaseData/ttbdata12.txt"), '\t');
-            String[] record;
-            while ((record = reader.readNext()) != null) {
-                fullCount++;
-                FormMongo form = new FormMongo();
-
-                if (record[0].length() > 0) {
-                    form.setTtbID("" + fullCount);
-                } else {
-                    form.setTtbID(null);
-                }
-                if (record[1].length() > 0) {
-                    form.setRepID(record[1]);
-                } else {
-                    form.setRepID(null);
-                }
-                if (record[2].length() > 0) {
-                    form.setClassType(record[2]);
-                } else {
-                    form.setClassType(null);
-                }
-                if (record[3].length() > 0) {
-                    form.setOrigin(record[3]);
-                } else {
-                    form.setOrigin(null);
-                }
-                if (record[4].length() > 0) {
-                    form.setBrewersPermit(record[4]);
-                } else {
-                    form.setBrewersPermit(null);
-                }
-                if (record[5].length() > 0) {
-                    form.setSource(record[5]);
-                } else {
-                    form.setSource(null);
-                }
-                if (record[6].length() > 0) {
-                    form.setSerialNumber(record[6]);
-                } else {
-                    form.setSerialNumber(null);
-                }
-                if (record[7].length() > 0) {
-                    form.setAlcoholType(record[7]);
-                } else {
-                    form.setAlcoholType(null);
-                }
-                if (record[8].length() > 0) {
-                    form.setBrandName(record[8]);
-                } else {
-                    form.setBrandName(null);
-                }
-                if (record[9].length() > 1) {
-                    form.setFancifulName(record[9]);
-                } else {
-                    form.setFancifulName(null);
-                }
-                if (record[10].length() > 0) {
-                    form.setAddressName(record[10]);
-                } else {
-                    form.setAddressName(null);
-                }
-                if (record[11].length() > 0) {
-                    form.setAddressStreet(record[11]);
-                } else {
-                    form.setAddressStreet(null);
-                }
-                if (record[12].length() > 0) {
-                    form.setAddressCity(record[12]);
-                } else {
-                    form.setAddressCity(null);
-                }
-                if (record[13].length() > 0) {
-                    form.setAddressState(record[13]);
-                } else {
-                    form.setAddressState(null);
-                }
-                if (record[14].length() > 0) {
-                    form.setAddressZip(record[14]);
-                } else {
-                    form.setAddressZip(null);
-                }
-                if (record[15].length() > 1) {
-                    form.setGrapes(record[15]);
-                } else {
-                    form.setGrapes(null);
-                }
-                form.setOtherInfo(record[16] + " " + record[20]);
-                if (record[17].length() > 0) {
-                    form.setAlcoholContent(record[17]);
-                } else {
-                    form.setAlcoholContent(null);
-                }
-                if (record[18].length() > 1) {
-                    form.setAppellation(record[18]);
-                } else {
-                    form.setAppellation(null);
-                }
-                if (record[19].length() > 1) {
-                    form.setVintage(record[19]);
-                } else {
-                    form.setVintage(null);
-                }
-                if (record[21].length() > 0) {
-                    form.setDateApproved(record[21]);
-                } else {
-                    form.setDateApproved(null);
-                }
-                if (record[22].length() > 0) {
-                    form.setDateSubmitted(record[22]);
-                } else {
-                    form.setDateSubmitted(null);
-                }
-                if (record[23].length() > 0) {
-                    form.setDateExpired(record[23]);
-                } else {
-                    form.setDateExpired(null);
-                }
-                if (record[24].length() > 0) {
-                    form.setQualifications(record[24]);
-                } else {
-                    form.setQualifications(null);
-                }
-
-                //insertFormMongo(form);
-                Document document = new Document("ttbID", form.getTtbID())
-                        .append("repID", form.getRepID())
-                        .append("permit", form.getBrewersPermit())
-                        .append("source", form.getSource())
-                        .append("serial", form.getSerialNumber())
-                        .append("alcoholType", form.getAlcoholType())
-                        .append("brandName", form.getBrandName())
-                        .append("fancifulName", form.getFancifulName())
-                        .append("City", form.getAddressCity())
-                        .append("State", form.getAddressState())
-                        .append("Zip", form.getAddressZip())
-                        .append("Street", form.getAddressStreet())
-                        .append("Name", form.getAddressName())
-                        .append("otherInfo", form.getOtherInfo())
-                        .append("Submitted", form.getDateSubmitted())
-                        .append("Approved", form.getDateApproved())
-                        .append("Expired", form.getDateExpired())
-                        .append("alcoholContent", form.getAlcoholContent())
-                        .append("classType", form.getClassType())
-                        .append("origin", form.getOrigin())
-                        .append("vintage", form.getVintage())
-                        .append("appellation", form.getAppellation())
-                        .append("grapes", form.getGrapes())
-                        .append("qual", form.getQualifications());
-                docs.add(document);
-            }
-        } catch (Exception e) {
-            System.out.println(e.toString());
         }
 
+        //Inserting all those forms into the db in bulk
         insertAllMongo(docs);
-        System.out.println(fullCount);
-        long endTime = System.nanoTime();
-        System.out.println("Time in seconds of execution: " + ((endTime - startTime) / 1000000000));
+        System.out.println("Documents inserted: " + fullCount);
     }
 }

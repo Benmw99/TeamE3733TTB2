@@ -1,5 +1,6 @@
 package Entities;
 
+//Class for basic data that is going to be sent to mongodb
 public class FormMongo {
     private String repID;
 

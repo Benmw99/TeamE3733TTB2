@@ -17,6 +17,7 @@ public class main {
         c3System.setLevel(Level.WARNING);
         Logger MLogSystem = Logger.getLogger("com.mchange");
         MLogSystem.setLevel(Level.WARNING);
+        //Mongodb info message disable doesn't work, I'm still searching for what it is called
         Logger mongoSystem = Logger.getLogger("mongodb");
         mongoSystem.setLevel(Level.WARNING);
 
@@ -65,10 +66,6 @@ public class main {
 */
         //System.out.println("Inserting Mongo info");
         //db.mongoFunc.insertDataMongo();
-
-        //System.out.println("Printing all mongo data");
-        //List<FormMongo> temp = db.mongoFunc.getAllMongo();
-        //System.out.println(temp.size());
 
         System.out.println("Hello Iteration 2!");
         UI.MainUI.main( args);
