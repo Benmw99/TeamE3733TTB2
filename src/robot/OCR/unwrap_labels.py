@@ -367,7 +367,8 @@ class linefinder:
         # cv2.resizeWindow("fleet",800,1000)
         # canny edge detection
         cv2.imwrite("gray.jpg", gray_image)
-        canny_image = cv2.Canny(gray_image,100,200)
+        # canny_image = cv2.Canny(gray_image,50,140)
+        # canny_image = cv2.Sobel
         # cv2.imshow("yeet",canny_image)
         # cv2.resizeWindow("yeet",800,1000)
         # cv2.waitKey(0)
