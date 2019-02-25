@@ -2,36 +2,63 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.SimpleSearchController">
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.SimpleSearchController">
    <children>
       <Label layoutX="283.0" layoutY="14.0" text="Search" />
-      <JFXTextField fx:id="searchBy" alignment="CENTER" labelFloat="true" layoutX="130.0" layoutY="152.0" prefHeight="27.0" prefWidth="350.0" text="Search the TTB Database" />
-      <JFXButton fx:id="searchButton" buttonType="RAISED" layoutX="274.0" layoutY="200.0" onAction="#search" ripplerFill="#949494" text="Search" />
-      <JFXButton fx:id="randomDrink" buttonType="RAISED" layoutX="245.0" layoutY="227.0" onAction="#pourMeADrink" ripplerFill="#908b8b" text="Pour me a Drink!" />
       <JFXButton fx:id="goBack" buttonType="RAISED" layoutX="21.0" layoutY="18.0" text="&lt;" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4285f4" height="102.0" layoutX="7.0" layoutY="10.0" stroke="#ffffff00" strokeType="INSIDE" width="1372.0" />
-      <Text fill="WHITE" layoutX="556.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB" wrappingWidth="662.3418466756353">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4285f4" height="102.0" layoutX="7.0" layoutY="10.0" stroke="#ffffff00" strokeType="INSIDE" width="1372.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Text fill="WHITE" layoutX="551.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB" wrappingWidth="662.3418466756353">
          <font>
             <Font name="Roboto Light" size="48.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="652.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
+      <Text fill="WHITE" layoutX="652.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
          <font>
             <Font name="Roboto Light" size="24.0" />
          </font>
       </Text>
-      <ImageView fitHeight="102.0" fitWidth="104.0" layoutX="438.0" layoutY="9.0">
+      <ImageView fitHeight="102.0" fitWidth="104.0" layoutX="436.0" layoutY="-1.0">
          <image>
             <Image url="@../../../../../Desktop/Screen%20Shot%202019-02-24%20at%204.21.44%20PM.png" />
          </image>
       </ImageView>
+      <VBox layoutX="423.0" layoutY="102.0" prefHeight="660.0" prefWidth="646.0">
+         <children>
+            <JFXTextField fx:id="searchBy" alignment="CENTER" labelFloat="true" prefHeight="27.0" prefWidth="552.0" text="Search the TTB Database">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="250.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <JFXButton fx:id="searchButton" buttonType="RAISED" onAction="#search" ripplerFill="#949494" text="Search">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="250.0" top="30.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="randomDrink" buttonType="RAISED" onAction="#pourMeADrink" ripplerFill="#908b8b" text="Pour me a Drink!">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="200.0" top="15.0" />
+               </VBox.margin>
+            </JFXButton>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
