@@ -257,6 +257,8 @@ public class AppController extends PageControllerUI implements Initializable {
 
     List<ValidatorBase> santa_List;
 
+    boolean isSingle;
+
     @Override
     void onLoad() {
     }
@@ -264,9 +266,6 @@ public class AppController extends PageControllerUI implements Initializable {
     @Override
     protected void onLeave() {
     }
-
-
-    public static boolean errorInForm = false;
 
     /**
      * Determines tab user is on and handles appropriately
@@ -331,86 +330,94 @@ public class AppController extends PageControllerUI implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        if (attributeContainer.backlog.peek().equals("ManApp.fxml")) {
+            isSingle = false;
+        } else {
+            isSingle = true;
+        }
+
         // Set up panes
         santa_List = new ArrayList<ValidatorBase>();
-        pane1.toFront();
-        pane1.setDisable(false);
-        pane1.setVisible(true);
-        pane2.setVisible(false);
-        pane2.setDisable(true);
-        pane3.setVisible(false);
-        pane3.setDisable(true);
-        pane4.setVisible(false);
-        pane4.setDisable(true);
+        if (!isSingle) {
+            pane1.toFront();
+            pane1.setDisable(false);
+            pane1.setVisible(true);
+            pane2.setVisible(false);
+            pane2.setDisable(true);
+            pane3.setVisible(false);
+            pane3.setDisable(true);
+            pane4.setVisible(false);
+            pane4.setDisable(true);
 
-        // Set up crumb bar
-        TreeItem<String> model = BreadCrumbBar.buildTreeModel("Page 1", "Page 2", "Page 3", "Page 4");
-        Nav.setSelectedCrumb(model);
-        Nav.setAutoNavigationEnabled(false);
-        Nav.setOnCrumbAction(new EventHandler<BreadCrumbBar.BreadCrumbActionEvent<String>>() {
-            @Override
-            public void handle(BreadCrumbBar.BreadCrumbActionEvent<String> event) {
-                if(event.getSelectedCrumb().getValue() == "Page 1"){
-                    pane1.toFront();
-                    pane1.setDisable(false);
-                    pane1.setVisible(true);
-                    pane2.setVisible(false);
-                    pane2.setDisable(true);
-                    pane3.setVisible(false);
-                    pane3.setDisable(true);
-                    pane4.setVisible(false);
-                    pane4.setDisable(true);
+            // Set up crumb bar
+            TreeItem<String> model = BreadCrumbBar.buildTreeModel("Page 1", "Page 2", "Page 3", "Page 4");
+            Nav.setSelectedCrumb(model);
+            Nav.setAutoNavigationEnabled(false);
+            Nav.setOnCrumbAction(new EventHandler<BreadCrumbBar.BreadCrumbActionEvent<String>>() {
+                @Override
+                public void handle(BreadCrumbBar.BreadCrumbActionEvent<String> event) {
+                    if (event.getSelectedCrumb().getValue() == "Page 1") {
+                        pane1.toFront();
+                        pane1.setDisable(false);
+                        pane1.setVisible(true);
+                        pane2.setVisible(false);
+                        pane2.setDisable(true);
+                        pane3.setVisible(false);
+                        pane3.setDisable(true);
+                        pane4.setVisible(false);
+                        pane4.setDisable(true);
+                    } else if (event.getSelectedCrumb().getValue() == "Page 2") {
+                        pane2.toFront();
+                        pane2.setDisable(false);
+                        pane2.setVisible(true);
+                        pane1.setVisible(false);
+                        pane1.setDisable(true);
+                        pane3.setVisible(false);
+                        pane3.setDisable(true);
+                        pane4.setVisible(false);
+                        pane4.setDisable(true);
+                    } else if (event.getSelectedCrumb().getValue() == "Page 3") {
+                        pane3.toFront();
+                        pane3.setDisable(false);
+                        pane3.setVisible(true);
+                        pane1.setVisible(false);
+                        pane1.setDisable(true);
+                        pane2.setVisible(false);
+                        pane2.setDisable(true);
+                        pane4.setVisible(false);
+                        pane4.setDisable(true);
+                    } else if (event.getSelectedCrumb().getValue() == "Page 4") {
+                        pane4.toFront();
+                        pane4.setDisable(false);
+                        pane4.setVisible(true);
+                        pane1.setVisible(false);
+                        pane1.setDisable(true);
+                        pane2.setVisible(false);
+                        pane2.setDisable(true);
+                        pane3.setVisible(false);
+                        pane3.setDisable(true);
+                    }
                 }
-                else if(event.getSelectedCrumb().getValue() == "Page 2"){
-                    pane2.toFront();
-                    pane2.setDisable(false);
-                    pane2.setVisible(true);
-                    pane1.setVisible(false);
-                    pane1.setDisable(true);
-                    pane3.setVisible(false);
-                    pane3.setDisable(true);
-                    pane4.setVisible(false);
-                    pane4.setDisable(true);
-                }
-                else if(event.getSelectedCrumb().getValue() == "Page 3"){
-                    pane3.toFront();
-                    pane3.setDisable(false);
-                    pane3.setVisible(true);
-                    pane1.setVisible(false);
-                    pane1.setDisable(true);
-                    pane2.setVisible(false);
-                    pane2.setDisable(true);
-                    pane4.setVisible(false);
-                    pane4.setDisable(true);
-                }
-                else if(event.getSelectedCrumb().getValue() == "Page 4"){
-                    pane4.toFront();
-                    pane4.setDisable(false);
-                    pane4.setVisible(true);
-                    pane1.setVisible(false);
-                    pane1.setDisable(true);
-                    pane2.setVisible(false);
-                    pane2.setDisable(true);
-                    pane3.setVisible(false);
-                    pane3.setDisable(true);
-                }
-            }
-        });
-
+            });
+            TTBIDField.disableProperty().setValue(true);
+            GrapeVarHBox.disableProperty().setValue(true);
+            WineAppHBox.disableProperty().setValue(true);
+            AmountField.disableProperty().setValue(true);
+            State15ComboBox.disableProperty().setValue(true);
+        } else {
+            WineAppField.disableProperty().setValue(true);
+            GrapeVarField.disableProperty().setValue(true);
+        }
         // Initialize TextFields
         VintageYearField.disableProperty().setValue(true);
         PhField.disableProperty().setValue(true);
-        AmountField.disableProperty().setValue(true);
-        State15ComboBox.disableProperty().setValue(true);
-        TTBIDField.disableProperty().setValue(true);
-        GrapeVarHBox.disableProperty().setValue(true);
-        WineAppHBox.disableProperty().setValue(true);
 
         // Initialize Validators
         setListener(RepIDField, 7);
         setListener(ProducerNumField, 1);
         setListener(SerialYearField, 5);
-        setListener(SerialDigitsField, 1);
+        setListener(SerialDigitsField, 8);
         setListener(BrandField, 2);
         setListener(VintageYearField, 5);
         setListener(PhField, 6);
@@ -436,7 +443,8 @@ public class AppController extends PageControllerUI implements Initializable {
                 "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY");
         State8ComboBox.getItems().addAll(states);
         State9ComboBox.getItems().addAll(states);
-        State15ComboBox.getItems().addAll(states);
+        if (!isSingle)
+            State15ComboBox.getItems().addAll(states);
         SourceComboBox.getItems().addAll("Domestic", "Imported");
         TypeComboBox.getItems().addAll("Malt Beverage", "Wine", "Distilled Liquor");
         /* setup submit button */
@@ -466,10 +474,66 @@ public class AppController extends PageControllerUI implements Initializable {
         });
 
 
-
-
-
-
+        // Need to set up a listener to prevent submitting a form before triggering a validator
+        this.SendApp.setOnMouseMoved(new EventHandler<MouseEvent>() {
+            boolean wineFlag;
+            boolean addressFlag;
+            @Override
+            public void handle(MouseEvent event) {
+                if((ProducerNumField.getLength() != 0) && (SerialYearField.getLength() != 0) && (SerialDigitsField.getLength() != 0) &&
+                        (BrandField.getLength() != 0) && (Name8Field.getLength() != 0) && (Address8Field.getLength() != 0) &&
+                        (City8Field.getLength() != 0) && (Zip8Field.getLength() != 0) && (FormulaField.getLength() != 0) &&
+                        (PhoneNumField.getLength() != 0) && (EmailField.getLength() != 0) && (SignatureField.getLength() != 0) &&
+                        (AlcoholContentTextField.getLength() != 0)){
+                    if(TypeComboBox.getValue().equals("Wine")){
+                        if((VintageYearField.getLength() != 0) && (PhField.getLength() != 0)){
+//                            SubmitButton.setDisable(true);
+//                            SubmitButton.setOpacity(0.5);
+                            addressFlag = false;
+                        } else{
+//                            SubmitButton.setDisable(false);
+//                            SubmitButton.setOpacity(1);
+                            addressFlag = true;
+                            System.out.println("Wine selected");
+                        }
+                    } else{
+                        addressFlag = false;
+                    }
+                    if(!SameAddressRadioButton.isSelected()){
+                        if((Name9Field.getLength() != 0) && (Address9Field.getLength() != 0) && (City9Field.getLength() != 0) && (Zip9Field.getLength() != 0)){
+//                            SubmitButton.setDisable(true);
+//                            SubmitButton.setOpacity(0.5);
+                            wineFlag = false;
+                        } else{
+//                            SubmitButton.setDisable(false);
+//                            SubmitButton.setOpacity(1);
+                            wineFlag = true;
+                            System.out.println("Radio button pressed");
+                        }
+                    } else{
+                        wineFlag = false;// else maybe
+                    }
+                    if(!wineFlag && !addressFlag){
+                        SendApp.setDisable(false);
+                        SendApp.setOpacity(1);
+                        System.out.println("Enable because WF or AF were not triggered");
+                    } else if(wineFlag || addressFlag) {
+                        SendApp.setDisable(true);
+                        SendApp.setOpacity(0.5);
+                        System.out.println("Disable because WF or AF are triggered");
+                    }
+                    else {
+                        System.out.println("Fields are not empty");
+                        SendApp.setDisable(false);
+                        SendApp.setOpacity(1);
+                    }
+                } else {
+                    System.out.println(ProducerNumField.getLength());
+                    SendApp.setDisable(true);
+                    SendApp.setOpacity(0.5);
+                }
+            }
+        });
     }
 
     @FXML
@@ -486,6 +550,7 @@ public class AppController extends PageControllerUI implements Initializable {
     // 5 - Valid 4 digits
     // 6 - Valid pH
     // 7 - Valid rep Id
+    // 8 - Valid serial number (6 digits)
 
     /**
      * Sets listener for fields on form
@@ -536,9 +601,9 @@ public class AppController extends PageControllerUI implements Initializable {
         if (type == 5) {
             RegexValidator validEmail = new RegexValidator();
             santa_List.add(validEmail);
-            validEmail.setRegexPattern("^\\d{4}$");
+            validEmail.setRegexPattern("^\\d{2}$");
             field.getValidators().add(validEmail);
-            validEmail.setMessage("Enter a valid year");
+            validEmail.setMessage("Enter the last two digits of the year");
             RequiredFieldValidator validator = new RequiredFieldValidator();
             field.getValidators().add(validator);
             validator.setMessage("* Required");
@@ -560,10 +625,16 @@ public class AppController extends PageControllerUI implements Initializable {
             field.getValidators().add(validRepId);
             validRepId.setMessage("Enter a valid rep id");
         }
-
-        if (errorInForm) {
+        if (type == 8) {
+            RegexValidator validSerial = new RegexValidator();
+            santa_List.add(validSerial);
+            validSerial.setRegexPattern("^\\d{6}$");
+            field.getValidators().add(validSerial);
+            validSerial.setMessage("The serial number must be at most six digits");
+            RequiredFieldValidator validator = new RequiredFieldValidator();
+            field.getValidators().add(validator);
+            validator.setMessage("* Required");
         }
-
 
         field.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
@@ -571,25 +642,24 @@ public class AppController extends PageControllerUI implements Initializable {
                 if (!newValue) {
                     field.validate();
 
-
                     boolean t = true;
-                    for(ValidatorBase vb : santa_List){
+                    for (ValidatorBase vb : santa_List) {
                         t = t && !vb.getHasErrors();
-                        System.out.println(vb.getHasErrors());}
+//                        System.out.println(vb.getHasErrors());
+                    }
 
-                    if(t) {
-
-                        System.out.println("Fields has no errors");
+                    if (t) {
+//                        System.out.println("Fields has no errors");
                         SendApp.setOpacity(1);
                         SendApp.setDisable(false);
                     } else {
-                        System.out.println("Fields has  errors");
+//                        System.out.println("Fields has  errors");
                         SendApp.setDisable(true);
-             //           SendApp.setOpacity(0);
-
+                        SendApp.setOpacity(0.5);
+                    }
                 }
-        }}});
-
+            }
+        });
     }
 
     /**
@@ -634,23 +704,32 @@ public class AppController extends PageControllerUI implements Initializable {
      *
      * @throws IOException
      */
-
     @FXML
     public void checkWine() throws IOException {
         if (TypeComboBox.getValue().equals("Wine")) {
             VintageYearField.disableProperty().setValue(false);
             PhField.disableProperty().setValue(false);
-            GrapeVarHBox.disableProperty().setValue(false);
-            WineAppHBox.disableProperty().setValue(false);
+            if(!isSingle){
+                GrapeVarHBox.disableProperty().setValue(false);
+                WineAppHBox.disableProperty().setValue(false);
+            } else {
+                GrapeVarField.disableProperty().setValue(false);
+                WineAppField.disableProperty().setValue(false);
+            }
 
         } else {
             VintageYearField.disableProperty().setValue(true);
             VintageYearField.setText("");
             PhField.disableProperty().setValue(true);
             PhField.setText("");
-            GrapeVarHBox.disableProperty().setValue(true);
+            if(!isSingle){
+                GrapeVarHBox.disableProperty().setValue(true);
+                WineAppHBox.disableProperty().setValue(true);
+            } else {
+                GrapeVarField.disableProperty().setValue(true);
+                WineAppField.disableProperty().setValue(true);
+            }
             GrapeVarField.setText("");
-            WineAppHBox.disableProperty().setValue(true);
             WineAppField.setText("");
         }
     }
@@ -673,8 +752,6 @@ public class AppController extends PageControllerUI implements Initializable {
             TTBIDField.disableProperty().setValue(true);
         } else
             TTBIDField.disableProperty().setValue(false);
-
-
     }
 
     /**
@@ -743,11 +820,10 @@ public class AppController extends PageControllerUI implements Initializable {
         working.setBrewersPermit(brews);
         working.setApproval(new Approval());
         working.setDateSubmitted(Date.valueOf(LocalDate.now()));
-     //   working.setDateSubmitted(java.sql.Date.from(Instant.now()));
+        //   working.setDateSubmitted(java.sql.Date.from(Instant.now()));
         man.submitForm(working);
         this.workingForm = working;
         return working.getTtbID();
-
     }
 
     @FXML
@@ -758,7 +834,6 @@ public class AppController extends PageControllerUI implements Initializable {
                 new FileChooser.ExtensionFilter("PNG Files", "*.png")
                 , new FileChooser.ExtensionFilter("JPEG Files", "*.jpg")
         );
-
 
         try {
             fileChooser.setTitle("Select label image");
@@ -778,17 +853,12 @@ public class AppController extends PageControllerUI implements Initializable {
     }
 
     @FXML
-    public void handleButtonAction(ActionEvent event){
-//        System.out.println(event.toString());
-//        System.out.println(event.getPickResult().getIntersectedNode().getId());
-//        popOver.show(AlcoholContentInfo);
-//        if(id == RepIDField)
-//        popOver.show(AlcoholContentInfo);
+    public void handleButtonAction(ActionEvent event) {
         final Node source = (Node) event.getSource();
         String id = source.getId();
-        System.out.println(id);
+//        System.out.println(id);
 
-        switch (id){
+        switch (id) {
             case "RepInfo":
                 JFXTextArea RepInfoText = new JFXTextArea("Include a third party representative ID number if your application will be submitted by a third party representative, and if you consent to the disclosure of information abou tthe applciation to thiis representative, as well as the return of the processed application to this representative. Third party filers who do not already have a Representative ID Number, please contact TTB to obtain one (See section IV for contact information)"); // Create JFXTextArea & put info here
                 RepInfoText.setEditable(false);
@@ -1011,7 +1081,5 @@ public class AppController extends PageControllerUI implements Initializable {
                 popOver19.show(AlcoholPercentInfo);
                 break;
         }
-
     }
-
 }
