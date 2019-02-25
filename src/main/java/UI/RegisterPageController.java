@@ -48,10 +48,6 @@ public class RegisterPageController extends PageControllerUI implements Initiali
     protected void onLeave(){}
 
     void onLoad(){
-
-        ManufacturerRadio.setToggleGroup(userOptions);
-        AgentRadio.setToggleGroup(userOptions);
-        ManufacturerRadio.setSelected(true);
     }
 
     /**
@@ -61,6 +57,9 @@ public class RegisterPageController extends PageControllerUI implements Initiali
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        ManufacturerRadio.setToggleGroup(userOptions);
+        AgentRadio.setToggleGroup(userOptions);
+        ManufacturerRadio.setSelected(true);
     }
     @FXML
     public void handleTheThing(ActionEvent event) {
