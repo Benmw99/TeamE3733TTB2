@@ -2,19 +2,12 @@ package DB;
 
 import Entities.*;
 import org.hibernate.*;
-import org.hibernate.criterion.MatchMode;
 import org.hibernate.query.Query;
-import org.hibernate.cfg.Configuration;
 
 import javax.persistence.NoResultException;
-import javax.persistence.Transient;
 import javax.persistence.criteria.*;
-import java.sql.*;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
 
 //Class for handling all the selection operations of the database. Class is a singleton
 public class DBSelect {
@@ -736,5 +729,33 @@ public class DBSelect {
             session.close();
         }
         return results;
+    }
+
+    /**
+     * Gets a random form from the database. Is recursive and can potentially take hours to finish depending on your luck. I swear I'm okay at programming
+     * NOTE: BECAUSE OF HOW THIS WORKS IT COULD TECHINCALLY TAKE A LONG TIME TO FINISH BUT ON AVERAGE SHOULD FINISH QUICKLY BECAUSE WE HAVE A MAJORITY APPROVED FORMS
+     * @author Jordan
+     * @return A random approved form from the database
+     */
+    public Form randomForm() {
+        String q = "SELECT count(*) FROM Form F WHERE F.approvalStatus = :approval";
+        Session session = factory.openSession();
+        Query query = session.createQuery(q);
+        query.setParameter("approval", ApprovalStatus.Complete);
+        int result = 0;
+        Long temp;
+        final Object obj = query.uniqueResult();
+        if (obj != null) {
+            temp = (Long) obj;
+            result = temp.intValue();
+        }
+        session.close();
+        Random rand = new Random();
+        Form randomForm = getFormByTTB_ID(rand.nextInt(result) + 1);
+        if (randomForm.getApprovalStatus() == ApprovalStatus.Complete) {
+            return randomForm;
+        } else {
+            return randomForm();
+        }
     }
 }
