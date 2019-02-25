@@ -1,5 +1,7 @@
 package Entities;
 
+import UI.AttributeContainer;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -27,6 +29,7 @@ public class Mailer implements Runnable {
     Form to_inform;
     Agent to_send_to;
     String message;
+    AttributeContainer attributeContainer;
 
     /**
      * @author Michael & Elizabeth
@@ -54,7 +57,7 @@ public class Mailer implements Runnable {
     }
 
     /**
-     * Informs the comopany that their form has been updated
+     * Informs the company that their form has been updated
      * @param to_inform the form which has been updated, which has the company to be informed.
      */
     public void sendMail(Form to_inform) {
@@ -174,9 +177,63 @@ public class Mailer implements Runnable {
         }
     }
 
+    /**
+     * @author Sierra
+     * Sends the user an email with their double authentication password
+     * so that they can finish the registration process
+     * @param user
+     */
+    public void sendRegistrationKey(IUser user) {
+        String host = "smtp.gmail.com";
+        String from = "TTBTEAME@gmail.com";
+        String pass = "michaelclements";
+        Properties props = System.getProperties();
+        props.put("mail.smtp.starttls.enable", "true"); // added this line
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.user", from);
+        props.put("mail.smtp.password", pass);
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+
+        try {
+            Session session = Session.getDefaultInstance(props, null);
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+
+            InternetAddress toAddress = new InternetAddress();
+
+            toAddress = new InternetAddress(user.getEmail());
+            System.out.println(Message.RecipientType.TO);
+
+            message.addRecipient(Message.RecipientType.TO, toAddress);
+
+            String body = "Hello ";
+            body += ",\n";
+            body += "Thank you for registering with the TTB. Below is the passcode you need to type in \n";
+            body += "in order to finish your registration process.\n";
+            body += "Passcode: " + AttributeContainer.getInstance().generatedKey;
+
+            new FormExporter(to_inform);
+            mailHelper(message, body, to_inform);
+
+            message.setSubject("TTB REGISTRATION AUTHENTICATION");
+            Transport transport = session.getTransport("smtp");
+            transport.connect(host, from, pass);
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+
+        } catch (MessagingException mx) {
+            mx.printStackTrace();
+        }
+
+    }
+
     @Override
     public void run() {
-        if(this.isAgent){
+        if(attributeContainer.firstTimeRegister){
+            sendRegistrationKey(attributeContainer.currentUser);
+        }
+        else if(this.isAgent){
             sendAgentMail(this.to_send_to, message, to_inform);
         } else {
             sendMail(this.to_inform);

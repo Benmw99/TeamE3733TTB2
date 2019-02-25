@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.RegisterPageController">
+   <children>
+      <JFXButton fx:id="authenticate" layoutX="660.0" layoutY="261.0" onAction="#authenticatePass" text="Authenticate" />
+      <JFXTextField fx:id="passcode" alignment="CENTER" layoutX="633.0" layoutY="214.0" promptText="Authentication Key" />
+      <Label layoutX="454.0" layoutY="146.0" text="An authentication key was just sent to the email you used to register." />
+      <Label layoutX="460.0" layoutY="177.0" text="Please check your email and fill in the field below with the provided key." />
+      <Label layoutX="590.0" layoutY="328.0" text="Didn't see an email? Have us resend it!" />
+      <JFXButton fx:id="resendEmail" layoutX="660.0" layoutY="367.0" text="Resend Email" />
+   </children>
+</AnchorPane>

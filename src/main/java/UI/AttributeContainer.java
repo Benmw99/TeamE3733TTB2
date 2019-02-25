@@ -32,6 +32,8 @@ public class AttributeContainer {
     PageControllerUI current_page;
     LabelImage labelImage;
     char delimeter;
+    public String generatedKey;
+    public boolean firstTimeRegister = false;
 
     /**
      * Instantiates new empty AttributeContainer
