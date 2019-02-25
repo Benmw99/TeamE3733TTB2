@@ -3,6 +3,7 @@
 #define Dir_Pin (4)
 #define Step_Pin (3)
 #define MAX_STEPS (1024)
+#define cup_1_pin (A0)
 int pos = 0;
 int target = 0;
 String s = "";
@@ -71,9 +72,6 @@ void zero(){
   pos = MAX_STEPS/2;
 }
 
-///////////////////////////////////////////////////////
-///                   Main Loop                     ///
-///////////////////////////////////////////////////////
 /*
  * Initialize
  */
@@ -82,18 +80,18 @@ void setup()
   Serial.begin(BAUD);
   pinMode(Dir_Pin,OUTPUT); // Step
   pinMode(Step_Pin,OUTPUT); // Dir
+  pinMode(Step_Pin,OUTPUT); // Dir
 }
 /*
  * main loop
  */
 void loop() 
 {
-//  //  wait for serial
-//  while(!Serial.available()){
-//    ;
-//  }
-//  //  follow move command from script
 
+
+///////////////////////////////////////////////////////
+///             Parsing Serial Commands             ///
+///////////////////////////////////////////////////////
   if(Serial){
     if(Serial.available()){
       s = Serial.readStringUntil('.');
@@ -116,8 +114,16 @@ void loop()
     }
   }
   
+///////////////////////////////////////////////////////
+///                 Move Turntable                  ///
+///////////////////////////////////////////////////////
+  stepCloserTo(target,40)
 
+///////////////////////////////////////////////////////
+///                     Bartend                     ///
+///////////////////////////////////////////////////////
 
+  Serial.print(analogRead(cup_1_pin));
 
   
 //  digitalWrite(Dir_Pin,HIGH); // Set Dir high
