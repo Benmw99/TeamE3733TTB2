@@ -2,10 +2,10 @@
 #define BAUD (9600)
 #define Dir_Pin (4)
 #define Step_Pin (3)
-#define MAX_STEPS (1024)
+#define MAX_STEPS (200)
 #define cup_0_pin (A0)
-int pos = 0;
-int target = 0;
+int pos = MAX_STEPS/2;
+int target = MAX_STEPS/2;
 String s = "";
 String mode = "";
 String value = "";
@@ -59,11 +59,14 @@ void stepCCW(int steps, int millisPerStep)  {
  * 
  */
 void stepCloserTo(int targetPos, int millisPerStep){
+  int err;
+  
   if(targetPos>pos){
-    stepCW((targetPos-pos)%15,millisPerStep);
+    stepCW((err=targetPos-pos)<15 ? err : 15 ,millisPerStep);
   }
   else{
-    stepCCW((pos-targetPos)%15,millisPerStep);
+    
+    stepCCW((err=pos-targetPos)<15 ? err : 15 ,millisPerStep);
   }
 }
 /*
@@ -82,7 +85,7 @@ void setup()
   pinMode(Dir_Pin,OUTPUT); // Step
   pinMode(Step_Pin,OUTPUT); // Dir
   pinMode(Step_Pin,OUTPUT); // Dir
-  Serial.println("Hi, I'm Winebot")
+  Serial.println("Hi, I'm Winebot :D");
 }
 /*
  * main loop
@@ -112,7 +115,25 @@ void loop()
         target = MAX_STEPS/2;
       }
       else if(mode.equals("stat")){
-        
+          Serial.println("~~~~~~~~~~~STATUS~~~~~~~~~~~~~");
+          Serial.println("I'm Alive");
+          Serial.print("Running Time is: ");
+          Serial.println(String(millis()));
+          
+          Serial.print("You entered the following command: ");
+          Serial.println(s);
+          
+          Serial.print("Cup 0 Detected: ");
+          Serial.println(cup_0_present ? "TRUE" : "FALSE");
+          
+          Serial.print("Cup 1 Detected: ");
+          Serial.println("N/A");
+          
+          Serial.print("Cup 2 Detected: ");
+          Serial.println("N/A");
+          
+          Serial.println("Thanks for checking in");
+          Serial.println("~~~~~~~~~~~~~BYE~~~~~~~~~~~~~~");
       }
     Serial.print("Current position is now: ");
     Serial.println(String(pos));
