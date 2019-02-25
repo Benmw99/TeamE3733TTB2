@@ -55,7 +55,10 @@ public class RegisterPageController extends PageControllerUI implements Initiali
     JFXButton authenticate;
 
     @FXML
-    JFXButton resendEmail;
+    JFXButton resendEmailButton;
+
+    @FXML
+    JFXButton goBack;
 
     ToggleGroup userOptions = new ToggleGroup();
 
@@ -211,6 +214,14 @@ public class RegisterPageController extends PageControllerUI implements Initiali
             buffer.append((char) randomLimitedInt);
         }
         AttributeContainer.getInstance().generatedKey = buffer.toString();
+    }
+
+    public void returnToRegistration(ActionEvent event){
+        goToPage("RegisterPage.fxml");
+    }
+
+    public void resendEmail(ActionEvent event){
+        mailer.sendRegistrationKey(attributeContainer.currentUser);
     }
 
 }
