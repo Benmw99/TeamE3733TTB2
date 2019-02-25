@@ -89,6 +89,16 @@ public class Form implements Serializable {
 
     String labelText;
 
+    public String getLogoText() {
+        return logoText;
+    }
+
+    public void setLogoText(String logoText) {
+        this.logoText = logoText;
+    }
+
+    String logoText;
+
     public Form() {
     }
 
@@ -498,6 +508,63 @@ public class Form implements Serializable {
             System.out.println("ClassNotFoundException is caught");
         }
         return form;
+    }
+
+    /**
+     * Verifies that the passed in text occurs somewhere in the label text. Works only if both are set.
+     * @return true for a match, false otherwise.
+     */
+    public boolean verifyText(String s){
+        String label = this.getLabelText().toUpperCase();
+        String[] arr = s.split(" ");
+        boolean bool = true;
+        for ( String ss : arr) {
+            if(!label.contains(ss)){
+                bool = false;
+            }
+        }
+        return bool;
+    }
+
+    /**
+     * Checks to see if there is some sort of indicator as to the type of alcohol on the label. Throws an exception if there is none
+     * otherwise returns an alcohol type representing the indicated type.
+     * @return Alcohol Type representing the type of alcohol.
+     * @throws Exception if there is no indicator. Should be handled.
+     */
+    public AlcoholType detectAlcType() throws Exception{
+        String s = this.getLabelText().toUpperCase();
+        AlcoholType alc;
+        if(s.contains("BEER") || s.contains("MALT") || s.contains("STOUT") || s.contains("LAGER") || s.contains("ALE") || s.contains("BREW") ||s.contains("COLD ONE")){
+            alc = AlcoholType.MaltBeverage;
+        } else if(s.contains("WINE") || s.contains("BUBBLY")){
+            alc = AlcoholType.Wine;
+        } else if(s.contains("WHISKEY") || s.contains("VODKA") || s.contains("RUM") || s.contains("GIN") || s.contains("TEQUILA") || s.contains("BRANDY") || s.contains("SCHNAPPS")){
+            alc = AlcoholType.DistilledLiquor;
+        } else {
+            throw new Exception("No Alcohol Type Indicator found on label.");
+        }
+        return alc;
+    }
+
+    /**
+     *
+     * @return true if there is text on the label matching the appelation, or there is no appellation. Else, false.
+     */
+    public boolean verifyAppellation(){
+        if(this.getWineFormItems() != null && this.getWineFormItems().getAppellation() != null){
+            return this.verifyText(this.getWineFormItems().getAppellation());
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * Verifies that the brand name occurs somewhere in the label text.
+     * @return True for the text being there. False otherwise.
+     */
+    public boolean verifyBrandName(){
+        return verifyText(this.getBrandName());
     }
 
 }
