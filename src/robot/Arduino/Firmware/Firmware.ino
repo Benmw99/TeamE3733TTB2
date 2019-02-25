@@ -3,12 +3,13 @@
 #define Dir_Pin (4)
 #define Step_Pin (3)
 #define MAX_STEPS (1024)
-#define cup_1_pin (A0)
+#define cup_0_pin (A0)
 int pos = 0;
 int target = 0;
 String s = "";
 String mode = "";
 String value = "";
+boolean cup_0_present = false;
 /* moves so many steps counterclockwise
  *  
  * int steps: you want to go to in the direction
@@ -81,6 +82,7 @@ void setup()
   pinMode(Dir_Pin,OUTPUT); // Step
   pinMode(Step_Pin,OUTPUT); // Dir
   pinMode(Step_Pin,OUTPUT); // Dir
+  Serial.println("Hi, I'm Winebot")
 }
 /*
  * main loop
@@ -109,6 +111,11 @@ void loop()
         zero();
         target = MAX_STEPS/2;
       }
+      else if(mode.equals("stat")){
+        
+      }
+    Serial.print("Current position is now: ");
+    Serial.println(String(pos));
     Serial.print("Target position is now: ");
     Serial.println(String(target));
     }
@@ -117,24 +124,19 @@ void loop()
 ///////////////////////////////////////////////////////
 ///                 Move Turntable                  ///
 ///////////////////////////////////////////////////////
-  stepCloserTo(target,40)
+  stepCloserTo(target,40);
 
 ///////////////////////////////////////////////////////
 ///                     Bartend                     ///
 ///////////////////////////////////////////////////////
 
-  Serial.print(analogRead(cup_1_pin));
+  if(analogRead(cup_0_pin)>450){
+    cup_0_present = true;
+  }
+  else {
+    cup_0_present = false;  
+  }
+//  pour drink until full or moved
 
   
-//  digitalWrite(Dir_Pin,HIGH); // Set Dir high
-////  Serial.println("Loop 200 steps (1 rev)");
-//  for(x = 0; x < 6000; x++) // Loop 200 times
-//  {
-//    digitalWrite(Step_Pin,HIGH); // Output high
-//    delay(10); // Wait
-//    digitalWrite(Step_Pin,LOW); // Output low
-//    delay(20); // Wait
-//  }
-////  Serial.println("Pause");
-//  delay(1000); // pause one second
 }
