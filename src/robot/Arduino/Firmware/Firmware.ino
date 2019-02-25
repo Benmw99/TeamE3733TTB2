@@ -4,7 +4,10 @@
 #define Step_Pin (3)
 #define MAX_STEPS (1024)
 int pos = 0;
-
+int target = 0;
+String s = "";
+String mode = "";
+String value = "";
 /* moves so many steps counterclockwise
  *  
  * int steps: you want to go to in the direction
@@ -22,7 +25,7 @@ void stepCW(int steps, int millisPerStep)  {
     digitalWrite(Step_Pin,LOW); // Output low
     delay(millisPerStep-10); // Wait
     
-    pos = (pos+1+MAX_STEPS)%MAX_STEPS
+    pos = (pos+1+MAX_STEPS)%MAX_STEPS;
   }
 }
 
@@ -44,7 +47,7 @@ void stepCCW(int steps, int millisPerStep)  {
     digitalWrite(Step_Pin,LOW); // Output low
     delay(millisPerStep-10); // Wait
     
-    pos = (pos-1+MAX_STEPS)%MAX_STEPS
+    pos = (pos-1+MAX_STEPS)%MAX_STEPS;
   }
 }
 /* moves closer to a pos
@@ -55,17 +58,17 @@ void stepCCW(int steps, int millisPerStep)  {
  */
 void stepCloserTo(int targetPos, int millisPerStep){
   if(targetPos>pos){
-    stepCW((targetPos-pos)%15,millisPerStep)
+    stepCW((targetPos-pos)%15,millisPerStep);
   }
   else{
-    stepCCW((pos-targetPos)%15,millisPerStep)
+    stepCCW((pos-targetPos)%15,millisPerStep);
   }
 }
 /*
  * Zeroes Step Count at current position
  */
 void zero(){
-  pos = 0;
+  pos = MAX_STEPS/2;
 }
 
 ///////////////////////////////////////////////////////
@@ -80,11 +83,38 @@ void setup()
   pinMode(Dir_Pin,OUTPUT); // Step
   pinMode(Step_Pin,OUTPUT); // Dir
 }
-
+/*
+ * main loop
+ */
 void loop() 
 {
-//  wait for serial
-  //  follow move command from script
+//  //  wait for serial
+//  while(!Serial.available()){
+//    ;
+//  }
+//  //  follow move command from script
+
+  if(Serial){
+    if(Serial.available()){
+      s = Serial.readStringUntil('.');
+      mode = s.substring(0,4);
+      value = s.substring(5);
+
+      if(mode.equals("move")){
+        
+        target = (value.toInt()+MAX_STEPS+target)%MAX_STEPS;
+      }
+      else if(mode.equals("goto")){
+        target = (value.toInt()+MAX_STEPS)%MAX_STEPS;
+      }
+      else if(mode.equals("zero")){
+        zero();
+        target = MAX_STEPS/2;
+      }
+    Serial.print("Target position is now: ");
+    Serial.println(String(target));
+    }
+  }
   
 
 
