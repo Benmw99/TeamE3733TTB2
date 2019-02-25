@@ -27,19 +27,13 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
     JFXButton goBack;
 
     @Override
-    protected void onLeave() {
-
-    }
+    protected void onLeave() {}
 
     @Override
-    void onLoad() {
-
-    }
+    void onLoad() {}
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
+    public void initialize(URL location, ResourceBundle resources) {}
 
     public void pourMeADrink(ActionEvent event){
         // TODO figure out how to pull and present a random drink from the DB
