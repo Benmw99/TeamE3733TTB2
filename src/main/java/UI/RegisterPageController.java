@@ -48,18 +48,6 @@ public class RegisterPageController extends PageControllerUI implements Initiali
     @FXML
     RadioButton AgentRadio;
 
-    @FXML
-    JFXTextField passcode;
-
-    @FXML
-    JFXButton authenticate;
-
-    @FXML
-    JFXButton resendEmailButton;
-
-    @FXML
-    JFXButton goBack;
-
     ToggleGroup userOptions = new ToggleGroup();
 
    // Mailer mailer;
@@ -161,46 +149,6 @@ public class RegisterPageController extends PageControllerUI implements Initiali
     }
 
     /**
-     * @author Sierra
-     * Checks through to see if the authentication key matches what was sent to the user
-     * If the key is incorrect, it displays an error. Otherwise, it navigates you to the correct
-     * page
-     * @param event
-     */
-    public void authenticatePass(ActionEvent event) {
-       // Manufacturer help = new Manufacturer();
-      //  Agent stuck = new Agent();
-        System.out.println(AttributeContainer.getInstance().generatedKey);
-        System.out.println(passcode.getText());
-    if(attributeContainer.currentUser.isManufacturer()){
-            if (passcode.getText().equals(AttributeContainer.getInstance().generatedKey)) {
-                attributeContainer.firstTimeRegister = false;
-                goToPage("ManHome.fxml");
-            } else {
-                Alert yikes = new Alert(Alert.AlertType.WARNING);
-                yikes.setContentText("You have not entered the correct authentication key. Please try again.");
-                yikes.setHeaderText("Error");
-                yikes.show();
-            }
-        } else if(attributeContainer.currentUser.isAgent()) {
-            if (passcode.getText().equals(AttributeContainer.getInstance().generatedKey)) {
-                attributeContainer.firstTimeRegister = false;
-                goToPage("AgentHome.fxml");
-            } else {
-                Alert yikes = new Alert(Alert.AlertType.WARNING);
-                yikes.setContentText("You have not entered the correct authentication key. Please try again.");
-                yikes.setHeaderText("Error");
-                yikes.show();
-            }
-        }  else {
-            Alert yikes = new Alert(Alert.AlertType.WARNING);
-            yikes.setContentText("You have not registered correctly. Please go back and do so.");
-            yikes.setHeaderText("Error");
-            yikes.show();
-        }
-    }
-
-    /**
      *  @author Sierra
      *  creates a random key using 8 lowercase letters
      */
@@ -217,15 +165,6 @@ public class RegisterPageController extends PageControllerUI implements Initiali
             buffer.append((char) randomLimitedInt);
         }
         AttributeContainer.getInstance().generatedKey = buffer.toString();
-    }
-
-    public void returnToRegistration(ActionEvent event){
-        goToPage("RegisterPage.fxml");
-    }
-
-    public void resendEmail(ActionEvent event){
-        Thread mailThread = new Thread( new Mailer(RegisterUserEmailTextField.getText(), attributeContainer.generatedKey));
-        mailThread.start();
     }
 
 }
