@@ -62,11 +62,11 @@ void stepCloserTo(int targetPos, int millisPerStep){
   int err;
   
   if(targetPos>pos){
-    stepCW((err=targetPos-pos)<15 ? err : 15 ,millisPerStep);
+    stepCW((err=targetPos-pos)<4 ? err : 4 ,millisPerStep);
   }
   else{
     
-    stepCCW((err=pos-targetPos)<15 ? err : 15 ,millisPerStep);
+    stepCCW((err=pos-targetPos)<4 ? err : 4 ,millisPerStep);
   }
 }
 /*
@@ -90,6 +90,7 @@ void setup()
 /*
  * main loop
  */
+ boolean readyForCommand = true;
 void loop() 
 {
 
@@ -97,8 +98,7 @@ void loop()
 ///////////////////////////////////////////////////////
 ///             Parsing Serial Commands             ///
 ///////////////////////////////////////////////////////
-  if(Serial){
-    if(Serial.available()){
+  if(readyForCommand&&Serial&&Serial.available()){
       s = Serial.readStringUntil('.');
       mode = s.substring(0,4);
       value = s.substring(5);
@@ -106,9 +106,12 @@ void loop()
       if(mode.equals("move")){
         
         target = (value.toInt()+MAX_STEPS+target)%MAX_STEPS;
+        readyForCommand = false;
       }
+      
       else if(mode.equals("goto")){
         target = (value.toInt()+MAX_STEPS)%MAX_STEPS;
+        readyForCommand = false;
       }
       else if(mode.equals("zero")){
         zero();
@@ -131,14 +134,14 @@ void loop()
           
           Serial.print("Cup 2 Detected: ");
           Serial.println("N/A");
+                
+          Serial.print("Current position is now: ");
+          Serial.println(String(pos));
+          Serial.print("Target position is now: ");
+          Serial.println(String(target));
           
           Serial.println("Thanks for checking in");
           Serial.println("~~~~~~~~~~~~~BYE~~~~~~~~~~~~~~");
-      }
-    Serial.print("Current position is now: ");
-    Serial.println(String(pos));
-    Serial.print("Target position is now: ");
-    Serial.println(String(target));
     }
   }
   
@@ -146,7 +149,9 @@ void loop()
 ///                 Move Turntable                  ///
 ///////////////////////////////////////////////////////
   stepCloserTo(target,40);
-
+  if target == pos{
+    readyForCommand = true;
+  }
 ///////////////////////////////////////////////////////
 ///                     Bartend                     ///
 ///////////////////////////////////////////////////////
