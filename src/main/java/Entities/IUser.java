@@ -9,7 +9,6 @@ public interface IUser {
     void setPassword(String password);
     String getName();
     String getEmail();
-
     boolean authenticate();
     void loadUser();
 

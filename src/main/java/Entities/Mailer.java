@@ -30,6 +30,10 @@ public class Mailer implements Runnable {
     Agent to_send_to;
     String message;
     AttributeContainer attributeContainer;
+    boolean twoFactor;
+    String generatedKey;
+    String email;
+
 
     /**
      * @author Michael & Elizabeth
@@ -42,6 +46,7 @@ public class Mailer implements Runnable {
     public Mailer(Form form){
         to_inform = form;
         isAgent = false;
+        twoFactor = false;
     }
 
     /**
@@ -54,6 +59,18 @@ public class Mailer implements Runnable {
         this.message = message;
         isAgent = true;
         this.to_inform = form;
+        twoFactor = false;
+    }
+
+    /**
+     * The constructor for a two factor mailing.
+     * @param to_contact
+     * @param key
+     */
+    public Mailer(String email, String key){
+        twoFactor = true;
+        generatedKey = key;
+            this.email = email;
     }
 
     /**
@@ -181,9 +198,9 @@ public class Mailer implements Runnable {
      * @author Sierra
      * Sends the user an email with their double authentication password
      * so that they can finish the registration process
-     * @param user
+     * @param email
      */
-    public void sendRegistrationKey(IUser user) {
+    public void sendRegistrationKey(String email) {
         String host = "smtp.gmail.com";
         String from = "TTBTEAME@gmail.com";
         String pass = "michaelclements";
@@ -202,7 +219,7 @@ public class Mailer implements Runnable {
 
             InternetAddress toAddress = new InternetAddress();
 
-            toAddress = new InternetAddress(user.getEmail());
+            toAddress = new InternetAddress(email);
             System.out.println(Message.RecipientType.TO);
 
             message.addRecipient(Message.RecipientType.TO, toAddress);
@@ -211,10 +228,34 @@ public class Mailer implements Runnable {
             body += ",\n";
             body += "Thank you for registering with the TTB. Below is the passcode you need to type in \n";
             body += "in order to finish your registration process.\n";
-            body += "Passcode: " + AttributeContainer.getInstance().generatedKey;
+            body += "Passcode: " + this.generatedKey;
 
-            new FormExporter(to_inform);
-            mailHelper(message, body, to_inform);
+        //    new FormExporter(to_inform);
+          //  mailHelper(message, body, to_inform);
+
+            body += "\n Sincerely yours,";
+            body += "The Ebony Elves' TTB Application";
+
+            Multipart multi = new MimeMultipart();
+            try {
+             //   new FormExporter(form);
+             //   File file = new File(getClass().getResource("/" + "output.docx").toURI());
+                MimeBodyPart textBodyPart = new MimeBodyPart();
+                textBodyPart.setText(body);
+         //       MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+          //      FileDataSource fds = new FileDataSource(file);
+         //       System.out.println(fds.getFile().getAbsolutePath());
+           //     DataSource src = fds;
+             //   attachmentBodyPart.setDataHandler(new DataHandler(src));
+               // attachmentBodyPart.setFileName("TTB Application Form.docx");
+
+                multi.addBodyPart(textBodyPart);
+             //   multi.addBodyPart(attachmentBodyPart);
+
+                message.setContent(multi);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
 
             message.setSubject("TTB REGISTRATION AUTHENTICATION");
             Transport transport = session.getTransport("smtp");
@@ -230,8 +271,8 @@ public class Mailer implements Runnable {
 
     @Override
     public void run() {
-        if(attributeContainer.firstTimeRegister){
-            sendRegistrationKey(attributeContainer.currentUser);
+        if(twoFactor){
+                sendRegistrationKey(this.email);
         }
         else if(this.isAgent){
             sendAgentMail(this.to_send_to, message, to_inform);

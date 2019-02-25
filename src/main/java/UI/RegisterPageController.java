@@ -62,7 +62,7 @@ public class RegisterPageController extends PageControllerUI implements Initiali
 
     ToggleGroup userOptions = new ToggleGroup();
 
-    Mailer mailer;
+   // Mailer mailer;
 
 
     protected void onLeave(){}
@@ -80,7 +80,7 @@ public class RegisterPageController extends PageControllerUI implements Initiali
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        attributeContainer = AttributeContainer.getInstance();
     }
 
     /**
@@ -91,6 +91,7 @@ public class RegisterPageController extends PageControllerUI implements Initiali
      */
     @FXML
     public void handleTheThing(ActionEvent event) {
+
         attributeContainer.firstTimeRegister = true;
         if (AgentRadio.isSelected()) {
             if (RegisterUserPasswordTextField.getText().equals(RegisterUserPasswordCheckTextField.getText())) {
@@ -106,7 +107,8 @@ public class RegisterPageController extends PageControllerUI implements Initiali
                     new Random().nextBytes(agentKey);
                     keyGeneration();
                     System.out.println(AttributeContainer.getInstance().generatedKey);
-                    mailer.sendRegistrationKey(attributeContainer.currentUser);
+                    Thread mailThread = new Thread( new Mailer(RegisterUserEmailTextField.getText(), attributeContainer.generatedKey));
+                    mailThread.start();
                     goToPage("Authenticate.fxml");
                 }
                 else{
@@ -138,7 +140,8 @@ public class RegisterPageController extends PageControllerUI implements Initiali
                         new Random().nextBytes(manKey);
                         keyGeneration();
                         System.out.println(AttributeContainer.getInstance().generatedKey);
-                        mailer.sendRegistrationKey(attributeContainer.currentUser);
+                    Thread mailThread = new Thread( new Mailer(RegisterUserEmailTextField.getText(), attributeContainer.generatedKey));
+                    mailThread.start();
                         goToPage("Authenticate.fxml");
                 }
                 else{
@@ -221,7 +224,8 @@ public class RegisterPageController extends PageControllerUI implements Initiali
     }
 
     public void resendEmail(ActionEvent event){
-        mailer.sendRegistrationKey(attributeContainer.currentUser);
+        Thread mailThread = new Thread( new Mailer(RegisterUserEmailTextField.getText(), attributeContainer.generatedKey));
+        mailThread.start();
     }
 
 }
