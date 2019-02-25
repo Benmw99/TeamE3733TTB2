@@ -360,9 +360,18 @@ class linefinder:
         # find lines and arcs
         pass
 
-    def findLines(self):
+    def findLines(self, img):
         # grayscale
+        gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        # cv2.imshow("fleet", gray_image)
+        # cv2.resizeWindow("fleet",800,1000)
         # canny edge detection
+        cv2.imwrite("gray.jpg", gray_image)
+        canny_image = cv2.Canny(gray_image,100,200)
+        # cv2.imshow("yeet",canny_image)
+        # cv2.resizeWindow("yeet",800,1000)
+        # cv2.waitKey(0)
+        cv2.imwrite("canny.jpg", canny_image)
         # houghes transform   -- houghlines
         # masks from houghes lines, then AND with thresholded edge detection to get lengths
         # ^^^Actually double check, line lengths are encoded as vote magnitude in hughes TF
@@ -383,13 +392,20 @@ class linefinder:
         pass
 
 if __name__ == '__main__':
-    # shape = {"shape": [{"x": 0.1966774926240951, "y": 0.14160193093695747},
-    #                    {"x": 0.5121546063150226, "y": 0.11453768386725166},
-    #                    {"x": 0.8397845902038339, "y": 0.14941458034186803},
-    #
-    #                    {"x": 0.7929092337262832, "y": 0.6757871549436255},
-    #                    {"x": 0.4913211145472225, "y": 0.7350785808085875},
-    #                    {"x": 0.22966385458977875, "y": 0.6689510867143287}]}
+    img = cv2.imread("image.jpg")
+    # thumbnail = np.zeros((img.shape[1] / 10, img.shape[0] / 10, 3), np.uint8)
+    # thumbnail = cv2.resize(img, (img.shape[1] / 10, img.shape[0] / 10, 3))
+
+
+    lf = linefinder()
+    lf.findLines(img)
+    shape = {"shape": [{"x": 0.1966774926240951, "y": 0.14160193093695747},
+                       {"x": 0.5121546063150226, "y": 0.11453768386725166},
+                       {"x": 0.8397845902038339, "y": 0.14941458034186803},
+
+                       {"x": 0.7929092337262832, "y": 0.6757871549436255},
+                       {"x": 0.4913211145472225, "y": 0.7350785808085875},
+                       {"x": 0.22966385458977875, "y": 0.6689510867143287}]}
 
     points = []
     for point in shape['shape']:
