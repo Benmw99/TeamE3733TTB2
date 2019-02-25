@@ -487,12 +487,8 @@ public class AppController extends PageControllerUI implements Initializable {
                         (AlcoholContentTextField.getLength() != 0)){
                     if(TypeComboBox.getValue().equals("Wine")){
                         if((VintageYearField.getLength() != 0) && (PhField.getLength() != 0)){
-//                            SubmitButton.setDisable(true);
-//                            SubmitButton.setOpacity(0.5);
                             addressFlag = false;
                         } else{
-//                            SubmitButton.setDisable(false);
-//                            SubmitButton.setOpacity(1);
                             addressFlag = true;
                             System.out.println("Wine selected");
                         }
@@ -501,12 +497,8 @@ public class AppController extends PageControllerUI implements Initializable {
                     }
                     if(!SameAddressRadioButton.isSelected()){
                         if((Name9Field.getLength() != 0) && (Address9Field.getLength() != 0) && (City9Field.getLength() != 0) && (Zip9Field.getLength() != 0)){
-//                            SubmitButton.setDisable(true);
-//                            SubmitButton.setOpacity(0.5);
                             wineFlag = false;
                         } else{
-//                            SubmitButton.setDisable(false);
-//                            SubmitButton.setOpacity(1);
                             wineFlag = true;
                             System.out.println("Radio button pressed");
                         }
