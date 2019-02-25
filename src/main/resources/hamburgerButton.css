@@ -1,0 +1,10 @@
+.jfx-hamburger StackPane {
+    -fx-background-color: white;
+}
+
+
+
+.jfx-radio-button {
+    -fx-selected-color: #4285f4;
+    -fx-unselected-color: null;
+}

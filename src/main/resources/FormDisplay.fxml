@@ -38,7 +38,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display1Label" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                                <Label fx:id="Display1Label" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -64,7 +64,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display2Label" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                                <Label fx:id="Display2Label" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -90,7 +90,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display3Label" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                                <Label fx:id="Display3Label" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -111,12 +111,12 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Seriel Number" textFill="BLACK">
+                                                                <Label contentDisplay="CENTER" prefHeight="80.0" prefWidth="161.0" text=" Seriel Number" textFill="BLACK">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="DisplayReview4Label1" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                                <Label fx:id="DisplayReview4Label1" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -125,7 +125,7 @@
                                                                     </HBox.margin>
                                                                 </Label>
                                                                 <Separator orientation="VERTICAL" style="-fx-background-color: grey;" />
-                                                                <Label fx:id="Display4Label2" contentDisplay="CENTER" prefHeight="80.0" prefWidth="619.0" text="Number">
+                                                                <Label fx:id="Display4Label2" contentDisplay="CENTER" prefHeight="80.0" prefWidth="619.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -151,7 +151,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display5Label1" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                                <Label fx:id="Display5Label1" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -164,7 +164,7 @@
                                                                         <Insets left="15.0" right="15.0" />
                                                                     </HBox.margin>
                                                                 </Separator>
-                                                                <Label fx:id="Display5Label2" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                                <Label fx:id="Display5Label2" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -174,7 +174,7 @@
                                                                         <Insets left="15.0" right="15.0" />
                                                                     </HBox.margin>
                                                                 </Separator>
-                                                                <Label fx:id="Display5Label3" contentDisplay="CENTER" prefHeight="80.0" prefWidth="486.0" text="Number">
+                                                                <Label fx:id="Display5Label3" contentDisplay="CENTER" prefHeight="80.0" prefWidth="486.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -200,7 +200,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display6Label" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                                <Label fx:id="Display6Label" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -261,7 +261,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display7Label" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                                <Label fx:id="Display7Label" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -287,7 +287,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display8Label" contentDisplay="CENTER" prefHeight="80.0" text="Address">
+                                                                <Label fx:id="Display8Label" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -313,7 +313,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display9Label" contentDisplay="CENTER" prefHeight="80.0" text="Address">
+                                                                <Label fx:id="Display9Label" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -339,7 +339,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display10Label" contentDisplay="CENTER" prefHeight="80.0" text="Address">
+                                                                <Label fx:id="Display10Label" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -365,7 +365,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display11Label" contentDisplay="CENTER" prefHeight="80.0" text="Address">
+                                                                <Label fx:id="Display11Label" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -391,7 +391,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display12Label" contentDisplay="CENTER" prefHeight="80.0" text="Address">
+                                                                <Label fx:id="Display12Label" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -452,7 +452,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display13Label" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                                <Label fx:id="Display13Label" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -478,7 +478,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display14Label" contentDisplay="CENTER" prefHeight="80.0" text="String">
+                                                                <Label fx:id="Display14Label" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -504,7 +504,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display15Label1" contentDisplay="CENTER" prefHeight="80.0" text="String">
+                                                                <Label fx:id="Display15Label1" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -517,7 +517,7 @@
                                                                         <Insets left="15.0" right="15.0" />
                                                                     </HBox.margin>
                                                                 </Separator>
-                                                                <Label fx:id="Display15Label2" contentDisplay="CENTER" prefHeight="80.0" text="String">
+                                                                <Label fx:id="Display15Label2" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -527,7 +527,7 @@
                                                                         <Insets left="15.0" right="15.0" />
                                                                     </HBox.margin>
                                                                 </Separator>
-                                                                <Label fx:id="Display15Label3" contentDisplay="CENTER" prefHeight="80.0" text="String">
+                                                                <Label fx:id="Display15Label3" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -550,7 +550,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display16Label1" contentDisplay="CENTER" prefHeight="80.0" text="String">
+                                                                <Label fx:id="Display16Label1" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -563,7 +563,7 @@
                                                                         <Insets left="15.0" right="15.0" />
                                                                     </HBox.margin>
                                                                 </Separator>
-                                                                <Label fx:id="Display16Label2" contentDisplay="CENTER" prefHeight="80.0" text="String">
+                                                                <Label fx:id="Display16Label2" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -586,7 +586,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display17Label" contentDisplay="CENTER" prefHeight="80.0" text="String">
+                                                                <Label fx:id="Display17Label" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -612,7 +612,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display18Label" contentDisplay="CENTER" prefHeight="80.0" text="String">
+                                                                <Label fx:id="Display18Label" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -692,7 +692,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display20Label" contentDisplay="CENTER" prefHeight="80.0" text="Number">
+                                                                <Label fx:id="Display20Label" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
