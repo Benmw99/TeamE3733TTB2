@@ -116,7 +116,7 @@ public class Mailer implements Runnable {
             System.out.println(fds.getFile().getAbsolutePath());
             DataSource src = fds;
             attachmentBodyPart.setDataHandler(new DataHandler(src));
-            attachmentBodyPart.setFileName("TTB Application Form.docx");
+            attachmentBodyPart.setFileName("TTB Application Form [FOR REVIEW ONLY].docx");
 
             multi.addBodyPart(textBodyPart);
             multi.addBodyPart(attachmentBodyPart);
