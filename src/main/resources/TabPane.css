@@ -33,6 +33,10 @@
     -fx-background-color: #4285f4;
 }
 
+.jfx-tab-pane .tab-selected-line {
+    -fx-stroke: white;
+}
+
 
 
 

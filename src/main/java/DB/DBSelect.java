@@ -184,16 +184,17 @@ public class DBSelect {
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
         }
-        if (as.stateCountry != null) {
+        if (as.state != null) {
             //Might not work because it is a list
             Join<Form, Address> addresses = root.join("address");
-            predicates.add(cb.equal(addresses.get("state"), as.stateCountry));
+            predicates.add(cb.equal(addresses.get("state"), as.state));
         }
         if (as.startDate != null && as.endDate != null) {
             Join<Form, Approval> approvals = root.join("approval");
             //This conversion might not work because of util.Date to sql.Date
-            predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
-            predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
+            predicates.add(cb.between(approvals.get("dateApproved"), as.startDate, as.endDate));
+            //predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
+            //predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
         }
         //Convert the predicates to an array and set the where statement with them
         cr.where(predicates.toArray(new Predicate[]{}));
@@ -269,6 +270,18 @@ public class DBSelect {
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
         }
+        if (as.state != null) {
+            //Might not work because it is a list
+            Join<Form, Address> addresses = root.join("address");
+            predicates.add(cb.equal(addresses.get("state"), as.state));
+        }
+        if (as.startDate != null && as.endDate != null) {
+            Join<Form, Approval> approvals = root.join("approval");
+            //This conversion might not work because of util.Date to sql.Date
+            predicates.add(cb.between(approvals.get("dateApproved"), as.startDate, as.endDate));
+            //predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
+            //predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
+        }
         cr.where(predicates.toArray(new Predicate[]{}));
         //Only selects the needed items for a minimal form to be displayed
         cr.multiselect(root.get("ttbID"), root.get("serialNumber"), root.get("alcoholType"), root.get("brandName"), root.get("dateSubmitted"), root.get("approvalStatus"));
@@ -333,6 +346,18 @@ public class DBSelect {
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
+        }
+        if (as.state != null) {
+            //Might not work because it is a list
+            Join<Form, Address> addresses = root.join("address");
+            predicates.add(cb.equal(addresses.get("state"), as.state));
+        }
+        if (as.startDate != null && as.endDate != null) {
+            Join<Form, Approval> approvals = root.join("approval");
+            //This conversion might not work because of util.Date to sql.Date
+            predicates.add(cb.between(approvals.get("dateApproved"), as.startDate, as.endDate));
+            //predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
+            //predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
         }
         cr.where(predicates.toArray(new Predicate[]{}));
         //Adds a select so we only get the brandName from the results
@@ -670,5 +695,46 @@ public class DBSelect {
         } else {
             return false;
         }
+    }
+
+    /**
+     * Searches by just brandname and fanicful name for the basic search, does an or search with the thing in brandname
+     * NOTE: BRANDNAME IS USED FOR BOTH SEARCHES SO ONLY THAT SHOULD BE SET
+     * @author Jordan
+     * @param as Advanced search object with either brandname or nothing set
+     * @return A list of forms that contain the results
+     */
+    public List<Form> simpleSearch(AdvancedSearch as) {
+        List<Form> results = new ArrayList<>();
+        Session session = factory.openSession();
+        Transaction tx = null;
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Form> cr = cb.createQuery(Form.class);
+        Root<Form> root = cr.from(Form.class);
+        List<Predicate> predicates = new ArrayList<>();
+        predicates.add(cb.equal(root.get("approvalStatus"), as.approvalStatus));
+        if (as.brandName != null) { //These both set everything to lowercase and do a basic like with wildcards in front and behind the entered query, also does an or for both
+            predicates.add(cb.or(cb.like(cb.lower(root.get("brandName")), "%" + as.brandName.toLowerCase() + "%"), cb.like(cb.lower(root.get("fancifulName")), "%" + as.brandName.toLowerCase() + "%")));
+        }
+        cr.where(predicates.toArray(new Predicate[]{}));
+        //Only selects the needed items for a minimal form to be displayed
+        cr.multiselect(root.get("ttbID"), root.get("serialNumber"), root.get("alcoholType"), root.get("brandName"), root.get("dateSubmitted"), root.get("approvalStatus"));
+        cr.distinct(true);
+
+        try {
+            tx = session.beginTransaction();
+            List<Form> tempResults = session.createQuery(cr).list();
+            for (Iterator iterator = tempResults.iterator(); iterator.hasNext();){
+                Form form = (Form) iterator.next();
+                results.add(form);
+            }
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return results;
     }
 }

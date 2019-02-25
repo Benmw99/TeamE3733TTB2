@@ -56,14 +56,11 @@ public class main {
         //AttributeContainer.getInstance().formQueue.add(form);
 
         db.dbInsert.insertForm(form);
-
-       System.out.println("*****************06 Data*************************");
-        db.dbInsert.insertData06();
-        System.out.println("*****************09 Data*************************");
-        db.dbInsert.insertData09();
-        System.out.println("*****************12 Data*************************");
-        db.dbInsert.insertData12();
 */
+
+        //System.out.println("*****************Data*************************");
+        //db.dbInsert.insertData();
+
         //System.out.println("Inserting Mongo info");
         //db.mongoFunc.insertDataMongo();
 

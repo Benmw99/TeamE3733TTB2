@@ -225,7 +225,7 @@ public class TableBuilder {
                 "Other_Info VARCHAR(256), " +
                 "Company_ID BIGINT," +
                 "Constraint Form_PK Primary Key (TTB_ID))";
-                //TODO IMPLEMENT REPS            "Constraint Form_FK_Rep Foreign Key (Rep_ID) References Reps(Rep_ID), " +
+                //"Constraint Form_FK_Rep Foreign Key (Rep_ID) References Reps(Rep_ID), " +
                 //"Constraint Form_FK_Company Foreign Key (Company_ID) References Company(Company_ID))";
         sendStatement(buildString);
         //String createSeq = "create sequence Form_ID as BIGINT start with 1";
@@ -246,7 +246,7 @@ public class TableBuilder {
 
     private void buildReps() {
         String buildString = "CREATE TABLE REPS (" +
-                "Rep_ID VARCHAR(16), " +
+                "Rep_ID VARCHAR(16) BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), " +
                 "Login_Name VARCHAR(32), " +
                 "Password VARCHAR(256), " +
                 "Constraint Reps_PK Primary Key (Login_Name), " +
@@ -256,7 +256,7 @@ public class TableBuilder {
 
     private void buildCompany() {
         String buildString = "CREATE TABLE COMPANY (" +
-                "Company_ID BIGINT," +
+                "Company_ID BIGINT BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
                 "Company_Name VARCHAR(256), " +
                 "Login_Name VARCHAR(32), " +
                 "Password VARCHAR(256), " +

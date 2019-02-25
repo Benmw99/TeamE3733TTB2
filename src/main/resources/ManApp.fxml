@@ -30,6 +30,7 @@
                   <Font name="Roboto Light" size="47.0" />
                </font>
             </JFXButton>
+            <BreadCrumbBar fx:id="Nav" layoutX="969.0" layoutY="25.0" prefHeight="100.0" prefWidth="391.0" stylesheets="@breadcrumb.css" />
          </children>
       </Pane>
       <Pane fx:id="pane1" prefHeight="660.0" prefWidth="1360.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
@@ -984,6 +985,5 @@
             </VBox>
          </children>
       </Pane>
-      <BreadCrumbBar fx:id="Nav" layoutX="958.0" layoutY="35.0" prefHeight="100.0" prefWidth="402.0" stylesheets="@breadcrumb.css" AnchorPane.leftAnchor="958.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0" />
    </children>
 </AnchorPane>
