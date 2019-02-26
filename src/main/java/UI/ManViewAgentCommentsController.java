@@ -27,6 +27,7 @@ public class ManViewAgentCommentsController extends PageControllerUI implements 
     @FXML
     JFXTextArea agentComments;
 
+
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
     ///////////////////////////////////////////////////
