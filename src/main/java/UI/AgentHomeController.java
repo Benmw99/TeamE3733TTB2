@@ -29,7 +29,7 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     Pane smallPane;
 
     @FXML
-    JFXToggleButton helpToggleButton;
+    JFXButton helpButton;
 
     @FXML
     public JFXButton GetNewQueueButton;
@@ -348,17 +348,17 @@ public class AgentHomeController extends PageControllerUI implements Initializab
 //(true);a
         GetNewQueueButton.toFront();
 
-     helpToggleButton.setSelected(false);
+     //helpToggleButton.setSelected(false);
      largePane.setOpacity(0);
      largePane.setDisable(true);
      smallPane.setOpacity(0);
      smallPane.setDisable(true);
 
-     helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+     helpButton.setOnAction(new EventHandler<ActionEvent>() {
 
          @Override
          public void handle(ActionEvent event) {
-             if (helpToggleButton.isSelected()){
+             if (helpButton.isPressed()){
                  largePane.setOpacity(0.63);
                  largePane.setDisable(false);
                  smallPane.setOpacity(1);

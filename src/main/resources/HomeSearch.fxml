@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -50,7 +51,7 @@
             <Font name="Roboto Light" size="18.0" />
         </font>
     </Text>
-      <JFXButton fx:id="printSearchResultsCSV" buttonType="RAISED" layoutX="49.0" layoutY="638.0" onAction="#printResults" ripplerFill="#9d9797" style="-fx-background-color: #cfd8dc;" text="Print Results">
+      <JFXButton fx:id="printSearchResultsCSV" buttonType="RAISED" layoutX="49.0" layoutY="638.0" onAction="#printResults" ripplerFill="#9d9797" style="-fx-background-color: #4285f4;" text="Print Results" textFill="WHITE">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font></JFXButton>
@@ -81,12 +82,12 @@
          <font>
             <Font name="Roboto Light" size="14.0" />
          </font></JFXTextField>
-      <JFXButton fx:id="SearchButton" buttonType="RAISED" layoutX="74.0" layoutY="468.0" onAction="#searchAdvanced" prefHeight="39.0" prefWidth="84.0" ripplerFill="#9d9797" style="-fx-background-color: cfd8dc;" text="Search">
+      <JFXButton fx:id="SearchButton" buttonType="RAISED" layoutX="74.0" layoutY="468.0" onAction="#searchAdvanced" prefHeight="39.0" prefWidth="84.0" ripplerFill="#9d9797" style="-fx-background-color: #4285f4;" text="Search" textFill="WHITE">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="aboutPageNav" buttonType="RAISED" layoutX="151.0" layoutY="698.0" onAction="#aboutPage" ripplerFill="#9d9797" style="-fx-background-color: cfd8dc;" text="About">
+      <JFXButton fx:id="aboutPageNav" buttonType="RAISED" layoutX="151.0" layoutY="698.0" onAction="#aboutPage" ripplerFill="#9d9797" style="-fx-background-color: #4285f4;" text="About" textFill="WHITE">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font>
@@ -97,15 +98,7 @@
          </children>
       </StackPane>
       <JFXButton fx:id="backToHomeButton" buttonType="RAISED" layoutX="20.0" layoutY="16.0" onAction="#backToHome" prefHeight="35.0" prefWidth="120.0" ripplerFill="#9d9797" style="-fx-background-color: WHITE;" text="Back To Home" />
-      <JFXButton fx:id="clearSearch" buttonType="RAISED" layoutX="188.0" layoutY="468.0" onAction="#clearSearch" prefHeight="41.0" prefWidth="131.0" style="-fx-background-color: cfd8dc;" text="Clear Search">
-         <ripplerFill>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </ripplerFill>
+      <JFXButton fx:id="clearSearch" buttonType="RAISED" layoutX="188.0" layoutY="468.0" onAction="#clearSearch" prefHeight="41.0" prefWidth="131.0" ripplerFill="#9d9797" style="-fx-background-color: #4285f4;" text="Clear Search" textFill="WHITE">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font>
@@ -114,8 +107,8 @@
       <JFXRadioButton fx:id="levenshtein" layoutX="213.0" layoutY="566.0" text="Levenshtein Distance" />
       <JFXRadioButton fx:id="damereauLevenshtein" layoutX="213.0" layoutY="594.0" text="Damerau Levenshtein" />
       <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" labelFloat="true" layoutX="215.0" layoutY="632.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" prefHeight="40.0" prefWidth="93.0" promptText="Delimiter" />
-      <JFXButton fx:id="previousButton" buttonType="RAISED" layoutX="776.0" layoutY="716.0" onAction="#prevPage" style="-fx-background-color: #9ea7aa;" text="&lt;" textFill="WHITE" />
-      <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="930.0" layoutY="716.0" onAction="#nextPage" style="-fx-background-color: #9ea7aa;" text="&gt;" textFill="WHITE" />
+      <JFXButton fx:id="previousButton" buttonType="RAISED" layoutX="776.0" layoutY="716.0" onAction="#prevPage" style="-fx-background-color: #4285f4;" text="&lt;" textFill="WHITE" />
+      <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="930.0" layoutY="716.0" onAction="#nextPage" style="-fx-background-color: #4285f4;" text="&gt;" textFill="WHITE" />
       <Pane layoutX="404.0" layoutY="135.0" prefHeight="565.0" prefWidth="951.0">
          <children>
             <HBox layoutY="4.0" prefHeight="562.0" prefWidth="948.0" style="-fx-background-color: white;">
@@ -299,6 +292,7 @@
             <Font name="Roboto Light" size="18.0" />
          </font>
       </Text>
+      <Line endX="90.0" layoutX="210.0" layoutY="309.0" startX="75.4991455078125" stroke="#514f4f" />
       <StackPane fx:id="MenuStackPane" alignment="CENTER_LEFT" layoutX="1097.0" layoutY="23.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #4285f4;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <fx:include source="MenuDrawer.fxml" />

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,6 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: #ffffff;" stylesheets="@/TabPane.css, @font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManViewAgentCommentsController">
    <children>
@@ -49,7 +49,7 @@
                   <Font name="Roboto Light" size="24.0" />
                </font>
             </Label>
-            <JFXTextArea fx:id="agentComments" layoutX="60.0" layoutY="53.0" onDragDetected="#receiveNewComments" />
+            <Text fx:id="agentComments" layoutX="87.0" layoutY="100.0" onDragDetected="#receiveNewComments" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="578.21875" />
          </children>
       </Pane>
       <JFXToggleButton fx:id="helpToggleButton" layoutX="1229.0" layoutY="11.0" text="Help">

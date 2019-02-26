@@ -42,7 +42,7 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
     JFXTextField searchAppsTextField;
 
     @FXML
-    JFXToggleButton helpToggleButton;
+    JFXButton helpButton;
 
     @FXML
     Pane largePane;
@@ -185,17 +185,17 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
         for(Form f : AttributeContainer.getInstance().formQueue){
         }
 
-        helpToggleButton.setSelected(false);
+        //helpButton.setSelected(false);
         largePane.setOpacity(0);
         largePane.setDisable(true);
         smallPane.setOpacity(0);
         smallPane.setDisable(true);
 
-        helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+        helpButton.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
-                if (helpToggleButton.isSelected()){
+                if (helpButton.isPressed()){
                     largePane.setOpacity(0.63);
                     largePane.setDisable(false);
                     smallPane.setOpacity(1);

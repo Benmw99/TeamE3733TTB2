@@ -1,5 +1,6 @@
 package Entities;
 import DB.Database;
+import javafx.scene.image.Image;
 import org.apache.commons.math3.analysis.function.Add;
 import org.apache.poi.POIDocument;
 import org.apache.poi.*;
@@ -23,6 +24,7 @@ import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.util.Units;
 import org.apache.poi.xwpf.usermodel.*;
 
+import javax.imageio.ImageIO;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
@@ -161,7 +163,18 @@ public class FormExporter {
                     }
                 }
             }
-            //File file = new File(getClass().getResource("/" +"output.docx").toURI());
+            DB.Database db = DB.Database.getDatabase();
+            List<LabelImage> labels = db.dbSelect.selectImagesbyTTBID(form.getTtbID());
+            if (!labels.isEmpty()) {
+                InputStream targetStream = new ByteArrayInputStream(labels.get(0).getImage());
+                Image img = new Image(targetStream);
+                if (labels.get(0).getImageName().contains("png")) {
+                    doc.addPictureData(labels.get(0).getImage(), XWPFDocument.PICTURE_TYPE_PNG);
+                } else {
+                    doc.addPictureData(labels.get(0).getImage(), XWPFDocument.PICTURE_TYPE_JPEG);
+                }
+            }
+                //File file = new File(getClass().getResource("/" +"output.docx").toURI());
             //    File file = new File("C:\\Users\\Elizabeth Del Monaco\\Desktop\\TeamE3733TTB2\\src\\main\\resources\\output.docx");
             File file = new File(home + "/Downloads/" + "TTBFORM" + s + ".docx");
 
@@ -225,7 +238,6 @@ public class FormExporter {
                                 } catch (NullPointerException e){
 
                                 }
-                                //TODO _DOM_ and _IMP_
                                 if(add != null) {
                                     replaceString(r, "_NM", form.getMailingAddress().getName());
                                     replaceString(r, "_STREET_", form.getMailingAddress().getStreet());
@@ -318,13 +330,23 @@ public class FormExporter {
             //File file = new File(getClass().getResource("/" +"output.docx").toURI());
         //    File file = new File("C:\\Users\\Elizabeth Del Monaco\\Desktop\\TeamE3733TTB2\\src\\main\\resources\\output.docx");
             FileOpener fo = new FileOpener();
-
-            File img = new File(getClass().getResource("/pyramid.jpg").toURI());
+            DB.Database db = DB.Database.getDatabase();
+            List<LabelImage> labels = db.dbSelect.selectImagesbyTTBID(form.getTtbID());
+            if (!labels.isEmpty()) {
+                InputStream targetStream = new ByteArrayInputStream(labels.get(0).getImage());
+                Image img = new Image(targetStream);
+                if(labels.get(0).getImageName().contains("png")) {
+                    doc.addPictureData(labels.get(0).getImage(), XWPFDocument.PICTURE_TYPE_PNG);
+                } else {
+                    doc.addPictureData(labels.get(0).getImage(), XWPFDocument.PICTURE_TYPE_JPEG);
+                }
+            }
+       //     File img = new File(getClass().getResource("/pyramid.jpg").toURI());
             File file = new File(getClass().getResource("/" + "output.docx").toURI());
             for(XWPFPictureData x : doc.getAllPictures()){
                 System.out.println(x.getFileName());
             }
-            doc.addPictureData(new FileInputStream(img), XWPFDocument.PICTURE_TYPE_JPEG);
+
 
        //     System.out.println(doc3.toPath());
             doc.enforceReadonlyProtection();
