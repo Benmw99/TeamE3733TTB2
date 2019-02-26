@@ -5,6 +5,7 @@ import UI.AttributeContainer;
 
 public class SearchContainer {
     public SearchResult searchResult;
+    public String query;
     public int maxPages;
     public int currentPage;
 

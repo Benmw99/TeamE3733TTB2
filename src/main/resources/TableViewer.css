@@ -66,7 +66,7 @@
     -fx-padding: 0.8em 0em 0.5em 0.3em;
     -fx-border-color: transparent -fx-box-border transparent transparent;
     -fx-font: 12px "Roboto Light";
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }
 .table-view {
     -fx-table-header-border-color: #959595;
@@ -125,7 +125,7 @@
     -fx-border-color: -fx-box-border;
     -fx-border-insets: -1 0 0 -1;
     -fx-padding: 0 5 0 0;
-    -fx-font-color: white;
+    -fx-font-color: black;
 }
 .table-view .show-hide-columns-button {
     -fx-background-color:  white;
