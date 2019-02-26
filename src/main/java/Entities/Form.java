@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.persistence.*;
 
 @Entity
@@ -596,4 +598,23 @@ public class Form implements Serializable {
         return verifyText(this.getBrandName());
     }
 
+    /**
+     * This finds the alcohol content (the first percent on the label, lmao) and tosses it directly into the alcohol
+     * content field of the bottle
+     */
+    public void getAlcContent(){
+        try {
+            Pattern p = Pattern.compile("\\d*\\.?\\d*%");
+            Matcher m = p.matcher(this.getLabelText());
+            System.out.print("ALCOHOL CONTENT FOUND:");
+            m.find();
+            int i = m.start();
+            int j = m.end() - 1;
+            Float content = Float.parseFloat(this.getLabelText().substring(i, j));
+            this.alcoholContent = content;
+        } catch (Exception e){
+            this.alcoholContent = 0;
+        }
+
+    }
 }

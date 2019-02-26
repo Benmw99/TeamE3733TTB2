@@ -22,6 +22,8 @@ import java.nio.file.Paths;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class GoogleVision {
     public static void main(String... args) throws Exception {
@@ -66,6 +68,15 @@ public class GoogleVision {
         form.setBrandName("Pyramid");
         System.out.println(form.verifyBrandName());
         System.out.println(form.detectAlcType());
+        Pattern p = Pattern.compile("\\d*\\.?\\d*%");
+        Matcher m = p.matcher(s);
+        System.out.print("ALCOHOL CONTENT FOUND:");
+        m.find();
+        int i = m.start();
+        int j = m.end() - 1;
+        Double content = Double.parseDouble(s.substring(i,j));
+        System.out.println(content);
+
 
         Form form2 = new Form();
         form2.setWineFormItems(new WineFormItems());
@@ -109,7 +120,7 @@ public class GoogleVision {
 
                 // For full list of available annotations, see http://g.co/cloud/vision/docs
                 for (EntityAnnotation annotation : res.getTextAnnotationsList()) {
-                    //            System.out.println(annotation.getDescription());
+                                System.out.println(annotation.getDescription());
                     form.setLabelText(form.getLabelText() + annotation.getDescription());
 
                 }
