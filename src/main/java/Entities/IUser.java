@@ -8,8 +8,7 @@ public interface IUser {
     String getPassword();
     void setPassword(String password);
     String getName();
-    //String getEmail();
-
+    String getEmail();
     boolean authenticate();
     void loadUser();
 

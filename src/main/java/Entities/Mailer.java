@@ -1,5 +1,7 @@
 package Entities;
 
+import UI.AttributeContainer;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -27,6 +29,11 @@ public class Mailer implements Runnable {
     Form to_inform;
     Agent to_send_to;
     String message;
+    AttributeContainer attributeContainer;
+    boolean twoFactor;
+    String generatedKey;
+    String email;
+
 
     /**
      * @author Michael & Elizabeth
@@ -39,6 +46,7 @@ public class Mailer implements Runnable {
     public Mailer(Form form){
         to_inform = form;
         isAgent = false;
+        twoFactor = false;
     }
 
     /**
@@ -51,10 +59,22 @@ public class Mailer implements Runnable {
         this.message = message;
         isAgent = true;
         this.to_inform = form;
+        twoFactor = false;
     }
 
     /**
-     * Informs the comopany that their form has been updated
+     * The constructor for a two factor mailing.
+     * @param to_contact
+     * @param key
+     */
+    public Mailer(String email, String key){
+        twoFactor = true;
+        generatedKey = key;
+            this.email = email;
+    }
+
+    /**
+     * Informs the company that their form has been updated
      * @param to_inform the form which has been updated, which has the company to be informed.
      */
     public void sendMail(Form to_inform) {
@@ -174,9 +194,87 @@ public class Mailer implements Runnable {
         }
     }
 
+    /**
+     * @author Sierra
+     * Sends the user an email with their double authentication password
+     * so that they can finish the registration process
+     * @param email
+     */
+    public void sendRegistrationKey(String email) {
+        String host = "smtp.gmail.com";
+        String from = "TTBTEAME@gmail.com";
+        String pass = "michaelclements";
+        Properties props = System.getProperties();
+        props.put("mail.smtp.starttls.enable", "true"); // added this line
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.user", from);
+        props.put("mail.smtp.password", pass);
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+
+        try {
+            Session session = Session.getDefaultInstance(props, null);
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+
+            InternetAddress toAddress = new InternetAddress();
+
+            toAddress = new InternetAddress(email);
+            System.out.println(Message.RecipientType.TO);
+
+            message.addRecipient(Message.RecipientType.TO, toAddress);
+
+            String body = "Hello ";
+            body += ",\n";
+            body += "Thank you for registering with the TTB. Below is the passcode you need to type in \n";
+            body += "in order to finish your registration process.\n";
+            body += "Passcode: " + this.generatedKey;
+
+        //    new FormExporter(to_inform);
+          //  mailHelper(message, body, to_inform);
+
+            body += "\n Sincerely yours,";
+            body += "The Ebony Elves' TTB Application";
+
+            Multipart multi = new MimeMultipart();
+            try {
+             //   new FormExporter(form);
+             //   File file = new File(getClass().getResource("/" + "output.docx").toURI());
+                MimeBodyPart textBodyPart = new MimeBodyPart();
+                textBodyPart.setText(body);
+         //       MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+          //      FileDataSource fds = new FileDataSource(file);
+         //       System.out.println(fds.getFile().getAbsolutePath());
+           //     DataSource src = fds;
+             //   attachmentBodyPart.setDataHandler(new DataHandler(src));
+               // attachmentBodyPart.setFileName("TTB Application Form.docx");
+
+                multi.addBodyPart(textBodyPart);
+             //   multi.addBodyPart(attachmentBodyPart);
+
+                message.setContent(multi);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+
+            message.setSubject("TTB REGISTRATION AUTHENTICATION");
+            Transport transport = session.getTransport("smtp");
+            transport.connect(host, from, pass);
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+
+        } catch (MessagingException mx) {
+            mx.printStackTrace();
+        }
+
+    }
+
     @Override
     public void run() {
-        if(this.isAgent){
+        if(twoFactor){
+                sendRegistrationKey(this.email);
+        }
+        else if(this.isAgent){
             sendAgentMail(this.to_send_to, message, to_inform);
         } else {
             sendMail(this.to_inform);
