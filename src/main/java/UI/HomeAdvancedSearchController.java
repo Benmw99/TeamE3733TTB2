@@ -385,9 +385,16 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
         }
 
         //dates
-        if(SearchDate.getValue() != null && SearchDate1.getValue() != null){
-            advancedSearch.setStartDate(java.sql.Date.valueOf(SearchDate.getValue()));
-            advancedSearch.setEndDate(java.sql.Date.valueOf(SearchDate1.getValue()));
+        if(SearchDate.getValue() != null && SearchDate1.getValue() != null ){
+            if(SearchDate.getValue().compareTo(SearchDate1.getValue()) <= 0) {
+                advancedSearch.setStartDate(java.sql.Date.valueOf(SearchDate.getValue()));
+                advancedSearch.setEndDate(java.sql.Date.valueOf(SearchDate1.getValue()));
+            }else{
+                Alert yikes = new Alert(Alert.AlertType.WARNING);
+                yikes.setContentText("Make sure your date's are entered chronologically, this will be ignored");
+                yikes.setHeaderText("Invalid Date");
+                yikes.show();
+            }
         }
 
         //ttb id
