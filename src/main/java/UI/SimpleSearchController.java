@@ -12,6 +12,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -74,4 +75,5 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
         AttributeContainer.getInstance().currentResults = new SearchResult();
         goToPage("Login.fxml");
     }
+
 }
