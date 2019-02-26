@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" stylesheets="@font.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AuthenticatePage">
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AuthenticatePage">
    <children>
       <Pane layoutX="839.0" layoutY="115.0" prefHeight="379.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="126.0">
          <children>
@@ -53,7 +53,7 @@
       <Rectangle fill="#4285f4" height="102.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1360.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Label alignment="CENTER" text="Registration Authentication" textFill="WHITE">
          <font>
-            <Font size="36.0" />
+            <Font name="Roboto Light" size="36.0" />
          </font>
          <padding>
             <Insets left="450.0" top="35.0" />

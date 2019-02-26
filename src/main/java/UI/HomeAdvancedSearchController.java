@@ -9,10 +9,7 @@ import SearchAlgo.AsciiPrinter;
 import SearchAlgo.Search;
 import SearchAlgo.SearchContainer;
 import SearchAlgo.*;
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXRadioButton;
-import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.controls.JFXToggleButton;
+import com.jfoenix.controls.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -32,7 +29,10 @@ import javafx.stage.Stage;
 import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.net.URL;
+import java.time.Instant;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -113,7 +113,7 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
     TextField SearchID;
 
     @FXML
-    JFXToggleButton helpToggleButton;
+    JFXButton helpButton;
 
     @FXML
     Pane largePane;
@@ -235,6 +235,18 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
     @FXML
     TextField pageTextField;
 
+    @FXML
+    TextField brandNameTextField1;
+
+    @FXML
+    private JFXDatePicker SearchDate;
+
+    @FXML
+    private JFXDatePicker SearchDate1;
+
+    @FXML
+    private JFXComboBox<String> State9ComboBox;
+
     ToggleGroup searchOptions = new ToggleGroup();
     ToggleGroup searchOptions2 = new ToggleGroup();
 
@@ -248,6 +260,13 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
         SearchAlcoholType.getItems().addAll("Beers", "Wines", "Distilled Liquor");
         UsernameStackPane.setOpacity(0);
         UsernameStackPane.setPickOnBounds(false);
+
+        List<String> states = Arrays.asList("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL",
+                "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT",
+                "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI",
+                "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY");
+        State9ComboBox.getItems().addAll(states);
+
 
         if(attributeContainer.currentUser != null){
 //            System.out.println("This is true");
@@ -310,17 +329,17 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
 
 //        }
 
-        helpToggleButton.setSelected(false);
+        //helpButton.isPressed();
         largePane.setOpacity(0);
         largePane.setDisable(true);
         smallPane.setOpacity(0);
         smallPane.setDisable(true);
 
-        helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+        helpButton.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
-                if (helpToggleButton.isSelected()){
+                if (helpButton.isPressed()){
                     largePane.setOpacity(0.63);
                     largePane.setDisable(false);
                     smallPane.setOpacity(1);
@@ -350,6 +369,7 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
 
         Entities.AdvancedSearch advancedSearch = new AdvancedSearch();
 
+
         if(SearchAlcoholType.getValue() != null && SearchAlcoholType.getValue().equals("Beers")){
             advancedSearch.setAlcoholType(MaltBeverage);
         }else if(SearchAlcoholType.getValue() != null && SearchAlcoholType.getValue().equals("Wines")){
@@ -357,29 +377,37 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
         }else if(SearchAlcoholType.getValue() != null && SearchAlcoholType.getValue().equals("Distilled Liquor")){
             advancedSearch.setAlcoholType(DistilledLiquor);
         }
+
         if (brandNameTextField.getText() != null && !brandNameTextField.getText().trim().equals("")) {
             advancedSearch.setBrandName(brandNameTextField.getText());
         }
+
+        //fanciful name
+        if ( brandNameTextField1.getText() != null && !brandNameTextField1.getText().trim().equals("")) {
+            advancedSearch.setFancifulName(brandNameTextField1.getText());
+        }
+
+        //dates
+        if(SearchDate.getValue() != null && SearchDate1.getValue() != null){
+            advancedSearch.setStartDate(java.sql.Date.valueOf(SearchDate.getValue()));
+            advancedSearch.setEndDate(java.sql.Date.valueOf(SearchDate1.getValue()));
+        }
+
+        //ttb id
         if(SearchID.getText() != null && !SearchID.getText().trim().equals("") && isNumeric(SearchID.getText()) && SearchID.getText() != "0") {
             if((int)Double.parseDouble(SearchID.getText()) > 0) {
                 advancedSearch.setTtbID((int) Double.parseDouble(SearchID.getText()));
             }
         }
 
+        //state
+        if(State9ComboBox.getValue() != null){
+            advancedSearch.setState(State9ComboBox.getValue());
+        }
 
-        //if (alcoholContentTextField.getText() != "") {
-        //Alcohol Content not in search yet
-        //}
-        //if (manField.getText() != "") {
-        //Manufacturer not in search yet
-        //}
-        //if (stateField.getText() != "") {
-        //State not in search yet
-        //}
-        //if (cityField.getText() != "") {
-        //city not in search yet
-        //}
-        //if (manufactureDate.get) DATE NOT IMPLEMENTED YET
+
+
+
 
         List<Form> forms;
 
@@ -520,10 +548,7 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
 
         //persist search stuff
         if(!(SearchContainer.getInstance().searchResult.getSearch() == null)) {
-            brandNameTextField.setText(SearchContainer.getInstance().searchResult.getSearch().brandName);
-            if(SearchContainer.getInstance().searchResult.getSearch().ttbID != 0){
-                SearchID.setText(SearchContainer.getInstance().searchResult.getSearch().ttbID + "");
-            }
+
             if(SearchContainer.getInstance().searchResult.getSearch().getAlcoholType() != null) {
                 if (SearchContainer.getInstance().searchResult.getSearch().getAlcoholType().toString().equals("Wine")) {
                     SearchAlcoholType.getSelectionModel().select(1);
@@ -532,6 +557,26 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
                 } else if (SearchContainer.getInstance().searchResult.getSearch().getAlcoholType().toString().equals("MaltBeverage")) {
                     SearchAlcoholType.getSelectionModel().select(0);
                 }
+            }
+            brandNameTextField.setText(SearchContainer.getInstance().searchResult.getSearch().brandName);
+            brandNameTextField1.setText(SearchContainer.getInstance().searchResult.getSearch().fancifulName);
+
+            if(SearchContainer.getInstance().searchResult.getSearch().getStartDate() != null){
+                SearchDate.setValue(Instant.ofEpochMilli(SearchContainer.getInstance().searchResult.getSearch().startDate.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
+                SearchDate1.setValue(Instant.ofEpochMilli(SearchContainer.getInstance().searchResult.getSearch().endDate.getTime()).atZone(ZoneId.systemDefault()).toLocalDate());
+
+            }
+
+            if(SearchContainer.getInstance().searchResult.getSearch().ttbID != 0){
+                SearchID.setText(SearchContainer.getInstance().searchResult.getSearch().ttbID + "");
+            }
+
+            if(SearchContainer.getInstance().searchResult.getSearch().getState() != null) {
+                List<String> states = Arrays.asList("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL",
+                        "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT",
+                        "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI",
+                        "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY");
+                State9ComboBox.getSelectionModel().select(states.indexOf(SearchContainer.getInstance().searchResult.getSearch().getState()));
             }
         }
 
