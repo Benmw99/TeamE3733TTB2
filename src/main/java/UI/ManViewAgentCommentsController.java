@@ -14,9 +14,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 
 import javax.swing.*;
-import javax.xml.soap.Text;
 import java.awt.*;
 import java.awt.dnd.DragSourceDragEvent;
 import java.io.IOException;
@@ -42,7 +42,7 @@ public class ManViewAgentCommentsController extends PageControllerUI implements 
     }
 
    public void receiveNewComments(ActionEvent event) throws IOException{
-        agentComments.setValue(attributeContainer.currentForm.getApproval().getQualifications());
+        agentComments.setText(attributeContainer.currentForm.getApproval().getQualifications());
     }
 
     @Override
