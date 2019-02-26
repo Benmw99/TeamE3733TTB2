@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -16,7 +17,7 @@
    <children>
       <Label layoutX="283.0" layoutY="14.0" text="Search" />
       <JFXButton fx:id="goBack" buttonType="RAISED" layoutX="21.0" layoutY="18.0" text="&lt;" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4285f4" height="102.0" layoutX="7.0" layoutY="10.0" stroke="#ffffff00" strokeType="INSIDE" width="1372.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Rectangle fill="#4285f4" height="102.0" layoutY="-1.0" stroke="#ffffff00" strokeType="INSIDE" width="1372.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0" />
       <Text fill="WHITE" layoutX="552.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB" wrappingWidth="662.3418466756353">
          <font>
             <Font name="Roboto Light" size="48.0" />
@@ -34,7 +35,7 @@
       </ImageView>
       <VBox layoutX="423.0" layoutY="102.0" prefHeight="660.0" prefWidth="646.0">
          <children>
-            <JFXTextField fx:id="searchBy" alignment="CENTER" labelFloat="true" prefHeight="27.0" prefWidth="552.0" promptText="search the TTB database">
+            <JFXTextField fx:id="searchBy" alignment="CENTER" labelFloat="true" prefHeight="27.0" prefWidth="552.0" promptText="Search the TTB Database">
                <font>
                   <Font name="Roboto Light" size="24.0" />
                </font>
@@ -42,39 +43,38 @@
                   <Insets top="250.0" />
                </VBox.margin>
             </JFXTextField>
-            <JFXButton fx:id="searchButton" buttonType="RAISED" onAction="#search" ripplerFill="#949494" style="-fx-background-color: #4285f4;" text="search" textFill="WHITE">
-               <font>
-                  <Font name="Roboto Light" size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="250.0" top="30.0" />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton fx:id="randomDrink" buttonType="RAISED" onAction="#pourMeADrink" ripplerFill="#908b8b" style="-fx-background-color: #4285f4;" text="pour me a drink!" textFill="WHITE">
-               <font>
-                  <Font name="Roboto Light" size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="200.0" top="15.0" />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" style="-fx-background-color: #4285f4;" text="go to advanced search" textFill="WHITE" onAction="#advancedSearch">
-               <font>
-                  <Font name="Roboto Light" size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="175.0" top="15.0" />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" style="-fx-background-color: #4285f4;" text="login" textFill="WHITE" onAction="#login">
-               <font>
-                  <Font name="Roboto Light" size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="265.0" top="15.0" />
-               </VBox.margin>
-            </JFXButton>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <JFXButton fx:id="searchButton" buttonType="RAISED" onAction="#search" ripplerFill="#949494" style="-fx-background-color: #4285f4;" text="Search" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Light" size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="175.0" right="25.0" top="30.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="randomDrink" buttonType="RAISED" onAction="#pourMeADrink" ripplerFill="#908b8b" style="-fx-background-color: #4285f4;" text="Pour me a drink!" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Light" size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="30.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
          </children>
       </VBox>
+      <JFXButton buttonType="RAISED" layoutX="1253.0" layoutY="28.0" style="-fx-background-color: WHITE;" text="Login">
+         <font>
+            <Font name="Roboto Light" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="1077.0" layoutY="694.0" onAction="#advancedSearch" style="-fx-background-color: #4285f4;" text="Go to advanced search" textFill="WHITE">
+         <font>
+            <Font name="Roboto Light" size="24.0" />
+         </font>
+      </JFXButton>
+      <fx:include source="MenuDrawer.fxml" />
    </children>
 </AnchorPane>
