@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXClippedPane?>
-<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -138,7 +137,10 @@
       </Pane>
       <Pane prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: WHITE;">
          <children>
-            <Pane layoutX="-6.0" layoutY="-1.0" prefHeight="89.0" prefWidth="1367.0" style="-fx-background-color: #4285f4;" />
+            <Pane layoutX="-6.0" layoutY="-1.0" prefHeight="89.0" prefWidth="1367.0" style="-fx-background-color: #4285f4;">
+               <children>
+                  <JFXButton fx:id="helpButton" buttonType="RAISED" layoutX="1256.0" layoutY="31.0" style="-fx-background-color: WHITE; -fx-background-radius: 20;" text="?" />
+               </children></Pane>
             <Pane layoutX="-1.0" layoutY="88.0" prefHeight="673.0" prefWidth="559.0" style="-fx-background-color: white;">
                <children>
                   <JFXButton fx:id="refreshButton1" buttonType="RAISED" layoutX="19.0" layoutY="11.0" onAction="#refreshForms" prefHeight="34.0" prefWidth="125.0" ripplerFill="#9c9797" style="-fx-background-color: #4285f4;" text="Refresh" textFill="WHITE">
@@ -198,6 +200,5 @@
          </children>
       </JFXClippedPane>
       <fx:include source="MenuDrawer.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <JFXToggleButton fx:id="helpToggleButton" layoutX="1237.0" layoutY="10.0" text="Help" toggleColor="#940000" toggleLineColor="#c31f1f" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="10.0" />
    </children>
 </AnchorPane>

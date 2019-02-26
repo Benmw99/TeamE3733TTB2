@@ -255,6 +255,8 @@ public class AppController extends PageControllerUI implements Initializable {
 
     private Form workingForm;
 
+    private GoogleVision googleVision = new GoogleVision();
+
     List<ValidatorBase> santa_List;
 
     boolean isSingle;
@@ -400,11 +402,11 @@ public class AppController extends PageControllerUI implements Initializable {
                     }
                 }
             });
-            TTBIDField.disableProperty().setValue(true);
+//            TTBIDField.disableProperty().setValue(true);
             GrapeVarHBox.disableProperty().setValue(true);
             WineAppHBox.disableProperty().setValue(true);
-            AmountField.disableProperty().setValue(true);
-            State15ComboBox.disableProperty().setValue(true);
+//            AmountField.disableProperty().setValue(true);
+//            State15ComboBox.disableProperty().setValue(true);
         } else {
             WineAppField.disableProperty().setValue(true);
             GrapeVarField.disableProperty().setValue(true);
@@ -418,7 +420,7 @@ public class AppController extends PageControllerUI implements Initializable {
         setListener(ProducerNumField, 1);
         setListener(SerialYearField, 5);
         setListener(SerialDigitsField, 8);
-        setListener(BrandField, 2);
+        setListener(BrandField, 9);
         setListener(VintageYearField, 5);
         setListener(PhField, 6);
         setListener(Name8Field, 2);
@@ -443,8 +445,6 @@ public class AppController extends PageControllerUI implements Initializable {
                 "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY");
         State8ComboBox.getItems().addAll(states);
         State9ComboBox.getItems().addAll(states);
-        if (!isSingle)
-            State15ComboBox.getItems().addAll(states);
         SourceComboBox.getItems().addAll("Domestic", "Imported");
         TypeComboBox.getItems().addAll("Malt Beverage", "Wine", "Distilled Liquor");
         /* setup submit button */
@@ -508,14 +508,14 @@ public class AppController extends PageControllerUI implements Initializable {
                     if(!wineFlag && !addressFlag){
                         SendApp.setDisable(false);
                         SendApp.setOpacity(1);
-                        System.out.println("Enable because WF or AF were not triggered");
+//                        System.out.println("Enable because WF or AF were not triggered");
                     } else if(wineFlag || addressFlag) {
                         SendApp.setDisable(true);
                         SendApp.setOpacity(0.5);
-                        System.out.println("Disable because WF or AF are triggered");
+//                        System.out.println("Disable because WF or AF are triggered");
                     }
                     else {
-                        System.out.println("Fields are not empty");
+//                        System.out.println("Fields are not empty");
                         SendApp.setDisable(false);
                         SendApp.setOpacity(1);
                     }
@@ -536,7 +536,7 @@ public class AppController extends PageControllerUI implements Initializable {
 
     // Always checks if empty
     // 1 - Only Numbers
-    // 2 - Only Strings
+    // 2 - Valid Name
     // 3 - Valid email
     // 4 - Valid phone number
     // 5 - Valid 4 digits
@@ -563,9 +563,9 @@ public class AppController extends PageControllerUI implements Initializable {
         if (type == 2) {
             RegexValidator regexValidator = new RegexValidator();
             santa_List.add(regexValidator);
-            regexValidator.setRegexPattern("[a-z A-Z]*");
+            regexValidator.setRegexPattern("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
             field.getValidators().add(regexValidator);
-            regexValidator.setMessage("Enter a string!");
+            regexValidator.setMessage("Enter your name!");
             RequiredFieldValidator validator = new RequiredFieldValidator();
             field.getValidators().add(validator);
             validator.setMessage("* Required");
@@ -620,7 +620,7 @@ public class AppController extends PageControllerUI implements Initializable {
         if (type == 8) {
             RegexValidator validSerial = new RegexValidator();
             santa_List.add(validSerial);
-            validSerial.setRegexPattern("^\\d{6}$");
+            validSerial.setRegexPattern("^\\d{4}$");
             field.getValidators().add(validSerial);
             validSerial.setMessage("The serial number must be at most six digits");
             RequiredFieldValidator validator = new RequiredFieldValidator();
@@ -648,6 +648,7 @@ public class AppController extends PageControllerUI implements Initializable {
 //                        System.out.println("Fields has  errors");
                         SendApp.setDisable(true);
                         SendApp.setOpacity(0.5);
+
                     }
                 }
             }
@@ -726,25 +727,25 @@ public class AppController extends PageControllerUI implements Initializable {
         }
     }
 
-    @FXML
-    public void typeCheck() throws IOException {
-        if (!LiquorRadioButton.isSelected()) {
-            AmountField.setText("");
-            AmountField.disableProperty().setValue(true);
-        } else
-            AmountField.disableProperty().setValue(false);
-
-        if (!ExemptionRadioButton.isSelected())
-            State15ComboBox.disableProperty().setValue(true);
-        else
-            State15ComboBox.disableProperty().setValue(false);
-
-        if (!ResubmitRadioButton.isSelected()) {
-            TTBIDField.setText("");
-            TTBIDField.disableProperty().setValue(true);
-        } else
-            TTBIDField.disableProperty().setValue(false);
-    }
+//    @FXML
+//    public void typeCheck() throws IOException {
+//        if (!LiquorRadioButton.isSelected()) {
+//            AmountField.setText("");
+//            AmountField.disableProperty().setValue(true);
+//        } else
+//            AmountField.disableProperty().setValue(false);
+//
+//        if (!ExemptionRadioButton.isSelected())
+//            State15ComboBox.disableProperty().setValue(true);
+//        else
+//            State15ComboBox.disableProperty().setValue(false);
+//
+//        if (!ResubmitRadioButton.isSelected()) {
+//            TTBIDField.setText("");
+//            TTBIDField.disableProperty().setValue(true);
+//        } else
+//            TTBIDField.disableProperty().setValue(false);
+//    }
 
     /**
      * This is the method which gets a form from the associated controller and persists
@@ -830,6 +831,7 @@ public class AppController extends PageControllerUI implements Initializable {
         try {
             fileChooser.setTitle("Select label image");
             File selectedFile = fileChooser.showOpenDialog(PageSwitcher.stage);
+            System.out.println(selectedFile);
             LabelImage labelImage = new LabelImage();
             InputStream is = new FileInputStream(selectedFile);
             labelImage.setImage(IOUtils.toByteArray(is));
@@ -839,8 +841,14 @@ public class AppController extends PageControllerUI implements Initializable {
 //            BufferedImage img = ImageIO.read(selectedFile);
             Image img = new Image(selectedFile.toURI().toString());
             labelImageDisplay.setImage(img);
+//            if(!isSingle){
+//                String label = selectedFile.toString();
+//                googleVision.detectLogoTextBrandon(label);
+//            }
         } catch (IOException e) {
             System.out.println(e);
+//        } catch (Exception e) {
+//            e.printStackTrace();
         }
     }
 

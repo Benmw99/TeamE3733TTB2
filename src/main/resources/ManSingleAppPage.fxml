@@ -217,6 +217,6 @@
             </HBox>
          </children>
       </Pane>
-      <fx:include source="MenuDrawer.fxml" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="36.0" layoutY="25.0" onAction="#goBack" style="-fx-background-color: WHITE;" text="&lt;" />
    </children>
 </AnchorPane>
