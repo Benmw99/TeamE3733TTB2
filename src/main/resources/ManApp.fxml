@@ -33,7 +33,48 @@
             <BreadCrumbBar fx:id="Nav" layoutX="969.0" layoutY="25.0" prefHeight="100.0" prefWidth="391.0" stylesheets="@breadcrumb.css" />
          </children>
       </Pane>
-      <Pane fx:id="pane1" prefHeight="660.0" prefWidth="1360.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <Pane fx:id="pane1" prefHeight="660.0" prefWidth="1360.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <children>
+            <VBox prefHeight="330.0" prefWidth="1360.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1300.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label prefHeight="80.0" text="Upload Label">
+                           <font>
+                              <Font name="Roboto Light" size="32.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="UploadButton" buttonType="RAISED" onAction="#uploadLabelImage" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #800020;" text="Upload" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Roboto Light" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="LabelSubmitInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="15.0" right="15.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="15.0" top="15.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="labelImageDisplay" fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane fx:id="pane2" prefHeight="660.0" prefWidth="1360.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
             <VBox prefHeight="660.0" prefWidth="200.0">
                <children>
@@ -294,7 +335,7 @@
             </VBox>
          </children>
       </Pane>
-      <Pane fx:id="pane2" prefHeight="660.0" prefWidth="1360.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <Pane fx:id="pane3" prefHeight="660.0" prefWidth="1360.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
             <VBox prefHeight="660.0" prefWidth="200.0">
                <children>
@@ -604,7 +645,7 @@
             </VBox>
          </children>
       </Pane>
-      <Pane fx:id="pane3" prefHeight="660.0" prefWidth="1360.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <Pane fx:id="pane4" prefHeight="660.0" prefWidth="1360.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="660.0">
                <children>
@@ -624,15 +665,7 @@
                         <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="160.0" prefWidth="100.0" text="15*">
-                     <font>
-                        <Font name="Roboto Light" size="28.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="30.0" top="30.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="16">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="15">
                      <font>
                         <Font name="Roboto Light" size="28.0" />
                      </font>
@@ -640,7 +673,23 @@
                         <Insets bottom="15.0" top="15.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="17*">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="16*">
+                     <font>
+                        <Font name="Roboto Light" size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="15.0" top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="17*" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Roboto Light" size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="15.0" top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="18*">
                      <font>
                         <Font name="Roboto Light" size="28.0" />
                      </font>
@@ -705,92 +754,6 @@
                         <Insets bottom="15.0" left="150.0" top="15.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="160.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <VBox>
-                           <children>
-                              <Label prefHeight="80.0" text="Type of Application">
-                                 <font>
-                                    <Font name="Roboto Light" size="32.0" />
-                                 </font>
-                              </Label>
-                              <JFXRadioButton fx:id="LiquorRadioButton" onAction="#typeCheck" style="-jfx-unselected-color: black;" text="Distinctive Liquor Bottle Approval">
-                                 <font>
-                                    <Font name="Roboto Light" size="16.0" />
-                                 </font>
-                              </JFXRadioButton>
-                              <JFXRadioButton fx:id="CertRadioButton" alignment="BOTTOM_CENTER" style="-jfx-unselected-color: black;" text="Certificate of Label Approval">
-                                 <font>
-                                    <Font name="Roboto Light" size="16.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="30.0" />
-                                 </VBox.margin>
-                              </JFXRadioButton>
-                           </children>
-                        </VBox>
-                        <JFXTextField fx:id="AmountField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="Total Amount" unFocusColor="WHITE">
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </JFXTextField>
-                        <VBox alignment="CENTER_LEFT" prefHeight="200.0">
-                           <HBox.margin>
-                              <Insets left="50.0" />
-                           </HBox.margin>
-                           <children>
-                              <HBox alignment="CENTER_LEFT">
-                                 <children>
-                                    <JFXRadioButton fx:id="ExemptionRadioButton" alignment="BOTTOM_CENTER" onAction="#typeCheck" style="-jfx-unselected-color: black;" text="Certificate of Exemption" HBox.hgrow="ALWAYS">
-                                       <font>
-                                          <Font name="Roboto Light" size="16.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets right="20.0" top="80.0" />
-                                       </HBox.margin>
-                                    </JFXRadioButton>
-                                    <JFXComboBox fx:id="State15ComboBox" focusColor="#f67280" prefHeight="50.0" prefWidth="150.0" promptText="Choose" unFocusColor="WHITE" HBox.hgrow="ALWAYS">
-                                       <HBox.margin>
-                                          <Insets top="80.0" />
-                                       </HBox.margin>
-                                    </JFXComboBox>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT">
-                                 <children>
-                                    <JFXRadioButton fx:id="ResubmitRadioButton" alignment="BOTTOM_CENTER" onAction="#typeCheck" style="-jfx-unselected-color: black;" text="Resubmition After Rejection" HBox.hgrow="ALWAYS">
-                                       <font>
-                                          <Font name="Roboto Light" size="16.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets top="20.0" />
-                                       </HBox.margin>
-                                    </JFXRadioButton>
-                                    <JFXTextField fx:id="TTBIDField" alignment="CENTER" focusColor="BLACK" labelFloat="true" prefHeight="50.0" prefWidth="115.0" promptText="TTB ID" unFocusColor="WHITE" HBox.hgrow="ALWAYS">
-                                       <HBox.margin>
-                                          <Insets left="15.0" />
-                                       </HBox.margin>
-                                       <font>
-                                          <Font size="19.0" />
-                                       </font>
-                                    </JFXTextField>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                        <JFXButton fx:id="TypeAppInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </JFXButton>
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="30.0" left="150.0" top="30.0" />
-                     </VBox.margin>
-                  </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" VBox.vgrow="ALWAYS">
                      <children>
                         <Label prefHeight="80.0" text="Additional Information">
@@ -846,65 +809,6 @@
                         <Insets bottom="15.0" left="150.0" top="15.0" />
                      </VBox.margin>
                   </HBox>
-               </children>
-            </VBox>
-         </children>
-      </Pane>
-      <Pane fx:id="pane4" prefHeight="660.0" prefWidth="1360.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
-         <children>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="660.0" prefWidth="1300.0">
-               <children>
-                  <VBox prefHeight="70.0" prefWidth="327.0">
-                     <HBox.margin>
-                        <Insets top="590.0" />
-                     </HBox.margin>
-                     <children>
-                        <AnchorPane prefHeight="60.0" prefWidth="280.0" stylesheets="@SubmitButtonColors.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
-                           <children>
-                              <JFXButton fx:id="SendApp" buttonType="RAISED" layoutX="5.0" layoutY="5.0" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #800020;" text="Submit Application" textFill="WHITE">
-                                 <font>
-                                    <Font name="Roboto Light" size="24.0" />
-                                 </font>
-                              </JFXButton>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <VBox prefHeight="660.0">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="18*" VBox.vgrow="ALWAYS">
-                     <font>
-                        <Font name="Roboto Light" size="28.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="15.0" top="15.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="19*">
-                     <font>
-                        <Font name="Roboto Light" size="28.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="15.0" top="15.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" text="20*">
-                     <font>
-                        <Font name="Roboto Light" size="28.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="15.0" top="15.0" />
-                     </VBox.margin>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets left="30.0" />
-               </padding>
-            </VBox>
-            <VBox prefHeight="330.0" prefWidth="1300.0">
-               <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" VBox.vgrow="ALWAYS">
                      <children>
                         <Label prefHeight="80.0" text="Signature of Applicant or Authorized Agent">
@@ -925,32 +829,6 @@
                               <Insets left="15.0" top="15.0" />
                            </HBox.margin>
                         </JFXButton>
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="15.0" left="150.0" top="15.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" VBox.vgrow="ALWAYS">
-                     <children>
-                        <Label prefHeight="80.0" text="Label Submission">
-                           <font>
-                              <Font name="Roboto Light" size="32.0" />
-                           </font>
-                        </Label>
-                        <JFXButton fx:id="UploadButton" buttonType="RAISED" onAction="#uploadLabelImage" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #800020;" text="Upload" textFill="WHITE">
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="Roboto Light" size="24.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton fx:id="LabelSubmitInfo" onAction="#handleButtonAction" style="-fx-background-radius: 20; -fx-background-color: #800020; -fx-min-height: 30; -fx-min-width: 30;" text="?" textFill="WHITE">
-                           <HBox.margin>
-                              <Insets left="15.0" right="15.0" />
-                           </HBox.margin>
-                        </JFXButton>
-                        <ImageView fx:id="labelImageDisplay" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="15.0" left="150.0" top="15.0" />
@@ -981,6 +859,15 @@
                         <Insets bottom="15.0" left="150.0" top="15.0" />
                      </VBox.margin>
                   </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="1050.0" layoutY="600.0" prefHeight="70.0" prefWidth="270.0">
+               <children>
+                  <JFXButton fx:id="SendApp" buttonType="RAISED" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #800020;" text="Submit Application" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Light" size="24.0" />
+                     </font>
+                  </JFXButton>
                </children>
             </VBox>
          </children>

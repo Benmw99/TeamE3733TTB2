@@ -87,21 +87,39 @@ public class Form implements Serializable {
     @Column(name = "WorkingOn")
     private int workingOn;
 
+    @Column(name = "logoText")
+    private String logoText;
 
-
-    String labelText;
-
-    public String getLogoText() {
-        return logoText;
-    }
-
-    public void setLogoText(String logoText) {
-        this.logoText = logoText;
-    }
-
-    String logoText;
+    @Column(name = "labelText")
+    private String labelText;
 
     public Form() {
+    }
+
+    public Form(String repID, List<BrewersPermit> brewersPermit, boolean source, String serialNumber, AlcoholType alcoholType, String brandName, String fancifulName, List<Address> address, Address mailingAddress, String applicantName, String formula, WineFormItems wineFormItems, String phoneNumber, String email, String otherInfo, Date dateSubmitted, int companyID, Approval approval, float alcoholContent, ApprovalStatus approvalStatus, int workingOn, String logoText, String labelText) {
+        this.repID = repID;
+        this.brewersPermit = brewersPermit;
+        this.source = source;
+        this.serialNumber = serialNumber;
+        this.alcoholType = alcoholType;
+        this.brandName = brandName;
+        this.fancifulName = fancifulName;
+        this.address = address;
+        this.mailingAddress = mailingAddress;
+        this.applicantName = applicantName;
+        this.formula = formula;
+        this.wineFormItems = wineFormItems;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.otherInfo = otherInfo;
+        this.dateSubmitted = dateSubmitted;
+        this.companyID = companyID;
+        this.approval = approval;
+        this.alcoholContent = alcoholContent;
+        this.approvalStatus = approvalStatus;
+        this.workingOn = workingOn;
+        this.logoText = logoText;
+        this.labelText = labelText;
     }
 
     public Form(String repID, List<BrewersPermit> brewersPermit, boolean source, String serialNumber, AlcoholType alcoholType, String brandName, String fancifulName, ArrayList<Address> address, Address mailingAddress, String applicantName, String formula, WineFormItems wineFormItems, String phoneNumber, String email, String otherInfo, Date dateSubmitted, int ttbID, int companyID, Approval approval, float alcoholContent, ApprovalStatus approvalStatus) {
@@ -329,6 +347,22 @@ public class Form implements Serializable {
         return dateSubmitted;
     }
 
+    public String getLogoText() {
+        return logoText;
+    }
+
+    public void setLogoText(String logoText) {
+        this.logoText = logoText;
+    }
+
+    public String getLabelText() {
+        return labelText;
+    }
+
+    public void setLabelText(String labelText) {
+        this.labelText = labelText;
+    }
+
     public void setDateSubmitted(Date dateSubmitted) {
         this.dateSubmitted = dateSubmitted;
     }
@@ -393,13 +427,8 @@ public class Form implements Serializable {
         this.workingOn = workingOn;
     }
 
-    public String getLabelText() {
-        return labelText;
-    }
 
-    public void setLabelText(String labelText) {
-        this.labelText = labelText;
-    }
+
 
     boolean equals(Form aform){
         return (this.repID.equals(aform.repID) &&

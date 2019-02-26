@@ -6,24 +6,20 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.RegisterPageController">
+<AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.RegisterPageController">
     <children>
-        <Rectangle fill="#9ea7aa" height="89.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="1376.0" />
-        <Rectangle fill="#cfd8dc" height="62.0" layoutY="89.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1376.0" />
-        <Text fill="WHITE" layoutX="575.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
-            <font>
-                <Font name="Roboto Light" size="48.0" />
-            </font>
-        </Text>
-        <VBox alignment="CENTER" layoutX="585.0" layoutY="221.0" prefHeight="434.0" prefWidth="205.0">
+        <Rectangle fill="#4285f4" height="102.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="1376.0" />
+        <VBox alignment="CENTER" layoutX="585.0" layoutY="150.0" prefHeight="542.0" prefWidth="205.0">
             <children>
-                <JFXTextField fx:id="RegisterUserFirstNameTextField" alignment="CENTER" promptText="first name">
+                <JFXTextField fx:id="RegisterUserFirstNameTextField" alignment="CENTER" labelFloat="true" promptText="first name">
                     <padding>
                         <Insets bottom="5.0" top="5.0" />
                     </padding>
@@ -31,7 +27,7 @@
                         <Font name="Roboto Light" size="14.0" />
                     </font>
                 </JFXTextField>
-                <JFXTextField fx:id="RegisterUserLastNameTextField" alignment="CENTER" promptText="last name">
+                <JFXTextField fx:id="RegisterUserLastNameTextField" alignment="CENTER" labelFloat="true" promptText="last name">
                     <padding>
                         <Insets bottom="5.0" top="20.0" />
                     </padding>
@@ -39,7 +35,7 @@
                         <Font name="Roboto Light" size="14.0" />
                     </font>
                 </JFXTextField>
-                <JFXTextField fx:id="RegisterUserUsernameTextField" alignment="CENTER" promptText="username">
+                <JFXTextField fx:id="RegisterUserUsernameTextField" alignment="CENTER" labelFloat="true" promptText="username">
                     <padding>
                         <Insets bottom="5.0" top="20.0" />
                     </padding>
@@ -47,7 +43,7 @@
                         <Font name="Roboto Light" size="14.0" />
                     </font>
                 </JFXTextField>
-                <JFXTextField fx:id="RegisterUserEmailTextField" alignment="CENTER" promptText="email">
+                <JFXTextField fx:id="RegisterUserEmailTextField" alignment="CENTER" labelFloat="true" promptText="email">
                     <VBox.margin>
                         <Insets />
                     </VBox.margin>
@@ -58,7 +54,7 @@
                         <Font name="Roboto Light" size="14.0" />
                     </font>
                 </JFXTextField>
-                <JFXPasswordField fx:id="RegisterUserPasswordTextField" alignment="TOP_CENTER" promptText="password">
+                <JFXPasswordField fx:id="RegisterUserPasswordTextField" alignment="TOP_CENTER" labelFloat="true" promptText="password">
                     <padding>
                         <Insets bottom="5.0" top="20.0" />
                     </padding>
@@ -66,7 +62,7 @@
                         <Font name="Roboto Light" size="14.0" />
                     </font>
                 </JFXPasswordField>
-                <JFXPasswordField fx:id="RegisterUserPasswordCheckTextField" alignment="CENTER" promptText="re-enter password">
+                <JFXPasswordField fx:id="RegisterUserPasswordCheckTextField" alignment="CENTER" labelFloat="true" promptText="re-enter password">
                     <padding>
                         <Insets bottom="5.0" top="20.0" />
                     </padding>
@@ -81,6 +77,9 @@
                     <padding>
                         <Insets bottom="5.0" top="10.0" />
                     </padding>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
                 </Label>
                 <JFXRadioButton fx:id="ManufacturerRadio" text="manufacturer">
                     <font>
@@ -89,13 +88,16 @@
                     <padding>
                         <Insets top="10.0" />
                     </padding>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
                 </JFXRadioButton>
                 <JFXRadioButton fx:id="AgentRadio" text="agent">
                     <font>
                         <Font name="Roboto Light" size="18.0" />
                     </font>
                 </JFXRadioButton>
-                <JFXButton fx:id="SubmitRegistrationButton" buttonType="RAISED" onAction="#handleTheThing" prefHeight="39.0" prefWidth="98.0" ripplerFill="#9d9797" style="-fx-background-color: WHITE;" text="register">
+                <JFXButton fx:id="SubmitRegistrationButton" buttonType="RAISED" onAction="#handleTheThing" prefHeight="39.0" prefWidth="98.0" ripplerFill="#9d9797" style="-fx-background-color: #4285f4;" text="register" textFill="WHITE">
                     <VBox.margin>
                         <Insets top="25.0" />
                     </VBox.margin>
@@ -106,5 +108,25 @@
             </children>
         </VBox>
       <fx:include source="MenuDrawer.fxml" />
+      <Text fill="WHITE" layoutX="562.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB" wrappingWidth="662.3418466756353">
+         <font>
+            <Font name="Roboto Light" size="48.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="664.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
+         <font>
+            <Font name="Roboto Light" size="24.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="102.0" fitWidth="104.0" layoutX="446.0" layoutY="-1.0">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+        <Text layoutX="590.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
+            <font>
+                <Font name="Roboto Light" size="36.0" />
+            </font>
+        </Text>
     </children>
 </AnchorPane>

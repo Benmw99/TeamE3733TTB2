@@ -22,18 +22,19 @@ public class main {
         mongoSystem.setLevel(Level.WARNING);
 
         DB.Database db = DB.Database.getDatabase();
+
+        /*db.tableBuilder.resetDB();
+
+        db.dbInsert.insertCompany(new Manufacturer("Brewers Inc.", "manu", "manu", false, "password"));
+        db.dbInsert.insertCompany(new Manufacturer("Michael's Company", "mike", "1234", false, "password"));
+        db.dbInsert.insertAgent(new Agent("ttb", "ttb", "Sam Adamster", false, "password"));
+        db.dbInsert.insertAgent(new Agent("mjclements@wpi.edu", "1234", "Michael Clements", true, "password"));*/
+
+        //    db.dbInsert.insertAgent(new Agent("wwong2@wpi.edu", "pass", "Wilson Wong", false, "password"));
+       // db.dbInsert.insertRep(new Representative("TestRep", "1234", false, "password"));
+
+
         /*
-        db.tableBuilder.resetDB();
-
-        db.dbInsert.insertCompany(new Manufacturer(123, "Brewers Inc.", "manu", "manu"));
-        db.dbInsert.insertCompany(new Manufacturer(420, "Michael's Company", "mike", "1234"));
-        db.dbInsert.insertAgent(new Agent("ttb", "ttb", "Sam Adamster"));
-    //    db.dbInsert.insertAgent(new Agent("wwong2@wpi.edu", "pass", "Wilson Wong"));
-        db.dbInsert.insertAgent(new Agent("mjclements@wpi.edu", "1234", "Michael Clements"));
-        db.dbInsert.insertRep(new Representative("123abc", "TestRep", "1234"));
-        //db.dbInsert.insertData();
-
-
         //Oh boy lets make a complete form
         List<BrewersPermit> Brews = new ArrayList<>();
         Brews.add(new BrewersPermit("123ABC", true));

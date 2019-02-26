@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AuthenticatePage">
+   <children>
+      <Pane layoutX="839.0" layoutY="115.0" prefHeight="379.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="126.0">
+         <children>
+            <VBox layoutX="414.0" prefHeight="634.0" prefWidth="519.0">
+               <children>
+                  <Label text="An authentication key was just sent to the email you used to register." VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets bottom="15.0" left="45.0" top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Please check your email and fill in the field below with the provided key." VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets bottom="15.0" left="35.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXTextField fx:id="passcode" alignment="CENTER" prefHeight="27.0" prefWidth="433.0" promptText="Authentication Key" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets bottom="15.0" left="30.0" right="30.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXButton fx:id="authenticate" alignment="CENTER" buttonType="RAISED" onAction="#authenticatePass" ripplerFill="#9a9a9a" style="-fx-background-color: #4285f4;" text="Authenticate" textFill="WHITE" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets bottom="45.0" left="210.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <Label text="Didn't see an email? Have us resend it!" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="125.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXButton fx:id="resendEmailButton" buttonType="RAISED" onAction="#resendEmail" style="-fx-background-color: #4285f4;" text="Resend Email" textFill="WHITE" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets left="210.0" top="15.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Rectangle fill="#4285f4" height="102.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1360.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label alignment="CENTER" text="Registration Authentication" textFill="WHITE">
+         <font>
+            <Font name="Roboto Light" size="36.0" />
+         </font>
+         <padding>
+            <Insets left="450.0" top="35.0" />
+         </padding>
+      </Label>
+      <fx:include source="MenuDrawer.fxml" />
+   </children>
+</AnchorPane>

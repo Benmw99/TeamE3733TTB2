@@ -27,6 +27,26 @@ public class Manufacturer implements IUser {
     @Column(name = "Password")
     private String password;
 
+    @Column(name = "emailStatus")
+    private boolean emailStatus;
+
+    @Column(name = "docPass")
+    private String documentPassword;
+
+    public Manufacturer(String manName, String login, String password, boolean emailStatus, String documentPassword) {
+        this.manName = manName;
+        this.login = login;
+        this.password = password;
+        this.emailStatus = emailStatus;
+        this.documentPassword = documentPassword;
+    }
+
+    public Manufacturer(String manName, String login, String password, boolean emailStatus) {
+        this.manName = manName;
+        this.login = login;
+        this.password = password;
+        this.emailStatus = emailStatus;
+    }
 
     public Manufacturer(int manID, String manName, String login, String password) {
         this.manID = manID;
@@ -47,6 +67,7 @@ public class Manufacturer implements IUser {
         this.manName = null;
         this.login = null;
         this.password = null;
+        this.emailStatus = false;
     }
 
     public boolean isAgent() {
@@ -67,12 +88,28 @@ public class Manufacturer implements IUser {
         this.manID = manID;
     }
 
+    public String getEmail() {
+        return this.login;
+    }
+
     public String getManName() {
         return manName;
     }
 
     public void setManName(String manName) {
         this.manName = manName;
+    }
+
+    public String getName() {
+        return this.getManName();
+    }
+
+    public String getDocumentPassword() {
+        return documentPassword;
+    }
+
+    public void setDocumentPassword(String documentPassword) {
+        this.documentPassword = documentPassword;
     }
 
     @Override
@@ -95,13 +132,13 @@ public class Manufacturer implements IUser {
         this.password = password;
     }
 
-    @Override
-    public String getName() { return manName;}
+    public boolean isEmailStatus() {
+        return emailStatus;
+    }
 
-    @Override
-    public String getEmail() { return Integer.toString(manID); }
-
-
+    public void setEmailStatus(boolean emailStatus) {
+        this.emailStatus = emailStatus;
+    }
 
     public boolean authenticate(){
         DB.Database db = DB.Database.getDatabase();

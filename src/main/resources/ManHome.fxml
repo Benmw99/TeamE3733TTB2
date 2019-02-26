@@ -2,10 +2,11 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXClippedPane?>
-<?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -17,68 +18,6 @@
 
 <AnchorPane prefHeight="760.0" prefWidth="1360.0" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManHomeController">
    <children>
-      <Pane prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: WHITE;">
-         <children>
-            <Pane layoutX="-6.0" layoutY="-1.0" prefHeight="89.0" prefWidth="1367.0" style="-fx-background-color: white;">
-               <children>
-                  <Text layoutX="656.0" layoutY="57.0" strokeWidth="0.0" text="Home">
-                     <font>
-                        <Font name="Roboto Light" size="48.0" />
-                     </font>
-                  </Text>
-               </children>
-            </Pane>
-            <Pane layoutX="-1.0" layoutY="88.0" prefHeight="673.0" prefWidth="559.0" style="-fx-background-color: white;">
-               <children>
-                  <JFXTextField fx:id="searchAppsTextField" disable="true" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="377.0" style="-fx-background-color: WHITE;" text="Search Applications">
-                     <font>
-                        <Font name="Roboto Light" size="18.0" />
-                     </font></JFXTextField>
-               </children>
-            </Pane>
-            <Pane layoutX="558.0" layoutY="88.0" prefHeight="64.0" prefWidth="803.0" style="-fx-background-color: white;">
-               <children>
-                  <JFXButton fx:id="commentsButton" buttonType="RAISED" layoutX="417.0" layoutY="4.0" onAction="#viewAgentComments" ripplerFill="#9d9797" style="-fx-background-color: AC2B37;" text="View Agent Comments" textFill="WHITE">
-                     <font>
-                        <Font name="Roboto Light" size="18.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton fx:id="printButton" buttonType="RAISED" layoutX="720.0" layoutY="4.0" onAction="#print" ripplerFill="#9d9797" style="-fx-background-color: AC2B37;" text="Print" textFill="WHITE">
-                     <font>
-                        <Font name="Roboto Light" size="18.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton fx:id="goToSingleApp" layoutX="138.0" layoutY="4.0" onAction="#addSingleForm" prefHeight="36.0" style="-fx-background-color: AC2B37;" text="Single Page Application" textFill="WHITE">
-                     <font>
-                        <Font name="Roboto Light" size="18.0" />
-                     </font></JFXButton>
-                  <JFXButton fx:id="newFormButton" layoutX="-25.0" layoutY="4.0" onAction="#addForm" prefHeight="36.0" style="-fx-background-color: AC2B37;" text="New Application" textFill="WHITE">
-                     <font>
-                        <Font name="Roboto Light" size="18.0" />
-                     </font>
-                  </JFXButton>
-               </children>
-            </Pane>
-         </children></Pane>
-      <VBox alignment="TOP_CENTER" prefHeight="575.0" prefWidth="475.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="150.0">
-         <children>
-            <fx:include maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="475.0" source="TableView.fxml" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
-            <JFXButton fx:id="refreshButton1" buttonType="RAISED" onAction="#refreshForms" prefHeight="45.0" prefWidth="200.0" ripplerFill="#9c9797" style="-fx-background-color: AC2B37;" text="Refresh" textFill="WHITE">
-               <font>
-                  <Font name="Roboto Light" size="18.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="25.0" />
-               </VBox.margin>
-            </JFXButton>
-         </children>
-      </VBox>
-      <JFXClippedPane prefWidth="865.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0">
-         <children>
-            <fx:include minWidth="-Infinity" prefWidth="200.0" source="FormDisplay.fxml" />
-         </children>
-      </JFXClippedPane>
-      <fx:include source="MenuDrawer.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Pane fx:id="largePane" opacity="0.63" prefHeight="763.0" prefWidth="1361.0" style="-fx-background-color: white;" />
       <Pane fx:id="smallPane" layoutY="287.0" prefHeight="314.0" prefWidth="877.0" style="-fx-background-color: #999999; -fx-background-radius: 15;" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="287.0">
          <children>
@@ -130,7 +69,7 @@
                   </VBox>
                </children>
             </HBox>
-            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="255.0" style="-fx-background-color: #800020;" text="Print" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="255.0" style="-fx-background-color: #4285f4;" text="Print" textFill="WHITE">
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>
@@ -143,7 +82,7 @@
                   <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="44.0" layoutY="86.0" style="-fx-background-color: #800020;" text="Refresh" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="44.0" layoutY="86.0" style="-fx-background-color: #4285f4;" text="Refresh" textFill="WHITE">
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>
@@ -156,7 +95,7 @@
                   <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="40.0" layoutY="24.0" style="-fx-background-color: #800020;" text="View Agent Comments" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="40.0" layoutY="24.0" style="-fx-background-color: #4285f4;" text="View Agent Comments" textFill="WHITE">
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>
@@ -169,7 +108,7 @@
                   <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="42.0" layoutY="146.0" style="-fx-background-color: #800020;" text="New Application" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="42.0" layoutY="146.0" style="-fx-background-color: #4285f4;" text="New Application" textFill="WHITE">
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>
@@ -182,7 +121,7 @@
                   <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="41.0" layoutY="199.0" style="-fx-background-color: #800020;" text="Single Page Application" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="41.0" layoutY="199.0" style="-fx-background-color: #4285f4;" text="Single Page Application" textFill="WHITE">
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>
@@ -197,6 +136,68 @@
             </JFXButton>
          </children>
       </Pane>
+      <Pane prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: WHITE;">
+         <children>
+            <Pane layoutX="-6.0" layoutY="-1.0" prefHeight="89.0" prefWidth="1367.0" style="-fx-background-color: #4285f4;" />
+            <Pane layoutX="-1.0" layoutY="88.0" prefHeight="673.0" prefWidth="559.0" style="-fx-background-color: white;">
+               <children>
+                  <JFXButton fx:id="refreshButton1" buttonType="RAISED" layoutX="19.0" layoutY="11.0" onAction="#refreshForms" prefHeight="34.0" prefWidth="125.0" ripplerFill="#9c9797" style="-fx-background-color: #4285f4;" text="Refresh" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="newFormButton" layoutX="169.0" layoutY="10.0" onAction="#addForm" prefHeight="36.0" ripplerFill="#9c9797" style="-fx-background-color: #4285f4;" text="New Application" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </Pane>
+            <Pane layoutX="558.0" layoutY="88.0" prefHeight="64.0" prefWidth="803.0" style="-fx-background-color: white;">
+               <children>
+                  <JFXButton fx:id="commentsButton" buttonType="RAISED" layoutX="417.0" layoutY="12.0" onAction="#viewAgentComments" ripplerFill="#9d9797" style="-fx-background-color: #4285f4;" text="View Agent Comments" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="printButton" buttonType="RAISED" layoutX="720.0" layoutY="10.0" onAction="#print" ripplerFill="#9d9797" style="-fx-background-color: #4285f4;" text="Print" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="goToSingleApp" layoutX="138.0" layoutY="11.0" onAction="#addSingleForm" prefHeight="36.0" ripplerFill="#9c9797" style="-fx-background-color: #4285f4;" text="Single Page Application" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font></JFXButton>
+               </children>
+            </Pane>
+            <Text fill="WHITE" layoutX="557.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB" wrappingWidth="94.90074560141659">
+               <font>
+                  <Font name="Roboto Light" size="48.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="658.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
+               <font>
+                  <Font name="Roboto Light" size="24.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="81.0" fitWidth="85.0" layoutX="450.0" layoutY="3.0">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <VBox alignment="TOP_CENTER" layoutX="-1.0" prefHeight="610.0" prefWidth="503.0" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="150.0">
+         <children>
+            <fx:include maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="475.0" source="TableView.fxml" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+      <JFXClippedPane layoutY="148.0" prefHeight="615.0" prefWidth="872.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="148.0">
+         <children>
+            <fx:include minWidth="-Infinity" prefWidth="200.0" source="FormDisplay.fxml" />
+         </children>
+      </JFXClippedPane>
+      <fx:include source="MenuDrawer.fxml" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <JFXToggleButton fx:id="helpToggleButton" layoutX="1237.0" layoutY="10.0" text="Help" toggleColor="#940000" toggleLineColor="#c31f1f" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="10.0" />
    </children>
 </AnchorPane>
