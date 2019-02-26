@@ -31,7 +31,29 @@ public class Agent implements IUser{
 
     @Column(name = "Agent_Name")
     private String name;
+
+    @Column(name = "emailStatus")
+    private boolean emailStatus;
+
+    @Column(name = "docPass")
+    private String documentPassword;
+
     public Agent() {
+    }
+
+    public Agent(String login, String password, String name, boolean emailStatus, String documentPassword) {
+        this.login = login;
+        this.password = password;
+        this.name = name;
+        this.emailStatus = emailStatus;
+        this.documentPassword = documentPassword;
+    }
+
+    public Agent(String login, String password, String name, boolean emailStatus) {
+        this.login = login;
+        this.password = password;
+        this.name = name;
+        this.emailStatus = emailStatus;
     }
 
     public Agent(int agentID, String login, String password, String name) {
@@ -95,6 +117,22 @@ public class Agent implements IUser{
     }
 
     public String getEmail(){ return Integer.toString(agentID); }
+
+    public String getDocumentPassword() {
+        return documentPassword;
+    }
+
+    public void setDocumentPassword(String documentPassword) {
+        this.documentPassword = documentPassword;
+    }
+
+    public boolean isEmailStatus() {
+        return emailStatus;
+    }
+
+    public void setEmailStatus(boolean emailStatus) {
+        this.emailStatus = emailStatus;
+    }
 
     /**
      * This may or may not work.

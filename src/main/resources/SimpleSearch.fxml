@@ -65,7 +65,7 @@
             </HBox>
          </children>
       </VBox>
-      <JFXButton buttonType="RAISED" layoutX="1253.0" layoutY="28.0" style="-fx-background-color: WHITE;" text="Login">
+      <JFXButton buttonType="RAISED" layoutX="1253.0" layoutY="28.0" style="-fx-background-color: WHITE;" text="Login" onAction="#login">
          <font>
             <Font name="Roboto Light" size="24.0" />
          </font>

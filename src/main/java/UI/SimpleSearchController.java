@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class SimpleSearchController extends PageControllerUI implements Initializable {
@@ -47,11 +48,16 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
 
     public void search(ActionEvent event){
         if(searchBy.getText() != null && !searchBy.getText().trim().isEmpty()){
-
-            //TODO uncomment when jordan pushes
-            //AttributeContainer.getInstance().formQueue = Database.getDatabase().dbSelect.simpleSearch(searchBy.getText());
+            SearchContainer.getInstance().searchResult = new SearchResult();
+            List<Form> forms = Database.getDatabase().dbSelect.simpleSearch(searchBy.getText().trim());
+            SearchContainer.getInstance().searchResult.setResults(forms);
+            SearchContainer.getInstance().query = searchBy.getText().trim();
+            SearchContainer.getInstance().setPages();
+            SearchContainer.getInstance().currentPage = 1;
+            if(SearchContainer.getInstance().searchResult.getResults().size() != 0) {
+                SearchContainer.getInstance().loadQueue();
+            }
             goToPage("HomeSearch.fxml");
-
         }
     }
 

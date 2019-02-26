@@ -6,10 +6,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -815,5 +812,56 @@ public class DBInsert {
 
         long endTime = System.nanoTime();
         System.out.println("Time in seconds of execution: " + ((endTime - startTime) / 1000000000));
+    }
+
+    public void updateEmailStatus(Agent a, boolean newStatus) {
+        a.setEmailStatus(newStatus);
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            //Merge is used as an update pretty much
+            session.merge(a);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    public void updateEmailStatus(Manufacturer m, boolean newStatus) {
+        m.setEmailStatus(newStatus);
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            //Merge is used as an update pretty much
+            session.merge(m);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    public void updateEmailStatus(Representative r, boolean newStatus) {
+        r.setEmailStatus(newStatus);
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            //Merge is used as an update pretty much
+            session.merge(r);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
     }
 }
