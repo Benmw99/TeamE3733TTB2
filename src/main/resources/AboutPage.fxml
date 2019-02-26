@@ -96,7 +96,7 @@
       </Label>
       <JFXButton fx:id="back" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" minHeight="-Infinity" onAction="#goBack" prefHeight="60.0" prefWidth="60.0" text="&lt;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <font>
-            <Font name="Apple SD Gothic Neo Heavy" size="36.0" />
+            <Font name="Roboto Light" size="36.0" />
          </font>
       </JFXButton>
    </children>
