@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.StackPane;
 
 import javax.swing.*;
 import java.net.URL;
@@ -32,6 +33,12 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
     @FXML
     JFXButton goBack;
 
+    @FXML
+    StackPane UsernameStackPane;
+
+    @FXML
+    JFXButton UsernameButton;
+
     @Override
     protected void onLeave() {}
 
@@ -39,7 +46,16 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
     void onLoad() {}
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {}
+    public void initialize(URL location, ResourceBundle resources) {
+        if(attributeContainer.currentUser != null){
+//            System.out.println("This is true");
+            UsernameStackPane.setOpacity(1);
+            UsernameButton.setText(attributeContainer.currentUser.getLogin());
+        }
+        else{
+            UsernameStackPane.toBack();
+        }
+    }
 
     public void pourMeADrink(ActionEvent event){
         AttributeContainer.getInstance().currentForm = Database.getDatabase().dbSelect.randomForm();
@@ -74,6 +90,11 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
         AttributeContainer.getInstance().formQueue = new ArrayList<Form>();
         AttributeContainer.getInstance().currentResults = new SearchResult();
         goToPage("Login.fxml");
+    }
+
+    @FXML
+    public void toProfile(){
+        goToPage("Profile.fxml");
     }
 
 }
