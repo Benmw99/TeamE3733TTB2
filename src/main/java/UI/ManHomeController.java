@@ -121,7 +121,8 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
      */
     @FXML
     public void viewAgentComments(ActionEvent event) throws IOException {
-        if(attributeContainer.currentForm.getApproval().getQualifications() != null) {
+        goToPage("ManViewAgentComments.fxml");
+       /* if(attributeContainer.currentForm.getApproval().getQualifications() != null) {
             if(attributeContainer.currentForm.getApprovalStatus().toInt() == 1) {
                 Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
                 agentComments.setHeaderText("Qualifications");
@@ -147,7 +148,7 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
             agentComments.setHeaderText("Agent Comments");
             agentComments.setTitle("Comments");
             agentComments.show();
-        }
+        } */
     }
 
     /**

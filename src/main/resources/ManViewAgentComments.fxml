@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.RadialGradient?>
@@ -14,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: #ffffff;" stylesheets="@/TabPane.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManViewAgentCommentsController">
+<AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: #ffffff;" stylesheets="@/TabPane.css, @font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManViewAgentCommentsController">
    <children>
       <Rectangle fill="#4285f4" height="89.0" layoutX="-2.0" layoutY="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1376.0" />
       <Rectangle fill="WHITE" height="62.0" layoutX="-2.0" layoutY="75.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1376.0" />
@@ -28,7 +26,7 @@
             </RadialGradient>
          </ripplerFill>
          <font>
-            <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+            <Font name="Roboto Light Gothic Neo Thin" size="18.0" />
          </font>
       </JFXButton>
       <Label layoutX="517.0" layoutY="18.0" text="Review Agent Comments" textFill="WHITE">
@@ -45,19 +43,18 @@
       <fx:include source="MenuDrawer.fxml" />
       <Pane layoutX="681.0" layoutY="139.0" prefHeight="623.0" prefWidth="693.0">
          <children>
-            <JFXTabPane prefHeight="625.0" prefWidth="696.0" stylesheets="@TabPane.css" tabClosingPolicy="UNAVAILABLE">
-               <tabs>
-                  <Tab fx:id="rulesRegTab" style="-fx-background-color: #4285f4;" text="Qualifications">
-                     <content>
-                        <JFXTextArea fx:id="agentComments" />
-                     </content></Tab>
-               </tabs>
-            </JFXTabPane>
+            <Rectangle fill="#4285f4" height="40.0" layoutX="315.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="379.0" />
+            <Label layoutX="87.0" layoutY="8.0" text="Qualifications" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Light" size="24.0" />
+               </font>
+            </Label>
+            <JFXTextArea fx:id="agentComments" layoutX="60.0" layoutY="53.0" onDragDetected="#receiveNewComments" />
          </children>
       </Pane>
       <JFXToggleButton fx:id="helpToggleButton" layoutX="1229.0" layoutY="11.0" text="Help">
          <font>
-            <Font name="Apple SD Gothic Neo Thin" size="24.0" />
+            <Font name="Roboto Light Gothic Neo Thin" size="24.0" />
          </font>
       </JFXToggleButton>
    </children>
