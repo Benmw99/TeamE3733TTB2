@@ -107,6 +107,7 @@ public class RegisterPageController extends PageControllerUI implements Initiali
                     new Random().nextBytes(agentKey);
                     keyGeneration();
                     System.out.println(AttributeContainer.getInstance().generatedKey);
+                    AttributeContainer.getInstance().email = RegisterUserEmailTextField.getText();
                     Thread mailThread = new Thread( new Mailer(RegisterUserEmailTextField.getText(), attributeContainer.generatedKey));
                     mailThread.start();
                     goToPage("Authenticate.fxml");
@@ -139,6 +140,7 @@ public class RegisterPageController extends PageControllerUI implements Initiali
                         byte[] manKey = new byte[8];
                         new Random().nextBytes(manKey);
                         keyGeneration();
+                        AttributeContainer.getInstance().email = RegisterUserEmailTextField.getText();
                         System.out.println(AttributeContainer.getInstance().generatedKey);
                     Thread mailThread = new Thread( new Mailer(RegisterUserEmailTextField.getText(), attributeContainer.generatedKey));
                     mailThread.start();
@@ -224,7 +226,7 @@ public class RegisterPageController extends PageControllerUI implements Initiali
     }
 
     public void resendEmail(ActionEvent event){
-        Thread mailThread = new Thread( new Mailer(RegisterUserEmailTextField.getText(), attributeContainer.generatedKey));
+        Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().email, attributeContainer.generatedKey));
         mailThread.start();
     }
 

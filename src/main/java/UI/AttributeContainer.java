@@ -34,6 +34,7 @@ public class AttributeContainer {
     char delimeter;
     public String generatedKey;
     public boolean firstTimeRegister = false;
+    String email;
 
     /**
      * Instantiates new empty AttributeContainer
