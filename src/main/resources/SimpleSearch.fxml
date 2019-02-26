@@ -66,7 +66,7 @@
                   <Insets left="175.0" top="15.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton buttonType="RAISED" style="-fx-background-color: #4285f4;" text="login" textFill="WHITE">
+            <JFXButton buttonType="RAISED" style="-fx-background-color: #4285f4;" text="login" textFill="WHITE" onAction="#login">
                <font>
                   <Font name="Roboto Light" size="24.0" />
                </font>
