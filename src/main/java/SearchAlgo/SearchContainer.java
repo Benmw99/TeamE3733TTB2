@@ -24,6 +24,9 @@ public class SearchContainer {
 
     public void setPages(){
         this.maxPages = (int)Math.ceil(searchResult.getResults().size() / 50.0);
+        if (this.maxPages == 0) {
+            this.maxPages = 1;
+        }
         this.currentPage = 1;
     }
 
