@@ -105,6 +105,9 @@ public class GoogleVision {
     public void detectText(String filePath, Form form) throws Exception, IOException {
         FileOpener opener = new FileOpener();
         GoogleCredentials credentials = GoogleCredentials.fromStream( new FileInputStream(new File(getClass().getResource("/" + "My First Project-b6981c3f2253.json").toURI())));
+       List<String> los =  Lists.newArrayList();
+       los.add("https://www.googleapis.com/auth/cloud-platform");
+        credentials.createScoped(los);
         Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
 
 
