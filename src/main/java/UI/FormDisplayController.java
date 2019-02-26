@@ -154,7 +154,9 @@ public class FormDisplayController extends PageControllerUI implements Initializ
         this.Display1Label.setText(form.getRepID());
         System.out.println(form.getBrandName());
         System.out.println(form.getEmail());
-        if (!form.getBrewersPermit().isEmpty()) {
+        if (form.getBrewersPermit() == null || form.getBrewersPermit().isEmpty()) {
+            System.out.println("brewersPermit empty");
+        } else {
             this.Display2Label.setText(form.getBrewersPermit().get(0).getBrewersNo());
         }
         String dom;

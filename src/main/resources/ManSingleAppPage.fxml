@@ -6,7 +6,7 @@
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -14,15 +14,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AppController">
    <children>
-      <Rectangle fill="#4285f4" height="83.0" layoutX="-1.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1360.0" AnchorPane.bottomAnchor="677.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Label layoutX="615.0" layoutY="24.0" text="Application" textFill="WHITE">
-         <font>
-            <Font name="Helvetica" size="24.0" />
-         </font>
-      </Label>
+      <Rectangle fill="#4285f4" height="102.0" layoutX="-1.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1360.0" AnchorPane.bottomAnchor="677.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Pane layoutX="-1.0" layoutY="83.0" prefHeight="200.0" prefWidth="495.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="83.0">
          <children>
             <HBox prefHeight="677.0" prefWidth="1360.0">
@@ -217,6 +213,28 @@
             </HBox>
          </children>
       </Pane>
-      <JFXButton fx:id="back" buttonType="RAISED" layoutX="36.0" layoutY="25.0" onAction="#goBack" style="-fx-background-color: WHITE;" text="&lt;" />
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="38.0" layoutY="38.0" onAction="#goBack" style="-fx-background-color: WHITE;" text="&lt;" />
+      <HBox alignment="CENTER" layoutX="455.0" layoutY="2.0" prefHeight="100.0">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="95.0">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB">
+               <font>
+                  <Font name="Roboto Light" size="48.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="7.0" right="10.0" />
+               </HBox.margin>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
+               <font>
+                  <Font name="Roboto Light" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

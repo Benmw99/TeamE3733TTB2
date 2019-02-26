@@ -124,11 +124,36 @@
             </HBox>
          </children>
       </Pane>
-      <Label layoutX="661.0" layoutY="28.0" text="About" textFill="WHITE">
+      <Label layoutX="713.0" layoutY="101.0" text="About">
          <font>
             <Font name="Roboto Light" size="38.0" />
          </font>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
       </Label>
       <fx:include source="MenuDrawer.fxml" />
+      <HBox alignment="CENTER" layoutX="540.0" layoutY="1.0" prefHeight="100.0">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="95.0">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB">
+               <font>
+                  <Font name="Roboto Light" size="48.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="7.0" right="10.0" />
+               </HBox.margin>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
+               <font>
+                  <Font name="Roboto Light" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

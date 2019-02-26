@@ -4,11 +4,15 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="760.0" prefWidth="1360.0" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AuthenticatePage">
    <children>
@@ -51,14 +55,28 @@
          </children>
       </Pane>
       <Rectangle fill="#4285f4" height="102.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1360.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Label alignment="CENTER" text="Registration Authentication" textFill="WHITE">
-         <font>
-            <Font name="Roboto Light" size="36.0" />
-         </font>
-         <padding>
-            <Insets left="450.0" top="35.0" />
-         </padding>
-      </Label>
       <fx:include source="MenuDrawer.fxml" />
+      <HBox alignment="CENTER" layoutX="456.0" layoutY="4.0" prefHeight="100.0">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="95.0">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB">
+               <font>
+                  <Font name="Roboto Light" size="48.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="7.0" right="10.0" />
+               </HBox.margin>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
+               <font>
+                  <Font name="Roboto Light" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

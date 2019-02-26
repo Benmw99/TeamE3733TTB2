@@ -144,21 +144,6 @@
       </Pane>
       <Rectangle fill="WHITE" height="89.0" layoutX="-2.0" layoutY="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1360.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4285f4" height="80.0" layoutX="-8.0" layoutY="-1.0" stroke="#ffffff00" strokeType="INSIDE" width="1372.0" />
-      <Text fill="WHITE" layoutX="557.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB" wrappingWidth="94.90074560141659">
-         <font>
-            <Font name="Roboto Light" size="48.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="658.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
-         <font>
-            <Font name="Roboto Light" size="24.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="81.0" fitWidth="85.0" layoutX="450.0" layoutY="-2.0">
-         <image>
-            <Image url="@logo.png" />
-         </image>
-      </ImageView>
       <Text layoutX="25.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mark Section as:" wrappingWidth="156.64989471435547">
          <font>
             <Font name="Roboto Thin" size="18.0" />
@@ -662,5 +647,27 @@
             <Font name="Roboto Light" size="24.0" />
          </font>
       </JFXToggleButton>
+      <HBox alignment="CENTER" layoutX="456.0" layoutY="-8.0" prefHeight="100.0">
+         <children>
+            <ImageView fitHeight="68.0" fitWidth="75.0">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB">
+               <font>
+                  <Font name="Roboto Light" size="48.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="7.0" right="10.0" />
+               </HBox.margin>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
+               <font>
+                  <Font name="Roboto Light" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
