@@ -1,6 +1,7 @@
 // Imports the Google Cloud client library
 package Entities;
 import DB.Database;
+import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.vision.v1.AnnotateImageRequest;
 import com.google.cloud.vision.v1.AnnotateImageResponse;
 import com.google.cloud.vision.v1.BatchAnnotateImagesResponse;
@@ -10,11 +11,9 @@ import com.google.cloud.vision.v1.Feature.Type;
 import com.google.cloud.vision.v1.Image;
 import com.google.cloud.vision.v1.ImageAnnotatorClient;
 import com.google.protobuf.ByteString;
+import org.omg.CORBA.Environment;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -27,64 +26,64 @@ import java.util.regex.Pattern;
 
 public class GoogleVision {
     public static void main(String... args) throws Exception {
-
-        // Instantiates a client
-        //db.dbInsert.insertData();
-
-
-        //Oh boy lets make a complete form
-        List<BrewersPermit> Brews = new ArrayList<>();
-        Brews.add(new BrewersPermit("123ABC", true));
-        Brews.add(new BrewersPermit("456DEF", false));
-
-        List<Address> Adds = new ArrayList<>();
-        Adds.add(new Address("Worcester", "MA", "01609", "100 Institute Road", "John Smith", true));
-        Adds.add(new Address("Acton", "MA", "123456", "2 Street Ave", "Bob Dijon", false));
-
-        long milli = System.currentTimeMillis();
-        Date d = new Date(milli);
-
-        Form form = new Form(null, Brews, true, "00123SE", AlcoholType.MaltBeverage,
-                "Bubbly", "BU", Adds, "John Smith", null, new WineFormItems(),
-                "1112223333", "mjclements@wpi.edu", "No other info", d, 123,
-                new Approval(), (float) 12.3, ApprovalStatus.Incomplete);
-        form.setWorkingOn(0);
-
-
-        //AttributeContainer.getInstance().formQueue.add(form);
-
-
-        detectText("pyramid.jpg", form);
-        detectLogoText("pyramid.jpg", form);
-
-        System.out.println(form.getLogoText());
-  //      detectBiggestText("pyramid.jpg");
-
-        String s = form.getLabelText();
-        s = s.replaceAll("\n", "");
-        s = s.replaceAll(" ", "");
-        System.out.println(s);
-        form.setLabelText(s);
-        form.setBrandName("Pyramid");
-        System.out.println(form.verifyBrandName());
-        System.out.println(form.detectAlcType());
-        Pattern p = Pattern.compile("\\d*\\.?\\d*%");
-        Matcher m = p.matcher(s);
-        System.out.print("ALCOHOL CONTENT FOUND:");
-        m.find();
-        int i = m.start();
-        int j = m.end() - 1;
-        Double content = Double.parseDouble(s.substring(i,j));
-        System.out.println(content);
-
-
-        Form form2 = new Form();
-        form2.setWineFormItems(new WineFormItems());
-        form2.getWineFormItems().setAppellation("CHARDONNAY");
-        detectText("chardonnay.jpg", form2);
-        System.out.println(form2.verifyAppellation());
-
-        new FormExporter(form);
+//
+//        // Instantiates a client
+//        //db.dbInsert.insertData();
+//
+//
+//        //Oh boy lets make a complete form
+//        List<BrewersPermit> Brews = new ArrayList<>();
+//        Brews.add(new BrewersPermit("123ABC", true));
+//        Brews.add(new BrewersPermit("456DEF", false));
+//
+//        List<Address> Adds = new ArrayList<>();
+//        Adds.add(new Address("Worcester", "MA", "01609", "100 Institute Road", "John Smith", true));
+//        Adds.add(new Address("Acton", "MA", "123456", "2 Street Ave", "Bob Dijon", false));
+//
+//        long milli = System.currentTimeMillis();
+//        Date d = new Date(milli);
+//
+//        Form form = new Form(null, Brews, true, "00123SE", AlcoholType.MaltBeverage,
+//                "Bubbly", "BU", Adds, "John Smith", null, new WineFormItems(),
+//                "1112223333", "mjclements@wpi.edu", "No other info", d, 123,
+//                new Approval(), (float) 12.3, ApprovalStatus.Incomplete);
+//        form.setWorkingOn(0);
+//
+//
+//        //AttributeContainer.getInstance().formQueue.add(form);
+//
+//
+//   //     detectText("pyramid.jpg", form);
+//     //   detectLogoText("pyramid.jpg", form);
+//
+//        System.out.println(form.getLogoText());
+//  //      detectBiggestText("pyramid.jpg");
+//
+//        String s = form.getLabelText();
+//        s = s.replaceAll("\n", "");
+//        s = s.replaceAll(" ", "");
+//        System.out.println(s);
+//        form.setLabelText(s);
+//        form.setBrandName("Pyramid");
+//        System.out.println(form.verifyBrandName());
+//        System.out.println(form.detectAlcType());
+//        Pattern p = Pattern.compile("\\d*\\.?\\d*%");
+//        Matcher m = p.matcher(s);
+//        System.out.print("ALCOHOL CONTENT FOUND:");
+//        m.find();
+//        int i = m.start();
+//        int j = m.end() - 1;
+//        Double content = Double.parseDouble(s.substring(i,j));
+//        System.out.println(content);
+//
+//
+//        Form form2 = new Form();
+//        form2.setWineFormItems(new WineFormItems());
+//        form2.getWineFormItems().setAppellation("CHARDONNAY");
+//        //detectText("chardonnay.jpg", form2);
+//        System.out.println(form2.verifyAppellation());
+//
+//        new FormExporter(form);
 
     }
 
@@ -97,7 +96,9 @@ public class GoogleVision {
      * @throws Exception
      * @throws IOException
      */
-    public static void detectText(String filePath, Form form) throws Exception, IOException {
+    public void detectText(String filePath, Form form) throws Exception, IOException {
+        FileOpener opener = new FileOpener();
+        GoogleCredentials.fromStream( new FileInputStream(new File(getClass().getResource("/" + "My First Project-b6981c3f2253.json").toURI())));
         List<AnnotateImageRequest> requests = new ArrayList<>();
 
         ByteString imgBytes = new FileOpener().fileOpener(filePath);
@@ -133,7 +134,8 @@ public class GoogleVision {
     }
 
 
-    public static void detectLogoText(String filePath, Form form) throws Exception, IOException {
+    public void detectLogoText(String filePath, Form form) throws Exception, IOException {
+        GoogleCredentials.fromStream( new FileInputStream(new File(getClass().getResource("/" + "My First Project-b6981c3f2253.json").toURI())));
         List<AnnotateImageRequest> requests = new ArrayList<>();
 
         ByteString imgBytes = new FileOpener().fileOpener(filePath);
