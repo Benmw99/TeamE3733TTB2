@@ -36,15 +36,23 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
     public void initialize(URL location, ResourceBundle resources) {}
 
     public void pourMeADrink(ActionEvent event){
-        // TODO figure out how to pull and present a random drink from the DB
+        AttributeContainer.getInstance().currentForm = Database.getDatabase().dbSelect.randomForm();
+        goToPage("ViewSelectedForm.fxml");
+
     }
 
     public void search(ActionEvent event){
-        // TODO add way to search based upon what's typed in the search text field
+        if(searchBy.getText() != null && !searchBy.getText().trim().isEmpty()){
+
+            //TODO uncomment when jordan pushes
+            //AttributeContainer.getInstance().formQueue = Database.getDatabase().dbSelect.simpleSearch(searchBy.getText());
+            goToPage("HomeSearch.fxml");
+
+        }
     }
 
-    public void goBackPage(ActionEvent event){
-        goToPage("HomeSearchController");
-    }
 
+    public void advancedSearch(ActionEvent actionEvent) {
+        goToPage("HomeSearch.fxml");
+    }
 }

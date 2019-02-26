@@ -87,6 +87,7 @@ public class Form implements Serializable {
 
 
 
+    @Transient
     String labelText;
 
     public String getLogoText() {
@@ -97,6 +98,7 @@ public class Form implements Serializable {
         this.logoText = logoText;
     }
 
+    @Transient
     String logoText;
 
     public Form() {
