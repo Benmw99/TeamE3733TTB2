@@ -22,14 +22,14 @@ public class main {
         mongoSystem.setLevel(Level.WARNING);
 
         DB.Database db = DB.Database.getDatabase();
-/*
-        db.tableBuilder.resetDB();
+
+        /*db.tableBuilder.resetDB();
 
         db.dbInsert.insertCompany(new Manufacturer("Brewers Inc.", "manu", "manu", false, "password"));
         db.dbInsert.insertCompany(new Manufacturer("Michael's Company", "mike", "1234", false, "password"));
         db.dbInsert.insertAgent(new Agent("ttb", "ttb", "Sam Adamster", false, "password"));
-        db.dbInsert.insertAgent(new Agent("mjclements@wpi.edu", "1234", "Michael Clements", true, "password"));
-*/
+        db.dbInsert.insertAgent(new Agent("mjclements@wpi.edu", "1234", "Michael Clements", true, "password"));*/
+
         //    db.dbInsert.insertAgent(new Agent("wwong2@wpi.edu", "pass", "Wilson Wong", false, "password"));
        // db.dbInsert.insertRep(new Representative("TestRep", "1234", false, "password"));
 
