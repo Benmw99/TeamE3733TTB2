@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 
 import javax.swing.*;
+import javax.xml.soap.Text;
 import java.awt.*;
 import java.awt.dnd.DragSourceDragEvent;
 import java.io.IOException;
@@ -25,7 +26,7 @@ import java.util.ResourceBundle;
 public class ManViewAgentCommentsController extends PageControllerUI implements Initializable {
 
     @FXML
-    JFXTextArea agentComments;
+    Text agentComments;
 
 
     ///////////////////////////////////////////////////
@@ -41,7 +42,7 @@ public class ManViewAgentCommentsController extends PageControllerUI implements 
     }
 
    public void receiveNewComments(ActionEvent event) throws IOException{
-        agentComments.setText(attributeContainer.currentForm.getApproval().getQualifications());
+        agentComments.setValue(attributeContainer.currentForm.getApproval().getQualifications());
     }
 
     @Override

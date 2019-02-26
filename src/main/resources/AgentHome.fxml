@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -129,6 +128,7 @@
                   <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXTextField>
+            <JFXButton fx:id="helpButton" layoutX="1268.0" layoutY="33.0" style="-fx-background-color: WHITE; -fx-background-radius: 20;" text="?" />
          </children></Pane>
       <VBox alignment="CENTER" layoutY="176.0" prefHeight="586.0" prefWidth="414.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="176.0">
          <children>
@@ -204,6 +204,5 @@
             <Text fill="WHITE" layoutX="22.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get New Queue: Click me if your table says &quot;No content in table&quot; enter an amount of forms you would like to review, and click me to add that amount to your table." wrappingWidth="187.00001940131187" />
          </children>
       </Pane>
-      <JFXToggleButton fx:id="helpToggleButton" layoutX="1212.0" layoutY="5.0" prefHeight="66.0" prefWidth="130.0" text="Help" textFill="WHITE" toggleColor="#162c51" toggleLineColor="#82acee" unToggleLineColor="#c6c6c6" />
    </children>
 </AnchorPane>
