@@ -33,9 +33,9 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <VBox layoutX="423.0" layoutY="102.0" prefHeight="660.0" prefWidth="646.0">
+      <VBox layoutX="365.0" layoutY="102.0" prefHeight="660.0" prefWidth="704.0">
          <children>
-            <JFXTextField fx:id="searchBy" alignment="CENTER" labelFloat="true" prefHeight="27.0" prefWidth="552.0" promptText="Search the TTB Database">
+            <JFXTextField fx:id="searchBy" alignment="CENTER" labelFloat="true" prefHeight="45.0" prefWidth="722.0" promptText="Search the TTB Database">
                <font>
                   <Font name="Roboto Light" size="24.0" />
                </font>
@@ -43,7 +43,7 @@
                   <Insets top="250.0" />
                </VBox.margin>
             </JFXTextField>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="100.0" prefWidth="703.0">
                <children>
                   <JFXButton fx:id="searchButton" buttonType="RAISED" onAction="#search" ripplerFill="#949494" style="-fx-background-color: #4285f4;" text="Search" textFill="WHITE">
                      <font>
@@ -70,7 +70,7 @@
             <Font name="Roboto Light" size="24.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="1077.0" layoutY="694.0" onAction="#advancedSearch" style="-fx-background-color: #4285f4;" text="Go to advanced search" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="1046.0" layoutY="654.0" onAction="#advancedSearch" style="-fx-background-color: #4285f4;" text="Go to advanced search" textFill="WHITE">
          <font>
             <Font name="Roboto Light" size="24.0" />
          </font>
