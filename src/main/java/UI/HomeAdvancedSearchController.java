@@ -324,9 +324,6 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
 //            Civ15Label.setText(attributeContainer.currentForm.getEmail());
 //            Civ16Label.setText(attributeContainer.currentForm.getPhoneNumber());
 //
-
-
-
 //        }
 
         //helpButton.isPressed();
