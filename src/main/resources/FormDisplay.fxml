@@ -111,7 +111,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Seriel Number" textFill="BLACK">
+                                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Serial Number" textFill="BLACK">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
