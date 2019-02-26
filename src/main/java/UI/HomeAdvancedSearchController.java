@@ -366,6 +366,7 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
             }
         }
 
+
         //if (alcoholContentTextField.getText() != "") {
         //Alcohol Content not in search yet
         //}
