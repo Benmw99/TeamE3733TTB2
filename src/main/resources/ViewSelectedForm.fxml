@@ -10,23 +10,23 @@
 
 <AnchorPane prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: WHITE;" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ViewSelectedController">
     <children>
-        <Rectangle fill="WHITE" height="89.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-        <Text fill="#464646" layoutX="563.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Form" wrappingWidth="237.53324981916347">
+        <Rectangle fill="#4285f4" height="89.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <Text fill="WHITE" layoutX="563.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Form" wrappingWidth="237.53324981916347">
             <font>
                 <Font name="Roboto Light" size="48.0" />
             </font></Text>
-      <Button fx:id="printButton" onAction="#print" layoutX="1097.0" layoutY="54.0" mnemonicParsing="false" style="-fx-background-color: #9d9797;" text="Print" textFill="WHITE">
+      <Button fx:id="printButton" layoutX="1240.0" layoutY="27.0" mnemonicParsing="false" onAction="#print" style="-fx-background-color: WHITE;" text="Print">
          <font>
-            <Font size="18.0" />
+            <Font name="Roboto Light" size="18.0" />
          </font></Button>
       <Pane layoutX="167.0" layoutY="99.0" prefHeight="664.0" prefWidth="1011.0" AnchorPane.rightAnchor="186.0" AnchorPane.topAnchor="99.0">
          <children>
             <fx:include fx:id="Label" source="FormDisplay.fxml" />
          </children>
       </Pane>
-      <JFXButton fx:id="backButton" buttonType="RAISED" layoutX="39.0" layoutY="27.0" onAction="#goBack" ripplerFill="#9d9797" style="-fx-background-color: #9d9797;" text="Back to Search" textFill="WHITE">
+      <JFXButton fx:id="backButton" buttonType="RAISED" layoutX="39.0" layoutY="27.0" onAction="#goBack" ripplerFill="#9d9797" style="-fx-background-color: WHITE;" text="Back to Search">
          <font>
-            <Font size="18.0" />
+            <Font name="Roboto Light" size="18.0" />
          </font></JFXButton>
       <!--<fx:include source="MenuDrawer.fxml" />-->
     </children>

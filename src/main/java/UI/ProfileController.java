@@ -87,7 +87,8 @@ public class ProfileController extends PageControllerUI implements Initializable
     public void initialize(URL location, ResourceBundle resources) {
         NameLabel.setText(attributeContainer.currentUser.getName());
         UsernameLabel.setText(attributeContainer.currentUser.getLogin());
-        EmailLabel.setText(attributeContainer.currentUser.getEmail());
+        //GETS EMAIL
+        EmailLabel.setText(attributeContainer.currentUser.getLogin());
 
         PasswordPane.setPickOnBounds(false);
         PasswordPane.setOpacity(1);

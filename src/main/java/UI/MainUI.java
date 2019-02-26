@@ -23,7 +23,7 @@ public class MainUI extends Application {
         EntitiesContainer.getInstance();
         PageSwitcher.setStage(primaryStage);
         PageSwitcher pageSwitcher = new PageSwitcher();
-        pageSwitcher.pageSwitch("HomeSearch.fxml");
+        pageSwitcher.pageSwitch("SimpleSearch.fxml");
     }
 
     //Should make it so when the program is shutdown hibernate is shutdown with it

@@ -2,24 +2,16 @@ package DB;
 
 import Entities.*;
 import org.hibernate.*;
-import org.hibernate.criterion.MatchMode;
 import org.hibernate.query.Query;
-import org.hibernate.cfg.Configuration;
 
 import javax.persistence.NoResultException;
-import javax.persistence.Transient;
 import javax.persistence.criteria.*;
-import java.sql.*;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 //Class for handling all the selection operations of the database. Class is a singleton
 public class DBSelect {
     private static DBSelect dbselect; //TODO GET RID OF REPEATED CODE
-    private static SessionFactory factory; //TODO ONE SESSIONFACTORY, INTERFACE THAT INCLUDES CLOSING METHOD
+    private static SessionFactory factory;
 
     private DBSelect() {
     }
@@ -184,16 +176,23 @@ public class DBSelect {
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
         }
-        if (as.stateCountry != null) {
+        if (as.state != null) {
             //Might not work because it is a list
             Join<Form, Address> addresses = root.join("address");
-            predicates.add(cb.equal(addresses.get("state"), as.stateCountry));
+            predicates.add(cb.equal(addresses.get("state"), as.state));
         }
         if (as.startDate != null && as.endDate != null) {
             Join<Form, Approval> approvals = root.join("approval");
             //This conversion might not work because of util.Date to sql.Date
-            predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
-            predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
+            predicates.add(cb.between(approvals.get("dateApproved"), as.startDate, as.endDate));
+            //predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
+            //predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
+        }
+        if (as.logoText != null) {
+            predicates.add(cb.equal(cb.lower(root.get("logoText")), as.logoText.toLowerCase()));
+        }
+        if (as.labelText != null) {
+            predicates.add(cb.like(cb.lower(root.get("labelText")), "%" + as.labelText.toLowerCase() + "%"));
         }
         //Convert the predicates to an array and set the where statement with them
         cr.where(predicates.toArray(new Predicate[]{}));
@@ -269,6 +268,24 @@ public class DBSelect {
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
         }
+        if (as.state != null) {
+            //Might not work because it is a list
+            Join<Form, Address> addresses = root.join("address");
+            predicates.add(cb.equal(addresses.get("state"), as.state));
+        }
+        if (as.startDate != null && as.endDate != null) {
+            Join<Form, Approval> approvals = root.join("approval");
+            //This conversion might not work because of util.Date to sql.Date
+            predicates.add(cb.between(approvals.get("dateApproved"), as.startDate, as.endDate));
+            //predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
+            //predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
+        }
+        if (as.logoText != null) {
+            predicates.add(cb.equal(cb.lower(root.get("logoText")), as.logoText.toLowerCase()));
+        }
+        if (as.labelText != null) {
+            predicates.add(cb.like(cb.lower(root.get("labelText")), "%" + as.labelText.toLowerCase() + "%"));
+        }
         cr.where(predicates.toArray(new Predicate[]{}));
         //Only selects the needed items for a minimal form to be displayed
         cr.multiselect(root.get("ttbID"), root.get("serialNumber"), root.get("alcoholType"), root.get("brandName"), root.get("dateSubmitted"), root.get("approvalStatus"));
@@ -333,6 +350,24 @@ public class DBSelect {
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
+        }
+        if (as.state != null) {
+            //Might not work because it is a list
+            Join<Form, Address> addresses = root.join("address");
+            predicates.add(cb.equal(addresses.get("state"), as.state));
+        }
+        if (as.startDate != null && as.endDate != null) {
+            Join<Form, Approval> approvals = root.join("approval");
+            //This conversion might not work because of util.Date to sql.Date
+            predicates.add(cb.between(approvals.get("dateApproved"), as.startDate, as.endDate));
+            //predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
+            //predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
+        }
+        if (as.logoText != null) {
+            predicates.add(cb.equal(cb.lower(root.get("logoText")), as.logoText.toLowerCase()));
+        }
+        if (as.labelText != null) {
+            predicates.add(cb.like(cb.lower(root.get("labelText")), "%" + as.labelText.toLowerCase() + "%"));
         }
         cr.where(predicates.toArray(new Predicate[]{}));
         //Adds a select so we only get the brandName from the results
@@ -669,6 +704,75 @@ public class DBSelect {
             return true;
         } else {
             return false;
+        }
+    }
+
+    /**
+     * Searches by just brandname and fanicful name for the basic search
+     * @author Jordan
+     * @param name String with the text
+     * @return A list of forms that contain the results
+     */
+    public List<Form> simpleSearch(String name) {
+        List<Form> results = new ArrayList<>();
+        Session session = factory.openSession();
+        Transaction tx = null;
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Form> cr = cb.createQuery(Form.class);
+        Root<Form> root = cr.from(Form.class);
+        List<Predicate> predicates = new ArrayList<>();
+        predicates.add(cb.equal(root.get("approvalStatus"), ApprovalStatus.Complete));
+        if (name != null) { //These both set everything to lowercase and do a basic like with wildcards in front and behind the entered query, also does an or for both
+            predicates.add(cb.or(cb.like(cb.lower(root.get("brandName")), "%" + name.toLowerCase() + "%"), cb.like(cb.lower(root.get("fancifulName")), "%" + name.toLowerCase() + "%")));
+        }
+        cr.where(predicates.toArray(new Predicate[]{}));
+        //Only selects the needed items for a minimal form to be displayed
+        cr.multiselect(root.get("ttbID"), root.get("serialNumber"), root.get("alcoholType"), root.get("brandName"), root.get("dateSubmitted"), root.get("approvalStatus"));
+        cr.distinct(true);
+
+        try {
+            tx = session.beginTransaction();
+            List<Form> tempResults = session.createQuery(cr).list();
+            for (Iterator iterator = tempResults.iterator(); iterator.hasNext();){
+                Form form = (Form) iterator.next();
+                results.add(form);
+            }
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return results;
+    }
+
+    /**
+     * Gets a random form from the database. Is recursive and can potentially take hours to finish depending on your luck. I swear I'm okay at programming
+     * NOTE: BECAUSE OF HOW THIS WORKS IT COULD TECHNICALLY TAKE A LONG TIME TO FINISH BUT ON AVERAGE SHOULD FINISH QUICKLY BECAUSE WE HAVE A MAJORITY APPROVED FORMS
+     * @author Jordan
+     * @return A random approved form from the database
+     */
+    //TODO FIX THIS SO ITS KINDA BETTER
+    public Form randomForm() {
+        String q = "SELECT count(*) FROM Form F WHERE F.approvalStatus = :approval";
+        Session session = factory.openSession();
+        Query query = session.createQuery(q);
+        query.setParameter("approval", ApprovalStatus.Complete);
+        int result = 0;
+        Long temp;
+        final Object obj = query.uniqueResult();
+        if (obj != null) {
+            temp = (Long) obj;
+            result = temp.intValue();
+        }
+        session.close();
+        Random rand = new Random();
+        Form randomForm = getFormByTTB_ID(rand.nextInt(result) + 1);
+        if (randomForm.getApprovalStatus() == ApprovalStatus.Complete) {
+            return randomForm;
+        } else {
+            return randomForm();
         }
     }
 }

@@ -14,10 +14,13 @@ public class AdvancedSearch {
     //Number of results to return
     public int numResults;
 
-    public String stateCountry;
+    public String state;
     //Might need to be sql dates
     public Date startDate;
     public Date endDate;
+
+    public String labelText;
+    public String logoText;
 
     //Wine stuff
     public int vintageYear;
@@ -42,7 +45,9 @@ public class AdvancedSearch {
         this.approvalStatus = ApprovalStatus.Complete;
         this.startDate = null;
         this.endDate = null;
-        this.stateCountry = null;
+        this.state = null;
+        this.logoText = null;
+        this.labelText = null;
     }
 //getters and setters
     public Boolean getSource() {
@@ -134,16 +139,14 @@ public class AdvancedSearch {
     }
 
     public String getStateCountry() {
-        return stateCountry;
+        return state;
     }
 
-    public void setStateCountry(String stateCountry) {
-        this.stateCountry = stateCountry;
+    public void setStateCountry(String state) {
+        this.state = state;
     }
 
-    public Date getStartDate() {
-        return startDate;
-    }
+    public Date getStartDate() { return startDate; }
 
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
@@ -155,6 +158,30 @@ public class AdvancedSearch {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getLabelText() {
+        return labelText;
+    }
+
+    public void setLabelText(String labelText) {
+        this.labelText = labelText;
+    }
+
+    public String getLogoText() {
+        return logoText;
+    }
+
+    public void setLogoText(String logoText) {
+        this.logoText = logoText;
     }
 
     /**

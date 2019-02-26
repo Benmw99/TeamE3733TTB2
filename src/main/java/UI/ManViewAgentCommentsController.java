@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.dnd.DragSourceDragEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -25,6 +26,7 @@ public class ManViewAgentCommentsController extends PageControllerUI implements 
 
     @FXML
     JFXTextArea agentComments;
+
 
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
@@ -38,8 +40,8 @@ public class ManViewAgentCommentsController extends PageControllerUI implements 
     protected void onLeave() {
     }
 
-   public void receiveNewComments() throws IOException{
-        // TODO figure out how pull in comments and display them
+   public void receiveNewComments(ActionEvent event) throws IOException{
+        agentComments.setText(attributeContainer.currentForm.getApproval().getQualifications());
     }
 
     @Override

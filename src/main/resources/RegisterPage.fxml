@@ -12,13 +12,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.RegisterPageController">
+<AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.RegisterPageController">
     <children>
-        <Rectangle fill="#9ea7aa" height="89.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="1376.0" />
-        <Rectangle fill="#cfd8dc" height="62.0" layoutY="89.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1376.0" />
-        <Text fill="WHITE" layoutX="575.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
+        <Rectangle fill="#4285f4" height="102.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="1376.0" />
+        <Text fill="WHITE" layoutX="552.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
             <font>
-                <Font name="Apple SD Gothic Neo Thin" size="48.0" />
+                <Font name="Roboto Light" size="48.0" />
             </font>
         </Text>
         <VBox alignment="CENTER" layoutX="585.0" layoutY="221.0" prefHeight="434.0" prefWidth="205.0">
@@ -28,7 +27,7 @@
                         <Insets bottom="5.0" top="5.0" />
                     </padding>
                     <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+                        <Font name="Roboto Light" size="14.0" />
                     </font>
                 </JFXTextField>
                 <JFXTextField fx:id="RegisterUserLastNameTextField" alignment="CENTER" promptText="last name">
@@ -36,7 +35,7 @@
                         <Insets bottom="5.0" top="20.0" />
                     </padding>
                     <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+                        <Font name="Roboto Light" size="14.0" />
                     </font>
                 </JFXTextField>
                 <JFXTextField fx:id="RegisterUserUsernameTextField" alignment="CENTER" promptText="username">
@@ -44,7 +43,7 @@
                         <Insets bottom="5.0" top="20.0" />
                     </padding>
                     <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+                        <Font name="Roboto Light" size="14.0" />
                     </font>
                 </JFXTextField>
                 <JFXTextField fx:id="RegisterUserEmailTextField" alignment="CENTER" promptText="email">
@@ -55,7 +54,7 @@
                         <Insets bottom="5.0" top="20.0" />
                     </padding>
                     <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+                        <Font name="Roboto Light" size="14.0" />
                     </font>
                 </JFXTextField>
                 <JFXPasswordField fx:id="RegisterUserPasswordTextField" alignment="TOP_CENTER" promptText="password">
@@ -63,7 +62,7 @@
                         <Insets bottom="5.0" top="20.0" />
                     </padding>
                     <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+                        <Font name="Roboto Light" size="14.0" />
                     </font>
                 </JFXPasswordField>
                 <JFXPasswordField fx:id="RegisterUserPasswordCheckTextField" alignment="CENTER" promptText="re-enter password">
@@ -71,12 +70,12 @@
                         <Insets bottom="5.0" top="20.0" />
                     </padding>
                     <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="14.0" />
+                        <Font name="Roboto Light" size="14.0" />
                     </font>
                 </JFXPasswordField>
                 <Label text="I'm a:">
                     <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                        <Font name="Roboto Light" size="18.0" />
                     </font>
                     <padding>
                         <Insets bottom="5.0" top="10.0" />
@@ -84,23 +83,26 @@
                 </Label>
                 <JFXRadioButton fx:id="ManufacturerRadio" text="manufacturer">
                     <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                        <Font name="Roboto Light" size="18.0" />
                     </font>
                     <padding>
                         <Insets top="10.0" />
                     </padding>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
                 </JFXRadioButton>
                 <JFXRadioButton fx:id="AgentRadio" text="agent">
                     <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                        <Font name="Roboto Light" size="18.0" />
                     </font>
                 </JFXRadioButton>
-                <JFXButton fx:id="SubmitRegistrationButton" buttonType="RAISED" onAction="#handleTheThing" prefHeight="39.0" prefWidth="98.0" ripplerFill="#9d9797" style="-fx-background-color: WHITE;" text="register">
+                <JFXButton fx:id="SubmitRegistrationButton" buttonType="RAISED" onAction="#handleTheThing" prefHeight="39.0" prefWidth="98.0" ripplerFill="#9d9797" style="-fx-background-color: #4285f4;" text="register" textFill="WHITE">
                     <VBox.margin>
                         <Insets top="25.0" />
                     </VBox.margin>
                     <font>
-                        <Font name="Apple SD Gothic Neo Thin" size="18.0" />
+                        <Font name="Roboto Light" size="18.0" />
                     </font>
                 </JFXButton>
             </children>

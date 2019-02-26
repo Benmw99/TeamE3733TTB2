@@ -3,6 +3,8 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -10,93 +12,115 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AboutPageController">
+<AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AboutPageController">
    <children>
-      <Rectangle arcWidth="5.0" fill="#9ea7aa" height="80.0" layoutY="-2.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="0.0" width="1376.0" AnchorPane.topAnchor="0.0" />
-      <Rectangle fill="#cfd8dc" height="60.0" layoutY="78.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="0.0" width="1376.0" AnchorPane.topAnchor="0.0" />
+      <Rectangle arcWidth="5.0" fill="#4285f4" height="102.0" layoutY="-2.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="0.0" width="1376.0" AnchorPane.topAnchor="0.0" />
       <Pane layoutX="-3.0" layoutY="140.0">
          <children>
-            <VBox alignment="CENTER" layoutX="436.0" layoutY="4.0" prefHeight="623.0" prefWidth="566.0">
+            <VBox alignment="CENTER" layoutX="436.0" layoutY="-15.0" prefHeight="703.0" prefWidth="570.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <Label alignment="CENTER" text="Ben Waid - Lead Software Engineer">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" text="Nick Eusman - Assistant Lead Software Engineer">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" text="Parker Grant - Assistant Software Engineer">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" text="Jordan Gold - Test Engineer">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" text="Michael Clements - Assistant Documntation Analyst">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" text="Gabriella Oviedo - Scrum Master" textAlignment="CENTER">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" text="Sierra Palmer - Project Manager">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" text="Brandon Navarro - Assistant Documentation Analyst">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" text="Hannah Baez - Product Owner">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" text="Matt LeMay - Team Coach">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="We would like to thank the U.S. Treasury Alcohol and Tobacco Tax &amp; Trade Bureau for the opportunity to work on this project, and the insight as to how this system should work." textAlignment="CENTER" wrappingWidth="569.6303596496582">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Thin" size="20.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="40.0" />
-                           </VBox.margin>
-                        </Text>
-                     </children>
-                  </VBox>
+                  <Label alignment="CENTER" text="Ben Waid (CS 2021) - Lead Software Engineer">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" text="Nick Eusman (CS/ME 2021) - Assistant Lead Software Engineer">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" text="Parker Grant (RBE/ECE 2019) - Assistant Software Engineer">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" text="Jordan Gold (CS 2021) - Test Engineer">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" text="Michael Clements (CS 2021) - Assistant Documntation Analyst">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" text="Gabriella Oviedo (RBE 2019) - Scrum Master" textAlignment="CENTER">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" text="Sierra Palmer (RBE 2019) - Project Manager">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" text="Brandon Navarro (CS 2020) - Assistant Documentation Analyst">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" text="Hannah Baez (RBE 2020) - Product Owner">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="CENTER" text="Matt LeMay - Team Coach">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="231.0" fitWidth="437.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets top="35.0" />
+                     </VBox.margin>
+                     <image>
+                        <Image url="@soft%20eng%20team%20photo.jpg" />
+                     </image>
+                  </ImageView>
+                  <Text fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="We would like to thank the U.S. Treasury Alcohol and Tobacco Tax &amp; Trade Bureau for the opportunity to work on this project, and the insight as to how this system should work." textAlignment="CENTER" wrappingWidth="569.6303596496582">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="40.0" />
+                     </VBox.margin>
+                  </Text>
                </children>
             </VBox>
          </children>
       </Pane>
-      <Label layoutX="660.0" layoutY="18.0" text="About" textFill="WHITE">
+      <Label layoutX="661.0" layoutY="28.0" text="About" textFill="WHITE">
          <font>
-            <Font name="Apple SD Gothic Neo Thin" size="38.0" />
+            <Font name="Roboto Light" size="38.0" />
          </font>
       </Label>
-      <JFXButton fx:id="back" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" minHeight="-Infinity" onAction="#goBack" prefHeight="60.0" prefWidth="60.0" text="&lt;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <font>
-            <Font name="Apple SD Gothic Neo Heavy" size="36.0" />
-         </font>
-      </JFXButton>
+      <fx:include source="MenuDrawer.fxml" />
    </children>
 </AnchorPane>

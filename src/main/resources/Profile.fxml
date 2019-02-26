@@ -16,21 +16,21 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1360.0" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ProfileController">
 <children>
       <StackPane prefHeight="80.0" prefWidth="1360.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-          <Rectangle fill="#9ea7aa" height="80.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1360.0" />
-            <Label text="Proflie">
+          <Rectangle fill="#4285f4" height="80.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1360.0" />
+            <Label text="Profile" textFill="WHITE">
                <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="36.0" />
+                  <Font name="Roboto Light" size="36.0" />
                </font>
             </Label>
          </children>
       </StackPane>
       <StackPane alignment="TOP_CENTER" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
          <children>
-            <JFXScrollPane alignment="TOP_CENTER" style="-fx-background-color: black;">
+            <JFXScrollPane alignment="TOP_CENTER" style="-fx-background-color: #9ea7aa;">
                <children>
                   <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" style="-fx-background-color: white;">
                      <children>
@@ -45,7 +45,7 @@
                                  <children>
                                     <Label fx:id="NameLabel" text="NAME">
                                        <font>
-                                          <Font name="Apple SD Gothic Neo Bold" size="24.0" />
+                                          <Font name="Roboto Light" size="24.0" />
                                        </font>
                                        <VBox.margin>
                                           <Insets bottom="10.0" left="15.0" />
@@ -53,7 +53,7 @@
                                     </Label>
                                     <Label fx:id="UsernameLabel" text="USERNAME">
                                        <font>
-                                          <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                          <Font name="Roboto Light" size="18.0" />
                                        </font>
                                        <VBox.margin>
                                           <Insets left="15.0" />
@@ -61,7 +61,7 @@
                                     </Label>
                                     <Label fx:id="EmailLabel" text="EMAIL">
                                        <font>
-                                          <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                          <Font name="Roboto Light" size="18.0" />
                                        </font>
                                        <VBox.margin>
                                           <Insets left="15.0" />
@@ -74,9 +74,9 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <JFXButton maxWidth="150.0" ripplerFill="#790a0a" style="-fx-background-color: grey;" text="Upload Profile Picture" textFill="WHITE" translateX="-285.0">
+                        <JFXButton maxWidth="150.0" ripplerFill="#4285f4" style="-fx-background-color: grey;" text="Upload Profile Picture" textFill="WHITE" translateX="-285.0">
                            <font>
-                              <Font name="Apple SD Gothic Neo Regular" size="13.0" />
+                              <Font name="Roboto Light" size="13.0" />
                            </font>
                            <VBox.margin>
                               <Insets top="5.0" />
@@ -89,7 +89,7 @@
                                     <Insets left="15.0" right="5.0" top="10.0" />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                                    <Font name="Roboto Light" size="14.0" />
                                  </font>
                               </Label>
                               <Separator HBox.hgrow="ALWAYS">
@@ -101,9 +101,9 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                            <children>
-                              <Label prefHeight="50.0" prefWidth="250.0" text="Enable Form Submission Wizard">
+                              <Label prefHeight="50.0" prefWidth="265.0" text="Enable Form Submission Wizard">
                                  <font>
-                                    <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                    <Font name="Roboto Light" size="18.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="15.0" />
@@ -120,7 +120,7 @@
                            <children>
                               <Label prefHeight="50.0" prefWidth="250.0" text="Enable Email Notifications">
                                  <font>
-                                    <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                    <Font name="Roboto Light" size="18.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="15.0" />
@@ -140,7 +140,7 @@
                                     <Insets left="15.0" right="5.0" top="10.0" />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Apple SD Gothic Neo Regular" size="14.0" />
+                                    <Font name="Roboto Light" size="14.0" />
                                  </font>
                               </Label>
                               <Separator HBox.hgrow="ALWAYS">
@@ -152,9 +152,9 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="50.0" prefWidth="140.0" text="Change Password">
+                              <Label alignment="CENTER" prefHeight="50.0" prefWidth="176.0" text="Change Password">
                                  <font>
-                                    <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                    <Font name="Roboto Light" size="18.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets left="15.0" />
@@ -175,7 +175,7 @@
                                        <children>
                                           <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" text="Enter New Password:">
                                              <font>
-                                                <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                                <Font name="Roboto Light" size="18.0" />
                                              </font>
                                           </Label>
                                           <JFXPasswordField fx:id="NewPasswordField1" prefWidth="150.0">
@@ -192,7 +192,7 @@
                                        <children>
                                           <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" text="Re-enter New Password:">
                                              <font>
-                                                <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                                <Font name="Roboto Light" size="18.0" />
                                              </font>
                                           </Label>
                                           <JFXPasswordField fx:id="NewPasswordField2" prefWidth="150.0">
@@ -213,7 +213,7 @@
                                        <children>
                                           <Label prefHeight="50.0" prefWidth="200.0" text="Enter Old Password:">
                                              <font>
-                                                <Font name="Apple SD Gothic Neo Regular" size="18.0" />
+                                                <Font name="Roboto Light" size="18.0" />
                                              </font>
                                              <HBox.margin>
                                                 <Insets />
@@ -233,7 +233,7 @@
                                        <children>
                                           <JFXButton fx:id="ChangePass" maxWidth="150.0" ripplerFill="#790a0a" style="-fx-background-color: grey;" text="Change Password" textFill="WHITE">
                                              <font>
-                                                <Font name="Apple SD Gothic Neo Regular" size="13.0" />
+                                                <Font name="Roboto Light" size="13.0" />
                                              </font>
                                           </JFXButton>
                                        </children>
@@ -251,7 +251,7 @@
             </JFXScrollPane>
          </children>
       </StackPane>
-      <StackPane fx:id="MenuStackPane" alignment="CENTER_LEFT" layoutX="1097.0" layoutY="23.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #9ea7aa;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane fx:id="MenuStackPane" alignment="CENTER_LEFT" layoutX="1097.0" layoutY="23.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #4285f4;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <fx:include source="MenuDrawer.fxml" />
          </children>

@@ -66,7 +66,7 @@
     -fx-padding: 0.8em 0em 0.5em 0.3em;
     -fx-border-color: transparent -fx-box-border transparent transparent;
     -fx-font: 12px "Roboto Light";
-    -fx-text-fill: #212121;
+    -fx-text-fill: black;
 }
 .table-view {
     -fx-table-header-border-color: #959595;
@@ -121,11 +121,11 @@
 
 .table-view .column-header, .table-view .filler {
     -fx-background-color: white;
-    -fx-size: 35;
+    -fx-size: 40;
     -fx-border-color: -fx-box-border;
     -fx-border-insets: -1 0 0 -1;
     -fx-padding: 0 5 0 0;
-    -fx-font-color: white;
+    -fx-font-color: black;
 }
 .table-view .show-hide-columns-button {
     -fx-background-color:  white;
@@ -147,6 +147,8 @@
     -fx-padding: 0.2em;
     -fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";
 }
+
+
 
 
 

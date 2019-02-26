@@ -83,18 +83,18 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
                     BoxSlider.setMaxSize(0, 0);
                     SearchSlider.setMaxSize(0, 0);
                     GoHomeSlider.setMaxSize(0, 0);
-                    LogOutSlider.setMaxSize(0, 0);
 
                     Pane.setPrefSize(50, 50);
                     Drawer.setPrefSize(0,0);
                     BoxSlider.setPrefSize(0,0);
                     SearchSlider.setPrefSize(0, 0);
                     GoHomeSlider.setPrefSize(0, 0);
-                    LogOutSlider.setPrefSize(0, 0);
 
                     if(isSignedIn){
                         ProfileSlider.setMaxSize(0,0);
                         ProfileSlider.setPrefSize(0,0);
+                        LogOutSlider.setPrefSize(300,70);
+                        LogOutSlider.setMaxSize(300, 70);
                     }
                 } else {
                     Pane.setMaxSize(300, 760);
@@ -102,18 +102,18 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
                     BoxSlider. setMaxSize(300, 760);
                     SearchSlider.setMaxSize(300, 70);
                     GoHomeSlider.setMaxSize(300, 70);
-                    LogOutSlider.setMaxSize(300, 70);
 
                     Pane.setPrefSize(300, 760);
                     Drawer.setPrefSize(300, 760);
                     BoxSlider.setPrefSize(300, 760);
                     SearchSlider.setPrefSize(300, 70);
                     GoHomeSlider.setPrefSize(300, 70);
-                    LogOutSlider.setPrefSize(300,70);
 
                     if(isSignedIn){
                         ProfileSlider.setMaxSize(300,70);
                         ProfileSlider.setPrefSize(300,70);
+                        LogOutSlider.setPrefSize(300,70);
+                        LogOutSlider.setMaxSize(300, 70);
                     }
                     Drawer.open();
                 }
@@ -132,20 +132,19 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
     public void goToSearch() {
         AttributeContainer ac = AttributeContainer.getInstance();
         if (ac.currentUser == null) {
-
             ac.currentForm = null;
             ac.formQueue = new ArrayList<Entities.Form>();
-            goToPage("HomeSearch.fxml");
+            goToPage("SimpleSearch.fxml");
         } else {
             if (ac.currentUser.isAgent()) {
                 ac.currentForm = null;
                 ac.formQueue = new ArrayList<Entities.Form>();
-                goToPage("HomeSearch.fxml");
+                goToPage("SimpleSearch.fxml");
             }
             if (ac.currentUser.isManufacturer()) {
                 ac.currentForm = null;
                 ac.formQueue = new ArrayList<Entities.Form>();
-                goToPage("HomeSearch.fxml");
+                goToPage("SimpleSearch.fxml");
             }
         }
     }

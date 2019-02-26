@@ -215,17 +215,18 @@ public class TableBuilder {
                 "Email VARCHAR(256)," +
                 "Date_Submitted DATE," +
                 "Applicant_Name VARCHAR(32)," +
-                //"Text VARCHAR(256) DEFAULT NULL, " +
+                "labelText VARCHAR(500) DEFAULT NULL, " +
                 "Phone VARCHAR(16)," +
                 "Alcohol_Type SMALLINT," +
                 "APV REAL, " +
                 "WorkingOn BIGINT, " +
+                "logoText VARCHAR(50) DEFAULT NULL, " +
                 "Formula VARCHAR(16) DEFAULT NULL," +
                 "Rep_ID VARCHAR(16) DEFAULT NULL," +
                 "Other_Info VARCHAR(256), " +
                 "Company_ID BIGINT," +
                 "Constraint Form_PK Primary Key (TTB_ID))";
-                //TODO IMPLEMENT REPS            "Constraint Form_FK_Rep Foreign Key (Rep_ID) References Reps(Rep_ID), " +
+                //"Constraint Form_FK_Rep Foreign Key (Rep_ID) References Reps(Rep_ID), " +
                 //"Constraint Form_FK_Company Foreign Key (Company_ID) References Company(Company_ID))";
         sendStatement(buildString);
         //String createSeq = "create sequence Form_ID as BIGINT start with 1";
@@ -239,6 +240,8 @@ public class TableBuilder {
                 "Agent_ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), " +
                 "Login_Name VARCHAR(32), " +
                 "Password VARCHAR(256), " +
+                "emailStatus BOOLEAN, " +
+                "docPass VARCHAR(50), " +
                 "Constraint Agents_PK Primary Key (Login_Name), " +
                 "Constraint Agents_UQ Unique (Agent_ID))";
         sendStatement(buildString);
@@ -246,9 +249,11 @@ public class TableBuilder {
 
     private void buildReps() {
         String buildString = "CREATE TABLE REPS (" +
-                "Rep_ID VARCHAR(16), " +
+                "Rep_ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), " +
                 "Login_Name VARCHAR(32), " +
                 "Password VARCHAR(256), " +
+                "emailStatus BOOLEAN, " +
+                "docPass VARCHAR(50), " +
                 "Constraint Reps_PK Primary Key (Login_Name), " +
                 "Constraint Reps_UQ Unique (Rep_ID))";
         sendStatement(buildString);
@@ -256,10 +261,12 @@ public class TableBuilder {
 
     private void buildCompany() {
         String buildString = "CREATE TABLE COMPANY (" +
-                "Company_ID BIGINT," +
+                "Company_ID BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1)," +
                 "Company_Name VARCHAR(256), " +
                 "Login_Name VARCHAR(32), " +
                 "Password VARCHAR(256), " +
+                "emailStatus BOOLEAN, " +
+                "docPass VARCHAR(50), " +
                 "Constraint Company_PK Primary Key (Login_Name), " +
                 "Constraint Company_UQ Unique (Company_ID))";
         sendStatement(buildString);
