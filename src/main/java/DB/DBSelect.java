@@ -188,6 +188,12 @@ public class DBSelect {
             //predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
             //predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
         }
+        if (as.logoText != null) {
+            predicates.add(cb.equal(cb.lower(root.get("logoText")), as.logoText.toLowerCase()));
+        }
+        if (as.labelText != null) {
+            predicates.add(cb.like(cb.lower(root.get("labelText")), "%" + as.labelText.toLowerCase() + "%"));
+        }
         //Convert the predicates to an array and set the where statement with them
         cr.where(predicates.toArray(new Predicate[]{}));
         //Only selects the needed items for a minimal form to be displayed
@@ -274,6 +280,12 @@ public class DBSelect {
             //predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
             //predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
         }
+        if (as.logoText != null) {
+            predicates.add(cb.equal(cb.lower(root.get("logoText")), as.logoText.toLowerCase()));
+        }
+        if (as.labelText != null) {
+            predicates.add(cb.like(cb.lower(root.get("labelText")), "%" + as.labelText.toLowerCase() + "%"));
+        }
         cr.where(predicates.toArray(new Predicate[]{}));
         //Only selects the needed items for a minimal form to be displayed
         cr.multiselect(root.get("ttbID"), root.get("serialNumber"), root.get("alcoholType"), root.get("brandName"), root.get("dateSubmitted"), root.get("approvalStatus"));
@@ -350,6 +362,12 @@ public class DBSelect {
             predicates.add(cb.between(approvals.get("dateApproved"), as.startDate, as.endDate));
             //predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
             //predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
+        }
+        if (as.logoText != null) {
+            predicates.add(cb.equal(cb.lower(root.get("logoText")), as.logoText.toLowerCase()));
+        }
+        if (as.labelText != null) {
+            predicates.add(cb.like(cb.lower(root.get("labelText")), "%" + as.labelText.toLowerCase() + "%"));
         }
         cr.where(predicates.toArray(new Predicate[]{}));
         //Adds a select so we only get the brandName from the results

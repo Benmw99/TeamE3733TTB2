@@ -19,6 +19,9 @@ public class AdvancedSearch {
     public Date startDate;
     public Date endDate;
 
+    public String labelText;
+    public String logoText;
+
     //Wine stuff
     public int vintageYear;
     public float pH;
@@ -43,6 +46,8 @@ public class AdvancedSearch {
         this.startDate = null;
         this.endDate = null;
         this.state = null;
+        this.logoText = null;
+        this.labelText = null;
     }
 //getters and setters
     public Boolean getSource() {
@@ -155,6 +160,30 @@ public class AdvancedSearch {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getLabelText() {
+        return labelText;
+    }
+
+    public void setLabelText(String labelText) {
+        this.labelText = labelText;
+    }
+
+    public String getLogoText() {
+        return logoText;
+    }
+
+    public void setLogoText(String logoText) {
+        this.logoText = logoText;
     }
 
     /**
