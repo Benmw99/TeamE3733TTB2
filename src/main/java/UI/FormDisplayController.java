@@ -166,6 +166,7 @@ public class FormDisplayController extends PageControllerUI implements Initializ
         this.Display3Label.setText(dom);
         if (form.getSerialNumber() != null) {
             this.DisplayReview4Label1.setText(form.getSerialNumber().substring(0, 2)); //First 2
+            // TODO This is already split into two fields
             this.Display4Label2.setText(form.getSerialNumber().substring(2)); //Rest
         }
         if (form.getAlcoholType() != null) {
@@ -206,9 +207,6 @@ public class FormDisplayController extends PageControllerUI implements Initializ
         if (form.getEmail() != null) {
             this.Display14Label.setText(form.getEmail());
         }
-//        Man15Label1().setText(); //TODO TYPE OF APPLICATION
-//        Man15Label2().setText();
-//        Man15Label3().setText(); //END TODO
         if (form.getOtherInfo() != null) {
             this.Display16Label1.setText(form.getOtherInfo());
         }
