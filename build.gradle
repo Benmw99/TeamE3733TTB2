@@ -46,6 +46,6 @@ dependencies {
     compile group: 'org.mongodb', name: 'mongo-java-driver', version: '3.10.1'
     compile 'com.google.cloud:google-cloud-vision:1.59.0'
     compile group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.61'
-
+    compile 'com.google.cloud:google-cloud-storage:1.59.0'
 
 }

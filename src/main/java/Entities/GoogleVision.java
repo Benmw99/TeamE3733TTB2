@@ -1,7 +1,10 @@
 // Imports the Google Cloud client library
 package Entities;
 import DB.Database;
+import com.google.api.client.util.Lists;
 import com.google.auth.oauth2.GoogleCredentials;
+import com.google.cloud.storage.Storage;
+import com.google.cloud.storage.StorageOptions;
 import com.google.cloud.vision.v1.AnnotateImageRequest;
 import com.google.cloud.vision.v1.AnnotateImageResponse;
 import com.google.cloud.vision.v1.BatchAnnotateImagesResponse;
@@ -11,6 +14,9 @@ import com.google.cloud.vision.v1.Feature.Type;
 import com.google.cloud.vision.v1.Image;
 import com.google.cloud.vision.v1.ImageAnnotatorClient;
 import com.google.protobuf.ByteString;
+
+
+import io.grpc.Context;
 import org.omg.CORBA.Environment;
 
 import java.io.*;
@@ -98,7 +104,10 @@ public class GoogleVision {
      */
     public void detectText(String filePath, Form form) throws Exception, IOException {
         FileOpener opener = new FileOpener();
-        GoogleCredentials.fromStream( new FileInputStream(new File(getClass().getResource("/" + "My First Project-b6981c3f2253.json").toURI())));
+        GoogleCredentials credentials = GoogleCredentials.fromStream( new FileInputStream(new File(getClass().getResource("/" + "My First Project-b6981c3f2253.json").toURI())));
+        Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
+
+
         List<AnnotateImageRequest> requests = new ArrayList<>();
 
         ByteString imgBytes = new FileOpener().fileOpener(filePath);
@@ -135,7 +144,8 @@ public class GoogleVision {
 
 
     public void detectLogoText(String filePath, Form form) throws Exception, IOException {
-        GoogleCredentials.fromStream( new FileInputStream(new File(getClass().getResource("/" + "My First Project-b6981c3f2253.json").toURI())));
+        GoogleCredentials credentials = GoogleCredentials.fromStream( new FileInputStream(new File(getClass().getResource("/" + "My First Project-b6981c3f2253.json").toURI())));
+        Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
         List<AnnotateImageRequest> requests = new ArrayList<>();
 
         ByteString imgBytes = new FileOpener().fileOpener(filePath);
