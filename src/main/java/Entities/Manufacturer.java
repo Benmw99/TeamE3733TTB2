@@ -88,6 +88,10 @@ public class Manufacturer implements IUser {
         this.manID = manID;
     }
 
+    public String getEmail() {
+        return this.login;
+    }
+
     public String getManName() {
         return manName;
     }
