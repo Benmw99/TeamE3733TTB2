@@ -19,14 +19,6 @@
         <Rectangle fill="#4285f4" height="102.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="1376.0" />
         <VBox alignment="CENTER" layoutX="585.0" layoutY="150.0" prefHeight="542.0" prefWidth="205.0">
             <children>
-              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
-                  <font>
-                      <Font name="Roboto Light" size="36.0" />
-                  </font>
-               <VBox.margin>
-                  <Insets bottom="30.0" />
-               </VBox.margin>
-              </Text>
                 <JFXTextField fx:id="RegisterUserFirstNameTextField" alignment="CENTER" labelFloat="true" promptText="first name">
                     <padding>
                         <Insets bottom="5.0" top="5.0" />
@@ -131,5 +123,10 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
+        <Text layoutX="590.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
+            <font>
+                <Font name="Roboto Light" size="36.0" />
+            </font>
+        </Text>
     </children>
 </AnchorPane>
