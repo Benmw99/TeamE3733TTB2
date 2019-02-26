@@ -9,7 +9,7 @@ public class Representative implements IUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Rep_ID")
-    private String repID;
+    private int repID;
 
     @Column(name = "Login_Name")
     private String login;
@@ -17,16 +17,36 @@ public class Representative implements IUser {
     @Column(name = "Password")
     private String password;
 
-    public Representative(String repID, String login, String password) {
+    @Column(name = "emailStatus")
+    private boolean emailStatus;
+
+    @Column(name = "docPass")
+    private String documentPassword;
+
+    public Representative(String login, String password, boolean emailStatus, String documentPassword) {
+        this.login = login;
+        this.password = password;
+        this.emailStatus = emailStatus;
+        this.documentPassword = documentPassword;
+    }
+
+    public Representative(String login, String password, boolean emailStatus) {
+        this.login = login;
+        this.password = password;
+        this.emailStatus = emailStatus;
+    }
+
+    public Representative(int repID, String login, String password) {
         this.repID = repID;
         this.login = login;
         this.password = password;
     }
 
     public Representative(){
-        this.repID = null;
+        this.repID = 0;
         this.login = null;
         this.password = null;
+        this.emailStatus = false;
     }
 
     public boolean isAgent() {
@@ -39,12 +59,20 @@ public class Representative implements IUser {
         return true;
     }
 
-    public String getRepID() {
+    public int getRepID() {
         return repID;
     }
 
-    public void setRepID(String repID) {
+    public void setRepID(int repID) {
         this.repID = repID;
+    }
+
+    public boolean isEmailStatus() {
+        return emailStatus;
+    }
+
+    public void setEmailStatus(boolean emailStatus) {
+        this.emailStatus = emailStatus;
     }
 
     @Override
@@ -67,11 +95,17 @@ public class Representative implements IUser {
         this.password = password;
     }
 
-    @Override
-    public String getName(){ return repID; }
+    public String getDocumentPassword() {
+        return documentPassword;
+    }
+
+    public void setDocumentPassword(String documentPassword) {
+        this.documentPassword = documentPassword;
+    }
 
     @Override
-    public String getEmail(){ return "No Email on record"; }
+    public String getName(){ return "" + this.repID; }
+
 
     public boolean authenticate(){
         DB.Database db = DB.Database.getDatabase();
@@ -102,7 +136,7 @@ public class Representative implements IUser {
 
     }
     boolean equals(Representative rep){
-        return(this.repID.equals(rep.repID) &&
+        return(this.repID == (rep.repID) &&
             this.login.equals(rep.login) &&
             this.password.equals(rep.password));
     }
