@@ -19,9 +19,9 @@
    <children>
       <Pane prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: WHITE;">
          <children>
-            <Pane layoutX="-6.0" layoutY="-1.0" prefHeight="89.0" prefWidth="1367.0" style="-fx-background-color: white;">
+            <Pane layoutX="-6.0" layoutY="-1.0" prefHeight="89.0" prefWidth="1367.0" style="-fx-background-color: #4285f4;">
                <children>
-                  <Text layoutX="656.0" layoutY="57.0" strokeWidth="0.0" text="Home">
+                  <Text fill="WHITE" layoutX="656.0" layoutY="57.0" strokeWidth="0.0" text="Home">
                      <font>
                         <Font name="Roboto Light" size="48.0" />
                      </font>
@@ -38,21 +38,21 @@
             </Pane>
             <Pane layoutX="558.0" layoutY="88.0" prefHeight="64.0" prefWidth="803.0" style="-fx-background-color: white;">
                <children>
-                  <JFXButton fx:id="commentsButton" buttonType="RAISED" layoutX="417.0" layoutY="4.0" onAction="#viewAgentComments" ripplerFill="#9d9797" style="-fx-background-color: AC2B37;" text="View Agent Comments" textFill="WHITE">
+                  <JFXButton fx:id="commentsButton" buttonType="RAISED" layoutX="417.0" layoutY="4.0" onAction="#viewAgentComments" ripplerFill="#9d9797" style="-fx-background-color: #4285f4;" text="View Agent Comments" textFill="WHITE">
                      <font>
                         <Font name="Roboto Light" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="printButton" buttonType="RAISED" layoutX="720.0" layoutY="4.0" onAction="#print" ripplerFill="#9d9797" style="-fx-background-color: AC2B37;" text="Print" textFill="WHITE">
+                  <JFXButton fx:id="printButton" buttonType="RAISED" layoutX="720.0" layoutY="4.0" onAction="#print" ripplerFill="#9d9797" style="-fx-background-color: #4285f4;" text="Print" textFill="WHITE">
                      <font>
                         <Font name="Roboto Light" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="goToSingleApp" layoutX="138.0" layoutY="4.0" onAction="#addSingleForm" prefHeight="36.0" style="-fx-background-color: AC2B37;" text="Single Page Application" textFill="WHITE">
+                  <JFXButton fx:id="goToSingleApp" layoutX="138.0" layoutY="4.0" onAction="#addSingleForm" prefHeight="36.0" style="-fx-background-color: #4285f4;" text="Single Page Application" textFill="WHITE">
                      <font>
                         <Font name="Roboto Light" size="18.0" />
                      </font></JFXButton>
-                  <JFXButton fx:id="newFormButton" layoutX="-25.0" layoutY="4.0" onAction="#addForm" prefHeight="36.0" style="-fx-background-color: AC2B37;" text="New Application" textFill="WHITE">
+                  <JFXButton fx:id="newFormButton" layoutX="-25.0" layoutY="4.0" onAction="#addForm" prefHeight="36.0" style="-fx-background-color: #4285f4;" text="New Application" textFill="WHITE">
                      <font>
                         <Font name="Roboto Light" size="18.0" />
                      </font>
@@ -63,7 +63,7 @@
       <VBox alignment="TOP_CENTER" prefHeight="575.0" prefWidth="475.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="150.0">
          <children>
             <fx:include maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="475.0" source="TableView.fxml" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
-            <JFXButton fx:id="refreshButton1" buttonType="RAISED" onAction="#refreshForms" prefHeight="45.0" prefWidth="200.0" ripplerFill="#9c9797" style="-fx-background-color: AC2B37;" text="Refresh" textFill="WHITE">
+            <JFXButton fx:id="refreshButton1" buttonType="RAISED" onAction="#refreshForms" prefHeight="45.0" prefWidth="200.0" ripplerFill="#9c9797" style="-fx-background-color: #4285f4;" text="Refresh" textFill="WHITE">
                <font>
                   <Font name="Roboto Light" size="18.0" />
                </font>
@@ -130,7 +130,7 @@
                   </VBox>
                </children>
             </HBox>
-            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="255.0" style="-fx-background-color: #800020;" text="Print" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="43.0" layoutY="255.0" style="-fx-background-color: #4285f4;" text="Print" textFill="WHITE">
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>
@@ -143,7 +143,7 @@
                   <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="44.0" layoutY="86.0" style="-fx-background-color: #800020;" text="Refresh" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="44.0" layoutY="86.0" style="-fx-background-color: #4285f4;" text="Refresh" textFill="WHITE">
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>
@@ -156,7 +156,7 @@
                   <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="40.0" layoutY="24.0" style="-fx-background-color: #800020;" text="View Agent Comments" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="40.0" layoutY="24.0" style="-fx-background-color: #4285f4;" text="View Agent Comments" textFill="WHITE">
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>
@@ -169,7 +169,7 @@
                   <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="42.0" layoutY="146.0" style="-fx-background-color: #800020;" text="New Application" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="42.0" layoutY="146.0" style="-fx-background-color: #4285f4;" text="New Application" textFill="WHITE">
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>
@@ -182,7 +182,7 @@
                   <Font name="Roboto Light" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="41.0" layoutY="199.0" style="-fx-background-color: #800020;" text="Single Page Application" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="41.0" layoutY="199.0" style="-fx-background-color: #4285f4;" text="Single Page Application" textFill="WHITE">
                <ripplerFill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>

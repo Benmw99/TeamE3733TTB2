@@ -135,17 +135,17 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
 
             ac.currentForm = null;
             ac.formQueue = new ArrayList<Entities.Form>();
-            goToPage("HomeSearch.fxml");
+            goToPage("SimpleSearch.fxml");
         } else {
             if (ac.currentUser.isAgent()) {
                 ac.currentForm = null;
                 ac.formQueue = new ArrayList<Entities.Form>();
-                goToPage("HomeSearch.fxml");
+                goToPage("SimpleSearch.fxml");
             }
             if (ac.currentUser.isManufacturer()) {
                 ac.currentForm = null;
                 ac.formQueue = new ArrayList<Entities.Form>();
-                goToPage("HomeSearch.fxml");
+                goToPage("SimpleSearch.fxml");
             }
         }
     }
