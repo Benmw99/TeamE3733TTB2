@@ -215,7 +215,7 @@ public class TableBuilder {
                 "Email VARCHAR(256)," +
                 "Date_Submitted DATE," +
                 "Applicant_Name VARCHAR(32)," +
-                "labelText VARCHAR(256) DEFAULT NULL, " +
+                "labelText VARCHAR(500) DEFAULT NULL, " +
                 "Phone VARCHAR(16)," +
                 "Alcohol_Type SMALLINT," +
                 "APV REAL, " +

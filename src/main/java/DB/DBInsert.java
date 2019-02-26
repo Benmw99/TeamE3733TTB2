@@ -814,6 +814,12 @@ public class DBInsert {
         System.out.println("Time in seconds of execution: " + ((endTime - startTime) / 1000000000));
     }
 
+    /**
+     * Updates the email status of a user
+     * @author Jordan
+     * @param a The user that you want to update with all the info set
+     * @param newStatus The new status you want being assigned
+     */
     public void updateEmailStatus(Agent a, boolean newStatus) {
         a.setEmailStatus(newStatus);
         Session session = factory.openSession();
@@ -831,6 +837,12 @@ public class DBInsert {
         }
     }
 
+    /**
+     * Updates the email status of a user
+     * @author Jordan
+     * @param m The user that you want to update with all the info set
+     * @param newStatus The new status you want being assigned
+     */
     public void updateEmailStatus(Manufacturer m, boolean newStatus) {
         m.setEmailStatus(newStatus);
         Session session = factory.openSession();
@@ -848,8 +860,83 @@ public class DBInsert {
         }
     }
 
+    /**
+     * Updates the email status of a user
+     * @author Jordan
+     * @param r The user that you want to update with all the info set
+     * @param newStatus The new status you want being assigned
+     */
     public void updateEmailStatus(Representative r, boolean newStatus) {
         r.setEmailStatus(newStatus);
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            //Merge is used as an update pretty much
+            session.merge(r);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    /**
+     * Updates the document password of a user
+     * @author Jordan
+     * @param a The user that you want to update with all the info set
+     * @param newPass The new password you want set for the document pass
+     */
+    public void updateDocPassword(Agent a, String newPass) {
+        a.setDocumentPassword(newPass);
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            //Merge is used as an update pretty much
+            session.merge(a);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    /**
+     * Updates the document password of a user
+     * @author Jordan
+     * @param m The user that you want to update with all the info set
+     * @param newPass The new password you want set for the document pass
+     */
+    public void updateDocPassword(Manufacturer m, String newPass) {
+        m.setDocumentPassword(newPass);
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            //Merge is used as an update pretty much
+            session.merge(m);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx!=null) tx.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    /**
+     * Updates the document password of a user
+     * @author Jordan
+     * @param r The user that you want to update with all the info set
+     * @param newPass The new password you want set for the document pass
+     */
+    public void updateDocPassword(Representative r, String newPass) {
+        r.setDocumentPassword(newPass);
         Session session = factory.openSession();
         Transaction tx = null;
         try {

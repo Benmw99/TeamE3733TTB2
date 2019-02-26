@@ -71,6 +71,10 @@ public class Representative implements IUser {
         return emailStatus;
     }
 
+    public String getEmail() {
+        return this.login;
+    }
+
     public void setEmailStatus(boolean emailStatus) {
         this.emailStatus = emailStatus;
     }
