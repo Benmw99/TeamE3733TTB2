@@ -186,7 +186,7 @@
                </font>
             </JFXButton>
             <Text fill="WHITE" layoutX="209.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Approve: Click me after fully reviewing the form to reject it. Remember, if any of the fields are not correct press &quot;Reject&quot; instead." wrappingWidth="183.99999031424522" />
-            <JFXButton buttonType="RAISED" layoutX="22.0" layoutY="260.0" pickOnBounds="true" prefHeight="9.0" prefWidth="187.0" style="-fx-background-color: #4285f4;" text="Get New Queue" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="22.0" layoutY="260.0" pickOnBounds="true" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #4285f4;" text="Get New Queue" textFill="WHITE">
                <font>
                   <Font name="Roboto Light" size="24.0" />
                </font>

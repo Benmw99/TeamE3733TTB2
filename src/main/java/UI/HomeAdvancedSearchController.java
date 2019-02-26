@@ -113,7 +113,7 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
     TextField SearchID;
 
     @FXML
-    JFXToggleButton helpToggleButton;
+    JFXButton helpButton;
 
     @FXML
     Pane largePane;
@@ -326,17 +326,17 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
 //
 //        }
 
-        helpToggleButton.setSelected(false);
+        //helpButton.isPressed();
         largePane.setOpacity(0);
         largePane.setDisable(true);
         smallPane.setOpacity(0);
         smallPane.setDisable(true);
 
-        helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
+        helpButton.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
-                if (helpToggleButton.isSelected()){
+                if (helpButton.isPressed()){
                     largePane.setOpacity(0.63);
                     largePane.setDisable(false);
                     smallPane.setOpacity(1);
