@@ -79,7 +79,7 @@ public class AuthenticatePage extends PageControllerUI implements Initializable 
     }
 
     public void resendEmail(ActionEvent event){
-        Thread mailThread = new Thread( new Mailer(attributeContainer.currentUser.getEmail(), attributeContainer.generatedKey));
+        Thread mailThread = new Thread( new Mailer(attributeContainer.email, attributeContainer.generatedKey));
         mailThread.start();
     }
 }
