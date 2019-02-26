@@ -115,11 +115,6 @@
       <JFXRadioButton fx:id="fuzzy" layoutX="213.0" layoutY="534.0" text="SQL Wild Search" />
       <JFXRadioButton fx:id="levenshtein" layoutX="213.0" layoutY="566.0" text="Levenshtein Distance" />
       <JFXRadioButton fx:id="damereauLevenshtein" layoutX="213.0" layoutY="594.0" text="Damerau Levenshtein" />
-      <StackPane fx:id="MenuStackPane" alignment="CENTER_LEFT" layoutX="1097.0" layoutY="23.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #4285f4;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <fx:include source="MenuDrawer.fxml" />
-         </children>
-      </StackPane>
       <JFXTextField fx:id="downloadDelimiter" alignment="CENTER" labelFloat="true" layoutX="215.0" layoutY="632.0" onAction="#limitDelimit" onInputMethodTextChanged="#limitDelimit" onKeyPressed="#limitDelimit" onKeyReleased="#limitDelimit" onKeyTyped="#limitDelimit" prefHeight="40.0" prefWidth="93.0" promptText="Delimiter" />
       <JFXButton fx:id="previousButton" buttonType="RAISED" layoutX="776.0" layoutY="716.0" onAction="#prevPage" style="-fx-background-color: #9ea7aa;" text="&lt;" textFill="WHITE" />
       <JFXButton fx:id="nextButton" buttonType="RAISED" layoutX="930.0" layoutY="716.0" onAction="#nextPage" style="-fx-background-color: #9ea7aa;" text="&gt;" textFill="WHITE" />
@@ -311,5 +306,10 @@
             <Font name="Roboto Light" size="18.0" />
          </font>
       </Text>
+      <StackPane fx:id="MenuStackPane" alignment="CENTER_LEFT" layoutX="1097.0" layoutY="23.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #4285f4;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <fx:include source="MenuDrawer.fxml" />
+         </children>
+      </StackPane>
 </children>
 </AnchorPane>
