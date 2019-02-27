@@ -122,13 +122,8 @@ public class Mailer implements Runnable {
     private void mailHelper(MimeMessage message, String body, Form form) throws MessagingException {
         Multipart multi = new MimeMultipart();
         try {
-            new FormExporter(form);
-          //  File file = ;
-                    InputStream is = getClass().getResourceAsStream("/" + "output.docx");
-                    File file = new File("docholder.docx");
-                    OutputStream outStream = new FileOutputStream(file);
-                    byte[] buffer = new byte[is.available()];
-            outStream.write(buffer);
+            new FormExporter(form, "email");
+            File file = new File("output.docx");
 
 
             MimeBodyPart textBodyPart = new MimeBodyPart();

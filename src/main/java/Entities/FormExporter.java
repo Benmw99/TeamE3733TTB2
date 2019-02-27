@@ -163,10 +163,17 @@ public class FormExporter {
             }
                 //File file = new File(getClass().getResource("/" +"output.docx").toURI());
             //    File file = new File("C:\\Users\\Elizabeth Del Monaco\\Desktop\\TeamE3733TTB2\\src\\main\\resources\\output.docx");
-            File file = new File(home + "/Downloads/" + "TTBFORM" + s + ".docx");
+            if(s.equals("email")) {
+                File file = new File("output.docx");
 
-            doc.write(new FileOutputStream(file));
-            doc.close();
+                doc.write(new FileOutputStream(file));
+                doc.close();
+            } else {
+                File file = new File(home + "/Downloads/" + "TTBFORM" + s + ".docx");
+
+                doc.write(new FileOutputStream(file));
+                doc.close();
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
