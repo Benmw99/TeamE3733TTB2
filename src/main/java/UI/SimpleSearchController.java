@@ -12,6 +12,9 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Font;
+import javafx.application.Application;
+import javafx.scene.text.Text;
 
 import javax.swing.*;
 import java.net.URL;
@@ -34,19 +37,37 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
     JFXButton goBack;
 
     @FXML
+    JFXButton goAdvSearch;
+
+    @FXML
     StackPane UsernameStackPane;
 
     @FXML
     JFXButton UsernameButton;
 
+    @FXML
+    Text title;
+
+    @FXML
+    Text descriptor;
+
     @Override
     protected void onLeave() {}
 
     @Override
-    void onLoad() {}
+    void onLoad() {
+        searchButton.setFont(new Font("Roboto Light", 18));
+        randomDrink.setFont(new Font("Roboto Light", 18));
+        searchBy.setFont(new Font ("Roboto Light", 24));
+        goAdvSearch.setFont(new Font("Roboto Light", 18));
+        title.setFont(new Font("Roboto Light", 48));
+        descriptor.setFont(new Font("Roboto Light", 24));
+        UsernameButton.setFont(new Font("Roboto Light", 18));
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         if(attributeContainer.currentUser != null){
 //            System.out.println("This is true");
             UsernameStackPane.setOpacity(1);

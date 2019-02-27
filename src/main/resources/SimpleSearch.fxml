@@ -23,7 +23,7 @@
                   <Image url="@logo.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB">
+            <Text fx:id="title" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB">
                <font>
                   <Font name="Roboto Light" size="48.0" />
                </font>
@@ -31,7 +31,7 @@
                   <Insets left="7.0" right="10.0" />
                </HBox.margin>
             </Text>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
+            <Text fx:id="descriptor" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
                <font>
                   <Font name="Roboto Light" size="24.0" />
                </font>
@@ -68,16 +68,19 @@
                   </JFXButton>
                </children>
             </HBox>
+            <JFXButton fx:id="goAdvSearch" buttonType="RAISED" onAction="#advancedSearch" style="-fx-background-color: #4285f4;" text="Go to advanced search" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Light" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="175.0" />
+               </VBox.margin>
+            </JFXButton>
          </children>
       </VBox>
       <JFXButton buttonType="RAISED" layoutX="1253.0" layoutY="28.0" onAction="#login" style="-fx-background-color: WHITE;" text="Login">
          <font>
             <Font name="Roboto Light" size="24.0" />
-         </font>
-      </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="1013.0" layoutY="664.0" onAction="#advancedSearch" style="-fx-background-color: #4285f4;" text="Go to advanced search" textFill="WHITE">
-         <font>
-            <Font name="Roboto Light" size="18.0" />
          </font>
       </JFXButton>
       <fx:include source="MenuDrawer.fxml" />
