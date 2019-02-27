@@ -748,15 +748,15 @@ public class DBSelect {
     }
 
     /**
-     * Gets a random form from the database. Is recursive and can potentially take hours to finish depending on your luck. I swear I'm okay at programming
-     * NOTE: BECAUSE OF HOW THIS WORKS IT COULD TECHNICALLY TAKE A LONG TIME TO FINISH BUT ON AVERAGE SHOULD FINISH QUICKLY BECAUSE WE HAVE A MAJORITY APPROVED FORMS
+     * Gets a random form from the database
+     * NOTE: DOES IT IN A SORTA WEIRD WAY, BUT DB'S AREN'T DESIGNED FOR THIS SO WHAT DO YOU EXPECT
      * @author Jordan
      * @return A random approved form from the database
      */
-    //TODO FIX THIS SO ITS KINDA BETTER
     public Form randomForm() {
-        String q = "SELECT count(*) FROM Form F WHERE F.approvalStatus = :approval";
         Session session = factory.openSession();
+        //Selects the number of approved forms
+        String q = "SELECT count(*) FROM Form F WHERE F.approvalStatus = :approval";
         Query query = session.createQuery(q);
         query.setParameter("approval", ApprovalStatus.Complete);
         int result = 0;
@@ -766,13 +766,22 @@ public class DBSelect {
             temp = (Long) obj;
             result = temp.intValue();
         }
-        session.close();
+        //Then selects a random form by using a random offset in the selection of those forms
+        String q2 = "SELECT ttbID FROM Form F WHERE F.approvalStatus = :approval";
+        Query query2 = session.createQuery(q2);
+        query2.setParameter("approval", ApprovalStatus.Complete);
         Random rand = new Random();
-        Form randomForm = getFormByTTB_ID(rand.nextInt(result) + 1);
-        if (randomForm.getApprovalStatus() == ApprovalStatus.Complete) {
-            return randomForm;
-        } else {
-            return randomForm();
+        query2.setFirstResult(rand.nextInt(result));
+        query2.setMaxResults(1);
+        Form form;
+        try {
+            //Actually gets the form by ttbid
+            form = getFormByTTB_ID((Integer)query2.getSingleResult());
+        } catch (NoResultException e) {
+            form = null;
+        } finally {
+            session.close();
         }
+        return form;
     }
 }

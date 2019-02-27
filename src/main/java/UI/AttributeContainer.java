@@ -35,6 +35,7 @@ public class AttributeContainer {
     public String generatedKey;
     public boolean firstTimeRegister = false;
     String email;
+    public int searchType; // 1 fuzzy, 2 DL, 3 levin
 
     /**
      * Instantiates new empty AttributeContainer
@@ -48,6 +49,7 @@ public class AttributeContainer {
         searchPage = 0;
         backlog = new Stack<String>();
         delimeter = ',';
+        searchType = 1;
     }
 
     /**
