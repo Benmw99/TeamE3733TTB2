@@ -82,6 +82,11 @@ public class LoginController extends PageControllerUI implements Initializable {
                 goToPage("AgentHome.fxml");
                System.out.println(((Agent)AttributeContainer.getInstance().currentUser).getAgentID());
             }
+        } else {
+            Alert yikes = new Alert(Alert.AlertType.WARNING);
+            yikes.setContentText("Incorrect login information. Please try again");
+            yikes.setHeaderText("Error");
+            yikes.show();
         }
     }
     @FXML
