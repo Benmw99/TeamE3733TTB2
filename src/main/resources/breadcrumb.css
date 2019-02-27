@@ -16,19 +16,19 @@ bread-crumb-bar {
     -fx-background-color: transparent ;
     -fx-border-color: transparent;
     -fx-font-size: 1.11em;
-    -fx-text-fill: #000;
+    -fx-text-fill: white;
     -fx-background-image: null;
     -fx-shape: null;
     -fx-padding: 8 12 8 0;
 }
 .crumb {
-    -fx-text-fill: #000;
+    -fx-text-fill: white;
 }
 .crumb:hover,
 .crumb:selected,
 .crumb:focused
 {
-    -fx-background-color: rgba(0,0,0,0.1);
+    -fx-background-color: white;
     -fx-border-color: null;
     -fx-font-size: 1.11em;
     -fx-text-fill: rgba(0,0,0,0.5);
