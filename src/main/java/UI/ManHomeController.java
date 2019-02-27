@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.Pane;
 
@@ -52,6 +53,9 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
 
     @FXML
     JFXButton goToSingleApp;
+
+    @FXML
+    JFXButton exitHelp;
 
     FormDisplayController formViewController;
 
@@ -179,6 +183,26 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
         }
     }
 
+    @FXML
+    public void handleHelp(ActionEvent event) {
+        final Node source = (Node) event.getSource();
+        String id = source.getId();
+        if (id.equals("helpButton")) {
+            largePane.setOpacity(0.63);
+            largePane.setDisable(false);
+            smallPane.setOpacity(1);
+            smallPane.setDisable(false);
+//            System.out.println(event.getSource());
+            System.out.println(id + " true");
+        } else if(id.equals("exitHelp")){
+            System.out.println(id + " else");
+            largePane.setOpacity(0);
+            largePane.setDisable(true);
+            smallPane.setOpacity(0);
+            smallPane.setDisable(true);
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
@@ -191,29 +215,7 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
         smallPane.setOpacity(0);
         smallPane.setDisable(true);
 
-        helpButton.setOnAction(new EventHandler<ActionEvent>() {
 
-            @Override
-            public void handle(ActionEvent event) {
-                if (helpButton.isPressed()){
-                    largePane.setOpacity(0.63);
-                    largePane.setDisable(false);
-                    smallPane.setOpacity(1);
-                    smallPane.setDisable(false);
-                    System.out.println("Is selected");
-
-
-                }
-                else {
-                    largePane.setOpacity(0);
-                    largePane.setDisable(true);
-                    smallPane.setOpacity(0);
-                    smallPane.setDisable(true);
-                    System.out.println("Is not selector");
-
-                }
-            }
-        });
 
     }
 }

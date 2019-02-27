@@ -152,6 +152,12 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
     @FXML
     Pane smallPane;
 
+    @FXML
+    JFXButton helpButton;
+
+    @FXML
+    JFXButton exitHelp;
+
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
     ///////////////////////////////////////////////////
@@ -305,8 +311,26 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
                 }
             }
         });
-
-
-
     }
+
+    @FXML
+    public void handleHelp(ActionEvent event) {
+        final Node source = (Node) event.getSource();
+        String id = source.getId();
+        if (id.equals("helpButton")) {
+            largePane.setOpacity(0.63);
+            largePane.setDisable(false);
+            smallPane.setOpacity(1);
+            smallPane.setDisable(false);
+//            System.out.println(event.getSource());
+            System.out.println(id + " true");
+        } else if(id.equals("exitHelp")){
+            System.out.println(id + " else");
+            largePane.setOpacity(0);
+            largePane.setDisable(true);
+            smallPane.setOpacity(0);
+            smallPane.setDisable(true);
+        }
+    }
+
 }
