@@ -282,35 +282,12 @@ public class AgentReviewingToolsController extends PageControllerUI implements I
             }
         });
 
-        helpToggleButton.setSelected(false);
+//        helpToggleButton.setSelected(false);
         largePane.setOpacity(0);
         largePane.setDisable(true);
         smallPane.setOpacity(0);
         smallPane.setDisable(true);
 
-        helpToggleButton.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                if (helpToggleButton.isSelected()){
-                    largePane.setOpacity(0.63);
-                    largePane.setDisable(false);
-                    smallPane.setOpacity(1);
-                    smallPane.setDisable(false);
-                    System.out.println("Is selected");
-
-
-                }
-                else {
-                    largePane.setOpacity(0);
-                    largePane.setDisable(true);
-                    smallPane.setOpacity(0);
-                    smallPane.setDisable(true);
-                    System.out.println("Is not selector");
-
-                }
-            }
-        });
     }
 
     @FXML
