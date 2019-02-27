@@ -1,3 +1,5 @@
+package run;
+
 import Entities.*;
 import SearchAlgo.EnvSetter;
 import java.sql.Date;
@@ -28,18 +30,20 @@ public class main {
 
         DB.Database db = DB.Database.getDatabase();
 
-        /*db.tableBuilder.resetDB();
 
-        db.dbInsert.insertCompany(new Manufacturer("Brewers Inc.", "manu", "manu", false, "password"));
-        db.dbInsert.insertCompany(new Manufacturer("Michael's Company", "mike", "1234", false, "password"));
-        db.dbInsert.insertAgent(new Agent("ttb", "ttb", "Sam Adamster", false, "password"));
-        db.dbInsert.insertAgent(new Agent("mjclements@wpi.edu", "1234", "Michael Clements", true, "password"));*/
+
+        /*db.tableBuilder.resetDB();
+*/
+//        db.dbInsert.insertCompany(new Manufacturer("Brewers Inc.", "manu", "manu", false, "password"));
+ //       db.dbInsert.insertCompany(new Manufacturer("Michael's Company", "mike", "1234", false, "password"));
+//        db.dbInsert.insertAgent(new Agent("ttb", "ttb", "Sam Adamster", false, "password"));
+  //      db.dbInsert.insertAgent(new Agent("edelmonaco@wpi.edu", "1234", "Michael Clements", true, "password"));
 
             //    db.dbInsert.insertAgent(new Agent("wwong2@wpi.edu", "pass", "Wilson Wong", false, "password"));
             // db.dbInsert.insertRep(new Representative("TestRep", "1234", false, "password"));
 
 
-        /*
+
         //Oh boy lets make a complete form
         List<BrewersPermit> Brews = new ArrayList<>();
         Brews.add(new BrewersPermit("123ABC", true));
@@ -54,15 +58,17 @@ public class main {
 
         Form form = new Form(null, Brews, true, "00123SE", AlcoholType.MaltBeverage,
                 "Bubbly", "BU", Adds, "John Smith", null, new WineFormItems(),
-                "1112223333", "mjclements@wpi.edu", "No other info", d, 123,
+                "1112223333", "edelmonaco@wpi.edu", "No other info", d, 123,
                 new Approval(), (float)12.3, ApprovalStatus.Incomplete);
         form.setWorkingOn(0);
 
+        Mailer mail = new Mailer(form);
+        mail.run();
 
         //AttributeContainer.getInstance().formQueue.add(form);
 
-        db.dbInsert.insertForm(form);
-*/
+       // db.dbInsert.insertForm(form);
+
 
         //System.out.println("*****************Data*************************");
         //db.dbInsert.insertData();
