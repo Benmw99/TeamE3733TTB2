@@ -179,6 +179,81 @@ public class GoogleVision {
         form.setLabelText(s);
     }
 
+    public void detectLogoText(String filePath, Form form, boolean is) throws Exception, IOException {
+        GoogleCredentials credentials = GoogleCredentials.fromStream( new FileInputStream(new File(getClass().getResource("/" + "My First Project-b6981c3f2253.json").toURI())));
+        Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
+        List<AnnotateImageRequest> requests = new ArrayList<>();
+
+        ByteString imgBytes = new FileOpener().fileOpener(filePath, true);
+
+        Image img = Image.newBuilder().setContent(imgBytes).build();
+        Feature feat = Feature.newBuilder().setType(Type.LOGO_DETECTION).build();
+        AnnotateImageRequest request =
+                AnnotateImageRequest.newBuilder().addFeatures(feat).setImage(img).build();
+        requests.add(request);
+
+        try (ImageAnnotatorClient client = ImageAnnotatorClient.create()) {
+            BatchAnnotateImagesResponse response = client.batchAnnotateImages(requests);
+            List<AnnotateImageResponse> responses = response.getResponsesList();
+
+            for (AnnotateImageResponse res : responses) {
+                if (res.hasError()) {
+                    System.out.printf("Error: %s\n", res.getError().getMessage());
+                    return;
+                }
+
+                // For full list of available annotations, see http://g.co/cloud/vision/docs
+                for (EntityAnnotation annotation : res.getLogoAnnotationsList()) {
+                    //            System.out.println(annotation.getDescription());
+                    form.setLogoText(annotation.getDescription());
+
+                }
+            }
+        }
+        String s = form.getLabelText();
+        s = s.replaceAll("\n", "");
+        s = s.replaceAll(" ", "");
+        form.setLabelText(s);
+    }
+
+
+    public void detectText(String filePath, Form form, boolean is) throws Exception, IOException {
+        FileOpener opener = new FileOpener();
+
+        List<AnnotateImageRequest> requests = new ArrayList<>();
+
+        ByteString imgBytes = new FileOpener().fileOpener(filePath, true);
+
+        Image img = Image.newBuilder().setContent(imgBytes).build();
+        Feature feat = Feature.newBuilder().setType(Type.DOCUMENT_TEXT_DETECTION).build();
+        AnnotateImageRequest request =
+                AnnotateImageRequest.newBuilder().addFeatures(feat).setImage(img).build();
+        requests.add(request);
+
+        try (ImageAnnotatorClient client = ImageAnnotatorClient.create()) {
+            BatchAnnotateImagesResponse response = client.batchAnnotateImages(requests);
+            List<AnnotateImageResponse> responses = response.getResponsesList();
+
+            for (AnnotateImageResponse res : responses) {
+                if (res.hasError()) {
+                    System.out.printf("Error: %s\n", res.getError().getMessage());
+                    return;
+                }
+
+                // For full list of available annotations, see http://g.co/cloud/vision/docs
+                for (EntityAnnotation annotation : res.getTextAnnotationsList()) {
+                    System.out.println(annotation.getDescription());
+                    form.setLabelText(form.getLabelText() + annotation.getDescription());
+
+                }
+            }
+        }
+        String s = form.getLabelText();
+        s = s.replaceAll("\n", "");
+        s = s.replaceAll(" ", "");
+        form.setLabelText(s);
+    }
+
 //    public static String detectBiggestText(String filePath) throws Exception, IOException {
 //        String s = "";
 //        int max = 0;
