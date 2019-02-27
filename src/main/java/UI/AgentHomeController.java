@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -12,6 +13,8 @@ import com.jfoenix.controls.*;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
 
 import java.awt.*;
@@ -201,8 +204,7 @@ public class AgentHomeController extends PageControllerUI implements Initializab
      */
     @FXML
     void newApp() {
-        attributeContainer.currentForm = new Form();
-//        goToPage("App.fxml");//TODO: this is not a page
+        goToPage("ManSingleAppPage.fxml");
     }
 
     //New controller overrides
@@ -246,7 +248,20 @@ public class AgentHomeController extends PageControllerUI implements Initializab
             mailThread.start();
             attributeContainer.currentForm = null;
 
-            goToPage("AgentHome.fxml");
+            Notifications notificationsBuilder = Notifications.create()
+                    .title("Approved Form")
+                    .text("You have just approved this form.")
+                    .graphic(null)
+                    .hideAfter(Duration.seconds(6))
+                    .position(Pos.CENTER)
+                    .onAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            goToPage("AgentHome.fxml");
+                        }
+                    });
+            notificationsBuilder.showConfirm();
+
         } else {
             Alert yikes = new Alert(Alert.AlertType.WARNING);
             yikes.setContentText("Please select a form!");
@@ -273,7 +288,21 @@ public class AgentHomeController extends PageControllerUI implements Initializab
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
             attributeContainer.currentForm = null;
-            goToPage("AgentHome.fxml");
+
+            Notifications notificationsBuilder = Notifications.create()
+                    .title("Rejected Form")
+                    .text("You have just rejected this form.")
+                    .graphic(null)
+                    .hideAfter(Duration.seconds(6))
+                    .position(Pos.CENTER)
+                    .onAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            goToPage("AgentHome.fxml");
+                        }
+                    });
+            notificationsBuilder.showError();
+
         } else {
             Alert yikes = new Alert(Alert.AlertType.WARNING);
             yikes.setContentText("Please select a form!");

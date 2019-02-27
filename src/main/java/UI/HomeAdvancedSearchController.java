@@ -372,6 +372,7 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
         if(SearchContainer.getInstance().searchResult.getResults().size() != 0) {
             SearchContainer.getInstance().loadQueue();
         }
+        AttributeContainer.getInstance().query = "";
         goToPage("HomeSearch.fxml");
         AttributeContainer.getInstance().backlog.pop();
     }
@@ -433,6 +434,7 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
         SearchContainer.getInstance().searchResult.setSearch(null);
         AttributeContainer.getInstance().formQueue = new ArrayList<Form>();
         AttributeContainer.getInstance().searchType = 1;
+        AttributeContainer.getInstance().query = "";
         goToPage("HomeSearch.fxml");
         AttributeContainer.getInstance().backlog.pop();
     }
@@ -444,7 +446,7 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
         SearchContainer.getInstance().currentPage = 1;
         AttributeContainer.getInstance().formQueue = new ArrayList<Form>();
         AttributeContainer.getInstance().currentResults = new SearchResult();
-        AttributeContainer.getInstance().searchType = 1;
+        AttributeContainer.getInstance().query = "";
         goToPage("Login.fxml");
     }
 
@@ -489,6 +491,11 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
 
     @Override
     void onLoad() {
+        if(AttributeContainer.getInstance().query != null && !AttributeContainer.getInstance().query.trim().isEmpty()){
+            SearchLabel.setText("Results for: " + AttributeContainer.getInstance().query);
+        }
+
+
         if(AttributeContainer.getInstance().formQueue.size() == 0) {
             printSearchResultsCSV.setDisable(true);
         }

@@ -59,13 +59,15 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
 
     @Override
     void onLoad() {
-//        searchButton.setFont(new Font("Roboto Light", 18));
-//        randomDrink.setFont(new Font("Roboto Light", 18));
-//        searchBy.setFont(new Font("Roboto Light", 24));
-//        goAdvSearch.setFont(new Font("Roboto Light", 18));
-//        title.setFont(new Font("Roboto Light", 48));
-//        descriptor.setFont(new Font("Roboto Light", 24));
-//        UsernameButton.setFont(new Font("Roboto Light", 18));
+        /*
+        searchButton.setFont(new Font("Roboto Light", 18));
+        randomDrink.setFont(new Font("Roboto Light", 18));
+        searchBy.setFont(new Font("Roboto Light", 24));
+        goAdvSearch.setFont(new Font("Roboto Light", 18));
+        title.setFont(new Font("Roboto Light", 48));
+        descriptor.setFont(new Font("Roboto Light", 24));
+        UsernameButton.setFont(new Font("Roboto Light", 18));
+        */
     }
 
     @Override
@@ -88,6 +90,7 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
 
     public void search(ActionEvent event) {
         if (searchBy.getText() != null && !searchBy.getText().trim().isEmpty()) {
+            AttributeContainer.getInstance().query = searchBy.getText().trim();
             SearchContainer.getInstance().searchResult = new SearchResult();
             List<Form> forms = Database.getDatabase().dbSelect.simpleSearch(searchBy.getText().trim());
             SearchContainer.getInstance().searchResult.setResults(forms);
@@ -103,6 +106,7 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
 
 
     public void advancedSearch(ActionEvent actionEvent) {
+        AttributeContainer.getInstance().query = "";
         goToPage("HomeSearch.fxml");
     }
 
@@ -112,6 +116,7 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
         SearchContainer.getInstance().currentPage = 1;
         AttributeContainer.getInstance().formQueue = new ArrayList<Form>();
         AttributeContainer.getInstance().currentResults = new SearchResult();
+        AttributeContainer.getInstance().query = "";
         goToPage("Login.fxml");
     }
 

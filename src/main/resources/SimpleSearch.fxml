@@ -50,7 +50,7 @@
             </JFXTextField>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1360.0">
                <children>
-                  <JFXButton fx:id="searchButton" alignment="CENTER" buttonType="RAISED" onAction="#search" ripplerFill="#949494" style="-fx-background-color: #4285f4;" text="Search" textFill="WHITE">
+                  <JFXButton defaultButton="true" fx:id="searchButton" alignment="CENTER" buttonType="RAISED" onAction="#search" ripplerFill="#949494" style="-fx-background-color: #4285f4;" text="Search" textFill="WHITE">
                      <font>
                         <Font name="Roboto Light" size="18.0" />
                      </font>
@@ -78,7 +78,7 @@
                         <Insets />
                      </HBox.margin>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" style="-fx-background-color: #4285f4;" text="Go to advanced search" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" style="-fx-background-color: #4285f4;" onAction="#advancedSearch" text="Go to advanced search" textFill="WHITE">
                      <font>
                         <Font name="Roboto Light" size="18.0" />
                      </font>
