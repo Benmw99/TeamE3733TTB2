@@ -1,16 +1,15 @@
 plugins {
     id 'java'
-
+    id 'application'
 }
+
+
 
 task MyTask(type: Exec) {
-        environment 'GOOGLE_APPLICATION_CREDENTIALS', 'My First Project-b6981c3f2253.json'
+
 
 }
 
-tasks.withType(JavaCompile) {
-    dependsOn MyTask
-}
 
 version '1.0'
 
@@ -19,15 +18,14 @@ compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
 javadoc.options.encoding = 'UTF-8'
 
-tasks.register("newTask"){
 
+application {
+    mainClassName = 'main'
 }
 
-newTask{
-    enviornment
-}
 
 jar {
+    dependsOn(MyTask)
     manifest {
         attributes 'Main-Class': 'main'
     }
