@@ -1,16 +1,31 @@
 plugins {
     id 'java'
+
 }
 
+task MyTask(type: Exec) {
+        environment 'GOOGLE_APPLICATION_CREDENTIALS', 'My First Project-b6981c3f2253.json'
 
+}
+
+tasks.withType(JavaCompile) {
+    dependsOn MyTask
+}
 
 version '1.0'
 
 sourceCompatibility = 1.8
-
 compileJava.options.encoding = 'UTF-8' 
 compileTestJava.options.encoding = 'UTF-8'
 javadoc.options.encoding = 'UTF-8'
+
+tasks.register("newTask"){
+
+}
+
+newTask{
+    enviornment
+}
 
 jar {
     manifest {
