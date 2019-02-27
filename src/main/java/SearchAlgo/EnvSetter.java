@@ -1,6 +1,11 @@
 package SearchAlgo;
 
+import com.google.protobuf.ByteString;
+import org.apache.commons.io.IOUtils;
+
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.Map;
@@ -11,6 +16,15 @@ public class EnvSetter {
         try {
          //   File doc2 = new File();
             getClass().getResourceAsStream("/" + filename);
+            File file = new File("google.json");
+
+            FileOutputStream fos = new FileOutputStream(file);
+            InputStream is = getClass().getResourceAsStream("/" + filename);
+            //     System.out.println(file.toPath());
+            //       Path path = file.toPath();
+            byte[] data = IOUtils.toByteArray(is);
+            fos.write(data);
+            return file.getAbsolutePath();
            // return doc2.toPath().toString();
         } catch (Exception e){
             e.printStackTrace();

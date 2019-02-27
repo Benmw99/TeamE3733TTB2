@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 public class main {
     public static void main(String[] args) {
-        SearchAlgo.EnvSetter env = new SearchAlgo.EnvSetter();
+           SearchAlgo.EnvSetter env = new SearchAlgo.EnvSetter();
         Map<String,String> map = new HashMap<String,String>();
         map.put("GOOGLE_APPLICATION_CREDENTIALS", env.getPath("My First Project-b6981c3f2253.json"));
         try {
