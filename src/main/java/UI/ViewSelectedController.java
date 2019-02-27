@@ -31,7 +31,8 @@ public class ViewSelectedController extends PageControllerUI {
     }
     @FXML
     void goBack()   {
-        goToPage("HomeSearch.fxml");
+        AttributeContainer.getInstance().backlog.pop();
+        goToPage(AttributeContainer.getInstance().backlog.pop());
     }
 
     public void print(ActionEvent actionEvent) {
