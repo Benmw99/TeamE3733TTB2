@@ -128,7 +128,6 @@ public class DBSelect {
      * @param as Advanced search with the things that want to be search for set
      * @return A SearchResult with all the forms that came from the query
      */
-    //TODO ADD DATE RANGE SEARCH AND CITY/COUNTRY SEARCH, sorta done
     public SearchResult searchBy(AdvancedSearch as) {
         Session session = factory.openSession();
         Transaction tx = null;

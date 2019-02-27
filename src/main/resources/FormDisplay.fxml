@@ -12,19 +12,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="586.0" prefWidth="1006.0" style="-fx-background-color: white;" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.FormDisplayController">
+<AnchorPane prefHeight="525.0" prefWidth="1006.0" style="-fx-background-color: white;" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.FormDisplayController">
     <children>
-        <Pane prefHeight="759.0" prefWidth="1006.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Pane prefHeight="525.0" prefWidth="1006.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Pane prefWidth="1006.0" style="-fx-background-color: white;">
                     <children>
-                        <JFXTabPane fx:id="tabPane" onMouseClicked="#displayStatus" prefHeight="586.0" prefWidth="1006.0" stylesheets="@TabPane.css">
+                        <JFXTabPane fx:id="tabPane" onMouseClicked="#displayStatus" prefHeight="525.0" prefWidth="1006.0" stylesheets="@TabPane.css">
                             <tabs>
                                 <Tab text="Section 1">
                                     <content>
-                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                        <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="490.0" prefWidth="100.0">
                                             <children>
-                                                <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                <Pane prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox>
                                                             <children>
@@ -50,7 +50,8 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                                <Separator prefWidth="200.0" />
+                                                <Pane prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox prefHeight="80.0" prefWidth="1004.0">
                                                             <children>
@@ -76,21 +77,22 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                                <Separator prefWidth="200.0" />
+                                                <Pane prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
-                                                        <HBox prefHeight="80.0" prefWidth="1002.0">
+                                                        <HBox prefHeight="40.0" prefWidth="1002.0">
                                                             <children>
-                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="3*" textFill="BLACK">
+                                                                <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="3*" textFill="BLACK">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Source of Product" textFill="BLACK" HBox.hgrow="ALWAYS">
+                                                                <Label contentDisplay="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="80.0" text=" Source of Product" textFill="BLACK" HBox.hgrow="ALWAYS">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display3Label" contentDisplay="CENTER" prefHeight="80.0">
+                                                                <Label fx:id="Display3Label" contentDisplay="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -102,7 +104,8 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                                <Separator prefWidth="200.0" />
+                                                <Pane prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox prefHeight="80.0" prefWidth="1004.0">
                                                             <children>
@@ -111,7 +114,7 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label contentDisplay="CENTER" prefHeight="80.0" prefWidth="161.0" text=" Serial Number" textFill="BLACK">
+                                                                <Label contentDisplay="CENTER" prefHeight="80.0" prefWidth="161.0" text=" Seriel Number" textFill="BLACK">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -124,7 +127,6 @@
                                                                         <Insets left="25.0" right="15.0" />
                                                                     </HBox.margin>
                                                                 </Label>
-                                                                <Separator orientation="VERTICAL" style="-fx-background-color: grey;" />
                                                                 <Label fx:id="Display4Label2" contentDisplay="CENTER" prefHeight="80.0" prefWidth="619.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
@@ -137,7 +139,8 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                                <Separator prefWidth="200.0" />
+                                                <Pane prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox prefHeight="80.0" prefWidth="1007.0">
                                                             <children>
@@ -159,34 +162,24 @@
                                                                         <Insets left="25.0" />
                                                                     </HBox.margin>
                                                                 </Label>
-                                                                <Separator orientation="VERTICAL" style="-fx-background-color: grey;">
-                                                                    <HBox.margin>
-                                                                        <Insets left="15.0" right="15.0" />
-                                                                    </HBox.margin>
-                                                                </Separator>
+                                                                <Separator orientation="VERTICAL" prefHeight="200.0" />
                                                                 <Label fx:id="Display5Label2" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Separator orientation="VERTICAL" style="-fx-background-color: grey;">
-                                                                    <HBox.margin>
-                                                                        <Insets left="15.0" right="15.0" />
-                                                                    </HBox.margin>
-                                                                </Separator>
-                                                                <Label fx:id="Display5Label3" contentDisplay="CENTER" prefHeight="80.0" prefWidth="486.0">
+                                                                <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                                                <Label fx:id="Display5Label3" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
-                                                                    <HBox.margin>
-                                                                        <Insets />
-                                                                    </HBox.margin>
                                                                 </Label>
                                                             </children>
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                                <Separator prefWidth="200.0" />
+                                                <Pane prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox prefHeight="80.0" prefWidth="1010.0">
                                                             <children>
@@ -212,30 +205,6 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                    <Pane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <HBox prefHeight="80.0" prefWidth="1010.0">
-                                             <children>
-                                                <Label contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
-                                                   <font>
-                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets left="40.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                                <Label fx:id="Display6Label11" contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" text="Number">
-                                                   <font>
-                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets left="25.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                    </Pane>
                                             </children>
                                             <padding>
                                                 <Insets top="5.0" />
@@ -245,9 +214,9 @@
                                 </Tab>
                                 <Tab text="Section 2">
                                     <content>
-                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                        <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="490.0" prefWidth="100.0">
                                             <children>
-                                                <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                <Pane prefHeight="175.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox>
                                                             <children>
@@ -273,7 +242,8 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                                <Separator prefWidth="200.0" />
+                                                <Pane prefHeight="175.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox>
                                                             <children>
@@ -287,19 +257,26 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display8Label" contentDisplay="CENTER" prefHeight="80.0">
-                                                                    <font>
-                                                                        <Font name="Roboto Light" size="24.0" />
-                                                                    </font>
-                                                                    <HBox.margin>
-                                                                        <Insets left="15.0" />
-                                                                    </HBox.margin>
-                                                                </Label>
+                                                <VBox>
+                                                   <HBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </HBox.margin>
+                                                   <children>
+                                                      <Label fx:id="Display8Label1" contentDisplay="CENTER" prefHeight="35.0" />
+                                                      <Separator prefWidth="200.0" />
+                                                      <Label fx:id="Display8Label2" contentDisplay="CENTER" prefHeight="35.0">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
                                                             </children>
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                                <Separator prefWidth="200.0" />
+                                                <Pane prefHeight="175.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox>
                                                             <children>
@@ -308,24 +285,31 @@
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Mailing Adress" textFill="BLACK">
+                                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Mailing Address" textFill="BLACK">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
                                                                 </Label>
-                                                                <Label fx:id="Display9Label" contentDisplay="CENTER" prefHeight="80.0">
-                                                                    <font>
-                                                                        <Font name="Roboto Light" size="24.0" />
-                                                                    </font>
-                                                                    <HBox.margin>
-                                                                        <Insets left="15.0" />
-                                                                    </HBox.margin>
-                                                                </Label>
+                                                <VBox>
+                                                   <children>
+                                                      <Label fx:id="Display9Label1" contentDisplay="CENTER" prefHeight="35.0" />
+                                                      <Separator prefWidth="200.0" />
+                                                      <Label fx:id="Display9Label2" contentDisplay="CENTER" prefHeight="35.0">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="15.0" />
+                                                   </HBox.margin>
+                                                </VBox>
                                                             </children>
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                                <Separator prefWidth="200.0" />
+                                                <Pane prefHeight="175.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox>
                                                             <children>
@@ -351,7 +335,8 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                                <Separator prefWidth="200.0" />
+                                                <Pane prefHeight="175.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox>
                                                             <children>
@@ -377,7 +362,8 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                                <Separator prefWidth="200.0" />
+                                                <Pane prefHeight="175.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox>
                                                             <children>
@@ -403,30 +389,6 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                    <Pane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <HBox prefHeight="80.0" prefWidth="1010.0">
-                                             <children>
-                                                <Label contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
-                                                   <font>
-                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets left="40.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                                <Label fx:id="Display6Label111" contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" text="Number">
-                                                   <font>
-                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets left="25.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                    </Pane>
                                             </children>
                                             <padding>
                                                 <Insets top="5.0" />
@@ -436,7 +398,7 @@
                                 </Tab>
                                 <Tab text="Section 3">
                                     <content>
-                                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                        <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="490.0" prefWidth="100.0">
                                             <children>
                                                 <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
@@ -464,7 +426,8 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                                <Separator prefWidth="200.0" />
+                                                <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox>
                                                             <children>
@@ -490,57 +453,12 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                                <Pane prefHeight="200.0" prefWidth="400.0">
+                                                <Separator prefWidth="200.0" />
+                                                <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox>
                                                             <children>
                                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="15" textFill="BLACK">
-                                                                    <font>
-                                                                        <Font name="Roboto Light" size="24.0" />
-                                                                    </font>
-                                                                </Label>
-                                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Type of Application" textFill="BLACK">
-                                                                    <font>
-                                                                        <Font name="Roboto Light" size="24.0" />
-                                                                    </font>
-                                                                </Label>
-                                                                <Label fx:id="Display15Label1" contentDisplay="CENTER" prefHeight="80.0">
-                                                                    <font>
-                                                                        <Font name="Roboto Light" size="24.0" />
-                                                                    </font>
-                                                                    <HBox.margin>
-                                                                        <Insets left="25.0" />
-                                                                    </HBox.margin>
-                                                                </Label>
-                                                                <Separator orientation="VERTICAL" style="-fx-background-color: grey;">
-                                                                    <HBox.margin>
-                                                                        <Insets left="15.0" right="15.0" />
-                                                                    </HBox.margin>
-                                                                </Separator>
-                                                                <Label fx:id="Display15Label2" contentDisplay="CENTER" prefHeight="80.0">
-                                                                    <font>
-                                                                        <Font name="Roboto Light" size="24.0" />
-                                                                    </font>
-                                                                </Label>
-                                                                <Separator orientation="VERTICAL" style="-fx-background-color: grey;">
-                                                                    <HBox.margin>
-                                                                        <Insets left="15.0" right="15.0" />
-                                                                    </HBox.margin>
-                                                                </Separator>
-                                                                <Label fx:id="Display15Label3" contentDisplay="CENTER" prefHeight="80.0">
-                                                                    <font>
-                                                                        <Font name="Roboto Light" size="24.0" />
-                                                                    </font>
-                                                                </Label>
-                                                            </children>
-                                                        </HBox>
-                                                    </children>
-                                                </Pane>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
-                                                    <children>
-                                                        <HBox>
-                                                            <children>
-                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="16" textFill="BLACK">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -558,11 +476,6 @@
                                                                         <Insets left="25.0" />
                                                                     </HBox.margin>
                                                                 </Label>
-                                                                <Separator orientation="VERTICAL" style="-fx-background-color: grey;">
-                                                                    <HBox.margin>
-                                                                        <Insets left="15.0" right="15.0" />
-                                                                    </HBox.margin>
-                                                                </Separator>
                                                                 <Label fx:id="Display16Label2" contentDisplay="CENTER" prefHeight="80.0">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
@@ -572,11 +485,12 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                                <Separator prefWidth="200.0" />
+                                                <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox>
                                                             <children>
-                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="17" textFill="BLACK">
+                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="16" textFill="BLACK">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -598,11 +512,12 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
+                                                <Separator prefWidth="200.0" />
+                                                <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox>
                                                             <children>
-                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="18" textFill="BLACK">
+                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="17" textFill="BLACK">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -624,65 +539,12 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                    <Pane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <HBox prefHeight="80.0" prefWidth="1010.0">
-                                             <children>
-                                                <Label contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
-                                                   <font>
-                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets left="40.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                                <Label fx:id="Display16Label11" contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" text="Number">
-                                                   <font>
-                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets left="25.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                    </Pane>
-                                            </children>
-                                            <padding>
-                                                <Insets top="5.0" />
-                                            </padding>
-                                        </VBox>
-                                    </content>
-                                </Tab>
-                                <Tab text="Section 4">
-                                    <content>
-                                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
-                                            <children>
-                                                <Pane maxHeight="80.0" VBox.vgrow="ALWAYS">
+                                                <Separator prefWidth="200.0" />
+                                                <Pane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="80.0" VBox.vgrow="ALWAYS">
                                                     <children>
                                                         <HBox>
                                                             <children>
-                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="19" textFill="BLACK">
-                                                                    <font>
-                                                                        <Font name="Roboto Light" size="24.0" />
-                                                                    </font>
-                                                                </Label>
-                                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Label Submitted" textFill="BLACK">
-                                                                    <font>
-                                                                        <Font name="Roboto Light" size="24.0" />
-                                                                    </font>
-                                                                </Label>
-                                                            </children>
-                                                        </HBox>
-                                                    </children>
-                                                </Pane>
-                                                <ImageView fx:id="Display19Image1" fitHeight="350.0" fitWidth="723.0" pickOnBounds="true" preserveRatio="true" />
-                                                <Pane>
-                                                    <children>
-                                                        <HBox>
-                                                            <children>
-                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="20" textFill="BLACK">
+                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="18" textFill="BLACK">
                                                                     <font>
                                                                         <Font name="Roboto Light" size="24.0" />
                                                                     </font>
@@ -704,30 +566,36 @@
                                                         </HBox>
                                                     </children>
                                                 </Pane>
-                                    <Pane prefHeight="98.0" prefWidth="1011.0">
-                                       <children>
-                                          <HBox prefHeight="80.0" prefWidth="1010.0">
-                                             <children>
-                                                <Label contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" prefWidth="220.0" text="Section Marked As:" textFill="BLACK">
-                                                   <font>
-                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets left="40.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                                <Label fx:id="Display6Label113" contentDisplay="CENTER" opacity="0.0" prefHeight="80.0" text="Number">
-                                                   <font>
-                                                      <Font name="Apple SD Gothic Neo Light" size="24.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets left="25.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                    </Pane>
+                                            </children>
+                                            <padding>
+                                                <Insets top="5.0" />
+                                            </padding>
+                                        </VBox>
+                                    </content>
+                                </Tab>
+                                <Tab text="Section 4">
+                                    <content>
+                                        <VBox alignment="TOP_CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="490.0" prefWidth="100.0">
+                                            <children>
+                                                <Pane maxHeight="80.0" VBox.vgrow="ALWAYS">
+                                                    <children>
+                                                        <HBox>
+                                                            <children>
+                                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: white;" text="19" textFill="BLACK">
+                                                                    <font>
+                                                                        <Font name="Roboto Light" size="24.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <Label contentDisplay="CENTER" prefHeight="80.0" text=" Label Submitted" textFill="BLACK">
+                                                                    <font>
+                                                                        <Font name="Roboto Light" size="24.0" />
+                                                                    </font>
+                                                                </Label>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </Pane>
+                                                <ImageView fx:id="Display19Image1" fitHeight="300.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" />
                                             </children>
                                             <padding>
                                                 <Insets top="5.0" />

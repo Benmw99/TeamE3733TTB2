@@ -41,13 +41,13 @@ public class ManViewAgentCommentsController extends PageControllerUI implements 
     protected void onLeave() {
     }
 
-   public void receiveNewComments(ActionEvent event) throws IOException{
+   public void receiveNewComments() {
         agentComments.setText(attributeContainer.currentForm.getApproval().getQualifications());
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO need to figure out what to put in here
+        receiveNewComments();
     }
 }
 

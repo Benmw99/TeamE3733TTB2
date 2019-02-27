@@ -1,15 +1,6 @@
 plugins {
     id 'java'
-    id 'application'
 }
-
-
-
-task MyTask(type: Exec) {
-
-
-}
-
 
 version '1.0'
 
@@ -18,14 +9,7 @@ compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
 javadoc.options.encoding = 'UTF-8'
 
-
-application {
-    mainClassName = 'main'
-}
-
-
 jar {
-    dependsOn(MyTask)
     manifest {
         attributes 'Main-Class': 'main'
     }
@@ -34,13 +18,9 @@ jar {
     }
 }
 
-//sourceSets.main.resources.srcDirs = [ "src/main/java/UI" ]
-//sourceSets.main.resources.includes = [ "**/*.fxml" ]
-
 repositories {
     mavenCentral()
 }
-
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
@@ -60,5 +40,4 @@ dependencies {
     compile 'com.google.cloud:google-cloud-vision:1.59.0'
     compile group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.61'
     compile 'com.google.cloud:google-cloud-storage:1.59.0'
-
 }

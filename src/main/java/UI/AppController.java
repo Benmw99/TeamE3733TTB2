@@ -622,7 +622,7 @@ public class AppController extends PageControllerUI implements Initializable {
             santa_List.add(validSerial);
             validSerial.setRegexPattern("^\\d{4}$");
             field.getValidators().add(validSerial);
-            validSerial.setMessage("The serial number must be at most six digits");
+            validSerial.setMessage("The serial number must be at most four digits");
             RequiredFieldValidator validator = new RequiredFieldValidator();
             field.getValidators().add(validator);
             validator.setMessage("* Required");
