@@ -208,6 +208,6 @@
             </JFXButton>
          </children>
       </Pane>
-      <JFXButton fx:id="helpButton" buttonType="RAISED" layoutX="1291.0" layoutY="22.0" style="-fx-background-color: WHITE; -fx-background-radius: 20;" text="?" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="20.0" />
+      <JFXButton fx:id="helpButton" buttonType="RAISED" layoutX="1291.0" layoutY="22.0" onAction="#handleHelp" style="-fx-background-color: WHITE; -fx-background-radius: 20;" text="?" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="20.0" />
    </children>
 </AnchorPane>
