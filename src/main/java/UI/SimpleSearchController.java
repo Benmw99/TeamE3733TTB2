@@ -106,6 +106,7 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
 
 
     public void advancedSearch(ActionEvent actionEvent) {
+        AttributeContainer.getInstance().query = "";
         goToPage("HomeSearch.fxml");
     }
 
