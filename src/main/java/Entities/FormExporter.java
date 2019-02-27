@@ -194,7 +194,7 @@ public class FormExporter {
                     } else {
                         replaceString(r, "_QUALIFICATIONS_", "");
                     }
-                    File img = new File(getClass().getResource("/pyramid.jpg").toURI());
+             //       File img = new File(getClass().getResource("/pyramid.jpg").toURI());
                     if(r.getText(0) != null && r.getText(0).contains("IMGFILE")) {
                         replaceString(r, "IMGFILE", "");
                         Database db = Database.getDatabase();
@@ -328,7 +328,10 @@ public class FormExporter {
                 }
             }
        //     File img = new File(getClass().getResource("/pyramid.jpg").toURI());
-            File file = new File(getClass().getResource("/" + "output.docx").toURI());
+            InputStream is = getClass().getResourceAsStream("/output.docx");
+            File file = new File("output.docx");
+            FileOutputStream fos = new FileOutputStream(file);
+            fos.write(is.available());
             for(XWPFPictureData x : doc.getAllPictures()){
                 System.out.println(x.getFileName());
             }
@@ -353,8 +356,8 @@ public class FormExporter {
                 opc.save(os);
             }
 // Write out the encrypted version
-            FileOutputStream fos = new FileOutputStream(file);
-            fs.writeFilesystem(fos);
+            FileOutputStream fos2 = new FileOutputStream(file);
+            fs.writeFilesystem(fos2);
             fos.close();
 
 
