@@ -36,6 +36,7 @@ public class AttributeContainer {
     public boolean firstTimeRegister = false;
     String email;
     public int searchType; // 1 fuzzy, 2 DL, 3 levin
+    public String query;
 
     /**
      * Instantiates new empty AttributeContainer
@@ -50,6 +51,7 @@ public class AttributeContainer {
         backlog = new Stack<String>();
         delimeter = ',';
         searchType = 1;
+        query = "";
     }
 
     /**

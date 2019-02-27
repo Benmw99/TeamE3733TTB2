@@ -78,7 +78,7 @@
                         <Insets />
                      </HBox.margin>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" style="-fx-background-color: #4285f4;" text="Go to advanced search" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" style="-fx-background-color: #4285f4;" onAction="#advancedSearch" text="Go to advanced search" textFill="WHITE">
                      <font>
                         <Font name="Roboto Light" size="18.0" />
                      </font>
