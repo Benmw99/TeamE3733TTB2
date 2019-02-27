@@ -27,7 +27,7 @@ public class DamerauLevenshtein implements IFuzzyMatching {
     public List<String> run(List<String> input, int maxDistance, String query){
         ArrayList<String> ret = new ArrayList<>();
         for(int i = 0; i < input.size(); i++){
-            if (calculate(input.get(i),query) <= maxDistance ){
+            if (calculate(input.get(i).toLowerCase(),query.toLowerCase()) <= maxDistance ){
                 ret.add(input.get(i));
             }
         }

@@ -131,6 +131,7 @@ public class MenuDrawerController extends PageControllerUI implements Initializa
     @FXML
     public void goToSearch() {
         AttributeContainer ac = AttributeContainer.getInstance();
+        AttributeContainer.getInstance().searchType = 1;
         if (ac.currentUser == null) {
             ac.currentForm = null;
             ac.formQueue = new ArrayList<Entities.Form>();

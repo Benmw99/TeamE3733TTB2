@@ -391,7 +391,7 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
                 advancedSearch.setEndDate(java.sql.Date.valueOf(SearchDate1.getValue()));
             }else{
                 Alert yikes = new Alert(Alert.AlertType.WARNING);
-                yikes.setContentText("Make sure your date's are entered chronologically, this will be ignored");
+                yikes.setContentText("Make sure your date's are entered chronologically, they will be ignored");
                 yikes.setHeaderText("Invalid Date");
                 yikes.show();
             }
@@ -418,10 +418,13 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
         if (apacheRadioButton.isSelected()) {
             if (damereauLevenshtein.isSelected()) {           //DL
                 forms = Search.SearchDL(advancedSearch);
+                AttributeContainer.getInstance().searchType = 2;
             } else if (levenshtein.isSelected()) {             //LD
                 forms = Search.SearchLD(advancedSearch);
+                AttributeContainer.getInstance().searchType = 3;
             } else {                                           //wild
                 forms = Search.SearchWild(advancedSearch);
+                AttributeContainer.getInstance().searchType = 1;
             }
         } else {
             Database db = Database.getDatabase();
@@ -500,6 +503,7 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
     public void clearSearch(ActionEvent event) throws IOException {
         SearchContainer.getInstance().searchResult.setSearch(null);
         AttributeContainer.getInstance().formQueue = new ArrayList<Form>();
+        AttributeContainer.getInstance().searchType = 1;
         goToPage("HomeSearch.fxml");
         AttributeContainer.getInstance().backlog.pop();
     }
@@ -511,6 +515,7 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
         SearchContainer.getInstance().currentPage = 1;
         AttributeContainer.getInstance().formQueue = new ArrayList<Form>();
         AttributeContainer.getInstance().currentResults = new SearchResult();
+        AttributeContainer.getInstance().searchType = 1;
         goToPage("Login.fxml");
     }
 
@@ -542,7 +547,13 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
         fuzzy.setToggleGroup(searchOptions);
         levenshtein.setToggleGroup(searchOptions);
         damereauLevenshtein.setToggleGroup(searchOptions);
-        fuzzy.setSelected(true);
+        if(AttributeContainer.getInstance().searchType == 2) {
+            damereauLevenshtein.setSelected(true);
+        }else if(AttributeContainer.getInstance().searchType == 3) {
+            levenshtein.setSelected(true);
+        }else{
+            fuzzy.setSelected(true);
+        }
 
         //search radio buttons
         apacheRadioButton.setToggleGroup(searchOptions2);
