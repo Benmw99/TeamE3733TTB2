@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -11,15 +15,11 @@
 <AnchorPane prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: WHITE;" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ViewSelectedController">
     <children>
         <Rectangle fill="#4285f4" height="89.0" layoutX="-14.0" layoutY="21.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-        <Text fill="WHITE" layoutX="563.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Form" wrappingWidth="237.53324981916347">
-            <font>
-                <Font name="Roboto Light" size="48.0" />
-            </font></Text>
       <Button fx:id="printButton" layoutX="1240.0" layoutY="27.0" mnemonicParsing="false" onAction="#print" style="-fx-background-color: WHITE;" text="Print">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font></Button>
-      <Pane layoutX="167.0" layoutY="99.0" prefHeight="664.0" prefWidth="1011.0" AnchorPane.rightAnchor="186.0" AnchorPane.topAnchor="99.0">
+      <Pane layoutX="167.0" layoutY="99.0" prefHeight="664.0" prefWidth="1138.0" AnchorPane.rightAnchor="186.0" AnchorPane.topAnchor="99.0">
          <children>
             <fx:include fx:id="Label" source="FormDisplay.fxml" />
          </children>
@@ -28,6 +28,28 @@
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font></JFXButton>
+      <HBox alignment="CENTER" layoutX="537.0" layoutY="-4.0" prefHeight="100.0">
+         <children>
+            <ImageView fitHeight="85.0" fitWidth="90.0">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB">
+               <font>
+                  <Font name="Roboto Light" size="48.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="7.0" right="10.0" />
+               </HBox.margin>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
+               <font>
+                  <Font name="Roboto Light" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
       <!--<fx:include source="MenuDrawer.fxml" />-->
     </children>
 </AnchorPane>

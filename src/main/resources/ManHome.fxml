@@ -17,7 +17,7 @@
 
 <AnchorPane prefHeight="760.0" prefWidth="1360.0" stylesheets="@font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManHomeController">
    <children>
-      <Pane fx:id="largePane" opacity="0.63" prefHeight="763.0" prefWidth="1361.0" style="-fx-background-color: white;" />
+      <Pane fx:id="largePane" opacity="0.63" prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: white;" />
       <Pane fx:id="smallPane" layoutY="287.0" prefHeight="314.0" prefWidth="877.0" style="-fx-background-color: #999999; -fx-background-radius: 15;" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="287.0">
          <children>
             <HBox layoutX="266.0" layoutY="-5.0" prefHeight="477.0" prefWidth="614.0">
@@ -196,12 +196,12 @@
                </children>
             </Pane>
          </children></Pane>
-      <VBox alignment="TOP_CENTER" layoutX="-1.0" prefHeight="610.0" prefWidth="503.0" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="150.0">
+      <VBox alignment="TOP_CENTER" layoutX="-1.0" prefWidth="503.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="175.0">
          <children>
-            <fx:include maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="475.0" source="TableView.fxml" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+            <fx:include maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="475.0" source="TableView.fxml" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
-      <JFXClippedPane layoutY="148.0" prefHeight="615.0" prefWidth="872.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="148.0">
+      <JFXClippedPane layoutY="148.0" prefHeight="615.0" prefWidth="872.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="175.0">
          <children>
             <fx:include minWidth="-Infinity" prefWidth="200.0" source="FormDisplay.fxml" />
          </children>
