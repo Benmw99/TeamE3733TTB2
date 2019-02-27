@@ -72,7 +72,7 @@
       </VBox>
       <JFXButton buttonType="RAISED" layoutX="1253.0" layoutY="28.0" onAction="#login" style="-fx-background-color: WHITE;" text="Login">
          <font>
-            <Font name="Roboto Light" size="24.0" />
+            <Font name="Roboto Light" size="18.0" />
          </font>
       </JFXButton>
       <JFXButton buttonType="RAISED" layoutX="1013.0" layoutY="664.0" onAction="#advancedSearch" style="-fx-background-color: #4285f4;" text="Go to advanced search" textFill="WHITE">

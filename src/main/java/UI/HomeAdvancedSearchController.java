@@ -332,30 +332,20 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
         smallPane.setOpacity(0);
         smallPane.setDisable(true);
 
-        helpButton.setOnAction(new EventHandler<ActionEvent>() {
-
+        helpButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
-            public void handle(ActionEvent event) {
-                if (helpButton.isPressed()){
-                    largePane.setOpacity(0.63);
-                    largePane.setDisable(false);
-                    smallPane.setOpacity(1);
-                    smallPane.setDisable(false);
-                    System.out.println("Is selected");
-
-
-                }
-                else {
-                    largePane.setOpacity(0);
-                    largePane.setDisable(true);
-                    smallPane.setOpacity(0);
-                    smallPane.setDisable(true);
-                    System.out.println("Is not selector");
-
-                }
+            public void handle(MouseEvent event) {
+                largePane.setOpacity(0.63);
+                largePane.setDisable(false);
+                smallPane.setOpacity(1);
+                smallPane.setDisable(false);
+                System.out.println(event.getSource());
             }
+
+
         });
-    }
+
+        }
     //#################################################################################################################################
     //                                   advanced search
     @FXML
