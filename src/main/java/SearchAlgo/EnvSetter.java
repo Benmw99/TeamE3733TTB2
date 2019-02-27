@@ -9,8 +9,9 @@ public class EnvSetter {
 
     public String getPath(String filename){
         try {
-            File doc2 = new File(getClass().getResource("/" + filename).toURI());
-            return doc2.toPath().toString();
+         //   File doc2 = new File();
+            getClass().getResourceAsStream("/" + filename);
+           // return doc2.toPath().toString();
         } catch (Exception e){
             e.printStackTrace();
         }

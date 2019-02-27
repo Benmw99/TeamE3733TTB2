@@ -1,8 +1,11 @@
 package Entities;
 
 import com.google.protobuf.ByteString;
+import org.apache.commons.io.IOUtils;
+import sun.nio.ch.IOUtil;
 
 import java.io.File;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -10,10 +13,10 @@ public class FileOpener {
     public ByteString fileOpener(String string) throws Exception {
         System.out.println(string);
         try {
-            File file = new File(getClass().getResource("/" + string).toURI());
-            System.out.println(file.toPath());
-            Path path = file.toPath();
-            byte[] data = Files.readAllBytes(path);
+            InputStream is = getClass().getResourceAsStream("/" + string);
+       //     System.out.println(file.toPath());
+     //       Path path = file.toPath();
+            byte[] data = IOUtils.toByteArray(is);
             return ByteString.copyFrom(data);
         } catch (Exception e){
             e.printStackTrace();

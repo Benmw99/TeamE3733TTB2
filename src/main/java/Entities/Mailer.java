@@ -9,10 +9,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -126,10 +123,18 @@ public class Mailer implements Runnable {
         Multipart multi = new MimeMultipart();
         try {
             new FormExporter(form);
-            File file = new File(getClass().getResource("/" + "output.docx").toURI());
+          //  File file = ;
+                    InputStream is = getClass().getResourceAsStream("/" + "output.docx");
+                    File file = new File("docholder.docx");
+                    OutputStream outStream = new FileOutputStream(file);
+                    byte[] buffer = new byte[is.available()];
+            outStream.write(buffer);
+
+
             MimeBodyPart textBodyPart = new MimeBodyPart();
             textBodyPart.setText(body);
             MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+
             FileDataSource fds = new FileDataSource(file);
             System.out.println(fds.getFile().getAbsolutePath());
             DataSource src = fds;
@@ -200,6 +205,15 @@ public class Mailer implements Runnable {
         props.put("mail.smtp.auth", "true");
 
         try {
+            new FormExporter(form);
+
+            //  File file = ;
+            InputStream is = getClass().getResourceAsStream("/" + "output.docx");
+            File file = new File("docholder.docx");
+            OutputStream outStream = new FileOutputStream(file);
+            byte[] buffer = new byte[is.available()];
+            outStream.write(buffer);
+
             Session session = Session.getDefaultInstance(props, null);
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
@@ -224,7 +238,7 @@ public class Mailer implements Runnable {
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
 
-        } catch (MessagingException mx) {
+        } catch (Exception mx) {
             mx.printStackTrace();
         }
     }

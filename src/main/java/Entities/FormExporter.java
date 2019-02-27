@@ -33,11 +33,9 @@ public class FormExporter {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
         try {
 
-            File doc2 = new File(getClass().getResource("/" + "converted.docx").toURI());
-            System.out.println(doc2.toPath());
+            InputStream inputstream = getClass().getResourceAsStream("/" + "converted.docx");
 
             Address add = form.getMailingAddress();
-            InputStream inputstream = new FileInputStream(doc2);
             doc = new XWPFDocument(inputstream);
             for(XWPFParagraph p : doc.getParagraphs()){
                 for(XWPFRun r : p.getRuns()){
@@ -89,13 +87,14 @@ public class FormExporter {
                                 }
                                 replaceString(r, "C_T", " ");
                                 replaceString(r, "O_R", " ");
-
-                                replaceString(r, "SERIAL_1", form.getSerialNumber().substring(0,1));
-                                replaceString(r, "SERIAL_2", form.getSerialNumber().substring(1,2));
-                                replaceString(r, "SERIAL_3", form.getSerialNumber().substring(2,3));
-                                replaceString(r, "SERIAL_4", form.getSerialNumber().substring(3,4));
-                                replaceString(r, "SERIAL_5", form.getSerialNumber().substring(4,5));
-                                replaceString(r, "SERIAL_6", form.getSerialNumber().substring(5,6));
+                                String serial = form.getSerialNumber();
+                                serial = serial + "           ";
+                                replaceString(r, "SERIAL_1", serial.substring(0,1));
+                                replaceString(r, "SERIAL_2", serial.substring(1,2));
+                                replaceString(r, "SERIAL_3", serial.substring(2,3));
+                                replaceString(r, "SERIAL_4", serial.substring(3,4));
+                                replaceString(r, "SERIAL_5", serial.substring(4,5));
+                                replaceString(r, "SERIAL_6", serial.substring(5,6));
                                 replaceString(r, "_BRAND_", form.getBrandName());
                                 replaceString(r,"_FANCY_", form.getFancifulName());
                                 replaceString(r, "_FORMULA_", form.getFormula());
@@ -181,11 +180,10 @@ public class FormExporter {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
         try {
 
-            File doc2 = new File(getClass().getResource("/" + "converted.docx").toURI());
+            InputStream inputstream = getClass().getResourceAsStream("/" + "converted.docx");
  //           System.out.println(doc2.toPath());
 
             Address add = form.getMailingAddress();
-            InputStream inputstream = new FileInputStream(doc2);
             doc = new XWPFDocument(inputstream);
 
 
