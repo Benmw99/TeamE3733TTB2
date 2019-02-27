@@ -201,18 +201,67 @@ public class MongoFunc {
 
     /**
      * Searches the mongoDB database for items and returns them as forms.
-     * NOTE: ONLY SEARCHES FOR THE FIRST ITEM IN THE ADVANCED SEARCH. DOES NOT DO MULTIPLE SEARCHES RIGHT NOW
      * NOTE: TTBIDS ARE NOT CONSISTENT BETWEEN THE TWO DB'S, CAUSING ISSUES WHEN VIEWING DETAIL INFO
      * @author Jordan
      * @param as An AdvancedSearch with everything null except the things that you want to search for
      * @return A list of forms that fulfill the search requirements from the mongoDB database, only contains the necessary info for tableview
      */
-    //TODO MULTIPLE SEARCHES
     public List<Form> searchMongo(AdvancedSearch as) {
         List<Form> results = new ArrayList<>();
         MongoCollection<Document> collection = database.getCollection("TTBForms");
         List<Document> docs = new ArrayList<>();
-        System.out.println("Got here");
+        BasicDBList or = new BasicDBList();
+        if (as.source != null) {
+            if (as.source) {
+                Pattern j = Pattern.compile("Imported", Pattern.CASE_INSENSITIVE);
+                or.add(new BasicDBObject("source", j));
+            } else {
+                Pattern j = Pattern.compile("Domestic", Pattern.CASE_INSENSITIVE);
+                or.add(new BasicDBObject("source", j));
+            }
+        }
+        if (as.serialNumber != null) {
+            Pattern j = Pattern.compile(as.serialNumber, Pattern.CASE_INSENSITIVE);
+            or.add(new BasicDBObject("serial", j));
+        }
+        if (as.alcoholType != null) {
+            if (as.alcoholType == AlcoholType.Wine) {
+                Pattern j = Pattern.compile("Wine", Pattern.CASE_INSENSITIVE);
+                or.add(new BasicDBObject("alcoholType", j));
+            } else if (as.alcoholType == AlcoholType.DistilledLiquor) {
+                Pattern j = Pattern.compile("Distilled Spirit", Pattern.CASE_INSENSITIVE);
+                or.add(new BasicDBObject("alcoholType", j));
+            } else {
+                Pattern j = Pattern.compile("Malt Beverage", Pattern.CASE_INSENSITIVE);
+                or.add(new BasicDBObject("alcoholType", j));
+            }
+        }
+        if (as.brandName != null) {
+            Pattern j = Pattern.compile(as.brandName, Pattern.CASE_INSENSITIVE);
+            or.add(new BasicDBObject("brandName", j));
+        }
+        if (as.fancifulName != null) {
+            Pattern j = Pattern.compile(as.fancifulName, Pattern.CASE_INSENSITIVE);
+            or.add(new BasicDBObject("fancifulName", j));
+        }
+        if (as.ttbID > 0) {
+            or.add(new BasicDBObject("ttbID", "" + as.ttbID));
+        }
+        BasicDBObject query = new BasicDBObject("$and", or);
+            FindIterable<Document> iterDoc = collection.find(query);
+            Iterator it = iterDoc.iterator();
+            while (it.hasNext()) {
+                docs.add((Document)it.next());
+            }
+            for (Document doc: docs) {
+                results.add(docToForm(doc));
+            }
+        return results;
+
+        /*List<Form> results = new ArrayList<>();
+        MongoCollection<Document> collection = database.getCollection("TTBForms");
+        List<Document> docs = new ArrayList<>();
+        BasicDBList or = new BasicDBList();
         if (as.source != null) {
             if (as.source) {
                 Pattern j = Pattern.compile("Imported", Pattern.CASE_INSENSITIVE);
@@ -331,7 +380,7 @@ public class MongoFunc {
                 results.add(docToForm(doc));
             }
         }
-        return results;
+        return results;*/
     }
 
     /**

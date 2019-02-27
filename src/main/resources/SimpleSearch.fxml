@@ -23,7 +23,7 @@
                   <Image url="@logo.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB">
+            <Text fx:id="title" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB">
                <font>
                   <Font name="Roboto Light" size="48.0" />
                </font>
@@ -31,7 +31,7 @@
                   <Insets left="7.0" right="10.0" />
                </HBox.margin>
             </Text>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
+            <Text fx:id="descriptor" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
                <font>
                   <Font name="Roboto Light" size="24.0" />
                </font>
@@ -48,7 +48,7 @@
                   <Insets top="250.0" />
                </VBox.margin>
             </JFXTextField>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1360.0">
                <children>
                   <JFXButton fx:id="searchButton" alignment="CENTER" buttonType="RAISED" onAction="#search" ripplerFill="#949494" style="-fx-background-color: #4285f4;" text="Search" textFill="WHITE">
                      <font>
@@ -68,6 +68,26 @@
                   </JFXButton>
                </children>
             </HBox>
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1360.0" VBox.vgrow="NEVER">
+               <children>
+                  <JFXButton fx:id="UploadButton" buttonType="RAISED" onAction="#uploadLabelImage" prefHeight="29.0" prefWidth="175.0" style="-fx-background-color: #4285f4;" text="Search by Image" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" style="-fx-background-color: #4285f4;" text="Go to advanced search" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Light" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
          </children>
       </VBox>
       <JFXButton buttonType="RAISED" layoutX="1253.0" layoutY="28.0" onAction="#login" style="-fx-background-color: WHITE;" text="Login">
@@ -75,13 +95,8 @@
             <Font name="Roboto Light" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="1013.0" layoutY="664.0" onAction="#advancedSearch" style="-fx-background-color: #4285f4;" text="Go to advanced search" textFill="WHITE">
-         <font>
-            <Font name="Roboto Light" size="18.0" />
-         </font>
-      </JFXButton>
       <fx:include source="MenuDrawer.fxml" />
-      <StackPane fx:id="UsernameStackPane" layoutX="1097.0" layoutY="23.0" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #4285f4;">
+      <StackPane fx:id="UsernameStackPane" layoutX="1160.0" layoutY="-1.0" prefHeight="99.0" prefWidth="199.0" style="-fx-background-color: #4285f4;">
          <children>
             <JFXButton fx:id="UsernameButton" onAction="#toProfile" text="User Profile" textFill="WHITE" />
          </children>

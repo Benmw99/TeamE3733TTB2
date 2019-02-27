@@ -5,7 +5,6 @@
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -143,38 +142,38 @@
          </children>
       </Pane>
       <Rectangle fill="WHITE" height="89.0" layoutX="-2.0" layoutY="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1360.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4285f4" height="80.0" layoutX="-8.0" layoutY="-1.0" stroke="#ffffff00" strokeType="INSIDE" width="1372.0" />
-      <Text layoutX="25.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mark Section as:" wrappingWidth="156.64989471435547">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4285f4" height="94.0" layoutX="-8.0" layoutY="-1.0" stroke="#ffffff00" strokeType="INSIDE" width="1372.0" />
+      <Text layoutX="25.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mark Section as:" wrappingWidth="156.64989471435547">
          <font>
-            <Font name="Roboto Thin" size="18.0" />
+            <Font name="Roboto Light" size="18.0" />
          </font>
       </Text>
-      <JFXComboBox fx:id="sectionMarkComboBox" layoutX="203.0" layoutY="86.0" onAction="#markForm" prefHeight="39.0" prefWidth="253.0" promptText="Select Status" style="-jfx-focus-color: WHITE;" />
-      <JFXButton fx:id="approveAVFButton" buttonType="RAISED" layoutX="531.0" layoutY="86.0" onAction="#approveForm" prefHeight="39.0" prefWidth="153.0" ripplerFill="#9c9797" style="-fx-background-color: #4285F4;" text="Approve Form" textFill="WHITE">
+      <JFXComboBox fx:id="sectionMarkComboBox" layoutX="203.0" layoutY="114.0" onAction="#markForm" prefHeight="39.0" prefWidth="253.0" promptText="Select Status" style="-jfx-focus-color: WHITE;" />
+      <JFXButton fx:id="approveAVFButton" buttonType="RAISED" layoutX="531.0" layoutY="115.0" onAction="#approveForm" prefHeight="39.0" prefWidth="153.0" ripplerFill="#9c9797" style="-fx-background-color: #4285F4;" text="Approve Form" textFill="WHITE">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="rejectAVFButton" buttonType="RAISED" layoutX="694.0" layoutY="86.0" onAction="#rejectForm" prefHeight="39.0" prefWidth="132.0" ripplerFill="#9c9797" style="-fx-background-color: #4285F4;" text="Reject Form" textFill="WHITE">
+      <JFXButton fx:id="rejectAVFButton" buttonType="RAISED" layoutX="694.0" layoutY="115.0" onAction="#rejectForm" prefHeight="39.0" prefWidth="132.0" ripplerFill="#9c9797" style="-fx-background-color: #4285F4;" text="Reject Form" textFill="WHITE">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="printAVFButton" buttonType="RAISED" layoutX="1284.0" layoutY="88.0" prefHeight="31.0" prefWidth="76.0" ripplerFill="#9c9797" style="-fx-background-color: #4285F4;" text="Print" textFill="WHITE" AnchorPane.rightAnchor="5.0">
+      <JFXButton fx:id="printAVFButton" buttonType="RAISED" layoutX="1284.0" layoutY="115.0" prefHeight="31.0" prefWidth="76.0" ripplerFill="#9c9797" style="-fx-background-color: #4285F4;" text="Print" textFill="WHITE" AnchorPane.rightAnchor="5.0">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font>
       </JFXButton>
-      <Pane layoutX="-4.0" layoutY="138.0" prefHeight="624.0" prefWidth="688.0">
+      <Pane layoutX="-4.0" layoutY="178.0" prefHeight="584.0" prefWidth="688.0">
          <children>
             <fx:include fx:id="formDisplay" source="FormDisplay.fxml" />
          </children>
       </Pane>
       <Line endX="-100.00006103515625" endY="595.7626342773438" layoutX="783.0" layoutY="153.0" startX="-100.0" stroke="#b1bdc3" />
       <fx:include source="MenuDrawer.fxml" />
-      <Pane layoutX="681.0" layoutY="139.0" prefHeight="623.0" prefWidth="693.0" AnchorPane.rightAnchor="0.0">
+      <Pane layoutX="681.0" layoutY="177.0" prefHeight="585.0" prefWidth="693.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <JFXTabPane prefHeight="625.0" prefWidth="696.0" stylesheets="@TabPane.css" tabClosingPolicy="UNAVAILABLE">
+            <JFXTabPane prefHeight="584.0" prefWidth="696.0" stylesheets="@TabPane.css" tabClosingPolicy="UNAVAILABLE">
                <tabs>
                   <Tab fx:id="rulesRegTab" text="Regulations">
                      <content>
@@ -642,11 +641,6 @@
             </JFXTabPane>
          </children>
       </Pane>
-      <JFXToggleButton fx:id="helpToggleButton" layoutX="1225.0" layoutY="7.0" text="Help" textFill="WHITE" AnchorPane.rightAnchor="0.0">
-         <font>
-            <Font name="Roboto Light" size="24.0" />
-         </font>
-      </JFXToggleButton>
       <HBox alignment="CENTER" layoutX="456.0" layoutY="-8.0" prefHeight="100.0">
          <children>
             <ImageView fitHeight="68.0" fitWidth="75.0">
@@ -669,5 +663,6 @@
             </Text>
          </children>
       </HBox>
+      <JFXButton fx:id="helpButton" layoutX="1309.0" layoutY="17.0" style="-fx-background-color: WHITE; -fx-background-radius: 20;" text="?" />
    </children>
 </AnchorPane>

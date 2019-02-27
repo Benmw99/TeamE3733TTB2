@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,7 +17,7 @@
 <AnchorPane maxHeight="760.0" maxWidth="1360.0" prefHeight="760.0" prefWidth="1360.0" style="-fx-background-color: #ffffff;" stylesheets="@/TabPane.css, @font.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ManViewAgentCommentsController">
    <children>
       <Rectangle fill="#4285f4" height="102.0" layoutX="-2.0" layoutY="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1376.0" />
-      <JFXButton fx:id="printAVFButton" buttonType="RAISED" layoutX="1268.0" layoutY="105.0" prefHeight="15.0" prefWidth="76.0" style="-fx-background-color: #4285f4;" text="Print" textFill="WHITE">
+      <JFXButton fx:id="printAVFButton" buttonType="RAISED" layoutX="1267.0" layoutY="114.0" prefHeight="39.0" prefWidth="76.0" style="-fx-background-color: #4285f4;" text="Print" textFill="WHITE">
          <ripplerFill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -28,25 +27,20 @@
             </RadialGradient>
          </ripplerFill>
          <font>
-            <Font size="14.0" />
+            <Font name="Roboto Light" size="18.0" />
          </font>
       </JFXButton>
-      <Pane layoutX="-4.0" layoutY="138.0" prefHeight="624.0" prefWidth="688.0">
+      <Pane layoutX="-4.0" layoutY="162.0" prefHeight="600.0" prefWidth="688.0">
          <children>
             <fx:include source="FormDisplay.fxml" />
          </children>
       </Pane>
-      <Line endX="-100.00006103515625" endY="595.7626342773438" layoutX="783.0" layoutY="153.0" startX="-100.0" stroke="#b1bdc3" />
+      <Line endX="-100.00006103515625" endY="595.7626342773438" layoutX="783.0" layoutY="153.0" startX="-100.00006103515625" startY="26.84820556640625" stroke="#b1bdc3" />
       <fx:include source="MenuDrawer.fxml" />
-      <Pane layoutX="681.0" layoutY="139.0" prefHeight="623.0" prefWidth="693.0">
+      <Pane layoutX="681.0" layoutY="161.0" prefHeight="601.0" prefWidth="692.0" style="-fx-background-color: white;">
          <children>
-            <Rectangle fill="#4285f4" height="40.0" layoutX="315.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="379.0" />
-            <Label layoutX="87.0" layoutY="8.0" text="Qualifications" textFill="WHITE">
-               <font>
-                  <Font name="Roboto Light" size="24.0" />
-               </font>
-            </Label>
-            <Text fx:id="agentComments" layoutX="87.0" layoutY="100.0" onDragDetected="#receiveNewComments" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="578.21875" />
+            <Text fx:id="agentComments" layoutX="14.0" layoutY="87.0" onDragDetected="#receiveNewComments" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="651.4981689453125" />
+            <Rectangle fill="#4285f4" height="42.0" layoutX="4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="687.0" />
          </children>
       </Pane>
       <HBox alignment="CENTER" layoutX="490.0" layoutY="-5.0" prefHeight="100.0">
@@ -72,5 +66,10 @@
          </children>
       </HBox>
       <JFXButton fx:id="helpButton" buttonType="RAISED" layoutX="1293.0" layoutY="35.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="?" />
+      <Text fill="WHITE" layoutX="715.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comments">
+         <font>
+            <Font name="Roboto Light" size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

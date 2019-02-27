@@ -24,6 +24,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import org.apache.commons.io.IOUtils;
+import org.apache.derby.impl.store.replication.net.SlaveAddress;
 import org.controlsfx.control.BreadCrumbBar;
 import org.controlsfx.control.PopOver;
 
@@ -261,6 +262,8 @@ public class AppController extends PageControllerUI implements Initializable {
 
     boolean isSingle;
 
+    Form working;
+
     @Override
     void onLoad() {
     }
@@ -332,7 +335,7 @@ public class AppController extends PageControllerUI implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        this.working = new Form();
         if (attributeContainer.backlog.peek().equals("ManApp.fxml")) {
             isSingle = false;
         } else {
@@ -756,7 +759,7 @@ public class AppController extends PageControllerUI implements Initializable {
      * @return int the TTBID
      */
     int getForm(Manufacturer man) {
-        Form working = new Form();
+
         WineFormItems wine = new WineFormItems();
         working.setBrandName(BrandField.getText());
         working.setSerialNumber(SerialYearField.getText()
@@ -845,6 +848,34 @@ public class AppController extends PageControllerUI implements Initializable {
 //                String label = selectedFile.toString();
 //                googleVision.detectLogoTextBrandon(label);
 //            }
+
+            GoogleVision gv = new GoogleVision();
+            try {
+                System.out.println(selectedFile.getPath());
+                gv.detectText(selectedFile.getPath(), working, true);
+                gv.detectLogoText(selectedFile.getPath(), working, true );
+                working.getAlcContent();
+                working.setAlcoholType(working.detectAlcType());
+                BrandField.setText(working.getLogoText());
+                AlcoholContentTextField.setText("" + working.getAlcoholContent());
+                try {
+                    working.setAlcoholType(working.detectAlcType());
+                    System.out.println(working.getAlcoholType());
+                    if (working.getAlcoholType().toInt() == AlcoholType.MaltBeverage.toInt()) {
+                        TypeComboBox.getSelectionModel().select(0);
+                    } else if (working.getAlcoholType().toInt() == AlcoholType.Wine.toInt()) {
+                        TypeComboBox.getSelectionModel().select(1);
+                    } else if (working.getAlcoholType().toInt() == AlcoholType.DistilledLiquor.toInt()) {
+                        TypeComboBox.getSelectionModel().select(2);
+                    }
+                } catch (Exception e){
+                    // Silently don't set the type combo box.
+                }
+
+
+            } catch (Exception e){
+                e.printStackTrace();
+            }
         } catch (IOException e) {
             System.out.println(e);
 //        } catch (Exception e) {
