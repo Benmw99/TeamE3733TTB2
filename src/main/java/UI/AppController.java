@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.TreeItem;
 import javafx.scene.input.MouseEvent;
@@ -23,9 +24,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.util.Duration;
 import org.apache.commons.io.IOUtils;
 import org.apache.derby.impl.store.replication.net.SlaveAddress;
 import org.controlsfx.control.BreadCrumbBar;
+import org.controlsfx.control.Notifications;
 import org.controlsfx.control.PopOver;
 
 
@@ -471,7 +474,19 @@ public class AppController extends PageControllerUI implements Initializable {
                     AttributeContainer.getInstance().labelImage.insert();
                     AttributeContainer.getInstance().currentForm = null;
                     AttributeContainer.getInstance().formQueue = ((Manufacturer) AttributeContainer.getInstance().currentUser).loadForms();
-                    goToPage("ManHome.fxml");
+                    Notifications notificationsBuilder = Notifications.create()
+                            .title("Submitted Form")
+                            .text("You have just submitted this form.")
+                            .graphic(null)
+                            .hideAfter(Duration.seconds(6))
+                            .position(Pos.CENTER)
+                            .onAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    goToPage("ManHome.fxml");                                }
+                            });
+                    notificationsBuilder.showInformation();
+
                 }
             }
         });
