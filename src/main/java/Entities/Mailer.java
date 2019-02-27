@@ -9,7 +9,10 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -64,7 +67,7 @@ public class Mailer implements Runnable {
 
     /**
      * The constructor for a two factor mailing.
-     * @param to_contact
+     * @param
      * @param key
      */
     public Mailer(String email, String key){
@@ -122,9 +125,6 @@ public class Mailer implements Runnable {
     }
 
     private void mailHelper(MimeMessage message, String body, Form form) throws MessagingException {
-        body += "\n Sincerely yours,";
-        body += "The Ebony Elves' TTB Application";
-
         Multipart multi = new MimeMultipart();
         try {
             new FormExporter(form);
@@ -137,6 +137,43 @@ public class Mailer implements Runnable {
             DataSource src = fds;
             attachmentBodyPart.setDataHandler(new DataHandler(src));
             attachmentBodyPart.setFileName("TTB Application Form [FOR REVIEW ONLY].docx");
+
+            StringBuilder contentBuilder = new StringBuilder();
+            try {
+                File file2 = new File(getClass().getResource("/"+"index.html").toURI());
+                BufferedReader in = new BufferedReader(new FileReader(file2));
+                String str;
+                while ((str = in.readLine()) != null) {
+                    contentBuilder.append(str);
+                }
+                in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String content = contentBuilder.toString();
+
+            String content3;
+            String content4 = "";
+            String content5 = "";
+
+            String content2 = content.replace("MessageText2", "Sincerely yours,");
+
+
+            if(body.contains("You have been assigned a new form.")){
+                content3 = content2.replace("MessageTitle", "You have been assigned a new form");
+                content4 = content3.replace("MessageText1", body);
+            }
+
+            else{
+                content3 = content2.replace("MessageTitle", "There are updates on your form");
+                content4 = content3.replace("MessageText1", body);
+            }
+
+            content5 = content4.replace("MessageText3", "the Elbony Elves TTB Application");
+
+            System.out.println(content5);
+
+            textBodyPart.setText(content5,  "utf-8", "html");
 
             multi.addBodyPart(textBodyPart);
             multi.addBodyPart(attachmentBodyPart);
