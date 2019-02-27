@@ -515,7 +515,7 @@
                      <children>
                         <VBox>
                            <children>
-                              <Label prefHeight="80.0" text="Mailing Address">
+                              <Label prefHeight="80.0" text="Mailing Address:">
                                  <font>
                                     <Font name="Roboto Light" size="28.0" />
                                  </font>
@@ -899,6 +899,6 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <BreadCrumbBar fx:id="Nav" layoutX="950.0" layoutY="20.0" prefHeight="100.0" prefWidth="391.0" stylesheets="@breadcrumb.css" />
+      <BreadCrumbBar fx:id="Nav" layoutX="1052.0" layoutY="57.0" prefHeight="48.0" prefWidth="245.0" stylesheets="@breadcrumb.css" />
    </children>
 </AnchorPane>
