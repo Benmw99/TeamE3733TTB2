@@ -16,7 +16,7 @@ public class EnvSetter {
         try {
          //   File doc2 = new File();
             getClass().getResourceAsStream("/" + filename);
-            File file = new File("google.json");
+            File file = new File("teameautherntactorforvisiongoogle.json");
 
             FileOutputStream fos = new FileOutputStream(file);
             InputStream is = getClass().getResourceAsStream("/" + filename);
