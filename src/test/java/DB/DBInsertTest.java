@@ -13,6 +13,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class DBInsertTest {
+    /*
     @BeforeClass
     public static void setup() {
         DB.Database db = DB.Database.getDatabase();
@@ -86,4 +87,5 @@ public class DBInsertTest {
         System.out.println(pulledUpdate.getApprovalStatus());
         System.out.println(pulledUpdate.getApproval().getQualifications());
     }
+    */
 }
