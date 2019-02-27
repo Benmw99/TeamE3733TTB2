@@ -131,8 +131,8 @@ public class GoogleVision {
 
 
     public void detectLogoText(String filePath, Form form) throws Exception, IOException {
-        GoogleCredentials credentials = GoogleCredentials.fromStream( new FileInputStream(new File(getClass().getResource("/" + "My First Project-b6981c3f2253.json").toURI())));
-        Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
+   //     GoogleCredentials credentials = GoogleCredentials.fromStream( new FileInputStream(new File(getClass().getResource("/" + "My First Project-b6981c3f2253.json").toURI())));
+     //   Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
         List<AnnotateImageRequest> requests = new ArrayList<>();
 
         ByteString imgBytes = new FileOpener().fileOpener(filePath);
@@ -168,8 +168,8 @@ public class GoogleVision {
     }
 
     public void detectLogoText(String filePath, Form form, boolean is) throws Exception, IOException {
-        GoogleCredentials credentials = GoogleCredentials.fromStream( new FileInputStream(new File(getClass().getResource("/" + "My First Project-b6981c3f2253.json").toURI())));
-        Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
+  //      GoogleCredentials credentials = GoogleCredentials.fromStream( new FileInputStream(new File(getClass().getResource("/" + "My First Project-b6981c3f2253.json").toURI())));
+    //    Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
         List<AnnotateImageRequest> requests = new ArrayList<>();
 
         ByteString imgBytes = new FileOpener().fileOpener(filePath, true);
