@@ -124,6 +124,7 @@ public class Mailer implements Runnable {
 
     }
 
+    //HTML Template generated with campaignmonitor.com, then modified
     private void mailHelper(MimeMessage message, String body, Form form) throws MessagingException {
         Multipart multi = new MimeMultipart();
         try {
