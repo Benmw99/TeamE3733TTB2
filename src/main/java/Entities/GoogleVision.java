@@ -201,6 +201,7 @@ public class GoogleVision {
         String s = form.getLabelText();
         s = s.replaceAll("\n", "");
         s = s.replaceAll(" ", "");
+        s = s.substring(0, 500);
         form.setLabelText(s);
     }
 
