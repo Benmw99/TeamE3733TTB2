@@ -15,6 +15,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -239,6 +240,9 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
     TextField brandNameTextField1;
 
     @FXML
+    JFXButton exitHelp;
+
+    @FXML
     private JFXDatePicker SearchDate;
 
     @FXML
@@ -246,6 +250,9 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
 
     @FXML
     private JFXComboBox<String> State9ComboBox;
+
+    @FXML
+    Label SearchLabel;
 
     ToggleGroup searchOptions = new ToggleGroup();
     ToggleGroup searchOptions2 = new ToggleGroup();
@@ -276,55 +283,6 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
         else{
             UsernameStackPane.toBack();
         }
-//
-//        if (attributeContainer.currentForm != null) {
-//            Civ1Label.setText(attributeContainer.currentForm.getRepID());
-//            String fullPermit = "";
-//            for (int i = 0; i < attributeContainer.currentForm.getBrewersPermit().size(); i++) {
-//                fullPermit += attributeContainer.currentForm.getBrewersPermit().get(i) + "\n";
-//            }
-//            Civ2Label.setText(fullPermit);
-//            if (attributeContainer.currentForm.getSource()) {
-//                Civ3Label.setText("Domestic");
-//            } else {
-//                Civ3Label.setText("Imported");
-//            }
-//            CivReview4Label1.setText(attributeContainer.currentForm.getSerialNumber());
-//            Civ5Label1.setText(attributeContainer.currentForm.getAlcoholType().toString());
-//            if (attributeContainer.currentForm.getAlcoholType().toInt() == Wine.toInt()) {
-//                Civ5Label2.setText("" + attributeContainer.currentForm.getWineFormItems().getpH());
-//                Civ5Label3.setText("" + attributeContainer.currentForm.getWineFormItems().getVintageYear());
-//                Civ11Label.setText(attributeContainer.currentForm.getWineFormItems().getGrapeVarietal());
-//                Civ12Label.setText(attributeContainer.currentForm.getWineFormItems().getAppellation());
-//            } else {
-//                Civ5Label2.setText("N/A");
-//                Civ5Label3.setText("N/A");
-//                Civ11Label.setText("N/A");
-//                Civ12Label.setText("N/A");
-//            }
-//            Civ6Label.setText(attributeContainer.currentForm.getBrandName());
-//            Civ7Label.setText(attributeContainer.currentForm.getFancifulName());
-//
-//            String fullAddress = "";
-//            for (int i = 0; i < attributeContainer.currentForm.getAddress().size(); i++) {
-//                fullAddress += attributeContainer.currentForm.getAddress().get(i).getName() + "\n"; //NAME MIGHT NOT BE STORED OR RETRIEVED CORRECTLY
-//                fullAddress += attributeContainer.currentForm.getAddress().get(i).getStreet() + ", " + attributeContainer.currentForm.getAddress().get(i).getCity() + ", " + attributeContainer.currentForm.getAddress().get(i).getState();
-//                fullAddress += ", " + attributeContainer.currentForm.getAddress().get(i).getZip() + "\n";
-//            }
-//            Civ8Label.setText(fullAddress);
-//            if (attributeContainer.currentForm.getMailingAddress() != null) {
-//                String mailingAddress = "";
-//                mailingAddress += attributeContainer.currentForm.getMailingAddress().getStreet() + ", " + attributeContainer.currentForm.getMailingAddress().getCity() + ", " + attributeContainer.currentForm.getMailingAddress().getState() + ", " + attributeContainer.currentForm.getMailingAddress().getZip();
-//                Civ9Label.setText(mailingAddress);
-//            } else {
-//                Civ9Label.setText("");
-//            }
-//            Civ10Label.setText(attributeContainer.currentForm.getFormula());
-//            Civ14Label.setText("" + attributeContainer.currentForm.getAlcoholContent());
-//            Civ15Label.setText(attributeContainer.currentForm.getEmail());
-//            Civ16Label.setText(attributeContainer.currentForm.getPhoneNumber());
-//
-//        }
 
         //helpButton.isPressed();
         largePane.setOpacity(0);
@@ -332,18 +290,6 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
         smallPane.setOpacity(0);
         smallPane.setDisable(true);
 
-        helpButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                largePane.setOpacity(0.63);
-                largePane.setDisable(false);
-                smallPane.setOpacity(1);
-                smallPane.setDisable(false);
-                System.out.println(event.getSource());
-            }
-
-
-        });
 
         }
     //#################################################################################################################################
@@ -399,10 +345,6 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
             advancedSearch.setState(State9ComboBox.getValue());
         }
 
-
-
-
-
         List<Form> forms;
 
         if (apacheRadioButton.isSelected()) {
@@ -453,9 +395,6 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
             AttributeContainer.getInstance().backlog.pop();
         }
     }
-
-
-
 
     @FXML
     public void clickItem(MouseEvent event) throws IOException
@@ -521,6 +460,27 @@ public class HomeAdvancedSearchController extends PageControllerUI implements In
 
         }
     }
+
+    @FXML
+    public void handleHelp(ActionEvent event) {
+        final Node source = (Node) event.getSource();
+        String id = source.getId();
+        if (id.equals("helpButton")) {
+            largePane.setOpacity(0.63);
+            largePane.setDisable(false);
+            smallPane.setOpacity(1);
+            smallPane.setDisable(false);
+//            System.out.println(event.getSource());
+            System.out.println(id + " true");
+        } else if(id.equals("exitHelp")){
+            System.out.println(id + " else");
+            largePane.setOpacity(0);
+            largePane.setDisable(true);
+            smallPane.setOpacity(0);
+            smallPane.setDisable(true);
+        }
+    }
+
 
     @Override
     protected void onLeave() {
