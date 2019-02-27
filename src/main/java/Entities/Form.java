@@ -542,7 +542,7 @@ public class Form implements Serializable {
     }
 
     /**
-     * Verifies that the passed in text occurs somewhere in the label text. Works only if both are set.
+     * Verify that the passed in text occurs somewhere in the label text. Works only if both are set.
      * @return true for a match, false otherwise.
      */
     public boolean verifyText(String s){

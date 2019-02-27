@@ -46,9 +46,13 @@ public class FormDisplayController extends PageControllerUI implements Initializ
     @FXML
     Label Display7Label;
     @FXML
-    Label Display8Label;
+    Label Display8Label1;
     @FXML
-    Label Display9Label;
+    Label Display8Label2;
+    @FXML
+    Label Display9Label1;
+    @FXML
+    Label Display9Label2;
     @FXML
     Label Display10Label;
     @FXML
@@ -124,16 +128,18 @@ public class FormDisplayController extends PageControllerUI implements Initializ
         this.Display5Label3.setText("N/A");
         this.Display6Label.setText("N/A");
         this.Display7Label.setText("N/A");
-        this.Display8Label.setText("N/A");
-        this.Display9Label.setText("N/A");
+        this.Display8Label1.setText("N/A");
+        this.Display8Label2.setText("N/A");
+        this.Display9Label1.setText("N/A");
+        this.Display9Label2.setText("N/A");
         this.Display10Label.setText("N/A");
         this.Display11Label.setText("N/A");
         this.Display12Label.setText("N/A");
         this.Display13Label.setText("N/A");
         this.Display14Label.setText("N/A");
-        this.Display15Label1.setText("N/A");
-        this.Display15Label2.setText("N/A");
-        this.Display15Label3.setText("N/A");
+//        this.Display15Label1.setText("N/A");
+//        this.Display15Label2.setText("N/A");
+//        this.Display15Label3.setText("N/A");
         this.Display16Label1.setText("N/A");
         this.Display16Label2.setText("N/A");
         this.Display17Label.setText("N/A");
@@ -193,11 +199,17 @@ public class FormDisplayController extends PageControllerUI implements Initializ
             this.Display7Label.setText(form.getFancifulName());
         }
         if (form.getMailingAddress() != null) {
-            this.Display8Label.setText(form.getMailingAddress().getName());
-            Address add = form.getMailingAddress();
-            String addy = add.getName() + "\n" + add.getStreet() + "\n" + add.getCity() +
-                    "\n" + add.getState() + "\n" + add.getZip();
-            this.Display9Label.setText(addy);
+            Address originalAddy = form.address.get(0);
+
+            this.Display8Label1.setText(originalAddy.getName());
+
+            this.Display8Label2.setText(originalAddy.getStreet() + ", " + originalAddy.getCity()
+            + ", " + originalAddy.getState() + " " + originalAddy.getZip());
+
+            this.Display9Label1.setText(form.getMailingAddress().getName());
+
+            this.Display9Label2.setText(form.getMailingAddress().getStreet() + ", " + form.getMailingAddress().getCity()
+                    + ", " + form.getMailingAddress().getState() + " " + form.getMailingAddress().getZip());
         }
         if (form.getFormula() != null) {
             this.Display10Label.setText(form.getFormula());

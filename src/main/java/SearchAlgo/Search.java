@@ -19,7 +19,8 @@ public class Search {
         //assuming search by brand name with max cost of 2
         List<String> out;
         if(advancedSearch.getBrandName() != null) {
-            out = fuzzyAlgo.run(in, 2, advancedSearch.getBrandName());
+            int cost = advancedSearch.getBrandName().length() / 2;
+            out = fuzzyAlgo.run(in, cost, advancedSearch.getBrandName());
             return db.dbSelect.searchByLDBrand(advancedSearch, out);
         }
 
