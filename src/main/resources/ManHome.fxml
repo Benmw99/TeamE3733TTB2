@@ -57,11 +57,11 @@
                         <Font name="Roboto Light" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="goToSingleApp" layoutX="666.0" layoutY="25.0" onAction="#addSingleForm" prefHeight="39.0" ripplerFill="#9c9797" style="-fx-background-color: #4285f4;" text="Single Page Application" textFill="WHITE">
+                  <JFXButton fx:id="goToSingleApp" buttonType="RAISED" layoutX="666.0" layoutY="25.0" onAction="#addSingleForm" prefHeight="39.0" ripplerFill="#9c9797" style="-fx-background-color: #4285f4;" text="Single Page Application" textFill="WHITE">
                      <font>
                         <Font name="Roboto Light" size="18.0" />
                      </font></JFXButton>
-                  <JFXButton fx:id="newFormButton" layoutX="478.0" layoutY="25.0" onAction="#addForm" prefHeight="39.0" ripplerFill="#9c9797" style="-fx-background-color: #4285f4;" text="New Application" textFill="WHITE">
+                  <JFXButton fx:id="newFormButton" buttonType="RAISED" layoutX="478.0" layoutY="25.0" onAction="#addForm" prefHeight="39.0" ripplerFill="#9c9797" style="-fx-background-color: #4285f4;" text="New Application" textFill="WHITE">
                      <font>
                         <Font name="Roboto Light" size="18.0" />
                      </font>

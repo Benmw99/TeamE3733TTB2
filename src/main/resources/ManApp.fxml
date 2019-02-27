@@ -804,7 +804,7 @@
                               <Font name="Roboto Light" size="32.0" />
                            </font>
                         </Label>
-                        <JFXDatePicker fx:id="AppDate" defaultColor="#12e8d2" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: white;">
+                        <JFXDatePicker fx:id="AppDate" defaultColor="#4285f4" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: white;">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
