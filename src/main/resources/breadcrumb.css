@@ -8,7 +8,6 @@ bread-crumb-bar {
     -fx-content-display: left;
     -fx-background-position: left center;
     -fx-background-repeat: no-repeat;
-    -fx-background-image: url("../img/slash.png");
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-shape: null;
