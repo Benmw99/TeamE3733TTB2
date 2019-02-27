@@ -1,4 +1,4 @@
-/*bread-crumb-bar {
+bread-crumb-bar {
     -fx-background-color: transparent;
 }
 .bread-crumb-bar .button {
@@ -8,6 +8,7 @@
     -fx-content-display: left;
     -fx-background-position: left center;
     -fx-background-repeat: no-repeat;
+    -fx-background-image: url("../img/slash.png");
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-shape: null;
@@ -28,14 +29,15 @@
 .crumb:selected,
 .crumb:focused
 {
-    -fx-background-color: white;
+    -fx-background-color: rgba(0,0,0,0.1);
     -fx-border-color: null;
     -fx-font-size: 1.11em;
     -fx-text-fill: rgba(0,0,0,0.5);
 }
-*/
 
-.breadcrumbs {
+
+
+/*.breadcrumbs {
     -fx-padding: 0 50 0 0;
 }
 
@@ -48,7 +50,8 @@
     -fx-border-image-slice: 1 10 1 10 fill;
     -fx-border-image-width: 1 10 1 10;
     -fx-border-image-repeat: stretch;
-    -fx-font-size: 18px;
+    -fx-font-family: Roboto-Thin;
+    -fx-font-size: 24px;
 }
 
 .breadcrumbs .item:hover {
@@ -66,10 +69,12 @@
 .breadcrumbs .first {
     -fx-border-image-insets: -2 -5 -2 0;
     -fx-border-image-width: 0 10 0 0;
+    -fx-background-color: transparent;
 }
 
 .breadcrumbs .middle {
     -fx-border-image-insets: -2 -5 -2 -7;
+    -fx-background-color: transparent;
 }
 
 .breadcrumbs .last {
@@ -79,5 +84,11 @@
     -fx-border-color: null;
     -fx-border-color: transparent #6e737d transparent transparent , transparent rgba(255,255,255,0.2) transparent transparent;
     -fx-border-insets: 0 0 1 0, 1;
+    -fx-background-color: transparent;
 }
 
+.crumb {
+    -fx-text-fill: Black;
+}
+
+*/
