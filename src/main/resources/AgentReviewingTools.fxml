@@ -213,7 +213,7 @@
                                                 </Label>
                                                 <Label contentDisplay="TOP" prefHeight="150.0" prefWidth="654.0" text="For bonded wine cellars, taxpaid wine bottline houses, and distilled spirits plants, enter the applicable registry number (BW- or TPWBH- or DSP- number). Importers must enter the TTB basic permit number and brewers must enter the brewer's notice number. Wholesalers applying to relabel must enter teh wholesaler's basic permis number. If you intend to botle this product at more than one of your locations (distilled spirits and malt beverages only), show the registry number/brewer's notic number of each location where the product will be bottled. In this instance, Item 8 should reflect your principal place of business. You may also use Item 8a to reflect additional registry/brewer's notice numbers if the space provided in item 2 is insufficient. In this instance, cross out the words &quot;Mailing address, if different&quot;" wrapText="true">
                                                    <font>
-                                                      <Font name="Roboto Light" size="24.0" />
+                                                      <Font name="Roboto Light" size="18.0" />
                                                    </font>
                                                    <HBox.margin>
                                                       <Insets left="15.0" />
