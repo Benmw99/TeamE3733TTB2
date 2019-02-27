@@ -205,9 +205,9 @@ public class Mailer implements Runnable {
             //  File file = ;
             InputStream is = getClass().getResourceAsStream("/" + "output.docx");
             File file = new File("docholder.docx");
-            OutputStream outStream = new FileOutputStream(file);
-            byte[] buffer = new byte[is.available()];
-            outStream.write(buffer);
+          //  OutputStream outStream = new FileOutputStream(file);
+         //   byte[] buffer = new byte[is.available()];
+          //  outStream.write(buffer);
 
             Session session = Session.getDefaultInstance(props, null);
             MimeMessage message = new MimeMessage(session);
