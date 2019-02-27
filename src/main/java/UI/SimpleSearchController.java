@@ -3,6 +3,7 @@ package UI;
 import DB.Database;
 import Entities.Agent;
 import Entities.Form;
+import Entities.LabelImage;
 import Entities.SearchResult;
 import SearchAlgo.SearchContainer;
 import com.jfoenix.controls.JFXButton;
@@ -11,12 +12,16 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.application.Application;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import org.apache.commons.io.IOUtils;
 
 import javax.swing.*;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,13 +57,14 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
     Text descriptor;
 
     @Override
-    protected void onLeave() {}
+    protected void onLeave() {
+    }
 
     @Override
     void onLoad() {
         searchButton.setFont(new Font("Roboto Light", 18));
         randomDrink.setFont(new Font("Roboto Light", 18));
-        searchBy.setFont(new Font ("Roboto Light", 24));
+        searchBy.setFont(new Font("Roboto Light", 24));
         goAdvSearch.setFont(new Font("Roboto Light", 18));
         title.setFont(new Font("Roboto Light", 48));
         descriptor.setFont(new Font("Roboto Light", 24));
@@ -68,31 +74,30 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        if(attributeContainer.currentUser != null){
+        if (attributeContainer.currentUser != null) {
 //            System.out.println("This is true");
             UsernameStackPane.setOpacity(1);
             UsernameButton.setText(attributeContainer.currentUser.getLogin());
-        }
-        else{
+        } else {
             UsernameStackPane.toBack();
         }
     }
 
-    public void pourMeADrink(ActionEvent event){
+    public void pourMeADrink(ActionEvent event) {
         AttributeContainer.getInstance().currentForm = Database.getDatabase().dbSelect.randomForm();
         goToPage("ViewSelectedForm.fxml");
 
     }
 
-    public void search(ActionEvent event){
-        if(searchBy.getText() != null && !searchBy.getText().trim().isEmpty()){
+    public void search(ActionEvent event) {
+        if (searchBy.getText() != null && !searchBy.getText().trim().isEmpty()) {
             SearchContainer.getInstance().searchResult = new SearchResult();
             List<Form> forms = Database.getDatabase().dbSelect.simpleSearch(searchBy.getText().trim());
             SearchContainer.getInstance().searchResult.setResults(forms);
             SearchContainer.getInstance().query = searchBy.getText().trim();
             SearchContainer.getInstance().setPages();
             SearchContainer.getInstance().currentPage = 1;
-            if(SearchContainer.getInstance().searchResult.getResults().size() != 0) {
+            if (SearchContainer.getInstance().searchResult.getResults().size() != 0) {
                 SearchContainer.getInstance().loadQueue();
             }
             goToPage("HomeSearch.fxml");
@@ -114,8 +119,37 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
     }
 
     @FXML
-    public void toProfile(){
+    public void toProfile() {
         goToPage("Profile.fxml");
     }
 
+
+    @FXML
+    void uploadLabelImage() {
+        FileChooser fileChooser = new FileChooser();
+
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("PNG Files", "*.png")
+                , new FileChooser.ExtensionFilter("JPEG Files", "*.jpg")
+        );
+
+        try {
+            fileChooser.setTitle("Select label image");
+            File selectedFile = fileChooser.showOpenDialog(PageSwitcher.stage);
+            System.out.println(selectedFile);
+            LabelImage labelImage = new LabelImage();
+            InputStream is = new FileInputStream(selectedFile);
+            labelImage.setImage(IOUtils.toByteArray(is));
+            labelImage.setImageName(selectedFile.getName());
+            attributeContainer.labelImage = labelImage;
+            attributeContainer.labelImageFile = selectedFile;
+
+            Image img = new Image(selectedFile.toURI().toString());
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
