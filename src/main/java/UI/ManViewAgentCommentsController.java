@@ -42,6 +42,7 @@ public class ManViewAgentCommentsController extends PageControllerUI implements 
     }
 
    public void receiveNewComments() {
+        attributeContainer = AttributeContainer.getInstance();
         agentComments.setText(attributeContainer.currentForm.getApproval().getQualifications());
     }
 
