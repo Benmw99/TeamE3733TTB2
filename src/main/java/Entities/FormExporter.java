@@ -335,10 +335,10 @@ public class FormExporter {
                 }
             }
        //     File img = new File(getClass().getResource("/pyramid.jpg").toURI());
-            InputStream is = getClass().getResourceAsStream("/output.docx");
+         //   InputStream is = getClass().getResourceAsStream("/output.docx");
             File file = new File("output.docx");
             FileOutputStream fos = new FileOutputStream(file);
-            fos.write(is.available());
+         //   fos.write(is.available());
             for(XWPFPictureData x : doc.getAllPictures()){
                 System.out.println(x.getFileName());
             }
