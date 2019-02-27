@@ -1,7 +1,6 @@
 // Imports the Google Cloud client library
 package Entities;
-import DB.Database;
-import com.google.api.client.util.Lists;
+
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.storage.Storage;
 import com.google.cloud.storage.StorageOptions;
@@ -15,20 +14,9 @@ import com.google.cloud.vision.v1.Image;
 import com.google.cloud.vision.v1.ImageAnnotatorClient;
 import com.google.protobuf.ByteString;
 
-
-import io.grpc.Context;
-import org.omg.CORBA.Environment;
-
 import java.io.*;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class GoogleVision {
     public static void main(String... args) throws Exception {

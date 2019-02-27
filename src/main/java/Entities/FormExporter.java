@@ -1,32 +1,20 @@
 package Entities;
 import DB.Database;
 import javafx.scene.image.Image;
-import org.apache.commons.math3.analysis.function.Add;
-import org.apache.poi.POIDocument;
-import org.apache.poi.*;
-import org.apache.*;
 
 import java.io.*;
 
-import org.apache.poi.hwpf.HWPFDocument;
-import org.apache.poi.hwpf.model.StyleDescription;
-import org.apache.poi.hwpf.model.StyleSheet;
-import org.apache.poi.hwpf.usermodel.CharacterRun;
-import org.apache.poi.hwpf.usermodel.Paragraph;
-import org.apache.poi.hwpf.usermodel.Range;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.openxml4j.opc.PackageAccess;
 import org.apache.poi.poifs.crypt.EncryptionInfo;
 import org.apache.poi.poifs.crypt.EncryptionMode;
 import org.apache.poi.poifs.crypt.Encryptor;
-import org.apache.poi.poifs.crypt.HashAlgorithm;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.util.Units;
 import org.apache.poi.xwpf.usermodel.*;
 
-import javax.imageio.ImageIO;
+
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 

@@ -3,7 +3,6 @@ package Entities;
 import java.util.List;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class SearchResult {
     private List<Form> results;

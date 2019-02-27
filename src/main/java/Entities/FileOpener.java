@@ -1,7 +1,6 @@
 package Entities;
 
 import com.google.protobuf.ByteString;
-import org.apache.commons.io.FileExistsException;
 
 import java.io.File;
 import java.nio.file.Files;

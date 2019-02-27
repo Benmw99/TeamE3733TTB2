@@ -1,15 +1,11 @@
 package Entities;
 
 import java.security.SecureRandom;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.persistence.*;
-import java.util.List;
-
 @Entity
 @Table(name = "COMPANY")
 public class Manufacturer implements IUser {

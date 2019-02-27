@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
-import java.net.PasswordAuthentication;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 

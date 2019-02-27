@@ -26,7 +26,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import org.apache.commons.io.IOUtils;
-import org.apache.derby.impl.store.replication.net.SlaveAddress;
 import org.controlsfx.control.BreadCrumbBar;
 import org.controlsfx.control.Notifications;
 import org.controlsfx.control.PopOver;

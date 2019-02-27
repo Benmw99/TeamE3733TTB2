@@ -3,8 +3,6 @@ package Entities;
 import DB.Database;
 
 import javax.persistence.*;
-import java.io.InputStream;
-import java.util.Objects;
 
 @Entity
 @Table(name = "LABEL")
