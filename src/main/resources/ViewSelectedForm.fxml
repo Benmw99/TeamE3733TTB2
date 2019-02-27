@@ -28,7 +28,7 @@
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font></JFXButton>
-      <HBox alignment="CENTER" layoutX="537.0" layoutY="-4.0" prefHeight="100.0">
+      <HBox alignment="CENTER" layoutX="379.0" layoutY="-4.0" prefHeight="100.0" prefWidth="598.0">
          <children>
             <ImageView fitHeight="85.0" fitWidth="90.0">
                <image>
