@@ -218,7 +218,7 @@
                   <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Source Of Product">
+                        <Label prefHeight="80.0" text="Source Of Product:">
                            <font>
                               <Font name="Roboto Light" size="28.0" />
                            </font>
@@ -241,7 +241,7 @@
                   <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Serial Number">
+                        <Label prefHeight="80.0" text="Serial Number:">
                            <font>
                               <Font name="Roboto Light" size="28.0" />
                            </font>
@@ -275,7 +275,7 @@
                   <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Type Of Product">
+                        <Label prefHeight="80.0" text="Type Of Product:">
                            <font>
                               <Font name="Roboto Light" size="28.0" />
                            </font>
@@ -310,7 +310,7 @@
                   <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Brand Name">
+                        <Label prefHeight="80.0" text="Brand Name:">
                            <font>
                               <Font name="Roboto Light" size="28.0" />
                            </font>
@@ -432,7 +432,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Fanciful Name">
+                        <Label prefHeight="80.0" text="Fanciful Name:">
                            <font>
                               <Font name="Roboto Light" size="28.0" />
                            </font>
@@ -458,7 +458,7 @@
                   <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Name &amp; Address">
+                        <Label prefHeight="80.0" text="Name &amp; Address:">
                            <font>
                               <Font name="Roboto Light" size="28.0" />
                            </font>
@@ -577,7 +577,7 @@
                   <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Formula">
+                        <Label prefHeight="80.0" text="Formula:">
                            <font>
                               <Font name="Roboto Light" size="28.0" />
                            </font>
@@ -603,7 +603,7 @@
                   <Separator prefWidth="200.0" />
                   <HBox fx:id="GrapeVarHBox" alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Grape Varietal(s)">
+                        <Label prefHeight="80.0" text="Grape Varietal(s):">
                            <font>
                               <Font name="Roboto Light" size="28.0" />
                            </font>
@@ -625,7 +625,7 @@
                   <Separator prefWidth="200.0" />
                   <HBox fx:id="WineAppHBox" alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Wine Appellation">
+                        <Label prefHeight="80.0" text="Wine Appellation:">
                            <font>
                               <Font name="Roboto Light" size="28.0" />
                            </font>
@@ -652,7 +652,7 @@
             </VBox>
          </children>
       </Pane>
-      <Pane fx:id="pane4" opacity="0.0" prefHeight="660.0" prefWidth="1360.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <Pane fx:id="pane4" prefHeight="660.0" prefWidth="1360.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="100.0">
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="660.0">
                <children>
@@ -713,7 +713,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Phone Number">
+                        <Label prefHeight="80.0" text="Phone Number:">
                            <font>
                               <Font name="Roboto Light" size="32.0" />
                            </font>
@@ -739,7 +739,7 @@
                   <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Email Address">
+                        <Label prefHeight="80.0" text="Email Address:">
                            <font>
                               <Font name="Roboto Light" size="32.0" />
                            </font>
@@ -765,7 +765,7 @@
                   <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Additional Information">
+                        <Label prefHeight="80.0" text="Additional Information:">
                            <font>
                               <Font name="Roboto Light" size="32.0" />
                            </font>
@@ -799,7 +799,7 @@
                   <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Date of Application">
+                        <Label prefHeight="80.0" text="Date of Application:">
                            <font>
                               <Font name="Roboto Light" size="32.0" />
                            </font>
@@ -822,7 +822,7 @@
                   <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Signature of Applicant or Authorized Agent">
+                        <Label prefHeight="80.0" text="Signature of Applicant or Authorized Agent:">
                            <font>
                               <Font name="Roboto Light" size="28.0" />
                            </font>
@@ -848,7 +848,7 @@
                   <Separator prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label prefHeight="80.0" text="Alcohol Content">
+                        <Label prefHeight="80.0" text="Alcohol Content:">
                            <font>
                               <Font name="Roboto Light" size="32.0" />
                            </font>

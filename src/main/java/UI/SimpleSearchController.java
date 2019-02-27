@@ -1,10 +1,7 @@
 package UI;
 
 import DB.Database;
-import Entities.Agent;
-import Entities.Form;
-import Entities.LabelImage;
-import Entities.SearchResult;
+import Entities.*;
 import SearchAlgo.SearchContainer;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -62,13 +59,13 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
 
     @Override
     void onLoad() {
-        searchButton.setFont(new Font("Roboto Light", 18));
-        randomDrink.setFont(new Font("Roboto Light", 18));
-        searchBy.setFont(new Font("Roboto Light", 24));
-        goAdvSearch.setFont(new Font("Roboto Light", 18));
-        title.setFont(new Font("Roboto Light", 48));
-        descriptor.setFont(new Font("Roboto Light", 24));
-        UsernameButton.setFont(new Font("Roboto Light", 18));
+//        searchButton.setFont(new Font("Roboto Light", 18));
+//        randomDrink.setFont(new Font("Roboto Light", 18));
+//        searchBy.setFont(new Font("Roboto Light", 24));
+//        goAdvSearch.setFont(new Font("Roboto Light", 18));
+//        title.setFont(new Font("Roboto Light", 48));
+//        descriptor.setFont(new Font("Roboto Light", 24));
+//        UsernameButton.setFont(new Font("Roboto Light", 18));
     }
 
     @Override
@@ -143,9 +140,28 @@ public class SimpleSearchController extends PageControllerUI implements Initiali
             labelImage.setImageName(selectedFile.getName());
             attributeContainer.labelImage = labelImage;
             attributeContainer.labelImageFile = selectedFile;
-
-            Image img = new Image(selectedFile.toURI().toString());
-
+            Form reverseImage = new Form();
+            reverseImage.setLogoText("");
+            GoogleVision gv = new GoogleVision();
+            try {
+                gv.detectLogoText(selectedFile.getAbsolutePath(), reverseImage, true);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+                AdvancedSearch as = new AdvancedSearch();
+            as.setLogoText(reverseImage.getLogoText());
+            Database db = Database.getDatabase();
+            SearchContainer.getInstance().searchResult = new SearchResult();
+            SearchContainer.getInstance().searchResult.setResults(db.dbSelect.searchBy(as).getResults());
+            SearchContainer.getInstance().searchResult.setSearch(as);
+    //        SearchContainer.getInstance().searchResult.setQuery(as.getBrandName());
+            SearchContainer.getInstance().setPages();
+            SearchContainer.getInstance().currentPage = 1;
+            if(SearchContainer.getInstance().searchResult.getResults().size() != 0) {
+                SearchContainer.getInstance().loadQueue();
+            }
+            goToPage("HomeSearch.fxml");
+    //        AttributeContainer.getInstance().backlog.pop();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
