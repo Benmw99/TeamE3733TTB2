@@ -2,24 +2,16 @@ package DB;
 
 import Entities.*;
 import org.hibernate.*;
-import org.hibernate.criterion.MatchMode;
 import org.hibernate.query.Query;
-import org.hibernate.cfg.Configuration;
 
 import javax.persistence.NoResultException;
-import javax.persistence.Transient;
 import javax.persistence.criteria.*;
-import java.sql.*;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 //Class for handling all the selection operations of the database. Class is a singleton
 public class DBSelect {
     private static DBSelect dbselect; //TODO GET RID OF REPEATED CODE
-    private static SessionFactory factory; //TODO ONE SESSIONFACTORY, INTERFACE THAT INCLUDES CLOSING METHOD
+    private static SessionFactory factory;
 
     private DBSelect() {
     }
@@ -36,54 +28,6 @@ public class DBSelect {
         DBSelect.factory = factory;
     }
 
-    /**
-     * Gets all the forms in the database.
-     * @author Jordan
-     * @return A list of all the forms in the database
-     */
-    public List<Form> selectAllForm() {
-        //Creates a new session and transaction
-        Session session = factory.openSession();
-        Transaction tx = null;
-        List<Form> results = new ArrayList<>();
-
-        try {
-            //Starts the transaction
-            tx = session.beginTransaction();
-            //Sends the query off and gets the results as a list
-            List forms = session.createQuery("FROM Form").list();
-            //Iterates through that list initiazing and setting stuff
-            for (Iterator iterator = forms.iterator(); iterator.hasNext();){
-                Form form = (Form) iterator.next();
-
-                //Initializes the brewersPermit and the address
-                Hibernate.initialize(form.brewersPermit);
-                Hibernate.initialize(form.address);
-
-                //Previous way of initiliazation
-                //form.getBrewersPermit().size();
-                //form.getAddress().size();
-
-                //Set that primary address
-                for (int i = 0; i < form.getAddress().size(); i++) {
-                    if (form.getAddress().get(i).isMailing()) {
-                        form.setMailingAddress(form.getAddress().get(i));
-                    }
-                }
-
-                results.add(form);
-            }
-            //Commit the transaction
-            tx.commit();
-        } catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
-            e.printStackTrace();
-        } finally {
-            //Close the session
-            session.close();
-        }
-        return results;
-    }
 
     /**
      * Gets a form from the database
@@ -180,7 +124,6 @@ public class DBSelect {
 
     /**
      * Searches by a set of info and returns any forms that match those
-     * CURRENTLY WINE SEARCHING FOR TYPES DON'T WORK
      * @author Jordan
      * @param as Advanced search with the things that want to be search for set
      * @return A SearchResult with all the forms that came from the query
@@ -195,7 +138,6 @@ public class DBSelect {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Form> cr = cb.createQuery(Form.class);
         Root<Form> root = cr.from(Form.class);
-        Join<Form, WineFormItems> wines = root.join("wineFormItems");
         //Predicate list which will be added to for every new condition
         List<Predicate> predicates = new ArrayList<>();
         predicates.add(cb.equal(root.get("approvalStatus"), as.approvalStatus));
@@ -215,20 +157,41 @@ public class DBSelect {
         if (as.fancifulName != null) {
             predicates.add(cb.equal(cb.lower(root.get("fancifulName")), as.fancifulName.toLowerCase()));
         }
-        if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
-            predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
-        }
-        if (as.getAlcoholType() == AlcoholType.Wine && as.pH > 0) {
-            predicates.add(cb.equal(wines.get("pH"), as.pH));
-        }
-        if (as.getAlcoholType() == AlcoholType.Wine && as.grapeVarietal != null) {
-            predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
-        }
-        if (as.getAlcoholType() == AlcoholType.Wine && as.appellation != null) {
-            predicates.add(cb.equal(wines.get("appellation"), as.appellation));
+        if (as.getAlcoholType() == AlcoholType.Wine) {
+            Join<Form, WineFormItems> wines = root.join("wineFormItems");
+            if (as.vintageYear > 0) {
+                predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
+            }
+            if (as.pH > 0) {
+                predicates.add(cb.equal(wines.get("pH"), as.pH));
+            }
+            if (as.grapeVarietal != null) {
+                predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
+            }
+            if (as.appellation != null) {
+                predicates.add(cb.equal(wines.get("appellation"), as.appellation));
+            }
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
+        }
+        if (as.state != null) {
+            //Might not work because it is a list
+            Join<Form, Address> addresses = root.join("address");
+            predicates.add(cb.equal(addresses.get("state"), as.state));
+        }
+        if (as.startDate != null && as.endDate != null) {
+            Join<Form, Approval> approvals = root.join("approval");
+            //This conversion might not work because of util.Date to sql.Date
+            predicates.add(cb.between(approvals.get("dateApproved"), as.startDate, as.endDate));
+            //predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
+            //predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
+        }
+        if (as.logoText != null) {
+            predicates.add(cb.equal(cb.lower(root.get("logoText")), as.logoText.toLowerCase()));
+        }
+        if (as.labelText != null) {
+            predicates.add(cb.like(cb.lower(root.get("labelText")), "%" + as.labelText.toLowerCase() + "%"));
         }
         //Convert the predicates to an array and set the where statement with them
         cr.where(predicates.toArray(new Predicate[]{}));
@@ -237,8 +200,7 @@ public class DBSelect {
 
         try {
             tx = session.beginTransaction();
-            //SETTING MAX RESULTS
-            List<Form> results = session.createQuery(cr).setMaxResults(50).list();
+            List<Form> results = session.createQuery(cr).list();
             for (Iterator iterator = results.iterator(); iterator.hasNext();){
                 Form form = (Form) iterator.next();
                 forms.add(form);
@@ -270,7 +232,6 @@ public class DBSelect {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Form> cr = cb.createQuery(Form.class);
         Root<Form> root = cr.from(Form.class);
-        Join<Form, WineFormItems> wines = root.join("wineFormItems");
         List<Predicate> predicates = new ArrayList<>();
         predicates.add(cb.equal(root.get("approvalStatus"), as.approvalStatus));
         if (as.source != null) {
@@ -288,20 +249,41 @@ public class DBSelect {
         if (as.fancifulName != null) {
             predicates.add(cb.like(cb.lower(root.get("fancifulName")), "%" + as.fancifulName.toLowerCase() + "%"));
         }
-        if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
-            predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
-        }
-        if (as.getAlcoholType() == AlcoholType.Wine && as.pH > 0) {
-            predicates.add(cb.equal(wines.get("pH"), as.pH));
-        }
-        if (as.getAlcoholType() == AlcoholType.Wine && as.grapeVarietal != null) {
-            predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
-        }
-        if (as.getAlcoholType() == AlcoholType.Wine && as.appellation != null) {
-            predicates.add(cb.equal(wines.get("appellation"), as.appellation));
+        if (as.getAlcoholType() == AlcoholType.Wine) {
+            Join<Form, WineFormItems> wines = root.join("wineFormItems");
+            if (as.vintageYear > 0) {
+                predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
+            }
+            if (as.pH > 0) {
+                predicates.add(cb.equal(wines.get("pH"), as.pH));
+            }
+            if (as.grapeVarietal != null) {
+                predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
+            }
+            if (as.appellation != null) {
+                predicates.add(cb.equal(wines.get("appellation"), as.appellation));
+            }
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
+        }
+        if (as.state != null) {
+            //Might not work because it is a list
+            Join<Form, Address> addresses = root.join("address");
+            predicates.add(cb.equal(addresses.get("state"), as.state));
+        }
+        if (as.startDate != null && as.endDate != null) {
+            Join<Form, Approval> approvals = root.join("approval");
+            //This conversion might not work because of util.Date to sql.Date
+            predicates.add(cb.between(approvals.get("dateApproved"), as.startDate, as.endDate));
+            //predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
+            //predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
+        }
+        if (as.logoText != null) {
+            predicates.add(cb.equal(cb.lower(root.get("logoText")), as.logoText.toLowerCase()));
+        }
+        if (as.labelText != null) {
+            predicates.add(cb.like(cb.lower(root.get("labelText")), "%" + as.labelText.toLowerCase() + "%"));
         }
         cr.where(predicates.toArray(new Predicate[]{}));
         //Only selects the needed items for a minimal form to be displayed
@@ -309,8 +291,7 @@ public class DBSelect {
 
         try {
             tx = session.beginTransaction();
-            //SETTING MAX RESULT
-            List<Form> results = session.createQuery(cr).setMaxResults(50).list();
+            List<Form> results = session.createQuery(cr).list();
             for (Iterator iterator = results.iterator(); iterator.hasNext();){
                 Form form = (Form) iterator.next();
                 forms.add(form);
@@ -340,7 +321,6 @@ public class DBSelect {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<String> cr = cb.createQuery(String.class);
         Root<Form> root = cr.from(Form.class);
-        Join<Form, WineFormItems> wines = root.join("wineFormItems");
         List<Predicate> predicates = new ArrayList<>();
         predicates.add(cb.equal(root.get("approvalStatus"), as.approvalStatus));
         if (as.source != null) {
@@ -352,28 +332,48 @@ public class DBSelect {
         if (as.alcoholType != null) {
             predicates.add(cb.equal(root.get("alcoholType"), as.alcoholType));
         }//No brand name or fanciful name
-        if (as.getAlcoholType() == AlcoholType.Wine && as.vintageYear > 0) {
-            predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
-        }
-        if (as.getAlcoholType() == AlcoholType.Wine && as.pH > 0) {
-            predicates.add(cb.equal(wines.get("pH"), as.pH));
-        }
-        if (as.getAlcoholType() == AlcoholType.Wine && as.grapeVarietal != null) {
-            predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
-        }
-        if (as.getAlcoholType() == AlcoholType.Wine && as.appellation != null) {
-            predicates.add(cb.equal(wines.get("appellation"), as.appellation));
+        if (as.getAlcoholType() == AlcoholType.Wine) {
+            Join<Form, WineFormItems> wines = root.join("wineFormItems");
+            if (as.vintageYear > 0) {
+                predicates.add(cb.equal(wines.get("vintageYear"), as.vintageYear));
+            }
+            if (as.pH > 0) {
+                predicates.add(cb.equal(wines.get("pH"), as.pH));
+            }
+            if (as.grapeVarietal != null) {
+                predicates.add(cb.equal(wines.get("grapeVarietal"), as.grapeVarietal));
+            }
+            if (as.appellation != null) {
+                predicates.add(cb.equal(wines.get("appellation"), as.appellation));
+            }
         }
         if (as.ttbID > 0) {
             predicates.add(cb.equal(root.get("ttbID"), as.ttbID));
+        }
+        if (as.state != null) {
+            //Might not work because it is a list
+            Join<Form, Address> addresses = root.join("address");
+            predicates.add(cb.equal(addresses.get("state"), as.state));
+        }
+        if (as.startDate != null && as.endDate != null) {
+            Join<Form, Approval> approvals = root.join("approval");
+            //This conversion might not work because of util.Date to sql.Date
+            predicates.add(cb.between(approvals.get("dateApproved"), as.startDate, as.endDate));
+            //predicates.add(cb.greaterThanOrEqualTo(approvals.get("dateApproved"), as.startDate));
+            //predicates.add(cb.lessThanOrEqualTo(approvals.get("dateApproved"), as.endDate));
+        }
+        if (as.logoText != null) {
+            predicates.add(cb.equal(cb.lower(root.get("logoText")), as.logoText.toLowerCase()));
+        }
+        if (as.labelText != null) {
+            predicates.add(cb.like(cb.lower(root.get("labelText")), "%" + as.labelText.toLowerCase() + "%"));
         }
         cr.where(predicates.toArray(new Predicate[]{}));
         //Adds a select so we only get the brandName from the results
         cr.select(root.get("brandName").as(String.class));
         try {
             tx = session.beginTransaction();
-            //SETTING MAX RESULTS
-            result = session.createQuery(cr).setMaxResults(50).list();
+            result = session.createQuery(cr).list();
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
@@ -505,145 +505,6 @@ public class DBSelect {
         }
     }
 
-
-    /*@Deprecated
-    ///**
-    // * Generates the query to be used for downloading as a search result.
-    // * @author Jordan
-    // * @param sr The searchresult of the query to be downloaded
-    //
-    private String generateQuery(SearchResult sr) {
-        AdvancedSearch as = sr.getSearch();
-        String baseString;
-        if (as.alcoholType != null && as.getAlcoholType().toInt() == AlcoholType.Wine.toInt() && ((as.vintageYear > 0) || (as.pH > 0) || (as.grapeVarietal != null) || (as.appellation != null))) {
-            baseString = "SELECT TTB_ID, Serial_Number, Fanciful_Name, Brand_Name, Alcohol_Type, APV FROM FORM JOIN Wine ON Form.TTB_ID = Wine.TTB_ID WHERE Approve = " + (ApprovalStatus.Complete.toInt() - 1);
-        } else {
-            baseString = "SELECT TTB_ID, Serial_Number, Fanciful_Name, Brand_Name, Alcohol_Type, APV FROM FORM WHERE Approve = " + (ApprovalStatus.Complete.toInt() - 1);
-        }
-        if (as.source != null) {
-            baseString += " AND Source = ?";
-        }
-        if (as.serialNumber != null) {
-            baseString += " AND Serial_Number = ?";
-        }
-        if (as.alcoholType != null) {
-            baseString += " AND Alcohol_Type = " + as.getAlcoholType().toInt();
-        }
-        if (as.brandName != null) {
-            baseString += " AND Brand_Name = ?";
-        }
-        if (as.fancifulName != null) {
-            baseString += " AND Fanciful_Name = ?";
-        }
-        if (as.alcoholType != null && as.getAlcoholType().toInt() == 1 && as.vintageYear > 0) {
-            baseString += " AND Vintage = ?";
-        }
-        if (as.alcoholType != null && as.getAlcoholType().toInt() == 1 && as.pH > 0) {
-            baseString += " AND PH = ?";
-        }
-        if (as.alcoholType != null && as.getAlcoholType().toInt() == 1 && as.grapeVarietal != null) {
-            baseString += " AND Grape_Varietals = ?";
-        }
-        if (as.alcoholType != null && as.getAlcoholType().toInt() == 1 && as.appellation != null) {
-            baseString += " AND Wine_Appellation = ?";
-        }
-        if (as.ttbID > 0) {
-            baseString += " AND TTB_ID = ?";
-        }
-        return baseString;
-    }*/
-
-    /*@Deprecated
-    /**
-     * Downloads the search result as a file onto the computer
-     * @author Jordan
-     * @param sr The searchresult that you want printed
-     * @param isCSV Whether or not it should be printed as a csv. True for csv, false for ASCII-Deliminated
-     * @return True if it succeeds, false if it fails
-
-    public boolean downloadQuery(SearchResult sr, boolean isCSV) {
-        sr.setQuery(generateQuery(sr));
-        Connection connection = null;
-        try {
-            String driver = "org.apache.derby.jdbc.EmbeddedDriver";
-            Class.forName(driver).newInstance();
-        } catch (Exception e) {
-            System.out.println(e.toString());
-        }
-        try {
-            String path = "./ttb.db";
-            connection = DriverManager.getConnection("jdbc:derby:" + path + ";create=true");
-        } catch (SQLException e){
-            System.out.println(e.toString());
-        }
-        java.util.Date date = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
-        String download = "CALL SYSCS_UTIL.SYSCS_EXPORT_QUERY (?,?,?,?,?)";
-        AdvancedSearch search = sr.getSearch();
-        try {
-            PreparedStatement ps = connection.prepareStatement(download);
-            ps.setString(1, sr.getQuery());
-            int set = 2;
-            if (search.source != null) {
-                ps.setBoolean(set, search.source);
-                set += 1;
-            }
-            if (search.serialNumber != null) {
-                ps.setString(set, search.serialNumber);
-                set += 1;
-            }
-            if (search.brandName != null) {
-                ps.setString(set, search.brandName);
-                set += 1;
-            }
-            if (search.fancifulName != null) {
-                ps.setString(set, search.fancifulName);
-                set += 1;
-            }
-            if (search.alcoholType != null && search.alcoholType.toInt() == AlcoholType.Wine.toInt() && search.vintageYear > 0) {
-                ps.setInt(set, search.vintageYear);
-                set += 1;
-            }
-            if (search.alcoholType != null && search.alcoholType.toInt() == AlcoholType.Wine.toInt() && search.pH > 0) {
-                ps.setFloat(set, search.pH);
-                set += 1;
-            }
-            if (search.alcoholType != null && search.alcoholType.toInt() == AlcoholType.Wine.toInt() && search.grapeVarietal != null) {
-                ps.setString(set, search.grapeVarietal);
-                set += 1;
-            }
-            if (search.alcoholType != null && search.alcoholType.toInt() == AlcoholType.Wine.toInt() && search.appellation != null) {
-                ps.setString(set, search.appellation);
-                set += 1;
-            }
-            if (search.ttbID > 0) {
-                ps.setInt(set, search.ttbID);
-                set += 1;
-            }
-            if (isCSV) {
-                ps.setString(set,"TTBSearch" + dateFormat.format(date) + ".csv");
-                ps.setString(set + 1,null);
-                ps.setString(set + 2,null);
-                ps.setString(set + 3,null);
-                ps.execute();
-                ps.close();
-            } else {
-                ps.setString(set,"TTBSearch" + dateFormat.format(date) + ".txt");
-                ps.setString(set + 1,String.valueOf((char)30));
-                ps.setString(set + 2,String.valueOf((char)31));
-                ps.setString(set + 3,null);
-                ps.execute();
-                ps.close();
-            }
-            connection.close();
-            return true;
-        } catch (SQLException e) {
-            System.out.println(e.toString());
-            e.printStackTrace();
-            return false;
-        }
-    }*/
-
     /**
      * Retrieves a list of all the label images involved with that ttb id
      * @author Jordan
@@ -664,7 +525,6 @@ public class DBSelect {
                 LabelImage image = (LabelImage) iterator.next();
                 results.add(image);
             }
-            //TODO: Hey hows it going?
             tx.commit();
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();
@@ -766,7 +626,7 @@ public class DBSelect {
     }
 
     /**
-     * Retrives the agent related to that user
+     * Retrieves the agent related to that user
      * @author Jordan
      * @param login Login name for the user
      * @return An agent that is related to that login
@@ -846,46 +706,81 @@ public class DBSelect {
         }
     }
 
-    /*@Deprecated
-    public List<Form> getNext(int to) {
+    /**
+     * Searches by just brandname and fanicful name for the basic search
+     * @author Jordan
+     * @param name String with the text
+     * @return A list of forms that contain the results
+     */
+    public List<Form> simpleSearch(String name) {
+        List<Form> results = new ArrayList<>();
         Session session = factory.openSession();
         Transaction tx = null;
-        String q = "FROM Form F WHERE F.approvalStatus = :approval";
-        Query query = session.createQuery(q);
-        query.setParameter("approval", ApprovalStatus.Incomplete);
-        query.setMaxResults(to);
-        List<Form> result = new ArrayList<>();
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Form> cr = cb.createQuery(Form.class);
+        Root<Form> root = cr.from(Form.class);
+        List<Predicate> predicates = new ArrayList<>();
+        predicates.add(cb.equal(root.get("approvalStatus"), ApprovalStatus.Complete));
+        if (name != null) { //These both set everything to lowercase and do a basic like with wildcards in front and behind the entered query, also does an or for both
+            predicates.add(cb.or(cb.like(cb.lower(root.get("brandName")), "%" + name.toLowerCase() + "%"), cb.like(cb.lower(root.get("fancifulName")), "%" + name.toLowerCase() + "%")));
+        }
+        cr.where(predicates.toArray(new Predicate[]{}));
+        //Only selects the needed items for a minimal form to be displayed
+        cr.multiselect(root.get("ttbID"), root.get("serialNumber"), root.get("alcoholType"), root.get("brandName"), root.get("dateSubmitted"), root.get("approvalStatus"));
+        cr.distinct(true);
 
         try {
-            //Starts the transaction
             tx = session.beginTransaction();
-            List temp = query.list();
-            //Iterates through that list initiazing and setting stuff
-            for (Iterator iterator = temp.iterator(); iterator.hasNext();){
+            List<Form> tempResults = session.createQuery(cr).list();
+            for (Iterator iterator = tempResults.iterator(); iterator.hasNext();){
                 Form form = (Form) iterator.next();
-
-                //Initializes the brewersPermit and the address
-                Hibernate.initialize(form.brewersPermit);
-                Hibernate.initialize(form.address);
-
-                //Set that primary address
-                for (int i = 0; i < form.getAddress().size(); i++) {
-                    if (form.getAddress().get(i).isMailing()) {
-                        form.setMailingAddress(form.getAddress().get(i));
-                    }
-                }
-
-                result.add(form);
+                results.add(form);
             }
-            //Commit the transaction
             tx.commit();
         } catch (HibernateException e) {
             if (tx!=null) tx.rollback();
             e.printStackTrace();
         } finally {
-            //Close the session
             session.close();
         }
-        return result;
-    }*/
+        return results;
+    }
+
+    /**
+     * Gets a random form from the database
+     * NOTE: DOES IT IN A SORTA WEIRD WAY, BUT DB'S AREN'T DESIGNED FOR THIS SO WHAT DO YOU EXPECT
+     * @author Jordan
+     * @return A random approved form from the database
+     */
+    public Form randomForm() {
+        Session session = factory.openSession();
+        //Selects the number of approved forms
+        String q = "SELECT count(*) FROM Form F WHERE F.approvalStatus = :approval";
+        Query query = session.createQuery(q);
+        query.setParameter("approval", ApprovalStatus.Complete);
+        int result = 0;
+        Long temp;
+        final Object obj = query.uniqueResult();
+        if (obj != null) {
+            temp = (Long) obj;
+            result = temp.intValue();
+        }
+        //Then selects a random form by using a random offset in the selection of those forms
+        String q2 = "SELECT ttbID FROM Form F WHERE F.approvalStatus = :approval";
+        Query query2 = session.createQuery(q2);
+        query2.setParameter("approval", ApprovalStatus.Complete);
+        Random rand = new Random();
+        query2.setFirstResult(rand.nextInt(result));
+        query2.setMaxResults(1);
+        Form form;
+        try {
+            //Actually gets the form by ttbid
+            form = getFormByTTB_ID((Integer)query2.getSingleResult());
+        } catch (NoResultException e) {
+            form = null;
+        } finally {
+            session.close();
+        }
+        return form;
+    }
 }

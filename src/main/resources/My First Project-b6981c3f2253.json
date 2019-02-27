@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "steadfast-crane-232518",
+  "private_key_id": "b6981c3f22538884edcfe34664957173ce39117a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC8rATd9ywm7v6B\nRe4j0kmZfTmS/Afje8SqTpfhmLP1mk1BrXBEjPItKDBnJUWzBKbG1Z/eQ0JOGQEF\nR1HA3iTQEB75edTJJE1MhIShc/p2X+gxuTPjerzD8lThYqxgw+SGIAwrniiZwoDu\nOwKtllho3u1Fy8s9DPfdwnz5WSp2QremZsFrjXi8HlTMtD8XCl1ua5oqEr+Ot4J/\njgpfLcGl6O8Ah/hCUIOs2Ws/sDeGpKozU+KwDrdM8tCV+hX63P3ggiw5pnGHhNF8\nvSlcmWMijeH5B5+KqXNEzcf67FQ4aSZBaKp5N5n9YF2eQRuDzN+q7F0A58yOH+gP\nO/0jfuc3AgMBAAECggEACYQKvszPnxF6W2sugDbQwkgMyYgJBQUu1xqEEiHEhp4H\nFXy5s9g0ArXX/+vJhyaBG6ti/WMBCuiIVguenCg+gEWMrZWvQ/HSLQpl/uQ9lqjU\n3WUmfWupITmtfd/SXkY8ov/zMGP96KHLWB8FZ8HnqNDNjZg771LvHj7H7nLIot9s\nvlzgZFU4i/A9qaJbPe+3DBdP01iVVean1UtmfZ6R5DZpjoeTWjaHF39dqJdl0ENE\n7/k2hRIPwsuwZksvP2hTiFRg0dPrnAnffIFBWTUl33muwAbm9U13Mfo7yfkkefqr\nV79+krQ2D4ymYl7YtqdvJ1VePsFN6vxMcPdX/yKfyQKBgQDrI1Z9eymzfiRo6CQ+\n9/2VBSvKt8F2nca6tOFzRxvT6b3kuC9cGnzK3vdK9USTdtb/lZblnbTY0IfrXIdD\nGYM1pW791IpwX2AtR5V7DHsw/rjddOmpB4Q+QDWV85CkknjWQ+uycmelzb4KGQKz\nfXGTWZukcd96+sI1DHqTE05/8wKBgQDNaU1sMkBayKhOO1W8x6jn5sQtW1R4MaxS\nErL9F8Vii4WobCnuz1/B0T15EOr/ZoJHD1QtZLY3hFgvIKqDnptuveiieZ9e44hL\nDM7/ZbASld8ZexUammjAJN9/YmGtRNJkZ4dKinoUw6Fu18lb338sAicp13OEl5P1\nPXqBPs/QrQKBgQDWjQUDNBll3UitrHw+NJvemLxPmYHekLJfdGJuhEjBAPuzMdiM\n6uJJXk84xzlOcNZWmZD5bQAyAXyz5lbJhAL0NUJkO8YiKPSh/DpJ76aMmy/laiM2\nh1REVORQMdEeSUQXBhyPU9J9OJEZt55+Vo0GjXH2B62KEjqYmw1RHAG5vwKBgAxz\n1sq5XSdjxLhBZpg0LmwolDn/sGY89KphEdLADypDNQ4ZyIz+q1pvmd9uBCEJkNpH\n9p1t3pINBt+MhmnGQrv67VB0ORIijw+lriLTglIOHeFIkeXz+Ge1lIr/ZtZ/NpX5\npL0DGhWKKo4yrLVSHj6HvuINeqZOHh0e5f9R1H1dAoGBAJzNq123DkL9bQ1RSWa4\n91pC4cfZYRRTpCIJsVAbMelVSe0PAL9Il/ECJGLu4pmgnv9EXvUbnsKmXANsUdip\ncb6wd7Yq5uJIwkbNciSuDAIIcQCm2leOl+7TKXqvuMIDKfxQF2oQdalJ/jLMV2IE\nVCf2NDxwSH7+v4dACoxno2LS\n-----END PRIVATE KEY-----\n",
+  "client_email": "ttbteame@steadfast-crane-232518.iam.gserviceaccount.com",
+  "client_id": "116543713458294404817",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ttbteame%40steadfast-crane-232518.iam.gserviceaccount.com"
+}

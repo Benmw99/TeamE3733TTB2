@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.persistence.*;
 
 @Entity
@@ -46,7 +48,7 @@ public class Form implements Serializable {
     private String formula;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "TTB_ID")
+    @JoinColumn(name = "TTB_ID", nullable = false)
     private WineFormItems wineFormItems;
 
     @Column(name = "Phone")
@@ -61,7 +63,7 @@ public class Form implements Serializable {
     private String otherInfo;
 
     @Column(name = "Date_Submitted", columnDefinition = "DATE")
-    private transient Date dateSubmitted;
+    private Date dateSubmitted;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -72,7 +74,7 @@ public class Form implements Serializable {
     private int companyID;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "TTB_ID")
+    @JoinColumn(name = "TTB_ID", nullable = false)
     private Approval approval;
 
     @Column(name = "APV")
@@ -85,7 +87,39 @@ public class Form implements Serializable {
     @Column(name = "WorkingOn")
     private int workingOn;
 
+    @Column(name = "logoText")
+    private String logoText;
+
+    @Column(name = "labelText")
+    private String labelText;
+
     public Form() {
+    }
+
+    public Form(String repID, List<BrewersPermit> brewersPermit, boolean source, String serialNumber, AlcoholType alcoholType, String brandName, String fancifulName, List<Address> address, Address mailingAddress, String applicantName, String formula, WineFormItems wineFormItems, String phoneNumber, String email, String otherInfo, Date dateSubmitted, int companyID, Approval approval, float alcoholContent, ApprovalStatus approvalStatus, int workingOn, String logoText, String labelText) {
+        this.repID = repID;
+        this.brewersPermit = brewersPermit;
+        this.source = source;
+        this.serialNumber = serialNumber;
+        this.alcoholType = alcoholType;
+        this.brandName = brandName;
+        this.fancifulName = fancifulName;
+        this.address = address;
+        this.mailingAddress = mailingAddress;
+        this.applicantName = applicantName;
+        this.formula = formula;
+        this.wineFormItems = wineFormItems;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.otherInfo = otherInfo;
+        this.dateSubmitted = dateSubmitted;
+        this.companyID = companyID;
+        this.approval = approval;
+        this.alcoholContent = alcoholContent;
+        this.approvalStatus = approvalStatus;
+        this.workingOn = workingOn;
+        this.logoText = logoText;
+        this.labelText = labelText;
     }
 
     public Form(String repID, List<BrewersPermit> brewersPermit, boolean source, String serialNumber, AlcoholType alcoholType, String brandName, String fancifulName, ArrayList<Address> address, Address mailingAddress, String applicantName, String formula, WineFormItems wineFormItems, String phoneNumber, String email, String otherInfo, Date dateSubmitted, int ttbID, int companyID, Approval approval, float alcoholContent, ApprovalStatus approvalStatus) {
@@ -161,11 +195,26 @@ public class Form implements Serializable {
 
     //Constructor specifically for hibernate to create smaller forms for search results
     public Form(int ttbID, String serialNumber, AlcoholType alcoholType, String brandName, java.util.Date dateSubmitted, ApprovalStatus approvalStatus) {
+        if (serialNumber != null) {
+            this.serialNumber = serialNumber;
+        } else {
+            this.serialNumber = "";
+        }
+        this.alcoholType = alcoholType;
+        this.brandName = brandName;
+        if (dateSubmitted != null) {
+            this.dateSubmitted = new java.sql.Date(dateSubmitted.getTime());
+        } else {
+            this.dateSubmitted = null;
+        }
+        this.approvalStatus = approvalStatus;
+        this.ttbID = ttbID;
+    }
+
+    public Form(int ttbID, String serialNumber, AlcoholType alcoholType, String brandName, ApprovalStatus approvalStatus) {
         this.serialNumber = serialNumber;
         this.alcoholType = alcoholType;
         this.brandName = brandName;
-
-        this.dateSubmitted = new java.sql.Date(dateSubmitted.getTime());
         this.approvalStatus = approvalStatus;
         this.ttbID = ttbID;
     }
@@ -296,6 +345,22 @@ public class Form implements Serializable {
 
     public Date getDateSubmitted() {
         return dateSubmitted;
+    }
+
+    public String getLogoText() {
+        return logoText;
+    }
+
+    public void setLogoText(String logoText) {
+        this.logoText = logoText;
+    }
+
+    public String getLabelText() {
+        return labelText;
+    }
+
+    public void setLabelText(String labelText) {
+        this.labelText = labelText;
     }
 
     public void setDateSubmitted(Date dateSubmitted) {
@@ -476,4 +541,80 @@ public class Form implements Serializable {
         return form;
     }
 
+    /**
+     * Verify that the passed in text occurs somewhere in the label text. Works only if both are set.
+     * @return true for a match, false otherwise.
+     */
+    public boolean verifyText(String s){
+        String label = this.getLabelText().toUpperCase();
+        String[] arr = s.split(" ");
+        boolean bool = true;
+        for ( String ss : arr) {
+            if(!label.contains(ss)){
+                bool = false;
+            }
+        }
+        return bool;
+    }
+
+    /**
+     * Checks to see if there is some sort of indicator as to the type of alcohol on the label. Throws an exception if there is none
+     * otherwise returns an alcohol type representing the indicated type.
+     * @return Alcohol Type representing the type of alcohol.
+     * @throws Exception if there is no indicator. Should be handled.
+     */
+    public AlcoholType detectAlcType() throws Exception{
+        String s = this.getLabelText().toUpperCase();
+        AlcoholType alc;
+        if(s.contains("BEER") || s.contains("MALT") || s.contains("STOUT") || s.contains("LAGER") || s.contains("ALE") || s.contains("BREW") ||s.contains("COLD ONE")){
+            alc = AlcoholType.MaltBeverage;
+        } else if(s.contains("WINE") || s.contains("BUBBLY")){
+            alc = AlcoholType.Wine;
+        } else if(s.contains("WHISKEY") || s.contains("VODKA") || s.contains("RUM") || s.contains("GIN") || s.contains("TEQUILA") || s.contains("BRANDY") || s.contains("SCHNAPPS")){
+            alc = AlcoholType.DistilledLiquor;
+        } else {
+            throw new Exception("No Alcohol Type Indicator found on label.");
+        }
+        return alc;
+    }
+
+    /**
+     *
+     * @return true if there is text on the label matching the appelation, or there is no appellation. Else, false.
+     */
+    public boolean verifyAppellation(){
+        if(this.getWineFormItems() != null && this.getWineFormItems().getAppellation() != null){
+            return this.verifyText(this.getWineFormItems().getAppellation());
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * Verifies that the brand name occurs somewhere in the label text.
+     * @return True for the text being there. False otherwise.
+     */
+    public boolean verifyBrandName(){
+        return verifyText(this.getBrandName());
+    }
+
+    /**
+     * This finds the alcohol content (the first percent on the label, lmao) and tosses it directly into the alcohol
+     * content field of the bottle
+     */
+    public void getAlcContent(){
+        try {
+            Pattern p = Pattern.compile("\\d*\\.?\\d*%");
+            Matcher m = p.matcher(this.getLabelText());
+            System.out.print("ALCOHOL CONTENT FOUND:");
+            m.find();
+            int i = m.start();
+            int j = m.end() - 1;
+            Float content = Float.parseFloat(this.getLabelText().substring(i, j));
+            this.alcoholContent = content;
+        } catch (Exception e){
+            this.alcoholContent = 0;
+        }
+
+    }
 }

@@ -1,14 +1,19 @@
 package UI;
 
 import Entities.Form;
+import Entities.FormExporter;
 import Entities.Manufacturer;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.layout.Pane;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,6 +40,18 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
 
     @FXML
     JFXTextField searchAppsTextField;
+
+    @FXML
+    JFXButton helpButton;
+
+    @FXML
+    Pane largePane;
+
+    @FXML
+    Pane smallPane;
+
+    @FXML
+    JFXButton goToSingleApp;
 
     FormDisplayController formViewController;
 
@@ -65,6 +82,16 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
     }
 
     /**
+     * Directs user to a single paged form
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    public void addSingleForm(ActionEvent event) throws IOException{
+        AttributeContainer.getInstance().currentForm = new Form();
+        goToPage("ManSingleAppPage.fxml");
+    }
+    /**
      * Directs user to ManApp to input a form
      * @param event
      * @throws IOException
@@ -94,7 +121,34 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
      */
     @FXML
     public void viewAgentComments(ActionEvent event) throws IOException {
-        //TODO Make comments a thing
+        goToPage("ManViewAgentComments.fxml");
+       /* if(attributeContainer.currentForm.getApproval().getQualifications() != null) {
+            if(attributeContainer.currentForm.getApprovalStatus().toInt() == 1) {
+                Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
+                agentComments.setHeaderText("Qualifications");
+                agentComments.setTitle("Form approved with following qualifications:");
+                agentComments.setContentText(attributeContainer.currentForm.getApproval().getQualifications());
+                agentComments.show();
+            } else if(attributeContainer.currentForm.getApprovalStatus().toInt() == 2) {
+                Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
+                agentComments.setHeaderText("Corrections");
+                agentComments.setTitle("Form rejected with following corrections needed:");
+                agentComments.setContentText(attributeContainer.currentForm.getApproval().getQualifications());
+                agentComments.show();
+            } else if(attributeContainer.currentForm.getApprovalStatus().toInt() == 3) {
+                Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
+                agentComments.setHeaderText("Rejected");
+                agentComments.setTitle("Form rejected for following reasons:");
+                agentComments.setContentText(attributeContainer.currentForm.getApproval().getQualifications());
+                agentComments.show();
+            }
+        } else {
+            Alert agentComments = new Alert(Alert.AlertType.INFORMATION);
+            agentComments.setContentText("No current comments");
+            agentComments.setHeaderText("Agent Comments");
+            agentComments.setTitle("Comments");
+            agentComments.show();
+        } */
     }
 
     /**
@@ -114,7 +168,15 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
      */
     @FXML
     public void print(ActionEvent event) throws IOException {
-        //TODO Make print
+        if(AttributeContainer.getInstance().currentForm != null){
+            new FormExporter(AttributeContainer.getInstance().currentForm, "S");
+            printButton.setText("Printed!");
+        } else {
+            Alert yikes = new Alert(Alert.AlertType.WARNING);
+            yikes.setContentText("Please select a form!");
+            yikes.setHeaderText("Invalid Form Selection");
+            yikes.show();
+        }
     }
 
     @Override
@@ -122,5 +184,36 @@ public class ManHomeController extends PageControllerUI  implements Initializabl
         AttributeContainer.getInstance().formQueue = ((Manufacturer)AttributeContainer.getInstance().currentUser).loadForms();
         for(Form f : AttributeContainer.getInstance().formQueue){
         }
+
+        //helpButton.setSelected(false);
+        largePane.setOpacity(0);
+        largePane.setDisable(true);
+        smallPane.setOpacity(0);
+        smallPane.setDisable(true);
+
+        helpButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                if (helpButton.isPressed()){
+                    largePane.setOpacity(0.63);
+                    largePane.setDisable(false);
+                    smallPane.setOpacity(1);
+                    smallPane.setDisable(false);
+                    System.out.println("Is selected");
+
+
+                }
+                else {
+                    largePane.setOpacity(0);
+                    largePane.setDisable(true);
+                    smallPane.setOpacity(0);
+                    smallPane.setDisable(true);
+                    System.out.println("Is not selector");
+
+                }
+            }
+        });
+
     }
 }

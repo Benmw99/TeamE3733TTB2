@@ -1,28 +1,35 @@
 package UI;
 
-import DB.Database;
-import Entities.Agent;
-import Entities.Form;
-import Entities.Mailer;
+import Entities.*;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import com.jfoenix.controls.*;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AgentHomeController extends PageControllerUI implements Initializable {
+
+    @FXML
+    Pane largePane;
+
+    @FXML
+    Pane smallPane;
+
+    @FXML
+    JFXButton helpButton;
 
     @FXML
     public JFXButton GetNewQueueButton;
@@ -164,6 +171,7 @@ public class AgentHomeController extends PageControllerUI implements Initializab
 
 
 
+
     ///////////////////////////////////////////////////
     ///////////       The Actual Code      ////////////
     ///////////////////////////////////////////////////
@@ -224,12 +232,17 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     public void approveForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
-            //TODO: get qualifications from text field
+            //TODO: mail
+            AttributeContainer.getInstance().currentForm.getApproval().setPage1(ApprovalStatus.Complete);
+            AttributeContainer.getInstance().currentForm.getApproval().setPage2(ApprovalStatus.Complete);
+            AttributeContainer.getInstance().currentForm.getApproval().setPage3(ApprovalStatus.Complete);
+            AttributeContainer.getInstance().currentForm.getApproval().setPage4(ApprovalStatus.Complete);
             ((Agent)AttributeContainer.getInstance().currentUser).approveForm(AttributeContainer.getInstance().currentForm, "");
-            attributeContainer.currentForm = null;
             attributeContainer.formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
+            attributeContainer.currentForm = null;
+
             goToPage("AgentHome.fxml");
         } else {
             Alert yikes = new Alert(Alert.AlertType.WARNING);
@@ -247,11 +260,16 @@ public class AgentHomeController extends PageControllerUI implements Initializab
     @FXML
     public void rejectForm(ActionEvent event) throws IOException {
         if (!(attributeContainer.currentForm == null)) {
+            //TODO: mail
+            AttributeContainer.getInstance().currentForm.getApproval().setPage1(ApprovalStatus.Incorrect);
+            AttributeContainer.getInstance().currentForm.getApproval().setPage2(ApprovalStatus.Incorrect);
+            AttributeContainer.getInstance().currentForm.getApproval().setPage3(ApprovalStatus.Incorrect);
+            AttributeContainer.getInstance().currentForm.getApproval().setPage4(ApprovalStatus.Incorrect);
             ((Agent)AttributeContainer.getInstance().currentUser).rejectForm(AttributeContainer.getInstance().currentForm, "");
-             attributeContainer.currentForm = null;
             attributeContainer.formQueue = ((Agent)AttributeContainer.getInstance().currentUser).getCurrentQueue();
             Thread mailThread = new Thread( new Mailer(AttributeContainer.getInstance().currentForm));
             mailThread.start();
+            attributeContainer.currentForm = null;
             goToPage("AgentHome.fxml");
         } else {
             Alert yikes = new Alert(Alert.AlertType.WARNING);
@@ -285,8 +303,14 @@ public class AgentHomeController extends PageControllerUI implements Initializab
      */
     @FXML
     public void print(ActionEvent event) throws IOException {
-        if (!(attributeContainer.currentForm == null)) {
-            System.out.println("lol nah");
+        if(AttributeContainer.getInstance().currentForm != null){
+            new FormExporter(AttributeContainer.getInstance().currentForm, "S");
+            PrintButton.setText("Printed!");
+        } else {
+            Alert yikes = new Alert(Alert.AlertType.WARNING);
+            yikes.setContentText("Please select a form!");
+            yikes.setHeaderText("Invalid Form Selection");
+            yikes.show();
         }
     }
 
@@ -323,6 +347,37 @@ public class AgentHomeController extends PageControllerUI implements Initializab
   //      hamburger.toBack();
 //(true);a
         GetNewQueueButton.toFront();
+
+     //helpToggleButton.setSelected(false);
+     largePane.setOpacity(0);
+     largePane.setDisable(true);
+     smallPane.setOpacity(0);
+     smallPane.setDisable(true);
+
+     helpButton.setOnAction(new EventHandler<ActionEvent>() {
+
+         @Override
+         public void handle(ActionEvent event) {
+             if (helpButton.isPressed()){
+                 largePane.setOpacity(0.63);
+                 largePane.setDisable(false);
+                 smallPane.setOpacity(1);
+                 smallPane.setDisable(false);
+                 System.out.println("Is selected");
+
+
+             }
+             else {
+                 largePane.setOpacity(0);
+                 largePane.setDisable(true);
+                 smallPane.setOpacity(0);
+                 smallPane.setDisable(true);
+                 System.out.println("Is not selector");
+
+             }
+         }
+     });
+
 
 //        AttributeContainer.getInstance().formQueue = Database.getDatabase().dbSelect.getNext(AttributeContainer.getInstance().numForQueue);
  }

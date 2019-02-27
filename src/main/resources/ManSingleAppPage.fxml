@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="760.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AppController">
+   <children>
+      <Rectangle fill="#4285f4" height="102.0" layoutX="-1.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1360.0" AnchorPane.bottomAnchor="677.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Pane layoutX="-1.0" layoutY="83.0" prefHeight="200.0" prefWidth="495.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="83.0">
+         <children>
+            <HBox prefHeight="677.0" prefWidth="1360.0">
+               <children>
+                  <VBox prefHeight="677.0" prefWidth="340.0">
+                     <children>
+                        <JFXTextField fx:id="RepIDField" focusColor="#425ba800" prefHeight="27.0" prefWidth="260.0" promptText="1. Representative ID">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="75.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="ProducerNumField" focusColor="#405aa800" promptText="2. Brewer's Number">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="SourceComboBox" focusColor="#405aa800" promptText="3. Source">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXComboBox>
+                        <JFXTextField fx:id="SerialYearField" focusColor="#405aa800" promptText="4. Serial Number Year">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="SerialDigitsField" focusColor="#405aa800" promptText="Serial Number Digits">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="TypeComboBox" focusColor="#405aa800" onAction="#checkWine" promptText="5. Type" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXComboBox>
+                        <JFXTextField fx:id="BrandField" focusColor="#405aa800" promptText="6. Brand Name">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="FancifulField" focusColor="#405aa800" promptText="7. Fanciful Name">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                     </children></VBox>
+                  <VBox prefHeight="677.0" prefWidth="340.0">
+                     <children>
+                        <JFXTextField fx:id="Name8Field" focusColor="#405aa800" promptText="8. Name">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="75.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="Address8Field" focusColor="#405aa800" promptText="Address">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="City8Field" focusColor="#405aa800" promptText="City">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="State8ComboBox" focusColor="#405aa801" promptText="State">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXComboBox>
+                        <JFXTextField fx:id="Zip8Field" focusColor="#425ba800" promptText="Zip">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXRadioButton fx:id="SameAddressRadioButton" onAction="#checkMail" text="Same as Mailing">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="30.0" right="30.0" top="15.0" />
+                           </VBox.margin>
+                        </JFXRadioButton>
+                        <JFXTextField fx:id="Name9Field" focusColor="#425ba800" promptText="9. Name">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="20.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="Address9Field" focusColor="#425ba800" promptText="Address">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="City9Field" focusColor="#425ba800" promptText="City">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXComboBox fx:id="State9ComboBox" focusColor="#405aa809" promptText="State">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXComboBox>
+                        <JFXTextField fx:id="Zip9Field" focusColor="#405aa800" promptText="Zip">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                     </children></VBox>
+                  <VBox prefHeight="677.0" prefWidth="340.0">
+                     <children>
+                        <JFXTextField fx:id="FormulaField" focusColor="#405aa800" promptText="10. Formula">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="75.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="VintageYearField" focusColor="#405aa800" promptText="Vintage Year">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="PhField" focusColor="#405aa800" promptText="Wine pH">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="GrapeVarField" focusColor="#405aa800" promptText="11. Grape Varietal">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="WineAppField" focusColor="#405aa800" promptText="12. Wine Appellation">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="PhoneNumField" focusColor="#405aa800" promptText="13. Phone Number">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="EmailField" focusColor="#405aa800" promptText="14. Email">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="AdditionalInfoField" focusColor="#405aa800" prefHeight="27.0" prefWidth="99.0" promptText="16. Additional Info">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="TranslationField" focusColor="#405aa800" prefHeight="27.0" prefWidth="111.0" promptText="Translation of Additional Info">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXDatePicker fx:id="AppDate" defaultColor="#4285f4" promptText="17. Date of Application">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXDatePicker>
+                        <JFXTextField fx:id="AlcoholContentTextField" focusColor="#405aa800" promptText="20. Alcohol Content">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="677.0" prefWidth="340.0">
+                     <children>
+                        <JFXTextField fx:id="SignatureField" focusColor="#405aa800" promptText="18. Signature of Applicant">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="75.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXButton fx:id="UploadButton" buttonType="RAISED" onAction="#uploadLabelImage" ripplerFill="#9d9797" style="-fx-background-color: #4285f4;" text="19. Submit Label" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="110.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <ImageView fx:id="labelImageDisplay" fitHeight="360.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="65.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <JFXButton fx:id="SendApp" buttonType="RAISED" ripplerFill="#9d9797" style="-fx-background-color: #4285f4;" text="Submit Application" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="50.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </JFXButton>
+                     </children></VBox>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <JFXButton fx:id="back" buttonType="RAISED" layoutX="38.0" layoutY="38.0" onAction="#goBack" style="-fx-background-color: WHITE;" text="&lt;" />
+      <HBox alignment="CENTER" layoutX="455.0" layoutY="2.0" prefHeight="100.0">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="95.0">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TTB">
+               <font>
+                  <Font name="Roboto Light" size="48.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="7.0" right="10.0" />
+               </HBox.margin>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Alcohol and Tobacco Tax and Trade Bureau" textAlignment="CENTER" wrappingWidth="245.14476276859614">
+               <font>
+                  <Font name="Roboto Light" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

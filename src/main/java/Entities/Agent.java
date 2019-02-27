@@ -31,7 +31,29 @@ public class Agent implements IUser{
 
     @Column(name = "Agent_Name")
     private String name;
+
+    @Column(name = "emailStatus")
+    private boolean emailStatus;
+
+    @Column(name = "docPass")
+    private String documentPassword;
+
     public Agent() {
+    }
+
+    public Agent(String login, String password, String name, boolean emailStatus, String documentPassword) {
+        this.login = login;
+        this.password = password;
+        this.name = name;
+        this.emailStatus = emailStatus;
+        this.documentPassword = documentPassword;
+    }
+
+    public Agent(String login, String password, String name, boolean emailStatus) {
+        this.login = login;
+        this.password = password;
+        this.name = name;
+        this.emailStatus = emailStatus;
     }
 
     public Agent(int agentID, String login, String password, String name) {
@@ -92,6 +114,24 @@ public class Agent implements IUser{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail(){ return Integer.toString(agentID); }
+
+    public String getDocumentPassword() {
+        return documentPassword;
+    }
+
+    public void setDocumentPassword(String documentPassword) {
+        this.documentPassword = documentPassword;
+    }
+
+    public boolean isEmailStatus() {
+        return emailStatus;
+    }
+
+    public void setEmailStatus(boolean emailStatus) {
+        this.emailStatus = emailStatus;
     }
 
     /**
@@ -216,7 +256,8 @@ public class Agent implements IUser{
         long milli = System.currentTimeMillis();
         Date approved = new Date(milli);
         DB.Database db = DB.Database.getDatabase();
-        Approval app = new Approval();
+        //form.setApproval(new Approval());
+        Approval app = form.getApproval();
         app.setAgentApprovalName(this.getName());
         app.setDateApproved(approved);
         app.setExpDate(null);
@@ -234,14 +275,14 @@ public class Agent implements IUser{
 
     public void rejectForm(Form form, String qualifications) {
         DB.Database db = DB.Database.getDatabase();
-        form.setApproval(new Approval());
+        //form.setApproval(new Approval());
         Approval app = form.getApproval();
         app.setAgentApprovalName(this.getName());
+        app.setQualifications(qualifications);
         app.setPage1(ApprovalStatus.Incorrect);
         app.setPage2(ApprovalStatus.Incorrect);
         app.setPage3(ApprovalStatus.Incorrect);
         app.setPage4(ApprovalStatus.Incorrect);
-        app.setQualifications(qualifications);
         form.setApprovalStatus(ApprovalStatus.Incorrect);
         form.setApproval(app);
    //     Mailer inform = new Mailer();

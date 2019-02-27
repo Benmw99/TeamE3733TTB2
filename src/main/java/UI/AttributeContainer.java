@@ -31,6 +31,11 @@ public class AttributeContainer {
     public int numForQueue = 5;
     PageControllerUI current_page;
     LabelImage labelImage;
+    char delimeter;
+    public String generatedKey;
+    public boolean firstTimeRegister = false;
+    String email;
+    public int searchType; // 1 fuzzy, 2 DL, 3 levin
 
     /**
      * Instantiates new empty AttributeContainer
@@ -43,6 +48,8 @@ public class AttributeContainer {
         sounds = new ArrayList<AudioClip>();
         searchPage = 0;
         backlog = new Stack<String>();
+        delimeter = ',';
+        searchType = 1;
     }
 
     /**
@@ -56,6 +63,7 @@ public class AttributeContainer {
         sounds = new ArrayList<AudioClip>();
         searchPage = 0;
         backlog.empty();
+        delimeter = ',';
         System.out.println("Gotta Blast!");
     }
 }

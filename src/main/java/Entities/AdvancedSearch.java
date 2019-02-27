@@ -1,5 +1,7 @@
 package Entities;
 
+import java.util.Date;
+
 public class AdvancedSearch {
     //Gotta be a Boolean so it can be null
     public Boolean source;  //false for domestic, true for imported
@@ -12,12 +14,20 @@ public class AdvancedSearch {
     //Number of results to return
     public int numResults;
 
+    public String state;
+    //Might need to be sql dates
+    public Date startDate;
+    public Date endDate;
+
+    public String labelText;
+    public String logoText;
+
     //Wine stuff
     public int vintageYear;
     public float pH;
     public String grapeVarietal;
     public String appellation;
-
+    //used for all liquor types
     public ApprovalStatus approvalStatus;
 
     public AdvancedSearch() {
@@ -33,8 +43,13 @@ public class AdvancedSearch {
         this.grapeVarietal = null;
         this.appellation = null;
         this.approvalStatus = ApprovalStatus.Complete;
+        this.startDate = null;
+        this.endDate = null;
+        this.state = null;
+        this.logoText = null;
+        this.labelText = null;
     }
-
+//getters and setters
     public Boolean getSource() {
         return source;
     }
@@ -123,6 +138,57 @@ public class AdvancedSearch {
         this.numResults = numResults;
     }
 
+    public String getStateCountry() {
+        return state;
+    }
+
+    public void setStateCountry(String state) {
+        this.state = state;
+    }
+
+    public Date getStartDate() { return startDate; }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getLabelText() {
+        return labelText;
+    }
+
+    public void setLabelText(String labelText) {
+        this.labelText = labelText;
+    }
+
+    public String getLogoText() {
+        return logoText;
+    }
+
+    public void setLogoText(String logoText) {
+        this.logoText = logoText;
+    }
+
+    /**
+     * compare advanced search, check if they repeat or if they're equal
+     * @param aSearch
+     * @return
+     */
     boolean equals(AdvancedSearch aSearch){
         return(
             this.serialNumber.equals(aSearch.serialNumber) &&

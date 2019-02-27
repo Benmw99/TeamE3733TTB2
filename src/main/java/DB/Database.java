@@ -11,14 +11,17 @@ public class Database {
     public TableBuilder tableBuilder;
     public DBSelect dbSelect;
     public DBInsert dbInsert;
+    public MongoFunc mongoFunc;
     private static SessionFactory factory;
 
     private Database() {
         tableBuilder = TableBuilder.getTablebuilder();
         dbSelect = DBSelect.getDbselect();
         dbInsert = DBInsert.getDbinsert();
+        mongoFunc = MongoFunc.getMongoFunc();
         try {
             //factory = new Configuration().configure().buildSessionFactory();
+            //So this is like not the technically correct way to initialize annotated class factories but it works fine sooooooo I'm keeping it
             factory = new Configuration().configure().addAnnotatedClass(Address.class).buildSessionFactory();
         } catch (Throwable ex) {
             System.err.println("Failed to create sessionFactory object." + ex);

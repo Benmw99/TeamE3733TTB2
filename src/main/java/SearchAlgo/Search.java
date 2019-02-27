@@ -19,7 +19,8 @@ public class Search {
         //assuming search by brand name with max cost of 2
         List<String> out;
         if(advancedSearch.getBrandName() != null) {
-            out = fuzzyAlgo.run(in, 2, advancedSearch.getBrandName());
+            int cost = advancedSearch.getBrandName().length() / 2;
+            out = fuzzyAlgo.run(in, cost, advancedSearch.getBrandName());
             return db.dbSelect.searchByLDBrand(advancedSearch, out);
         }
 
@@ -27,4 +28,15 @@ public class Search {
 
     }
 
+    public static List<Form> SearchLD(AdvancedSearch advancedSearch){
+        return SearchDLBrand(advancedSearch, new LevenshteinDistance());
+    }
+
+    public static List<Form> SearchDL(AdvancedSearch advancedSearch){
+        return SearchDLBrand(advancedSearch, new DamerauLevenshtein());
+    }
+
+    public static List<Form> SearchWild(AdvancedSearch advancedSearch){
+        return Database.getDatabase().dbSelect.searchByWild(advancedSearch).getResults();
+    }
 }

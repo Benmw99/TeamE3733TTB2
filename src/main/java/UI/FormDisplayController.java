@@ -1,11 +1,16 @@
 package UI;
 
 import Entities.Address;
+import Entities.ApprovalStatus;
 import Entities.Form;
 import Entities.LabelImage;
+import com.jfoenix.controls.JFXTabPane;
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -41,9 +46,13 @@ public class FormDisplayController extends PageControllerUI implements Initializ
     @FXML
     Label Display7Label;
     @FXML
-    Label Display8Label;
+    Label Display8Label1;
     @FXML
-    Label Display9Label;
+    Label Display8Label2;
+    @FXML
+    Label Display9Label1;
+    @FXML
+    Label Display9Label2;
     @FXML
     Label Display10Label;
     @FXML
@@ -75,7 +84,27 @@ public class FormDisplayController extends PageControllerUI implements Initializ
     @FXML
     ImageView Display19Image1;
 
+    @FXML
+    JFXTabPane tabPane;
+//
+//    @FXML
+//    TabPane tabPane;
+
+    ComboBox<String> comboBox;
+
+    JFXButton approveButton;
+
     /**
+     @FXML
+     Label Display4Label2;
+     @FXML
+     Label Display5Label1;
+     @FXML
+     Label Display5Label2;
+     @FXML
+     Label Display5Label3;
+     @FXML
+     Label Display6Label;
      * Displays the current form as specified in the AttributeContainer Singleton
      */
     public void displayCurrentForm() {
@@ -99,16 +128,18 @@ public class FormDisplayController extends PageControllerUI implements Initializ
         this.Display5Label3.setText("N/A");
         this.Display6Label.setText("N/A");
         this.Display7Label.setText("N/A");
-        this.Display8Label.setText("N/A");
-        this.Display9Label.setText("N/A");
+        this.Display8Label1.setText("N/A");
+        this.Display8Label2.setText("N/A");
+        this.Display9Label1.setText("N/A");
+        this.Display9Label2.setText("N/A");
         this.Display10Label.setText("N/A");
         this.Display11Label.setText("N/A");
         this.Display12Label.setText("N/A");
         this.Display13Label.setText("N/A");
         this.Display14Label.setText("N/A");
-        this.Display15Label1.setText("N/A");
-        this.Display15Label2.setText("N/A");
-        this.Display15Label3.setText("N/A");
+//        this.Display15Label1.setText("N/A");
+//        this.Display15Label2.setText("N/A");
+//        this.Display15Label3.setText("N/A");
         this.Display16Label1.setText("N/A");
         this.Display16Label2.setText("N/A");
         this.Display17Label.setText("N/A");
@@ -129,7 +160,9 @@ public class FormDisplayController extends PageControllerUI implements Initializ
         this.Display1Label.setText(form.getRepID());
         System.out.println(form.getBrandName());
         System.out.println(form.getEmail());
-        if (!form.getBrewersPermit().isEmpty()) {
+        if (form.getBrewersPermit() == null || form.getBrewersPermit().isEmpty()) {
+            System.out.println("brewersPermit empty");
+        } else {
             this.Display2Label.setText(form.getBrewersPermit().get(0).getBrewersNo());
         }
         String dom;
@@ -141,6 +174,7 @@ public class FormDisplayController extends PageControllerUI implements Initializ
         this.Display3Label.setText(dom);
         if (form.getSerialNumber() != null) {
             this.DisplayReview4Label1.setText(form.getSerialNumber().substring(0, 2)); //First 2
+            // TODO This is already split into two fields
             this.Display4Label2.setText(form.getSerialNumber().substring(2)); //Rest
         }
         if (form.getAlcoholType() != null) {
@@ -165,11 +199,17 @@ public class FormDisplayController extends PageControllerUI implements Initializ
             this.Display7Label.setText(form.getFancifulName());
         }
         if (form.getMailingAddress() != null) {
-            this.Display8Label.setText(form.getMailingAddress().getName());
-            Address add = form.getMailingAddress();
-            String addy = add.getName() + "\n" + add.getStreet() + "\n" + add.getCity() +
-                    "\n" + add.getState() + "\n" + add.getZip();
-            this.Display9Label.setText(addy);
+            Address originalAddy = form.address.get(0);
+
+            this.Display8Label1.setText(originalAddy.getName());
+
+            this.Display8Label2.setText(originalAddy.getStreet() + ", " + originalAddy.getCity()
+            + ", " + originalAddy.getState() + " " + originalAddy.getZip());
+
+            this.Display9Label1.setText(form.getMailingAddress().getName());
+
+            this.Display9Label2.setText(form.getMailingAddress().getStreet() + ", " + form.getMailingAddress().getCity()
+                    + ", " + form.getMailingAddress().getState() + " " + form.getMailingAddress().getZip());
         }
         if (form.getFormula() != null) {
             this.Display10Label.setText(form.getFormula());
@@ -181,9 +221,6 @@ public class FormDisplayController extends PageControllerUI implements Initializ
         if (form.getEmail() != null) {
             this.Display14Label.setText(form.getEmail());
         }
-//        Man15Label1().setText(); //TODO TYPE OF APPLICATION
-//        Man15Label2().setText();
-//        Man15Label3().setText(); //END TODO
         if (form.getOtherInfo() != null) {
             this.Display16Label1.setText(form.getOtherInfo());
         }
@@ -223,11 +260,155 @@ public class FormDisplayController extends PageControllerUI implements Initializ
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if(AttributeContainer.getInstance().currentForm != null) {
+        if (AttributeContainer.getInstance().currentForm != null) {
             displayCurrentForm();
         } else {
             wipeForm();
         }
-    }
-}
 
+        if (attributeContainer.currentUser != null && (attributeContainer.currentUser.isManufacturer() == true || AttributeContainer.getInstance().currentUser.isRepresentative())) {
+            System.out.println("here");
+            tabPane.getStylesheets().add("ManDisplay.css");
+            System.out.println(tabPane.getStyle());
+        }
+
+    }
+
+    /**
+     * Set parent of nested form
+     */
+    public void setComboBox(ComboBox<String> comboBox) {
+        this.comboBox = comboBox;
+    }
+
+    /**
+     * Set reject button to hide
+     */
+    public void setApproveButton(JFXButton approveButton) {
+        this.approveButton = approveButton;
+    }
+
+    /**
+     * Gets current tab of display
+     */
+    public int getTab() {
+        int tab;
+        if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 1")) {
+            tab = 1;
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 2")) {
+            tab = 2;
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 3")) {
+            tab = 3;
+        } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 4")) {
+            tab = 4;
+        } else {
+            tab = -1;
+        }
+        return tab;
+    }
+
+    public void displayStatus() {
+        if(AttributeContainer.getInstance().backlog.peek().equals("AgentReviewingTools.fxml")) {
+            if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 1")) {
+                if (attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Complete)) {
+                    comboBox.setValue("Complete");
+                } else if (attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Incomplete)) {
+                    comboBox.setValue("Incomplete");
+                } else if (attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Incorrect)) {
+                    comboBox.setValue("Incorrect");
+                }
+            } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 2")) {
+                if (attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Complete)) {
+                    comboBox.setValue("Complete");
+                } else if (attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Incomplete)) {
+                    comboBox.setValue("Incomplete");
+                } else if (attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Incorrect)) {
+                    comboBox.setValue("Incorrect");
+                }
+            } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 3")) {
+                if (attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Complete)) {
+                    comboBox.setValue("Complete");
+                } else if (attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Incomplete)) {
+                    comboBox.setValue("Incomplete");
+                } else if (attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Incorrect)) {
+                    comboBox.setValue("Incorrect");
+                }
+            } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Section 4")) {
+                if (attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Complete)) {
+                    comboBox.setValue("Complete");
+                } else if (attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Incomplete)) {
+                    comboBox.setValue("Incomplete");
+                } else if (attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Incorrect)) {
+                    comboBox.setValue("Incorrect");
+                }
+            }
+        }
+    }
+
+    /**
+     * Marks page of form as complete/incomplete/incorrect
+     */
+    public void markForm() {
+        System.out.println("C-C-C-COMBO BOX " + comboBox.getValue() + "Current Tab: " + getTab());
+        if (comboBox.getValue() == null) {
+            if(getTab() == 1) {
+                attributeContainer.currentForm.getApproval().setPage1(ApprovalStatus.Incomplete);
+            } else if(getTab() == 2) {
+                attributeContainer.currentForm.getApproval().setPage2(ApprovalStatus.Incomplete);
+            } else if(getTab() == 3) {
+                attributeContainer.currentForm.getApproval().setPage3(ApprovalStatus.Incomplete);
+            } else if(getTab() == 4) {
+                attributeContainer.currentForm.getApproval().setPage4(ApprovalStatus.Incomplete);
+            }
+        } else if(comboBox.getValue().equals("Complete")){
+            if(getTab() == 1) {
+                attributeContainer.currentForm.getApproval().setPage1(ApprovalStatus.Complete);
+            } else if(getTab() == 2) {
+                attributeContainer.currentForm.getApproval().setPage2(ApprovalStatus.Complete);
+            } else if(getTab() == 3) {
+                attributeContainer.currentForm.getApproval().setPage3(ApprovalStatus.Complete);
+            } else if(getTab() == 4) {
+                attributeContainer.currentForm.getApproval().setPage4(ApprovalStatus.Complete);
+            }
+        } else if (comboBox.getValue().equals("Incomplete")) {
+            if(getTab() == 1) {
+                attributeContainer.currentForm.getApproval().setPage1(ApprovalStatus.Incomplete);
+            } else if(getTab() == 2) {
+                attributeContainer.currentForm.getApproval().setPage2(ApprovalStatus.Incomplete);
+            } else if(getTab() == 3) {
+                attributeContainer.currentForm.getApproval().setPage3(ApprovalStatus.Incomplete);
+            } else if(getTab() == 4) {
+                attributeContainer.currentForm.getApproval().setPage4(ApprovalStatus.Incomplete);
+            }
+        } else if (comboBox.getValue().equals("Incorrect")){
+            if(getTab() == 1) {
+                attributeContainer.currentForm.getApproval().setPage1(ApprovalStatus.Incorrect);
+            } else if(getTab() == 2) {
+                attributeContainer.currentForm.getApproval().setPage2(ApprovalStatus.Incorrect);
+            } else if(getTab() == 3) {
+                attributeContainer.currentForm.getApproval().setPage3(ApprovalStatus.Incorrect);
+            } else if(getTab() == 4) {
+                attributeContainer.currentForm.getApproval().setPage4(ApprovalStatus.Incorrect);
+            }
+        }
+        System.out.println("Page 1 Status:" + attributeContainer.currentForm.getApproval().getPage1() +
+                "Page 2 Status:" + attributeContainer.currentForm.getApproval().getPage2() +
+                "Page 3 Status:" + attributeContainer.currentForm.getApproval().getPage3() +
+                "Page 4 Status:" + attributeContainer.currentForm.getApproval().getPage4());
+
+        if(attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Incorrect) ||
+                attributeContainer.currentForm.getApproval().getPage1().equals(ApprovalStatus.Incomplete) ||
+                attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Incorrect) ||
+                attributeContainer.currentForm.getApproval().getPage2().equals(ApprovalStatus.Incomplete) ||
+                attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Incorrect) ||
+                attributeContainer.currentForm.getApproval().getPage3().equals(ApprovalStatus.Incomplete) ||
+                attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Incorrect) ||
+                attributeContainer.currentForm.getApproval().getPage4().equals(ApprovalStatus.Incomplete)) {
+            approveButton.setDisable(true);
+        } else {
+            approveButton.setDisable(false);
+        }
+
+    }
+
+}
