@@ -276,6 +276,6 @@
             </JFXButton>
          </children>
       </Pane>
-      <JFXButton fx:id="helpButton" onAction="#handleHelp" style="-fx-background-color: WHITE; -fx-background-radius: 20;" text="?" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="20.0" />
+      <JFXButton fx:id="helpButton" onAction="#handleHelp" style="-fx-background-color: WHITE; -fx-background-radius: 20;" text="?" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="30.0" />
    </children>
 </AnchorPane>

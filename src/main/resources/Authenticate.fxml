@@ -30,7 +30,7 @@
                         <Insets bottom="15.0" left="35.0" />
                      </VBox.margin>
                   </Label>
-                  <JFXTextField fx:id="passcode" alignment="CENTER" prefHeight="27.0" prefWidth="433.0" promptText="Authentication Key" VBox.vgrow="ALWAYS">
+                  <JFXTextField fx:id="passcode" alignment="CENTER" labelFloat="true" prefHeight="27.0" prefWidth="433.0" promptText="Authentication Key" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="15.0" left="30.0" right="30.0" />
                      </VBox.margin>

@@ -55,7 +55,7 @@
       </Pane>
       <Line endX="-100.00006103515625" endY="595.7626342773438" layoutX="783.0" layoutY="153.0" startX="-100.0" stroke="#b1bdc3" />
       <fx:include source="MenuDrawer.fxml" />
-      <Pane layoutX="681.0" layoutY="177.0" prefHeight="585.0" prefWidth="693.0" AnchorPane.rightAnchor="0.0">
+      <Pane layoutX="681.0" layoutY="177.0" prefHeight="585.0" prefWidth="682.0" AnchorPane.rightAnchor="0.0">
          <children>
             <JFXTabPane prefHeight="584.0" prefWidth="696.0" stylesheets="@TabPane.css" tabClosingPolicy="UNAVAILABLE">
                <tabs>
@@ -474,7 +474,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Pane layoutX="5.0" prefHeight="590.0" prefWidth="690.0">
+                              <Pane layoutX="5.0" prefHeight="590.0" prefWidth="690.0" style="-fx-background-color: white;">
                                  <children>
                                     <JFXTextArea fx:id="comment" layoutX="47.0" layoutY="62.0" prefHeight="377.0" prefWidth="586.0" />
                                     <Label layoutX="54.0" layoutY="38.0" text="Form Comments:">
@@ -487,7 +487,8 @@
                                           <Font name="Roboto Light" size="14.0" />
                                        </font>
                                     </Text>
-                                 </children></Pane>
+                                 </children>
+                              </Pane>
                            </children>
                         </AnchorPane>
                      </content>
@@ -496,7 +497,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Pane prefHeight="553.0" prefWidth="591.0">
+                              <Pane prefHeight="553.0" prefWidth="682.0" style="-fx-background-color: white;">
                                  <children>
                                     <Text layoutX="35.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agent Email">
                                        <font>
@@ -668,6 +669,6 @@
             </JFXButton>
          </children>
       </Pane>
-      <JFXButton fx:id="helpButton" layoutX="1309.0" layoutY="17.0" onAction="#handleHelp" style="-fx-background-color: WHITE; -fx-background-radius: 20;" text="?" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="20.0" />
+      <JFXButton fx:id="helpButton" layoutX="1293.0" layoutY="27.0" onAction="#handleHelp" style="-fx-background-color: WHITE; -fx-background-radius: 20;" text="?" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="27.0" />
    </children>
 </AnchorPane>
